@@ -1,6 +1,6 @@
 {
  "proposal_version": "ef3-robust-pace-proposal1",
- "status": "contract proposal, not accepted; every convention is DECISION-PROPOSED and every unresolved question is OPEN, pending coordinator ruling; not an implementation, readiness or acceptance claim",
+ "status": "coordinator rulings recorded, pending owner review; frozen on merge; not an implementation or acceptance claim",
  "stories": "EQ-155 #489 (robust history summaries and ranks), EQ-156 #490 (robust volume pace and anomaly normalization), EQ-241 #666 (mean-ratio volume pace companion); consumed by EF3 I/O #611, worker #612, acceptance EQ-157 #491",
  "evidence_kind": "documentation and hand-derived expected values: each headline value is written by hand in the fixture definition and asserted equal to a plain exact-Fraction reference computed by a scratch script that imports nothing from the equity packages; nothing was executed against the library",
  "frozen_contract_ref": "docs/ef1/CONTRACT.json ef1-contract1, the accepted R17 intraday foundations, docs/features/CONTEXT_FORMULAS.md and the merged EF2 contracts are read-only and unchanged; this packet is additive",
@@ -17,7 +17,7 @@
     "window N (1..4096)",
     "min_history m (1..N)",
     "quantile_num, quantile_den (present exactly when robust.quantile is selected; reduced pair, 0 <= p <= 1, den 1..2^63-1)",
-    "min_population (present exactly when a cohort output is selected; 1..2^31-1)",
+    "min_population (present exactly when a cohort output is selected; 1..65536)",
     "evidence_limit (0..10000)"
    ],
    "roles": [
@@ -3482,85 +3482,6 @@
      "value": null
     }
    }
-  },
-  {
-   "id": "H32",
-   "group": "excluded_sessions",
-   "description": "an exclusion fact on the target session itself is ignored: result equals H10a",
-   "field": "volume",
-   "scale": null,
-   "params": {
-    "window": 3,
-    "min_history": 3,
-    "evidence_limit": 10000
-   },
-   "K": 100,
-   "slots": [
-    2,
-    4,
-    6
-   ],
-   "target": 5,
-   "tags": [
-    "excluded",
-    "prior_only"
-   ],
-   "expected": {
-    "robust.median": {
-     "status": "available",
-     "reasons": [],
-     "expected": 3,
-     "observed": 3,
-     "value": {
-      "exact": "4/1",
-      "float64": 4.0,
-      "hex": "0x1.0000000000000p+2",
-      "acceptance": "exact_float64"
-     },
-     "witnesses": [
-      "session:0",
-      "session:1",
-      "session:2"
-     ]
-    },
-    "robust.mad": {
-     "status": "available",
-     "reasons": [],
-     "expected": 3,
-     "observed": 3,
-     "value": {
-      "exact": "2/1",
-      "float64": 2.0,
-      "hex": "0x1.0000000000000p+1",
-      "acceptance": "exact_float64"
-     },
-     "witnesses": [
-      "session:0",
-      "session:1",
-      "session:2"
-     ]
-    },
-    "robust.percentile_rank": {
-     "status": "available",
-     "reasons": [],
-     "expected": 4,
-     "observed": 4,
-     "value": {
-      "exact": "2/3",
-      "float64": 0.6666666666666666,
-      "hex": "0x1.5555555555555p-1",
-      "acceptance": "tolerance"
-     },
-     "witnesses": [
-      "session:3",
-      "session:0",
-      "session:1",
-      "session:2"
-     ]
-    }
-   },
-   "target_exclusion_fact": true,
-   "equals": "H10a"
   },
   {
    "id": "H33",
@@ -11685,7 +11606,7 @@
    "id": "RF25",
    "error_code": "INVALID_CONFIG",
    "raised_by": "library",
-   "description": "min_population 0 or above 2^31-1"
+   "description": "min_population 0 or above 65536"
   },
   {
    "id": "RF26",
@@ -11796,6 +11717,12 @@
    "description": "price field scale or currency differs from ConfigSpec.price_unit"
   },
   {
+   "id": "RF45",
+   "error_code": "INCONSISTENT_IDENTITY",
+   "raised_by": "library",
+   "description": "ef3.session.excluded fact on the target session (refused, coordinator ruling on OQ-13)"
+  },
+  {
    "id": "RF44",
    "error_code": "INCONSISTENT_IDENTITY",
    "raised_by": "library",
@@ -11803,11 +11730,11 @@
   }
  ],
  "fixture_counts": {
-  "history_result": 44,
+  "history_result": 43,
   "cohort_result": 23,
   "pace_result": 34,
   "mean_result": 19,
-  "refusal": 44
+  "refusal": 45
  },
  "prefix_equivalences": [
   [
@@ -11825,10 +11752,6 @@
   [
    "R01",
    "R16"
-  ],
-  [
-   "H10a",
-   "H32"
   ]
  ],
  "coverage_map": {
@@ -11916,7 +11839,6 @@
    "H11",
    "H30",
    "H31",
-   "H32",
    "P06",
    "P16a"
   ],
@@ -12078,7 +12000,6 @@
    "H01",
    "H10a",
    "H10b",
-   "H32",
    "P17a",
    "P17b",
    "R01",
@@ -12238,268 +12159,268 @@
    "topic": "MAD scale",
    "decision": "robust.mad and pace.baseline_mad are RAW MAD (scale constant 1). No normal-consistent constant is applied. The z-like pace.robust_z divides by k*MAD with k = scale_num/scale_den supplied by the caller (no default; k = 1 is the raw form; a caller wanting the normal-consistent form supplies its own rational).",
    "alternatives": "alternatives: fixed constant 1.4826 baked in; both raw and scaled published; k as float",
-   "state": "DECISION-PROPOSED"
+   "state": "coordinator-decided (accepted as proposed), pending owner review"
   },
   {
    "id": "DP-S2",
    "topic": "Median",
    "decision": "Even n returns the arithmetic mean of the two middle values, exact (half-integers are representable).",
    "alternatives": "alternatives: lower median, upper median",
-   "state": "DECISION-PROPOSED"
+   "state": "coordinator-decided (accepted as proposed), pending owner review"
   },
   {
    "id": "DP-S3",
    "topic": "Quantile estimator",
    "decision": "Hyndman-Fan type 7 (linear interpolation of order statistics) with exact rational p; policy label ef3-robust1 freezes it.",
    "alternatives": "alternatives: type 1 inverse empirical CDF / nearest rank, type 6, type 8, type 9 (each a new policy label)",
-   "state": "DECISION-PROPOSED"
+   "state": "coordinator-decided (accepted as proposed), pending owner review"
   },
   {
    "id": "DP-S4",
    "topic": "Rank and ties",
    "decision": "Percentile rank is mid-rank (L + E/2)/n: ties count half (same convention as the accepted EF2 band-width percentile). History rank excludes the target from the sample (so 0 and 1 are reachable); cohort rank includes the target member (so 0 and 1 are not reachable).",
    "alternatives": "alternatives: strict (L/n), weak ((L+E)/n), (L+1)/n competition-style percentile",
-   "state": "DECISION-PROPOSED"
+   "state": "coordinator-decided (accepted as proposed), pending owner review"
   },
   {
    "id": "DP-S5",
    "topic": "Ordinal cohort rank",
    "decision": "Competition rank, 1 is the largest, ties share the best rank (1,1,3).",
    "alternatives": "alternatives: ascending, dense, average rank",
-   "state": "DECISION-PROPOSED"
+   "state": "coordinator-decided (accepted as proposed), pending owner review"
   },
   {
    "id": "DP-S6",
    "topic": "Numeric policy",
    "decision": "Exact integer/rational arithmetic, one correctly rounded float64 at publication; per-fixture acceptance rule (exact_float64, exact_plus_zero, tolerance). Windows, samples and cumulative sums are never floats.",
    "alternatives": "alternative: Decimal120 (R17) intermediates with the R17 tolerance, which this rule is compatible with",
-   "state": "DECISION-PROPOSED"
+   "state": "coordinator-decided (accepted as proposed), pending owner review"
   },
   {
    "id": "DP-W1",
    "topic": "Window",
    "decision": "The window is the N governed sessions immediately before the target (prior-only), counted on the supplied governed grid, never compressed. The target value never enters the sample. N and min_history m are caller parameters with no default.",
    "alternatives": "alternative: N most recent eligible sessions (extend back past exclusions)",
-   "state": "DECISION-PROPOSED"
+   "state": "coordinator-decided (accepted as proposed), pending owner review"
   },
   {
    "id": "DP-W2",
    "topic": "Excluded sessions",
    "decision": "A declared exclusion fact removes the session from the sample and from the expected count; it is not an observation and not a gap. min_history bounds the retained sample size. Gap, absent, null, unknown and future slots in the window are never tolerated.",
    "alternatives": "alternatives: count exclusions as gaps (EQ031 style, blocking); extend the window backwards",
-   "state": "DECISION-PROPOSED"
+   "state": "coordinator-decided (accepted as proposed), pending owner review"
   },
   {
    "id": "DP-W3",
    "topic": "Slot reasons",
    "decision": "A governed slot with no row and no coverage is absent_input (missing_input); declared incomplete coverage is governed_gap; null field is null_field; known_at null is unknown_availability; known_at > K is future_knowledge. This follows the merged EF2 contracts and differs from EQ031/EQ032, which report an existing missing prior slot as incomplete_coverage.",
    "alternatives": "alternative: exact EQ031 mapping",
-   "state": "DECISION-PROPOSED"
+   "state": "coordinator-decided (accepted as proposed), pending owner review"
   },
   {
    "id": "DP-W4",
    "topic": "Header units",
    "decision": "robust.median, robust.mad and robust.quantile take their unit from the configured operand field (shares for volume, currency/share for price fields); the ledger records both.",
    "alternatives": "alternative: separate header ids per operand family",
-   "state": "DECISION-PROPOSED"
+   "state": "coordinator-decided (accepted as proposed), pending owner review"
   },
   {
    "id": "DP-C1",
    "topic": "Cohort availability",
    "decision": "Cohort rank is withheld (null, incomplete_coverage, partial_universe) unless every declared member is eligible; the target member's own readiness reports its ordinary missing_input reason; declared size below min_population is insufficient_history (EF2 precedent).",
    "alternatives": "alternative: publish a partial rank with partial counts (breadth precedent)",
-   "state": "DECISION-PROPOSED"
+   "state": "coordinator-decided (accepted as proposed), pending owner review"
   },
   {
    "id": "DP-C2",
    "topic": "Cohort membership",
    "decision": "The target instrument must be a declared member; all values share the target session, unit and basis; the declared population is the I/O layer's supplied fact.",
    "alternatives": "alternative: target outside the population",
-   "state": "DECISION-PROPOSED"
+   "state": "coordinator-decided (accepted as proposed), pending owner review"
   },
   {
    "id": "DP-P1",
    "topic": "Profiles",
    "decision": "pace profile is cumulative (sum of buckets 0..b from the session open) or bucket (bucket b alone); config choice, no default.",
    "alternatives": "alternative: cumulative only",
-   "state": "DECISION-PROPOSED"
+   "state": "coordinator-decided (accepted as proposed), pending owner review"
   },
   {
    "id": "DP-P2",
    "topic": "Evaluation bucket",
    "decision": "b = the last bucket whose end is <= min(market cutoff, actual target close) relative to the actual open; none elapsed is future_market, none fitting the session is ineligible.",
    "alternatives": "alternative: caller-declared bucket index in config",
-   "state": "DECISION-PROPOSED"
+   "state": "coordinator-decided (accepted as proposed), pending owner review"
   },
   {
    "id": "DP-P3",
    "topic": "Early-close and irregular prior sessions",
    "decision": "A prior session whose actual close precedes the end of bucket b is structurally ineligible: removed from the sample and from expected (not volume 0, not a gap). A row delivered for an ineligible bucket, or a row not matching a grid offset, is a refusal.",
    "alternatives": "alternative: EQ032 behaviour (blocking, incomplete_coverage)",
-   "state": "DECISION-PROPOSED"
+   "state": "coordinator-decided (accepted as proposed), pending owner review"
   },
   {
    "id": "DP-P4",
    "topic": "Combining current observations",
    "decision": "Compatible current observations are the target session's bucket rows 0..b (same instrument, session, exact grid bounds, unit, basis); a consolidated per-bucket volume is supplied, multi-venue merging is not done here.",
    "alternatives": "alternative: sum several venue rows",
-   "state": "DECISION-PROPOSED"
+   "state": "coordinator-decided (accepted as proposed), pending owner review"
   },
   {
    "id": "DP-P5",
    "topic": "Pace arithmetic",
    "decision": "ratio = y/M; z = (y - M)/(k*D); both are plain arithmetic relations with caller parameters; zero M or zero D is not_applicable/zero_denominator even when y equals M.",
    "alternatives": "none",
-   "state": "DECISION-PROPOSED"
+   "state": "coordinator-decided (accepted as proposed), pending owner review"
   },
   {
    "id": "DP-P6",
    "topic": "Grid carrier",
    "decision": "The bucket grid travels as the grid REFERENCE role; config carries grid_version only.",
    "alternatives": "alternative: offsets in config chunks (R17 context style)",
-   "state": "DECISION-PROPOSED"
+   "state": "coordinator-decided (accepted as proposed), pending owner review"
   },
   {
    "id": "DP-M1",
    "topic": "Separate companion",
    "decision": "ef3.volume_ratio_mean is its own producer, identity, label and fixture set; the median/MAD outputs are never replaced by it.",
    "alternatives": "alternative: a mean profile inside ef3.volume_pace_robust (rejected by the wave decision)",
-   "state": "DECISION-PROPOSED"
+   "state": "coordinator-decided (accepted as proposed), pending owner review"
   },
   {
    "id": "DP-M2",
    "topic": "Inclusion",
    "decision": "numerator_inclusion and baseline_inclusion are independent caller parameters (prior_only or current_inclusive); windows may overlap and S may exceed L. Current-inclusive windows consume the target row; prior-only windows do not and stay available without it.",
    "alternatives": "alternative: one shared inclusion flag",
-   "state": "DECISION-PROPOSED"
+   "state": "coordinator-decided (accepted as proposed), pending owner review"
   },
   {
    "id": "DP-M3",
    "topic": "Mean completeness",
    "decision": "Complete governed windows only: no exclusions, no gaps, no shrunken denominators; zero baseline is not_applicable/zero_denominator, and no negative baseline exists because volume >= 0.",
    "alternatives": "alternative: reuse the robust exclusion admission",
-   "state": "DECISION-PROPOSED"
+   "state": "coordinator-decided (accepted as proposed), pending owner review"
   },
   {
    "id": "DP-M4",
    "topic": "Common operand",
    "decision": "One common ratio operand for all consumers; consumers differ by config (S, L, inclusions), not by per-key code.",
    "alternatives": "alternative: per-consumer outputs",
-   "state": "DECISION-PROPOSED"
+   "state": "coordinator-decided (accepted as proposed), pending owner review"
   },
   {
    "id": "DP-Q1",
    "topic": "Reason precedence",
    "decision": "absent_input, unknown_availability, future_knowledge, null_field, ineligible, governed_gap, future_market, partial_universe, insufficient_history, no_eligible_observations, empty_universe, zero_denominator (the money-flow precedence extended by two incomplete-coverage reasons).",
    "alternatives": "none",
-   "state": "DECISION-PROPOSED"
+   "state": "coordinator-decided (accepted as proposed), pending owner review"
   },
   {
    "id": "DP-E1",
    "topic": "Evidence",
    "decision": "Witness order and row ids as in the quality section.",
    "alternatives": "none",
-   "state": "DECISION-PROPOSED"
+   "state": "coordinator-decided (accepted as proposed), pending owner review"
   },
   {
    "id": "DP-R1",
    "topic": "Rational parameters",
    "decision": "quantile and scale are reduced int64 pairs; floats, bools and decimal text are INVALID_CONFIG.",
    "alternatives": "none",
-   "state": "DECISION-PROPOSED"
+   "state": "coordinator-decided (accepted as proposed), pending owner review"
   },
   {
    "id": "DP-X1",
    "topic": "Capabilities",
    "decision": "Batch and full replay only; update, restore and merge are UNSUPPORTED_CAPABILITY.",
    "alternatives": "none",
-   "state": "DECISION-PROPOSED"
+   "state": "coordinator-decided (accepted as proposed), pending owner review"
   }
  ],
  "open_questions": [
   {
    "id": "OQ-1",
    "topic": "Monetary volume proxy",
-   "text": "The #490 mean-companion text names a monetary-volume-proxy ratio. v1 is shares only. A proxy (for example close times volume, exact integer product, unit currency) needs a defined operand, unit and adjustment rule. Needs a ruling before the 13 consumers can bind.",
-   "state": "OPEN"
+   "text": "RULING: v1 is shares only; a monetary proxy is deferred to an amendment.",
+   "state": "coordinator-decided, pending owner review"
   },
   {
    "id": "OQ-2",
    "topic": "#489 operand edge for the mean companion",
-   "text": "Is the explicit #489 edge only the shared window and availability admission (this proposal), or must #489 also publish a non-robust prior-only mean and count as a numeric operand?",
-   "state": "OPEN"
+   "text": "RULING: #666 needs no numeric mean edge from #489; it computes its own mean from the same admitted sessions (shared admission only) and stays independent.",
+   "state": "coordinator-decided, pending owner review"
   },
   {
    "id": "OQ-3",
    "topic": "Closed baseline reuse",
-   "text": "baseline.daily_volume (EQ031) is a prior-only mean over N sessions equal to mean.baseline with prior_only and L = N. No reuse is accepted (dispositions file). Is reuse proved under the wave 2 proof standard, or does mean.baseline stay a distinct variant?",
-   "state": "OPEN"
+   "text": "RULING: baseline.daily_volume is NOT reused; mean.baseline is its own computation (reuse unproved).",
+   "state": "coordinator-decided, pending owner review"
   },
   {
    "id": "OQ-4",
    "topic": "Cohort values on a derived basis",
-   "text": "Cohort ranks here use exact integers. Ranking derived float64 values (ratios, returns) needs an exact basis (rational pairs) and is out of v1. Is a rational-valued variant wanted?",
-   "state": "OPEN"
+   "text": "COORDINATOR-DECIDED (conservative): exact integers only; no rational-valued variant in v1.",
+   "state": "coordinator-decided, pending owner review"
   },
   {
    "id": "OQ-5",
    "topic": "Named normal-consistent profile",
-   "text": "Should a named profile apply the normal-consistent MAD constant, or is the caller-supplied k enough?",
-   "state": "OPEN"
+   "text": "COORDINATOR-DECIDED (conservative): none; the caller-supplied k is the only scale.",
+   "state": "coordinator-decided, pending owner review"
   },
   {
    "id": "OQ-6",
    "topic": "Exclusion reason vocabulary",
-   "text": "ef3.session.excluded text is an opaque caller label. Must the reasons be a closed vocabulary (holiday-adjacent, half day, event day)?",
-   "state": "OPEN"
+   "text": "COORDINATOR-DECIDED (conservative): opaque non-empty caller label; no vocabulary invented; it never changes arithmetic.",
+   "state": "coordinator-decided, pending owner review"
   },
   {
    "id": "OQ-7",
-   "topic": "Population schema alignment with #598",
-   "text": "The declared population fact here (ef3.population.member) and the #598 declared-universe and observed-population companion facts should be one schema. Which story owns it?",
-   "state": "OPEN"
+   "topic": "Population schema",
+   "text": "RULING: ef3.population.member is the shared declared-population kind for EF3 (contract F reuses it); duplicates are rejected (DUPLICATE) and the kind definition is self-contained.",
+   "state": "coordinator-decided, pending owner review"
   },
   {
    "id": "OQ-8",
    "topic": "Elapsed-coverage output",
-   "text": "Should pace expose the evaluation bucket and elapsed fraction as a header (int64 bucket index, fraction of the session), or only through quality counts and evidence?",
-   "state": "OPEN"
+   "text": "RULING: no header; the evaluation bucket is evidence only.",
+   "state": "coordinator-decided, pending owner review"
   },
   {
    "id": "OQ-9",
    "topic": "Cumulative mean pace",
-   "text": "The mean companion is daily-series only. Do the 13 mean-ratio consumers need a bucket or cumulative mean pace (same operand as the robust pace)?",
-   "state": "OPEN"
+   "text": "COORDINATOR-DECIDED (conservative): daily series only in v1.",
+   "state": "coordinator-decided, pending owner review"
   },
   {
    "id": "OQ-10",
-   "topic": "Package and catalog hosting",
-   "text": "Host in packages/features as an ef3 module (EF2 retracement precedent) with its own discovery, or a new package? Catalog digest and header-ledger amendment follow.",
-   "state": "OPEN"
+   "topic": "Package hosting",
+   "text": "RULING: all three producers live in packages/features (EF3 module, config namespace ef3.*), separate catalog; describe_intraday() and its digest unchanged; no package version bump.",
+   "state": "coordinator-decided, pending owner review"
   },
   {
    "id": "OQ-11",
-   "topic": "F0707-F0712 supplied or computed (D-MED)",
-   "text": "This proposal makes the six median fields computed outputs of #489/#490. Confirm.",
-   "state": "OPEN"
+   "topic": "Median fields",
+   "text": "RULING: F0707-F0712 style median fields are computed outputs of #490 from the #489 baseline producer; the #490 to #489 edge is added.",
+   "state": "coordinator-decided, pending owner review"
   },
   {
    "id": "OQ-12",
-   "topic": "Adaptive #626 operands",
-   "text": "This contract does not feed #626. Does #626 consume robust.median or pace.* anywhere (the possible #492 forward edge)?",
-   "state": "OPEN"
+   "topic": "Adaptive #626",
+   "text": "RULING: #626 consumes none of these in v1; later consumption by amendment.",
+   "state": "coordinator-decided, pending owner review"
   },
   {
    "id": "OQ-13",
    "topic": "Target exclusion fact",
-   "text": "An exclusion fact on the target session is ignored (H32). Should it instead refuse?",
-   "state": "OPEN"
+   "text": "COORDINATOR-DECIDED (conservative): an exclusion fact on the target session is refused (INCONSISTENT_IDENTITY, RF45); former fixture H32 removed.",
+   "state": "coordinator-decided, pending owner review"
   },
   {
    "id": "OQ-14",
    "topic": "min_population bound",
-   "text": "1..2^31-1 is proposed; a smaller cap may be wanted for worker memory.",
-   "state": "OPEN"
+   "text": "COORDINATOR-DECIDED (conservative): 1..65536.",
+   "state": "coordinator-decided, pending owner review"
   }
  ],
  "layer_responsibilities": {
@@ -12522,5 +12443,9 @@
   "no performance, parity, release or publication claim",
   "no private-source equivalence or source formula"
  ],
+ "coordinator_freeze": "Frozen as ef3-robust1, ef3-pace1 and ef3-mean1 (v1) for implementation once this PR merges (coordinator statement; no review or acceptance claim by the author). Any change to a convention, label semantics, header, role or fixture after merge requires a new policy label and an amendment document. Reset epoch mode only (pace resets at each session open; no carry). No defaults for windows, k, p, m.",
+ "hosting": "packages/features EF3 module, config namespace ef3.*, separate catalog; describe_intraday() and its digest unchanged; no package version bump",
+ "population_kind_rule": "ef3.population.member is the shared declared-population kind for EF3 (reused by contract F). Self-contained definition: one row per declared member; instrument_id = member, session_id = target session, reference_id x1:B(population_id) identical across members, effective bounds = target session bounds, text = snapshot id, price/factor null, known_at nullable. Duplicate identity (instrument, session, reference_id) is rejected with DUPLICATE (RF12); the target instrument must be a member.",
+ "header_ledger_to_be_applied": "the 13 headers above are to be applied by a sibling amendment document after the freeze; unit members (cohort.rank) is already present in the declared-breadth catalog but is new to this ledger",
  "amendment_note": "Additive producer-set and header-ledger entries needed in the shared contract are recorded here as to-be-applied: three producers, thirteen headers (units shares, fraction, currency/share and members already exist), role schemas and four new reference fact kinds. A sibling amendment document follows the freeze. No change to shared validators is required or proposed."
 }
