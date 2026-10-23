@@ -45,10 +45,10 @@ See the [session breadth](../api/EF3_SESSION_BREADTH.md), [observed breadth](../
 
 ## Review notes (contract nits, for the EF3 shared amendment)
 
-1. Result-wide evidence limit: the fixtures list witnesses per output; limited fixtures were reproduced one output at a time.
-2. Evidence boundary `ordinary` for REFERENCE inputs and the evidence row ids `member:<id>` and `seq:<n>` are implementation-chosen and need a ruling with the I/O layer.
-3. The widths of the `stint6` and `seq19` components, the observed fact-role reference grammar and the absence of per-slot coverage entries need to be pinned by the amendment and #611.
-4. Incomplete coverage combined with a missing row (`absent_input` and `governed_gap`) and a null rate combined with warm-up are not fixed by a fixture.
-5. The roster-level knowledge scope (before the group filter) and the snapshot-id comparison scope (fact roles only; no `source_id`) need an explicit ruling.
-6. RB28's non-positive `factor_den` clause is unreachable behind RB10 (shared validator order).
-7. Builders default `evidence_limit=0` although the contract says no defaults (as EF3-D and EF3-E).
+1. The implementation-chosen ids `member:<id>`, `seq:<n>`, the 6 and 19 digit `stint6`/`seq19` components and the observed fact-role grammar `ob1:B(record_set_id)` need pinning in the amendment and in EF3 I/O #611.
+2. The evidence cap is result-wide, the witness boundary is `ordinary` and builders default `evidence_limit=0` (as EF3-D and EF3-E); limited fixtures were reproduced one output at a time.
+3. RB28's non-positive `factor_den` clause is unreachable behind RB10 (the shared validator refuses first with `UNSUPPORTED_ADJUSTMENT`).
+4. The extra refusals (fact `session_id`, adaptive instrument versus result entity, population `text` versus snapshot, rational factors on kinds that carry none, price or factors on state, roster and population kinds) are implementation additions, not contract text.
+5. RULING NEEDED: in `_observed.py` (roster loop, about line 175) a roster row of another group, before the cutoff, with null or future `known_at` blocks a group-scoped result; the contract is ambiguous and no fixture covers it. Also: roles that no selected output needs are never validated, and the declared snapshot-id check includes the population batch (`source_id` is not compared).
+6. Incomplete coverage with a missing row (`absent_input` and `governed_gap`) and a null rate with warm-up are not fixed by a fixture.
+7. The roughly 13 s adversarial adaptive case, the other timings and the mypy strict result were author-observed only; the reviewer did not reproduce them (mypy was not installed there).
