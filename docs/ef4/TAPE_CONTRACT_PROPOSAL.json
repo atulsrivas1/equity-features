@@ -239,7 +239,7 @@
    "unavailable": "none"
   }
  },
- "mode_rule": "known_at and reconstruction availability give identical results with original known_at; batch and full replay only for both producers; merge supported only for the notional top-K under the conditions of DP-K6; update and restore unsupported",
+ "mode_rule": "known_at mode raises unknown_availability and future_knowledge; reconstruction mode (separate config identity) raises neither (AvailabilitySpec.knowledge_reason returns None); batch and full replay only for both producers; merge supported only for the notional top-K under the conditions of DP-K6; update and restore unsupported",
  "acceptance_rules": {
   "exact_float64": "reference is a dyadic rational with numerator < 2^53: every exact-rational or Decimal120 path produces it without rounding, so the published float64 must equal the hex bit for bit",
   "exact_plus_zero": "reference exactly 0 from exact integer arithmetic: bit-exact +0.0, never -0.0",
@@ -247,7 +247,7 @@
   "exact_integer": "int64 and decimal128 outputs and top-K rows (price, size, notional) are exact",
   "documented_exceptions": "none"
  },
- "fixture_notation": "compact, NOT canonical wire. open = 0, cutoff C = 100 (W16: 60), knowledge cutoff K = 1000, default known_at 500, price_scale 2, close = C. A trade is {id, ns, ok, p, q} = event_id, event_ns, order_key, price coefficient, size, optional elig=false (eligible=False), ka (known_at_ns; null = unknown; absent = 500), cond (condition), inst/sess = $OTHER_ENTITY/$OTHER_SESSION (a row of another entity or session). Rows are listed in the canonical order (event_ns, order_key) because nothing is sorted. columns lists the delivered payload columns (default price, size, known_at_ns); a column not listed is not delivered. coverage {expected, complete} defaults to the delivered row count and complete. trades null = no batch delivered; [] = a covered batch with zero rows. Window params: window_ns, seed_policy, evidence_limit; seed {price, sign, ka} is the ef4.tick.seed fact (start = -1, end = open by default; refusal recipes may override start_ns, end_ns, inst, sess, fact_kind, count, scale, adjustment); a seed key is present exactly when seed_policy is supplied and null means the role slot is absent. selection lists the outputs requested when it is not every listed output. Expected outputs list status, reasons, expected, observed and, when available, value {exact, float64, hex, acceptance} and witnesses; integers use exact 'n/1' with acceptance exact_integer. The seed witness is written seed:$SEED_REF. Top-K params: top_k, evidence_limit; expected rows are {event_id, price, size, notional} with the notional typed by hand and asserted equal to price * size. Merge fixtures list partitions with their own trades and expected partials, K_param, and expected_merged. Refusals are {base, scenario, mutate[], construction}: a base fixture id plus ordered edits (set, del, append, swap, setitem on dotted paths), so each recipe is executable. Placeholders $ENTITY, $SESSION, $SEED_REF, $OTHER_ENTITY, $OTHER_SESSION are bound by the expander; no fixture carries an instrument, entity, symbol, grid or population identifier. generator: tape of n prints from x = lcg.seed, repeated x = (a*x + c) mod m; per print k: dt = (x>>40)%4 (k = 0: ns = dt, order_key 0; dt = 0: order_key + 1; else ns += dt, order_key 0); price = max(1, price + (x>>20)%5 - 2) from price_base; size = 1 + (x>>8)%1000; eligible = (x>>33)%11 != 0; event_id = g<k>; open 0, C = last event_ns + 1, known_at 0; window fixtures publish the nine totals per window (imbalance as exact rational), top-K fixtures publish the ids for each K and require every index-mod-P partitioning to merge to them. Fixture ids W06, W15 and TK16 (event_id as a last tie key inside one batch is unreachable) were never issued and are not reused, so numbering is not contiguous.",
+ "fixture_notation": "compact, NOT canonical wire. open = 0, cutoff C = 100 (W16: 60), knowledge cutoff K = 1000, default known_at 500, price_scale 2, close = C. A trade is {id, ns, ok, p, q} = event_id, event_ns, order_key, price coefficient, size, optional elig=false (eligible=False), ka (known_at_ns; null = unknown; absent = 500), cond (condition), inst/sess = $OTHER_ENTITY/$OTHER_SESSION (a row of another entity or session). Rows are listed in the canonical order (event_ns, order_key) because nothing is sorted. columns lists the delivered payload columns (default price, size, known_at_ns); a column not listed is not delivered. coverage {expected, complete} defaults to the delivered row count and complete. trades null = no batch delivered; [] = a covered batch with zero rows. Window params: window_ns, seed_policy, evidence_limit; seed {price, sign, ka} is the ef4.tick.seed fact (start = -1, end = open by default; refusal recipes may override start_ns, end_ns, inst, sess, fact_kind, count, scale, adjustment); a seed key is present exactly when seed_policy is supplied and null means the role slot is absent. selection lists the outputs requested when it is not every listed output. Expected outputs list status, reasons, expected, observed and, when available, value {exact, float64, hex, acceptance} and witnesses; integers use exact 'n/1' with acceptance exact_integer. The seed witness is written seed:$SEED_REF. Top-K params: top_k, evidence_limit; expected rows are {event_id, price, size, notional} with the notional typed by hand and asserted equal to price * size. Merge fixtures list partitions with their own trades and expected partials, K_param, and expected_merged. Refusals are {base, scenario, mutate[], construction}: a base fixture id plus ordered edits (set, del, append, swap, setitem on dotted paths), so each recipe is executable. Placeholders $ENTITY, $SESSION, $SEED_REF, $OTHER_ENTITY, $OTHER_SESSION are bound by the expander; no fixture carries an instrument, entity, symbol, grid or population identifier. generator: tape of n prints from x = lcg.seed, repeated x = (a*x + c) mod m; per print k: dt = (x>>40)%4 (k = 0: ns = dt, order_key 0; dt = 0: order_key + 1; else ns += dt, order_key 0); price = max(1, price + (x>>20)%5 - 2) from price_base; size = 1 + (x>>8)%1000; eligible = (x>>33)%11 != 0; event_id = g<k>; open 0, C = last event_ns + 1, known_at 0; window fixtures publish the nine totals per window (imbalance as exact rational), top-K fixtures publish the ids for each K and require every index-mod-P partitioning to merge to them. epoch (fixture key) shifts open, C, K, every ns, numeric known_at and the seed times by that many ns so epoch-scale values above 2^53 are exercised; mode (fixture key) is known_at (default) or reconstruction; coverage {expected, complete} is bound with observed = delivered rows, and recipes may set coverage_observed together with a coverage dict to build a valid Coverage whose observed differs from the rows; adjustment values are raw (AdjustmentSpec default) or split (policy split-v1, action_snapshot actions-1, anchor anchor-1). Fixture ids W06, W15 and TK16 (event_id as a last tie key inside one batch is unreachable) were never issued and are not reused, so numbering is not contiguous.",
  "window_fixtures": [
   {
    "id": "W01",
@@ -7274,6 +7274,1290 @@
    }
   },
   {
+   "id": "W10j",
+   "group": "independent_readiness",
+   "description": "price column not delivered and no eligible row: the window closure is static, so notional and the sign-based outputs are still absent_input (unlike the top-K, TK12b, which needs a column only when an eligible row exists)",
+   "params": {
+    "policy_version": "ef4-tape1",
+    "window_ns": 100,
+    "seed_policy": "none",
+    "evidence_limit": 10000
+   },
+   "open": 0,
+   "C": 100,
+   "K": 1000,
+   "price_scale": 2,
+   "columns": [
+    "size",
+    "known_at_ns"
+   ],
+   "trades": [
+    {
+     "id": "t1",
+     "ns": 10,
+     "ok": 0,
+     "p": 100,
+     "q": 1,
+     "elig": false
+    },
+    {
+     "id": "t2",
+     "ns": 40,
+     "ok": 0,
+     "p": 101,
+     "q": 2,
+     "elig": false
+    }
+   ],
+   "tags": [
+    "independent_readiness",
+    "absent_column",
+    "ineligible"
+   ],
+   "expected": {
+    "tape.window.count": {
+     "status": "available",
+     "reasons": [],
+     "expected": 2,
+     "observed": 2,
+     "value": {
+      "exact": "0/1",
+      "acceptance": "exact_integer"
+     },
+     "witnesses": []
+    },
+    "tape.window.volume": {
+     "status": "available",
+     "reasons": [],
+     "expected": 2,
+     "observed": 2,
+     "value": {
+      "exact": "0/1",
+      "acceptance": "exact_integer"
+     },
+     "witnesses": []
+    },
+    "tape.window.notional": {
+     "status": "missing_input",
+     "reasons": [
+      "absent_input"
+     ],
+     "expected": 2,
+     "observed": 0
+    },
+    "tape.tick.up_volume": {
+     "status": "missing_input",
+     "reasons": [
+      "absent_input"
+     ],
+     "expected": 2,
+     "observed": 0
+    },
+    "tape.tick.down_volume": {
+     "status": "missing_input",
+     "reasons": [
+      "absent_input"
+     ],
+     "expected": 2,
+     "observed": 0
+    },
+    "tape.tick.neutral_volume": {
+     "status": "missing_input",
+     "reasons": [
+      "absent_input"
+     ],
+     "expected": 2,
+     "observed": 0
+    },
+    "tape.tick.net_volume": {
+     "status": "missing_input",
+     "reasons": [
+      "absent_input"
+     ],
+     "expected": 2,
+     "observed": 0
+    },
+    "tape.tick.net_notional": {
+     "status": "missing_input",
+     "reasons": [
+      "absent_input"
+     ],
+     "expected": 2,
+     "observed": 0
+    },
+    "tape.tick.imbalance": {
+     "status": "missing_input",
+     "reasons": [
+      "absent_input"
+     ],
+     "expected": 2,
+     "observed": 0
+    }
+   }
+  },
+  {
+   "id": "W17",
+   "group": "reconstruction",
+   "description": "reconstruction mode (separate config identity): knowledge reasons are not raised (AvailabilitySpec.knowledge_reason returns None), so the unknown and future rows of this tape are operands and every output equals W05",
+   "params": {
+    "policy_version": "ef4-tape1",
+    "window_ns": 30,
+    "seed_policy": "none",
+    "evidence_limit": 10000
+   },
+   "open": 0,
+   "C": 100,
+   "K": 1000,
+   "price_scale": 2,
+   "trades": [
+    {
+     "id": "t1",
+     "ns": 10,
+     "ok": 0,
+     "p": 100,
+     "q": 1,
+     "ka": null
+    },
+    {
+     "id": "t2",
+     "ns": 40,
+     "ok": 0,
+     "p": 101,
+     "q": 2
+    },
+    {
+     "id": "t3",
+     "ns": 69,
+     "ok": 0,
+     "p": 102,
+     "q": 4
+    },
+    {
+     "id": "t4",
+     "ns": 70,
+     "ok": 0,
+     "p": 102,
+     "q": 8
+    },
+    {
+     "id": "t5",
+     "ns": 80,
+     "ok": 0,
+     "p": 101,
+     "q": 16,
+     "ka": 1500
+    },
+    {
+     "id": "t6",
+     "ns": 99,
+     "ok": 0,
+     "p": 101,
+     "q": 32
+    }
+   ],
+   "tags": [
+    "reconstruction",
+    "mode"
+   ],
+   "mode": "reconstruction",
+   "expected": {
+    "tape.window.count": {
+     "status": "available",
+     "reasons": [],
+     "expected": 6,
+     "observed": 6,
+     "value": {
+      "exact": "3/1",
+      "acceptance": "exact_integer"
+     },
+     "witnesses": [
+      "trade:t4",
+      "trade:t5",
+      "trade:t6"
+     ]
+    },
+    "tape.window.volume": {
+     "status": "available",
+     "reasons": [],
+     "expected": 6,
+     "observed": 6,
+     "value": {
+      "exact": "56/1",
+      "acceptance": "exact_integer"
+     },
+     "witnesses": [
+      "trade:t4",
+      "trade:t5",
+      "trade:t6"
+     ]
+    },
+    "tape.window.notional": {
+     "status": "available",
+     "reasons": [],
+     "expected": 6,
+     "observed": 6,
+     "value": {
+      "exact": "5664/1",
+      "acceptance": "exact_integer"
+     },
+     "witnesses": [
+      "trade:t4",
+      "trade:t5",
+      "trade:t6"
+     ]
+    },
+    "tape.tick.up_volume": {
+     "status": "available",
+     "reasons": [],
+     "expected": 6,
+     "observed": 6,
+     "value": {
+      "exact": "8/1",
+      "acceptance": "exact_integer"
+     },
+     "witnesses": [
+      "trade:t4",
+      "trade:t5",
+      "trade:t6"
+     ]
+    },
+    "tape.tick.down_volume": {
+     "status": "available",
+     "reasons": [],
+     "expected": 6,
+     "observed": 6,
+     "value": {
+      "exact": "48/1",
+      "acceptance": "exact_integer"
+     },
+     "witnesses": [
+      "trade:t4",
+      "trade:t5",
+      "trade:t6"
+     ]
+    },
+    "tape.tick.neutral_volume": {
+     "status": "available",
+     "reasons": [],
+     "expected": 6,
+     "observed": 6,
+     "value": {
+      "exact": "0/1",
+      "acceptance": "exact_integer"
+     },
+     "witnesses": [
+      "trade:t4",
+      "trade:t5",
+      "trade:t6"
+     ]
+    },
+    "tape.tick.net_volume": {
+     "status": "available",
+     "reasons": [],
+     "expected": 6,
+     "observed": 6,
+     "value": {
+      "exact": "-40/1",
+      "acceptance": "exact_integer"
+     },
+     "witnesses": [
+      "trade:t4",
+      "trade:t5",
+      "trade:t6"
+     ]
+    },
+    "tape.tick.net_notional": {
+     "status": "available",
+     "reasons": [],
+     "expected": 6,
+     "observed": 6,
+     "value": {
+      "exact": "-4032/1",
+      "acceptance": "exact_integer"
+     },
+     "witnesses": [
+      "trade:t4",
+      "trade:t5",
+      "trade:t6"
+     ]
+    },
+    "tape.tick.imbalance": {
+     "status": "available",
+     "reasons": [],
+     "expected": 6,
+     "observed": 6,
+     "value": {
+      "exact": "-5/7",
+      "float64": -0.7142857142857143,
+      "hex": "-0x1.6db6db6db6db7p-1",
+      "acceptance": "tolerance"
+     },
+     "witnesses": [
+      "trade:t4",
+      "trade:t5",
+      "trade:t6"
+     ]
+    }
+   }
+  },
+  {
+   "id": "W20",
+   "group": "precision",
+   "description": "near-cancelling signed volume against a huge non-dyadic denominator: up a, down b with a-b=3, total volume 2^63-2; imbalance 3/(2^63-2) is far below 1e-18 and needs the exact rational",
+   "params": {
+    "policy_version": "ef4-tape1",
+    "window_ns": 100,
+    "seed_policy": "none",
+    "evidence_limit": 10000
+   },
+   "open": 0,
+   "C": 100,
+   "K": 1000,
+   "price_scale": 2,
+   "trades": [
+    {
+     "id": "t1",
+     "ns": 10,
+     "ok": 0,
+     "p": 100,
+     "q": 3
+    },
+    {
+     "id": "t2",
+     "ns": 20,
+     "ok": 0,
+     "p": 101,
+     "q": 4611686018427387903
+    },
+    {
+     "id": "t3",
+     "ns": 30,
+     "ok": 0,
+     "p": 100,
+     "q": 4611686018427387900
+    }
+   ],
+   "tags": [
+    "precision",
+    "int64_limits",
+    "near_cancellation"
+   ],
+   "expected": {
+    "tape.window.count": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "value": {
+      "exact": "3/1",
+      "acceptance": "exact_integer"
+     },
+     "witnesses": [
+      "trade:t1",
+      "trade:t2",
+      "trade:t3"
+     ]
+    },
+    "tape.window.volume": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "value": {
+      "exact": "9223372036854775806/1",
+      "acceptance": "exact_integer"
+     },
+     "witnesses": [
+      "trade:t1",
+      "trade:t2",
+      "trade:t3"
+     ]
+    },
+    "tape.window.notional": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "value": {
+      "exact": "926948889703904968503/1",
+      "acceptance": "exact_integer"
+     },
+     "witnesses": [
+      "trade:t1",
+      "trade:t2",
+      "trade:t3"
+     ]
+    },
+    "tape.tick.up_volume": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "value": {
+      "exact": "4611686018427387903/1",
+      "acceptance": "exact_integer"
+     },
+     "witnesses": [
+      "trade:t1",
+      "trade:t2",
+      "trade:t3"
+     ]
+    },
+    "tape.tick.down_volume": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "value": {
+      "exact": "4611686018427387900/1",
+      "acceptance": "exact_integer"
+     },
+     "witnesses": [
+      "trade:t1",
+      "trade:t2",
+      "trade:t3"
+     ]
+    },
+    "tape.tick.neutral_volume": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "value": {
+      "exact": "3/1",
+      "acceptance": "exact_integer"
+     },
+     "witnesses": [
+      "trade:t1",
+      "trade:t2",
+      "trade:t3"
+     ]
+    },
+    "tape.tick.net_volume": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "value": {
+      "exact": "3/1",
+      "acceptance": "exact_integer"
+     },
+     "witnesses": [
+      "trade:t1",
+      "trade:t2",
+      "trade:t3"
+     ]
+    },
+    "tape.tick.net_notional": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "value": {
+      "exact": "4611686018427388203/1",
+      "acceptance": "exact_integer"
+     },
+     "witnesses": [
+      "trade:t1",
+      "trade:t2",
+      "trade:t3"
+     ]
+    },
+    "tape.tick.imbalance": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "value": {
+      "exact": "1/3074457345618258602",
+      "float64": 3.2526065174565133e-19,
+      "hex": "0x1.8000000000000p-62",
+      "acceptance": "tolerance"
+     },
+     "witnesses": [
+      "trade:t1",
+      "trade:t2",
+      "trade:t3"
+     ]
+    }
+   }
+  },
+  {
+   "id": "W18",
+   "group": "epoch_scale",
+   "description": "epoch-scale nanoseconds (about 1.79e18, above 2^53) and a one-hour window in a 6.5 hour session: ns are compared as integers, t2 at C-W-1 is expired, t3 at exactly C-W is inside, t4 at C-1 is inside",
+   "params": {
+    "policy_version": "ef4-tape1",
+    "window_ns": 3600000000000,
+    "seed_policy": "none",
+    "evidence_limit": 10000
+   },
+   "open": 0,
+   "C": 23400000000000,
+   "K": 1000,
+   "price_scale": 2,
+   "trades": [
+    {
+     "id": "t1",
+     "ns": 1000000000,
+     "ok": 0,
+     "p": 100,
+     "q": 1
+    },
+    {
+     "id": "t2",
+     "ns": 19799999999999,
+     "ok": 0,
+     "p": 101,
+     "q": 2
+    },
+    {
+     "id": "t3",
+     "ns": 19800000000000,
+     "ok": 0,
+     "p": 102,
+     "q": 4
+    },
+    {
+     "id": "t4",
+     "ns": 23399999999999,
+     "ok": 0,
+     "p": 101,
+     "q": 8
+    }
+   ],
+   "tags": [
+    "epoch_scale",
+    "long_window",
+    "expiry"
+   ],
+   "epoch": 1790000000000000000,
+   "expected": {
+    "tape.window.count": {
+     "status": "available",
+     "reasons": [],
+     "expected": 4,
+     "observed": 4,
+     "value": {
+      "exact": "2/1",
+      "acceptance": "exact_integer"
+     },
+     "witnesses": [
+      "trade:t3",
+      "trade:t4"
+     ]
+    },
+    "tape.window.volume": {
+     "status": "available",
+     "reasons": [],
+     "expected": 4,
+     "observed": 4,
+     "value": {
+      "exact": "12/1",
+      "acceptance": "exact_integer"
+     },
+     "witnesses": [
+      "trade:t3",
+      "trade:t4"
+     ]
+    },
+    "tape.window.notional": {
+     "status": "available",
+     "reasons": [],
+     "expected": 4,
+     "observed": 4,
+     "value": {
+      "exact": "1216/1",
+      "acceptance": "exact_integer"
+     },
+     "witnesses": [
+      "trade:t3",
+      "trade:t4"
+     ]
+    },
+    "tape.tick.up_volume": {
+     "status": "available",
+     "reasons": [],
+     "expected": 4,
+     "observed": 4,
+     "value": {
+      "exact": "4/1",
+      "acceptance": "exact_integer"
+     },
+     "witnesses": [
+      "trade:t3",
+      "trade:t4"
+     ]
+    },
+    "tape.tick.down_volume": {
+     "status": "available",
+     "reasons": [],
+     "expected": 4,
+     "observed": 4,
+     "value": {
+      "exact": "8/1",
+      "acceptance": "exact_integer"
+     },
+     "witnesses": [
+      "trade:t3",
+      "trade:t4"
+     ]
+    },
+    "tape.tick.neutral_volume": {
+     "status": "available",
+     "reasons": [],
+     "expected": 4,
+     "observed": 4,
+     "value": {
+      "exact": "0/1",
+      "acceptance": "exact_integer"
+     },
+     "witnesses": [
+      "trade:t3",
+      "trade:t4"
+     ]
+    },
+    "tape.tick.net_volume": {
+     "status": "available",
+     "reasons": [],
+     "expected": 4,
+     "observed": 4,
+     "value": {
+      "exact": "-4/1",
+      "acceptance": "exact_integer"
+     },
+     "witnesses": [
+      "trade:t3",
+      "trade:t4"
+     ]
+    },
+    "tape.tick.net_notional": {
+     "status": "available",
+     "reasons": [],
+     "expected": 4,
+     "observed": 4,
+     "value": {
+      "exact": "-400/1",
+      "acceptance": "exact_integer"
+     },
+     "witnesses": [
+      "trade:t3",
+      "trade:t4"
+     ]
+    },
+    "tape.tick.imbalance": {
+     "status": "available",
+     "reasons": [],
+     "expected": 4,
+     "observed": 4,
+     "value": {
+      "exact": "-1/3",
+      "float64": -0.3333333333333333,
+      "hex": "-0x1.5555555555555p-2",
+      "acceptance": "tolerance"
+     },
+     "witnesses": [
+      "trade:t3",
+      "trade:t4"
+     ]
+    }
+   }
+  },
+  {
+   "id": "W21",
+   "group": "evidence_limit",
+   "description": "evidence_limit 3 below the 6 in-window prints: witnesses are the first 3 in canonical order and count still reports 6",
+   "params": {
+    "policy_version": "ef4-tape1",
+    "window_ns": 100,
+    "seed_policy": "none",
+    "evidence_limit": 3
+   },
+   "open": 0,
+   "C": 100,
+   "K": 1000,
+   "price_scale": 2,
+   "trades": [
+    {
+     "id": "t1",
+     "ns": 10,
+     "ok": 0,
+     "p": 100,
+     "q": 5
+    },
+    {
+     "id": "t2",
+     "ns": 20,
+     "ok": 0,
+     "p": 101,
+     "q": 3
+    },
+    {
+     "id": "t3",
+     "ns": 30,
+     "ok": 0,
+     "p": 101,
+     "q": 2
+    },
+    {
+     "id": "t4",
+     "ns": 40,
+     "ok": 0,
+     "p": 100,
+     "q": 4
+    },
+    {
+     "id": "t5",
+     "ns": 50,
+     "ok": 0,
+     "p": 100,
+     "q": 6
+    },
+    {
+     "id": "t6",
+     "ns": 60,
+     "ok": 0,
+     "p": 100,
+     "q": 1
+    }
+   ],
+   "tags": [
+    "evidence_limit",
+    "cut"
+   ],
+   "expected": {
+    "tape.window.count": {
+     "status": "available",
+     "reasons": [],
+     "expected": 6,
+     "observed": 6,
+     "value": {
+      "exact": "6/1",
+      "acceptance": "exact_integer"
+     },
+     "witnesses": [
+      "trade:t1",
+      "trade:t2",
+      "trade:t3"
+     ]
+    },
+    "tape.window.volume": {
+     "status": "available",
+     "reasons": [],
+     "expected": 6,
+     "observed": 6,
+     "value": {
+      "exact": "21/1",
+      "acceptance": "exact_integer"
+     },
+     "witnesses": [
+      "trade:t1",
+      "trade:t2",
+      "trade:t3"
+     ]
+    },
+    "tape.window.notional": {
+     "status": "available",
+     "reasons": [],
+     "expected": 6,
+     "observed": 6,
+     "value": {
+      "exact": "2105/1",
+      "acceptance": "exact_integer"
+     },
+     "witnesses": [
+      "trade:t1",
+      "trade:t2",
+      "trade:t3"
+     ]
+    },
+    "tape.tick.up_volume": {
+     "status": "available",
+     "reasons": [],
+     "expected": 6,
+     "observed": 6,
+     "value": {
+      "exact": "5/1",
+      "acceptance": "exact_integer"
+     },
+     "witnesses": [
+      "trade:t1",
+      "trade:t2",
+      "trade:t3"
+     ]
+    },
+    "tape.tick.down_volume": {
+     "status": "available",
+     "reasons": [],
+     "expected": 6,
+     "observed": 6,
+     "value": {
+      "exact": "11/1",
+      "acceptance": "exact_integer"
+     },
+     "witnesses": [
+      "trade:t1",
+      "trade:t2",
+      "trade:t3"
+     ]
+    },
+    "tape.tick.neutral_volume": {
+     "status": "available",
+     "reasons": [],
+     "expected": 6,
+     "observed": 6,
+     "value": {
+      "exact": "5/1",
+      "acceptance": "exact_integer"
+     },
+     "witnesses": [
+      "trade:t1",
+      "trade:t2",
+      "trade:t3"
+     ]
+    },
+    "tape.tick.net_volume": {
+     "status": "available",
+     "reasons": [],
+     "expected": 6,
+     "observed": 6,
+     "value": {
+      "exact": "-6/1",
+      "acceptance": "exact_integer"
+     },
+     "witnesses": [
+      "trade:t1",
+      "trade:t2",
+      "trade:t3"
+     ]
+    },
+    "tape.tick.net_notional": {
+     "status": "available",
+     "reasons": [],
+     "expected": 6,
+     "observed": 6,
+     "value": {
+      "exact": "-595/1",
+      "acceptance": "exact_integer"
+     },
+     "witnesses": [
+      "trade:t1",
+      "trade:t2",
+      "trade:t3"
+     ]
+    },
+    "tape.tick.imbalance": {
+     "status": "available",
+     "reasons": [],
+     "expected": 6,
+     "observed": 6,
+     "value": {
+      "exact": "-2/7",
+      "float64": -0.2857142857142857,
+      "hex": "-0x1.2492492492492p-2",
+      "acceptance": "tolerance"
+     },
+     "witnesses": [
+      "trade:t1",
+      "trade:t2",
+      "trade:t3"
+     ]
+    }
+   }
+  },
+  {
+   "id": "W22",
+   "group": "evidence_limit",
+   "description": "the seed witness counts toward evidence_limit: limit 2 gives [seed, t1] for sign-based outputs and [t1, t2] for window outputs",
+   "params": {
+    "policy_version": "ef4-tape1",
+    "window_ns": 100,
+    "seed_policy": "supplied",
+    "evidence_limit": 2
+   },
+   "open": 0,
+   "C": 100,
+   "K": 1000,
+   "price_scale": 2,
+   "seed": {
+    "price": 100,
+    "sign": "-",
+    "ka": 500
+   },
+   "trades": [
+    {
+     "id": "t1",
+     "ns": 10,
+     "ok": 0,
+     "p": 100,
+     "q": 3
+    },
+    {
+     "id": "t2",
+     "ns": 20,
+     "ok": 0,
+     "p": 100,
+     "q": 2
+    },
+    {
+     "id": "t3",
+     "ns": 30,
+     "ok": 0,
+     "p": 101,
+     "q": 5
+    },
+    {
+     "id": "t4",
+     "ns": 40,
+     "ok": 0,
+     "p": 101,
+     "q": 4
+    }
+   ],
+   "tags": [
+    "evidence_limit",
+    "cut",
+    "seed"
+   ],
+   "expected": {
+    "tape.window.count": {
+     "status": "available",
+     "reasons": [],
+     "expected": 4,
+     "observed": 4,
+     "value": {
+      "exact": "4/1",
+      "acceptance": "exact_integer"
+     },
+     "witnesses": [
+      "trade:t1",
+      "trade:t2"
+     ]
+    },
+    "tape.window.volume": {
+     "status": "available",
+     "reasons": [],
+     "expected": 4,
+     "observed": 4,
+     "value": {
+      "exact": "14/1",
+      "acceptance": "exact_integer"
+     },
+     "witnesses": [
+      "trade:t1",
+      "trade:t2"
+     ]
+    },
+    "tape.window.notional": {
+     "status": "available",
+     "reasons": [],
+     "expected": 4,
+     "observed": 4,
+     "value": {
+      "exact": "1409/1",
+      "acceptance": "exact_integer"
+     },
+     "witnesses": [
+      "trade:t1",
+      "trade:t2"
+     ]
+    },
+    "tape.tick.up_volume": {
+     "status": "available",
+     "reasons": [],
+     "expected": 5,
+     "observed": 5,
+     "value": {
+      "exact": "9/1",
+      "acceptance": "exact_integer"
+     },
+     "witnesses": [
+      "seed:$SEED_REF",
+      "trade:t1"
+     ]
+    },
+    "tape.tick.down_volume": {
+     "status": "available",
+     "reasons": [],
+     "expected": 5,
+     "observed": 5,
+     "value": {
+      "exact": "5/1",
+      "acceptance": "exact_integer"
+     },
+     "witnesses": [
+      "seed:$SEED_REF",
+      "trade:t1"
+     ]
+    },
+    "tape.tick.neutral_volume": {
+     "status": "available",
+     "reasons": [],
+     "expected": 5,
+     "observed": 5,
+     "value": {
+      "exact": "0/1",
+      "acceptance": "exact_integer"
+     },
+     "witnesses": [
+      "seed:$SEED_REF",
+      "trade:t1"
+     ]
+    },
+    "tape.tick.net_volume": {
+     "status": "available",
+     "reasons": [],
+     "expected": 5,
+     "observed": 5,
+     "value": {
+      "exact": "4/1",
+      "acceptance": "exact_integer"
+     },
+     "witnesses": [
+      "seed:$SEED_REF",
+      "trade:t1"
+     ]
+    },
+    "tape.tick.net_notional": {
+     "status": "available",
+     "reasons": [],
+     "expected": 5,
+     "observed": 5,
+     "value": {
+      "exact": "409/1",
+      "acceptance": "exact_integer"
+     },
+     "witnesses": [
+      "seed:$SEED_REF",
+      "trade:t1"
+     ]
+    },
+    "tape.tick.imbalance": {
+     "status": "available",
+     "reasons": [],
+     "expected": 5,
+     "observed": 5,
+     "value": {
+      "exact": "2/7",
+      "float64": 0.2857142857142857,
+      "hex": "0x1.2492492492492p-2",
+      "acceptance": "tolerance"
+     },
+     "witnesses": [
+      "seed:$SEED_REF",
+      "trade:t1"
+     ]
+    }
+   }
+  },
+  {
+   "id": "W22b",
+   "group": "evidence_limit",
+   "description": "evidence_limit 0 emits no witnesses on available outputs",
+   "params": {
+    "policy_version": "ef4-tape1",
+    "window_ns": 100,
+    "seed_policy": "supplied",
+    "evidence_limit": 0
+   },
+   "open": 0,
+   "C": 100,
+   "K": 1000,
+   "price_scale": 2,
+   "seed": {
+    "price": 100,
+    "sign": "-",
+    "ka": 500
+   },
+   "trades": [
+    {
+     "id": "t1",
+     "ns": 10,
+     "ok": 0,
+     "p": 100,
+     "q": 3
+    },
+    {
+     "id": "t2",
+     "ns": 20,
+     "ok": 0,
+     "p": 100,
+     "q": 2
+    },
+    {
+     "id": "t3",
+     "ns": 30,
+     "ok": 0,
+     "p": 101,
+     "q": 5
+    },
+    {
+     "id": "t4",
+     "ns": 40,
+     "ok": 0,
+     "p": 101,
+     "q": 4
+    }
+   ],
+   "tags": [
+    "evidence_limit",
+    "cut"
+   ],
+   "expected": {
+    "tape.window.count": {
+     "status": "available",
+     "reasons": [],
+     "expected": 4,
+     "observed": 4,
+     "value": {
+      "exact": "4/1",
+      "acceptance": "exact_integer"
+     },
+     "witnesses": []
+    },
+    "tape.window.volume": {
+     "status": "available",
+     "reasons": [],
+     "expected": 4,
+     "observed": 4,
+     "value": {
+      "exact": "14/1",
+      "acceptance": "exact_integer"
+     },
+     "witnesses": []
+    },
+    "tape.window.notional": {
+     "status": "available",
+     "reasons": [],
+     "expected": 4,
+     "observed": 4,
+     "value": {
+      "exact": "1409/1",
+      "acceptance": "exact_integer"
+     },
+     "witnesses": []
+    },
+    "tape.tick.up_volume": {
+     "status": "available",
+     "reasons": [],
+     "expected": 5,
+     "observed": 5,
+     "value": {
+      "exact": "9/1",
+      "acceptance": "exact_integer"
+     },
+     "witnesses": []
+    },
+    "tape.tick.down_volume": {
+     "status": "available",
+     "reasons": [],
+     "expected": 5,
+     "observed": 5,
+     "value": {
+      "exact": "5/1",
+      "acceptance": "exact_integer"
+     },
+     "witnesses": []
+    },
+    "tape.tick.neutral_volume": {
+     "status": "available",
+     "reasons": [],
+     "expected": 5,
+     "observed": 5,
+     "value": {
+      "exact": "0/1",
+      "acceptance": "exact_integer"
+     },
+     "witnesses": []
+    },
+    "tape.tick.net_volume": {
+     "status": "available",
+     "reasons": [],
+     "expected": 5,
+     "observed": 5,
+     "value": {
+      "exact": "4/1",
+      "acceptance": "exact_integer"
+     },
+     "witnesses": []
+    },
+    "tape.tick.net_notional": {
+     "status": "available",
+     "reasons": [],
+     "expected": 5,
+     "observed": 5,
+     "value": {
+      "exact": "409/1",
+      "acceptance": "exact_integer"
+     },
+     "witnesses": []
+    },
+    "tape.tick.imbalance": {
+     "status": "available",
+     "reasons": [],
+     "expected": 5,
+     "observed": 5,
+     "value": {
+      "exact": "2/7",
+      "float64": 0.2857142857142857,
+      "hex": "0x1.2492492492492p-2",
+      "acceptance": "tolerance"
+     },
+     "witnesses": []
+    }
+   }
+  },
+  {
+   "id": "W13e",
+   "group": "int64_limits",
+   "description": "an already unavailable output cannot raise OVERFLOW: volume is selected on the 2^63 tape but t2 is known at 1500 > K, so the result is future_knowledge, not a refusal",
+   "params": {
+    "policy_version": "ef4-tape1",
+    "window_ns": 100,
+    "seed_policy": "none",
+    "evidence_limit": 10000
+   },
+   "open": 0,
+   "C": 100,
+   "K": 1000,
+   "price_scale": 2,
+   "trades": [
+    {
+     "id": "t1",
+     "ns": 10,
+     "ok": 0,
+     "p": 9223372036854775807,
+     "q": 4611686018427387904
+    },
+    {
+     "id": "t2",
+     "ns": 20,
+     "ok": 0,
+     "p": 9223372036854775807,
+     "q": 4611686018427387904,
+     "ka": 1500
+    }
+   ],
+   "tags": [
+    "int64_limits",
+    "selection",
+    "precedence"
+   ],
+   "selection": [
+    "tape.window.volume"
+   ],
+   "expected": {
+    "tape.window.volume": {
+     "status": "missing_input",
+     "reasons": [
+      "future_knowledge"
+     ],
+     "expected": 2,
+     "observed": 1
+    }
+   }
+  },
+  {
    "id": "W16",
    "group": "prefix",
    "description": "same tape as W05 truncated at cutoff 60 (rows t1,t2 only), W=30: window [30,60) holds t2; t1,t2 signs equal their signs in W05",
@@ -8654,6 +9938,103 @@
      ],
      "expected": 3,
      "observed": 2
+    }
+   }
+  },
+  {
+   "id": "TK10e",
+   "group": "knowledge",
+   "description": "reconstruction mode (separate config identity) does not raise knowledge reasons: the TK10a tape is available and equals TK01",
+   "params": {
+    "policy_version": "ef4-notional1",
+    "top_k": 3,
+    "evidence_limit": 3
+   },
+   "open": 0,
+   "C": 100,
+   "K": 1000,
+   "price_scale": 2,
+   "trades": [
+    {
+     "id": "a",
+     "ns": 10,
+     "ok": 0,
+     "p": 1000,
+     "q": 1
+    },
+    {
+     "id": "b",
+     "ns": 20,
+     "ok": 0,
+     "p": 10,
+     "q": 50,
+     "ka": 1500
+    },
+    {
+     "id": "c",
+     "ns": 30,
+     "ok": 0,
+     "p": 200,
+     "q": 4
+    },
+    {
+     "id": "d",
+     "ns": 40,
+     "ok": 0,
+     "p": 50,
+     "q": 30
+    },
+    {
+     "id": "e",
+     "ns": 50,
+     "ok": 0,
+     "p": 2,
+     "q": 100
+    }
+   ],
+   "tags": [
+    "reconstruction"
+   ],
+   "mode": "reconstruction",
+   "expected": {
+    "tape.top_k_notional": {
+     "status": "available",
+     "reasons": [],
+     "expected": 5,
+     "observed": 5,
+     "value": {
+      "k": 3,
+      "rows": [
+       {
+        "event_id": "d",
+        "price": 50,
+        "size": 30,
+        "notional": 1500
+       },
+       {
+        "event_id": "a",
+        "price": 1000,
+        "size": 1,
+        "notional": 1000
+       },
+       {
+        "event_id": "c",
+        "price": 200,
+        "size": 4,
+        "notional": 800
+       }
+      ]
+     },
+     "witnesses": [
+      "trade:d",
+      "trade:a",
+      "trade:c"
+     ],
+     "evidence_boundaries": [
+      "ordinary",
+      "ordinary",
+      "ordinary"
+     ]
     }
    }
   },
@@ -10865,7 +12246,7 @@
    "id": "RF10",
    "error_code": "INVALID_SCHEMA",
    "raised_by": "shared constructor",
-   "description": "float price and bool size are not int64 cells",
+   "description": "a bool size is not an int64 cell (a float price behaves the same)",
    "base": "W01",
    "scenario": "window",
    "mutate": [
@@ -10873,11 +12254,11 @@
      "op": "setitem",
      "path": "trades",
      "index": 0,
-     "key": "p",
-     "value": 100.5
+     "key": "q",
+     "value": true
     }
    ],
-   "construction": "W01 tape with t1.price = 100.5 (a bool size behaves the same)"
+   "construction": "W01 tape with t1.size = True (bool)"
   },
   {
    "id": "RF11",
@@ -10900,7 +12281,7 @@
   {
    "id": "RF12",
    "error_code": "INCONSISTENT_IDENTITY",
-   "raised_by": "shared validator",
+   "raised_by": "library",
    "description": "a row for a different session than the config",
    "base": "W01",
    "scenario": "window",
@@ -10942,16 +12323,16 @@
     {
      "op": "set",
      "path": "batch_adjustment",
-     "value": "adj2"
+     "value": "split"
     }
    ],
-   "construction": "W01 with the batch adjustment basis differing from the config"
+   "construction": "W01 with config AdjustmentSpec basis raw and the batch AdjustmentSpec(basis split, policy_version split-v1, action_snapshot actions-1, anchor anchor-1)"
   },
   {
    "id": "RF15",
    "error_code": "INCONSISTENT_IDENTITY",
    "raised_by": "library",
-   "description": "coverage.observed differs from the delivered row count",
+   "description": "a valid Coverage whose observed count differs from the delivered row count",
    "base": "W01",
    "scenario": "window",
    "mutate": [
@@ -10959,9 +12340,17 @@
      "op": "set",
      "path": "coverage_observed",
      "value": 7
+    },
+    {
+     "op": "set",
+     "path": "coverage",
+     "value": {
+      "expected": 7,
+      "complete": true
+     }
     }
    ],
-   "construction": "W01 with Coverage.observed = 7 for 6 rows"
+   "construction": "W01 with a valid Coverage(expected=7, observed=7, complete=True) bound to 6 delivered rows (Coverage(6, 7, True) would be INVALID_SCHEMA in the constructor and never reaches the library)"
   },
   {
    "id": "RF16",
@@ -11266,8 +12655,8 @@
   {
    "id": "RF34",
    "error_code": "BOUNDS",
-   "raised_by": "library",
-   "description": "seed effective_start_ns not before the session open",
+   "raised_by": "shared validator",
+   "description": "seed effective_start_ns >= effective_end_ns (shared REFERENCE validator; the library also refuses a start not before the open)",
    "base": "W07",
    "scenario": "window",
    "mutate": [
@@ -11281,9 +12670,9 @@
   },
   {
    "id": "RF35",
-   "error_code": "DUPLICATE",
+   "error_code": "INVALID_SCHEMA",
    "raised_by": "library",
-   "description": "two seed facts with distinct reference_id",
+   "description": "seed role holding two facts (row_count != 1, aligned with the accepted continuous seed admission; the shared REFERENCE validator would accept two distinct reference_ids)",
    "base": "W07",
    "scenario": "window",
    "mutate": [
@@ -11370,10 +12759,10 @@
     {
      "op": "set",
      "path": "seed.adjustment",
-     "value": "adj2"
+     "value": "split"
     }
    ],
-   "construction": "W07 with the seed REFERENCE batch adjustment adj2"
+   "construction": "W07 with the seed REFERENCE batch on a split AdjustmentSpec while the trades are raw"
   },
   {
    "id": "RF72",
@@ -11455,6 +12844,22 @@
     }
    ],
    "construction": "W13d tape plus t3 (ns 30, price 2^63-1, size 2^62) with tape.window.notional selected"
+  },
+  {
+   "id": "RF75",
+   "error_code": "INVALID_CONFIG",
+   "raised_by": "library",
+   "description": "opening auction inclusion requested (auctions are not ticks in v1)",
+   "base": "W01",
+   "scenario": "window",
+   "mutate": [
+    {
+     "op": "set",
+     "path": "include_opening_auction",
+     "value": true
+    }
+   ],
+   "construction": "W01 with session include_opening_auction true"
   },
   {
    "id": "RF41",
@@ -11772,9 +13177,14 @@
      "op": "set",
      "path": "include_closing_auction",
      "value": false
+    },
+    {
+     "op": "set",
+     "path": "scope_include_closing_auction",
+     "value": false
     }
    ],
-   "construction": "TK15 tape with the session config include_closing_auction false"
+   "construction": "TK15 tape with both the session config include_closing_auction and the InputScope include_closing_auction false (flipping only the config would fail the scope-versus-config check first)"
   },
   {
    "id": "RF59",
@@ -11845,10 +13255,10 @@
     {
      "op": "set",
      "path": "partitions.1.adjustment",
-     "value": "adj2"
+     "value": "split"
     }
    ],
-   "construction": "PM01 with P2 adjustment adj2"
+   "construction": "PM01 with P2 built on a split AdjustmentSpec (action_snapshot and anchor set) while the others are raw"
   },
   {
    "id": "RF63",
@@ -11956,19 +13366,23 @@
    "mutate": [
     {
      "op": "set",
-     "path": "partitions.0.corrupt_order",
-     "value": true
+     "path": "partitions.0.partial_delivered_order",
+     "value": [
+      "n1",
+      "n4",
+      "n7"
+     ]
     }
    ],
-   "construction": "PM01 with P1's partial rows delivered as n1, n4, n7 (not rank order)"
+   "construction": "PM01 where P1's partial rows are delivered in the order n1, n4, n7 instead of the rank order n4, n7, n1 (the expander compares the delivered order with the recomputed partial)"
   }
  ],
  "fixture_counts": {
-  "window_result": 42,
-  "topk_result": 24,
+  "window_result": 50,
+  "topk_result": 25,
   "merge_result": 7,
   "generator": 3,
-  "refusal": 74
+  "refusal": 75
  },
  "prefix_equivalences": [
   [
@@ -12001,7 +13415,8 @@
    "TK12b",
    "W10a",
    "W10b",
-   "W10h"
+   "W10h",
+   "W10j"
   ],
   "associative": [
    "PM06"
@@ -12039,6 +13454,11 @@
    "W09c",
    "W09d"
   ],
+  "cut": [
+   "W21",
+   "W22",
+   "W22b"
+  ],
   "decimal128": [
    "TK09",
    "W13a"
@@ -12053,6 +13473,9 @@
    "W11c",
    "W11d"
   ],
+  "epoch_scale": [
+   "W18"
+  ],
   "equal_notional": [
    "PM01",
    "PM02",
@@ -12064,6 +13487,11 @@
   "event_id_tie": [
    "PM04",
    "PM04b"
+  ],
+  "evidence_limit": [
+   "W21",
+   "W22",
+   "W22b"
   ],
   "exact_zero": [
    "W12b"
@@ -12077,7 +13505,8 @@
    "W05c",
    "W05d",
    "W05e",
-   "W13c"
+   "W13c",
+   "W18"
   ],
   "future_knowledge": [
    "TK10a",
@@ -12100,7 +13529,8 @@
    "W08c",
    "W10a",
    "W10b",
-   "W10d"
+   "W10d",
+   "W10j"
   ],
   "ineligible": [
    "TK05",
@@ -12108,6 +13538,7 @@
    "TK10d",
    "W04",
    "W10i",
+   "W10j",
    "W11c"
   ],
   "insufficient_history": [
@@ -12117,7 +13548,9 @@
    "TK09",
    "W13a",
    "W13c",
-   "W13d"
+   "W13d",
+   "W13e",
+   "W20"
   ],
   "k_boundary": [
    "TK03",
@@ -12131,6 +13564,9 @@
   "late_knowledge": [
    "W09c"
   ],
+  "long_window": [
+   "W18"
+  ],
   "merge": [
    "PM01",
    "PM02",
@@ -12139,6 +13575,12 @@
    "PM04b",
    "PM05",
    "PM06"
+  ],
+  "mode": [
+   "W17"
+  ],
+  "near_cancellation": [
+   "W20"
   ],
   "neutral_seed": [
    "W07d"
@@ -12161,7 +13603,11 @@
    "PM04"
   ],
   "precedence": [
-   "W10g"
+   "W10g",
+   "W13e"
+  ],
+  "precision": [
+   "W20"
   ],
   "prefix": [
    "W10d",
@@ -12169,6 +13615,10 @@
   ],
   "price_change_overrides": [
    "W07c"
+  ],
+  "reconstruction": [
+   "TK10e",
+   "W17"
   ],
   "replay": [
    "TK13b",
@@ -12184,7 +13634,8 @@
    "W07c",
    "W07d",
    "W08d",
-   "W11d"
+   "W11d",
+   "W22"
   ],
   "seed_gap": [
    "W08a",
@@ -12192,7 +13643,8 @@
    "W08c"
   ],
   "selection": [
-   "W13d"
+   "W13d",
+   "W13e"
   ],
   "size_vs_notional": [
    "TK01",
@@ -12239,7 +13691,8 @@
    "W08a",
    "W10a",
    "W10b",
-   "W10c"
+   "W10c",
+   "W10j"
   ],
   "future_knowledge": [
    "PM05",
@@ -12248,7 +13701,8 @@
    "W08c",
    "W09c",
    "W10e",
-   "W10i"
+   "W10i",
+   "W13e"
   ],
   "governed_gap": [
    "TK11",
@@ -12511,7 +13965,7 @@
   {
    "id": "DP-T11",
    "topic": "Corrections and replay",
-   "decision": "A correction is a new tape revision: the cancelled print is re-delivered as ineligible and the replacement is a new row (new event_id, same or later `(event_ns, order_key)`). The library never patches a result: the corrected tape is recomputed from the seed over the whole epoch, because a changed price flips every later carried sign (W09b). A replacement known after K is `future_knowledge`. Earlier results stay immutable. Batch and replay of the same revision are identical.",
+   "decision": "A correction is a new tape revision: the cancelled print is re-delivered as ineligible and the replacement is a new row (new event_id, same or later `(event_ns, order_key)`). The library never patches a result: the corrected tape is recomputed from the seed over the whole epoch, because a changed price flips every later carried sign (W09b). A replacement known after K is `future_knowledge` in `known_at` mode. Earlier results stay immutable. Batch and replay of the same revision are identical.",
    "reason": "Accepted foundation: late corrections require a new supplied revision and recalculation; earlier results are immutable.",
    "alternatives": "alternatives: incremental patching of signs; in-place revision of a stored result",
    "state": "author-decided (EF4-G contract author), pending independent review and owner review"
@@ -12519,7 +13973,7 @@
   {
    "id": "DP-T12",
    "topic": "Static per-output closure and counts",
-   "decision": "Readiness is static per output (not value dependent). count needs the in-window rows; volume adds the size column; notional adds the price column; the six sign-based outputs need every row from the open to C, both columns and the seed when policy is `supplied`; imbalance has the sign-based closure. Counts: `expected` = declared coverage count (+1 seed slot for sign-based outputs when supplied), `observed` = delivered rows minus rows not ready inside the output's closure (+1 when the seed is ready); a missing required column gives observed 0; no batch gives 0 and 0. Coverage with `complete` false or an expected count different from the delivered count is `governed_gap` for every output. A `known_at_ns` column that is not delivered makes every delivered row `unknown_availability` (W10h).",
+   "decision": "Readiness is static per output (not value dependent). count needs the in-window rows; volume adds the size column; notional adds the price column; the six sign-based outputs need every row from the open to C, both columns and the seed when policy is `supplied`; imbalance has the sign-based closure. Counts: `expected` = declared coverage count (+1 seed slot for sign-based outputs when supplied), `observed` = delivered rows minus rows not ready inside the output's closure (+1 when the seed is ready); a missing required column gives observed 0; no batch gives 0 and 0. Coverage with `complete` false or an expected count different from the delivered count is `governed_gap` for every output. A `known_at_ns` column that is not delivered makes every delivered row `unknown_availability` (W10h). The closure is static also for undelivered price or size columns: an undelivered column is `absent_input` for the outputs that need it even when no eligible row exists (W10j); the top-K differs by inheriting the accepted rule that a column is needed only when an eligible row exists (TK12b).",
    "reason": "Independent readiness with a static, reviewable closure; an unrelated missing operand never blocks a ready output (W08a, W10a, W10b, W10d).",
    "alternatives": "alternatives: value-dependent closure (an empty window would ignore the prefix)",
    "state": "author-decided (EF4-G contract author), pending independent review and owner review"
@@ -12535,7 +13989,7 @@
   {
    "id": "DP-T14",
    "topic": "Precision and overflow",
-   "decision": "Count, volume and the three volume splits are checked int64; notional and net notional are exact integer coefficients in currency/10^price_scale published as decimal128; only `imbalance` is a float64, one correctly rounded value of the exact rational. Because every price is below 2^63 and a summed volume above 2^63 - 1 is refused first, a notional sum is below 2^126 (8.507e37) < 10^38: the decimal128 bound cannot overflow once the volume bound holds. `OVERFLOW` is a typed failure raised only by a selected output whose own sum exceeds int64 (RF39, RF40); prefix prints are never summed (W13c); a selection that does not need the sum does not fail (W13d).",
+   "decision": "Count, volume and the three volume splits are checked int64; notional and net notional are exact integer coefficients in currency/10^price_scale published as decimal128; only `imbalance` is a float64, one correctly rounded value of the exact rational. Because every price is below 2^63 and a summed volume above 2^63 - 1 is refused first, a notional sum is below 2^126 (8.507e37) < 10^38: the decimal128 bound cannot overflow once the volume bound holds. `OVERFLOW` is a typed failure raised only by a selected output whose own sum exceeds int64 (RF39, RF40); prefix prints are never summed (W13c); a selection that does not need the sum does not fail (W13d); an output that is already unavailable (any reason, or `insufficient_history`) never forms its sum and so cannot raise `OVERFLOW` (W13e).",
    "reason": "Accepted rule: exact integer arithmetic, typed failure for unrepresentable sums, no wrap, one final rounding.",
    "alternatives": "alternatives: saturate; return null; wide accumulators",
    "state": "author-decided (EF4-G contract author), pending independent review and owner review"
@@ -12543,7 +13997,7 @@
   {
    "id": "DP-T15",
    "topic": "Evidence",
-   "decision": "Available outputs list the seed witness `seed:<reference_id>` first (sign-based outputs when the policy is `supplied`), then the in-window eligible prints `trade:<event_id>` in canonical order, cut to `evidence_limit` (0..10000). Prefix prints are consumed but not listed; the cut is visible because `tape.window.count` exceeds the witness count. Unavailable outputs emit none.",
+   "decision": "Available outputs list the seed witness `seed:<reference_id>` first (sign-based outputs when the policy is `supplied`), then the in-window eligible prints `trade:<event_id>` in canonical order, cut to `evidence_limit` (0..10000); the seed witness counts toward the limit and is cut last (W22: limit 2 gives the seed and one print; W21, W22b). Prefix prints are consumed but not listed; the cut is visible because `tape.window.count` exceeds the witness count. Unavailable outputs emit none.",
    "reason": "Bounded evidence with a deterministic order; the prefix can be large and is bound through the input binding and coverage instead.",
    "alternatives": "alternatives: list the prefix; fail when over the limit",
    "state": "author-decided (EF4-G contract author), pending independent review and owner review"
@@ -12599,7 +14053,7 @@
   {
    "id": "DP-K6",
    "topic": "Partition merge",
-   "decision": "Merge takes available partials built with the same policy_version, K, evidence_limit, price unit, adjustment, eligibility policy, entity, market cutoff and knowledge cutoff, concatenates their rows, sorts by the rank key and keeps the first K. The result equals the single pass over the union when the union is a valid canonical batch (PM01, PM02, PM03), is independent of partition order and associative (PM04b, PM06). Counts are summed; an unavailable partial makes the merged result unavailable with the union of reasons (PM05). The same `event_id` retained in two partials is `DUPLICATE`; disjointness of non-retained rows is certified by the caller (summaries cannot prove it). Mismatches use INVALID_CONFIG, INVALID_UNIT, UNSUPPORTED_ADJUSTMENT, INCONSISTENT_IDENTITY or INCOMPATIBLE_VERSION (RF59 to RF69).",
+   "decision": "Merge takes available partials built with the same policy_version, K, evidence_limit, price unit, adjustment, eligibility policy, entity, market cutoff and knowledge cutoff, concatenates their rows, sorts by the rank key and keeps the first K. The result equals the single pass over the union when the union is a valid canonical batch (PM01, PM02, PM03), is independent of partition order and associative (PM04b, PM06). Counts are summed; an unavailable partial makes the merged result unavailable with the union of reasons (PM05). The same `event_id` retained in two partials is `DUPLICATE`; disjointness of non-retained rows is certified by the caller (summaries cannot prove it). Mismatches use INVALID_CONFIG, INVALID_UNIT, UNSUPPORTED_ADJUSTMENT, INCONSISTENT_IDENTITY or INCOMPATIBLE_VERSION (RF59 to RF69). Order when several faults coexist (each fixture has one): empty partition list (INVALID_CONFIG), policy_version (INCOMPATIBLE_VERSION), price unit (INVALID_UNIT), adjustment (UNSUPPORTED_ADJUSTMENT), eligibility policy (INVALID_CONFIG), K and evidence_limit (INVALID_CONFIG), entity, market cutoff and knowledge cutoff (INCONSISTENT_IDENTITY), then partial row order (INVALID_ORDER), then retained duplicates (DUPLICATE).",
    "reason": "top-K(union of per-partition top-K) equals the global top-K for a total row-intrinsic key.",
    "alternatives": "alternatives: merge unequal K by the smaller K; trust unchecked duplicates",
    "state": "author-decided (EF4-G contract author), pending independent review and owner review"
@@ -12639,9 +14093,9 @@
   {
    "id": "DP-M1",
    "topic": "Knowledge modes",
-   "decision": "Knowledge is enforced identically in `known_at` and reconstruction modes with original `known_at` (`known_at == K` is available; null is unknown; later is future).",
-   "reason": "EF1 and EF3 rule.",
-   "alternatives": "alternatives: reconstruction ignores knowledge",
+   "decision": "In `known_at` mode a delivered row (or seed) with null `known_at` is `unknown_availability` and one with `known_at > K` is `future_knowledge` (`known_at == K` is available). In `reconstruction` mode (a separate config identity) the accepted `AvailabilitySpec.knowledge_reason` returns None, so no knowledge reason is raised and every delivered row is an operand whatever its `known_at` (W17, TK10e); the original `known_at` stays in the input binding. The EF1/EF3 wording that knowledge is enforced in both modes is deliberately not carried over to EF4.",
+   "reason": "Follow the accepted availability spec instead of restating a different rule.",
+   "alternatives": "alternatives: enforce knowledge in reconstruction mode too",
    "state": "author-decided (EF4-G contract author), pending independent review and owner review"
   },
   {
