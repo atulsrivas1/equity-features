@@ -73,7 +73,7 @@ refusal; BREADTH_ADAPTIVE 99 result + 62 refusal; ICHIMOKU 74 + 21; MOMENTUM
 100 + 23; MONEYFLOW 68 + 38 (money-flow and retracement together). The two
 amendment files hold no fixtures.
 
-Checks run: all 774 fixture ids present in the packs (0 missing); `--fixture`
-round-trip equal to the `json.load` subtree for all 774; `run_batch` on 7
+Checks run: all 770 fixture ids present in the packs (0 missing); `--fixture`
+round-trip equal to the `json.load` subtree for all 770; `run_batch` on 7
 commands (3 pass, 2 fail, 2 timeout) printed one summary, correct logs, exit 1,
 and heartbeat `7/7`.
