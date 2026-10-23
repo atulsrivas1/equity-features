@@ -22,4 +22,4 @@ October 22, 2026. Plan hygiene only. Nothing here is acceptance: full EQ164 stay
 
 ## Proof
 
-A scratch script loaded each file from `origin/main` and from the branch and asserted that removing exactly the additions (132 row fields; the two appended records) restores the original document. Line endings (CRLF) are preserved. `python -I tools/check_equity_delivery_replan.py` passes (47 planned outputs, 35 existing stories, 18 proposed tasks, 8 releases, 1 supplemental story).
+A scratch script loaded each file from `origin/main` and from the branch and asserted that removing exactly the additions (132 row fields; the two appended records) restores the original document. Line endings unchanged. `python -I tools/check_equity_delivery_replan.py` passes (47 planned outputs, 35 existing stories, 18 proposed tasks, 8 releases, 1 supplemental story).
