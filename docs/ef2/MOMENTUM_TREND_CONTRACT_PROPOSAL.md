@@ -2,9 +2,9 @@
 
 Prepared for EQ-147 [#481](https://github.com/atulsrivas1/equity-features/issues/481) (MACD line, signal, histogram), EQ-148 [#482](https://github.com/atulsrivas1/equity-features/issues/482) (directional movement, DMI, ADX) and EQ-149 [#483](https://github.com/atulsrivas1/equity-features/issues/483) (stochastic oscillators, Williams percent R). EF2 I/O [#609](https://github.com/atulsrivas1/equity-features/issues/609) and the worker [#610](https://github.com/atulsrivas1/equity-features/issues/610) consume it; release acceptance is EQ-152 [#486](https://github.com/atulsrivas1/equity-features/issues/486).
 
-This is contract preparation only. The coordinator has ruled on every convention (DP1 to DP19 accepted) and every former open question (Q1 to Q13, rulings below), pending owner review; the contract carries a coordinator freeze statement. It is documentation and hand-derived reference values only and admits no Ready state, implementation, numerical acceptance, release or performance claim. All three indicator families are standard, publicly documented technical-analysis definitions, specified here from those public definitions with explicit conventions.
+This is contract preparation only. The coordinator has ruled on every convention (DP1 to DP19 decided as coordinator decision, frozen once this PR merges, pending owner review) and every former open question (Q1 to Q13, rulings below), pending owner review; the contract carries a coordinator freeze statement. It is documentation and hand-derived reference values only and admits no Ready state, implementation, numerical acceptance, release or performance claim. All three indicator families are standard, publicly documented technical-analysis definitions, specified here from those public definitions with explicit conventions.
 
-Companion data: [MOMENTUM_TREND_CONTRACT_PROPOSAL.json](MOMENTUM_TREND_CONTRACT_PROPOSAL.json) holds the machine-readable headers, roles, config, conventions, mathematics, quality rules, 97 result fixtures (94 single-target plus 3 prefix-property) and 24 typed-refusal fixtures. Expected values were derived with plain `fractions` arithmetic in a scratch script that imports nothing from the equity packages; the library was not imported, run or tested.
+Companion data: [MOMENTUM_TREND_CONTRACT_PROPOSAL.json](MOMENTUM_TREND_CONTRACT_PROPOSAL.json) holds the machine-readable headers, roles, config, conventions, mathematics, quality rules, 99 result fixtures (96 single-target plus 3 prefix-property) and 23 typed-refusal fixtures. Expected values were derived with plain `fractions` arithmetic in a scratch script that imports nothing from the equity packages; the library was not imported, run or tested.
 
 ## Authority and unchanged boundary
 
@@ -18,9 +18,9 @@ Unchanged by this proposal:
 
 ## Producers and config identities
 
-Three homogeneous producers inside the optional intraday component: `macd` (EQ-147), `dmi` (EQ-148), `stochastic` (EQ-149). One config computes one family; the caller selects any subset of that family's output IDs (R17 selection style; each selected output has its own readiness; accepted DP16). Compute is batch snapshot plus caller-supplied full-history replay. Update, restore, merge and carry epochs are out of scope in v1 (DP19, ruling Q7): update, restore and merge fail with UNSUPPORTED_CAPABILITY, and a context whose mode is not `reset` is INVALID_CONFIG. Anchored batch (reset epoch) only.
+Three homogeneous producers inside the optional intraday component: `macd` (EQ-147), `dmi` (EQ-148), `stochastic` (EQ-149). One config computes one family; the caller selects any subset of that family's output IDs (R17 selection style; each selected output has its own readiness; DP16, coordinator decision, frozen once this PR merges, pending owner review). Compute is batch snapshot plus caller-supplied full-history replay. Update, restore, merge and carry epochs are out of scope in v1 (DP19, ruling Q7): update, restore and merge fail with UNSUPPORTED_CAPABILITY, and a context whose mode is not `reset` is INVALID_CONFIG. Anchored batch (reset epoch) only.
 
-Envelope (accepted, ruling Q10): `ConfigSpec` identity `intraday.momentum.v1`, algorithm `intraday-momentum-v1`, schema 1. It reuses the R17 context unchanged (`IntradayContext`, the chunked `context_*` parameters, `context_sha256`, `evidence_limit`, the reduced canonical final-envelope check). It drops the R17 `period`, `k_num`, `k_den` and adds a closed, per-family parameter set. No parameter has a default.
+Envelope (ruling Q10, coordinator decision, frozen once this PR merges, pending owner review): `ConfigSpec` identity `intraday.momentum.v1`, algorithm `intraday-momentum-v1`, schema 1. It reuses the R17 context unchanged (`IntradayContext`, the chunked `context_*` parameters, `context_sha256`, `evidence_limit`, the reduced canonical final-envelope check). It drops the R17 `period`, `k_num`, `k_den` and adds a closed, per-family parameter set. No parameter has a default.
 
 | Family | Closed parameters | Bounds |
 | --- | --- | --- |
@@ -67,13 +67,13 @@ Epoch (inherited from R17, DP17, reset only per ruling Q7): the epoch starts at 
 | `high_extrema`, `low_extrema` operands (one window ending at the target) | stochastic, Williams | The window rule is reused unchanged. Smoothing needs the same window at earlier targets, so EF2 adds the internal family `rolling_extrema_runs`; its last element equals the R17 operand for the same n. |
 | published Float64 `intraday.ema`, `intraday.atr` | none | Not consumed: they are rounded witnesses. Only their exact mathematics is shared (a cross-check, below). |
 
-Additive internal preparation families (same immutable, bounded, source-bound rules as R17 preparation; accepted rulings Q1, Q11, implemented inside `packages/intraday`): `directional_moves` (+DM, -DM for k = 1..T-1; needs high and low on slots anchor..target) and `rolling_extrema_runs` (HH, LL and C for a run of consecutive window ends of one length). No whole-indicator barrier exists: an output waits only for the exact slots in its dependency table.
+Additive internal preparation families (same immutable, bounded, source-bound rules as R17 preparation; rulings Q1, Q11 (coordinator decision, frozen once this PR merges, pending owner review), implemented inside `packages/intraday`): `directional_moves` (+DM, -DM for k = 1..T-1; needs high and low on slots anchor..target) and `rolling_extrema_runs` (HH, LL and C for a run of consecutive window ends of one length). No whole-indicator barrier exists: an output waits only for the exact slots in its dependency table.
 
 Cross-check requirement for the implementing story: for the same context, anchor, mode and closes, the exact fast and slow chain values at the target equal the unrounded values of R17 `intraday.ema` with periods fast and slow, and the exact smoothed TR equals the unrounded R17 `intraday.atr`; and Williams %R equals raw %K minus 100.
 
 ## Headers
 
-Float64, one scalar per selected ID for `EntityKey(instrument_id, target session)`, column `algorithm_version` `intraday-momentum-v1`, schema 1, sorted by ID. Units are new strings except currency/share; they are accepted as additive units (ruling Q5) and will be listed in the later shared-contract header ledger and unit amendment, a sibling document after freeze.
+Float64, one scalar per selected ID for `EntityKey(instrument_id, target session)`, column `algorithm_version` `intraday-momentum-v1`, schema 1, sorted by ID. Units are new strings except currency/share; they are additive units (ruling Q5, coordinator decision, frozen once this PR merges, pending owner review) and will be listed in the later shared-contract header ledger and unit amendment, a sibling document after freeze.
 
 | ID | Unit | Minimum epoch slots |
 | --- | --- | --- |
@@ -115,7 +115,7 @@ Worked check (fixtures M02, M03, closes 10, 12, 14, 15, periods 2, 3, 2): E_2: s
 - DX = 100 |+DI - -DI| / (+DI + -DI) = 100 |S_+DM - S_-DM| / (S_+DM + S_-DM).
 - ADX (m = adx_period): f = first k >= n with DX defined. ADX[f+m-1] = mean(DX[f..f+m-1]); ADX[k] = ((m-1) ADX[k-1] + DX[k]) / m.
 
-Undefined states (DP8): DI undefined iff S_TR = 0 (every TR so far is 0). DX undefined iff DI undefined or S_+DM + S_-DM = 0. Weights are exactly positive, so once S_TR > 0 or the DM sum > 0 it stays so; undefined states are a prefix of the epoch only. Undefined outputs publish `not_applicable` / `zero_denominator` with value null and full expected and observed counts (R17 band-position precedent). ADX is `not_applicable` while DX is undefined at the target, `insufficient_history` while fewer than m DX values exist from f (expected = f + m slots, observed = ready epoch slots), and available afterwards (fixtures D06_*). Alternatives for the ADX start are in DP9 / ruling Q3.
+Undefined states (DP8): DI undefined iff S_TR = 0 (every TR so far is 0). DX undefined iff DI undefined or S_+DM + S_-DM = 0. Weights are exactly positive, so once S_TR > 0 or the DM sum > 0 it stays so; undefined states are a prefix of the epoch only. Undefined outputs publish `not_applicable` / `zero_denominator` with value null and full expected and observed counts (R17 band-position precedent). ADX `expected` rule: the anchored rule applies, `expected = max(di_period + adx_period, epoch_slots)`. The data-dependent term applies only when every dependency slot is ready (so the first defined DX index f is knowable), DX is defined at the target and fewer than adx_period DX values exist from f; then `expected = f + adx_period` and the status is `insufficient_history`. When gaps, nulls, unknown or future rows or absent columns hide the DX values, f is not computed, no data-dependent term is used, and `expected = max(di_period + adx_period, epoch_slots)` with the status the precedence assigns. Fixtures D06_4 (data-dependent), D10 and D20 (hidden f, incomplete_coverage, expected = max(4, 5) = 5) and D21 (static short, expected 4). ADX is `not_applicable` while DX is undefined at the target, `insufficient_history` while fewer than m DX values exist from f (expected = f + m slots, observed = ready epoch slots), and available afterwards (fixtures D06_*). Alternatives for the ADX start are in DP9 / ruling Q3.
 
 Warm-up: plus_di, minus_di, dx need di + 1 slots; adx needs di + adx slots at minimum. N = 1 is allowed (DI is the raw DM / TR; adx_period 1 gives ADX = DX; fixture D09).
 
@@ -144,8 +144,8 @@ The implementation follows the established R17 numeric policy: exact `Fraction` 
 The exact fractions and `float.hex` values in the fixtures are the REFERENCE values, derived independently. Acceptance rule per fixture output (field `acceptance` in the JSON):
 
 - `tolerance` (reference nonzero): `abs(y - r) <= max(8 * ulp(r), 1e-12 * abs(r))` with r the fixture float64. This is the R17 numeric error contract in `docs/api/INTRADAY.md` ("Numeric error contract and capabilities").
-- `exact_plus_zero` (reference exactly 0, guaranteeable): the published value must be bit-exact +0.0. Guarantees: MACD with identical epoch closes uses identical-input detection (every EMA equals that close exactly, so all three outputs are set to +0.0); MACD histogram with `signal_period` 1 defines signal = line (alpha 1, exact), so line - line = +0.0; DMI and stochastic zeros arise from an exactly zero integer or decimal numerator or sum before any division rounding, and a zero is published as +0.0 (never -0.0, including Williams %R with the close at the high).
-- `zero_bound` (reference exactly 0, not guaranteeable): a mathematically zero MACD line or histogram on non-identical input (fixtures M05, M06, M25 histogram and M26 line) cannot be guaranteed bit-exact with Decimal120 recurrences, and no detection rule is defined for it. These four fixture outputs are relaxed to `abs(y) <= 1e-12 * max epoch close price` in currency/share.
+- `exact_plus_zero` (reference exactly 0): the published value must be bit-exact +0.0, as required by `docs/api/INTRADAY.md` ("Exact mathematical zeros must return normalized +0.0"). Every exact-zero reference in the fixtures carries this rule and a stated guarantee: MACD with identical epoch closes uses identical-input detection (every EMA equals that close exactly, so all three outputs are +0.0); MACD histogram with `signal_period` 1 defines signal = line (alpha 1, exact), so line - line = +0.0; DMI and stochastic zeros arise from an exactly zero integer or decimal numerator or sum before any division rounding, and a zero is published as +0.0 (never -0.0, including Williams %R with the close at the high).
+- Decimal120 exactness for the four non-identical MACD zeros (fixtures M05, M06, M25 histogram and M26 line): for these inputs every seed, EMA, line and signal value is a terminating decimal (denominator 2^a * 5^b; e.g. M26: EMA_2 = 1.5, 2.5, 1.5 and EMA_3 = 2, 1.5, so line = 1.5 - 1.5), the Decimal120 divisions are exact and the difference is exactly zero, so +0.0 is REQUIRED. The intermediate values are listed in each fixture's `intermediate_exact`. The earlier relaxed bound is withdrawn; there are no documented exceptions. If a later fixture cannot show such exactness it must be added as an explicit, justified exception with its own tight bound, not a blanket one.
 
 State and cost: O(1) recurrence state per bar and no whole-series barrier; measurement belongs to the release baseline (ruling Q13).
 
@@ -157,9 +157,9 @@ Counts: for anchored outputs (MACD, DMI) expected = max(seed, epoch slots); for 
 
 Independence: each selected output waits only for its own fields and slots. Examples fixtured: MACD without high/low columns (M18); line available while signal warms (M02, M23); Williams available while D is blocked by a gap or null (T16, T19); K available when only D's wider span is defective (T16, T18).
 
-Evidence follows R17: actually supplied consumed or knowledge-excluded dependency rows only, `row_id` `slot:<global index>`, event time the slot end, effective bounds the slot, boundary `completed_interval`, sorted by feature id then slot, truncated to the result-wide `evidence_limit` (0 returns none; fixtures M22, D19, T29).
+Evidence rule: a `missing_input` output has empty evidence rows (no usable row exists; fixtures M16, M17, D14, D15, T21, T22 and the script assert this). Otherwise evidence follows R17: actually supplied consumed or knowledge-excluded dependency rows only, `row_id` `slot:<global index>`, event time the slot end, effective bounds the slot, boundary `completed_interval`, sorted by feature id then slot, truncated to the result-wide `evidence_limit` (0 returns none; fixtures M22, D19, T29).
 
-Typed refusals (no result), checked before cell readiness, in R17 order: configuration shape and versions, limits/unit/identity, batch structure, cross-chunk grid, then cells. Refusal fixtures E01 to E24: INVALID_CONFIG (fast >= slow, nonpositive or boolean periods, window over 4096, missing or extra parameters, feature not owned by the family, evidence limit), INCOMPATIBLE_VERSION (unsupported convention value), UNKNOWN_FEATURE, UNSUPPORTED_CAPABILITY, INVALID_SCHEMA (contradictory OHLC, enforced by shared validation, see ruling Q6), a non-`reset` context mode as INVALID_CONFIG, INVALID_UNIT, UNSUPPORTED_ADJUSTMENT, INCONSISTENT_IDENTITY, DUPLICATE and OVERFLOW.
+Typed refusals (no result), checked before cell readiness, in R17 order: configuration shape and versions, limits/unit/identity, batch structure, cross-chunk grid, then cells. Refusal fixtures E01 to E23 (listed in the precedence order below, the first applicable is reported): INVALID_CONFIG (fast >= slow, nonpositive or boolean periods, window over 4096, missing or extra parameters, feature not owned by the family, evidence limit), INCOMPATIBLE_VERSION (unsupported convention value), UNKNOWN_FEATURE, UNSUPPORTED_CAPABILITY, INVALID_SCHEMA (contradictory OHLC, enforced by shared validation, see ruling Q6), a non-`reset` context mode as INVALID_CONFIG, INVALID_UNIT, UNSUPPORTED_ADJUSTMENT, INCONSISTENT_IDENTITY, DUPLICATE and OVERFLOW.
 
 ## Layer responsibilities
 
@@ -170,11 +170,13 @@ Typed refusals (no result), checked before cell readiness, in R17 order: configu
 
 ## Fixtures
 
-97 result fixtures (32 MACD, 35 DMI, 30 stochastic, including the 3 prefix-property fixtures P01 to P03) and 24 refusal fixtures in the JSON. Output statuses covered in the 94 single-target fixtures: available 192, insufficient_history 25, incomplete_coverage 48, missing_input 20, not_applicable 27. Coverage map groups: short history, exact seeds, boundary equalities (epoch slots equal to each output's minimum), constant, monotone, crossings (histogram sign change fixtures M07_5 to M07_10, exact zero M08, M25, M26), gaps and missing bars, null fields, future and unknown knowledge, observed-empty slots, absent column, absent delivery, zero range and flat series (D02_flat2, D05, D06_*, T08 to T11, T14), DM classification (inside, outside up and down, ties, zero move, gap, shift: D02_*), eviction and extremes (T05 to T07, T15), independence (M18, M23, T16, T18, T19, T30), reset epoch with ignored prior-session bars (M20, D18, T25), scale (M09, T28), 2^60 precision (M10), degenerate parameters (M08, D09, T12 to T14), evidence truncation (M22, D19, T29) and selected-subset requests.
+99 result fixtures (32 MACD, 37 DMI, 30 stochastic, including the 3 prefix-property fixtures P01 to P03) and 23 refusal fixtures in the JSON. Output statuses covered in the 96 single-target fixtures: available 192, insufficient_history 26, incomplete_coverage 55, missing_input 20, not_applicable 27. Coverage map groups: short history, exact seeds, boundary equalities (epoch slots equal to each output's minimum), constant, monotone, crossings (histogram sign change fixtures M07_5 to M07_10, exact zero M08, M25, M26), gaps and missing bars, null fields, future and unknown knowledge, observed-empty slots, absent column, absent delivery, zero range and flat series (D02_flat2, D05, D06_*, T08 to T11, T14), DM classification (inside, outside up and down, ties, zero move, gap, shift: D02_*), eviction and extremes (T05 to T07, T15), independence (M18, M23, T16, T18, T19, T30), reset epoch with ignored prior-session bars (M20, D18, T25), scale (M09, T28), 2^60 precision (M10), degenerate parameters (M08, D09, T12 to T14), evidence truncation (M22, D19, T29) and selected-subset requests.
+
+Null-field construction (verified against `validate_batch`): a positive-volume bar with any null OHLC column is refused (INVALID_SCHEMA, refusal fixture E23), and zero volume requires all-null OHLC (that is the observed-empty slot, reasons `observed_empty` and `no_eligible_observations`). A null-field slot (fixtures M13, D11 to D13, T18 to T20) is therefore built with volume null and the listed OHLC field null; the shared validator then checks only the non-null prices, and the producer reports `null_field`. An absent column (not a null value) is legal and gives `missing_input` / `absent_input`. Shared validators are unchanged.
 
 Each fixture lists compact inputs (not canonical wire), the exact expected value, its `float64` and `float.hex`, status, reasons, expected and observed counts and the evidence rows. Intermediate exact chains (EMAs, TR, DM, smoothed TR, raw %K) are included for hand checking. The prefix property is REQUIRED (ruling Q12): the output at bar n must not depend on later bars. Fixtures P01 (MACD), P02 (DMI) and P03 (stochastic) give two series sharing a prefix but differing afterwards, with the expected outputs at each listed prefix length; a snapshot at target n must equal the full-history replay value at n. Each result output also carries its acceptance rule (see the numeric policy).
 
-## Decision register (all ACCEPTED by the coordinator)
+## Decision register (all coordinator decision, frozen once this PR merges, pending owner review)
 
 | ID | Choice (alternatives named) |
 | --- | --- |
@@ -204,19 +206,19 @@ No code, tests, CI, benchmark or performance claim; no change to R17 or the froz
 
 ## Coordinator rulings (decided, pending owner review)
 
-All DP1 to DP19 are accepted as written, except DP15 and DP19 as restated above.
+All DP1 to DP19 are decided as written (coordinator decision, frozen once this PR merges, pending owner review), except DP15 and DP19 as restated above.
 
 - **Q1 packaging**: extend `packages/intraday` (`equity_features_intraday`) with additive modules, a new prerelease and catalog digest. The money-flow contract B uses the same package.
-- **Q2 numeric policy**: R17 Decimal120 policy and tolerance; fixture exact values are reference values; per-fixture acceptance rules as in the numeric policy section, including the relaxed `zero_bound` cases.
+- **Q2 numeric policy**: R17 Decimal120 policy and tolerance; fixture exact values are reference values; per-fixture acceptance rules as in the numeric policy section, with no relaxed exceptions.
 - **Q3 ADX start**: first defined DX, data-dependent warm-up (DP9).
 - **Q4 zero range**: undefined and propagating (DP13).
-- **Q5 units**: `DMI points`, `stochastic points`, `Williams %R points` accepted as additive units, to be listed in the later amendment document.
+- **Q5 units**: `DMI points`, `stochastic points`, `Williams %R points` are additive units, to be listed in the later amendment document.
 - **Q6 OHLC validity (verified)**: `validate_batch` in `packages/contracts/src/equity_feature_contracts/validation.py` already refuses `low > high` and any of open, high, low, close outside `[low, high]` with INVALID_SCHEMA (positive-volume rows; zero-volume rows must have null OHLC). The EF2 producers add no check, no new error code and no change to the shared validators.
 - **Q7 state**: update, restore, merge and carry are not in v1; anchored batch, reset epoch only.
 - **Q8 extra outputs**: none beyond the 10.
 - **Q9 defaults**: none. All periods are caller parameters; standard values (12/26/9, 14, 14/3/3) appear only inside fixtures.
-- **Q10 identity**: `intraday.momentum.v1` accepted.
-- **Q11 operand families**: `directional_moves` and `rolling_extrema_runs` accepted as additive internal families.
+- **Q10 identity**: `intraday.momentum.v1`.
+- **Q11 operand families**: `directional_moves` and `rolling_extrema_runs` as additive internal families (decided).
 - **Q12 prefix property**: required, fixtures P01 to P03.
 - **Q13 performance**: not a contract item in v1 beyond O(1) state per bar and no whole-series barrier; measurement belongs to the release baseline.
 

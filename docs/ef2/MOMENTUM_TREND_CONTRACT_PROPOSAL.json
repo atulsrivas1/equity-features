@@ -199,7 +199,7 @@
  "config": {
   "identity": "intraday.momentum.v1",
   "algorithm_version": "intraday-momentum-v1",
-  "status": "ACCEPTED (Q10)",
+  "status": "coordinator decision (Q10)",
   "shared_parameters_with_R17": [
    "evidence_limit",
    "context_schema",
@@ -261,7 +261,7 @@
    "status": "RULING Q2",
    "rule": "R17 policy: local Decimal context prec 120, ROUND_HALF_EVEN, Emin -999999, Emax 999999, traps as in _indicators.py; exact Fraction seeds; one final float64 conversion; fixture exact values are REFERENCE values",
    "tolerance": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)), r = float(exact reference); source docs/api/INTRADAY.md numeric error contract",
-   "exact_zero": "reference 0 must publish +0.0 when guaranteeable; guarantees: identical epoch closes (MACD), signal_period 1 (histogram), exactly zero decimal numerators or sums (DMI, stochastic); otherwise zero_bound: abs(y) <= 1e-12 * max epoch close price"
+   "exact_zero": "reference 0 must publish +0.0 (docs/api/INTRADAY.md); guarantees: identical epoch closes, signal_period 1, Decimal120 exactness for terminating-decimal inputs, exactly zero decimal numerators or sums"
   },
   "bounds": {
    "max_slots": 4096,
@@ -358,10 +358,12 @@
   },
   "evidence": "R17 rules: actually supplied consumed or knowledge-excluded dependency rows, row_id slot:<global_index>, boundary completed_interval, sorted feature id then slot, truncated to the result-wide evidence_limit"
  },
+ "adx_expected_rule": "anchored rule: expected = max(di_period + adx_period, epoch_slots). The data-dependent term applies only when every dependency slot is ready (so the first defined DX index f is knowable), DX is defined at the target and fewer than adx_period DX values exist from f: then expected = f + adx_period (f zero-based epoch index) and status insufficient_history. When gaps, nulls, unknown or future rows or absent columns hide DX values, f is not computed, no data-dependent term is used, and expected = max(di_period + adx_period, epoch_slots) with the status that precedence assigns (fixtures D10, D20, D21).",
+ "evidence_rule": "missing_input outputs have empty evidence rows; evidence lists only consumed rows or knowledge-excluded rows of dependency slots actually supplied",
  "acceptance_rules": {
   "tolerance": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)), r = the float64 in the fixture (float.hex)",
   "exact_plus_zero": "reference exact 0 and the stated guarantee holds: publish bit-exact +0.0",
-  "zero_bound": "reference exact 0 not guaranteeable: abs(y) <= 1e-12 * max epoch close price (currency/share)",
+  "documented_exceptions": "none: every exact-zero reference is required to publish +0.0",
   "state_budget": "O(1) state per bar; no whole-series barrier"
  },
  "decisions_proposed": [
@@ -369,115 +371,115 @@
    "id": "DP1",
    "topic": "EMA seed",
    "text": "Seed each EMA chain with the simple mean of its first p epoch closes (R17 convention). Alternatives: first close as seed (no warm-up); longer history seeding.",
-   "status": "ACCEPTED (coordinator, pending owner review)"
+   "status": "coordinator decision, frozen once this PR merges, pending owner review"
   },
   {
    "id": "DP2",
    "topic": "Signal seed",
    "text": "Signal seeded with the simple mean of the first g MACD observations (first observation at the slow seed bar). Alternatives: first MACD value as seed; signal seeded from the fast seed bar.",
-   "status": "ACCEPTED (coordinator, pending owner review)"
+   "status": "coordinator decision, frozen once this PR merges, pending owner review"
   },
   {
    "id": "DP3",
    "topic": "MACD start",
    "text": "MACD line exists only from the slow seed bar; the fast chain runs from its own seed meanwhile.",
-   "status": "ACCEPTED (coordinator, pending owner review)"
+   "status": "coordinator decision, frozen once this PR merges, pending owner review"
   },
   {
    "id": "DP4",
    "topic": "EMA smoothing factor",
    "text": "alpha=2/(p+1) for MACD and signal (not Wilder 1/p).",
-   "status": "ACCEPTED (coordinator, pending owner review)"
+   "status": "coordinator decision, frozen once this PR merges, pending owner review"
   },
   {
    "id": "DP5",
    "topic": "DMI smoothing",
    "text": "Wilder smoothing in average form seeded by the mean of the first n values (same as R17 ATR). Equivalent sum form gives identical DI/DX. Alternatives: EMA alpha=2/(n+1); SMA windows.",
-   "status": "ACCEPTED (coordinator, pending owner review)"
+   "status": "coordinator decision, frozen once this PR merges, pending owner review"
   },
   {
    "id": "DP6",
    "topic": "Directional movement rule",
    "text": "Strict inequality with zero on ties; zero moves are not movements. Both DM zero for inside bars and equal moves.",
-   "status": "ACCEPTED (coordinator, pending owner review)"
+   "status": "coordinator decision, frozen once this PR merges, pending owner review"
   },
   {
    "id": "DP7",
    "topic": "DMI scale",
    "text": "DI, DX, ADX published as points on 0..100 with unit DMI points. Alternative: fraction 0..1.",
-   "status": "ACCEPTED (coordinator, pending owner review)"
+   "status": "coordinator decision, frozen once this PR merges, pending owner review"
   },
   {
    "id": "DP8",
    "topic": "Undefined DI/DX",
    "text": "DI undefined when smoothed TR is 0; DX undefined when smoothed +DM plus -DM is 0: not_applicable/zero_denominator. Alternatives: publish 0; carry previous value.",
-   "status": "ACCEPTED (coordinator, pending owner review)"
+   "status": "coordinator decision, frozen once this PR merges, pending owner review"
   },
   {
    "id": "DP9",
    "topic": "ADX chain start",
    "text": "ADX seeds with the mean of the first adx_period defined DX values starting at the first defined DX, then Wilder recursion; warm-up is therefore data dependent when DX starts late. Alternatives: fixed seed index with poisoning; undefined DX treated as 0.",
-   "status": "ACCEPTED (coordinator, pending owner review)"
+   "status": "coordinator decision, frozen once this PR merges, pending owner review"
   },
   {
    "id": "DP10",
    "topic": "DMI periods",
    "text": "Two explicit parameters di_period and adx_period; no default.",
-   "status": "ACCEPTED (coordinator, pending owner review)"
+   "status": "coordinator decision, frozen once this PR merges, pending owner review"
   },
   {
    "id": "DP11",
    "topic": "Stochastic smoothing",
    "text": "Raw %K location in the n-bar window including the current bar; %K = simple mean of s raw values (slowing); %D = simple mean of d %K values. s=1 is fast %K. Alternatives: EMA or Wilder smoothing; %D on raw.",
-   "status": "ACCEPTED (coordinator, pending owner review)"
+   "status": "coordinator decision, frozen once this PR merges, pending owner review"
   },
   {
    "id": "DP12",
    "topic": "Oscillator scale",
    "text": "Stochastic 0..100 points; Williams %R -100..0 points. Alternative: fractions.",
-   "status": "ACCEPTED (coordinator, pending owner review)"
+   "status": "coordinator decision, frozen once this PR merges, pending owner review"
   },
   {
    "id": "DP13",
    "topic": "Zero range",
    "text": "HH=LL makes raw %K and Williams undefined (not_applicable/zero_denominator) and the condition propagates to every smoothed output that consumes it. Alternatives: neutral 50 (R17 RSI precedent); 0; carry previous.",
-   "status": "ACCEPTED (coordinator, pending owner review)"
+   "status": "coordinator decision, frozen once this PR merges, pending owner review"
   },
   {
    "id": "DP14",
    "topic": "Williams %R",
    "text": "Uses k_period and the same window as raw %K; no separate period parameter.",
-   "status": "ACCEPTED (coordinator, pending owner review)"
+   "status": "coordinator decision, frozen once this PR merges, pending owner review"
   },
   {
    "id": "DP15",
    "topic": "Numeric policy",
    "text": "SUPERSEDED by ruling Q2: implementation uses R17 Decimal120 recurrences and tolerance; exact rationals are fixture reference values only.",
-   "status": "ACCEPTED (coordinator, pending owner review)"
+   "status": "coordinator decision, frozen once this PR merges, pending owner review"
   },
   {
    "id": "DP16",
    "topic": "Producer shape",
    "text": "One homogeneous config per family (macd, dmi, stochastic); caller may select any subset of that family's IDs (R17 selection style, not the EF1 fixed complete set).",
-   "status": "ACCEPTED (coordinator, pending owner review)"
+   "status": "coordinator decision, frozen once this PR merges, pending owner review"
   },
   {
    "id": "DP17",
    "topic": "Epoch rule",
    "text": "Every chain and window lies inside [anchor, target]; rolling windows cannot reach before the anchor; older bars and old gaps never count (R17 band precedent).",
-   "status": "ACCEPTED (coordinator, pending owner review)"
+   "status": "coordinator decision, frozen once this PR merges, pending owner review"
   },
   {
    "id": "DP18",
    "topic": "Output IDs and units",
    "text": "intraday.macd_line/signal/histogram (currency/share); intraday.plus_di/minus_di/dx/adx (DMI points); intraday.stoch_k/stoch_d (stochastic points); intraday.williams_r (Williams %R points).",
-   "status": "ACCEPTED (coordinator, pending owner review)"
+   "status": "coordinator decision, frozen once this PR merges, pending owner review"
   },
   {
    "id": "DP19",
    "topic": "Capabilities",
    "text": "Batch snapshot and full supplied-history replay only; update, restore, merge unsupported (R17 posture).",
-   "status": "ACCEPTED (coordinator, pending owner review)"
+   "status": "coordinator decision, frozen once this PR merges, pending owner review"
   }
  ],
  "open_questions": [
@@ -485,99 +487,103 @@
    "id": "Q1",
    "topic": "Packaging",
    "text": "Extend packages/intraday (equity_features_intraday) with additive modules, a new prerelease version and a new catalog digest. The money-flow contract B uses the same package.",
-   "status": "RULING (coordinator, pending owner review)"
+   "status": "coordinator decision, frozen once this PR merges, pending owner review"
   },
   {
    "id": "Q2",
    "topic": "Numeric policy",
-   "text": "Implementation follows the R17 policy (Decimal120 recurrences, ROUND_HALF_EVEN, one final float64 conversion, tolerance abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) from docs/api/INTRADAY.md; kernel in _indicators.py). Fixture exact fractions and float.hex are REFERENCE values. Reference 0 must be +0.0 where guaranteeable (see acceptance rules) else abs(y) <= 1e-12 * max epoch close.",
-   "status": "RULING (coordinator, pending owner review)"
+   "text": "Implementation follows the R17 policy (Decimal120 recurrences, ROUND_HALF_EVEN, one final float64 conversion, tolerance abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) from docs/api/INTRADAY.md; kernel in _indicators.py). Fixture exact fractions and float.hex are REFERENCE values. Reference 0 must be +0.0 in every fixture (guarantee stated per fixture).",
+   "status": "coordinator decision, frozen once this PR merges, pending owner review"
   },
   {
    "id": "Q3",
    "topic": "ADX start",
    "text": "As proposed: first defined DX, data-dependent warm-up.",
-   "status": "RULING (coordinator, pending owner review)"
+   "status": "coordinator decision, frozen once this PR merges, pending owner review"
   },
   {
    "id": "Q4",
    "topic": "Zero range",
    "text": "As proposed: undefined, propagating.",
-   "status": "RULING (coordinator, pending owner review)"
+   "status": "coordinator decision, frozen once this PR merges, pending owner review"
   },
   {
    "id": "Q5",
    "topic": "Units",
    "text": "DMI points, stochastic points, Williams %R points accepted as additive units, to be listed in the later shared-contract header ledger and unit amendment (a sibling document after freeze).",
-   "status": "RULING (coordinator, pending owner review)"
+   "status": "coordinator decision, frozen once this PR merges, pending owner review"
   },
   {
    "id": "Q6",
    "topic": "OHLC validity",
    "text": "Verified: packages/contracts validation.py validate_batch refuses low > high and open/high/low/close outside [low, high] with INVALID_SCHEMA (zero-volume rows must be null OHLC). The producer adds no check, no new code, no change to shared validators.",
-   "status": "RULING (coordinator, pending owner review)"
+   "status": "coordinator decision, frozen once this PR merges, pending owner review"
   },
   {
    "id": "Q7",
    "topic": "State",
    "text": "update, restore, merge and carry epochs are NOT in v1. Anchored batch (reset epoch) only; a carry-mode context is INVALID_CONFIG.",
-   "status": "RULING (coordinator, pending owner review)"
+   "status": "coordinator decision, frozen once this PR merges, pending owner review"
   },
   {
    "id": "Q8",
    "topic": "Extra outputs",
    "text": "None beyond the 10.",
-   "status": "RULING (coordinator, pending owner review)"
+   "status": "coordinator decision, frozen once this PR merges, pending owner review"
   },
   {
    "id": "Q9",
    "topic": "Defaults",
    "text": "No default periods or thresholds; standard values appear only in fixtures.",
-   "status": "RULING (coordinator, pending owner review)"
+   "status": "coordinator decision, frozen once this PR merges, pending owner review"
   },
   {
    "id": "Q10",
    "topic": "Identity",
    "text": "intraday.momentum.v1 accepted.",
-   "status": "RULING (coordinator, pending owner review)"
+   "status": "coordinator decision, frozen once this PR merges, pending owner review"
   },
   {
    "id": "Q11",
    "topic": "Operand families",
    "text": "directional_moves and rolling_extrema_runs accepted as additive internal families.",
-   "status": "RULING (coordinator, pending owner review)"
+   "status": "coordinator decision, frozen once this PR merges, pending owner review"
   },
   {
    "id": "Q12",
    "topic": "Prefix property",
    "text": "REQUIRED: the output at bar n must not depend on later bars. Fixtures P01 (macd), P02 (dmi), P03 (stochastic).",
-   "status": "RULING (coordinator, pending owner review)"
+   "status": "coordinator decision, frozen once this PR merges, pending owner review"
   },
   {
    "id": "Q13",
    "topic": "Performance",
    "text": "Not a contract item in v1 beyond O(1) state per bar and no whole-series barrier; measurement belongs to the release baseline.",
-   "status": "RULING (coordinator, pending owner review)"
+   "status": "coordinator decision, frozen once this PR merges, pending owner review"
   }
  ],
  "fixture_notation": {
-  "compact": "NOT canonical wire. slots are global indices 0..T-1; target is the last slot; anchor is the epoch start; h,l,c are integer coefficients at scale; null means no value; defect kinds: missing (no row), empty (observed empty), null (listed fields null), future (known after K), unknown (known_at null); absent_columns lists columns missing from the whole delivery; delivery none means batches=None; all other slots are complete, causal, positive-volume rows",
+  "compact": "NOT canonical wire. A null-field slot is built with volume null and the listed OHLC field null (validate_batch refuses a positive-volume bar with any null OHLC column; zero volume requires all-null OHLC = observed-empty slot); all other slots have positive volume. slots are global indices 0..T-1; target is the last slot; anchor is the epoch start; h,l,c are integer coefficients at scale; null means no value; defect kinds: missing (no row), empty (observed empty), null (listed fields null), future (known after K), unknown (known_at null); absent_columns lists columns missing from the whole delivery; delivery none means batches=None; all other slots are complete, causal, positive-volume rows",
   "expected": "value.exact is the exact rational; value.float64 and value.hex are the correctly rounded result; expected/observed are quality counts; evidence_rows lists [slot, use] sorted by feature id then slot after truncation to evidence_limit (default 10000)",
   "intermediate_exact": "optional exact chains for hand checking"
  },
  "fixture_counts": {
-  "result_fixtures": 97,
+  "result_fixtures": 99,
+  "acceptance_rule_counts_all_fixtures_incl_prefix": {
+   "tolerance": 182,
+   "exact_plus_zero": 37
+  },
   "prefix_property_fixtures": 3,
   "by_family": {
    "macd": 32,
-   "dmi": 35,
+   "dmi": 37,
    "stochastic": 30
   },
-  "refusal_fixtures": 24,
+  "refusal_fixtures": 23,
   "output_statuses": {
-   "insufficient_history": 25,
+   "insufficient_history": 26,
    "available": 192,
-   "incomplete_coverage": 48,
+   "incomplete_coverage": 55,
    "missing_input": 20,
    "not_applicable": 27
   }
@@ -661,7 +667,9 @@
   "gap": [
    "M11",
    "M12",
-   "D10"
+   "D10",
+   "D20",
+   "D21"
   ],
   "gap_independence": [
    "T16",
@@ -1378,8 +1386,8 @@
        "hex": "0x0.0p+0"
       },
       "acceptance": {
-       "rule": "zero_bound",
-       "text": "exact reference 0 is not guaranteeable on non-identical input with Decimal120 recurrences; relaxed to abs(y) <= 1e-12 * max epoch close price in currency/share"
+       "rule": "exact_plus_zero",
+       "guarantee": "Decimal120 exactness: every seed, EMA, line and signal value for these inputs is a terminating decimal (denominator 2^a*5^b, see intermediate_exact), so each Decimal120 division and subtraction is exact and the zero arises exactly; publish +0.0"
       }
      },
      "intraday.macd_line": {
@@ -1603,8 +1611,8 @@
        "hex": "0x0.0p+0"
       },
       "acceptance": {
-       "rule": "zero_bound",
-       "text": "exact reference 0 is not guaranteeable on non-identical input with Decimal120 recurrences; relaxed to abs(y) <= 1e-12 * max epoch close price in currency/share"
+       "rule": "exact_plus_zero",
+       "guarantee": "Decimal120 exactness: every seed, EMA, line and signal value for these inputs is a terminating decimal (denominator 2^a*5^b, see intermediate_exact), so each Decimal120 division and subtraction is exact and the zero arises exactly; publish +0.0"
       }
      },
      "intraday.macd_line": {
@@ -3344,8 +3352,8 @@
        "hex": "0x0.0p+0"
       },
       "acceptance": {
-       "rule": "zero_bound",
-       "text": "exact reference 0 is not guaranteeable on non-identical input with Decimal120 recurrences; relaxed to abs(y) <= 1e-12 * max epoch close price in currency/share"
+       "rule": "exact_plus_zero",
+       "guarantee": "Decimal120 exactness: every seed, EMA, line and signal value for these inputs is a terminating decimal (denominator 2^a*5^b, see intermediate_exact), so each Decimal120 division and subtraction is exact and the zero arises exactly; publish +0.0"
       }
      },
      "intraday.macd_line": {
@@ -3511,8 +3519,8 @@
        "hex": "0x0.0p+0"
       },
       "acceptance": {
-       "rule": "zero_bound",
-       "text": "exact reference 0 is not guaranteeable on non-identical input with Decimal120 recurrences; relaxed to abs(y) <= 1e-12 * max epoch close price in currency/share"
+       "rule": "exact_plus_zero",
+       "guarantee": "Decimal120 exactness: every seed, EMA, line and signal value for these inputs is a terminating decimal (denominator 2^a*5^b, see intermediate_exact), so each Decimal120 division and subtraction is exact and the zero arises exactly; publish +0.0"
       }
      },
      "intraday.macd_signal": {
@@ -4343,7 +4351,8 @@
       "fields": [
        "close"
       ]
-     }
+     },
+     "volume": null
     },
     {
      "h": null,
@@ -10529,7 +10538,8 @@
       "fields": [
        "high"
       ]
-     }
+     },
+     "volume": null
     },
     {
      "h": 22,
@@ -10735,7 +10745,8 @@
       "fields": [
        "close"
       ]
-     }
+     },
+     "volume": null
     }
    ],
    "expected": {
@@ -10956,7 +10967,8 @@
       "fields": [
        "close"
       ]
-     }
+     },
+     "volume": null
     },
     {
      "h": 25,
@@ -11948,6 +11960,323 @@
       "2": "5",
       "3": "6",
       "4": "11/2"
+     }
+    }
+   }
+  },
+  {
+   "id": "D20",
+   "group": "gap",
+   "family": "dmi",
+   "description": "flat start plus a missing bar, ec=5 (2,2): f is unknowable, so ADX expected = max(di+adx, epoch slots) = 5, not f+m",
+   "params": {
+    "di_period": 2,
+    "adx_period": 2
+   },
+   "scale": 0,
+   "mode": "reset",
+   "anchor": 0,
+   "slots": [
+    {
+     "h": 10,
+     "l": 10,
+     "c": 10
+    },
+    {
+     "h": 10,
+     "l": 10,
+     "c": 10
+    },
+    {
+     "h": 10,
+     "l": 10,
+     "c": 10
+    },
+    {
+     "h": null,
+     "l": null,
+     "c": null,
+     "defect": {
+      "kind": "missing"
+     }
+    },
+    {
+     "h": 12,
+     "l": 10,
+     "c": 12
+    }
+   ],
+   "expected": {
+    "outputs": {
+     "intraday.adx": {
+      "status": "incomplete_coverage",
+      "reasons": [
+       "governed_gap"
+      ],
+      "expected": 5,
+      "observed": 4,
+      "value": null
+     },
+     "intraday.dx": {
+      "status": "incomplete_coverage",
+      "reasons": [
+       "governed_gap"
+      ],
+      "expected": 5,
+      "observed": 4,
+      "value": null
+     },
+     "intraday.minus_di": {
+      "status": "incomplete_coverage",
+      "reasons": [
+       "governed_gap"
+      ],
+      "expected": 5,
+      "observed": 4,
+      "value": null
+     },
+     "intraday.plus_di": {
+      "status": "incomplete_coverage",
+      "reasons": [
+       "governed_gap"
+      ],
+      "expected": 5,
+      "observed": 4,
+      "value": null
+     }
+    },
+    "evidence_rows": {
+     "intraday.adx": [
+      [
+       0,
+       "consumed"
+      ],
+      [
+       1,
+       "consumed"
+      ],
+      [
+       2,
+       "consumed"
+      ],
+      [
+       4,
+       "consumed"
+      ]
+     ],
+     "intraday.dx": [
+      [
+       0,
+       "consumed"
+      ],
+      [
+       1,
+       "consumed"
+      ],
+      [
+       2,
+       "consumed"
+      ],
+      [
+       4,
+       "consumed"
+      ]
+     ],
+     "intraday.minus_di": [
+      [
+       0,
+       "consumed"
+      ],
+      [
+       1,
+       "consumed"
+      ],
+      [
+       2,
+       "consumed"
+      ],
+      [
+       4,
+       "consumed"
+      ]
+     ],
+     "intraday.plus_di": [
+      [
+       0,
+       "consumed"
+      ],
+      [
+       1,
+       "consumed"
+      ],
+      [
+       2,
+       "consumed"
+      ],
+      [
+       4,
+       "consumed"
+      ]
+     ]
+    },
+    "intermediate_exact": {
+     "first_defined_dx_epoch_index": 3,
+     "tr": {
+      "1": "0",
+      "2": "0",
+      "3": "10",
+      "4": "12"
+     },
+     "plus_dm": {
+      "1": "0",
+      "2": "0",
+      "3": "0",
+      "4": "12"
+     },
+     "minus_dm": {
+      "1": "0",
+      "2": "0",
+      "3": "10",
+      "4": "0"
+     },
+     "smoothed_tr": {
+      "2": "0",
+      "3": "5",
+      "4": "17/2"
+     }
+    }
+   }
+  },
+  {
+   "id": "D21",
+   "group": "gap",
+   "family": "dmi",
+   "description": "flat, missing, flat, ec=3 < di+adx=4: static insufficient_history keeps governed_gap, expected = di+adx = 4",
+   "params": {
+    "di_period": 2,
+    "adx_period": 2
+   },
+   "scale": 0,
+   "mode": "reset",
+   "anchor": 0,
+   "slots": [
+    {
+     "h": 10,
+     "l": 10,
+     "c": 10
+    },
+    {
+     "h": null,
+     "l": null,
+     "c": null,
+     "defect": {
+      "kind": "missing"
+     }
+    },
+    {
+     "h": 10,
+     "l": 10,
+     "c": 10
+    }
+   ],
+   "expected": {
+    "outputs": {
+     "intraday.adx": {
+      "status": "insufficient_history",
+      "reasons": [
+       "governed_gap",
+       "insufficient_history"
+      ],
+      "expected": 4,
+      "observed": 2,
+      "value": null
+     },
+     "intraday.dx": {
+      "status": "incomplete_coverage",
+      "reasons": [
+       "governed_gap"
+      ],
+      "expected": 3,
+      "observed": 2,
+      "value": null
+     },
+     "intraday.minus_di": {
+      "status": "incomplete_coverage",
+      "reasons": [
+       "governed_gap"
+      ],
+      "expected": 3,
+      "observed": 2,
+      "value": null
+     },
+     "intraday.plus_di": {
+      "status": "incomplete_coverage",
+      "reasons": [
+       "governed_gap"
+      ],
+      "expected": 3,
+      "observed": 2,
+      "value": null
+     }
+    },
+    "evidence_rows": {
+     "intraday.adx": [
+      [
+       0,
+       "consumed"
+      ],
+      [
+       2,
+       "consumed"
+      ]
+     ],
+     "intraday.dx": [
+      [
+       0,
+       "consumed"
+      ],
+      [
+       2,
+       "consumed"
+      ]
+     ],
+     "intraday.minus_di": [
+      [
+       0,
+       "consumed"
+      ],
+      [
+       2,
+       "consumed"
+      ]
+     ],
+     "intraday.plus_di": [
+      [
+       0,
+       "consumed"
+      ],
+      [
+       2,
+       "consumed"
+      ]
+     ]
+    },
+    "intermediate_exact": {
+     "first_defined_dx_epoch_index": 2,
+     "tr": {
+      "1": "10",
+      "2": "10"
+     },
+     "plus_dm": {
+      "1": "0",
+      "2": "10"
+     },
+     "minus_dm": {
+      "1": "10",
+      "2": "0"
+     },
+     "smoothed_tr": {
+      "2": "10"
      }
     }
    }
@@ -14464,7 +14793,8 @@
       "fields": [
        "close"
       ]
-     }
+     },
+     "volume": null
     },
     {
      "h": 14,
@@ -14651,7 +14981,8 @@
       "fields": [
        "close"
       ]
-     }
+     },
+     "volume": null
     },
     {
      "h": 12,
@@ -14823,7 +15154,8 @@
       "fields": [
        "high"
       ]
-     }
+     },
+     "volume": null
     },
     {
      "h": 13,
@@ -16889,7 +17221,7 @@
   {
    "id": "E01",
    "code": "INVALID_CONFIG",
-   "description": "macd fast_period >= slow_period (equal)",
+   "description": "macd fast_period equal to slow_period",
    "input": {
     "family": "macd",
     "params": {
@@ -16902,7 +17234,7 @@
   {
    "id": "E02",
    "code": "INVALID_CONFIG",
-   "description": "macd fast_period > slow_period",
+   "description": "macd fast_period greater than slow_period",
    "input": {
     "family": "macd",
     "params": {
@@ -16915,33 +17247,149 @@
   {
    "id": "E03",
    "code": "INVALID_CONFIG",
-   "description": "macd any period < 1",
+   "description": "any period < 1, one case per period parameter",
    "input": {
-    "family": "macd",
-    "params": {
-     "fast_period": 0,
-     "slow_period": 3,
-     "signal_period": 2
-    }
+    "cases": [
+     {
+      "family": "macd",
+      "params": {
+       "fast_period": 0,
+       "slow_period": 3,
+       "signal_period": 2
+      }
+     },
+     {
+      "family": "macd",
+      "params": {
+       "fast_period": 2,
+       "slow_period": 0,
+       "signal_period": 2
+      }
+     },
+     {
+      "family": "macd",
+      "params": {
+       "fast_period": 2,
+       "slow_period": 3,
+       "signal_period": 0
+      }
+     },
+     {
+      "family": "dmi",
+      "params": {
+       "di_period": 0,
+       "adx_period": 2
+      }
+     },
+     {
+      "family": "dmi",
+      "params": {
+       "di_period": 2,
+       "adx_period": 0
+      }
+     },
+     {
+      "family": "stochastic",
+      "params": {
+       "k_period": 0,
+       "k_slowing": 2,
+       "d_period": 2
+      }
+     },
+     {
+      "family": "stochastic",
+      "params": {
+       "k_period": 3,
+       "k_slowing": 0,
+       "d_period": 2
+      }
+     },
+     {
+      "family": "stochastic",
+      "params": {
+       "k_period": 3,
+       "k_slowing": 2,
+       "d_period": 0
+      }
+     }
+    ]
    }
   },
   {
    "id": "E04",
    "code": "INVALID_CONFIG",
-   "description": "macd boolean period (True) rejected as non-integer",
+   "description": "boolean True where an integer period is required, one case per period parameter",
    "input": {
-    "family": "macd",
-    "params": {
-     "fast_period": true,
-     "slow_period": 3,
-     "signal_period": 2
-    }
+    "cases": [
+     {
+      "family": "macd",
+      "params": {
+       "fast_period": true,
+       "slow_period": 3,
+       "signal_period": 2
+      }
+     },
+     {
+      "family": "macd",
+      "params": {
+       "fast_period": 2,
+       "slow_period": true,
+       "signal_period": 2
+      }
+     },
+     {
+      "family": "macd",
+      "params": {
+       "fast_period": 2,
+       "slow_period": 3,
+       "signal_period": true
+      }
+     },
+     {
+      "family": "dmi",
+      "params": {
+       "di_period": true,
+       "adx_period": 2
+      }
+     },
+     {
+      "family": "dmi",
+      "params": {
+       "di_period": 2,
+       "adx_period": true
+      }
+     },
+     {
+      "family": "stochastic",
+      "params": {
+       "k_period": true,
+       "k_slowing": 2,
+       "d_period": 2
+      }
+     },
+     {
+      "family": "stochastic",
+      "params": {
+       "k_period": 3,
+       "k_slowing": true,
+       "d_period": 2
+      }
+     },
+     {
+      "family": "stochastic",
+      "params": {
+       "k_period": 3,
+       "k_slowing": 2,
+       "d_period": true
+      }
+     }
+    ]
    }
   },
   {
    "id": "E05",
    "code": "INVALID_CONFIG",
-   "description": "macd slow_period + signal_period - 1 > 4096 (signal can never be available)",
+   "description": "macd slow_period + signal_period - 1 > 4096 (signal could never be available)",
    "input": {
     "family": "macd",
     "params": {
@@ -16954,18 +17402,6 @@
   {
    "id": "E06",
    "code": "INVALID_CONFIG",
-   "description": "dmi di_period < 1",
-   "input": {
-    "family": "dmi",
-    "params": {
-     "di_period": 0,
-     "adx_period": 2
-    }
-   }
-  },
-  {
-   "id": "E07",
-   "code": "INVALID_CONFIG",
    "description": "dmi di_period + adx_period > 4096",
    "input": {
     "family": "dmi",
@@ -16976,20 +17412,7 @@
    }
   },
   {
-   "id": "E08",
-   "code": "INVALID_CONFIG",
-   "description": "stochastic k_slowing < 1",
-   "input": {
-    "family": "stochastic",
-    "params": {
-     "k_period": 3,
-     "k_slowing": 0,
-     "d_period": 2
-    }
-   }
-  },
-  {
-   "id": "E09",
+   "id": "E07",
    "code": "INVALID_CONFIG",
    "description": "stochastic k_period + k_slowing + d_period - 2 > 4096",
    "input": {
@@ -17002,9 +17425,9 @@
    }
   },
   {
-   "id": "E10",
+   "id": "E08",
    "code": "INVALID_CONFIG",
-   "description": "missing closed parameter or unknown extra parameter in the envelope",
+   "description": "missing closed parameter (macd without signal_period)",
    "input": {
     "family": "macd",
     "params": {
@@ -17014,11 +17437,44 @@
    }
   },
   {
-   "id": "E11",
-   "code": "INCOMPATIBLE_VERSION",
-   "description": "unsupported convention value (e.g. ema_seed != sma_first_n) in v1",
+   "id": "E09",
+   "code": "INVALID_CONFIG",
+   "description": "EXTRA parameter not in the closed set (macd with an added k_period)",
    "input": {
     "family": "macd",
+    "params": {
+     "fast_period": 2,
+     "slow_period": 3,
+     "signal_period": 2,
+     "k_period": 3
+    }
+   }
+  },
+  {
+   "id": "E10",
+   "code": "INVALID_CONFIG",
+   "description": "context mode other than reset (carry) is out of scope in v1",
+   "input": {
+    "family": "macd",
+    "params": {
+     "fast_period": 2,
+     "slow_period": 3,
+     "signal_period": 2
+    },
+    "context_mode": "carry"
+   }
+  },
+  {
+   "id": "E11",
+   "code": "INCOMPATIBLE_VERSION",
+   "description": "unsupported convention value (ema_seed = first_close instead of sma_first_n)",
+   "input": {
+    "family": "macd",
+    "params": {
+     "fast_period": 2,
+     "slow_period": 3,
+     "signal_period": 2
+    },
     "conventions": {
      "ema_seed": "first_close"
     }
@@ -17027,9 +17483,14 @@
   {
    "id": "E12",
    "code": "INCOMPATIBLE_VERSION",
-   "description": "unsupported zero_range convention (e.g. 50_neutral)",
+   "description": "unsupported zero_range convention (neutral_50)",
    "input": {
     "family": "stochastic",
+    "params": {
+     "k_period": 3,
+     "k_slowing": 2,
+     "d_period": 2
+    },
     "conventions": {
      "zero_range": "neutral_50"
     }
@@ -17038,110 +17499,154 @@
   {
    "id": "E13",
    "code": "INVALID_CONFIG",
-   "description": "selected feature does not belong to the config family",
+   "description": "evidence_limit outside 0..10000",
    "input": {
     "family": "macd",
+    "params": {
+     "fast_period": 2,
+     "slow_period": 3,
+     "signal_period": 2
+    },
+    "evidence_limit": 10001
+   }
+  },
+  {
+   "id": "E14",
+   "code": "UNKNOWN_FEATURE",
+   "description": "selected feature belongs to another family: intraday.adx requested under a macd config (existing UNKNOWN_FEATURE code, as in the money-flow contract refusal MR16; no new code)",
+   "input": {
+    "family": "macd",
+    "params": {
+     "fast_period": 2,
+     "slow_period": 3,
+     "signal_period": 2
+    },
     "features": [
      "intraday.adx"
     ]
    }
   },
   {
-   "id": "E14",
+   "id": "E15",
    "code": "UNKNOWN_FEATURE",
-   "description": "feature id absent from the catalog",
+   "description": "feature id outside the catalog",
    "input": {
+    "family": "macd",
+    "params": {
+     "fast_period": 2,
+     "slow_period": 3,
+     "signal_period": 2
+    },
     "features": [
      "intraday.macd_hist"
     ]
    }
   },
   {
-   "id": "E15",
+   "id": "E16",
    "code": "UNSUPPORTED_CAPABILITY",
    "description": "update, restore or merge requested for any EF2 output",
    "input": {
-    "capability": "update"
-   }
-  },
-  {
-   "id": "E16",
-   "code": "INVALID_SCHEMA",
-   "description": "bar has low > high: refused by the shared validate_batch coherence rule (validation.py), no producer check added",
-   "input": {
-    "bar": {
-     "h": 10,
-     "l": 12,
-     "c": 11
-    }
+    "capability": "update",
+    "features": [
+     "intraday.macd_line"
+    ]
    }
   },
   {
    "id": "E17",
-   "code": "INVALID_SCHEMA",
-   "description": "bar has close or open outside [low, high]: refused by the shared validate_batch coherence rule",
+   "code": "INCONSISTENT_IDENTITY",
+   "description": "context_sha256 parameter is 64 zeros while the decoded canonical context hashes to a different digest (config envelope tampered)",
    "input": {
-    "bar": {
-     "h": 12,
-     "l": 10,
-     "c": 13
-    }
+    "family": "macd",
+    "params": {
+     "fast_period": 2,
+     "slow_period": 3,
+     "signal_period": 2
+    },
+    "context_sha256": "0000000000000000000000000000000000000000000000000000000000000000"
    }
   },
   {
    "id": "E18",
-   "code": "INVALID_CONFIG",
-   "description": "evidence_limit outside 0..10000",
+   "code": "INVALID_UNIT",
+   "description": "batch metadata price_unit scale 2 while ConfigSpec.price_unit scale is 4",
    "input": {
-    "evidence_limit": 10001
+    "batch_price_unit": {
+     "currency": "USD",
+     "scale": 2
+    },
+    "config_price_unit": {
+     "currency": "USD",
+     "scale": 4
+    }
    }
   },
   {
    "id": "E19",
-   "code": "INCONSISTENT_IDENTITY",
-   "description": "context digest or config envelope differs from the canonical one",
+   "code": "UNSUPPORTED_ADJUSTMENT",
+   "description": "batch adjustment action_snapshot A2 while ConfigSpec.adjustment action_snapshot is A1",
    "input": {
-    "note": "same as R17"
+    "batch_adjustment": {
+     "action_snapshot": "A2"
+    },
+    "config_adjustment": {
+     "action_snapshot": "A1"
+    }
    }
   },
   {
    "id": "E20",
-   "code": "INVALID_UNIT",
-   "description": "batch price unit differs from ConfigSpec.price_unit",
+   "code": "DUPLICATE",
+   "description": "two chunks with the same source input_id in-1",
    "input": {
-    "note": "same as R17"
+    "chunks": [
+     {
+      "input_id": "in-1"
+     },
+     {
+      "input_id": "in-1"
+     }
+    ]
    }
   },
   {
    "id": "E21",
-   "code": "UNSUPPORTED_ADJUSTMENT",
-   "description": "batch action basis differs from ConfigSpec.adjustment",
+   "code": "INVALID_SCHEMA",
+   "description": "positive-volume bar with high < low, refused by the shared validate_batch (validation.py); no producer check",
    "input": {
-    "note": "same as R17"
+    "bar": {
+     "h": 10,
+     "l": 12,
+     "c": 11,
+     "volume": 5
+    }
    }
   },
   {
    "id": "E22",
-   "code": "DUPLICATE",
-   "description": "duplicate input_id across chunks",
+   "code": "INVALID_SCHEMA",
+   "description": "positive-volume bar with close 13 above high 12, refused by the shared validate_batch",
    "input": {
-    "note": "same as R17"
-   }
-  },
-  {
-   "id": "E24",
-   "code": "INVALID_CONFIG",
-   "description": "context mode carry (or any mode other than reset) is out of scope in v1",
-   "input": {
-    "mode": "carry"
+    "bar": {
+     "h": 12,
+     "l": 10,
+     "c": 13,
+     "volume": 5
+    }
    }
   },
   {
    "id": "E23",
-   "code": "OVERFLOW",
-   "description": "non-finite Float64 conversion or violated arithmetic invariant (whole-call)",
+   "code": "INVALID_SCHEMA",
+   "description": "positive-volume bar with a null OHLC column (high null, volume 5), refused by the shared validate_batch; this is why null-field fixtures use null volume",
    "input": {
-    "note": "not reachable with admitted prices; kept for implementation guard"
+    "bar": {
+     "h": null,
+     "l": 10,
+     "c": 11,
+     "volume": 5
+    }
    }
   }
  ],
