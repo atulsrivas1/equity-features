@@ -1,3 +1,7 @@
+## EF4 path efficiency and choppiness - library source, October 23, 2026
+
+Adds the pure `ef4.path_efficiency` producer (`path.choppiness_fraction`, `path.efficiency_ratio`, `path.log_efficiency_ratio`, `path.net_displacement`, `path.path_length`, `path.true_range_sum`, `path.window_range`; policy `ef4-path1`, in `packages/intraday`) per the frozen [contract](ef4/PATH_EFFICIENCY_CONTRACT_PROPOSAL.md) (EQ-161 #495 library layer): exact integer and rational arithmetic, Decimal120 logarithms of exact ratios (choppiness `ln(TRS/WR)/ln(N)` in [0,1], log1p-grade near one), strict N+1 slot windows with independent close and range readiness, session-reset and governed-history epochs, and caller windows with no default. Every EF1/EF2/EF3 output, every published R17 result and the R17 catalog digest are byte-identical. [Implementation, limits and open points](ef4/PATH_EFFICIENCY_IMPLEMENTATION.md) and the [path efficiency API](api/EF4_PATH_EFFICIENCY.md) accompany this bounded source slice. Versions, the default registry and shared contracts are unchanged; no I/O, worker, installed or release acceptance is claimed.
+
 ## EF4 tape windows and notional top-K - library source, October 23, 2026
 
 Adds the pure `ef4.tape_window_sign` producer (nine `tape.window.*` and `tape.tick.*` outputs; policy `ef4-tape1`) and the pure `ef4.trade_top_k_notional` producer (`tape.top_k_notional`; policy `ef4-notional1`) as `equity_features.ef4` per the frozen [contract](ef4/TAPE_CONTRACT_PROPOSAL.md) (EQ-158 #492 and EQ-162 #496 library layer): a `[C - W, C)` trade window with exact count, volume and notional, a tick-rule sign with carry and an optional caller seed, signed volume splits and imbalance with independent per-output readiness, and the exact notional-ranked largest prints with a conditional partition merge, with no default window, seed policy, K or evidence limit. The accepted `session.trade.top_k` (size ranked), every EF1/EF2/EF3 output, every published R17 result, `describe_intraday()` and its catalog digest are byte-identical. [Implementation, deviations and validation](ef4/TAPE_IMPLEMENTATION.md), [tape window API](api/EF4_TAPE_WINDOW.md) and [notional top-K API](api/EF4_TAPE_TOP_K_NOTIONAL.md) accompany this bounded source slice. Versions, the default registry and shared contracts are unchanged; no I/O, worker, installed or release acceptance is claimed.
@@ -5,10 +9,6 @@ Adds the pure `ef4.tape_window_sign` producer (nine `tape.window.*` and `tape.ti
 ## EF4 quote dynamics and VWAP path - library source, October 23, 2026
 
 Adds the pure `ef4.quote_dynamics` producer (9 `quote.sampled.*`, `quote.microprice.*` and `quote.change.*` outputs; policy `ef4-quote1`) and the pure `ef4.vwap_path` producer (7 `vwap.path.*` and `vwap.slope.*` outputs; policy `ef4-vwap1`) as `equity_features.ef4` per the frozen [contract](ef4/QUOTE_VWAP_CONTRACT_PROPOSAL.md) (EQ-159 #493 and EQ-160 #494 library layer): maxima over valid observations with each observation's own midpoint bps, a size-tilted microprice, first-to-last and adjacent-pair quote change on continuous sampling, and an anchored cumulative VWAP path over trades, bars or a supplied prepared window series with endpoint and ordinary least squares slopes per second; exact rational arithmetic with one float64 rounding, independent per-output readiness, the contract refusal tiers and evidence. Separate producers and a separate ef4 discovery (`quote_vwap_definitions`): the accepted R17 outputs, `describe_intraday`, its catalog digest, `session.quote.*`, EF1, EF2 and EF3 are unchanged. Batch only; no I/O mapping, worker, header-ledger amendment, installed or release claim. See [the implementation notes](ef4/QUOTE_VWAP_IMPLEMENTATION.md), [quote dynamics](api/EF4_QUOTE_DYNAMICS.md) and [VWAP path](api/EF4_VWAP_PATH.md).
-
-## EF4 path efficiency and choppiness - library source, October 23, 2026
-
-Adds the pure `ef4.path_efficiency` producer (`path.choppiness_fraction`, `path.efficiency_ratio`, `path.log_efficiency_ratio`, `path.net_displacement`, `path.path_length`, `path.true_range_sum`, `path.window_range`; policy `ef4-path1`, in `packages/intraday`) per the frozen [contract](ef4/PATH_EFFICIENCY_CONTRACT_PROPOSAL.md) (EQ-161 #495 library layer): exact integer and rational arithmetic, Decimal120 logarithms of exact ratios (choppiness `ln(TRS/WR)/ln(N)` in [0,1], log1p-grade near one), strict N+1 slot windows with independent close and range readiness, session-reset and governed-history epochs, and caller windows with no default. Every EF1/EF2/EF3 output, every published R17 result and the R17 catalog digest are byte-identical. [Implementation, limits and open points](ef4/PATH_EFFICIENCY_IMPLEMENTATION.md) and the [path efficiency API](api/EF4_PATH_EFFICIENCY.md) accompany this bounded source slice. Versions, the default registry and shared contracts are unchanged; no I/O, worker, installed or release acceptance is claimed.
 
 ## EF3 breadth and adaptive volume - library source, October 23, 2026
 
@@ -834,6 +834,7 @@ unchanged. Final27 source cases/strict2 and actual installed bothOS/main artifac
 issue56; [receipt](stories/EQ-049_DELIVERY.md).
 No row mapping/acquisition or R4 conformance/real-data acceptance yet. [API](api/DUCKDB_RESOLVER.md).
 
+
 ## EQ048 bounded package acceptance record — versions unchanged
 
 [R3 evidence](releases/R3/R3_ACCEPTANCE.md) maps all50R0–R3stories, acceptedrepairs/priorrelease receipts, current633units/strict49/math123, installeda4/consumer0.4qualification/43outcomes and measuredbenchmark/resource/integrity limits. No runtime/math/schema/mode/dependency/channel change. Exactfinalreview/publication/Releasedverification and54/E06/milestone4closure recorded in liveGitHub.
@@ -932,6 +933,7 @@ and80-digit square root preserve tiny nonzero int64-limit changes; no implicit25
 31batch/all8history,23session update/restore22merge; no history state modes.
 [API](api/HISTORY.md), [delivery gates](stories/EQ-030_DELIVERY.md).
 
+
 ## 0.0.3a3 — EQ029 verified experimental implementation delivery
 
 Batch Wilder RSI/ATR require explicit anchors/seeds and full governed epochs.
@@ -940,6 +942,7 @@ previous close and high/low independently of target close.30batch/23session
 update/restore22merge; no history state modes. [API](api/HISTORY.md),
 [delivery gates](stories/EQ-029_DELIVERY.md).
 
+
 ## 0.0.3a2 — EQ028 verified experimental implementation delivery
 
 Batch SMA uses exact wide means; EMA seeds at an explicit supplied anchor and
@@ -947,6 +950,7 @@ requires its complete epoch without automatic gap reset. Independent readiness,
 bounded Float64 recurrence and exact supplied SMAReference comparisons preserve
 int64-limit ties/one-tick distinctions.28batch/23session update/restore/22merge.
 [API](api/HISTORY.md), [delivery gates](stories/EQ-028_DELIVERY.md).
+
 
 ## 0.0.3a1 — EQ027 verified experimental implementation delivery
 
@@ -1042,6 +1046,7 @@ EQ039 adds a current public API/error/registry/extension index and installed typ
 EQ039 completed separate finalheadreview and source-main bothOSCI. Corrected installedtyping and currentguide/source are qualified locally; [receipt](stories/EQ-039_DELIVERY.md) and issue45 retain actual FOURpairs/receiptpublicationgates before acceptance. Core0.0.4a4/consumer0.2.1 unchanged.
 
 EQ040 introduces independently packaged consumer0.3.0 walkthrough for installed batch/stream/history/composition/missing input/custom/adapter. Independent OHLC100/104/99/103, notional51200, prefix102/final parity, returns1/10 and21/100, custom5/100 versusbuiltin5/103 and missing-instance/null quality are asserted. Core0.0.4a4/math/schema/modes unchanged; only external implementation version advances. [Examples](EXAMPLES.md), [plan](stories/EQ-040_PLAN.md). Final source/review/CI/actualartifact gates remain.
+
 
 EQ053 optionala5 introduces acquisition1/VerificationPolicy and original-read2 source identities, with observed original content in occurrence IDs; experimental identity change is deliberate. Canonical schema1/puremath/core/runtimepins unchanged. Pre/post local hash equality has no atomic snapshot/provider/PIT/rewrite certification. Relevant actual installation/delivery gates remain.
 
