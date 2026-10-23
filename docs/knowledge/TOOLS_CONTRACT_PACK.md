@@ -54,26 +54,48 @@ timed-out command's process tree is killed. `--heartbeat-file` is rewritten with
 `done/total` about every 3 seconds, for peeking only. `--cwd` sets the commands'
 working directory.
 
-## Measured (tools-pack branch, origin/main 778b608)
+## Measured (origin/main 778b608 contracts)
 
 | Contract | raw lines / bytes | pack lines / bytes |
 |---|---|---|
-| ef3 RELATIVE_RV | 6798 / 176722 | 134 / 8282 |
-| ef3 ROBUST_PACE | 12982 / 272244 | 195 / 10954 |
-| ef3 BREADTH_ADAPTIVE | 30702 / 601323 | 144 / 7728 |
-| ef3 EF3_SHARED_AMENDMENT | 640 / 19593 | 69 / 5134 |
-| ef2 ICHIMOKU_CHANNELS | 23150 / 470198 | 127 / 8457 |
-| ef2 MOMENTUM_TREND | 17863 / 333726 | 92 / 5521 |
-| ef2 MONEYFLOW_RETRACEMENT | 5063 / 100737 | 98 / 5286 |
-| ef2 PRODUCER_SET_AMENDMENT | 838 / 39088 | 76 / 7372 |
+| ef3 RELATIVE_RV | 6798 / 176722 | 278 / 18198 |
+| ef3 ROBUST_PACE | 12982 / 272244 | 371 / 23445 |
+| ef3 BREADTH_ADAPTIVE | 30702 / 601323 | 293 / 20146 |
+| ef3 EF3_SHARED_AMENDMENT | 640 / 19593 | 109 / 8037 |
+| ef2 ICHIMOKU_CHANNELS | 23150 / 470198 | 230 / 17260 |
+| ef2 MOMENTUM_TREND | 17863 / 333726 | 183 / 13795 |
+| ef2 MONEYFLOW_RETRACEMENT | 5063 / 100737 | 174 / 10676 |
+| ef2 PRODUCER_SET_AMENDMENT | 838 / 39088 | 230 / 19626 |
 
-Fixture counts found (matches the declared `fixture_counts` in each file):
-RELATIVE_RV 62 result + 3 prefix + 48 refusal; ROBUST_PACE 124 result + 48
-refusal; BREADTH_ADAPTIVE 99 result + 62 refusal; ICHIMOKU 74 + 21; MOMENTUM
-100 + 23; MONEYFLOW 68 + 38 (money-flow and retracement together). The two
-amendment files hold no fixtures.
+Packs grew versus the first version (which was 69-195 lines) because they now
+carry full role contract text, full producer parameters and policy, per-id
+attributes, acceptance rule meanings, status mapping and one line per refusal.
+Reduction is still 20-100x in lines and 10-30x in bytes for the contract proposals.
 
-Checks run: all 770 fixture ids present in the packs (0 missing); `--fixture`
-round-trip equal to the `json.load` subtree for all 770; `run_batch` on 7
-commands (3 pass, 2 fail, 2 timeout) printed one summary, correct logs, exit 1,
-and heartbeat `7/7`.
+Fixture counts found (match the declared `fixture_counts`): RELATIVE_RV 62
+result + 3 prefix + 48 refusal; ROBUST_PACE 124 + 48; BREADTH_ADAPTIVE 99 + 62;
+ICHIMOKU 74 + 21; MOMENTUM 100 + 23; MONEYFLOW 68 + 38. Amendments hold none.
+
+Checks run (manual): all 770 fixture ids present in their packs; `--fixture`
+equals the `json.load` subtree for all 770; `run_batch` with pass, fail and
+timeout commands, a missing command file, a bad `--cwd` (log gets an `exit=`
+line) and an interrupt (CTRL_BREAK on Windows: summary printed, exit 130; the
+children share the console group, so they may show as FAIL rather than
+not-finished); `contract_pack` on a missing file and on invalid JSON prints one
+line and exits 2.
+
+## Reading only the pack (adapter question check)
+
+For RS07 (RELATIVE_RV), RF38, H01 (ROBUST_PACE), DB01 (BREADTH_ADAPTIVE) and
+M01/E01 (MOMENTUM) the pack alone (plus `--fixture` for the body) gave: the
+producer and its parameters/policy, the role names and their data kinds and
+contract text, the acceptance rule kind and its formula (or, for BREADTH
+fixtures, that they assert through `expected` plus `hand_asserted` cells), and
+the refusal code with `raised_by` and description.
+
+Still missing from the pack (read the JSON path): mathematics and formulas,
+decisions and rulings, per-fixture group descriptions and coverage_map,
+BREADTH roles other than as `roles_in_slot_order` plus
+`reference_fact_schemas`, ICHIMOKU `numeric_policy.zero_exactness`, fixture
+input shapes beyond the `fixture_notation` text, and descriptions cut at 175
+characters in the refusal list (marked `[cut,full:--fixture]`).
