@@ -40,3 +40,13 @@ A standalone manual script (not committed, no test files added) expanded the com
 Author-observed on one machine, not a performance claim: a 4096-session history window computes median, MAD, quantile and rank in about 0.23 s (exact rationals, `O(n log n)`; batch only, no incremental state).
 
 See the [robust history](../api/EF3_ROBUST_HISTORY.md), [robust volume pace](../api/EF3_VOLUME_PACE.md) and [mean-ratio](../api/EF3_MEAN_RATIO.md) APIs. No acquisition, source rights, installed, cross-layer, performance or release claim follows from this source result.
+
+## Review notes (contract nits, for the EF3 shared amendment)
+
+1. Result-wide evidence limit: the shared `FeatureResult` bounds total evidence rows by `evidence_limit`, while the fixtures list witnesses per output; limited fixtures were reproduced one output at a time.
+2. Excluded and ineligible witnesses use boundary `ordinary` (the shared validator at `results.py:499` refuses `completed_interval` for REFERENCE inputs), and `INELIGIBLE` is reused as the exclusion reason for declared exclusions too.
+3. Coverage-entry names `session:<id>`, `member:<instrument>` and `bucket:<session>:<index>` are implementation-chosen; the amendment and EF3 I/O #611 must pin them.
+4. The `known_at` of bounds, population and edge facts is carried into evidence but not gated (`admit_sessions`, `admit_population`, `admit_edges`); the contract is silent and needs a ruling.
+5. Edge `reference_id` uniqueness per edge is not enforced beyond the `x1:B(...)` grammar and the shared (instrument, session, reference_id) duplicate check.
+6. Builders default `evidence_limit=0` although the contract says no defaults (as EF3-D).
+7. P18 cannot be built literally (RF06 cutoff rule versus the derived evaluation bucket) and was verified through an alternate construction (target closing at offset 200, cutoff after the appended session).
