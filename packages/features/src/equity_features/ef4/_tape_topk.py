@@ -8,7 +8,6 @@ by concatenation, the rank key and a cut to K (DP-K6). Batch, conditional merge 
 """
 from __future__ import annotations
 
-from bisect import insort
 from collections.abc import Sequence
 from dataclasses import dataclass
 
@@ -41,6 +40,18 @@ class NotionalTopKSettings:
     top_k: int
     evidence_limit: int
     eligibility_policy: str
+
+
+def _insert(kept: list[tuple[Key, TopKTradeRow]], key: Key, row: TopKTradeRow) -> None:
+    """Insert into the key-sorted list at the leftmost position (keys are unique), by binary search."""
+    low, high = 0, len(kept)
+    while low < high:
+        middle = (low + high) // 2
+        if kept[middle][0] < key:
+            low = middle + 1
+        else:
+            high = middle
+    kept.insert(low, (key, row))
 
 
 def notional_key(row: TopKTradeRow) -> Key:
@@ -143,7 +154,7 @@ def compute_trade_top_k_notional(batches: tuple[CanonicalBatch | None, ...] | li
         row = TopKTradeRow(input_id, columns["event_id"][i], columns["event_ns"][i], columns["order_key"][i],
                            columns["known_at_ns"][i] if "known_at_ns" in columns else None,
                            columns["price"][i], columns["size"][i])
-        insort(kept, (notional_key(row), row), key=lambda item: item[0])
+        _insert(kept, notional_key(row), row)
         if len(kept) > settings.top_k:
             kept.pop()
     absent = eligible > 0 and not delivered
