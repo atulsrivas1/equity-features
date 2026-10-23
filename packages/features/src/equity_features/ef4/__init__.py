@@ -24,3 +24,30 @@ __all__ = ["EF4TapeDefinition", "NotionalPartial", "NotionalTopKSettings", "QUOT
            "decode_tape_window_config", "decode_vwap_path_config", "ef4_tape_definitions",
            "merge_trade_top_k_notional", "notional_cell", "notional_key", "quote_vwap_definitions",
            "require_ef4_tape_capability", "require_quote_vwap_capability"]
+from ._bar_projection import (BAR_ALGORITHM, BAR_FEATURES, BAR_GRID_SCHEMA, BAR_IDENTITY, BAR_POLICY, BarGrid,
+                              BarProjectionSettings, BarSlot, build_bar_projection_config, compute_bar_projection,
+                              decode_bar_projection_config)
+from ._path_projections_definitions import (EF4PathProjectionsDefinition, ef4_path_projections_definitions,
+                                            require_ef4_path_projections_capability)
+from ._path_projections_dispatch import compute_ef4_path_projections
+from ._rate_projection import (RATE_ALGORITHM, RATE_FEATURES, RATE_IDENTITY, RATE_POLICY, RateProjectionSettings,
+                               build_rate_projection_config, compute_rate_projection,
+                               decode_rate_projection_config)
+from ._relative_excess import (RELATIVE_ALGORITHM, RELATIVE_FEATURES, RELATIVE_IDENTITY, RELATIVE_POLICY,
+                               RelativeExcessSettings, build_relative_excess_config, compute_relative_excess,
+                               decode_relative_excess_config, encode_core_ids)
+from ._session_projection import (SESSION_ALGORITHM, SESSION_FEATURES, SESSION_IDENTITY, SESSION_POLICY,
+                                  SessionProjectionSettings, build_session_projection_config,
+                                  compute_session_projection, decode_session_projection_config)
+
+__all__ += ["BAR_ALGORITHM", "BAR_FEATURES", "BAR_GRID_SCHEMA", "BAR_IDENTITY", "BAR_POLICY", "BarGrid",
+            "BarProjectionSettings", "BarSlot", "EF4PathProjectionsDefinition", "RATE_ALGORITHM", "RATE_FEATURES",
+            "RATE_IDENTITY", "RATE_POLICY", "RELATIVE_ALGORITHM", "RELATIVE_FEATURES", "RELATIVE_IDENTITY",
+            "RELATIVE_POLICY", "RateProjectionSettings", "RelativeExcessSettings", "SESSION_ALGORITHM",
+            "SESSION_FEATURES", "SESSION_IDENTITY", "SESSION_POLICY", "SessionProjectionSettings",
+            "build_bar_projection_config", "build_rate_projection_config", "build_relative_excess_config",
+            "build_session_projection_config", "compute_bar_projection", "compute_ef4_path_projections",
+            "compute_rate_projection", "compute_relative_excess", "compute_session_projection",
+            "decode_bar_projection_config", "decode_rate_projection_config", "decode_relative_excess_config",
+            "decode_session_projection_config", "ef4_path_projections_definitions", "encode_core_ids",
+            "require_ef4_path_projections_capability"]
