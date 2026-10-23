@@ -25,10 +25,10 @@
   },
   "method": {
     "clusters": {
-      "K1": "first product family cluster",
-      "K2": "second product family cluster",
-      "K3": "third product family cluster",
-      "K4": "fourth product family cluster"
+      "group-1": "first product family cluster",
+      "group-2": "second product family cluster",
+      "group-3": "third product family cluster",
+      "group-4": "fourth product family cluster"
     },
     "evidence_kinds": [
       "owned command source read in full",
@@ -47,7 +47,7 @@
   "other_domain_rows": [
     {
       "opaque_id": "C0103",
-      "cluster": "K1",
+      "cluster": "group-1",
       "role_class": "source_registration",
       "plan_disposition": "proposed_other_domain_exclusion",
       "plan_evidence_digest_sha256": "304bb27232920d02f7b5ddad6c122fe72fa90d507facbd8791dddb2abb85b1c0",
@@ -79,7 +79,7 @@
     },
     {
       "opaque_id": "C0104",
-      "cluster": "K1",
+      "cluster": "group-1",
       "role_class": "projection_worker",
       "plan_disposition": "proposed_other_domain_exclusion",
       "plan_evidence_digest_sha256": "5692e0497713177a8d545fd905335154462bb6693fd89e1acc36324b6bf7354d",
@@ -111,7 +111,7 @@
     },
     {
       "opaque_id": "C0105",
-      "cluster": "K1",
+      "cluster": "group-1",
       "role_class": "stream_worker",
       "plan_disposition": "proposed_other_domain_exclusion",
       "plan_evidence_digest_sha256": "72dc3da13bf8ad86f79d74f50083c92731de6c5b63d40d5c6541832a57b28a4b",
@@ -143,7 +143,7 @@
     },
     {
       "opaque_id": "C0106",
-      "cluster": "K1",
+      "cluster": "group-1",
       "role_class": "stream_worker",
       "plan_disposition": "proposed_other_domain_exclusion",
       "plan_evidence_digest_sha256": "9f88b7028932e42959f8faa7c0082e2d0e5cfb49a7dbe14597d675e8da4bf5a1",
@@ -175,7 +175,7 @@
     },
     {
       "opaque_id": "C0107",
-      "cluster": "K1",
+      "cluster": "group-1",
       "role_class": "api_surface",
       "plan_disposition": "proposed_other_domain_exclusion",
       "plan_evidence_digest_sha256": "0a365b2d424ed1dd0388320a75a7ed35d16d2be705cad1b34ed1e25d1b7dfee9",
@@ -207,7 +207,7 @@
     },
     {
       "opaque_id": "C0108",
-      "cluster": "K1",
+      "cluster": "group-1",
       "role_class": "verification_tool",
       "plan_disposition": "proposed_other_domain_exclusion",
       "plan_evidence_digest_sha256": "9f2e7f4bf8357990517ab516526d50c2ceb55529c7e698dfc506274e1e34e171",
@@ -239,7 +239,7 @@
     },
     {
       "opaque_id": "C0109",
-      "cluster": "K1",
+      "cluster": "group-1",
       "role_class": "batch_prepare",
       "plan_disposition": "proposed_other_domain_exclusion",
       "plan_evidence_digest_sha256": "b28e4ef0cd2b237c19a7bf73081a91af353bc4ffbe2b86666a625f7495dffe9f",
@@ -274,7 +274,7 @@
     },
     {
       "opaque_id": "C0110",
-      "cluster": "K1",
+      "cluster": "group-1",
       "role_class": "admin_tool",
       "plan_disposition": "proposed_other_domain_exclusion",
       "plan_evidence_digest_sha256": "e2c03e309f477f95e42b2934c30f72f63e3e17f33f3141049e7136a18d13c656",
@@ -307,7 +307,7 @@
     },
     {
       "opaque_id": "C0111",
-      "cluster": "K1",
+      "cluster": "group-1",
       "role_class": "batch_build",
       "plan_disposition": "proposed_other_domain_exclusion",
       "plan_evidence_digest_sha256": "94eec3a609ce8a111b54201e5e7e60322b2586de751ac771a8bdac0934503ae3",
@@ -339,7 +339,7 @@
     },
     {
       "opaque_id": "C0112",
-      "cluster": "K1",
+      "cluster": "group-1",
       "role_class": "batch_prepare",
       "plan_disposition": "proposed_other_domain_exclusion",
       "plan_evidence_digest_sha256": "fee1eda5c596f64dd2458de23ff78145ecb7b40a018742c93db07f18a819888b",
@@ -371,7 +371,7 @@
     },
     {
       "opaque_id": "C0113",
-      "cluster": "K1",
+      "cluster": "group-1",
       "role_class": "batch_build",
       "plan_disposition": "proposed_other_domain_exclusion",
       "plan_evidence_digest_sha256": "784ecde026d6b2c509bd0c3f3b56d82cb347f42681d070fea7ed62ed1b6333e6",
@@ -403,7 +403,7 @@
     },
     {
       "opaque_id": "C0114",
-      "cluster": "K1",
+      "cluster": "group-1",
       "role_class": "audit_tool",
       "plan_disposition": "proposed_other_domain_exclusion",
       "plan_evidence_digest_sha256": "51f31a28249e2287029cb5a061ff7ddff916268ac46f52c756eda3aab7833206",
@@ -435,7 +435,7 @@
     },
     {
       "opaque_id": "C0117",
-      "cluster": "K1",
+      "cluster": "group-1",
       "role_class": "restore_stage",
       "plan_disposition": "proposed_other_domain_exclusion",
       "plan_evidence_digest_sha256": "d07c3b47a286421a9beb1cf97a852b444ed101ac3d402e9e6129e2e997c39c1d",
@@ -467,7 +467,7 @@
     },
     {
       "opaque_id": "C0118",
-      "cluster": "K1",
+      "cluster": "group-1",
       "role_class": "publication_tool",
       "plan_disposition": "proposed_other_domain_exclusion",
       "plan_evidence_digest_sha256": "2fef184f00b8b1ba7a9ab4d13fdcad41dce83fea44dd2237ccf00c79fdd37aa2",
@@ -502,7 +502,7 @@
     },
     {
       "opaque_id": "C0119",
-      "cluster": "K1",
+      "cluster": "group-1",
       "role_class": "stream_worker",
       "plan_disposition": "proposed_other_domain_exclusion",
       "plan_evidence_digest_sha256": "0653895ad5e550462ae1f7fe89c088e9715023e09b944f49621845ad3ebecf40",
@@ -534,7 +534,7 @@
     },
     {
       "opaque_id": "C0120",
-      "cluster": "K1",
+      "cluster": "group-1",
       "role_class": "stream_worker",
       "plan_disposition": "proposed_other_domain_exclusion",
       "plan_evidence_digest_sha256": "b37f08d4006e93cf077b108c8869005cdad18c47d5916ad2e12fb43d45da81b9",
@@ -566,7 +566,7 @@
     },
     {
       "opaque_id": "C0121",
-      "cluster": "K1",
+      "cluster": "group-1",
       "role_class": "audit_tool",
       "plan_disposition": "proposed_other_domain_exclusion",
       "plan_evidence_digest_sha256": "92382a6bae143b70f0b6b5a825d68f58105f01bef45eb8a193518ce6d619f9ef",
@@ -598,7 +598,7 @@
     },
     {
       "opaque_id": "C0122",
-      "cluster": "K1",
+      "cluster": "group-1",
       "role_class": "stream_worker",
       "plan_disposition": "proposed_other_domain_exclusion",
       "plan_evidence_digest_sha256": "9083840e5e33662966dcee6ef820b76127c29f867186b4eb84c3dac1dfc7ef9b",
@@ -633,7 +633,7 @@
     },
     {
       "opaque_id": "C0123",
-      "cluster": "K1",
+      "cluster": "group-1",
       "role_class": "batch_process",
       "plan_disposition": "proposed_other_domain_exclusion",
       "plan_evidence_digest_sha256": "9b7bf9745e28cfa9025e7ccb53b3d9dad37dc6fd6316853478dcc342306ba8c2",
@@ -667,7 +667,7 @@
     },
     {
       "opaque_id": "C0124",
-      "cluster": "K1",
+      "cluster": "group-1",
       "role_class": "batch_build",
       "plan_disposition": "proposed_other_domain_exclusion",
       "plan_evidence_digest_sha256": "aa9a39f6f599d9cf20ce9cb93902fefa5b8a72270f26888ac96c44db9c2c6f0c",
@@ -699,7 +699,7 @@
     },
     {
       "opaque_id": "C0125",
-      "cluster": "K1",
+      "cluster": "group-1",
       "role_class": "projection_worker",
       "plan_disposition": "proposed_other_domain_exclusion",
       "plan_evidence_digest_sha256": "d8a662bad5c937e479748e703f117011c00eeb126cf53b6a078e77e96e073068",
@@ -731,7 +731,7 @@
     },
     {
       "opaque_id": "C0126",
-      "cluster": "K1",
+      "cluster": "group-1",
       "role_class": "stream_worker",
       "plan_disposition": "proposed_other_domain_exclusion",
       "plan_evidence_digest_sha256": "31744eafb9500cb67566b16697a4253c23e9725f6bcf0af779ee94a0f7d408dd",
@@ -763,7 +763,7 @@
     },
     {
       "opaque_id": "C0127",
-      "cluster": "K1",
+      "cluster": "group-1",
       "role_class": "stream_worker",
       "plan_disposition": "proposed_other_domain_exclusion",
       "plan_evidence_digest_sha256": "8f786d707573a1b211da5ae219da10ace4c86d81b0a15b75224f854153a61ed2",
@@ -795,7 +795,7 @@
     },
     {
       "opaque_id": "C0128",
-      "cluster": "K1",
+      "cluster": "group-1",
       "role_class": "stream_worker",
       "plan_disposition": "proposed_other_domain_exclusion",
       "plan_evidence_digest_sha256": "1b0243cbea53ddb2bc1248bd37c147c398b125484fdd75a9484f7252344f9e88",
@@ -827,7 +827,7 @@
     },
     {
       "opaque_id": "C0129",
-      "cluster": "K1",
+      "cluster": "group-1",
       "role_class": "stream_worker",
       "plan_disposition": "proposed_other_domain_exclusion",
       "plan_evidence_digest_sha256": "779da5bdefbe1b649388821c06ddd004b60d332692a901faffb9cdb506063b64",
@@ -860,7 +860,7 @@
     },
     {
       "opaque_id": "C0130",
-      "cluster": "K1",
+      "cluster": "group-1",
       "role_class": "batch_build",
       "plan_disposition": "proposed_other_domain_exclusion",
       "plan_evidence_digest_sha256": "cc85964e4a1e75509d858219e3bbc3af1f85fc319832a4f09dfefa402a2d952d",
@@ -892,7 +892,7 @@
     },
     {
       "opaque_id": "C0131",
-      "cluster": "K1",
+      "cluster": "group-1",
       "role_class": "stream_worker",
       "plan_disposition": "proposed_other_domain_exclusion",
       "plan_evidence_digest_sha256": "55723da13c65156a59687ad20dccedcacd08fe4b1a1d642d58e730efec1d9c77",
@@ -924,7 +924,7 @@
     },
     {
       "opaque_id": "C0132",
-      "cluster": "K1",
+      "cluster": "group-1",
       "role_class": "stream_worker",
       "plan_disposition": "proposed_other_domain_exclusion",
       "plan_evidence_digest_sha256": "07aca553e4109eeacd7f9b6756c7f80146bd92a116333a912f076544391f848b",
@@ -978,7 +978,7 @@
     },
     {
       "opaque_id": "C0133",
-      "cluster": "K1",
+      "cluster": "group-1",
       "role_class": "stream_worker",
       "plan_disposition": "proposed_other_domain_exclusion",
       "plan_evidence_digest_sha256": "e2d909980154174bad1205b37f3a296e174fe629e2a025302065866948cfae0e",
@@ -1011,7 +1011,7 @@
     },
     {
       "opaque_id": "C0134",
-      "cluster": "K1",
+      "cluster": "group-1",
       "role_class": "stream_worker",
       "plan_disposition": "proposed_other_domain_exclusion",
       "plan_evidence_digest_sha256": "41a295ed003cca78765a3a9815755a349afd0c208fde24b99dea05d1de6e81e7",
@@ -1043,7 +1043,7 @@
     },
     {
       "opaque_id": "C0135",
-      "cluster": "K1",
+      "cluster": "group-1",
       "role_class": "batch_build",
       "plan_disposition": "proposed_other_domain_exclusion",
       "plan_evidence_digest_sha256": "dbb1f97901445dcb600346a9e5e1d5aab8e3d1cd9b8c9436fe6eafca9305dbc7",
@@ -1097,7 +1097,7 @@
     },
     {
       "opaque_id": "C0136",
-      "cluster": "K1",
+      "cluster": "group-1",
       "role_class": "stream_worker",
       "plan_disposition": "proposed_other_domain_exclusion",
       "plan_evidence_digest_sha256": "3943e875d613dd31d0801e53c11009c8f49b8f82cd16ebf78474571468e8d963",
@@ -1129,7 +1129,7 @@
     },
     {
       "opaque_id": "C0137",
-      "cluster": "K1",
+      "cluster": "group-1",
       "role_class": "capacity_publisher",
       "plan_disposition": "proposed_other_domain_exclusion",
       "plan_evidence_digest_sha256": "cd4bbb7cdd7b73e5c9f679d7aa9993f497fc1fe53290248fc59fd2d907e3561b",
@@ -1161,7 +1161,7 @@
     },
     {
       "opaque_id": "C0138",
-      "cluster": "K1",
+      "cluster": "group-1",
       "role_class": "publication_tool",
       "plan_disposition": "proposed_other_domain_exclusion",
       "plan_evidence_digest_sha256": "cd559d9a6225e10464009e827d740a3a77df0839b17d0132ff7c98639c2ac3c4",
@@ -1193,7 +1193,7 @@
     },
     {
       "opaque_id": "C0140",
-      "cluster": "K1",
+      "cluster": "group-1",
       "role_class": "stream_worker",
       "plan_disposition": "proposed_other_domain_exclusion",
       "plan_evidence_digest_sha256": "8ae1d199bb7bdea390327751cbe4e72a42af110e6d4beec217cfa9d65df5962e",
@@ -1247,7 +1247,7 @@
     },
     {
       "opaque_id": "C0141",
-      "cluster": "K1",
+      "cluster": "group-1",
       "role_class": "projection_worker",
       "plan_disposition": "proposed_other_domain_exclusion",
       "plan_evidence_digest_sha256": "205b7b0e3f37b868d68fcbe217352349350e4d86d4b58fbe35bb18d8f7efe219",
@@ -1279,7 +1279,7 @@
     },
     {
       "opaque_id": "C0142",
-      "cluster": "K1",
+      "cluster": "group-1",
       "role_class": "stream_worker",
       "plan_disposition": "proposed_other_domain_exclusion",
       "plan_evidence_digest_sha256": "885b7c0f3063544d4543ac5d45715f8eebd61d2f02173ce0fbd1c47b2cb09664",
@@ -1311,7 +1311,7 @@
     },
     {
       "opaque_id": "C0143",
-      "cluster": "K1",
+      "cluster": "group-1",
       "role_class": "import_tool",
       "plan_disposition": "proposed_other_domain_exclusion",
       "plan_evidence_digest_sha256": "115973df05e326eb14ed85858fd5d7e9561f4c9c89129822177e7bc580e79c94",
@@ -1343,7 +1343,7 @@
     },
     {
       "opaque_id": "C0144",
-      "cluster": "K1",
+      "cluster": "group-1",
       "role_class": "stream_worker",
       "plan_disposition": "proposed_other_domain_exclusion",
       "plan_evidence_digest_sha256": "58e29e2f8f0e790d50292819fc60e5a144cfdac62f982f2f1f6caa881243557e",
@@ -1375,7 +1375,7 @@
     },
     {
       "opaque_id": "C0145",
-      "cluster": "K1",
+      "cluster": "group-1",
       "role_class": "projection_worker",
       "plan_disposition": "proposed_other_domain_exclusion",
       "plan_evidence_digest_sha256": "8ec08e564bd80a4a8d3a99b2ddb5366edf28788dbb4e8e0089e379038391c963",
@@ -1407,7 +1407,7 @@
     },
     {
       "opaque_id": "C0146",
-      "cluster": "K1",
+      "cluster": "group-1",
       "role_class": "stream_worker",
       "plan_disposition": "proposed_other_domain_exclusion",
       "plan_evidence_digest_sha256": "c991f997b720784e9b34534d26d89c542e6573bad771c57af710f4c660c08b38",
@@ -1439,7 +1439,7 @@
     },
     {
       "opaque_id": "C0148",
-      "cluster": "K1",
+      "cluster": "group-1",
       "role_class": "stream_worker",
       "plan_disposition": "proposed_other_domain_exclusion",
       "plan_evidence_digest_sha256": "f193f8bb1780d0193d82dbcca71a851a893dc86fe5e8f0fd4984e6d289a5f0bc",
@@ -1474,7 +1474,7 @@
     },
     {
       "opaque_id": "C0149",
-      "cluster": "K1",
+      "cluster": "group-1",
       "role_class": "projection_worker",
       "plan_disposition": "proposed_other_domain_exclusion",
       "plan_evidence_digest_sha256": "42b88311b738f94d01d2d7213fb9553e46c3e68b55a3469fcbb77d489d785878",
@@ -1506,7 +1506,7 @@
     },
     {
       "opaque_id": "C0150",
-      "cluster": "K1",
+      "cluster": "group-1",
       "role_class": "stream_worker",
       "plan_disposition": "proposed_other_domain_exclusion",
       "plan_evidence_digest_sha256": "7bb3ed1f01a4020d6a823477b8c969ccfba77dd3a09d282e1575dfc75230bd8f",
@@ -1538,7 +1538,7 @@
     },
     {
       "opaque_id": "C0151",
-      "cluster": "K1",
+      "cluster": "group-1",
       "role_class": "batch_build",
       "plan_disposition": "proposed_other_domain_exclusion",
       "plan_evidence_digest_sha256": "c07fe32b7f9eae9130f97b6655391e57b5179c2f8c5361f9af06cc8d30cb3c90",
@@ -1573,7 +1573,7 @@
     },
     {
       "opaque_id": "C0152",
-      "cluster": "K1",
+      "cluster": "group-1",
       "role_class": "delivery_worker",
       "plan_disposition": "proposed_other_domain_exclusion",
       "plan_evidence_digest_sha256": "4ecc7e52433a11794febfa94b56e5586586c36f13d539da0ce4d95cc40f7abac",
@@ -1605,7 +1605,7 @@
     },
     {
       "opaque_id": "C0157",
-      "cluster": "K2",
+      "cluster": "group-2",
       "role_class": "api_surface",
       "plan_disposition": "proposed_other_domain_exclusion",
       "plan_evidence_digest_sha256": "a7b838adc0f5cb90c9e6988fe8008de932c9ce4144d7b4968e1fe5128deb3605",
@@ -1631,13 +1631,13 @@
         "result": "no retained component reached",
         "runtime_dispatch_proven_absent": false
       },
-      "finding": "HTTP API and operator UI surface for the K2 product, reading the product UI store; serves stored rows only. Closure: no retained component reached, interface dispatch absent, no subprocess launch.",
+      "finding": "HTTP API and operator UI surface for the second-family product, reading the product UI store; serves stored rows only. Closure: no retained component reached, interface dispatch absent, no subprocess launch.",
       "confidence": "high",
       "finding_status": "adjudicated finding; coordinator-decided per docs/ef1/audit/EQ164_WAVE2_DECISIONS.md, pending owner review"
     },
     {
       "opaque_id": "C0158",
-      "cluster": "K2",
+      "cluster": "group-2",
       "role_class": "credential_admin",
       "plan_disposition": "proposed_other_domain_exclusion",
       "plan_evidence_digest_sha256": "3c490de63e70aee13126edeebf1499c305ca815ffb85c6595de2f308d26173bc",
@@ -1669,7 +1669,7 @@
     },
     {
       "opaque_id": "C0159",
-      "cluster": "K2",
+      "cluster": "group-2",
       "role_class": "stream_worker",
       "plan_disposition": "proposed_other_domain_exclusion",
       "plan_evidence_digest_sha256": "9211ff2249328212ee89ed7dd5443e9fb55b18e48de07ad7b38ffd01529957e4",
@@ -1695,13 +1695,13 @@
         "result": "retained components reached only as operands or verification; no new obligation",
         "runtime_dispatch_proven_absent": false
       },
-      "finding": "Stream worker that converts consumed transfer batches into change rows for the K2 product; the changes are option exposure deltas and the underlying price is only a stored operand. Closure: retained components reached only as operands or verification (option exposure arithmetic with a supplied price operand), interface dispatch absent, no subprocess launch.",
+      "finding": "Stream worker that converts consumed transfer batches into change rows for the second-family product; the changes are option exposure deltas and the underlying price is only a stored operand. Closure: retained components reached only as operands or verification (option exposure arithmetic with a supplied price operand), interface dispatch absent, no subprocess launch.",
       "confidence": "medium",
       "finding_status": "adjudicated finding; coordinator-decided per docs/ef1/audit/EQ164_WAVE2_DECISIONS.md, pending owner review"
     },
     {
       "opaque_id": "C0160",
-      "cluster": "K2",
+      "cluster": "group-2",
       "role_class": "archive_tool",
       "plan_disposition": "proposed_other_domain_exclusion",
       "plan_evidence_digest_sha256": "f0f830bd25f425280bca86094882f5519810be2a2edcc5b8e6f575a89c5b2221",
@@ -1733,7 +1733,7 @@
     },
     {
       "opaque_id": "C0161",
-      "cluster": "K2",
+      "cluster": "group-2",
       "role_class": "stream_worker",
       "plan_disposition": "proposed_other_domain_exclusion",
       "plan_evidence_digest_sha256": "c15cfa45b56eed8b73ed848f75ae35db4664d136d676a1335665dcd5587f6a14",
@@ -1768,7 +1768,7 @@
     },
     {
       "opaque_id": "C0162",
-      "cluster": "K2",
+      "cluster": "group-2",
       "role_class": "batch_build",
       "plan_disposition": "proposed_other_domain_exclusion",
       "plan_evidence_digest_sha256": "5822286fb660f144edda6b656d6e60ec386ed548f622d4ae441f31ef12eecb4f",
@@ -1803,7 +1803,7 @@
     },
     {
       "opaque_id": "C0163",
-      "cluster": "K2",
+      "cluster": "group-2",
       "role_class": "publication_tool",
       "plan_disposition": "proposed_other_domain_exclusion",
       "plan_evidence_digest_sha256": "0412aacfbe521a0929fa11bc4553e4bdd18a8a6dd5cd799f43d2b2d9e98d0579",
@@ -1838,7 +1838,7 @@
     },
     {
       "opaque_id": "C0164",
-      "cluster": "K2",
+      "cluster": "group-2",
       "role_class": "repair_tool",
       "plan_disposition": "proposed_other_domain_exclusion",
       "plan_evidence_digest_sha256": "c96410507552c058c2d92e313eac05dfc91ca7106444fef529015e3f7502f4ac",
@@ -1866,13 +1866,13 @@
         "result": "retained components reached only as operands or verification; no new obligation",
         "runtime_dispatch_proven_absent": false
       },
-      "finding": "Repair tool that plans and applies dispatch metadata repairs for the K2 product; its validation path re-runs source join logic only to check stored rows, and no equity result is emitted. Closure: retained components reached only as operands or verification (option exposure arithmetic with a supplied price operand, trade-price adaptation reached on a verification path, trade-price join reached on a verification path), interface dispatch absent, no subprocess launch.",
+      "finding": "Repair tool that plans and applies dispatch metadata repairs for the second-family product; its validation path re-runs source join logic only to check stored rows, and no equity result is emitted. Closure: retained components reached only as operands or verification (option exposure arithmetic with a supplied price operand, trade-price adaptation reached on a verification path, trade-price join reached on a verification path), interface dispatch absent, no subprocess launch.",
       "confidence": "medium",
       "finding_status": "adjudicated finding; coordinator-decided per docs/ef1/audit/EQ164_WAVE2_DECISIONS.md, pending owner review"
     },
     {
       "opaque_id": "C0165",
-      "cluster": "K2",
+      "cluster": "group-2",
       "role_class": "stream_worker",
       "plan_disposition": "proposed_other_domain_exclusion",
       "plan_evidence_digest_sha256": "dbf81db5e1fb3fcbb668c2da993d77a7934c32665d7e7a0c6bf1e4135906c3a2",
@@ -1904,7 +1904,7 @@
     },
     {
       "opaque_id": "C0166",
-      "cluster": "K2",
+      "cluster": "group-2",
       "role_class": "stream_worker",
       "plan_disposition": "proposed_other_domain_exclusion",
       "plan_evidence_digest_sha256": "fed558f5d53ddf9e4afa344c95d2903ab3ce915daa5976a9513e18c0cd48bc85",
@@ -1936,7 +1936,7 @@
     },
     {
       "opaque_id": "C0167",
-      "cluster": "K2",
+      "cluster": "group-2",
       "role_class": "stream_worker",
       "plan_disposition": "proposed_other_domain_exclusion",
       "plan_evidence_digest_sha256": "1fc401ebf1fdc945ae6997701f083272b56bfdb34973b23206cb3d0c3932a8ec",
@@ -1968,7 +1968,7 @@
     },
     {
       "opaque_id": "C0168",
-      "cluster": "K2",
+      "cluster": "group-2",
       "role_class": "projection_worker",
       "plan_disposition": "proposed_other_domain_exclusion",
       "plan_evidence_digest_sha256": "5ba8bb7525fe593be3d372fad92c48cfabaa5631d4da3b5afc0d5c5e1c5689c8",
@@ -2000,7 +2000,7 @@
     },
     {
       "opaque_id": "C0169",
-      "cluster": "K2",
+      "cluster": "group-2",
       "role_class": "stream_worker",
       "plan_disposition": "proposed_other_domain_exclusion",
       "plan_evidence_digest_sha256": "1d9fcffb9a761a339a490842a671537cb7892288cec8ddb64579a987677ffc93",
@@ -2032,7 +2032,7 @@
     },
     {
       "opaque_id": "C0170",
-      "cluster": "K2",
+      "cluster": "group-2",
       "role_class": "retention_worker",
       "plan_disposition": "proposed_other_domain_exclusion",
       "plan_evidence_digest_sha256": "e52b09e3aa1f5b2b4761d1cd698d17ab17daa81f5fb6261e8ff5f07ebe7773f4",
@@ -2064,7 +2064,7 @@
     },
     {
       "opaque_id": "C0171",
-      "cluster": "K2",
+      "cluster": "group-2",
       "role_class": "stream_worker",
       "plan_disposition": "proposed_other_domain_exclusion",
       "plan_evidence_digest_sha256": "882eaf293d0753f2c929b840fd10a8a236f5da8b05c381db3336b92b4ed7877f",
@@ -2096,7 +2096,7 @@
     },
     {
       "opaque_id": "C0172",
-      "cluster": "K2",
+      "cluster": "group-2",
       "role_class": "stream_worker",
       "plan_disposition": "proposed_other_domain_exclusion",
       "plan_evidence_digest_sha256": "ce2fb055879cbcd785473c2497a59b784f644cc868554c6cf48ea6415a18fdbe",
@@ -2122,13 +2122,13 @@
         "result": "retained components reached only as operands or verification; no new obligation",
         "runtime_dispatch_proven_absent": false
       },
-      "finding": "Stream worker that joins source observations and computes contract exposure for the K2 product; the join carries the underlying price as an operand into option arithmetic and no equity series is produced. Closure: retained components reached only as operands or verification (option exposure arithmetic with a supplied price operand), interface dispatch absent, no subprocess launch.",
+      "finding": "Stream worker that joins source observations and computes contract exposure for the second-family product; the join carries the underlying price as an operand into option arithmetic and no equity series is produced. Closure: retained components reached only as operands or verification (option exposure arithmetic with a supplied price operand), interface dispatch absent, no subprocess launch.",
       "confidence": "medium",
       "finding_status": "adjudicated finding; coordinator-decided per docs/ef1/audit/EQ164_WAVE2_DECISIONS.md, pending owner review"
     },
     {
       "opaque_id": "C0173",
-      "cluster": "K2",
+      "cluster": "group-2",
       "role_class": "publication_tool",
       "plan_disposition": "proposed_other_domain_exclusion",
       "plan_evidence_digest_sha256": "3f334c74449157dacca3d55bf567e374859ded50690c13d3c1332ce75a73f80c",
@@ -2160,7 +2160,7 @@
     },
     {
       "opaque_id": "C0174",
-      "cluster": "K2",
+      "cluster": "group-2",
       "role_class": "batch_build",
       "plan_disposition": "proposed_other_domain_exclusion",
       "plan_evidence_digest_sha256": "2eec4935c29a7cefa8505e10635fe8ba389bf09ac98d1e08809be6f0e8b2ab05",
@@ -2192,7 +2192,7 @@
     },
     {
       "opaque_id": "C0175",
-      "cluster": "K2",
+      "cluster": "group-2",
       "role_class": "schema_migration",
       "plan_disposition": "proposed_other_domain_exclusion",
       "plan_evidence_digest_sha256": "27a56379a1c88d095db402d5fead771b608306edd4aa6cd3d99acc00e70f0310",
@@ -2224,7 +2224,7 @@
     },
     {
       "opaque_id": "C0176",
-      "cluster": "K2",
+      "cluster": "group-2",
       "role_class": "repair_tool",
       "plan_disposition": "proposed_other_domain_exclusion",
       "plan_evidence_digest_sha256": "348c0c4f705f6be70898770476b5d81e355b06115c8b18a5835d1811a6ec7298",
@@ -2256,7 +2256,7 @@
     },
     {
       "opaque_id": "C0177",
-      "cluster": "K2",
+      "cluster": "group-2",
       "role_class": "verification_tool",
       "plan_disposition": "proposed_other_domain_exclusion",
       "plan_evidence_digest_sha256": "a0a6bbb1b4a65953cf6b9e18ec8c934936795ad2155ae8a849851e334e92718d",
@@ -2288,7 +2288,7 @@
     },
     {
       "opaque_id": "C0188",
-      "cluster": "K4",
+      "cluster": "group-4",
       "role_class": "stream_worker",
       "plan_disposition": "proposed_other_domain_exclusion",
       "plan_evidence_digest_sha256": "209e06684aed7ee05743ccd83cdb0878dafe6338cdba3bbc6dc325ca103ce162",
@@ -2320,7 +2320,7 @@
     },
     {
       "opaque_id": "C0199",
-      "cluster": "K4",
+      "cluster": "group-4",
       "role_class": "batch_build",
       "plan_disposition": "proposed_other_domain_exclusion",
       "plan_evidence_digest_sha256": "15bc904b3a2f162f3f1f5de2314afde6d98264cc3490bba23d9416c0cc94b81e",
@@ -2352,7 +2352,7 @@
     },
     {
       "opaque_id": "C0203",
-      "cluster": "K4",
+      "cluster": "group-4",
       "role_class": "stream_worker",
       "plan_disposition": "proposed_other_domain_exclusion",
       "plan_evidence_digest_sha256": "ef89f1c41da3bf710e1f70157877118cbc3759ae4d3417da1c06a30b5852cf64",
@@ -2384,7 +2384,7 @@
     },
     {
       "opaque_id": "C0205",
-      "cluster": "K4",
+      "cluster": "group-4",
       "role_class": "stream_worker",
       "plan_disposition": "proposed_other_domain_exclusion",
       "plan_evidence_digest_sha256": "07c9a8941acf199ae324e2dd5f99984261d54ef9c559df22cd3d2a566d94f045",
@@ -2416,7 +2416,7 @@
     },
     {
       "opaque_id": "C0209",
-      "cluster": "K4",
+      "cluster": "group-4",
       "role_class": "batch_process",
       "plan_disposition": "proposed_other_domain_exclusion",
       "plan_evidence_digest_sha256": "8c5f05e951b33de3157f26bd5fd945f38657f544859e1edff19dc8c756da9346",
@@ -2451,7 +2451,7 @@
     },
     {
       "opaque_id": "C0210",
-      "cluster": "K4",
+      "cluster": "group-4",
       "role_class": "batch_build",
       "plan_disposition": "proposed_other_domain_exclusion",
       "plan_evidence_digest_sha256": "09b09b9550c6d285253c3c74d2e208683d729ac30016bb422724b667c7751c57",
@@ -2483,7 +2483,7 @@
     },
     {
       "opaque_id": "C0212",
-      "cluster": "K4",
+      "cluster": "group-4",
       "role_class": "batch_build",
       "plan_disposition": "proposed_other_domain_exclusion",
       "plan_evidence_digest_sha256": "fd9752593611706d2f4b8a3133c94d51f825ca71024f8437beb61a7f0c3ef1f2",
@@ -2515,7 +2515,7 @@
     },
     {
       "opaque_id": "C0214",
-      "cluster": "K4",
+      "cluster": "group-4",
       "role_class": "publication_tool",
       "plan_disposition": "proposed_other_domain_exclusion",
       "plan_evidence_digest_sha256": "b0bc333b515b29c7e95023b070200be1dd1050421fc971fdd3988a8a80d45973",
@@ -2547,7 +2547,7 @@
     },
     {
       "opaque_id": "C0216",
-      "cluster": "K4",
+      "cluster": "group-4",
       "role_class": "stream_worker",
       "plan_disposition": "proposed_other_domain_exclusion",
       "plan_evidence_digest_sha256": "860fa2e6dead6de3fda03b2fa5ae45db091ed451baab74edc59df65b79f7e8d5",
@@ -2579,7 +2579,7 @@
     },
     {
       "opaque_id": "C0219",
-      "cluster": "K4",
+      "cluster": "group-4",
       "role_class": "stream_worker",
       "plan_disposition": "proposed_other_domain_exclusion",
       "plan_evidence_digest_sha256": "34bb7263aed3c3c01df6fbbd795cbc64fafb545db45f098f455a8eaaa0c3ed99",
@@ -2611,7 +2611,7 @@
     },
     {
       "opaque_id": "C0223",
-      "cluster": "K4",
+      "cluster": "group-4",
       "role_class": "batch_build",
       "plan_disposition": "proposed_other_domain_exclusion",
       "plan_evidence_digest_sha256": "8a395428522ce9c6b7416893c98b67fb29bd86462d46abf6d38c9046ea230825",
@@ -2643,7 +2643,7 @@
     },
     {
       "opaque_id": "C0242",
-      "cluster": "K4",
+      "cluster": "group-4",
       "role_class": "artifact_builder",
       "plan_disposition": "proposed_other_domain_exclusion",
       "plan_evidence_digest_sha256": "e7dddb86a097d45696d45b41ddfcb4795d3f66fb7911c6cfc22ee084d72ef255",
@@ -2675,7 +2675,7 @@
     },
     {
       "opaque_id": "C0243",
-      "cluster": "K4",
+      "cluster": "group-4",
       "role_class": "artifact_loader",
       "plan_disposition": "proposed_other_domain_exclusion",
       "plan_evidence_digest_sha256": "f3e87d74f1007a9a76ae19cccf48b6417e9b8cb7c4a95165e30cfad4d6342ad7",
@@ -2707,7 +2707,7 @@
     },
     {
       "opaque_id": "C0244",
-      "cluster": "K4",
+      "cluster": "group-4",
       "role_class": "stream_worker",
       "plan_disposition": "proposed_other_domain_exclusion",
       "plan_evidence_digest_sha256": "636348fbab7a559db9ab7b89321a9716c60718abc26c1318562cc4a792f6d5f3",
@@ -2739,7 +2739,7 @@
     },
     {
       "opaque_id": "C0249",
-      "cluster": "K4",
+      "cluster": "group-4",
       "role_class": "stream_worker",
       "plan_disposition": "proposed_other_domain_exclusion",
       "plan_evidence_digest_sha256": "8ea228652e890293d5816cd9721e33971f49f68e93677ecf29c8fcadda42e3f2",
@@ -2774,7 +2774,7 @@
     },
     {
       "opaque_id": "C0277",
-      "cluster": "K3",
+      "cluster": "group-3",
       "role_class": "api_surface",
       "plan_disposition": "proposed_other_domain_exclusion",
       "plan_evidence_digest_sha256": "e48731837c59437482a83587829baf79b964985dcada3bfc2b0f2ded6cb01f17",
@@ -2800,13 +2800,13 @@
         "result": "no retained component reached",
         "runtime_dispatch_proven_absent": false
       },
-      "finding": "HTTP API surface over the K3 product store with optional components; serves stored rows and computes nothing. Closure: no retained component reached, interface dispatch absent, no subprocess launch.",
+      "finding": "HTTP API surface over the third-family product store with optional components; serves stored rows and computes nothing. Closure: no retained component reached, interface dispatch absent, no subprocess launch.",
       "confidence": "high",
       "finding_status": "adjudicated finding; coordinator-decided per docs/ef1/audit/EQ164_WAVE2_DECISIONS.md, pending owner review"
     },
     {
       "opaque_id": "C0278",
-      "cluster": "K3",
+      "cluster": "group-3",
       "role_class": "control_tool",
       "plan_disposition": "proposed_other_domain_exclusion",
       "plan_evidence_digest_sha256": "c019e6ac028f6ebc197f9b64d852934b8d83d6fe4bb48107a566af30a6117cb2",
@@ -2832,13 +2832,13 @@
         "result": "no retained component reached",
         "runtime_dispatch_proven_absent": false
       },
-      "finding": "Control tool that validates clock identity and updates classification state in the K3 store; configuration only. Closure: no retained component reached, interface dispatch absent, no subprocess launch.",
+      "finding": "Control tool that validates clock identity and updates classification state in the third-family store; configuration only. Closure: no retained component reached, interface dispatch absent, no subprocess launch.",
       "confidence": "high",
       "finding_status": "adjudicated finding; coordinator-decided per docs/ef1/audit/EQ164_WAVE2_DECISIONS.md, pending owner review"
     },
     {
       "opaque_id": "C0279",
-      "cluster": "K3",
+      "cluster": "group-3",
       "role_class": "source_registration",
       "plan_disposition": "proposed_other_domain_exclusion",
       "plan_evidence_digest_sha256": "c72cf94aaefa90b3a8de16a17036e4b30b3352f2528c10c630672bdde5179b5b",
@@ -2873,7 +2873,7 @@
     },
     {
       "opaque_id": "C0280",
-      "cluster": "K3",
+      "cluster": "group-3",
       "role_class": "stream_worker",
       "plan_disposition": "proposed_other_domain_exclusion",
       "plan_evidence_digest_sha256": "34bcd9af4ae5ec54fbdfc0ae58c8c19c5c4248a7f11aa8710756963bc250a530",
@@ -2929,7 +2929,7 @@
     },
     {
       "opaque_id": "C0281",
-      "cluster": "K3",
+      "cluster": "group-3",
       "role_class": "batch_build",
       "plan_disposition": "proposed_other_domain_exclusion",
       "plan_evidence_digest_sha256": "f9f2c51fc9fd163d44dcd3c262db164d9b17e843f91ca42d85673b29718e1cc1",
@@ -2985,7 +2985,7 @@
     },
     {
       "opaque_id": "C0282",
-      "cluster": "K3",
+      "cluster": "group-3",
       "role_class": "projection_worker",
       "plan_disposition": "proposed_other_domain_exclusion",
       "plan_evidence_digest_sha256": "3e5090d31b0cb9d84a310517703af04d9705ee9244cad028266813e1dad00cf4",
@@ -3011,13 +3011,13 @@
         "result": "no retained component reached",
         "runtime_dispatch_proven_absent": false
       },
-      "finding": "Projection worker that writes evidence projections into the K3 store under clock validation; the evidence rows are produced elsewhere and this transports them. Closure: no retained component reached, interface dispatch absent, no subprocess launch.",
+      "finding": "Projection worker that writes evidence projections into the third-family store under clock validation; the evidence rows are produced elsewhere and this transports them. Closure: no retained component reached, interface dispatch absent, no subprocess launch.",
       "confidence": "medium",
       "finding_status": "adjudicated finding; coordinator-decided per docs/ef1/audit/EQ164_WAVE2_DECISIONS.md, pending owner review"
     },
     {
       "opaque_id": "C0283",
-      "cluster": "K3",
+      "cluster": "group-3",
       "role_class": "source_registration",
       "plan_disposition": "proposed_other_domain_exclusion",
       "plan_evidence_digest_sha256": "df39a475100908b623025b6587d19e34c1c474397f808ee9d69c19cf3e3c6724",
@@ -3049,7 +3049,7 @@
     },
     {
       "opaque_id": "C0284",
-      "cluster": "K3",
+      "cluster": "group-3",
       "role_class": "source_registration",
       "plan_disposition": "proposed_other_domain_exclusion",
       "plan_evidence_digest_sha256": "c1063c2e970fee714d3c274bb7d12d8036919d43e89042fcdbe330cad57fca47",
@@ -3105,7 +3105,7 @@
     },
     {
       "opaque_id": "C0285",
-      "cluster": "K3",
+      "cluster": "group-3",
       "role_class": "source_registration",
       "plan_disposition": "proposed_other_domain_exclusion",
       "plan_evidence_digest_sha256": "81a6538a1b144d3f01171bd7c4c69a8e17259cdd395567926472cf111c740db1",
@@ -3137,7 +3137,7 @@
     },
     {
       "opaque_id": "C0286",
-      "cluster": "K3",
+      "cluster": "group-3",
       "role_class": "batch_build",
       "plan_disposition": "proposed_other_domain_exclusion",
       "plan_evidence_digest_sha256": "df876116732fa235d6ed25cb07676d0c96517c86b9c7b180723093bef9d5fcf7",
@@ -3169,7 +3169,7 @@
     },
     {
       "opaque_id": "C0287",
-      "cluster": "K3",
+      "cluster": "group-3",
       "role_class": "control_tool",
       "plan_disposition": "proposed_other_domain_exclusion",
       "plan_evidence_digest_sha256": "c1d4c565d67abf6f56b4a69fa61aa30769370c623f0b23502a090007d9e6ca08",
@@ -3201,7 +3201,7 @@
     },
     {
       "opaque_id": "C0288",
-      "cluster": "K3",
+      "cluster": "group-3",
       "role_class": "batch_build",
       "plan_disposition": "proposed_other_domain_exclusion",
       "plan_evidence_digest_sha256": "2165d0e0e05ae082535e75b7229481b2e33d923ebb902a9d31f35a224eeeeda9",
@@ -3233,7 +3233,7 @@
     },
     {
       "opaque_id": "C0289",
-      "cluster": "K3",
+      "cluster": "group-3",
       "role_class": "source_registration",
       "plan_disposition": "proposed_other_domain_exclusion",
       "plan_evidence_digest_sha256": "5cb83d16177f3547f7b0e34033b408adf23b66d15a7166d6eb875454fdd304ce",
@@ -3267,7 +3267,7 @@
     },
     {
       "opaque_id": "C0290",
-      "cluster": "K3",
+      "cluster": "group-3",
       "role_class": "stream_worker",
       "plan_disposition": "proposed_other_domain_exclusion",
       "plan_evidence_digest_sha256": "423cc2709e4df4f2fb484bf82761abc710971fe96604bc71042287b1fa593038",
@@ -3323,7 +3323,7 @@
     },
     {
       "opaque_id": "C0291",
-      "cluster": "K3",
+      "cluster": "group-3",
       "role_class": "batch_build",
       "plan_disposition": "proposed_other_domain_exclusion",
       "plan_evidence_digest_sha256": "e85137a8a9ac4cf9085498fba9fe5b3fa336858752416e1e14c53608df76b182",
@@ -3378,7 +3378,7 @@
     },
     {
       "opaque_id": "C0292",
-      "cluster": "K3",
+      "cluster": "group-3",
       "role_class": "source_registration",
       "plan_disposition": "proposed_other_domain_exclusion",
       "plan_evidence_digest_sha256": "c306927dc8f055906dd6ec2472bcc404bd5c620e9afdd22a85010ea0ff82fdc4",
@@ -3410,7 +3410,7 @@
     },
     {
       "opaque_id": "C0293",
-      "cluster": "K3",
+      "cluster": "group-3",
       "role_class": "source_registration",
       "plan_disposition": "proposed_other_domain_exclusion",
       "plan_evidence_digest_sha256": "81f1bbfdcaa1bdbb73a669ea53b0ca4c79fafce9b7d2695bf6e6321d7ecf2e22",
@@ -3442,7 +3442,7 @@
     },
     {
       "opaque_id": "C0294",
-      "cluster": "K3",
+      "cluster": "group-3",
       "role_class": "schema_migration",
       "plan_disposition": "proposed_other_domain_exclusion",
       "plan_evidence_digest_sha256": "674a0f76af0bde92e61bc2b45932876e7a1ae5ded093cd5838bf9d7c73d8ff84",
@@ -3468,13 +3468,13 @@
         "result": "no retained component reached",
         "runtime_dispatch_proven_absent": false
       },
-      "finding": "Schema migration tool for the K3 store; schema change only. Closure: no retained component reached, interface dispatch absent, no subprocess launch.",
+      "finding": "Schema migration tool for the third-family store; schema change only. Closure: no retained component reached, interface dispatch absent, no subprocess launch.",
       "confidence": "high",
       "finding_status": "adjudicated finding; coordinator-decided per docs/ef1/audit/EQ164_WAVE2_DECISIONS.md, pending owner review"
     },
     {
       "opaque_id": "C0295",
-      "cluster": "K3",
+      "cluster": "group-3",
       "role_class": "delivery_worker",
       "plan_disposition": "proposed_other_domain_exclusion",
       "plan_evidence_digest_sha256": "54c008f613bbfd6b927da7bf51cdb390261df640cfc983885743906092729e10",
@@ -3500,7 +3500,7 @@
         "result": "no retained component reached",
         "runtime_dispatch_proven_absent": false
       },
-      "finding": "Webhook delivery worker for K3 product notifications; outbound transport only. Closure: no retained component reached, interface dispatch absent, no subprocess launch.",
+      "finding": "Webhook delivery worker for third-family product notifications; outbound transport only. Closure: no retained component reached, interface dispatch absent, no subprocess launch.",
       "confidence": "high",
       "finding_status": "adjudicated finding; coordinator-decided per docs/ef1/audit/EQ164_WAVE2_DECISIONS.md, pending owner review"
     }

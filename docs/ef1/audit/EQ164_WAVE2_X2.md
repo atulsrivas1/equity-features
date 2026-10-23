@@ -20,7 +20,7 @@ Evidence used for each row (private, read-only, not reproduced here):
 5. a static call-graph from the command to the producers of equity-shaped facts. It matches methods by name, so it over-approximates reach and does not prove a runtime path;
 6. a reverse-import scan: which equity-side workers and libraries import the packages the row uses.
 
-The public evidence digest for each row is in the JSON. The 101 rows fall into four product-family clusters, K1 (46 rows), K2 (21), K3 (19) and K4 (15). Clusters appear in the JSON only to show the shape of the patterns. They are not a basis for any verdict.
+The public evidence digest for each row is in the JSON. The 101 rows fall into four product-family groups, groups 1 to 4 (46, 21, 19 and 15 rows). Groups appear in the JSON only to show the shape of the patterns. They are not a basis for any verdict.
 
 ## Summary counts
 
@@ -117,5 +117,5 @@ None of these exist. All need owner approval before any issue is created.
 
 - The call-graph is static and over-approximate. It does not prove which paths run. No runtime, deployment-configuration or stream-content evidence was inspected.
 - Nothing here checks numerical equivalence, source rights, consumer parity or any release gate. A CONFIRM_EXCLUSION means no retained component was found in the sources read, not that the exclusion is approved.
-- Product family clusters K1 to K4 are descriptive only.
+- Product family groups 1 to 4 are descriptive only.
 - The 245 consumer operand gaps, the C0051 and C0055 calendar and session-policy choices, and the full 1,399-identity review remain open.
