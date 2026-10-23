@@ -1,0 +1,304 @@
+{
+ "version": "ef1-producer-set-amendment1",
+ "status": "proposed_additive_amendment_awaiting_review_and_owner_decision",
+ "base_main": "0fa8141",
+ "frozen_contract": "docs/ef1/CONTRACT.json ef1-contract1 (unchanged by this amendment)",
+ "frozen_contract_sha256": "02940da0c4663bbced050ac551e7fbafe2a1da1534e4c6fa5c87eaf90d420076",
+ "sources": {
+  "close_contract": "docs/ef1/CLOSE_RECONCILIATION_CONTRACT_PROPOSAL.md/.json incl. Amendment 1",
+  "multivenue_contract": "docs/ef1/MULTI_VENUE_STATUS_CONTRACT_PROPOSAL.md/.json",
+  "code": [
+   "packages/features/src/equity_features/ef1/_reference_close.py",
+   "packages/features/src/equity_features/ef1/_venue_status.py",
+   "packages/features/src/equity_features/ef1/_definitions.py",
+   "packages/features/src/equity_features/ef1/_context.py",
+   "packages/features/src/equity_features/ef1/_dispatch.py"
+  ],
+  "merged": {
+   "close": "core PR 639 (c754e5d); io PR 30; workers PR 72",
+   "multivenue": "core PR 642 (45daba5); io PR 31; workers PR 73"
+  }
+ },
+ "producers": [
+  {
+   "producer": "reference_close",
+   "config_identity": "ef1.reference_close",
+   "algorithm_version": "v1",
+   "schema_version": "1",
+   "parameter": "ef1_context_json",
+   "context_version": "ef1-context1",
+   "roles": [
+    {
+     "role": "calendar_provenance",
+     "kind": "reference"
+    },
+    {
+     "role": "bars",
+     "kind": "bar"
+    },
+    {
+     "role": "population_proof",
+     "kind": "reference"
+    },
+    {
+     "role": "authoritative_close",
+     "kind": "reference"
+    }
+   ],
+   "slot_order": [
+    "calendar_provenance",
+    "bars",
+    "population_proof",
+    "authoritative_close"
+   ],
+   "context": {
+    "calendar": "required, target-only single session, same schema as regular_bar_prices (frozen calendar_required_for list gains reference_close)",
+    "selection_exact_keys": [
+     "phase_profile",
+     "policy_version",
+     "sampling",
+     "scope_id",
+     "tolerance_bps_den",
+     "tolerance_bps_num"
+    ],
+    "fixed_values": {
+     "phase_profile": "regular_no_auctions1",
+     "sampling": "completed_bar_close",
+     "policy_version": "ef1-close-compare1"
+    },
+    "price_unit": "mandatory",
+    "session": "no auctions; open_ns < market_cutoff_ns <= close_ns"
+   },
+   "policy_label": "ef1-close-compare1",
+   "mapping_version": "ef1-reference-map1 (authoritative_close role; calendar and population roles unchanged from regular_bar_prices)",
+   "evidence_limit": 7,
+   "headers": 4
+  },
+  {
+   "producer": "multivenue_status",
+   "config_identity": "ef1.multivenue_status",
+   "algorithm_version": "v1",
+   "schema_version": "1",
+   "parameter": "ef1_context_json",
+   "context_version": "ef1-context1",
+   "roles": [
+    {
+     "role": "venue_population",
+     "kind": "reference"
+    },
+    {
+     "role": "venue_seed",
+     "kind": "reference"
+    },
+    {
+     "role": "venue_states",
+     "kind": "reference"
+    },
+    {
+     "role": "venue_prefix",
+     "kind": "reference"
+    },
+    {
+     "role": "venue_validity",
+     "kind": "reference"
+    }
+   ],
+   "slot_order": [
+    "venue_population",
+    "venue_seed",
+    "venue_states",
+    "venue_prefix",
+    "venue_validity"
+   ],
+   "context": {
+    "calendar": "null (frozen calendar_null_for list gains multivenue_status)",
+    "selection_exact_keys": [
+     "clock_dimensions",
+     "epoch",
+     "max_age_ns",
+     "population_id",
+     "population_revision",
+     "state_policy"
+    ],
+    "state_policy_exact_keys": [
+     "policy_id",
+     "policy_version",
+     "precedence"
+    ],
+    "fixed_values": {
+     "policy_id": "venue_precedence_v1",
+     "policy_version": "1"
+    },
+    "price_unit": "must be null",
+    "window": "target-only count 1 completed_eod"
+   },
+   "policy_label": "venue_precedence_v1 version 1",
+   "mapping_version": "ef1-venue-map1",
+   "evidence_limit": 4,
+   "headers": 7
+  }
+ ],
+ "unchanged": [
+  "CanonicalBatch/ConfigSpec/FeatureResult and the scalar ValueType set",
+  "compute_ef1 and ef1_definitions signatures",
+  "ef1-context1 envelope, 4096 codepoint/UTF8 byte and depth 8 bounds",
+  "4096 aggregate reference-row bound",
+  "result evidence limit 128 (producers set 7 and 4 below it)",
+  "1 MiB task bound",
+  "no new DataKind, DTO, codec, scheduler or default",
+  "contracts 0.0.4a4 and features 0.0.4a5 versions and the ef1-contract1 label",
+  "default registry",
+  "published results and headers of every existing producer"
+ ],
+ "header_ledger_additions": [
+  {
+   "id": "reference.close.absolute_difference_bps",
+   "dtype": "float64",
+   "unit": "bps",
+   "scale": "none",
+   "producer": "reference_close",
+   "null_availability_rule": "null unless calculated close ready and supplied close admitted with positive denominator; zero p_s -> not_applicable/zero_denominator; negative -> missing_input/ineligible"
+  },
+  {
+   "id": "reference.close.comparison_state",
+   "dtype": "string",
+   "unit": "state",
+   "scale": "none",
+   "producer": "reference_close",
+   "null_availability_rule": "always available, expected=observed=1, no reasons; six-value closed vocabulary"
+  },
+  {
+   "id": "reference.close.supplied_price",
+   "dtype": "decimal128",
+   "unit": "currency/share",
+   "scale": "retained integer coefficient at ConfigSpec.price_unit.scale",
+   "producer": "reference_close",
+   "null_availability_rule": "null unless one causal complete-coverage positive row and market_cutoff_ns == session close_ns; provisional (cutoff < close) -> incomplete_coverage/governed_gap, no witness"
+  },
+  {
+   "id": "reference.close.within_tolerance",
+   "dtype": "bool",
+   "unit": "boolean",
+   "scale": "none",
+   "producer": "reference_close",
+   "null_availability_rule": "same availability as absolute_difference_bps; exact inclusive integer verdict"
+  },
+  {
+   "id": "session.venue_status.aggregate_reason",
+   "dtype": "string",
+   "unit": "reason",
+   "scale": "none",
+   "producer": "multivenue_status",
+   "null_availability_rule": "always available, expected=observed=1"
+  },
+  {
+   "id": "session.venue_status.aggregate_state",
+   "dtype": "string",
+   "unit": "state",
+   "scale": "none",
+   "producer": "multivenue_status",
+   "null_availability_rule": "null unless all expected trading facts known or the top-ranked state dominates"
+  },
+  {
+   "id": "session.venue_status.known_nontrading_count",
+   "dtype": "int64",
+   "unit": "publishers",
+   "scale": 0,
+   "producer": "multivenue_status",
+   "null_availability_rule": "null unless every expected publisher trading fact is known"
+  },
+  {
+   "id": "session.venue_status.known_trading_count",
+   "dtype": "int64",
+   "unit": "publishers",
+   "scale": 0,
+   "producer": "multivenue_status",
+   "null_availability_rule": "null unless every expected publisher trading fact is known"
+  },
+  {
+   "id": "session.venue_status.latest_event_ns",
+   "dtype": "int64",
+   "unit": "utc_ns",
+   "scale": 0,
+   "producer": "multivenue_status",
+   "null_availability_rule": "null unless all declared clock facts eligible or the maximum equals C-1"
+  },
+  {
+   "id": "session.venue_status.quoting_any",
+   "dtype": "bool",
+   "unit": "boolean",
+   "scale": "none",
+   "producer": "multivenue_status",
+   "null_availability_rule": "true on one known positive; false only if every quoting fact known disabled; else null"
+  },
+  {
+   "id": "session.venue_status.restriction_any",
+   "dtype": "bool",
+   "unit": "boolean",
+   "scale": "none",
+   "producer": "multivenue_status",
+   "null_availability_rule": "true on one known positive; false only if every ssr fact known off; else null"
+  }
+ ],
+ "lexical_order": "by feature_id across the combined added set (reference.close.* before session.venue_status.*)",
+ "header_counts": {
+  "frozen_contract_json_before": 45,
+  "frozen_contract_json_after_this_amendment": 56,
+  "merged_code_definitions_before_this_amendment": 66,
+  "merged_code_definitions_after": 77,
+  "basis": "CONTRACT.json headers array has 45 entries (parsed). Merged _definitions.py statically enumerated (not executed): the nine frozen producers give 45; later producers add gap_endpoint 2, regular_bar_prices 2, regular_first_trade_price 1, daily_observations 4, status_history 6, opening_trade 5, opening_trade_seconds 1 = 21 (66); this amendment adds 4 + 7 (77)."
+ },
+ "unit_additions_relative_to_frozen_CONTRACT_json": [
+  {
+   "unit": "bps",
+   "used_by": "reference.close.absolute_difference_bps",
+   "dtype": "float64"
+  },
+  {
+   "unit": "publishers",
+   "used_by": [
+    "session.venue_status.known_nontrading_count",
+    "session.venue_status.known_trading_count"
+   ],
+   "dtype": "int64"
+  },
+  {
+   "unit": "utc_ns",
+   "used_by": "session.venue_status.latest_event_ns",
+   "dtype": "int64",
+   "note": "merged code emits utc_ns, matching the multi-venue contract; the frozen ledger used ns for ages and clocks; utc_ns is new relative to CONTRACT.json but already emitted by merged opening_trade first_trade_time_ns"
+  }
+ ],
+ "frozen_units": [
+  "boolean",
+  "classification",
+  "currency",
+  "currency/share",
+  "fraction",
+  "ns",
+  "reason",
+  "sessions",
+  "shares",
+  "state"
+ ],
+ "explicit_statements": [
+  "pure additive; no frozen byte changes",
+  "published results of existing producers are unchanged: CLOSE_RECONCILIATION_IMPLEMENTATION.md and MULTI_VENUE_STATUS_IMPLEMENTATION.md record a before/after snapshot of 381 EQ166 and first-trade oracle outcomes that was byte-identical after the shared selection helper refactor of _regular_bar_prices.py; this amendment cites that claim and did not re-run it",
+  "no change to ef1-contract1 versions or package versions",
+  "tests/unit/test_purity_audit.py module list is NOT updated by this PR (owner decision pending)",
+  "no numerical, installed, cross-layer, release or source-rights acceptance is claimed"
+ ],
+ "findings": [
+  "F1 header count: the multi-venue contract and IMPLEMENTATION_ADMISSION say 45 frozen headers, true for CONTRACT.json, but merged code already defines 66 before this change (21 from later reviewed producers). The code-wide ledger goes 66 to 77 and the frozen file 45 to 56. Counts are by static reading, not execution.",
+  "F2 utc_ns: multi-venue contract D10 calls utc_ns new; true relative to CONTRACT.json, but merged opening_trade already emits utc_ns, and merged code also emits count, s, price and observations, likewise absent from CONTRACT.json and not covered by this amendment.",
+  "F3 mapping versions: ef1-close-compare1 is a comparison policy label (selection.policy_version), not a mapping version; the authoritative_close mapping version is ef1-reference-map1 (code check); only ef1-venue-map1 is a new mapping version.",
+  "F4 calendar: reference_close requires a target-only calendar like regular_bar_prices, multivenue_status forbids one; the frozen calendar_required_for and calendar_null_for lists must gain these producers."
+ ],
+ "not_verified": [
+  "nothing was executed and no tests were run",
+  "worker admission (io PR 30/31, workers PR 72/73) was not inspected; those repositories were not read",
+  "header counts are static readings",
+  "the byte-identity claim is cited from merged documentation, not re-run",
+  "installed artifacts, CI results and the 381-outcome snapshot script were not available"
+ ]
+}
