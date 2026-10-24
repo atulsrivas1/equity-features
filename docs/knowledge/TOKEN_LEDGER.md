@@ -29,3 +29,28 @@ Added at EF3 close (cumulative context k; coordinator not measured):
 | EF3 | Retrospective and token-doc reviews | Sonnet/Haiku | - | 74 + 71 | 145 |
 
 EF3 total with these rows: about 5.3M subagent tokens (3,839k in the first table plus 1,431k here).
+
+
+Added at EF4 close (cumulative context k from the EF4 coordinator's per-agent usage lines; Total includes resumed follow-ups; coordinator not measured; the source total of 19,913k is not fully reconciled with these rows, see retrospective section 10):
+
+| Release | Unit | Model | Build k (first line) | Build total k | Review k |
+|---|---|---|---|---|---|
+| EF4 | G contract | Sonnet | 328 | 1067 | - |
+| EF4 | G I/O | Haiku | 319 | 1002 | 318 |
+| EF4 | G library | Sonnet | 320 | 1630 | 487 |
+| EF4 | G workers | Sonnet | 269 | 552 | 146 |
+| EF4 | H contract | Sonnet | 270 | 961 | 363 |
+| EF4 | H I/O | Haiku | 285 | 582 | 145 |
+| EF4 | H library | Sonnet | 339 | 1399 | 429 |
+| EF4 | H workers | Sonnet | 208 | 423 | 105 |
+| EF4 | I1 contract | Sonnet | 412 | 1417 | 340 |
+| EF4 | I1 I/O | Haiku | 238 | 479 | 141 |
+| EF4 | I1 library | Sonnet | 293 | 898 | 338 |
+| EF4 | I1 workers | Sonnet | 203 | 407 | 112 |
+| EF4 | I2 contract | Sonnet | - | - | 369 (review only) |
+| EF4 | I2 I/O | Haiku | 321 | 2477 | 271 |
+| EF4 | I2 library | Sonnet | 392 | 1214 | 624 |
+| EF4 | I2 workers | Sonnet | 242 | 486 | 138 |
+| EF4 | Vendored fixture expanders | Haiku | 86 | 172 | - |
+
+EF4 total: about 19.9M subagent tokens (contract 3,445k; I/O 4,540k; library 5,141k; workers 1,868k; reviews 4,747k; vendor 172k) against about 5.3M for EF3.
