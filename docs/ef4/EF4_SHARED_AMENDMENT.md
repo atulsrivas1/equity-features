@@ -137,7 +137,7 @@ These are the coordinator's rulings. They are decided for the work in flight and
 
 ### E2. Coverage form and the fail-open of undeclared coverage
 
-**Ruling.** The declaration is one `IntervalCoverage` entry exactly equal to [S, E) on the quote or trade batch, with the aggregate `Coverage` as fallback (complete; incomplete with a known `expected`; undeclared when `expected` is null). Bars use per-slot entries equal to a grid slot. An undeclared batch that delivers rows is read as complete: this fails open, so every I/O mapper must always declare coverage.
+**Ruling.** The declaration is one `IntervalCoverage` entry exactly equal to [S, E) on the quote or trade batch, with the aggregate `Coverage` as fallback (complete; incomplete with a known `expected`; undeclared when `expected` is null). Bars use per-slot entries equal to a grid slot. An undeclared batch that delivers rows is read as complete: this fails open, so every I/O mapper must always declare coverage; the tape adapter does not enforce this (it defaults to complete, see the I/O line).
 
 **Contract lines affected.**
 
@@ -148,7 +148,7 @@ These are the coordinator's rulings. They are decided for the work in flight and
 **What the merged layers do.**
 
 - Library (core main c4e4c70): `declared_coverage` (ef4/_common.py:200): any interval entry must be exactly one entry equal to [S, E) with observed equal to the delivered rows, else `INCONSISTENT_IDENTITY`; with no entry the aggregate is read: complete is complete, incomplete with `expected` not null is incomplete, incomplete with `expected` null is `undeclared`. Zero rows with `undeclared` (or an undelivered role) is `absent_input` (_quote.py:170, _vwap.py:149). `undeclared` with rows is not gated as incomplete, so it reads as complete. Bars (VWAP bar source): a per-slot entry must equal a grid slot; no row with an entry is `governed_gap`, no row without one is `absent_input`, a delivered row whose entry is incomplete is `governed_gap` (implementation document; no fixture). Path efficiency and the projections declare per slot and treat a slot without a coverage entry as absent.
-- I/O (equity-feature-io main 4ebfa30): Not verified in the adapter source for this amendment (only the I/O documents were read). The H I/O record states the library behavior is what its fixture harness also does.
+- I/O (equity-feature-io main 4ebfa30): Adapter sources read (io main 4ebfa30). Quote/VWAP `quote_vwap.py` `_event_coverage` (line 158): coverage must be declared complete, incomplete or absent (else INVALID_CONFIG); absent with delivered rows is refused; every declared batch carries the aggregate and one interval entry for the scope. Projections `ef4_projections.py` declares the aggregate on every batch (line 170) plus per-slot entries (lines 205-257). Path efficiency `path_efficiency.py` writes the aggregate `Coverage(None, n, False)` (line 126) and relies on the per-slot entries (lines 113-119). Tape `tape.py:136` DEFAULTS to `Coverage(n, n, True)` when the caller supplies none: a fail-open default (a tape batch delivered without a declaration is declared complete by the adapter).
 - Workers (equity-feature-workers main 51f5e7f): Not specific; the workers pass the adapter batches through.
 
 ### E3. REFERENCE evidence boundary is `ordinary`
@@ -176,7 +176,7 @@ These are the coordinator's rulings. They are decided for the work in flight and
 
 **What the merged layers do.**
 
-- Library (core main c4e4c70): `_path_config.py`: `_MODE = {session_reset: reset, governed_history: carry}`; an `epoch_profile` that disagrees with the context mode, or the profile value `carry` itself, is `INVALID_CONFIG` (lines 38, 64); a `carry` context whose slot count differs from its session count is `INVALID_CONFIG` (line 65). `_context.py:80` bounds a context at 1..64 sessions, which gives N + 1 <= 64 slots, N <= 63. There is no explicit `window <= 63` check: `window` keeps the range 2..4096 and a window beyond the delivered slots gives `insufficient_history` at compute (window 4096 is a valid config whose result is always `insufficient_history`; 4095 is the largest session_reset window that can be available).
+- Library (core main c4e4c70): `_path_config.py`: `_MODE = {session_reset: reset, governed_history: carry}`; an `epoch_profile` that disagrees with the context mode, or the profile value `carry` itself, is `INVALID_CONFIG` (lines 38 and 64); a `carry` context whose slot count differs from its session count is `INVALID_CONFIG` (line 66). `_context.py` (line 82) bounds a context at 1..64 sessions, which gives N + 1 <= 64 slots, N <= 63. There is no explicit `window <= 63` check: `window` keeps the range 2..4096 and a window beyond the delivered slots gives `insufficient_history` at compute (window 4096 is a valid config whose result is always `insufficient_history`; 4095 is the largest session_reset window that can be available).
 - I/O (equity-feature-io main 4ebfa30): Not specific to the cap (the I1 I/O record builds the context and config with the adapter and compares the envelope to `build_path_efficiency_config`).
 - Workers (equity-feature-workers main 51f5e7f): Not specific.
 
@@ -258,18 +258,18 @@ These are the coordinator's rulings. They are decided for the work in flight and
 - **L1** Refusal recipes of H and I2 (RQ, SP and sibling ids) are raised by different layers than the contract `raised_by` (E6); codes match, layers differ. The contract is not edited.
 - **L2** The Parquet and bundles round trip was not run for notional cells. The DuckDB sink round trip was (227 of 227 G results, author-reported). The bundles decoder refuses notional cells (E1).
 - **L3** mypy was not installed in the author environments; strict typing is not claimed for any EF4 layer.
-- **L4** The io codec re-check of notional order on read (INVALID_CONTENT) was read in the source; the EF4_TAPE_IO.md risk text says the codec does not re-check the order, which is stale against io main 4ebfa30. A forged cell with a valid notional order and a valid encoding is still not refused.
-- **L5** Undeclared coverage with delivered rows reads as complete (E2): fails open for any producer fed by a mapper that does not declare.
+- **L4** The io codec re-check of notional order on read (INVALID_CONTENT) was read in the source; EF4_TAPE_IO.md is stale against io main 4ebfa30 on two lines: line 17 (deviation 1: the codec `_top_k_cell` rebuilds through the shared constructor and falls back only on INVALID_ORDER; the code is feature-aware instead) and line 41 (risk: the fallback does not re-check notional order on read; the code does). A forged cell with a valid notional order and a valid encoding is still not refused.
+- **L5** Undeclared coverage with delivered rows reads as complete (E2): fails open in the library, and the tape adapter (`tape.py:136`) defaults an unsupplied coverage to complete, so the default path of the tape I/O layer is fail-open.
 - **L6** `tools/check_boundary.py` fails on the base at ef1/_reference_close.py (`import base64`); the EF4 modules report no violation (author-reported).
 - **L7** No performance, installed-artifact, cross-layer, source-rights or release acceptance is claimed; cost figures and all fixture pass counts are author-reported.
 
 ## (d) Places where the code differs from a ruling or from its documents
 
-- E1: the rank-aware check is a ruling to implement; merged shared code is unchanged and still size-ranked. io main rechecks notional order on read while EF4_TAPE_IO.md says it does not (document stale).
+- E1: the rank-aware check is a ruling to implement; merged shared code is unchanged and still size-ranked. io main rechecks notional order on read while EF4_TAPE_IO.md lines 17 and 41 say otherwise (document stale).
 - E4: the cap is implicit (one slot per session, at most 64 sessions) with no explicit N <= 63 check or code.
-- E7: the window result publishes evidence_limit * 9 result-wide; per-output limiting is by the producer, not by the shared validator.
+- E7: `_tape_window.py:303` passes `limit * len(TAPE_FEATURES)` = 9 times the limit as `ResultMetadata.evidence_limit` while the comment at line 301 says the bound is per output. The producer does enforce the per-output limit itself (witness rows cut to `rows[:limit]`, line 284; the seed counts toward it, line 204); the shared validator only enforces the 9x total.
 - E6: through the adapter 73 of 75 G recipes match the contract code (RF18, RF35 differ), against 75 of 75 in library-only runs.
-- E2: the I/O adapters' coverage declaration was not read; only the library behavior is verified.
+- E2: the tape adapter defaults coverage to complete (`tape.py:136`); the other adapters always declare.
 
 ## (e) Open items not decided (flagged for the owner)
 
@@ -292,6 +292,6 @@ These are the coordinator's rulings. They are decided for the work in flight and
 ## What could not be verified
 
 - Fixture pass counts (G 82 results and 75 refusals, H 69 and 80, I1 31 and 39, I2 111 and 114, and the io and worker run counts) are author-reported in the implementation, I/O and worker documents and were not re-run.
-- The I/O adapters' source and the workers' source were not read beyond the io-sdk codec, the bundles typed decoder and the service codec import list; the sibling documents were read (io main 4ebfa30, workers main 51f5e7f).
+- The workers' source and the adapters' source beyond their coverage declarations were not read, beyond the io-sdk codec, the bundles typed decoder and the service codec import list; the sibling documents were read (io main 4ebfa30, workers main 51f5e7f).
 - The combined ledger total 206 is a static count; no code enumerates it.
 - Catalog digests of `describe_intraday()` and the other catalogs are cited from the implementation documents.
