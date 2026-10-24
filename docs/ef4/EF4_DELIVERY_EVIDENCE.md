@@ -40,18 +40,18 @@ Sibling repositories (equity-feature-io, equity-feature-workers).
 | I1 | io #40 | `19a5dde` | workers #83 | `be86298` |
 | I2 | io #42 | `4ebfa30` | workers #85 | `8109c52` |
 
-io main at the end of the build is `4ebfa30`; workers main is `51f5e7f`. Installed Windows qualification is core PR #714 (head `70c5b6d`), **open and not merged** at the time of writing; it is cited below as open.
+io main at the end of the build is `4ebfa30`; workers main is `51f5e7f`. Installed Windows qualification is core PR #714, **merged** (squash, merge commit `ab80b98`, October 24 03:19 UTC).
 
 ## How each part was verified
 
-- Independent review: the handoff records that an independent reviewer recomputed each unit and that the coordinator merged some PRs after reading the diff and the reviewer verdict. The PRs on GitHub carry no review objects or comments (0 on core #703 to #713, io #39 to #42 and workers #83 to #86), and no per-PR verdict text was found in the repository docs. Per-PR reviewer verdicts are therefore not recorded in any source read here and are not restated.
+- Review (not auditable from GitHub): reviews were done by subagents and reported to the coordinator in session; no verdict artifact exists, so independence and outcome cannot be verified from the repository; merges were made with the owner's account, so no GitHub approval could exist. The handoff records that an independent reviewer recomputed each unit and that the coordinator merged some PRs after reading the diff and the reviewer verdict. The PRs on GitHub carry no review objects or comments (0 on core #703 to #713, io #39 to #42 and workers #83 to #86), and no per-PR verdict text was found in the repository docs. Per-PR reviewer verdicts are therefore not recorded in any source read here and are not restated.
 - Author manual runs (implementation docs `docs/ef4/*_IMPLEMENTATION.md`, author-reported, no unit tests by policy): G 82 of 82 result fixtures and 75 of 75 refusals under two identity bindings, with a deliberately broken tick carry and a size-ranked insertion failing the script (negative control); H 69 of 69 results and 80 of 80 refusals under three id sets, plus 1000 seeded random fixtures per id set against an independent stdlib recompute harness (no mismatch); I1 31 of 31 results and 39 of 39 refusals under two bindings, plus 400 random cases; I2 111 of 111 results (340 outputs, 1360 cells) and 114 of 114 refusals under two bindings and both availability modes, with a negative control.
 - Shared amendment #713: the dtype and unit of all 59 headers were compared with the merged library definitions by importing them, and the 59 ids were checked as distinct against 147 earlier ids. No fixture or test was run for it, and it lists what it could not verify.
-- Installed qualification (core #714, open): 297 of 297 demos in each of 4 install forms (all wheels, all sdists, and the two mixed forms), 1188 of 1188 demo processes passed on the first attempt, pip check clean in each form, and identical canonical `content_sha256` across the four forms for all 293 result cases. These are the open PR's own claims and are not part of this package until that PR is reviewed and merged.
+- Installed qualification (core #714, merged `ab80b98`): 297 of 297 demos in each of 4 install forms (all wheels, all sdists, and the two mixed forms), 1188 of 1188 demo processes passed on the first attempt, pip check clean in each form, and identical canonical `content_sha256` across the four forms for all 293 result cases. These are the PR's own claims; the figures were not re-run for this package.
 
 ## What was matched, at which layer
 
-| Contract | Result fixtures | Refusal recipes | Library (author) | I/O and worker (qualification demo, #714 open) |
+| Contract | Result fixtures | Refusal recipes | Library (author) | I/O and worker (qualification demo, #714) |
 | --- | --- | --- | --- | --- |
 | G | 82 | 75 | 82 of 82, 75 of 75 | 82 result demos and a 75-refusal run passed in all 4 forms; RF18 and RF35 counted as expected adapter deviations |
 | H | 69 | 80 | 69 of 69, 80 of 80 | 69 and 80 passed in all 4 forms |
@@ -69,7 +69,7 @@ Each result demo ran adapter, worker, library, a separate DuckDB sink, SDK readb
 
 ## Installed qualification (Windows)
 
-Core PR #714 (`docs/ef4/EF4_INSTALLED_QUALIFICATION.md`) is **open and not merged**. It records core `c4e4c70`, io `4ebfa30`, workers `51f5e7f` (the later core `a18f6fd` differs only by the amendment docs), 8 packages as wheel and sdist, Windows 11, CPython 3.12.10, the results above, and a batch time of about 3556 s with the four forms running concurrently. It is not fully standalone: example scripts, contract JSON and fixture expanders were read from source trees, and the default contract lookup from an installed copy was not exercised. Linux was not run.
+Core PR #714 (`docs/ef4/EF4_INSTALLED_QUALIFICATION.md`) is **merged** (`ab80b98`). It records core `c4e4c70`, io `4ebfa30`, workers `51f5e7f` (the later core `a18f6fd` differs only by the amendment docs), 8 packages as wheel and sdist, Windows 11, CPython 3.12.10, the results above, and a batch time of about 3556 s with the four forms running concurrently. It is not fully standalone: example scripts, contract JSON and fixture expanders were read from source trees, and the default contract lookup from an installed copy was not exercised. Linux was not run.
 
 ## Known limits and release-gate items
 
@@ -89,7 +89,7 @@ Core PR #714 (`docs/ef4/EF4_INSTALLED_QUALIFICATION.md`) is **open and not merge
 ## Not done (not claimed)
 
 - Acceptance of EQ-158, EQ-159, EQ-160, EQ-161, EQ-162 and EQ-172, and of the release acceptance story EQ-163. EF4 is not accepted.
-- Linux installed qualification (owner action); merge and review of Windows qualification #714.
+- Linux installed qualification (owner action).
 - A real-source demo, source-rights and parity, benchmarks, an owner demo (browser) of the EF4 results, the owner's review of all coordinator decisions, DECISIONS.md and token ledger entries for EF4, and the retrospective update.
 - Worktree cleanup.
 
