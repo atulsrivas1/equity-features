@@ -165,7 +165,7 @@ Section 9 "Changes for EF4", items 1-8:
 | 4 | Profile one case before a big batch | kept, fixed | #714 profiled 8 commands in one form first (33 s). That under-predicted the real cost: four concurrent 8-worker batches took about 59 minutes each (3556 s total). The profile was run alone, not under the planned concurrency. Fix: profile under the planned concurrency (new checklist item). |
 | 5 | Docs line-ending rule | dropped (owner-pending) | No `.gitattributes` rule for docs was decided. #714 saw CRLF checkouts change core archive hashes (not the demo `content_sha256`). Carried to EF5 as an owner decision. |
 | 6 | Skeleton trial from the contract pack | dropped, not trialed | HANDOFF, DECISIONS, the evidence package and the token rows show no skeleton trial. I/O layers were built by Haiku and workers by Sonnet with the template-copy approach. Nothing can be compared, so there is no token result. Close it or schedule it with an owner in EF5. |
-| 7 | Fresh coordinator session for the close | kept | HANDOFF recorded the build coordinator chat at about 300k tokens and directed the close to a fresh session; the close (amendment, qualification, evidence, this update) was done from HANDOFF.md. Coordinator tokens are not measured, so the saving is not quantified. |
+| 7 | Fresh coordinator session for the close | kept | HANDOFF recorded (not auditable from repo) the build coordinator chat at about 300k tokens and directed the close to a fresh session; the close (amendment, qualification, evidence, this update) was done from HANDOFF.md. Coordinator tokens are not measured, so the saving is not quantified. |
 | 8 | Release close cleans worktrees, servers, scratch | not done at this PR | The evidence package lists worktree cleanup under "Not done". Carried to EF5 as an item with an owner. |
 
 EF4 changes (from the skill's EF4 section and section 8):
@@ -174,7 +174,7 @@ EF4 changes (from the skill's EF4 section and section 8):
 |---|---|---|
 | Layer pack (`tools/contract_pack.py`) | kept, unproven | Merged in EF3 (#699). The EF4 repo record does not show whether agents used it, and first-turn build contexts are not smaller than EF3 (see B). |
 | Quiet batch (`tools/run_batch.py`) | kept, unproven | Qualification ran eight workers per form with no failures. The record does not say `run_batch.py` itself was used, and notification counts were not tracked. |
-| Sample reviews (fixed recompute sample) | kept | Independent recomputes caught real defects before merge per HANDOFF and STATUS. #713: the reviewer found stale-doc and adapter-coverage gaps; both were fixed before merge. #714 was approved by a recompute reviewer. |
+| Sample reviews (fixed recompute sample) | kept | Independent recomputes caught real defects before merge per HANDOFF and STATUS. #713: the reviewer found stale-doc and adapter-coverage gaps; both were fixed before merge. #714 was approved by a recompute reviewer. (Verdicts are not auditable from repo.) |
 | Display check | kept | See item 3. |
 | Profile first | kept, fixed | See item 4. |
 | Vendored fixture expanders | kept | #711 made the three expanders reproducible from the repo (hashes in `tools/contract_fixtures/README.md`); qualification set `EF4G_HARNESS`, `EF4H_HARNESS`, `EF4I_HARNESS` to that folder. |
@@ -188,11 +188,11 @@ Process findings this release (coordinator notes, per HANDOFF/STATUS): reviewer 
 
 Sources: `docs/knowledge/TOKEN_LEDGER.md` (EF3 rows, and the EF4 rows added in this PR from the coordinator's per-agent usage lines: cumulative context tokens, a relative measure, coordinator turns excluded); `docs/ef4/EF4_SHARED_AMENDMENT.md` (#713); `docs/ef4/EF4_INSTALLED_QUALIFICATION.md` (#714: 297 of 297 per form, 4 forms, 4 concurrent batches 3556 s); `docs/ef4/EF4_DELIVERY_EVIDENCE.md` (#715); the browser demo (coordinator report: 29 runs, 308 refusals, 306 matched, RF18 and RF35 known deviations, no display defects).
 
-Not verified: the EF4 rows did not exist in `TOKEN_LEDGER.md` before this PR (origin/main 82987d2), so they come from the coordinator's notes, not from a merged ledger. The notes' total (19,913k) does not reconcile exactly with its rows: the build-total cells sum to 15,166k and the visible review cells to 4,326k, leaving 421k unattributed. The figures below use the per-unit rows and are approximate.
+Not verified: the EF4 rows did not exist in `TOKEN_LEDGER.md` before this PR (origin/main 82987d2), so they come from the coordinator's notes, not from a merged ledger. The ledger rows sum to 19,492k (build totals 15,166k plus review totals 4,326k); the notes state 19,913k, leaving 421k unattributed. The figures below use the per-unit rows and are approximate.
 
-Totals: EF4 about 19.9M subagent tokens against about 5.3M for EF3, 3.8 times. Part of this is scope (EF3 ledger has no contract-author rows and 3 contracts; EF4 counts contract authoring and 4 contracts) and part is resumed agents (follow-up notifications add to an agent's total). A scope-adjusted EF3 total cannot be derived.
+Totals: EF4 about 19.5M subagent tokens from the ledger rows (the coordinator notes state 19.9M; 421k unattributed) against about 5.3M for EF3, 3.7 times (3.8 on the notes figure). Part of this is scope (EF3 ledger has no contract-author rows and 3 contracts; EF4 counts contract authoring and 4 contracts) and part is resumed agents (follow-up notifications add to an agent's total). A scope-adjusted EF3 total cannot be derived.
 
-Per unit, build plus its review, like for like with the EF3 ledger (k tokens; EF4 = build total including resumes plus the review; EF3 = ledger Total):
+Model confound: EF3 I/O and workers layers were Haiku (E workers reworked by Sonnet); EF4 workers were Sonnet, which inflates the 1.3x workers ratio, so it is not a model-for-model comparison. Per unit, build plus its review, like for like with the EF3 ledger (k tokens; EF4 = build total including resumes plus the review; EF3 = ledger Total):
 
 | Layer | EF3 units (k) | EF3 mean | EF4 units (k) | EF4 mean | Ratio |
 |---|---|---|---|---|---|
@@ -201,7 +201,7 @@ Per unit, build plus its review, like for like with the EF3 ledger (k tokens; EF
 | Workers | D 390, E 554 (276 failed Haiku + 278 Sonnet), F 418 | 454 | G 698, H 528, I1 519, I2 624 | 592 | 1.3 |
 | Contract | not in the EF3 ledger | - | G 1067, H 1324, I1 1757, I2 369 (review only) | - | - |
 
-Resumes dominate the EF4 I/O and library numbers: I2 I/O has 321k on the first usage line but 2477k in total, and G library 320k on the first line but 1630k in total. By first usage line only, build plus review per unit has a median of about 439k across the 12 EF4 I/O, library and workers units, against the section 8 target of at most 343k (20% below the EF3 429k): the target was not met (about 2% above the EF3 median). Reviews alone were 105-146k for workers (EF3 113-195k) and 211-308k for libraries (EF3 219-259k): no clear change. The saving the pack and batch were meant to give is not visible; the extra cost is in resumed agents.
+Resumes dominate the EF4 I/O and library numbers: I2 I/O has 321k on the first usage line but 2477k in total, and G library 320k on the first line but 1630k in total. By first usage line only (Build first line plus Review first line in `TOKEN_LEDGER.md`), build plus review per unit has a median of about 439k across the 12 EF4 I/O, library and workers units, against the section 8 target of at most 343k (20% below the EF3 429k): the target was not met (about 2% above the EF3 median). Reviews alone were 105-146k for workers (EF3 113-195k) and 165-308k for libraries (EF3 219-259k; first-line values): no clear change. The saving the pack and batch were meant to give is not visible; the extra cost is in resumed agents.
 
 ### C. Changes for EF5 (each checkable at the EF5 retrospective)
 
