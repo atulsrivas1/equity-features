@@ -56,9 +56,10 @@ Steps:
 - Agents finish the brief end to end: no "shall I continue?" stops, no ending the turn on progress polls. Run long batches in parallel, wait once, report once.
 - Reviewers audit the author's input derivation, then re-derive from the contract with varied ids; keep reviewer harnesses in the shared notes folder.
 - Haiku gets one correction round per layer, then Sonnet. Default workers layers with new runner registration plus multi-run cases to Sonnet.
-- Profile one worker case before any run over 50 cases; batch the demo in parallel.
+- Profile one worker case before any run over 50 cases, under the planned concurrency (parallel workers); size the batch from that and state predicted against actual time in the report.
 - Retrospective is a release gate (docs PR with an independent reviewer).
 - Contracts carry refusal inputs or an explicit construction recipe; worker docs state build-time vs compute-time refusal.
+- Record each reviewer verdict as a file or PR comment (verdict, head sha, recompute summary) before merge; list adapter fail-open defaults (coverage, completeness) in I/O briefs; add the ledger row in the unit's merge PR.
 - New lessons go into this checklist (or the top of the retrospective), not only into the long `LESSONS.md` log.
 
 ## Token efficiency rules (retrospective section 8)
@@ -69,9 +70,14 @@ Steps:
 - Resume the author for review fixes (cheap incremental context); use a fresh agent for each new unit and each reviewer.
 - Append a row per unit to `docs/knowledge/TOKEN_LEDGER.md` in the release docs batch and compare with the previous release.
 
-## EF4 changes (from RETRO_EF2_EF3.md section 9; check them at the EF4 retrospective)
-- Authors save fixture-expansion code to the shared notes folder; reviewers write only the independent comparator plus a sample.
-- Run the full worker demo once at qualification; per-layer runs use a sample plus all refusals.
-- Display check: generate readable pages for at least one non-prefix case per example and text-check labels before approval.
-- Trial generating adapter and worker skeletons from the contract pack on one layer; compare tokens with the template-copy approach.
-- Release close cleans leftover worktrees, servers and scratch. Docs line-ending rule is an owner decision.
+## EF4 change verdicts (checked at the EF4 close, RETRO_EF2_EF3.md section 10)
+- Kept: reviewer scope with harness reuse (expanders are now vendored in `tools/contract_fixtures`, keep them in the repo); full worker demo once at qualification; display check on a non-prefix case; fresh coordinator for the close; sample reviews; contract pack and quiet batch (savings unproven, record whether agents used them).
+- Fixed: profile one case first, but under the planned concurrency (the 33 s profile predicted far less than the 59 minute concurrent batches).
+- Dropped: skeleton trial (not trialed in EF4); close it or give it an owner and a date.
+- Owner-pending: docs line-ending rule. Open: release cleanup of worktrees, servers and scratch.
+
+## EF5 changes (from RETRO_EF2_EF3.md section 10; check each at the EF5 retrospective)
+- Record every reviewer verdict (verdict, head sha reviewed, recompute summary) as a short file under `docs/<release>/reviews/` or a PR comment before the merge. Agents decline merges relayed by SendMessage: the coordinator merges with the owner's token after reading the diff and the linked verdict.
+- I/O briefs list each adapter's defaults for coverage, completeness and other fail-open choices; the reviewer states them. No adapter defaults to complete.
+- Append the ledger row in each unit's merge PR; briefs carry a per-unit token budget (build plus review, resumes included): I/O 1.35M, library 1.75M, workers 0.6M, at most 3 resumes per agent; overruns get a one-line reason.
+- Docs line-ending rule is an owner decision; write docs with LF until decided.
