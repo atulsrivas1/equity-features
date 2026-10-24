@@ -1,5 +1,9 @@
 # Status (newest first)
 
+## 2026-10-24 - EF4 delivered in all three layers; Windows qualification run, evidence, retrospective merged (not acceptance)
+- Merged: contracts G/H/I1/I2 #703-#705; libraries #706-#710; io #39-#42; workers #83-#86; vendored expanders #711; shared amendment #713 (E1-E9, pending owner review); qualification run #714 (297 of 297 demos in each of 4 install forms, hashes identical); evidence #715; retrospective section 10, skill EF5 changes and token ledger #716. Reviewer subagents approved #713-#716 (fixes applied before merge). Browser demo: 29 runs, 0 failed; 306 of 308 refusals matched (RF18/RF35 known deviations); no display defects.
+- Not done: Linux qualification, real-source demo, rights and parity, release acceptance, version bump, owner review of E1-E9 and decisions. Limits: docs/ef4/EF4_DELIVERY_EVIDENCE.md. Next: EF5 in a fresh coordinator session from HANDOFF.md.
+
 ## 2026-10-23 - EF3 delivered in all three layers; Windows qualification run, evidence and retrospective merged (not acceptance)
 - Merged: E workers #82 (f92fd6a), tools #699, installed Windows qualification run #700 (346 of 346 demos in each of 4 forms), evidence package #701, retrospective #697/#698 and this close update. Browser walkthrough: 24 runs, 0 failed; D readable-view labels on non-prefix runs say 'prefix length' (display defect, values correct).
 - Not done: Linux qualification, real-source demo, owner demo, rights and parity, release acceptance (EQ-153..157, EQ-241), package version bump, owner review of EF3 decisions. Next: EF4 in a fresh coordinator session from HANDOFF.md.
