@@ -165,7 +165,9 @@ class PurityAuditTests(unittest.TestCase):
         self.assertEqual(unittest.defaultTestLoader.loadTestsFromModule(test_ef1_regular_bar_prices).countTestCases(), 9)
         self.assertEqual(unittest.defaultTestLoader.loadTestsFromModule(test_ef1_first_trade_price).countTestCases(), 6)
         before = module_data()
-        self.assertEqual(len(before), 43 + 12 + 2 + 2 + 1)
+        # Loaded declarative-data modules by package: contracts 21, ef1 19, ef2 4,
+        # ef3 20, ef4 19, other equity_features modules 22 (incl. session).
+        self.assertEqual(len(before), 21 + 19 + 4 + 20 + 19 + 22)
         self.assertEqual({name for name in before if name == 'equity_features.ef1' or name.startswith('equity_features.ef1.')},
                          {'equity_features.ef1', 'equity_features.ef1._definitions',
                           'equity_features.ef1._context', 'equity_features.ef1._anchor',
@@ -175,7 +177,8 @@ class PurityAuditTests(unittest.TestCase):
                           'equity_features.ef1._observable', 'equity_features.ef1._observable_context',
                           'equity_features.ef1._daily', 'equity_features.ef1._daily_context',
                           'equity_features.ef1._gap_endpoint', 'equity_features.ef1._regular_bar_prices',
-                          'equity_features.ef1._regular_first_trade_price'})
+                          'equity_features.ef1._regular_first_trade_price',
+                          'equity_features.ef1._reference_close', 'equity_features.ef1._venue_status'})
         bridge_cases = set()
         reads = []
         class AuditResult(unittest.TestResult):
