@@ -9,7 +9,7 @@ from base64 import urlsafe_b64decode, urlsafe_b64encode
 from dataclasses import dataclass
 from math import gcd
 import re
-from typing import Any, NoReturn
+from typing import Any, NoReturn, cast
 
 from equity_feature_contracts import (
     AdjustmentSpec, AvailabilitySpec, CanonicalBatch, ConfigSpec, ContractError, DataKind, EntityKey,
@@ -208,12 +208,12 @@ def _admit(role: str, kind: str, batch: CanonicalBatch | None, config: ConfigSpe
     _window_set(cols["reference_id"][0])
     if cols.get("text", (None,))[0] != meta.source.snapshot_id:
         fail(ErrorCode.INCONSISTENT_IDENTITY, "extremum revision differs from snapshot")
-    price = cols.get("price", (None,))[0]
-    num = cols.get("factor_num", (None,))[0]
-    den = cols.get("factor_den", (None,))[0]
+    price = cast("int | None", cols.get("price", (None,))[0])
+    num = cast("int | None", cols.get("factor_num", (None,))[0])
+    den = cast("int | None", cols.get("factor_den", (None,))[0])
     if (num is None) != (den is None):
         fail(ErrorCode.INVALID_SCHEMA, "factor_num and factor_den are all-or-none")
-    known = cols.get("known_at_ns", (None,))[0]
+    known = cast("int | None", cols.get("known_at_ns", (None,))[0])
     causal = known is not None and known <= config.availability.knowledge_cutoff_ns
     # A row that is not causal or not completely covered is never inspected beyond its structure.
     if causal and meta.coverage.complete:
@@ -224,8 +224,9 @@ def _admit(role: str, kind: str, batch: CanonicalBatch | None, config: ConfigSpe
                 fail(ErrorCode.INCONSISTENT_IDENTITY, "a priced extremum must present a complete window")
         elif num is not None and den is not None and num > den:
             fail(ErrorCode.INCONSISTENT_IDENTITY, "observed slots cannot exceed the required window length")
-    return _Side(role, batch, cols["reference_id"][0], price, num, den, known,
-                 cols["effective_start_ns"][0], cols.get("effective_end_ns", (None,))[0])
+    return _Side(role, batch, cast("str | None", cols["reference_id"][0]), price, num, den, known,
+                 cast("int | None", cols["effective_start_ns"][0]),
+                 cast("int | None", cols.get("effective_end_ns", (None,))[0]))
 
 
 def _first_status(reasons: set[Reason]) -> Status:

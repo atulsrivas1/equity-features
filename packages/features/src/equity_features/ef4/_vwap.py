@@ -226,24 +226,24 @@ def _bar_series(grid: CanonicalBatch, bars: CanonicalBatch, config: ConfigSpec, 
     series = _Series([], [], [], input_id)
     for k in range(len(edges) - 1):
         start, end = edges[k], edges[k + 1]
-        i = row_of.get(k)
-        if i is None:
-            reason = Reason.GOVERNED_GAP if k in declared else Reason.ABSENT_INPUT
-            series.slots.append(([reason], [reason]))
+        row_i = row_of.get(k)
+        if row_i is None:
+            gap_reason = Reason.GOVERNED_GAP if k in declared else Reason.ABSENT_INPUT
+            series.slots.append(([gap_reason], [gap_reason]))
             continue
-        volume = cols["volume"][i] if "volume" in cols else None
-        notional = cols["actual_notional"][i] if "actual_notional" in cols else None
-        known_at = cols["known_at_ns"][i] if "known_at_ns" in cols else None
+        volume = cols["volume"][row_i] if "volume" in cols else None
+        notional = cols["actual_notional"][row_i] if "actual_notional" in cols else None
+        known_at = cols["known_at_ns"][row_i] if "known_at_ns" in cols else None
         counted: list[Reason] = []
         priced: list[Reason] = []
         if k in incomplete:
             counted.append(Reason.GOVERNED_GAP)
             priced.append(Reason.GOVERNED_GAP)
         # A zero-volume window is ready without reading its knowledge or notional; a null volume reads its knowledge.
-        reason = None if volume == 0 else knowledge_reason(known_at, knowledge)
-        if reason is not None:
-            counted.append(reason)
-            priced.append(reason)
+        knowledge_cause = None if volume == 0 else knowledge_reason(known_at, knowledge)
+        if knowledge_cause is not None:
+            counted.append(knowledge_cause)
+            priced.append(knowledge_cause)
         if volume is None:
             counted.append(Reason.NULL_FIELD)
             priced.append(Reason.NULL_FIELD)

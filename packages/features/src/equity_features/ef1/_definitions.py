@@ -83,10 +83,10 @@ def ef1_definitions(config: ConfigSpec) -> tuple[EF1Definition, ...]:
             for name, formula in (("current_fill_fraction", "clamp((O-L)/(O-P),0,1); nonzero gap only"),
                                   ("opening_gap_fraction", "(O-P)/P")))
     if context["producer"] == "daily_observations":
-        from ._daily_context import ROLES
+        from ._daily_context import ROLES as DAILY_ROLES
         requirements = tuple(InputRequirement(role, "canonical:1",
             ("reference_id", "fact_kind", "effective_start_ns", "effective_end_ns", "text", "known_at_ns"),
-            DataKind.REFERENCE, rule="exact nullable source-bound daily observation role") for role in ROLES)
+            DataKind.REFERENCE, rule="exact nullable source-bound daily observation role") for role in DAILY_ROLES)
         return tuple(EF1Definition("session.daily_observations." + name,
             ValueType.INT64 if name == "selected_observed_count" else ValueType.FLOAT64,
             "observations" if name == "selected_observed_count" else "price", requirements, formula,

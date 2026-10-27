@@ -8,7 +8,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass, field
 from fractions import Fraction
-from typing import Any
+from typing import Any, cast
 
 from equity_feature_contracts import (
     AdjustmentSpec, AvailabilitySpec, CanonicalBatch, ConfigSpec, DataKind, EntityKey, ErrorCode, EvidenceRow,
@@ -101,9 +101,10 @@ def check_limit(value: object) -> int:
 # ----------------------------------------------------------------------------------------------- batch admission
 def check_roles(batches: object, count: int) -> list[CanonicalBatch | None]:
     """The fixed nullable role slots (types and distinct actual input ids); slot kinds follow the shared validator."""
-    if type(batches) not in (tuple, list) or len(batches) != count:
+    candidate = cast("tuple[CanonicalBatch | None, ...] | list[CanonicalBatch | None]", batches)
+    if type(candidate) not in (tuple, list) or len(candidate) != count:
         fail(ErrorCode.INVALID_SCHEMA, "the fixed nullable role slots are required")
-    slots: list[CanonicalBatch | None] = list(batches)  # type: ignore[arg-type]
+    slots: list[CanonicalBatch | None] = list(candidate)
     for batch in slots:
         if batch is not None and type(batch) is not CanonicalBatch:
             fail(ErrorCode.INVALID_SCHEMA, "wrong slot kind")

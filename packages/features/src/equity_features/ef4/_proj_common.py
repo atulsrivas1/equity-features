@@ -11,7 +11,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 from fractions import Fraction
 import re
-from typing import Any
+from typing import Any, cast
 
 from equity_feature_contracts import (
     CanonicalBatch, ConfigSpec, DataKind, EntityKey, ErrorCode, EvidenceRow, FeatureColumn, FeatureResult,
@@ -111,11 +111,13 @@ def reference_rows(batch: object, kinds: frozenset[str]) -> list[RefRow]:
             if name in cols and cols[name][i] is not None:
                 fail(ErrorCode.INVALID_SCHEMA, "EF4 facts carry no rational factor")
         rows.append(RefRow(
-            kind, label(cols["instrument_id"][i], ErrorCode.INVALID_SCHEMA),
-            label(cols["session_id"][i], ErrorCode.INVALID_SCHEMA), cols["reference_id"][i],
-            cols["effective_start_ns"][i], cols["effective_end_ns"][i] if "effective_end_ns" in cols else None,
-            cols["known_at_ns"][i] if "known_at_ns" in cols else None,
-            cols["price"][i] if "price" in cols else None, cols["text"][i] if "text" in cols else None, i))
+            cast("str", kind), label(cols["instrument_id"][i], ErrorCode.INVALID_SCHEMA),
+            label(cols["session_id"][i], ErrorCode.INVALID_SCHEMA), cast("str", cols["reference_id"][i]),
+            cast("int", cols["effective_start_ns"][i]),
+            cast("int | None", cols["effective_end_ns"][i] if "effective_end_ns" in cols else None),
+            cast("int | None", cols["known_at_ns"][i] if "known_at_ns" in cols else None),
+            cast("int | None", cols["price"][i] if "price" in cols else None),
+            cast("str | None", cols["text"][i] if "text" in cols else None), i))
     return rows
 
 
