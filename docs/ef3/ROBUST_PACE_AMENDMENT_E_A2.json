@@ -1,0 +1,1230 @@
+{
+ "amendment": "ef3-contract-e-amendment-e-a2",
+ "status": "proposed amendment of the frozen contract ROBUST_PACE_CONTRACT_PROPOSAL (ef3-robust1, ef3-pace1, ef3-mean1); decided by the architect/PO ruling R5 of 2026-10-27, pending owner review; nothing accepted",
+ "fixture_count": 19,
+ "fixtures": [
+  {
+   "id": "KA01",
+   "kind": "history",
+   "group": "bounds",
+   "description": "bounds of a window session (2) known after K: every history output is unavailable",
+   "K": 100,
+   "window": 5,
+   "min_history": 5,
+   "series": [
+    7,
+    3,
+    9,
+    1,
+    5
+   ],
+   "target": 6,
+   "bounds_known_at": {
+    "2": 150
+   },
+   "expected": {
+    "robust.median": {
+     "status": "missing_input",
+     "reasons": [
+      "future_knowledge"
+     ],
+     "expected": 5,
+     "observed": 5,
+     "exact": null,
+     "value": null
+    },
+    "robust.mad": {
+     "status": "missing_input",
+     "reasons": [
+      "future_knowledge"
+     ],
+     "expected": 5,
+     "observed": 5,
+     "exact": null,
+     "value": null
+    },
+    "robust.quantile": {
+     "status": "missing_input",
+     "reasons": [
+      "future_knowledge"
+     ],
+     "expected": 5,
+     "observed": 5,
+     "exact": null,
+     "value": null
+    },
+    "robust.percentile_rank": {
+     "status": "missing_input",
+     "reasons": [
+      "future_knowledge"
+     ],
+     "expected": 6,
+     "observed": 6,
+     "exact": null,
+     "value": null
+    }
+   }
+  },
+  {
+   "id": "KA02",
+   "kind": "history",
+   "group": "bounds",
+   "description": "bounds of the target session unknown (null): every history output is unavailable",
+   "K": 100,
+   "window": 5,
+   "min_history": 5,
+   "series": [
+    7,
+    3,
+    9,
+    1,
+    5
+   ],
+   "target": 6,
+   "bounds_known_at": {
+    "5": null
+   },
+   "expected": {
+    "robust.median": {
+     "status": "missing_input",
+     "reasons": [
+      "unknown_availability"
+     ],
+     "expected": 5,
+     "observed": 5,
+     "exact": null,
+     "value": null
+    },
+    "robust.mad": {
+     "status": "missing_input",
+     "reasons": [
+      "unknown_availability"
+     ],
+     "expected": 5,
+     "observed": 5,
+     "exact": null,
+     "value": null
+    },
+    "robust.quantile": {
+     "status": "missing_input",
+     "reasons": [
+      "unknown_availability"
+     ],
+     "expected": 5,
+     "observed": 5,
+     "exact": null,
+     "value": null
+    },
+    "robust.percentile_rank": {
+     "status": "missing_input",
+     "reasons": [
+      "unknown_availability"
+     ],
+     "expected": 6,
+     "observed": 6,
+     "exact": null,
+     "value": null
+    }
+   }
+  },
+  {
+   "id": "KA03",
+   "kind": "history",
+   "group": "bounds",
+   "description": "bounds of a window session known exactly at K: available, equals H01",
+   "K": 100,
+   "window": 5,
+   "min_history": 5,
+   "series": [
+    7,
+    3,
+    9,
+    1,
+    5
+   ],
+   "target": 6,
+   "bounds_known_at": {
+    "2": 100
+   },
+   "expected": {
+    "robust.median": {
+     "status": "available",
+     "reasons": [],
+     "expected": 5,
+     "observed": 5,
+     "exact": "5",
+     "value": {
+      "exact": "5",
+      "float64": 5.0,
+      "hex": "0x1.4000000000000p+2"
+     }
+    },
+    "robust.mad": {
+     "status": "available",
+     "reasons": [],
+     "expected": 5,
+     "observed": 5,
+     "exact": "2",
+     "value": {
+      "exact": "2",
+      "float64": 2.0,
+      "hex": "0x1.0000000000000p+1"
+     }
+    },
+    "robust.quantile": {
+     "status": "available",
+     "reasons": [],
+     "expected": 5,
+     "observed": 5,
+     "exact": "5",
+     "value": {
+      "exact": "5",
+      "float64": 5.0,
+      "hex": "0x1.4000000000000p+2"
+     }
+    },
+    "robust.percentile_rank": {
+     "status": "available",
+     "reasons": [],
+     "expected": 6,
+     "observed": 6,
+     "exact": "3/5",
+     "value": {
+      "exact": "3/5",
+      "float64": 0.6,
+      "hex": "0x1.3333333333333p-1"
+     }
+    }
+   }
+  },
+  {
+   "id": "KA04",
+   "kind": "history",
+   "group": "bounds",
+   "description": "bounds of a session before the window (0 of 6 prior) late: not used, equals H01",
+   "K": 100,
+   "window": 5,
+   "min_history": 5,
+   "series": [
+    100,
+    7,
+    3,
+    9,
+    1,
+    5
+   ],
+   "target": 6,
+   "bounds_known_at": {
+    "0": 150
+   },
+   "expected": {
+    "robust.median": {
+     "status": "available",
+     "reasons": [],
+     "expected": 5,
+     "observed": 5,
+     "exact": "5",
+     "value": {
+      "exact": "5",
+      "float64": 5.0,
+      "hex": "0x1.4000000000000p+2"
+     }
+    },
+    "robust.mad": {
+     "status": "available",
+     "reasons": [],
+     "expected": 5,
+     "observed": 5,
+     "exact": "2",
+     "value": {
+      "exact": "2",
+      "float64": 2.0,
+      "hex": "0x1.0000000000000p+1"
+     }
+    },
+    "robust.quantile": {
+     "status": "available",
+     "reasons": [],
+     "expected": 5,
+     "observed": 5,
+     "exact": "5",
+     "value": {
+      "exact": "5",
+      "float64": 5.0,
+      "hex": "0x1.4000000000000p+2"
+     }
+    },
+    "robust.percentile_rank": {
+     "status": "available",
+     "reasons": [],
+     "expected": 6,
+     "observed": 6,
+     "exact": "3/5",
+     "value": {
+      "exact": "3/5",
+      "float64": 0.6,
+      "hex": "0x1.3333333333333p-1"
+     }
+    }
+   }
+  },
+  {
+   "id": "KA05",
+   "kind": "history",
+   "group": "bounds",
+   "description": "bounds of two window sessions late (2) and null (3): both reasons, precedence unknown_availability",
+   "K": 100,
+   "window": 5,
+   "min_history": 5,
+   "series": [
+    7,
+    3,
+    9,
+    1,
+    5
+   ],
+   "target": 6,
+   "bounds_known_at": {
+    "2": 150,
+    "3": null
+   },
+   "expected": {
+    "robust.median": {
+     "status": "missing_input",
+     "reasons": [
+      "future_knowledge",
+      "unknown_availability"
+     ],
+     "expected": 5,
+     "observed": 5,
+     "exact": null,
+     "value": null
+    },
+    "robust.mad": {
+     "status": "missing_input",
+     "reasons": [
+      "future_knowledge",
+      "unknown_availability"
+     ],
+     "expected": 5,
+     "observed": 5,
+     "exact": null,
+     "value": null
+    },
+    "robust.quantile": {
+     "status": "missing_input",
+     "reasons": [
+      "future_knowledge",
+      "unknown_availability"
+     ],
+     "expected": 5,
+     "observed": 5,
+     "exact": null,
+     "value": null
+    },
+    "robust.percentile_rank": {
+     "status": "missing_input",
+     "reasons": [
+      "future_knowledge",
+      "unknown_availability"
+     ],
+     "expected": 6,
+     "observed": 6,
+     "exact": null,
+     "value": null
+    }
+   }
+  },
+  {
+   "id": "KA10",
+   "kind": "cohort",
+   "group": "population",
+   "description": "population fact of member B known after K",
+   "K": 100,
+   "members": {
+    "A": 10,
+    "B": 20,
+    "C": 30
+   },
+   "target_member": "A",
+   "min_population": 3,
+   "population_known_at": {
+    "B": 150
+   },
+   "expected": {
+    "cohort.percentile_rank": {
+     "status": "missing_input",
+     "reasons": [
+      "future_knowledge"
+     ],
+     "expected": 3,
+     "observed": 3,
+     "exact": null,
+     "value": null
+    },
+    "cohort.rank": {
+     "status": "missing_input",
+     "reasons": [
+      "future_knowledge"
+     ],
+     "expected": 3,
+     "observed": 3,
+     "exact": null,
+     "value": null
+    }
+   }
+  },
+  {
+   "id": "KA11",
+   "kind": "cohort",
+   "group": "population",
+   "description": "population fact of member C unknown (null)",
+   "K": 100,
+   "members": {
+    "A": 10,
+    "B": 20,
+    "C": 30
+   },
+   "target_member": "A",
+   "min_population": 3,
+   "population_known_at": {
+    "C": null
+   },
+   "expected": {
+    "cohort.percentile_rank": {
+     "status": "missing_input",
+     "reasons": [
+      "unknown_availability"
+     ],
+     "expected": 3,
+     "observed": 3,
+     "exact": null,
+     "value": null
+    },
+    "cohort.rank": {
+     "status": "missing_input",
+     "reasons": [
+      "unknown_availability"
+     ],
+     "expected": 3,
+     "observed": 3,
+     "exact": null,
+     "value": null
+    }
+   }
+  },
+  {
+   "id": "KA12",
+   "kind": "cohort",
+   "group": "population",
+   "description": "B late and C null: both reasons",
+   "K": 100,
+   "members": {
+    "A": 10,
+    "B": 20,
+    "C": 30
+   },
+   "target_member": "A",
+   "min_population": 3,
+   "population_known_at": {
+    "B": 150,
+    "C": null
+   },
+   "expected": {
+    "cohort.percentile_rank": {
+     "status": "missing_input",
+     "reasons": [
+      "future_knowledge",
+      "unknown_availability"
+     ],
+     "expected": 3,
+     "observed": 3,
+     "exact": null,
+     "value": null
+    },
+    "cohort.rank": {
+     "status": "missing_input",
+     "reasons": [
+      "future_knowledge",
+      "unknown_availability"
+     ],
+     "expected": 3,
+     "observed": 3,
+     "exact": null,
+     "value": null
+    }
+   }
+  },
+  {
+   "id": "KA13",
+   "kind": "cohort",
+   "group": "population",
+   "description": "population fact of B known exactly at K: available, rank 3, percentile 1/6",
+   "K": 100,
+   "members": {
+    "A": 10,
+    "B": 20,
+    "C": 30
+   },
+   "target_member": "A",
+   "min_population": 3,
+   "population_known_at": {
+    "B": 100
+   },
+   "expected": {
+    "cohort.percentile_rank": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "exact": "1/6",
+     "value": {
+      "exact": "1/6",
+      "float64": 0.16666666666666666,
+      "hex": "0x1.5555555555555p-3"
+     }
+    },
+    "cohort.rank": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "exact": "3",
+     "value": {
+      "exact": "3",
+      "int64": 3
+     }
+    }
+   }
+  },
+  {
+   "id": "KA14",
+   "kind": "cohort",
+   "group": "population",
+   "description": "population fact of the target member A itself late",
+   "K": 100,
+   "members": {
+    "A": 10,
+    "B": 20,
+    "C": 30
+   },
+   "target_member": "A",
+   "min_population": 3,
+   "population_known_at": {
+    "A": 150
+   },
+   "expected": {
+    "cohort.percentile_rank": {
+     "status": "missing_input",
+     "reasons": [
+      "future_knowledge"
+     ],
+     "expected": 3,
+     "observed": 3,
+     "exact": null,
+     "value": null
+    },
+    "cohort.rank": {
+     "status": "missing_input",
+     "reasons": [
+      "future_knowledge"
+     ],
+     "expected": 3,
+     "observed": 3,
+     "exact": null,
+     "value": null
+    }
+   }
+  },
+  {
+   "id": "KA20",
+   "kind": "pace",
+   "group": "edge",
+   "description": "an interior bucket edge (index 2) unknown (null)",
+   "K": 100,
+   "prior_cells": [
+    [
+     10,
+     100,
+     5
+    ],
+    [
+     20,
+     200,
+     5
+    ],
+    [
+     30,
+     300,
+     5
+    ],
+    [
+     40,
+     400,
+     5
+    ],
+    [
+     50,
+     500,
+     5
+    ]
+   ],
+   "target_cells": [
+    999,
+    450,
+    null
+   ],
+   "grid_offsets": [
+    0,
+    100,
+    200,
+    300
+   ],
+   "cutoff_offset": 200,
+   "scale": [
+    3,
+    2
+   ],
+   "bounds_known_at": {},
+   "edge_known_at": {
+    "2": null
+   },
+   "expected": {
+    "pace.baseline_median": {
+     "status": "missing_input",
+     "reasons": [
+      "unknown_availability"
+     ],
+     "expected": 5,
+     "observed": 5,
+     "exact": null,
+     "value": null
+    },
+    "pace.ratio": {
+     "status": "missing_input",
+     "reasons": [
+      "unknown_availability"
+     ],
+     "expected": 2,
+     "observed": 1,
+     "exact": null,
+     "value": null
+    },
+    "pace.robust_z": {
+     "status": "missing_input",
+     "reasons": [
+      "unknown_availability"
+     ],
+     "expected": 2,
+     "observed": 1,
+     "exact": null,
+     "value": null
+    }
+   }
+  },
+  {
+   "id": "KA21",
+   "kind": "pace",
+   "group": "edge",
+   "description": "the last bucket edge (index 3) known after K",
+   "K": 100,
+   "prior_cells": [
+    [
+     10,
+     100,
+     5
+    ],
+    [
+     20,
+     200,
+     5
+    ],
+    [
+     30,
+     300,
+     5
+    ],
+    [
+     40,
+     400,
+     5
+    ],
+    [
+     50,
+     500,
+     5
+    ]
+   ],
+   "target_cells": [
+    999,
+    450,
+    null
+   ],
+   "grid_offsets": [
+    0,
+    100,
+    200,
+    300
+   ],
+   "cutoff_offset": 200,
+   "scale": [
+    3,
+    2
+   ],
+   "bounds_known_at": {},
+   "edge_known_at": {
+    "3": 150
+   },
+   "expected": {
+    "pace.baseline_median": {
+     "status": "missing_input",
+     "reasons": [
+      "future_knowledge"
+     ],
+     "expected": 5,
+     "observed": 5,
+     "exact": null,
+     "value": null
+    },
+    "pace.ratio": {
+     "status": "missing_input",
+     "reasons": [
+      "future_knowledge"
+     ],
+     "expected": 2,
+     "observed": 1,
+     "exact": null,
+     "value": null
+    },
+    "pace.robust_z": {
+     "status": "missing_input",
+     "reasons": [
+      "future_knowledge"
+     ],
+     "expected": 2,
+     "observed": 1,
+     "exact": null,
+     "value": null
+    }
+   }
+  },
+  {
+   "id": "KA22",
+   "kind": "pace",
+   "group": "bounds",
+   "description": "bounds of a prior window session (1) known after K",
+   "K": 100,
+   "prior_cells": [
+    [
+     10,
+     100,
+     5
+    ],
+    [
+     20,
+     200,
+     5
+    ],
+    [
+     30,
+     300,
+     5
+    ],
+    [
+     40,
+     400,
+     5
+    ],
+    [
+     50,
+     500,
+     5
+    ]
+   ],
+   "target_cells": [
+    999,
+    450,
+    null
+   ],
+   "grid_offsets": [
+    0,
+    100,
+    200,
+    300
+   ],
+   "cutoff_offset": 200,
+   "scale": [
+    3,
+    2
+   ],
+   "bounds_known_at": {
+    "1": 150
+   },
+   "edge_known_at": {},
+   "expected": {
+    "pace.baseline_median": {
+     "status": "missing_input",
+     "reasons": [
+      "future_knowledge"
+     ],
+     "expected": 5,
+     "observed": 5,
+     "exact": null,
+     "value": null
+    },
+    "pace.ratio": {
+     "status": "missing_input",
+     "reasons": [
+      "future_knowledge"
+     ],
+     "expected": 2,
+     "observed": 1,
+     "exact": null,
+     "value": null
+    },
+    "pace.robust_z": {
+     "status": "missing_input",
+     "reasons": [
+      "future_knowledge"
+     ],
+     "expected": 2,
+     "observed": 1,
+     "exact": null,
+     "value": null
+    }
+   }
+  },
+  {
+   "id": "KA23",
+   "kind": "pace",
+   "group": "bounds",
+   "description": "bounds of the target session unknown (null)",
+   "K": 100,
+   "prior_cells": [
+    [
+     10,
+     100,
+     5
+    ],
+    [
+     20,
+     200,
+     5
+    ],
+    [
+     30,
+     300,
+     5
+    ],
+    [
+     40,
+     400,
+     5
+    ],
+    [
+     50,
+     500,
+     5
+    ]
+   ],
+   "target_cells": [
+    999,
+    450,
+    null
+   ],
+   "grid_offsets": [
+    0,
+    100,
+    200,
+    300
+   ],
+   "cutoff_offset": 200,
+   "scale": [
+    3,
+    2
+   ],
+   "bounds_known_at": {
+    "5": null
+   },
+   "edge_known_at": {},
+   "expected": {
+    "pace.baseline_median": {
+     "status": "missing_input",
+     "reasons": [
+      "unknown_availability"
+     ],
+     "expected": 5,
+     "observed": 5,
+     "exact": null,
+     "value": null
+    },
+    "pace.ratio": {
+     "status": "missing_input",
+     "reasons": [
+      "unknown_availability"
+     ],
+     "expected": 2,
+     "observed": 1,
+     "exact": null,
+     "value": null
+    },
+    "pace.robust_z": {
+     "status": "missing_input",
+     "reasons": [
+      "unknown_availability"
+     ],
+     "expected": 2,
+     "observed": 1,
+     "exact": null,
+     "value": null
+    }
+   }
+  },
+  {
+   "id": "KA24",
+   "kind": "pace",
+   "group": "edge",
+   "description": "an edge known exactly at K and bounds exactly at K: available, equals P01",
+   "K": 100,
+   "prior_cells": [
+    [
+     10,
+     100,
+     5
+    ],
+    [
+     20,
+     200,
+     5
+    ],
+    [
+     30,
+     300,
+     5
+    ],
+    [
+     40,
+     400,
+     5
+    ],
+    [
+     50,
+     500,
+     5
+    ]
+   ],
+   "target_cells": [
+    999,
+    450,
+    null
+   ],
+   "grid_offsets": [
+    0,
+    100,
+    200,
+    300
+   ],
+   "cutoff_offset": 200,
+   "scale": [
+    3,
+    2
+   ],
+   "bounds_known_at": {
+    "1": 100
+   },
+   "edge_known_at": {
+    "1": 100
+   },
+   "expected": {
+    "pace.baseline_median": {
+     "status": "available",
+     "reasons": [],
+     "expected": 5,
+     "observed": 5,
+     "exact": "300",
+     "value": {
+      "exact": "300",
+      "float64": 300.0,
+      "hex": "0x1.2c00000000000p+8"
+     }
+    },
+    "pace.ratio": {
+     "status": "available",
+     "reasons": [],
+     "expected": 2,
+     "observed": 2,
+     "exact": "3/2",
+     "value": {
+      "exact": "3/2",
+      "float64": 1.5,
+      "hex": "0x1.8000000000000p+0"
+     }
+    },
+    "pace.robust_z": {
+     "status": "available",
+     "reasons": [],
+     "expected": 2,
+     "observed": 2,
+     "exact": "1",
+     "value": {
+      "exact": "1",
+      "float64": 1.0,
+      "hex": "0x1.0000000000000p+0"
+     }
+    }
+   }
+  },
+  {
+   "id": "KA25",
+   "kind": "pace",
+   "group": "edge",
+   "description": "edge null and bounds late: both reasons",
+   "K": 100,
+   "prior_cells": [
+    [
+     10,
+     100,
+     5
+    ],
+    [
+     20,
+     200,
+     5
+    ],
+    [
+     30,
+     300,
+     5
+    ],
+    [
+     40,
+     400,
+     5
+    ],
+    [
+     50,
+     500,
+     5
+    ]
+   ],
+   "target_cells": [
+    999,
+    450,
+    null
+   ],
+   "grid_offsets": [
+    0,
+    100,
+    200,
+    300
+   ],
+   "cutoff_offset": 200,
+   "scale": [
+    3,
+    2
+   ],
+   "bounds_known_at": {
+    "1": 150
+   },
+   "edge_known_at": {
+    "2": null
+   },
+   "expected": {
+    "pace.baseline_median": {
+     "status": "missing_input",
+     "reasons": [
+      "future_knowledge",
+      "unknown_availability"
+     ],
+     "expected": 5,
+     "observed": 5,
+     "exact": null,
+     "value": null
+    },
+    "pace.ratio": {
+     "status": "missing_input",
+     "reasons": [
+      "future_knowledge",
+      "unknown_availability"
+     ],
+     "expected": 2,
+     "observed": 1,
+     "exact": null,
+     "value": null
+    },
+    "pace.robust_z": {
+     "status": "missing_input",
+     "reasons": [
+      "future_knowledge",
+      "unknown_availability"
+     ],
+     "expected": 2,
+     "observed": 1,
+     "exact": null,
+     "value": null
+    }
+   }
+  },
+  {
+   "id": "KA30",
+   "kind": "mean",
+   "group": "bounds",
+   "description": "bounds of session 0 (baseline window only) late: baseline and ratio unavailable, numerator available",
+   "K": 100,
+   "numerator_window": 2,
+   "baseline_window": 4,
+   "series": [
+    10,
+    20,
+    30,
+    40
+   ],
+   "target": 50,
+   "bounds_known_at": {
+    "0": 150
+   },
+   "expected": {
+    "mean.baseline": {
+     "status": "missing_input",
+     "reasons": [
+      "future_knowledge"
+     ],
+     "expected": 4,
+     "observed": 4,
+     "exact": null,
+     "value": null
+    },
+    "mean.numerator": {
+     "status": "available",
+     "reasons": [],
+     "expected": 2,
+     "observed": 2,
+     "exact": "35",
+     "value": {
+      "exact": "35",
+      "float64": 35.0,
+      "hex": "0x1.1800000000000p+5"
+     }
+    },
+    "mean.ratio": {
+     "status": "missing_input",
+     "reasons": [
+      "future_knowledge"
+     ],
+     "expected": 2,
+     "observed": 1,
+     "exact": null,
+     "value": null
+    }
+   }
+  },
+  {
+   "id": "KA31",
+   "kind": "mean",
+   "group": "bounds",
+   "description": "bounds of the target session unknown (null): all three outputs unavailable",
+   "K": 100,
+   "numerator_window": 2,
+   "baseline_window": 4,
+   "series": [
+    10,
+    20,
+    30,
+    40
+   ],
+   "target": 50,
+   "bounds_known_at": {
+    "4": null
+   },
+   "expected": {
+    "mean.baseline": {
+     "status": "missing_input",
+     "reasons": [
+      "unknown_availability"
+     ],
+     "expected": 4,
+     "observed": 4,
+     "exact": null,
+     "value": null
+    },
+    "mean.numerator": {
+     "status": "missing_input",
+     "reasons": [
+      "unknown_availability"
+     ],
+     "expected": 2,
+     "observed": 2,
+     "exact": null,
+     "value": null
+    },
+    "mean.ratio": {
+     "status": "missing_input",
+     "reasons": [
+      "unknown_availability"
+     ],
+     "expected": 2,
+     "observed": 0,
+     "exact": null,
+     "value": null
+    }
+   }
+  },
+  {
+   "id": "KA32",
+   "kind": "mean",
+   "group": "bounds",
+   "description": "bounds of session 0 known exactly at K: available, baseline 25, numerator 35, ratio 7/5",
+   "K": 100,
+   "numerator_window": 2,
+   "baseline_window": 4,
+   "series": [
+    10,
+    20,
+    30,
+    40
+   ],
+   "target": 50,
+   "bounds_known_at": {
+    "0": 100
+   },
+   "expected": {
+    "mean.baseline": {
+     "status": "available",
+     "reasons": [],
+     "expected": 4,
+     "observed": 4,
+     "exact": "25",
+     "value": {
+      "exact": "25",
+      "float64": 25.0,
+      "hex": "0x1.9000000000000p+4"
+     }
+    },
+    "mean.numerator": {
+     "status": "available",
+     "reasons": [],
+     "expected": 2,
+     "observed": 2,
+     "exact": "35",
+     "value": {
+      "exact": "35",
+      "float64": 35.0,
+      "hex": "0x1.1800000000000p+5"
+     }
+    },
+    "mean.ratio": {
+     "status": "available",
+     "reasons": [],
+     "expected": 2,
+     "observed": 2,
+     "exact": "7/5",
+     "value": {
+      "exact": "7/5",
+      "float64": 1.4,
+      "hex": "0x1.6666666666666p+0"
+     }
+    }
+   }
+  }
+ ]
+}

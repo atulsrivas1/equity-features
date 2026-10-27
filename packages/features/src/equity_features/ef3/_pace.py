@@ -18,10 +18,10 @@ from equity_feature_contracts import (
 from equity_features import __version__
 from ._common import fail, integer, label
 from ._robust_common import (
-    Fact, SessionGrid, admit_sessions, check_entity, check_features, check_policy, check_slots, fact_reasons,
-    first_status, make_config, ordered, parameter_map, reduced_pair, reference_evidence,
+    Fact, SessionGrid, admit_sessions, bounds_reasons, check_entity, check_features, check_policy, check_slots, fact_reasons,
+    first_status, knowledge_reasons, make_config, ordered, parameter_map, reduced_pair, reference_evidence,
 )
-from ._robust_roles import admit_bars, admit_edges
+from ._robust_roles import Edges, admit_bars, admit_edges
 from ._stats import mad, median, to_float
 
 PACE_IDENTITY = "ef3.volume_pace_robust"
@@ -150,9 +150,11 @@ def compute_volume_pace_robust(batches: tuple[CanonicalBatch | None, ...] | list
     window = settings.window
     used: dict[str, CanonicalBatch] = {}
     offsets: tuple[int, ...] | None = None
+    edges: Edges | None = None
     grid: SessionGrid | None = None
     if grid_batch is not None:
-        offsets = admit_edges(grid_batch, config, entity, settings.grid_version)
+        edges = admit_edges(grid_batch, config, entity, settings.grid_version)
+        offsets = edges.offsets
         used["grid"] = grid_batch
     if sessions_batch is not None:
         grid = admit_sessions(sessions_batch, config, entity, allow_excluded=True)
@@ -179,6 +181,10 @@ def compute_volume_pace_robust(batches: tuple[CanonicalBatch | None, ...] | list
         session = config.session
         t = grid.target_index
         prior = grid.order[max(0, t - window):t]
+        assert edges is not None
+        reasons_base |= bounds_reasons(grid, prior, knowledge)
+        for known_at in edges.known_at:
+            reasons_base |= knowledge_reasons(known_at, knowledge)
         known_excluded = [s for s in prior if s in grid.excluded and _known(grid.excluded[s].known_at_ns, knowledge)]
         lim = min(session.close_ns, config.availability.market_cutoff_ns) - session.open_ns
         fits = [c for c in range(len(offsets) - 1) if offsets[c + 1] <= lim]
