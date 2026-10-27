@@ -156,6 +156,35 @@ def _check_output_ownership(root: Path, data: dict, stories: list[dict]) -> None
         assert row["unit"] and row["operands"] and row["kind"]
         assert row["planned_ownership_accepted"] is True
         assert row["accepted"] is False and row["implemented_by_this_packet"] is False
+    check_ef3_header_parity(root, manifest)
+
+
+# Owner decision pending (R9b): ownership entries with no merged header. Do not extend without an owner ruling.
+STALE_EF3_ENTRIES = {
+    "relative.session.primary.beta_residual_fraction",
+    "relative.session.secondary.beta_residual_fraction",
+}
+
+
+def check_ef3_header_parity(root: Path, manifest: dict) -> None:
+    """Merged EF3 contract headers and the output manifest must not drift apart."""
+    headers: set[str] = set()
+    for path in sorted((root / "docs/ef3").glob("*_CONTRACT_PROPOSAL.json")):
+        headers |= {row["id"] for row in json.loads(path.read_text(encoding="utf-8"))["headers"]}
+    delivered = manifest["ef3_delivered_outputs"]["entries"]
+    delivered_names = [row["canonical_name"] for row in delivered]
+    assert len(delivered_names) == len(set(delivered_names))
+    planned = {row["canonical_name"] for row in manifest["outputs"]}
+    assert not planned & set(delivered_names), "entry listed in both manifest sections"
+    assert all(row["planned_delivery"] == "EF3" and row["accepted"] is False for row in delivered)
+    assert all(row["implemented_by_this_packet"] is False for row in delivered)
+    missing = headers - planned - set(delivered_names)
+    assert not missing, f"EF3 headers with no manifest entry: {sorted(missing)}"
+    orphans = (set(delivered_names) | {r["canonical_name"] for r in manifest["outputs"] if r["planned_delivery"] == "EF3"}) - headers
+    assert orphans == STALE_EF3_ENTRIES, f"EF3 manifest entries with no header: {sorted(orphans ^ STALE_EF3_ENTRIES)}"
+    for row in manifest["outputs"]:
+        if row["canonical_name"] in STALE_EF3_ENTRIES:
+            assert row.get("delivered") is False and row.get("superseded_note"), row["canonical_name"]
 
 
 if __name__ == "__main__":
