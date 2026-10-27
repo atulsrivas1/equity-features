@@ -38,6 +38,13 @@ Readable results view fix for multi-run cases: workers #79. Manifest entry for `
 - The three new unit strings (`DMI points`, `stochastic points`, `Williams %R points`) and float64 `shares` are recorded as additive in the amendment but not applied to the frozen shared contract file.
 - `retracement.level` is only a proposed entry in the output manifest; the route rows for the nine consumer scanners still name the earlier owners (#511, #518), so a plan edit linking #663 is still to do.
 
+## Accepted limits (coordinator decision, decided, pending owner review; 2026-10-27)
+
+- Exact-zero residual: Decimal120 recurrences may leave about 1e-119 outside the marked fixtures; not snapped.
+- Channels squeeze `inside` flag can flip on an exact boundary tie with a non-terminating EMA; accepted.
+- Related EF3 limits accepted on the same basis (see `docs/ef3/EF3_DELIVERY_EVIDENCE.md`): the R1 reconstruction-mode exception for `ef3.relative_stats`; unsupported spawn mode for the D relative and log-volatility worker routes; the D grid registry never evicts.
+- For the shared contract (owner action, not applied): the three new unit strings (`DMI points`, `stochastic points`, `Williams %R points`) and float64 `shares` shares dtype pairing; the plan edit for the nine consumer scanners is tracked in #663.
+
 ## Not done (not claimed)
 
 - Linux installed qualification (blocked: the WSL Ubuntu image lacks `python3-venv` and pip; owner action).
