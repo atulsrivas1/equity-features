@@ -1,6 +1,6 @@
 # Edge-case matrix, EF1 to EF4
 
-Tester deliverable, 2026-10-27, docs only. Expected behaviour is taken from the frozen contracts (`docs/ef1..ef4/*_CONTRACT_PROPOSAL.md`), the shared validator tests and the delivery evidence. Nothing was re-run for this document; the status column was decided by listing and searching `tests/`, `tools/` and the sibling repos' `tests/`.
+Tester deliverable, 2026-10-27, docs only. Expected behaviour is taken from the frozen contracts (`docs/ef1..ef4/*_CONTRACT_PROPOSAL.md`), the shared validator tests and the delivery evidence. Nothing was re-run for this document (the baseline figures quoted in the checklist come from the Developer's run in `work/baseline-2026-10-27.md`, not from this document); the status column was decided by listing and searching `tests/`, `tools/` and the sibling repos' `tests/`.
 
 ## Status key
 

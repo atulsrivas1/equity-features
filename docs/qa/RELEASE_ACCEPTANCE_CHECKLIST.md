@@ -1,6 +1,6 @@
 # EF release acceptance checklist
 
-Single pass/fail list for accepting an EF release (EF1 to EF4 and later). A release is accepted only when every item is PASS with evidence linked; any FAIL or "not run" blocks acceptance. "Delivered" is not "accepted" (see STATUS.md). Mark each item with date, commit SHAs of core, io and workers, and the evidence path. Commands run from the core repo root; sibling repos are `..\equity-feature-io` and `..\equity-feature-workers`.
+Single pass/fail list for accepting an EF release (EF1 to EF4 and later). A release is accepted only when every item is PASS with evidence linked; any FAIL or "not run" blocks acceptance. "Delivered" is not "accepted" (see STATUS.md). Mark each item with date, commit SHAs of core, io and workers, and the evidence path. Commands run from the core repo root unless an item names another repo (for example `tools/ef1_results_demo.py` is in `..\equity-feature-workers` and `tools/check_extraction.py` is in `..\equity-feature-io`); sibling repos are `..\equity-feature-io` and `..\equity-feature-workers`.
 
 Record: release ____ core SHA ____ io SHA ____ workers SHA ____ date ____ tester ____
 
@@ -20,7 +20,7 @@ Record: release ____ core SHA ____ io SHA ____ workers SHA ____ date ____ tester
 - [ ] 3.1 Core: `python -m unittest discover tests/unit` zero failures (baseline 1075 run, 1 FAIL: stale count in `test_purity_audit`; fix branch `fix/purity-audit-count`).
 - [ ] 3.2 io: 48 of 48 (`unittest discover -s tests`).
 - [ ] 3.3 workers: all pass in an installed (non-PYTHONPATH) environment; the 3 subprocess failures at baseline must pass with installed wheels, not be waived as environmental.
-- [ ] 3.4 Every EF2/EF3/EF4 family has at least one unit test file, or an owner decision that waives unit tests for it with the reason recorded (today none exists; see EDGE_CASE_MATRIX.md).
+- [ ] 3.4 Every EF2/EF3/EF4 family has at least one unit test file, or an owner decision that waives unit tests for it with the reason recorded (today none exists; see EDGE_CASE_MATRIX.md). Because the standing policy is no new automated tests, this item needs an owner ruling or waiver before it can PASS.
 - [ ] 3.5 Count of U rows in `EDGE_CASE_MATRIX.md` is zero, or each U row has an owner-signed waiver.
 
 ## 4. Demo census
