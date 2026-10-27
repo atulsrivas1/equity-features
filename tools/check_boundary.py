@@ -1,4 +1,12 @@
-"""Fail-closed import/call policy for project-owned pure Python packages."""
+"""Fail-closed import/call policy for project-owned pure Python packages.
+
+ADR-1 dependency direction (core <- io <- workers): every pyproject.toml (dependencies, optional
+dependencies, dependency-groups, build-system.requires; names PEP 503 normalised) and every .py under
+packages/, examples/, tests/ and tools/ is scanned for upward edges: import statements plus
+importlib.import_module("lit") / __import__("lit") with a literal first argument. Fully dynamic imports
+(non-literal arguments) are out of scope. docs/ is intentionally NOT scanned (documentation examples
+may show higher-layer imports) and must not be added to KNOWN_UPWARD_EDGES.
+"""
 import ast
 from pathlib import Path
 import re
@@ -676,6 +684,9 @@ def layer_import_violations(source,layer):
     for node in ast.walk(ast.parse(source)):
         names=[a.name for a in node.names] if isinstance(node,ast.Import) else (
             [node.module] if isinstance(node,ast.ImportFrom) and not node.level and node.module else [])
+        if isinstance(node,ast.Call) and node.args and isinstance(node.args[0],ast.Constant) and isinstance(node.args[0].value,str):
+            func=node.func;called=func.attr if isinstance(func,ast.Attribute) else func.id if isinstance(func,ast.Name) else ''
+            if called in ('import_module','__import__'):names=[node.args[0].value]
         for name in names:
             target=_module_layer(name)
             if target is not None and LAYER_ORDER.index(target)>rank:found.append(f'{layer} imports {target} module {name}')
@@ -685,7 +696,7 @@ def layer_import_violations(source,layer):
 def layer_dependency_violations(dependencies,layer):
     rank=LAYER_ORDER.index(layer);found=[]
     for dep in dependencies:
-        target=_module_layer(re.split(r'[\[<>=!~; ]',dep,maxsplit=1)[0].replace('-','_'))
+        target=_module_layer(re.sub(r'[-_.]+','_',re.split(r'[\[<>=!~; ]',dep.strip(),maxsplit=1)[0]).lower())
         if target is not None and LAYER_ORDER.index(target)>rank:found.append(f'{layer} depends on {target} distribution {dep}')
     return found
 
@@ -695,7 +706,9 @@ def check_layers(root,layer):
     errors=[];known=set()
     for path in sorted(root.glob('packages/*/pyproject.toml')):
         project=tomllib.loads(path.read_text(encoding='utf-8'))['project']
-        deps=list(project.get('dependencies',[]))
+        document=tomllib.loads(path.read_text(encoding='utf-8'));deps=list(project.get('dependencies',[]))
+        deps+=list(document.get('build-system',{}).get('requires',[]))
+        for group in document.get('dependency-groups',{}).values():deps+=[d for d in group if isinstance(d,str)]
         for extra in project.get('optional-dependencies',{}).values():deps.extend(extra)
         errors+=[f'{path.relative_to(root)}: {e}' for e in layer_dependency_violations(deps,layer)]
     scanned=0
@@ -720,6 +733,9 @@ def check_dependency_direction(siblings=()):
     assert layer_import_violations('import equity_feature_workers','io') and not layer_import_violations('import equity_feature_contracts','io')
     assert layer_dependency_violations(['equity-feature-workers==1'],'core') and layer_dependency_violations(['equity-feature-io-sdk[x]>=1'],'core')
     assert not layer_dependency_violations(['equity-feature-contracts==1','numpy==2'],'core')
+    for dep in ('equity.feature.workers>=1','Equity_Feature_Workers==1','EQUITY-FEATURE-IO-SDK'):assert layer_dependency_violations([dep],'core'),dep
+    for source in ('import importlib\nimportlib.import_module("equity_feature_workers.x")','__import__("equity_feature_io_sdk")','from importlib import import_module\nimport_module("equity_feature_duckdb")'):assert layer_import_violations(source,'core'),source
+    assert not layer_import_violations('import importlib\nimportlib.import_module(name)\n__import__("json")','core')
     total=0
     for layer,root in (('core',ROOT),*siblings):
         scanned,errors,known=check_layers(Path(root),layer)
