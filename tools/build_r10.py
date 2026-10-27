@@ -18,7 +18,7 @@ ROOT=Path(__file__).resolve().parents[1]
 PINS={'io':'f20abd5acd74a4917fdaf087e9c92757746e7ea4','workers':'b56701cc1e48920378df18a2081d0f5f9f4ad3bb'}
 PACKAGES={'contracts':('equity_feature_contracts','0.0.4a4'), 'features':('equity_features','0.0.4a5'),
     'evidence':('equity_feature_evidence','0.1.0a2'),'diagnostics':('equity_feature_diagnostics','0.1.0a1'),
-    'provenance':('equity_feature_provenance','0.1.0a2'),'io-contracts':('equity_feature_io_contracts','0.1.0a2'),
+    'io-contracts':('equity_feature_io_contracts','0.1.0a2'),
     'io-sdk':('equity_feature_io_sdk','0.1.0a2'),'duckdb':('equity_feature_duckdb','0.1.0a9'),
     'duckdb-sink':('equity_feature_duckdb_sink','0.1.0a0'),'workers':('equity_feature_workers','0.1.0a15'),
     'conformance':('equity_feature_conformance','0.1.0a1')}
@@ -73,11 +73,11 @@ def main():
     out=args.out.resolve();out.mkdir(parents=True,exist_ok=True);assert not list(out.iterdir()),'fresh output required'
     roots={'canonical':ROOT,'io':args.io.resolve(),'workers':args.workers.resolve()}
     heads={'canonical':git(ROOT,'rev-parse','HEAD').decode().strip(),**PINS}
-    scopes={'canonical':['packages/'+p for p in ('contracts','features','evidence','diagnostics','provenance','conformance')]+[
-        'tests/conformance','tests/provenance','tests/diagnostics','tests/evidence','docs/stories/EQ-096_RECEIPT_ORACLE.json',
+    scopes={'canonical':['packages/'+p for p in ('contracts','features','evidence','diagnostics','conformance')]+[
+        'tests/conformance','tests/diagnostics','tests/evidence','docs/stories/EQ-096_RECEIPT_ORACLE.json',
         'docs/stories/EQ-097_*','docs/stories/EQ-101_TRUTH_TABLE.json','docs/stories/EQ-103_*',
-        'docs/api/PROVENANCE.md','docs/stories/EQ-104_*','docs/api/POINT_IN_TIME_CONFORMANCE.md',
-        'examples/conformance_declarations.py','examples/conformance_pipeline.py','tools/build_conformance.py',
+        'docs/stories/EQ-104_*','docs/api/POINT_IN_TIME_CONFORMANCE.md',
+        'examples/conformance_declarations.py','tools/build_conformance.py',
         'tools/build_explanations.py','tools/check_boundary.py','requirements-dev.txt','mypy.ini','.github/workflows/conformance.yml',
         'tools/build_r10.py','tools/measure_r10.py','tests/r10_release','examples/r10_point_in_time.py',
         'docs/releases/R10/R10_CONSUMER_GUIDE.md','docs/stories/EQ-105_*','.github/workflows/r10.yml'],
@@ -136,7 +136,7 @@ def main():
                     assert parsed.get_all('Provides-Extra',[])==list(project.get('optional-dependencies',{}))
                     if repeat==0:report['artifacts'][path.name]=inspection;shutil.copyfile(path,out/path.name)
                     else:assert inspection==report['artifacts'][path.name],'repeat archive differs'
-        assert len(report['artifacts'])==22;report['repeat_archive_parity']=True;save()
+        assert len(report['artifacts'])==20;report['repeat_archive_parity']=True;save()
         wheels=owned/'dependencies';wheels.mkdir()
         run(sys.executable,'-m','pip','download','--only-binary=:all:','--no-deps','--index-url','https://pypi.org/simple','--dest',wheels,*NATIVE,'setuptools==80.9.0')
         report['dependency_wheels']={p.name:{'sha256':sha(p.read_bytes()),'bytes':p.stat().st_size} for p in wheels.iterdir()};save()
@@ -161,18 +161,15 @@ def main():
                 tests=verification/'canonical/tests'
                 if live:
                     run(py,'-I','-m','unittest','discover','-s',tests/'conformance',cwd=py.parent)
-                    run(py,'-I','-m','unittest','discover','-s',tests/'provenance',cwd=py.parent)
                 else:
                     run(py,'-I','-m','unittest','discover','-s',tests/'conformance','-p','test_supplied.py',cwd=py.parent)
                     run(py,'-I','-m','unittest','discover','-s',tests/'conformance','-p','test_bounds.py',cwd=py.parent)
                 run(py,'-I','-m','unittest','discover','-s',tests/'diagnostics',cwd=py.parent)
                 run(py,'-I','-m','unittest','discover','-s',tests/'evidence',cwd=py.parent)
                 run(py,'-I',verification/'canonical/examples/conformance_declarations.py',cwd=py.parent)
-                if live:run(py,'-I',verification/'canonical/examples/conformance_pipeline.py',cwd=py.parent)
                 run(py,'-I',verification/'canonical/examples/r10_point_in_time.py',cwd=py.parent)
                 run(py,'-I','-m','unittest','discover','-s',tests/'r10_release','-p','test_consumer.py',cwd=py.parent)
                 run(py,'-I','-m','unittest','discover','-s',tests/'r10_release','-p','test_measurement.py',cwd=py.parent)
-                if live:run(py,'-I','-m','unittest','discover','-s',tests/'r10_release','-p','test_native.py',cwd=py.parent)
                 measurement_path=directory/'r10-measurement.json'
                 measure=verification/'canonical/tools/measure_r10.py'
                 run(py,'-I',measure,'--out',measurement_path,cwd=py.parent)

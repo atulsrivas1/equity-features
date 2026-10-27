@@ -33,7 +33,7 @@ New optional equity-feature-conformance0.1.0a1 requires CPython3.12 and exact co
 
 ## EQ103 candidate installation
 
-Provenance0.1.0a1 explicitly depends on accepted worker/SDK/DuckDB packages and DuckDB1.5.6/NumPy2.2.6. It is not a pure diagnostics extra. [Outer API](api/PROVENANCE.md) and story validation govern support; no registry publication or fresh installed qualification claimed yet.
+Moved (ADR-1, October 27, 2026): `equity-feature-provenance` (import `equity_feature_provenance`, 0.1.0a2) now lives in [equity-feature-workers `packages/provenance`](https://github.com/atulsrivas1/equity-feature-workers/tree/main/packages/provenance) because it joins worker, io-sdk and DuckDB records; core installs without any of them. Names are unchanged. Its [outer API](https://github.com/atulsrivas1/equity-feature-workers/blob/main/docs/api/PROVENANCE.md) and the EQ-103 story validation govern support; no registry publication or fresh installed qualification claimed yet.
 
 ## EQ102 diagnostic candidate installation — October15,2026
 

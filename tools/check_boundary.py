@@ -501,31 +501,6 @@ def research_violations(source, *, codec=False, explanation=False, diagnostics=F
     return sorted(set(found))
 
 
-def provenance_violations(source):
-    """Explicit outer profile; never added to the pure calculation allowlist."""
-    tree=ast.parse(source);found=civil_date_violations(source)
-    allowed={'__future__','dataclasses','typing','math','json',
-        'equity_feature_contracts','equity_feature_evidence','equity_feature_io_contracts',
-        'equity_feature_io_sdk','equity_feature_duckdb','equity_feature_duckdb_sink','equity_feature_workers'}
-    parents={child:node for node in ast.walk(tree) for child in ast.iter_child_nodes(node)}
-    for node in ast.walk(tree):
-        if isinstance(node,ast.Import):
-            if any(a.name.split('.')[0] not in allowed for a in node.names):found.append('unsupported outer import')
-        if isinstance(node,ast.ImportFrom):
-            if node.level:
-                if node.level!=1 or node.module not in ('_model','_bind','_preflight'):found.append('unsupported outer relative')
-            elif (node.module or '').split('.')[0] not in allowed and not _civil_import(node):found.append('unsupported outer import')
-            if any(a.name=='*' or a.name.startswith(('compute_','__builtins__')) for a in node.names):found.append('unsupported outer import access')
-        if isinstance(node,(ast.Name,ast.Attribute)):
-            name=node.id if isinstance(node,ast.Name) else node.attr
-            if name in ('open','eval','exec','compile','__import__','__dict__','__getattribute__','__subclasses__','connect','acquire','system','popen') or name.startswith(('compute_','read_','write_','__builtins__')):found.append('unsupported outer access')
-        if isinstance(node,ast.Call) and isinstance(node.func,ast.Name) and node.func.id=='getattr':
-            parent=parents.get(node)
-            while parent is not None and not isinstance(parent,ast.FunctionDef):parent=parents.get(parent)
-            if parent is None or parent.name!='_fields' or len(node.args)!=2 or not all(isinstance(a,ast.Name) for a in node.args) or [a.id for a in node.args]!=['value','name'] or node.keywords:found.append('unsupported outer reflection')
-    return sorted(set(found))
-
-
 def agent_violations(source):
     """Separate pure agent profile; only two accepted public record imports."""
     found=[]
@@ -660,16 +635,110 @@ def check_continuous():
     for source in positive:assert not continuous_violations(source),(source,continuous_violations(source))
     print(f'Continuous static policy: {len(negative)} negative/{len(positive)} positive controls; not a Python sandbox.')
 
+# ADR-1 dependency direction: core (this repo) <- io <- workers. A lower layer must
+# never depend on or import a higher one. Module name == distribution name with '_'.
+LAYER_MODULES={
+    'core':('equity_features','equity_features_intraday','equity_feature_contracts','equity_feature_evidence',
+        'equity_feature_explanations','equity_feature_diagnostics','equity_feature_conformance',
+        'equity_feature_agent_evidence','equity_feature_agent_ledger','equity_feature_continuous',
+        'equity_feature_labels','equity_feature_strategies'),
+    'io':('equity_feature_io_contracts','equity_feature_io_sdk','equity_feature_duckdb','equity_feature_duckdb_sink',
+        'equity_feature_files','equity_feature_parquet','equity_feature_acquisition','equity_feature_bundles'),
+    'workers':('equity_feature_workers','equity_feature_provenance','equity_feature_service',
+        'equity_feature_mcp','equity_feature_client'),
+}
+LAYER_ORDER=('core','io','workers')
+LAYER_SCAN_DIRS=('packages','examples','tests','tools')
+# Upward imports that existed before ADR-1 and are outside its scope (found when the scan was
+# widened to examples/, tests/ and tools/). Each is an io-layer import (equity_feature_bundles, or
+# equity_feature_io_sdk for the supplied-worker verifier) from a core-repo file. They are
+# recorded, not accepted: this list may only shrink, and any edge not listed fails the check.
+KNOWN_UPWARD_EDGES={
+    'examples/agent_research.py':'equity_feature_bundles','examples/evidence_evaluation_instrumentation.py':'equity_feature_bundles',
+    'examples/evidence_evaluation_observer.py':'equity_feature_bundles','examples/evidence_evaluation_producer.py':'equity_feature_bundles',
+    'examples/evidence_pilot.py':'equity_feature_bundles','examples/r9_reproduction.py':'equity_feature_bundles',
+    'tests/agent_research/test_light.py':'equity_feature_bundles','tests/agent_research/test_replay.py':'equity_feature_bundles',
+    'tests/r9/test_composition.py':'equity_feature_bundles','tools/measure_r9.py':'equity_feature_bundles',
+    'tools/verify_supplied_worker_examples.py':'equity_feature_io_sdk',
+}
 
-def check():
+
+def _module_layer(name):
+    top=name.split('.')[0]
+    for layer,modules in LAYER_MODULES.items():
+        if top in modules:return layer
+    return None
+
+
+def layer_import_violations(source,layer):
+    """Imports of a strictly higher layer, from real import statements only."""
+    rank=LAYER_ORDER.index(layer);found=[]
+    for node in ast.walk(ast.parse(source)):
+        names=[a.name for a in node.names] if isinstance(node,ast.Import) else (
+            [node.module] if isinstance(node,ast.ImportFrom) and not node.level and node.module else [])
+        for name in names:
+            target=_module_layer(name)
+            if target is not None and LAYER_ORDER.index(target)>rank:found.append(f'{layer} imports {target} module {name}')
+    return found
+
+
+def layer_dependency_violations(dependencies,layer):
+    rank=LAYER_ORDER.index(layer);found=[]
+    for dep in dependencies:
+        target=_module_layer(re.split(r'[\[<>=!~; ]',dep,maxsplit=1)[0].replace('-','_'))
+        if target is not None and LAYER_ORDER.index(target)>rank:found.append(f'{layer} depends on {target} distribution {dep}')
+    return found
+
+
+def check_layers(root,layer):
+    """Scan every pyproject.toml and every .py under packages/, examples/, tests/ and tools/."""
+    errors=[];known=set()
+    for path in sorted(root.glob('packages/*/pyproject.toml')):
+        project=tomllib.loads(path.read_text(encoding='utf-8'))['project']
+        deps=list(project.get('dependencies',[]))
+        for extra in project.get('optional-dependencies',{}).values():deps.extend(extra)
+        errors+=[f'{path.relative_to(root)}: {e}' for e in layer_dependency_violations(deps,layer)]
+    scanned=0
+    for directory in LAYER_SCAN_DIRS:
+        for path in sorted((root/directory).rglob('*.py')):
+            if any(part in ('.venv','build','dist','work','__pycache__') or part.endswith('.egg-info') for part in path.relative_to(root).parts):continue
+            scanned+=1
+            relative=path.relative_to(root).as_posix()
+            for e in layer_import_violations(path.read_text(encoding='utf-8'),layer):
+                module=e.rsplit(' ',1)[1].split('.')[0]
+                if layer=='core' and KNOWN_UPWARD_EDGES.get(relative)==module:known.add((relative,module))
+                else:errors.append(f'{relative}: {e}')
+    return scanned,errors,known
+
+
+def check_dependency_direction(siblings=()):
+    """siblings: (layer, path) of other repos to scan; the core repo itself is always scanned."""
+    for source in ('import equity_feature_workers','from equity_feature_provenance import x','import equity_feature_io_sdk.sub','from equity_feature_duckdb import A'):
+        assert layer_import_violations(source,'core'),source
+    for source in ('import equity_feature_contracts','from equity_features.session import x','from . import equity_feature_workers','import json'):
+        assert not layer_import_violations(source,'core'),source
+    assert layer_import_violations('import equity_feature_workers','io') and not layer_import_violations('import equity_feature_contracts','io')
+    assert layer_dependency_violations(['equity-feature-workers==1'],'core') and layer_dependency_violations(['equity-feature-io-sdk[x]>=1'],'core')
+    assert not layer_dependency_violations(['equity-feature-contracts==1','numpy==2'],'core')
+    total=0
+    for layer,root in (('core',ROOT),*siblings):
+        scanned,errors,known=check_layers(Path(root),layer)
+        assert not errors,'upward dependency edges: '+'; '.join(errors)
+        assert layer!='core' or len(known)==len(KNOWN_UPWARD_EDGES),'stale KNOWN_UPWARD_EDGES entry: remove it'
+        total+=scanned
+        print(f'Dependency direction ({layer}): {scanned} Python files and all pyproject.toml scanned; 0 new upward edges; {len(known)} recorded pre-ADR-1 io-layer edges (KNOWN_UPWARD_EDGES).')
+    return total
+
+
+
+def check(siblings=()):
+    check_dependency_direction(siblings)
     # Apply the same civil-only exception to calculations and outer preflight.
     # These are source fixtures: no date/clock or numerical code is executed.
     for source in CIVIL_DATE_NEGATIVE_FIXTURES:
         assert violations(source), source
-        assert provenance_violations(source), source
     for source in CIVIL_DATE_POSITIVE_FIXTURES:
         assert not violations(source), (source, violations(source))
-        assert not provenance_violations(source), (source, provenance_violations(source))
     for source in REGEX_COMPILE_NEGATIVE_FIXTURES:
         assert violations(source), source
     for source in REGEX_COMPILE_POSITIVE_FIXTURES:
@@ -696,12 +765,11 @@ def check():
     evidence_packages=(ROOT/'packages/evidence',)
     explanation_packages=(ROOT/'packages/explanations',)
     diagnostic_packages=(ROOT/'packages/diagnostics',)
-    provenance_packages=(ROOT/'packages/provenance',)
     conformance_packages=(ROOT/'packages/conformance',)
     agent_packages=(ROOT/'packages/agent-evidence',)
     ledger_packages=(ROOT/'packages/agent-ledger',)
     continuous_packages=(ROOT/'packages/continuous',)
-    known_packages=set(pure_packages)|set(research_packages)|set(evidence_packages)|set(explanation_packages)|set(diagnostic_packages)|set(provenance_packages)|set(conformance_packages)|set(agent_packages)|set(ledger_packages)
+    known_packages=set(pure_packages)|set(research_packages)|set(evidence_packages)|set(explanation_packages)|set(diagnostic_packages)|set(conformance_packages)|set(agent_packages)|set(ledger_packages)
     known_packages|=set(continuous_packages)
     # EQ137 explicitly admits only the separately checked pure intraday package.
     intraday_package=ROOT/'packages/intraday'
@@ -771,17 +839,6 @@ def check():
                    'from . import _model','from equity_feature_evidence import ContentFingerprint',
                    'from equity_feature_contracts import policies as p\nfrom dataclasses import dataclass'):
         assert not research_violations(source,diagnostics=True),source
-    for root in provenance_packages:
-        if not root.exists():continue
-        project=tomllib.loads((root/'pyproject.toml').read_text(encoding='utf-8'))['project']
-        assert project['dependencies']==['equity-feature-contracts==0.0.4a4','equity-feature-evidence==0.1.0a2','equity-feature-diagnostics==0.1.0a1','equity-feature-workers==0.1.0a15','equity-feature-io-contracts==0.1.0a2','equity-feature-io-sdk==0.1.0a2','equity-feature-duckdb==0.1.0a9','equity-feature-duckdb-sink==0.1.0a0']
-        assert not project.get('optional-dependencies',{})
-        for path in root.glob('src/**/*.py'):
-            errors=provenance_violations(path.read_text(encoding='utf-8'));assert not errors,(path,errors)
-    for source in ('import pathlib','import socket','import equity_features','open("x")','from .other import factory','x=getattr(obj,name)','from equity_features.session import compute_trades','obj.__dict__'):
-        assert provenance_violations(source),source
-    for source in ('from equity_feature_workers import GenerationStore','from ._preflight import preflight','def _fields(value):\n return tuple((name,getattr(value,name)) for name in ())'):
-        assert not provenance_violations(source),source
     for root in conformance_packages:
         if not root.exists():continue
         project=tomllib.loads((root/'pyproject.toml').read_text(encoding='utf-8'))['project']
@@ -823,7 +880,13 @@ def check():
         assert not ledger_violations(source),source
     assert not ledger_violations('from urllib.parse import quote',storage=True)
     print('External ledger static policy: 22 negative/7 positive controls; pure files cannot access storage, private event codecs or unreviewed relative modules. This is not a Python sandbox.')
-    print(f'Pure boundary: {len(NEGATIVE_FIXTURES)} negative and {len(POSITIVE_FIXTURES)} positive policy fixtures verified; outer profile 8 negative/3 positive; conformance 7 negative/4 positive; agent {len(AGENT_NEGATIVE_FIXTURES)} negative/{len(AGENT_POSITIVE_FIXTURES)} positive controls.')
+    print(f'Pure boundary: {len(NEGATIVE_FIXTURES)} negative and {len(POSITIVE_FIXTURES)} positive policy fixtures verified; conformance 7 negative/4 positive; agent {len(AGENT_NEGATIVE_FIXTURES)} negative/{len(AGENT_POSITIVE_FIXTURES)} positive controls.')
 
 
-if __name__=='__main__': check()
+if __name__=='__main__':
+    import argparse
+    parser=argparse.ArgumentParser(description='Pure-package boundary and ADR-1 dependency direction check.')
+    parser.add_argument('--io',type=Path,help='optional io repo checkout to scan for upward (workers) edges')
+    parser.add_argument('--workers',type=Path,help='optional workers repo checkout to scan')
+    args=parser.parse_args()
+    check(tuple((n,p) for n,p in (('io',args.io),('workers',args.workers)) if p is not None))
