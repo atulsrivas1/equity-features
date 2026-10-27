@@ -1,7 +1,7 @@
 """Pure comparison of the calculated regular close with a supplied same-session close; no acquisition or publication."""
 from __future__ import annotations
 
-import base64
+from base64 import urlsafe_b64decode, urlsafe_b64encode
 from dataclasses import asdict
 from fractions import Fraction
 import re
@@ -31,8 +31,8 @@ def _decode_part(part: str) -> str:
     """Reversible unpadded base64url of UTF8; a noncanonical spelling is not accepted."""
     if _B64URL.fullmatch(part) is None or len(part) % 4 == 1:
         fail(ErrorCode.INVALID_SCHEMA, "closed k1 reference grammar required")
-    raw = base64.urlsafe_b64decode(part + "=" * (-len(part) % 4))
-    if base64.urlsafe_b64encode(raw).rstrip(b"=").decode("ascii") != part:
+    raw = urlsafe_b64decode(part + "=" * (-len(part) % 4))
+    if urlsafe_b64encode(raw).rstrip(b"=").decode("ascii") != part:
         fail(ErrorCode.INVALID_SCHEMA, "reversible k1 reference grammar required")
     try:
         text = raw.decode("utf-8")

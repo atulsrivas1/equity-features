@@ -1,7 +1,7 @@
 """Pure multi-venue status reduction over an expected publisher population; no acquisition, arbitration or inference."""
 from __future__ import annotations
 
-import base64
+from base64 import urlsafe_b64decode, urlsafe_b64encode
 import re
 from typing import Any
 
@@ -47,8 +47,8 @@ def _part(token: str) -> str:
     """Reversible unpadded base64url of safe UTF8; a noncanonical spelling is not accepted."""
     if _B64URL.fullmatch(token) is None or len(token) % 4 == 1:
         fail(ErrorCode.INVALID_SCHEMA, "closed venue reference grammar required")
-    raw = base64.urlsafe_b64decode(token + "=" * (-len(token) % 4))
-    if base64.urlsafe_b64encode(raw).rstrip(b"=").decode("ascii") != token:
+    raw = urlsafe_b64decode(token + "=" * (-len(token) % 4))
+    if urlsafe_b64encode(raw).rstrip(b"=").decode("ascii") != token:
         fail(ErrorCode.INVALID_SCHEMA, "reversible venue reference grammar required")
     try:
         text = raw.decode("utf-8")
