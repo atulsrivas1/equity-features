@@ -225,11 +225,11 @@ def merge_trade_top_k_notional(partials: Sequence[NotionalPartial]) -> FeatureRe
     expected: int | None = 0
     observed = 0
     reasons: set[Reason] = set()
-    for quality, _, _ in parts:
-        expected = None if expected is None or quality.expected is None else expected + quality.expected
-        observed += quality.observed
-        if quality.status != Status.AVAILABLE:
-            reasons.update(quality.reasons)
+    for part_quality, _, _ in parts:
+        expected = None if expected is None or part_quality.expected is None else expected + part_quality.expected
+        observed += part_quality.observed
+        if part_quality.status != Status.AVAILABLE:
+            reasons.update(part_quality.reasons)
     if reasons:
         return _result(entity, first.config, settings, first_status(reasons), reasons, expected, observed, (),
                        bindings)

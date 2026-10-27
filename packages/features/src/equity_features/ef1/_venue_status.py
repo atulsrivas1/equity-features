@@ -3,7 +3,7 @@ from __future__ import annotations
 
 from base64 import urlsafe_b64decode, urlsafe_b64encode
 import re
-from typing import Any
+from typing import Any, cast
 
 from equity_feature_contracts import (
     CanonicalBatch, ConfigSpec, DataKind, EntityKey, ErrorCode, EvidenceRow,
@@ -91,6 +91,11 @@ def _interval(cols: dict[str, tuple[Any, ...]], i: int, finite: bool) -> tuple[i
     if (end is None and finite) or (end is not None and end <= start):
         fail(ErrorCode.BOUNDS, "positive venue interval required")
     return start, end
+
+
+def _finite_interval(cols: dict[str, tuple[Any, ...]], i: int) -> tuple[int, int]:
+    start, end = _interval(cols, i, True)
+    return start, cast(int, end)  # finite=True fails on a missing end, so end is an int here
 
 
 def _known(known: int | None, knowledge: int) -> str | None:
@@ -190,7 +195,7 @@ def compute_venue_status(batches: tuple[CanonicalBatch | None, ...] | list[Canon
                 if start < rows[-1][1]:
                     fail(ErrorCode.INVALID_ORDER, "nondecreasing venue effective time required")
             rows.append((sequence, start, end, sc["text"][i], _opt(sc, "known_at_ns", i), i))
-    seeds: dict[tuple[str, str], list[tuple[int, int, int | None, int]]] = {}
+    seeds: dict[tuple[str, str], list[tuple[int, int, int, int]]] = {}
     if "venue_seed" in roles:
         zc = cols["venue_seed"]
         for i in range(roles["venue_seed"].row_count):
@@ -202,7 +207,7 @@ def compute_venue_status(batches: tuple[CanonicalBatch | None, ...] | list[Canon
             sequence = _seq(parts[4])
             if zc["fact_kind"][i] != "ef1.venue.seed" or _opt(zc, "text", i) != parts[1]:
                 fail(ErrorCode.INVALID_SCHEMA, "closed venue seed vocabulary required")
-            start, end = _interval(zc, i, True)
+            start, end = _finite_interval(zc, i)
             seeds.setdefault(key, []).append((sequence, start, end, i))
     proofs: dict[str, dict[tuple[str, str], list[tuple[int, int, int | None, int]]]] = {"venue_prefix": {}, "venue_validity": {}}
     for role, kind in (("venue_prefix", "ef1.venue.prefix_complete"), ("venue_validity", "ef1.venue.validity")):
@@ -221,33 +226,33 @@ def compute_venue_status(batches: tuple[CanonicalBatch | None, ...] | list[Canon
                 fail(ErrorCode.INVALID_SCHEMA, "closed venue certificate vocabulary required")
             if states_batch is not None and target != states_batch.metadata.source.input_id:
                 fail(ErrorCode.INCONSISTENT_IDENTITY, "certificate must bind the actual venue states input")
-            start, end = _interval(qc, i, True)
+            start, end = _finite_interval(qc, i)
             proofs[role].setdefault(key, []).append((start, end, qc["known_at_ns"][i] if "known_at_ns" in qc else None, i))
     # Ambiguity is counted before any knowledge arbitration or dependent evaluation.
-    applicable_seed: dict[tuple[str, str], tuple[int, int, int | None, int]] = {}
-    for key, rows in seeds.items():
-        hits = [r for r in rows if r[1] <= cutoff < r[2]]
+    applicable_seed: dict[tuple[str, str], tuple[int, int, int, int]] = {}
+    for key, seed_rows in seeds.items():
+        hits = [r for r in seed_rows if r[1] <= cutoff < r[2]]
         if len(hits) > 1:
             fail(ErrorCode.DUPLICATE, "ambiguous applicable venue seeds")
         if hits:
             applicable_seed[key] = hits[0]
     applicable_validity: dict[tuple[str, str], tuple[int, int, int | None, int]] = {}
     for key, vrows in proofs["venue_validity"].items():
-        hits = [r for r in vrows if r[0] <= cutoff < r[1]]
-        if len(hits) > 1:
+        valid_hits = [r for r in vrows if r[0] <= cutoff < r[1]]
+        if len(valid_hits) > 1:
             fail(ErrorCode.DUPLICATE, "ambiguous applicable venue validity certificates")
-        if hits:
-            applicable_validity[key] = hits[0]
+        if valid_hits:
+            applicable_validity[key] = valid_hits[0]
     applicable_prefix: dict[tuple[str, str], tuple[int, int, int | None, int]] = {}
     for key, prows in proofs["venue_prefix"].items():
         if key not in applicable_seed:
             continue
         origin = applicable_seed[key][1]
-        hits = [r for r in prows if r[0] <= origin and cutoff <= r[1]]
-        if len(hits) > 1:
+        prefix_hits = [r for r in prows if r[0] <= origin and cutoff <= r[1]]
+        if len(prefix_hits) > 1:
             fail(ErrorCode.DUPLICATE, "ambiguous applicable venue prefix certificates")
-        if hits:
-            applicable_prefix[key] = hits[0]
+        if prefix_hits:
+            applicable_prefix[key] = prefix_hits[0]
 
     # Expected population: applicable members in batch order; the denominator is never reduced by missing facts.
     expected_members: list[str] = []
@@ -352,14 +357,17 @@ def compute_venue_status(batches: tuple[CanonicalBatch | None, ...] | list[Canon
             expected_by[name] = (1, 1) if single else (len(required), len(required))
         else:
             expected_by[name] = (len(required), sum(1 for key in required if ok(facts[key])))
-            unavailable[name] = {facts[key].finding for key in required if not ok(facts[key])} - {None}  # type: ignore[misc]
+            unavailable[name] = {finding for key in required if not ok(facts[key])
+                                 if (finding := facts[key].finding) is not None}
 
     reason_value: str
+    reasons: tuple[Reason, ...]
     if outcome is None:
         trading = [(p, "trading") for p in expected_members]
         known_t = [(p, f) for p, f in column("trading") if f.kind == "known"]
         all_known = len(known_t) == n
-        is_known = lambda f: f.kind == "known"  # noqa: E731
+        def is_known(f: _Fact) -> bool:
+            return f.kind == "known"
         settle("known_trading_count", trading, is_known,
                sum(f.state == "active" for _, f in known_t) if all_known else None)
         settle("known_nontrading_count", trading, is_known,
@@ -385,8 +393,9 @@ def compute_venue_status(batches: tuple[CanonicalBatch | None, ...] | list[Canon
             if positive:
                 witness[name] = (positive[0][0], dimension)
         clock = [(p, d) for p in expected_members for d in dims]
-        eligible = lambda f: f.kind in ("known", "stale")  # noqa: E731
-        clocks = [facts[key].clock for key in clock if eligible(facts[key])]
+        def eligible(f: _Fact) -> bool:
+            return f.kind in ("known", "stale")
+        clocks = cast("list[int]", [facts[key].clock for key in clock if eligible(facts[key])])
         latest = None
         saturated = False
         if clocks and (len(clocks) == len(clock) or max(clocks) == cutoff - 1):

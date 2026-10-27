@@ -259,7 +259,9 @@ def admit_bars(batch: CanonicalBatch | None, grid: BarGrid, config: ConfigSpec) 
             facts[slot_or_none.index] = BarFact(slot_or_none, coverage, present, meta.source.input_id)
             continue
 
-        def cell(name: str, index: int = row_index) -> int | None:
+        bound_index: int = row_index
+
+        def cell(name: str, index: int = bound_index) -> int | None:
             return cast("int | None", columns[name][index]) if name in columns else None
         facts[slot_or_none.index] = BarFact(
             slot_or_none, coverage, present, meta.source.input_id, row_index, cell("open"), cell("close"),

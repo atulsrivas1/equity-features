@@ -193,29 +193,29 @@ def compute_rate_projection(batches: tuple[CanonicalBatch | None, ...] | list[Ca
     for feature in selected:
         if feature in _TAPE:
             kind = _TAPE[feature]
-            fact = tape_by_kind.get(kind)
-            if fact is None:
+            tape_fact = tape_by_kind.get(kind)
+            if tape_fact is None:
                 cells[feature] = Cell(None, {Reason.ABSENT_INPUT}, 1, 0)
                 continue
-            cause = knowledge_reason(fact.known_at, knowledge)
+            cause = knowledge_reason(tape_fact.known_at, knowledge)
             if cause is not None:
                 cells[feature] = Cell(None, {cause}, 1, 0)
                 continue
             why: set[Reason] = set()
-            if fact.end > cutoff:
+            if tape_fact.end > cutoff:
                 why.add(Reason.FUTURE_MARKET)
-            if fact.end - fact.start != window:
+            if tape_fact.end - tape_fact.start != window:
                 why.add(Reason.INELIGIBLE)
-            if fact.end <= cutoff and cutoff - fact.end > settings.max_endpoint_age_ns:
+            if tape_fact.end <= cutoff and cutoff - tape_fact.end > settings.max_endpoint_age_ns:
                 why.add(Reason.INELIGIBLE)
             cell = Cell(None, why, 1, 1)
             cells[feature] = cell
             if why:
                 continue
-            amount = Fraction(fact.value, 10**scale) if kind == "notional" else Fraction(fact.value)
+            amount = Fraction(tape_fact.value, 10**scale) if kind == "notional" else Fraction(tape_fact.value)
             cell.value = fraction_float(amount / seconds)
-            cell.witnesses = [EvidenceRow(entity, feature, tape_input, f"tape:{kind}", fact.end, fact.known_at,
-                                          fact.start, fact.end, "consumed", None, "ordinary")]
+            cell.witnesses = [EvidenceRow(entity, feature, tape_input, f"tape:{kind}", tape_fact.end, tape_fact.known_at,
+                                          tape_fact.start, tape_fact.end, "consumed", None, "ordinary")]
             continue
         slots = ("A",) if feature == RAW_RETURN else ("A", "B")
         pairs = [(starts.get((target, slot)), ends.get((target, slot))) for slot in slots]

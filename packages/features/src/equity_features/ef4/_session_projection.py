@@ -146,8 +146,8 @@ def compute_session_projection(batches: tuple[CanonicalBatch | None, ...] | list
         value: float | bool
         if long:
             series = [ready[s] for s in range(t - window, t + 1)]
-            pairs = list(zip(series, series[1:]))
-            moves = sum(1 for a, b in pairs if (b > a if feature == UP_FRACTION else b < a))
+            steps = list(zip(series, series[1:]))
+            moves = sum(1 for a, b in steps if (b > a if feature == UP_FRACTION else b < a))
             value = fraction_float(Fraction(moves, window))
             order = [t] + list(range(t - window, t))
         else:
