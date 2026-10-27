@@ -21,7 +21,7 @@ October 23, 2026. Evidence summary for the EF3 release (relative statistics and 
 | I/O (equity-feature-io) | #36 `b8e09f4` | #37 `01295be` | #38 `86cbff2` |
 | Workers (equity-feature-workers) | #80 `bd65fe5` | #82 `f92fd6a` | #81 `1317428` |
 
-Other core PRs: shared amendment #696 `82c1c8a`; retrospective #697 `778b608` and #698 `af7250d`; tools (contract layer pack, quiet batch runner) #699 `4cb50ef`. All core PRs #689 to #699 are merged (10:49 to 17:15 UTC on October 23, 2026). Windows installed qualification is core PR #700, **still open and not merged** at the time of writing; it is cited below as open.
+Other core PRs: shared amendment #696 `82c1c8a`; retrospective #697 `778b608` and #698 `af7250d`; tools (contract layer pack, quiet batch runner) #699 `4cb50ef`. All core PRs #689 to #699 are merged (10:49 to 17:15 UTC on October 23, 2026). Windows installed qualification is core PR #700, merged at `ced7e67` (amended 2026-10-27; this document was written while #700 was open, and `STATUS.md` is the record of merge state). Its results remain PR-author claims until the independent reviewer of #700 is recorded.
 
 ## How each part was verified
 
@@ -53,7 +53,7 @@ Fixture counts (author-reported in the implementation docs, not independently co
 
 ## Installed qualification (Windows)
 
-Core PR #700 (`docs/ef3/EF3_INSTALLED_QUALIFICATION.md`) is **open and not merged**. Its description states: 8 packages as wheel and sdist, 4 install forms, pip check clean, 346 demos per form (287 EF3 worker contract result fixtures plus the 59-demo EF1/EF2 regression sample), identical content hashes across forms. These are the PR's own claims and are not part of this package until that PR is reviewed and merged. Linux was not run.
+Core PR #700 (`docs/ef3/EF3_INSTALLED_QUALIFICATION.md`) is merged (`ced7e67`; text corrected 2026-10-27). Its description states: 8 packages as wheel and sdist, 4 install forms, pip check clean, 346 demos per form (287 EF3 worker contract result fixtures plus the 59-demo EF1/EF2 regression sample), identical content hashes across forms. These are the PR's own claims; the merge does not make them reviewed, and they stay unreviewed claims until the independent reviewer is recorded. The planned requalification after the R5 and R9 changes will replace the 346-of-346 claim. Linux was not run.
 
 ## Code performance (author or reviewer observed, one machine, not reproduced by the coordinator, no performance claim)
 
@@ -65,8 +65,8 @@ Core PR #700 (`docs/ef3/EF3_INSTALLED_QUALIFICATION.md`) is **open and not merge
 ## Known limits and release-gate items
 
 - Reconstruction-mode exception (R1): for `ef3.relative_stats`, excluded `unknown_availability` and `future_knowledge` evidence rows are omitted in reconstruction mode because the unchanged shared validator rejects them there.
-- Shared amendment rulings R1 to R9 are pending owner review. R4 (observed breadth roster) is a known divergence: the proposed ruling and merged behavior differ, and either the contract or the code must change. R5 (gating of fact `known_at`) is undecided.
-- Output ownership manifest: two EF3 manifest entries have no header (`relative.session.primary.beta_residual_fraction`, `relative.session.secondary.beta_residual_fraction`) and 36 EF3 headers have no manifest entry.
+- Shared amendment rulings R1 to R9 are pending owner review. R4 (observed breadth roster) is resolved (2026-10-27, decided, pending owner review): the code and the frozen contract win and the earlier proposal is withdrawn, so the former "known divergence" was a documentation error about which artifact was the outlier (superseded by the shared amendment, R4). R5 (gating of fact `known_at`) is ruled as gate, pending amendment E-A2 and library work.
+- Output ownership manifest (reconciled 2026-10-27, decided, pending owner review): the 36 headers without an entry are now `ef3_delivered_outputs` entries; the two entries with no header (`relative.session.primary.beta_residual_fraction`, `relative.session.secondary.beta_residual_fraction`) are kept and marked not delivered; a checker rule keeps headers and manifest in step.
 - Refusal codes collapse to `INVALID_COMMAND` at the workers (R9). D workers: spawn mode unsupported for the relative and log-volatility routes; the grid registry never evicts.
 - Package versions were not bumped (a bump changes the R17 digest); a version bump and release publication are owed and need the owner.
 - New unit strings (`members`, `observations` and others listed in the amendment) are recorded as additive but not applied to the frozen shared contract file.
@@ -79,9 +79,9 @@ Core PR #700 (`docs/ef3/EF3_INSTALLED_QUALIFICATION.md`) is **open and not merge
 ## Not done (not claimed)
 
 - Acceptance of EQ-153, EQ-154, EQ-155, EQ-156, EQ-157 and EQ-241. EF3 is not accepted.
-- Linux installed qualification (owner action); merge and review of Windows qualification #700.
+- Linux installed qualification (owner action); independent review of Windows qualification #700 (merged at `ced7e67`, review not recorded).
 - A real-source demo, source-rights and parity, benchmarks, an owner demo of the EF3 results, the owner's review of all coordinator decisions, and the final EF3 retrospective update.
 
 ## Owner items
 
-Review rulings R1 to R9; decide the R4 and R5 divergences; confirm the manifest follow-up; approve the version bump and release publication; Linux qualification; owner demo; decide acceptance.
+Review rulings R1 to R9; confirm the R4 ratification and the R5 gate ruling; confirm the manifest reconciliation and the open EQ-153 session beta/residual name; approve the version bump and release publication; Linux qualification; owner demo; decide acceptance.
