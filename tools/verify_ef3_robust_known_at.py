@@ -47,10 +47,28 @@ def known(table: dict[str, Any], key: str) -> int | None:
     return table[key] if key in table else DEFAULT_KNOWN
 
 
-def bounds_batch(count: int, table: dict[str, Any], entity: str) -> CanonicalBatch:
+def reference(rows: list[tuple[Any, ...]], input_id: str, lo: int, hi: int, absent: bool) -> CanonicalBatch:
+    """A reference role; `absent` omits the known_at_ns column altogether (the amendment treats it as null)."""
+    if absent:
+        return batch(DataKind.REFERENCE, FIELDS[:-1], [row[:-1] for row in rows], input_id, None, lo, hi)
+    return batch(DataKind.REFERENCE, FIELDS, rows, input_id, None, lo, hi)
+
+
+def bounds_batch(count: int, table: dict[str, Any], entity: str, excluded: dict[str, Any] | None = None,
+                 absent: bool = False) -> CanonicalBatch:
     rows = [(entity, str(i), ref("GRID"), "ef3.session.bounds", i * STEP, i * STEP + SPAN, SNAP, known(table, str(i)))
             for i in range(count)]
-    return batch(DataKind.REFERENCE, FIELDS, rows, "sessions", None, 0, (count - 1) * STEP + SPAN)
+    for session, when in (excluded or {}).items():
+        i = int(session)
+        rows.append((entity, session, ref("EXCL"), "ef3.session.excluded", i * STEP, i * STEP + SPAN, "holiday", when))
+    rows.sort(key=lambda row: (row[4], row[2]))
+    return reference(rows, "sessions", 0, (count - 1) * STEP + SPAN, absent)
+
+
+def population_batch(members: Any, target: int, table: dict[str, Any], absent: bool = False) -> CanonicalBatch:
+    rows = [(m, str(target), ref("POP"), "ef3.population.member", target * STEP, target * STEP + SPAN, SNAP,
+             known(table, m)) for m in members]
+    return reference(rows, "population", target * STEP, target * STEP + SPAN, absent)
 
 
 def daily(entries: list[tuple[str, int, int]], input_id: str, last: int) -> CanonicalBatch:
@@ -73,12 +91,23 @@ def history(fx: dict[str, Any]) -> FeatureResult:
     params = [Parameter("policy_version", "ef3-robust1"), Parameter("field", "volume"),
               Parameter("window", fx["window"]), Parameter("min_history", fx["min_history"]),
               Parameter("evidence_limit", 0), Parameter("quantile_num", 1), Parameter("quantile_den", 2)]
+    pop: dict[str, Any] = fx.get("population") or {}
+    absent = fx.get("absent_known_at", [])
+    selected = tuple(sorted(fx["expected"]))
+    with_cohort = any(f.startswith("cohort.") for f in selected)
+    if with_cohort:
+        params.append(Parameter("min_population", pop["min_population"]))
     cfg = config("ef3.robust_history", "ef3-robust-history-v1", params, fx["window"], count - 1,
                  (count - 1) * STEP + SPAN)
     series = daily([(ENTITY_ID, i, v) for i, v in enumerate([*fx["series"], fx["target"]])], "series", count - 1)
-    sessions = bounds_batch(count, fx["bounds_known_at"], ENTITY_ID)
-    return compute_ef3_robust([series, sessions, None, None], cfg, entity=EntityKey(ENTITY_ID, str(count - 1)),
-                              features=tuple(sorted(fx["expected"])))
+    sessions = bounds_batch(count, fx["bounds_known_at"], ENTITY_ID, fx.get("excluded"), "bounds" in absent)
+    population = values = None
+    if pop:
+        population = population_batch(pop["members"], count - 1, pop["known_at"], "population" in absent)
+        if with_cohort:
+            values = daily([(m, count - 1, v) for m, v in pop["members"].items()], "cohort", count - 1)
+    return compute_ef3_robust([series, sessions, population, values], cfg,
+                              entity=EntityKey(ENTITY_ID, str(count - 1)), features=selected)
 
 
 def cohort(fx: dict[str, Any]) -> FeatureResult:
@@ -87,11 +116,10 @@ def cohort(fx: dict[str, Any]) -> FeatureResult:
               Parameter("min_history", 1), Parameter("evidence_limit", 0),
               Parameter("min_population", fx["min_population"])]
     cfg = config("ef3.robust_history", "ef3-robust-history-v1", params, 1, 0, SPAN)
-    rows = [(m, "0", ref("POP"), "ef3.population.member", 0, SPAN, SNAP, known(fx["population_known_at"], m))
-            for m in members]
-    population = batch(DataKind.REFERENCE, FIELDS, rows, "population", None, 0, SPAN)
+    population = population_batch(members, 0, fx["population_known_at"], "population" in fx.get("absent_known_at", []))
     values = daily([(m, 0, v) for m, v in members.items()], "cohort", 0)
-    return compute_ef3_robust([None, None, population, values], cfg, entity=EntityKey(fx["target_member"], "0"),
+    sessions = (bounds_batch(1, fx["bounds_known_at"], fx["target_member"]) if "bounds_known_at" in fx else None)
+    return compute_ef3_robust([None, sessions, population, values], cfg, entity=EntityKey(fx["target_member"], "0"),
                               features=tuple(sorted(fx["expected"])))
 
 
@@ -99,15 +127,16 @@ def pace(fx: dict[str, Any]) -> FeatureResult:
     prior, offsets = fx["prior_cells"], fx["grid_offsets"]
     target = len(prior)
     params = [Parameter("policy_version", "ef3-pace1"), Parameter("profile", "bucket"), Parameter("window", len(prior)),
-              Parameter("min_history", len(prior)), Parameter("grid_version", "ef3-grid1"),
+              Parameter("min_history", fx.get("min_history", len(prior))), Parameter("grid_version", "ef3-grid1"),
               Parameter("evidence_limit", 0), Parameter("scale_num", fx["scale"][0]),
               Parameter("scale_den", fx["scale"][1])]
     cfg = config("ef3.volume_pace_robust", "ef3-volume-pace-robust-v1", params, len(prior), target,
                  target * STEP + fx["cutoff_offset"])
+    absent = fx.get("absent_known_at", [])
     edges = [(ENTITY_ID, str(target), ref(f"ef3-grid1#{i}"), "ef3.bucket.edge", o, None, "ef3-grid1",
               known(fx["edge_known_at"], str(i))) for i, o in enumerate(offsets)]
-    grid = batch(DataKind.REFERENCE, FIELDS, edges, "grid", None, target * STEP, target * STEP + max(offsets) + 1)
-    sessions = bounds_batch(target + 1, fx["bounds_known_at"], ENTITY_ID)
+    grid = reference(edges, "grid", target * STEP, target * STEP + max(offsets) + 1, "edge" in absent)
+    sessions = bounds_batch(target + 1, fx["bounds_known_at"], ENTITY_ID, fx.get("excluded"), "bounds" in absent)
     bars = []
     for i, cells in [*enumerate(prior), (target, fx["target_cells"])]:
         for c, volume in enumerate(cells):
@@ -128,7 +157,7 @@ def mean(fx: dict[str, Any]) -> FeatureResult:
     cfg = config("ef3.volume_ratio_mean", "ef3-volume-ratio-mean-v1", params,
                  max(fx["numerator_window"], fx["baseline_window"]), count - 1, (count - 1) * STEP + SPAN)
     series = daily([(ENTITY_ID, i, v) for i, v in enumerate([*fx["series"], fx["target"]])], "series", count - 1)
-    sessions = bounds_batch(count, fx["bounds_known_at"], ENTITY_ID)
+    sessions = bounds_batch(count, fx["bounds_known_at"], ENTITY_ID, None, "bounds" in fx.get("absent_known_at", []))
     return compute_ef3_robust([series, sessions], cfg, entity=EntityKey(ENTITY_ID, str(count - 1)),
                               features=tuple(sorted(fx["expected"])))
 

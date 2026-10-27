@@ -52,10 +52,27 @@ Base cases are H01 (volumes 7,3,9,1,5; median 5, MAD 2, type-7 median 5, rank 3/
 | KA30 | mean | bounds of session 0 (baseline window only) late | baseline and ratio (2/1) unavailable, numerator 35 available |
 | KA31 | mean | target bounds null | all three unavailable, `unknown_availability`, ratio 2/0 |
 | KA32 | mean | bounds of session 0 exactly K | available: 25, 35, 7/5 |
+| KA33 | history | window session 2 excluded (exclusion fact known 50), its bounds late; min_history 4 | the exclusion removes the session from the sample, not its bounds from the grid: all four outputs `missing_input`, `future_knowledge`, counts 4/4 (rank 5/5) |
+| KA34 | history | same, bounds null | `unknown_availability` |
+| KA35 | history | same, bounds exactly K | available on sample 7,3,1,5: median 4, MAD 2, quantile 4, rank 3/4 |
+| KA36 | pace | prior session 1 excluded, its bounds late; min_history 4 | `future_knowledge`, `baseline_median` 4/4, `ratio` and `robust_z` 2/1 |
+| KA37 | pace | same, bounds exactly K | sample 100,300,400,500: median 350, MAD 100, ratio 9/7, z 2/3 |
+| KA38 | pace | no bucket ends by the market cutoff (`future_market`) and edge 3 late | reasons `future_knowledge`, `future_market`; status `missing_input` (knowledge ranks above); counts 5/0, 2/0 |
+| KA39 | pace | `future_market` alone | `incomplete_coverage`, reason `future_market` (control) |
+| KA40 | pace | first bucket end beyond the session (`ineligible`) and prior session 3 bounds null | reasons `ineligible`, `unknown_availability` |
+| KA41 | history | history-only selection; population facts Y null and Z late are present | not read: equals H01 |
+| KA42 | cohort | cohort-only selection; target session bounds null are present | not read: rank 3, percentile 1/6 |
+| KA43 | history and cohort | both selected, member Z late | history equals H01; cohort `future_knowledge` |
+| KA44 | history and cohort | both selected, bounds of session 2 late; members 6, 20, 2 | history `future_knowledge`; cohort rank 2, percentile 1/2 |
+| KA45 | history | bounds role without a `known_at_ns` column | `unknown_availability` |
+| KA46 | pace | edge role without the column | `unknown_availability`, counts as KA20 |
+| KA47 | pace | bounds role without the column | `unknown_availability` |
+| KA48 | cohort | population role without the column | `unknown_availability`, counts 3/3 |
+| KA49 | mean | bounds role without the column | all three `unknown_availability`, ratio 2/0 |
 
-`tools/verify_ef3_robust_known_at.py` expands each fixture to canonical batches and checks value, status, reasons and counts: 19 of 19 match on the amended library; on the unamended library only the five available controls match.
+`tools/verify_ef3_robust_known_at.py` expands each fixture to canonical batches and checks value, status, reasons and counts: 36 of 36 match on the amended library (KA01 to KA32 also: on the unamended library only the five available controls matched).
 
 ## Open items for the owner
 
 1. The freeze says a change of convention needs a new policy label. The behaviour differs from the frozen contract only where bounds, edge or population facts carry null or late `known_at`, so the labels `ef3-robust1`, `ef3-pace1` and `ef3-mean1` and the config digests were kept. Whether to bump them with the version change is an owner decision; a bump changes content hashes.
-2. Downstream: equity-feature-io and equity-feature-workers need no change for the 124 existing fixtures (their adapters write known_at 50 on these facts). To exercise the amendment end to end they would add per-fact `known_at` for bounds, edge and population facts and the fixtures KA01 to KA32; the I/O adapter currently fixes those at `KNOWN_AT_DEFAULT`.
+2. Downstream: equity-feature-io and equity-feature-workers need no change for the 124 existing fixtures (their adapters write known_at 50 on these facts). To exercise the amendment end to end they would add per-fact `known_at` for bounds, edge and population facts and the fixtures KA01 to KA49; the I/O adapter currently fixes those at `KNOWN_AT_DEFAULT`.
