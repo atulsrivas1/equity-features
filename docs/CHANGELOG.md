@@ -1,3 +1,7 @@
+## EF3 contract E amendment E-A2: knowledge gating of grid facts - October 27, 2026
+
+`ef3.robust_history`, `ef3.volume_pace_robust` and `ef3.volume_ratio_mean` now assess the `known_at` of the session bounds, bucket edge and declared population facts a selected output uses against the knowledge cutoff, as contract F already does (null gives `unknown_availability`, later than the cutoff `future_knowledge`, equal is available; no new reason or code). Behavior changes only where those facts carry a null or late `known_at`; the 124 existing E result fixtures are unchanged. See [ROBUST_PACE_AMENDMENT_E_A2.md](ef3/ROBUST_PACE_AMENDMENT_E_A2.md) (fixtures KA01 to KA32) and `tools/verify_ef3_robust_known_at.py`.
+
 ## Provenance moved to equity-feature-workers - October 27, 2026
 
 Per [ADR-1](adr/ADR-1-dependency-direction-and-provenance.md), `equity-feature-provenance` (import name `equity_feature_provenance`, 0.1.0a2) no longer lives in this repository: it moved unchanged to `packages/provenance` in https://github.com/atulsrivas1/equity-feature-workers so core no longer depends on workers, io-sdk or DuckDB. Distribution and import names are unchanged; install it from the workers repo. Its tests, the `provenance_readback` and `conformance_pipeline` examples and the provenance qualification builder moved with it; core keeps only core-only conformance tests. No stub that re-imports workers is published. Last core commit containing the package: `0fc675d`.

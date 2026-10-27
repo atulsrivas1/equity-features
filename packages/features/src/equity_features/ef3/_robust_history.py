@@ -19,7 +19,7 @@ from equity_features import __version__
 from ._common import fail, integer
 from ._robust_common import (
     Fact, SessionGrid, admit_series, admit_sessions, check_entity, check_features, check_policy, check_slots,
-    evidence_row, fact_reasons, first_status, make_config, ordered, parameter_map, reduced_pair, reference_evidence,
+    bounds_reasons, evidence_row, fact_reasons, first_status, knowledge_reasons, make_config, ordered, parameter_map, reduced_pair, reference_evidence,
 )
 from ._robust_roles import Population, admit_cohort, admit_population
 from ._stats import mad, median, mid_rank, quantile, to_float
@@ -197,7 +197,7 @@ def _history(settings: RobustHistorySettings, selected: tuple[str, ...], config:
                 for f in wanted}
     t = grid.target_index
     prior = grid.order[max(0, t - window):t]
-    reasons: set[Reason] = set()
+    reasons: set[Reason] = set(bounds_reasons(grid, prior, knowledge))
     excluded: list[str] = []
     retained: list[str] = []
     values: list[int] = []
@@ -276,6 +276,8 @@ def _cohort(settings: RobustHistorySettings, selected: tuple[str, ...], entity: 
     declared = len(members)
     ready = {m: not fact_reasons(facts.get(m, Fact()), knowledge) for m in members}
     reasons: set[Reason] = set(fact_reasons(facts.get(entity.instrument_id, Fact()), knowledge))
+    for known_at in population.known_at:
+        reasons |= knowledge_reasons(known_at, knowledge)
     if any(not ok for m, ok in ready.items() if m != entity.instrument_id):
         reasons.add(Reason.PARTIAL_UNIVERSE)
     if declared < settings.min_population:

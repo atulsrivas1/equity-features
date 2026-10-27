@@ -216,6 +216,25 @@ def fact_reasons(fact: Fact, knowledge_cutoff_ns: int) -> frozenset[Reason]:
     return frozenset(reasons)
 
 
+def knowledge_reasons(known_at_ns: int | None, knowledge_cutoff_ns: int) -> frozenset[Reason]:
+    """Knowledge gate of one reference fact (E-A2): null is unknown_availability, later than K is future_knowledge,
+    equal to K is available (the same rule the data rows, the exclusion facts and contract F already apply)."""
+    if known_at_ns is None:
+        return frozenset({Reason.UNKNOWN_AVAILABILITY})
+    if known_at_ns > knowledge_cutoff_ns:
+        return frozenset({Reason.FUTURE_KNOWLEDGE})
+    return frozenset()
+
+
+def bounds_reasons(grid: SessionGrid, window: tuple[str, ...], knowledge_cutoff_ns: int) -> frozenset[Reason]:
+    """Knowledge of the session bounds facts a result uses: the target session and every session of the window
+    (a declared exclusion removes a session from the sample, not its bounds from the grid)."""
+    reasons: set[Reason] = set()
+    for session_id in (*window, grid.order[grid.target_index]):
+        reasons |= knowledge_reasons(grid.bounds_known_at[session_id], knowledge_cutoff_ns)
+    return frozenset(reasons)
+
+
 def _coverage_map(batch: CanonicalBatch, expected: Callable[[str], tuple[int, int] | None],
                   rows: dict[str, int]) -> dict[str, Coverage]:
     """Per-slot coverage entries must name an exact governed slot and agree with the delivered row."""

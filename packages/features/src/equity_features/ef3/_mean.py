@@ -19,7 +19,7 @@ from equity_features import __version__
 from ._common import fail, integer
 from ._robust_common import (
     Fact, SessionGrid, admit_series, admit_sessions, check_entity, check_features, check_policy, check_slots,
-    evidence_row, fact_reasons, first_status, make_config, ordered, parameter_map,
+    bounds_reasons, evidence_row, fact_reasons, first_status, make_config, ordered, parameter_map,
 )
 from ._stats import to_float
 
@@ -117,7 +117,7 @@ def _window(grid: SessionGrid | None, facts: dict[str, Fact], length: int, inclu
     end = grid.target_index - (inclusion == "prior_only")
     first = end - length + 1
     sessions = grid.order[max(first, 0):end + 1]
-    reasons: set[Reason] = set()
+    reasons: set[Reason] = set(bounds_reasons(grid, sessions, knowledge))
     total = observed = 0
     for session_id in sessions:
         fact = facts.get(session_id, Fact())

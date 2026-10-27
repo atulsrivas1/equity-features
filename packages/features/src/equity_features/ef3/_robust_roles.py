@@ -15,6 +15,7 @@ from ._robust_common import (
 class Population:
     input_id: str
     members: tuple[str, ...]
+    known_at: tuple[int | None, ...] = ()
 
 
 def admit_population(batch: CanonicalBatch, config: ConfigSpec, entity: EntityKey) -> Population:
@@ -23,6 +24,7 @@ def admit_population(batch: CanonicalBatch, config: ConfigSpec, entity: EntityKe
     _check_meta(batch, config)
     cols = columns_of(batch)
     members: list[str] = []
+    known: list[int | None] = []
     reference: str | None = None
     session = config.session
     for row in range(batch.row_count):
@@ -43,9 +45,10 @@ def admit_population(batch: CanonicalBatch, config: ConfigSpec, entity: EntityKe
             fail(ErrorCode.INCONSISTENT_IDENTITY, "one population id required across the role")
         reference = cols["reference_id"][row]
         members.append(label(cols["instrument_id"][row], ErrorCode.INVALID_SCHEMA))
+        known.append(cols["known_at_ns"][row] if "known_at_ns" in cols else None)
     if entity.instrument_id not in members:
         fail(ErrorCode.INCONSISTENT_IDENTITY, "the target instrument is not a declared population member")
-    return Population(batch.metadata.source.input_id, tuple(members))
+    return Population(batch.metadata.source.input_id, tuple(members), tuple(known))
 
 
 def admit_cohort(batch: CanonicalBatch, config: ConfigSpec, population: Population, field: str) -> dict[str, Fact]:
@@ -80,12 +83,20 @@ def admit_cohort(batch: CanonicalBatch, config: ConfigSpec, population: Populati
     return facts
 
 
-def admit_edges(batch: CanonicalBatch, config: ConfigSpec, entity: EntityKey, grid_version: str) -> tuple[int, ...]:
-    """Bucket edge offsets from the actual open: first edge 0, strictly increasing, 2..4097 edges."""
+@dataclass(frozen=True)
+class Edges:
+    offsets: tuple[int, ...]
+    known_at: tuple[int | None, ...]
+
+
+def admit_edges(batch: CanonicalBatch, config: ConfigSpec, entity: EntityKey, grid_version: str) -> Edges:
+    """Bucket edge offsets from the actual open: first edge 0, strictly increasing, 2..4097 edges; the original
+    `known_at` of each edge travels with it so the producer can gate it."""
     validate_batch(batch, required_fields=())
     _check_meta(batch, config)
     cols = columns_of(batch)
     offsets: list[int] = []
+    known: list[int | None] = []
     for row in range(batch.row_count):
         if cols["fact_kind"][row] != EDGE_KIND:
             fail(ErrorCode.INVALID_SCHEMA, "unknown fact kind for the grid role")
@@ -98,11 +109,12 @@ def admit_edges(batch: CanonicalBatch, config: ConfigSpec, entity: EntityKey, gr
                 name in cols and cols[name][row] is not None for name in ("price", "factor_num", "factor_den")):
             fail(ErrorCode.INVALID_SCHEMA, "a bucket edge carries an offset only")
         offsets.append(cols["effective_start_ns"][row])
+        known.append(cols["known_at_ns"][row] if "known_at_ns" in cols else None)
     if not 2 <= len(offsets) <= MAX_EDGES:
         fail(ErrorCode.INVALID_CONFIG, "a grid of 1..4096 buckets (2..4097 edges) is required")
     if offsets[0] != 0 or any(b <= a for a, b in zip(offsets, offsets[1:])):
         fail(ErrorCode.BOUNDS, "grid edges start at 0 and increase strictly")
-    return tuple(offsets)
+    return Edges(tuple(offsets), tuple(known))
 
 
 def admit_bars(batch: CanonicalBatch, config: ConfigSpec, entity: EntityKey, grid: SessionGrid,
