@@ -158,7 +158,7 @@ Conformance0.1.0a1 is a new optional pure inward consumer of unchanged contracts
 
 ## EQ103 candidate boundary
 
-No accepted package/version/result/catalog/codec/formula changes. New outer provenance0.1.0a1 requires CPython3.12 and exact accepted IO18d86761/worker6538f21 pins; native dependencies remain explicit. Only trade acquisition and five existing compute_trades outputs are supported. [Trust/bounds](api/PROVENANCE.md).
+No accepted package/version/result/catalog/codec/formula changes. [Moved to equity-feature-workers by ADR-1, October 27, 2026; historical text follows.] New outer provenance0.1.0a1 requires CPython3.12 and exact accepted IO18d86761/worker6538f21 pins; native dependencies remain explicit. Only trade acquisition and five existing compute_trades outputs are supported. [Trust/bounds](https://github.com/atulsrivas1/equity-feature-workers/blob/main/docs/api/PROVENANCE.md).
 
 ## EQ102 compatibility candidate — October15,2026
 
