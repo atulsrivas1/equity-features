@@ -23,8 +23,8 @@ Run `python tools/pre_merge_check.py` from the core root in the pinned venv (CON
 - [ ] 3.1 Core: `python -m unittest discover tests/unit` zero failures (baseline 1075 run, 1 FAIL: stale count in `test_purity_audit`; fix branch `fix/purity-audit-count`).
 - [ ] 3.2 io: 48 of 48 (`unittest discover -s tests`).
 - [ ] 3.3 workers: all pass in an installed (non-PYTHONPATH) environment; the 3 subprocess failures at baseline must pass with installed wheels, not be waived as environmental.
-- [ ] 3.4 Every EF2/EF3/EF4 family has at least one unit test file, or an owner decision that waives unit tests for it with the reason recorded (today none exists; see EDGE_CASE_MATRIX.md). Because the standing policy is no new automated tests, this item needs an owner ruling or waiver before it can PASS.
-- [ ] 3.5 Count of U rows in `EDGE_CASE_MATRIX.md` is zero, or each U row has an owner-signed waiver.
+- [ ] 3.4 (PO ruling 2026-10-28, replaces the unit-test requirement for internal acceptance) Fixture and refusal-driver census plus verify scripts: every EF2/EF3/EF4 family has its result fixtures and refusal drivers run with counts recorded and deviations ruled, and the pre-merge command passes. Owner waiver of unit suites recorded by the PO, pending owner awareness only.
+- [ ] 3.5 (PO ruling 2026-10-28) Count of U rows in `EDGE_CASE_MATRIX.md` is zero, or each U row is covered by a fixture or refusal-driver recipe in the census of 3.4.
 
 ## 4. Demo census
 - [ ] 4.1 `tools/ef1_results_demo.py` with default sibling paths: all cases pass (EF2 304/304 baseline; EF3 346/346; EF4 297/297).
@@ -67,6 +67,8 @@ Run `python tools/pre_merge_check.py` from the core root in the pinned venv (CON
 - [ ] 10.3 Known-limit list in the delivery evidence doc is current; each limit is fixed, waived or scheduled with an issue.
 - [ ] 10.4 STATUS.md, HANDOFF.md, CHANGELOG updated; retrospective written; token ledger updated.
 - [ ] 10.5 Acceptance stories closed with child evidence audited (EF4: EQ-158, 159, 160, 161, 162, 172, 163; EF3: EQ-153 to 157, 241; EF2: EQ-152).
+- [ ] 10.6 Reviewer verdict recorded before merge: every PR in the release (contract or library code, and each layer PR) has its reviewer verdict artifact merged or linked before the merge; verdicts written after the merge do not count (PO ruling 2026-10-28; COORDINATOR_WORKING_AGREEMENT.md).
+- [ ] 10.7 Regression fixture per defect class: each defect-class fix in the release (EF4: E1, E2, E4, C1) has a regression fixture or refusal-driver recipe, and the fixture and refusal-driver census is updated and documented.
 
 ## 11. Owner demo and sign-off
 - [ ] 11.1 Owner shown the browser demo from a fresh start (stop stale servers first, for example 127.0.0.1:18400).
@@ -74,3 +76,4 @@ Run `python tools/pre_merge_check.py` from the core root in the pinned venv (CON
 - [ ] 11.3 Publication/version tag only after 11.2; no merge or publish is done by the tester.
 
 Result: ACCEPT only if every box is checked. Otherwise list blockers: ____________________
+
