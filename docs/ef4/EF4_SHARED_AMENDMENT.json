@@ -730,7 +730,7 @@
     },
     "E2": {
       "title": "Coverage form and the fail-open of undeclared coverage",
-      "ruling": "The declaration is one `IntervalCoverage` entry exactly equal to [S, E) on the quote or trade batch, with the aggregate `Coverage` as fallback (complete; incomplete with a known `expected`; undeclared when `expected` is null). Bars use per-slot entries equal to a grid slot. An undeclared batch that delivers rows is read as complete: this fails open, so every I/O mapper must always declare coverage; the tape adapter does not enforce this (it defaults to complete, see the I/O line).",
+      "ruling": "The declaration is one `IntervalCoverage` entry exactly equal to [S, E) on the quote or trade batch, with the aggregate `Coverage` as fallback (complete; incomplete with a known `expected`; undeclared when `expected` is null). Bars use per-slot entries equal to a grid slot. An undeclared batch that delivers rows is read as complete: this fails open, so every I/O mapper must always declare coverage; the tape adapter enforces it: a tape batch that delivers rows with no declared coverage is refused INVALID_SCHEMA (\"coverage not declared\") at the io adapter (core #730, DECISIONS.md); zero rows with no declaration stays an empty complete batch; the fixture-notation default (complete) applies to fixtures only.",
       "contract_lines": [
         "QUOTE_VWAP_CONTRACT_PROPOSAL.md line 85 (DP-Q3, DP-Q11): delivery completeness is the declared IntervalCoverage",
         "QUOTE_VWAP_CONTRACT_PROPOSAL.md line 60 (trades role: declared IntervalCoverage)",
@@ -738,7 +738,7 @@
       ],
       "merged_behavior": {
         "library": "`declared_coverage` (ef4/_common.py:200): any interval entry must be exactly one entry equal to [S, E) with observed equal to the delivered rows, else `INCONSISTENT_IDENTITY`; with no entry the aggregate is read: complete is complete, incomplete with `expected` not null is incomplete, incomplete with `expected` null is `undeclared`. Zero rows with `undeclared` (or an undelivered role) is `absent_input` (_quote.py:170, _vwap.py:149). `undeclared` with rows is not gated as incomplete, so it reads as complete. Bars (VWAP bar source): a per-slot entry must equal a grid slot; no row with an entry is `governed_gap`, no row without one is `absent_input`, a delivered row whose entry is incomplete is `governed_gap` (implementation document; no fixture). Path efficiency and the projections declare per slot and treat a slot without a coverage entry as absent.",
-        "io": "Adapter sources read (io main 4ebfa30). Quote/VWAP `quote_vwap.py` `_event_coverage` (line 158): coverage must be declared complete, incomplete or absent (else INVALID_CONFIG); absent with delivered rows is refused; every declared batch carries the aggregate and one interval entry for the scope. Projections `ef4_projections.py` declares the aggregate on every batch (line 170) plus per-slot entries (lines 205-257). Path efficiency `path_efficiency.py` writes the aggregate `Coverage(None, n, False)` (line 126) and relies on the per-slot entries (lines 113-119). Tape `tape.py:136` DEFAULTS to `Coverage(n, n, True)` when the caller supplies none: a fail-open default (a tape batch delivered without a declaration is declared complete by the adapter).",
+        "io": "Adapter sources read (io main 4ebfa30). Quote/VWAP `quote_vwap.py` `_event_coverage` (line 158): coverage must be declared complete, incomplete or absent (else INVALID_CONFIG); absent with delivered rows is refused; every declared batch carries the aggregate and one interval entry for the scope. Projections `ef4_projections.py` declares the aggregate on every batch (line 170) plus per-slot entries (lines 205-257). Path efficiency `path_efficiency.py` writes the aggregate `Coverage(None, n, False)` (line 126) and relies on the per-slot entries (lines 113-119). Tape `tape.py:136` (as read at io main 4ebfa30) defaulted to `Coverage(n, n, True)` when the caller supplied none; superseded by the ruling in core #730 (DECISIONS.md): a tape batch with rows and no declared coverage is refused INVALID_SCHEMA at the io adapter, zero rows stays an empty complete batch, and the fixture-notation default applies to fixtures only.",
         "workers": "Not specific; the workers pass the adapter batches through."
       }
     },
@@ -850,7 +850,7 @@
     },
     {
       "id": "L5",
-      "text": "Undeclared coverage with delivered rows reads as complete (E2): fails open in the library, and the tape adapter (`tape.py:136`) defaults an unsupplied coverage to complete, so the default path of the tape I/O layer is fail-open."
+      "text": "Undeclared coverage with delivered rows reads as complete (E2): fails open in the library, while the tape adapter now fails closed (core #730): a tape batch with rows and no declared coverage is refused INVALID_SCHEMA at the io adapter; zero-row undeclared stays empty/complete; the fixture-notation default applies to fixtures only."
     },
     {
       "id": "L6",
@@ -876,7 +876,7 @@
     "E4: the cap is implicit (one slot per session, at most 64 sessions) with no explicit N <= 63 check or code.",
     "E7: `_tape_window.py:303` passes `limit * len(TAPE_FEATURES)` = 9 times the limit as `ResultMetadata.evidence_limit` while the comment at line 301 says the bound is per output. The producer does enforce the per-output limit itself (witness rows cut to `rows[:limit]`, line 284; the seed counts toward it, line 204); the shared validator only enforces the 9x total.",
     "E6: through the adapter 73 of 75 G recipes match the contract code (RF18, RF35 differ), against 75 of 75 in library-only runs.",
-    "E2: the tape adapter defaults coverage to complete (`tape.py:136`); the other adapters always declare."
+    "E2: the tape adapter formerly defaulted coverage to complete (`tape.py:136`, io main 4ebfa30); per core #730 it refuses INVALID_SCHEMA for rows with no declared coverage (zero rows stays empty/complete); the other adapters always declare."
   ],
   "explicit_statements": [
     "Docs only: no code, validator, fixture or CONTRACT.json is edited, and no unit test was added.",
