@@ -1,0 +1,157 @@
+{
+ "version": "ef5-shared-amendment1",
+ "status": "proposal for the shared header/unit ledger; additive; pending PO ruling PO-2",
+ "unit_additions": [
+  {
+   "unit": "fraction/s",
+   "dtype": "float64",
+   "used_by": [
+    "technical.price_velocity_fraction_per_second"
+   ],
+   "aliases": [
+    "fraction_per_second"
+   ]
+  },
+  {
+   "unit": "fraction/s^2",
+   "dtype": "float64",
+   "used_by": [
+    "technical.momentum_acceleration_fraction_per_second_squared"
+   ],
+   "aliases": [
+    "fraction_per_second_squared"
+   ]
+  },
+  {
+   "unit": "windows",
+   "dtype": "int64",
+   "used_by": [
+    "technical.signed_trend_window_count"
+   ],
+   "aliases": []
+  }
+ ],
+ "units_reused": [
+  "boolean",
+  "currency/share",
+  "fraction"
+ ],
+ "e9_erratum": "additive erratum to E9 (not a frozen-file edit): the squared form of the slash style is fraction/s^2; aliases fraction_per_second and fraction_per_second_squared appear in no header",
+ "po7_cross_reference": "EF5 rejects rows with undeclared coverage as INVALID_SCHEMA (matches the merged tape adapter); the EF4 library uses the code ruled in E2; the divergence is documented here, not accidental; zero rows with undeclared coverage stays absent_input",
+ "unit_alias_rule": "E9: underscore forms (fraction_per_second, fraction_per_second_squared) are aliases recorded here and rejected on new headers",
+ "header_ledger_additions": [
+  {
+   "id": "candle.body_fraction",
+   "dtype": "float64",
+   "unit": "fraction",
+   "producer": "candle",
+   "contract": "PRICE_STRUCTURES"
+  },
+  {
+   "id": "candle.doji",
+   "dtype": "bool",
+   "unit": "boolean",
+   "producer": "candle",
+   "contract": "PRICE_STRUCTURES"
+  },
+  {
+   "id": "candle.engulfing_bearish",
+   "dtype": "bool",
+   "unit": "boolean",
+   "producer": "candle",
+   "contract": "PRICE_STRUCTURES"
+  },
+  {
+   "id": "candle.engulfing_bullish",
+   "dtype": "bool",
+   "unit": "boolean",
+   "producer": "candle",
+   "contract": "PRICE_STRUCTURES"
+  },
+  {
+   "id": "candle.inside_bar",
+   "dtype": "bool",
+   "unit": "boolean",
+   "producer": "candle",
+   "contract": "PRICE_STRUCTURES"
+  },
+  {
+   "id": "candle.lower_shadow_fraction",
+   "dtype": "float64",
+   "unit": "fraction",
+   "producer": "candle",
+   "contract": "PRICE_STRUCTURES"
+  },
+  {
+   "id": "candle.upper_shadow_fraction",
+   "dtype": "float64",
+   "unit": "fraction",
+   "producer": "candle",
+   "contract": "PRICE_STRUCTURES"
+  },
+  {
+   "id": "structure.last_swing_high_price",
+   "dtype": "float64",
+   "unit": "currency/share",
+   "producer": "structure",
+   "contract": "PRICE_STRUCTURES"
+  },
+  {
+   "id": "structure.last_swing_low_price",
+   "dtype": "float64",
+   "unit": "currency/share",
+   "producer": "structure",
+   "contract": "PRICE_STRUCTURES"
+  },
+  {
+   "id": "structure.swing_high_confirmed",
+   "dtype": "bool",
+   "unit": "boolean",
+   "producer": "structure",
+   "contract": "PRICE_STRUCTURES"
+  },
+  {
+   "id": "structure.swing_low_confirmed",
+   "dtype": "bool",
+   "unit": "boolean",
+   "producer": "structure",
+   "contract": "PRICE_STRUCTURES"
+  },
+  {
+   "id": "technical.momentum_acceleration_fraction_per_second_squared",
+   "dtype": "float64",
+   "unit": "fraction/s^2",
+   "producer": "technical",
+   "contract": "PRICE_STRUCTURES"
+  },
+  {
+   "id": "technical.price_velocity_fraction_per_second",
+   "dtype": "float64",
+   "unit": "fraction/s",
+   "producer": "technical",
+   "contract": "PRICE_STRUCTURES"
+  },
+  {
+   "id": "technical.session_return_fraction",
+   "dtype": "float64",
+   "unit": "fraction",
+   "producer": "technical",
+   "contract": "PRICE_STRUCTURES"
+  },
+  {
+   "id": "technical.signed_trend_window_count",
+   "dtype": "int64",
+   "unit": "windows",
+   "producer": "technical",
+   "contract": "PRICE_STRUCTURES"
+  }
+ ],
+ "manifest": {
+  "planned_outputs_unit_updated": [
+   "technical.price_velocity_fraction_per_second",
+   "technical.momentum_acceleration_fraction_per_second_squared"
+  ],
+  "delivered_section": "ef5_delivered_outputs (11 entries)"
+ },
+ "hash_impact": "no unit string of an existing frozen contract is changed; the two manifest unit strings are documentation, not part of any content hash read in this PR"
+}
