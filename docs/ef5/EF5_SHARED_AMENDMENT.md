@@ -36,7 +36,7 @@ The 15 headers of [PRICE_STRUCTURES_CONTRACT_PROPOSAL.json](PRICE_STRUCTURES_CON
 
 ## E9 erratum (squared form)
 
-Additive erratum to E9, not a frozen-file edit: the squared form of the slash style is `fraction/s^2`. The underscore spellings `fraction_per_second` and `fraction_per_second_squared` are aliases only, recorded in the ownership manifest (`unit_aliases`), and appear in no header.
+Additive erratum to E9, not a frozen-file edit: the squared form of the slash style is `fraction/s^2`. The underscore spellings `fraction_per_second` and `fraction_per_second_squared` are aliases only, recorded in the ownership manifest (`unit_aliases`), and appear in no header. EF4 headers keep their underscore spellings until the scheduled next-contract-version migration (core `DECISIONS.md` E9, `docs/ef4/EF4_LEDGER_APPLICATION.md`); this erratum concerns EF5 headers only.
 
 
 ## Cross-reference: undeclared coverage (PO-7)

@@ -266,7 +266,7 @@
    "no_eligible_observations": "not_applicable",
    "zero_denominator": "not_applicable"
   },
-  "rule": "all applicable reasons retained in lexical order; status follows the first applicable reason in precedence; value is null exactly when the status is not available; available implies observed == expected",
+  "rule": "all applicable reasons retained in lexical order; status follows the first applicable reason in precedence; value is null exactly when the status is not available; available implies observed == expected; the retained list is alphabetical, not precedence order, which is why KA09, KA18 and KA27 list future_knowledge before unknown_availability (status is missing_input either way)",
   "slot_causes": {
    "no row and no coverage": "absent_input",
    "known_at null": "unknown_availability",
@@ -13502,5 +13502,22 @@
   "technical_result": 20,
   "ka_result": 27,
   "refusal": 51
+ },
+ "shared_rules_and_terms": {
+  "terms": {
+   "READY": "a slot with a complete, known, coherent bar for the fields the output reads",
+   "R17": "governed intraday grid, admission, reset epoch and exact preparation (docs/features/INTRADAY_FOUNDATIONS.md)",
+   "E1-E9": "EF4 shared-amendment rulings (docs/ef4/EF4_SHARED_AMENDMENT.md)",
+   "C8-C10": "PO merge conditions on E1, E2 and E4 that gate the I/O and worker layers (DECISIONS.md)",
+   "PO-1..PO-7": "rulings recorded in open_questions (DECISIONS.md, 2026-10-28)"
+  },
+  "config_rules": {
+   "price_unit": "integer scale 0..18 and a currency (shared PriceUnit; RF39 scale 19); EF5 additionally pins currency as three upper-case letters (RF40); the shared PriceUnit only requires a non-empty string",
+   "capability": "only batch compute; update (RF42) and restore (RF43) are UNSUPPORTED_CAPABILITY as in EF4",
+   "epoch_profile": "session_reset or governed_history only (RF19, RF20)",
+   "adjustment_vocabulary_v1": "unadjusted, split_adjusted; any other label (RF41 dividend_adjusted) is UNSUPPORTED_ADJUSTMENT"
+  },
+  "po_question_PQ1": "shared AdjustmentSpec vocabulary is raw/split/total_return while EF5 fixtures pin unadjusted/split_adjusted, and shared PriceUnit does not check currency letters; map the labels or extend the shared checks? Not decided; fixtures unchanged",
+  "unit_spelling_note": "EF4 headers keep underscore unit spellings until the scheduled migration at the next contract-version boundary (core DECISIONS.md E9, docs/ef4/EF4_LEDGER_APPLICATION.md); EF5 uses slash spellings from day one"
  }
 }
