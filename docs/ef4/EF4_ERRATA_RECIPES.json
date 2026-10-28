@@ -3,7 +3,7 @@
   "status": "additive errata; the four frozen EF4 contracts and their fixture_counts are not edited",
   "rulings": "PO ruling 2026-10-28 (EF4_SHARED_AMENDMENT.md E1, E2, E4)",
   "contract_counts_unchanged": {"tape_refusal": 75, "quote_vwap_refusal": 80, "path_refusal": 39, "projections_refusal": 114},
-  "recipe_count": 8,
+  "recipe_count": 11,
   "recipes": [
     {"id": "ER01", "ruling": "E1", "kind": "topk_constructor", "ranking": "size", "rows": "notional_order", "expect": "invalid_order",
      "description": "rows in notional order, not in size order, built with the default size ranking are refused"},
@@ -20,6 +20,9 @@
     {"id": "ER07", "ruling": "E2", "kind": "coverage", "role": "quote", "rows": 0, "expected": null, "complete": false, "expect": "undeclared",
      "description": "zero rows with no declaration stay undeclared, which the producers read as absent_input"},
     {"id": "ER08", "ruling": "E4", "kind": "path_config", "window": 64, "profile": "governed_history", "expect": "invalid_config",
-     "description": "governed_history with window 64 can never be available and is refused at configuration; window 63 and session_reset 64 stay accepted"}
+     "description": "governed_history with window 64 can never be available and is refused at configuration; window 63 and session_reset 64 stay accepted"},
+  {"id": "ER09", "ruling": "E2", "kind": "tape_coverage", "expected": 3, "complete": false, "expect": "incomplete_coverage+governed_gap", "description": "tape DP-T12: coverage declared incomplete has reason governed_gap (status incomplete_coverage), never read as complete"},
+  {"id": "ER10", "ruling": "E2", "kind": "tape_coverage", "expected": 5, "complete": false, "expect": "incomplete_coverage+governed_gap", "description": "tape DP-T12: coverage whose expected count (5) differs from the delivered count (3) has reason governed_gap (same path as ER09: Coverage(5, 3, true) is refused at construction, so this cannot isolate the count mismatch)"},
+  {"id": "ER11", "ruling": "E2", "kind": "tape_coverage", "expected": 3, "complete": true, "expect": "available", "description": "control: coverage declared complete with the delivered count stays available"}
   ]
 }

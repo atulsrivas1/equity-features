@@ -2,6 +2,7 @@
 
 E1: the shared TopKTrades check is rank-aware (constructor `ranking`; FeatureResult binds the ranking to the feature id).
 E2: an undeclared batch that delivers rows is refused INVALID_SCHEMA; zero rows with no declaration stays undeclared.
+Tape (DP-T12): a declared incomplete coverage is `governed_gap`, never read as complete.
 E4: governed_history with a window above 63 is refused INVALID_CONFIG at configuration.
 Run from a source checkout with the library importable: `python tools/verify_ef4_errata.py`; exit 0 only if all hold.
 """
@@ -45,7 +46,7 @@ def code_of(call: Any) -> str:
     return "ok"
 
 
-def notional_result() -> Any:
+def notional_result(coverage: Coverage = Coverage(3, 3, True)) -> Any:
     session = SessionSpec("SYN", "S", 0, 100, "UTC")
     availability = AvailabilitySpec(100, 100, 100)
     adjustment, unit = AdjustmentSpec(), PriceUnit(0, "USD")
@@ -57,7 +58,7 @@ def notional_result() -> Any:
     names = ("instrument_id", "session_id", "event_ns", "order_key", "event_id", "eligible", "price", "size",
              "known_at_ns")
     columns = tuple(Column(name, tuple(row[i] for row in data)) for i, name in enumerate(names))
-    meta = BatchMetadata("SYN", SourceBinding("SYN-SRC", "snap", "map1", "trades"), Coverage(3, 3, True), unit,
+    meta = BatchMetadata("SYN", SourceBinding("SYN-SRC", "snap", "map1", "trades"), coverage, unit,
                          adjustment, "none", "shares", "declared", "reject", InputScope(0, 100, "regular"), ())
     return compute_trade_top_k_notional((CanonicalBatch(DataKind.TRADE, columns, meta),), config,
                                         entity=EntityKey("I", "S"), features=("tape.top_k_notional",))
@@ -92,6 +93,10 @@ def run(recipe: dict[str, Any]) -> str:
         outcome: list[str] = []
         failure = code_of(lambda: outcome.append(declared_coverage(batch, 0, 100)))
         return failure if failure != "ok" else outcome[0]
+    if kind == "tape_coverage":
+        result = notional_result(Coverage(recipe["expected"], 3, recipe["complete"]))
+        row = result.quality[0]
+        return "+".join([row.status.value, *sorted(r.value for r in row.reasons)])
     if kind == "path_config":
         refused = code_of(lambda: _check("ef4-path1", recipe["window"], recipe["profile"], 0))
         edges = (code_of(lambda: _check("ef4-path1", 63, "governed_history", 0)),
@@ -113,7 +118,7 @@ def main() -> int:
     for line in problems:
         print("FAIL", line)
     if not problems:
-        print(f"OK: {len(recipes)} errata recipes (E1, E2, E4) hold")
+        print(f"OK: {len(recipes)} errata recipes (E1, E2, E4, DP-T12 gap) hold")
     return 1 if problems else 0
 
 
