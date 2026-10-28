@@ -234,8 +234,7 @@ def main():
         'docs/stories/EQ-106_EVENT_ORACLE.json','docs/stories/EQ-106_KIND_CASES.json','docs/stories/EQ-106_REFUSAL_CASES.json',
         'docs/stories/EQ-106_OPERATION_CONTROLS.json','docs/stories/EQ-106_ACCEPTED_ARCHIVES.json',
         'docs/stories/EQ-097_CONFIG_ORACLE.json','docs/stories/EQ-097_RESULT_ORACLE.json','docs/stories/EQ-097_BATCH_ORACLE.json',
-        'docs/stories/EQ-096_RECEIPT_ORACLE.json','tools/build_agent_evidence.py','tools/check_boundary.py','tools/_versions.py',
-        '.github/workflows/agent-evidence.yml','requirements-dev.txt']
+        'docs/stories/EQ-096_RECEIPT_ORACLE.json','tools/build_agent_evidence.py','tools/check_boundary.py','tools/_versions.py','requirements-dev.txt']
     paths=tuple(subprocess.check_output(['git','ls-files','--',*scopes],cwd=ROOT,encoding='utf-8').splitlines())
     assert paths
     snapshot={}; materialized={}; source_map={}

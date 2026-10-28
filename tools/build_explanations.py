@@ -143,8 +143,7 @@ def main():
     scopes=['packages/'+p for p in PACKAGES]+['tests/explanations','examples/evidence_explanation.py',
         'docs/stories/EQ-099_EXPLANATION_ORACLE.json','docs/stories/EQ-099_REFERENCE_ORACLE.json',
         'docs/stories/EQ-099_HAND_SEEDS.json','docs/stories/EQ-099_COUNT_ORACLE.json',
-        'docs/stories/EQ-099_REFERENCE_RESULT_SEED.json','tools/build_explanations.py','tools/check_boundary.py','tools/_versions.py',
-        '.github/workflows/explanations.yml','requirements-dev.txt']
+        'docs/stories/EQ-099_REFERENCE_RESULT_SEED.json','tools/build_explanations.py','tools/check_boundary.py','tools/_versions.py','requirements-dev.txt']
     paths=tuple(subprocess.check_output(['git','ls-files','--',*scopes],cwd=ROOT,encoding='utf-8').splitlines())
     assert paths
     snapshot={}; materialized={}; source_map={}

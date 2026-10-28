@@ -62,7 +62,7 @@ def main():
             'examples/evidence_pilot.py', 'examples/evidence_pilot_typed.py', 'examples/agent_research.py',
             'docs/stories/EQ116_ORACLES.json', 'docs/stories/EQ116_PROTOCOL.md',
             'docs/stories/EQ116_INPUTS.json', 'tools/build_evidence_pilot.py',
-            'tools/evidence_pilot_archives.py', 'tools/build_agent_ledger.py', '.github/workflows/evidence-pilot.yml', 'requirements-dev.txt')}
+            'tools/evidence_pilot_archives.py', 'tools/build_agent_ledger.py', 'requirements-dev.txt')}
     selected_io = {p: git(IO, 'show', IO_HEAD + ':' + p) for p in io_tree if p.startswith('packages/bundles/')}
     assert set(selected_io) == set(inputs['io'])
     for p, desc in inputs['canonical'].items():

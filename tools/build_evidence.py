@@ -139,8 +139,7 @@ def main():
     head=subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,encoding='utf-8').strip()
     scopes=['packages/'+p for p in PACKAGES]+['tests/evidence','examples/evidence_receipt.py','examples/evidence_content.py','examples/evidence_content_cost.py',
         'docs/stories/EQ-097_CONFIG_ORACLE.json','docs/stories/EQ-097_RESULT_ORACLE.json','docs/stories/EQ-097_BATCH_ORACLE.json',
-        'docs/stories/EQ-096_RECEIPT_ORACLE.json','tools/build_evidence.py','tools/check_boundary.py','tools/_versions.py',
-        '.github/workflows/evidence.yml','requirements-dev.txt']
+        'docs/stories/EQ-096_RECEIPT_ORACLE.json','tools/build_evidence.py','tools/check_boundary.py','tools/_versions.py','requirements-dev.txt']
     paths=tuple(subprocess.check_output(['git','ls-files','--',*scopes],cwd=ROOT,encoding='utf-8').splitlines())
     assert paths
     snapshot={}; materialized={}; source_map={}

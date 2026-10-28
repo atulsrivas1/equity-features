@@ -47,8 +47,7 @@ def main():
         'docs/stories/EQ-096_RECEIPT_ORACLE.json','docs/stories/EQ-097_*',
         'docs/stories/EQ-101_TRUTH_TABLE.json','docs/stories/EQ-102_PLAN.md',
         'docs/stories/EQ-102_TEST_MATRIX.json','docs/api/POINT_IN_TIME_DIAGNOSTICS.md',
-        'tools/build_diagnostics.py','tools/build_explanations.py','tools/check_boundary.py','tools/_versions.py',
-        '.github/workflows/diagnostics.yml','requirements-dev.txt','mypy.ini']
+        'tools/build_diagnostics.py','tools/build_explanations.py','tools/check_boundary.py','tools/_versions.py','requirements-dev.txt','mypy.ini']
     paths=tuple(subprocess.check_output(['git','ls-files','--',*scopes],cwd=ROOT,encoding='utf-8').splitlines())
     assert paths
     snapshot={}; materialized={}; source_map={}
