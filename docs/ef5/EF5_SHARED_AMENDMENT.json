@@ -1,6 +1,6 @@
 {
  "version": "ef5-shared-amendment1",
- "status": "proposal for the shared header/unit ledger; additive; pending PO ruling PO-2",
+ "status": "proposal for the shared header/unit ledger; additive; PO-2 and PO-7 accepted 2026-10-28 (work/po-rulings-ef5-2026-10-28.md)",
  "unit_additions": [
   {
    "unit": "fraction/s",
@@ -38,7 +38,7 @@
  ],
  "e9_erratum": "additive erratum to E9 (not a frozen-file edit): the squared form of the slash style is fraction/s^2; aliases fraction_per_second and fraction_per_second_squared appear in no header",
  "po7_cross_reference": "EF5 rejects rows with undeclared coverage as INVALID_SCHEMA (matches the merged tape adapter); the EF4 library uses the code ruled in E2; the divergence is documented here, not accidental; zero rows with undeclared coverage stays absent_input",
- "unit_alias_rule": "E9: underscore forms (fraction_per_second, fraction_per_second_squared) are aliases recorded here and rejected on new headers",
+ "unit_alias_rule": "E9: underscore forms (fraction_per_second, fraction_per_second_squared) are aliases recorded here and rejected on new headers; EF4 headers keep underscore spellings until the scheduled migration (core DECISIONS.md E9)",
  "header_ledger_additions": [
   {
    "id": "candle.body_fraction",
@@ -153,5 +153,9 @@
   ],
   "delivered_section": "ef5_delivered_outputs (11 entries)"
  },
- "hash_impact": "no unit string of an existing frozen contract is changed; the two manifest unit strings are documentation, not part of any content hash read in this PR"
+ "hash_impact": "no unit string of an existing frozen contract is changed; the two manifest unit strings are documentation, not part of any content hash read in this PR",
+ "divergences_from_shared_validators": {
+  "currency": "EF5 admission enforces exactly three upper-case letters (RF40 INVALID_UNIT at config); shared PriceUnit unchanged (non-empty string)",
+  "adjustment_labels": "unadjusted -> raw, split_adjusted -> split for comparison only; basis echoes the EF5 label; total_return and all other labels UNSUPPORTED_ADJUSTMENT at config (RF41); shared AdjustmentSpec unchanged"
+ }
 }

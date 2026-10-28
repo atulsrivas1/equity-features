@@ -25,7 +25,7 @@ CONTRACT = ROOT / "docs" / "ef5" / "PRICE_STRUCTURES_CONTRACT_PROPOSAL.json"
 HELPER = ROOT / "tools" / "contract_fixtures" / "ef5_fixture_expand.py"
 K = 100
 # Pinned counts: a change to a fixture list must change these numbers in the same PR.
-PINNED = {"candle_result": 24, "structure_result": 17, "technical_result": 20, "ka_result": 27, "refusal": 51}
+PINNED = {"candle_result": 24, "structure_result": 17, "technical_result": 21, "ka_result": 27, "refusal": 57}
 PINNED_HEADERS = 15
 PINNED_REFUSAL_CODES = 12
 LISTS = ("candle_fixtures", "structure_fixtures", "technical_fixtures", "ka_fixtures")
@@ -120,6 +120,20 @@ def check_fail_closed(problems: list[str], doc: dict[str, Any]) -> None:
                 problems.append(f"{fx['id']} {name}: available with observed != expected")
 
 
+def check_policy_declared(problems: list[str], doc: dict[str, Any]) -> None:
+    pairs = {"unadjusted": "raw-v1", "split_adjusted": "split-factors-v1"}
+    for key in LISTS:
+        for fx in doc[key]:
+            spec = fx.get("adjustment_spec") or {}
+            if spec.get("policy_version") != pairs[fx["adjustment"]]:
+                problems.append(f"{fx['id']}: adjustment_spec.policy_version not declared as the paired policy (PQ-2)")
+    if "adjustment_spec.policy_version" not in doc["defaults_ledger"]["statement"]:
+        problems.append("defaults ledger does not list adjustment_spec.policy_version")
+    for rid in ("RF55", "RF56", "RF57"):
+        if not any(r["id"] == rid and r["error_code"] == "UNSUPPORTED_ADJUSTMENT" for r in doc["refusal_fixtures"]):
+            problems.append(f"{rid}: PQ-2 recipe missing")
+
+
 def check_units(problems: list[str], doc: dict[str, Any]) -> None:
     for h in doc["headers"]:
         if not UNIT.match(h["unit"]):
@@ -136,6 +150,7 @@ def main() -> int:
     check_pattern_coverage(problems, doc)
     check_fail_closed(problems, doc)
     check_units(problems, doc)
+    check_policy_declared(problems, doc)
     for line in problems:
         print("MISMATCH", line)
     print("EF5 fixtures (candle, structure, technical, known_at set): "

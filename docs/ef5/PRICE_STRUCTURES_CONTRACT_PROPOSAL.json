@@ -15,7 +15,8 @@
     "policy_version",
     "epoch_profile (session_reset|governed_history)",
     "doji_body_max_fraction (text p/q, 1 <= p <= q, no default)",
-    "evidence_limit (0..10000)"
+    "evidence_limit (0..10000)",
+    "adjustment label + adjustment_spec {policy_version, action_snapshot, anchor} (D6; see Inputs)"
    ],
    "roles": [
     "bars"
@@ -38,7 +39,8 @@
     "epoch_profile",
     "swing_strength k (1..64)",
     "lookback L (2k..4096)",
-    "evidence_limit (0..10000)"
+    "evidence_limit (0..10000)",
+    "adjustment label + adjustment_spec {policy_version, action_snapshot, anchor} (D6; see Inputs)"
    ],
    "roles": [
     "bars"
@@ -61,7 +63,8 @@
     "epoch_profile",
     "trend_window N (1..1024)",
     "trend_count M (1..256)",
-    "evidence_limit (0..10000)"
+    "evidence_limit (0..10000)",
+    "adjustment label + adjustment_spec {policy_version, action_snapshot, anchor} (D6; see Inputs)"
    ],
    "roles": [
     "bars"
@@ -218,7 +221,7 @@
     "role": "bars",
     "kind": "bar",
     "nullable": true,
-    "contract": "R17 chunked BAR delivery on the governed grid of the epoch (intraday bars of the target session for session_reset, daily bars for governed_history); one instrument; positive-volume bars carry positive coherent OHLC, zero-volume proven-empty bars carry null OHLC; a close-only delivery (columns=close) is legal and serves only the close-based technical outputs; completed bars only (end <= market cutoff); every row carries its original known_at, an optional revision id and the adjustment basis"
+    "contract": "R17 chunked BAR delivery on the governed grid of the epoch (intraday bars of the target session for session_reset, daily bars for governed_history); one instrument; positive-volume bars carry positive coherent OHLC, zero-volume proven-empty bars carry null OHLC; a close-only delivery (columns=close) is legal and serves only the close-based technical outputs; completed bars only (end <= market cutoff); every row carries its original known_at, an optional revision id and the adjustment basis; a split_adjusted series also requires the caller adjustment_spec {action_snapshot, anchor, policy_version} and every series declares adjustment_spec.policy_version (D6, PQ-2)"
    }
   ]
  },
@@ -266,7 +269,7 @@
    "no_eligible_observations": "not_applicable",
    "zero_denominator": "not_applicable"
   },
-  "rule": "all applicable reasons retained in lexical order; status follows the first applicable reason in precedence; value is null exactly when the status is not available; available implies observed == expected",
+  "rule": "all applicable reasons retained in lexical order; status follows the first applicable reason in precedence; value is null exactly when the status is not available; available implies observed == expected; the retained list is alphabetical, not precedence order, which is why KA09, KA18 and KA27 list future_knowledge before unknown_availability (status is missing_input either way)",
   "slot_causes": {
    "no row and no coverage": "absent_input",
    "known_at null": "unknown_availability",
@@ -442,14 +445,14 @@
     "refusal (INVALID_SCHEMA / INCONSISTENT_IDENTITY)"
    ],
    [
-    "adjustment basis (one label for the whole series)",
+    "adjustment basis (one label for the whole series) and adjustment_spec {policy_version; action_snapshot and anchor for split_adjusted}",
     "all price outputs",
     "declares",
     "compares to the batch basis",
     "unverified",
     "unverified",
     "unverified",
-    "INVALID_CONFIG / INCONSISTENT_IDENTITY"
+    "INVALID_CONFIG / INCONSISTENT_IDENTITY / UNSUPPORTED_ADJUSTMENT"
    ],
    [
     "knowledge cutoff K and original known_at per bar",
@@ -505,7 +508,7 @@
   "provider_sources": "Source cells are `unverified` until provider terms and field availability are checked; nothing here claims a provider supports a field. Every missing or late datum degrades to a quality outcome (absent_input, unknown_availability, future_knowledge, insufficient_history) or a typed refusal; the degradation text is in the last column. No provider is required and none is named by the contract"
  },
  "defaults_ledger": {
-  "statement": "the library contract has no default value anywhere: every parameter in `producers.*.parameters`, the adjustment basis, the price unit, K, the coverage declaration and the structural context must be supplied; a missing item is INVALID_CONFIG or a typed shared/identity refusal, a missing bar fact is absent_input, unknown_availability or insufficient_history",
+  "statement": "the library contract has no default value anywhere: every parameter in `producers.*.parameters`, the adjustment basis, the price unit, K, the coverage declaration and the structural context must be supplied; a missing item is INVALID_CONFIG or a typed shared/identity refusal, a missing bar fact is absent_input, unknown_availability or insufficient_history; adjustment_spec.policy_version (and for split_adjusted action_snapshot and anchor) is supplied by the caller and the shared AdjustmentSpec defaults (raw-v1, none) are never applied (PQ-2)",
   "fixture_only_conventions": [
    "default known_at 50 and volume 5 in the compact fixture notation (expanded to explicit values in the canonical wire)",
    "slot clock 1.7e18 ns + i*60 s"
@@ -899,6 +902,15 @@
    "KA09",
    "KA18",
    "KA27"
+  ],
+  "adjustment_label": [
+   "TD21"
+  ],
+  "split_adjusted": [
+   "TD21"
+  ],
+  "basis_echo": [
+   "TD21"
   ]
  },
  "decisions_proposed": [
@@ -1063,6 +1075,9 @@
     "scale": 0
    },
    "adjustment": "unadjusted",
+   "adjustment_spec": {
+    "policy_version": "raw-v1"
+   },
    "K": 100,
    "columns": "ohlcv",
    "slots": [
@@ -1222,6 +1237,9 @@
     "scale": 0
    },
    "adjustment": "unadjusted",
+   "adjustment_spec": {
+    "policy_version": "raw-v1"
+   },
    "K": 100,
    "columns": "ohlcv",
    "slots": [
@@ -1381,6 +1399,9 @@
     "scale": 0
    },
    "adjustment": "unadjusted",
+   "adjustment_spec": {
+    "policy_version": "raw-v1"
+   },
    "K": 100,
    "columns": "ohlcv",
    "slots": [
@@ -1539,6 +1560,9 @@
     "scale": 0
    },
    "adjustment": "unadjusted",
+   "adjustment_spec": {
+    "policy_version": "raw-v1"
+   },
    "K": 100,
    "columns": "ohlcv",
    "slots": [
@@ -1680,6 +1704,9 @@
     "scale": 0
    },
    "adjustment": "unadjusted",
+   "adjustment_spec": {
+    "policy_version": "raw-v1"
+   },
    "K": 100,
    "columns": "ohlcv",
    "slots": [
@@ -1840,6 +1867,9 @@
     "scale": 0
    },
    "adjustment": "unadjusted",
+   "adjustment_spec": {
+    "policy_version": "raw-v1"
+   },
    "K": 100,
    "columns": "ohlcv",
    "slots": [
@@ -1998,6 +2028,9 @@
     "scale": 0
    },
    "adjustment": "unadjusted",
+   "adjustment_spec": {
+    "policy_version": "raw-v1"
+   },
    "K": 100,
    "columns": "ohlcv",
    "slots": [
@@ -2156,6 +2189,9 @@
     "scale": 0
    },
    "adjustment": "unadjusted",
+   "adjustment_spec": {
+    "policy_version": "raw-v1"
+   },
    "K": 100,
    "columns": "ohlcv",
    "slots": [
@@ -2315,6 +2351,9 @@
     "scale": 0
    },
    "adjustment": "unadjusted",
+   "adjustment_spec": {
+    "policy_version": "raw-v1"
+   },
    "K": 100,
    "columns": "ohlcv",
    "slots": [
@@ -2473,6 +2512,9 @@
     "scale": 0
    },
    "adjustment": "unadjusted",
+   "adjustment_spec": {
+    "policy_version": "raw-v1"
+   },
    "K": 100,
    "columns": "ohlcv",
    "slots": [
@@ -2632,6 +2674,9 @@
     "scale": 0
    },
    "adjustment": "unadjusted",
+   "adjustment_spec": {
+    "policy_version": "raw-v1"
+   },
    "K": 100,
    "columns": "ohlcv",
    "slots": [
@@ -2791,6 +2836,9 @@
     "scale": 0
    },
    "adjustment": "unadjusted",
+   "adjustment_spec": {
+    "policy_version": "raw-v1"
+   },
    "K": 100,
    "columns": "ohlcv",
    "slots": [
@@ -2930,6 +2978,9 @@
     "scale": 0
    },
    "adjustment": "unadjusted",
+   "adjustment_spec": {
+    "policy_version": "raw-v1"
+   },
    "K": 100,
    "columns": "ohlcv",
    "slots": [
@@ -3051,6 +3102,9 @@
     "scale": 0
    },
    "adjustment": "unadjusted",
+   "adjustment_spec": {
+    "policy_version": "raw-v1"
+   },
    "K": 100,
    "columns": "ohlcv",
    "slots": [
@@ -3171,6 +3225,9 @@
     "scale": 0
    },
    "adjustment": "unadjusted",
+   "adjustment_spec": {
+    "policy_version": "raw-v1"
+   },
    "K": 100,
    "columns": "ohlcv",
    "slots": [
@@ -3291,6 +3348,9 @@
     "scale": 0
    },
    "adjustment": "unadjusted",
+   "adjustment_spec": {
+    "policy_version": "raw-v1"
+   },
    "K": 100,
    "columns": "ohlcv",
    "slots": [
@@ -3430,6 +3490,9 @@
     "scale": 0
    },
    "adjustment": "unadjusted",
+   "adjustment_spec": {
+    "policy_version": "raw-v1"
+   },
    "K": 100,
    "columns": "ohlcv",
    "slots": [
@@ -3551,6 +3614,9 @@
     "scale": 0
    },
    "adjustment": "unadjusted",
+   "adjustment_spec": {
+    "policy_version": "raw-v1"
+   },
    "K": 100,
    "columns": "ohlcv",
    "slots": [
@@ -3717,6 +3783,9 @@
     "scale": 0
    },
    "adjustment": "unadjusted",
+   "adjustment_spec": {
+    "policy_version": "raw-v1"
+   },
    "K": 100,
    "columns": "close",
    "slots": [
@@ -3836,6 +3905,9 @@
     "scale": 0
    },
    "adjustment": "unadjusted",
+   "adjustment_spec": {
+    "policy_version": "raw-v1"
+   },
    "K": 100,
    "columns": "ohlcv",
    "slots": [
@@ -3990,6 +4062,9 @@
     "scale": 0
    },
    "adjustment": "unadjusted",
+   "adjustment_spec": {
+    "policy_version": "raw-v1"
+   },
    "K": 100,
    "columns": "ohlcv",
    "slots": [
@@ -4130,6 +4205,9 @@
     "scale": 0
    },
    "adjustment": "unadjusted",
+   "adjustment_spec": {
+    "policy_version": "raw-v1"
+   },
    "K": 100,
    "columns": "ohlcv",
    "slots": [
@@ -4288,6 +4366,9 @@
     "scale": 0
    },
    "adjustment": "unadjusted",
+   "adjustment_spec": {
+    "policy_version": "raw-v1"
+   },
    "K": 100,
    "columns": "ohlcv",
    "slots": [
@@ -4444,6 +4525,9 @@
     "scale": 0
    },
    "adjustment": "unadjusted",
+   "adjustment_spec": {
+    "policy_version": "raw-v1"
+   },
    "K": 100,
    "columns": "ohlcv",
    "slots": [
@@ -4607,6 +4691,9 @@
     "scale": 0
    },
    "adjustment": "unadjusted",
+   "adjustment_spec": {
+    "policy_version": "raw-v1"
+   },
    "K": 100,
    "columns": "ohlcv",
    "slots": [
@@ -4724,6 +4811,9 @@
     "scale": 0
    },
    "adjustment": "unadjusted",
+   "adjustment_spec": {
+    "policy_version": "raw-v1"
+   },
    "K": 100,
    "columns": "ohlcv",
    "slots": [
@@ -4841,6 +4931,9 @@
     "scale": 0
    },
    "adjustment": "unadjusted",
+   "adjustment_spec": {
+    "policy_version": "raw-v1"
+   },
    "K": 100,
    "columns": "ohlcv",
    "slots": [
@@ -4953,6 +5046,9 @@
     "scale": 0
    },
    "adjustment": "unadjusted",
+   "adjustment_spec": {
+    "policy_version": "raw-v1"
+   },
    "K": 100,
    "columns": "ohlcv",
    "slots": [
@@ -5119,6 +5215,9 @@
     "scale": 0
    },
    "adjustment": "unadjusted",
+   "adjustment_spec": {
+    "policy_version": "raw-v1"
+   },
    "K": 100,
    "columns": "ohlcv",
    "slots": [
@@ -5219,6 +5318,9 @@
     "scale": 0
    },
    "adjustment": "unadjusted",
+   "adjustment_spec": {
+    "policy_version": "raw-v1"
+   },
    "K": 100,
    "columns": "ohlcv",
    "slots": [
@@ -5344,6 +5446,9 @@
     "scale": 0
    },
    "adjustment": "unadjusted",
+   "adjustment_spec": {
+    "policy_version": "raw-v1"
+   },
    "K": 100,
    "columns": "ohlcv",
    "slots": [
@@ -5462,6 +5567,9 @@
     "scale": 0
    },
    "adjustment": "unadjusted",
+   "adjustment_spec": {
+    "policy_version": "raw-v1"
+   },
    "K": 100,
    "columns": "ohlcv",
    "slots": [
@@ -5587,6 +5695,9 @@
     "scale": 0
    },
    "adjustment": "unadjusted",
+   "adjustment_spec": {
+    "policy_version": "raw-v1"
+   },
    "K": 100,
    "columns": "ohlcv",
    "slots": [
@@ -5748,6 +5859,9 @@
     "scale": 0
    },
    "adjustment": "unadjusted",
+   "adjustment_spec": {
+    "policy_version": "raw-v1"
+   },
    "K": 100,
    "columns": "ohlcv",
    "slots": [
@@ -5866,6 +5980,9 @@
     "scale": 0
    },
    "adjustment": "unadjusted",
+   "adjustment_spec": {
+    "policy_version": "raw-v1"
+   },
    "K": 100,
    "columns": "ohlcv",
    "slots": [
@@ -5958,6 +6075,9 @@
     "scale": 0
    },
    "adjustment": "unadjusted",
+   "adjustment_spec": {
+    "policy_version": "raw-v1"
+   },
    "K": 100,
    "columns": "ohlcv",
    "slots": [
@@ -6051,6 +6171,9 @@
     "scale": 2
    },
    "adjustment": "unadjusted",
+   "adjustment_spec": {
+    "policy_version": "raw-v1"
+   },
    "K": 100,
    "columns": "ohlcv",
    "slots": [
@@ -6169,6 +6292,9 @@
     "scale": 0
    },
    "adjustment": "unadjusted",
+   "adjustment_spec": {
+    "policy_version": "raw-v1"
+   },
    "K": 100,
    "columns": "close",
    "slots": [
@@ -6256,6 +6382,9 @@
     "scale": 0
    },
    "adjustment": "unadjusted",
+   "adjustment_spec": {
+    "policy_version": "raw-v1"
+   },
    "K": 100,
    "columns": "ohlcv",
    "slots": [
@@ -6393,6 +6522,9 @@
     "scale": 0
    },
    "adjustment": "unadjusted",
+   "adjustment_spec": {
+    "policy_version": "raw-v1"
+   },
    "K": 100,
    "columns": "ohlcv",
    "slots": [
@@ -6536,6 +6668,9 @@
     "scale": 0
    },
    "adjustment": "unadjusted",
+   "adjustment_spec": {
+    "policy_version": "raw-v1"
+   },
    "K": 100,
    "columns": "ohlcv",
    "slots": [
@@ -6650,6 +6785,9 @@
     "scale": 0
    },
    "adjustment": "unadjusted",
+   "adjustment_spec": {
+    "policy_version": "raw-v1"
+   },
    "K": 100,
    "columns": "ohlcv",
    "slots": [
@@ -6785,6 +6923,9 @@
     "scale": 0
    },
    "adjustment": "unadjusted",
+   "adjustment_spec": {
+    "policy_version": "raw-v1"
+   },
    "K": 100,
    "columns": "ohlcv",
    "slots": [
@@ -6927,6 +7068,9 @@
     "scale": 0
    },
    "adjustment": "unadjusted",
+   "adjustment_spec": {
+    "policy_version": "raw-v1"
+   },
    "K": 100,
    "columns": "ohlcv",
    "slots": [
@@ -7059,6 +7203,9 @@
     "scale": 0
    },
    "adjustment": "unadjusted",
+   "adjustment_spec": {
+    "policy_version": "raw-v1"
+   },
    "K": 100,
    "columns": "ohlcv",
    "slots": [
@@ -7183,6 +7330,9 @@
     "scale": 0
    },
    "adjustment": "unadjusted",
+   "adjustment_spec": {
+    "policy_version": "raw-v1"
+   },
    "K": 100,
    "columns": "ohlcv",
    "slots": [
@@ -7274,6 +7424,9 @@
     "scale": 0
    },
    "adjustment": "unadjusted",
+   "adjustment_spec": {
+    "policy_version": "raw-v1"
+   },
    "K": 100,
    "columns": "ohlcv",
    "slots": [
@@ -7393,6 +7546,9 @@
     "scale": 0
    },
    "adjustment": "unadjusted",
+   "adjustment_spec": {
+    "policy_version": "raw-v1"
+   },
    "K": 100,
    "columns": "ohlcv",
    "slots": [
@@ -7519,6 +7675,9 @@
     "scale": 0
    },
    "adjustment": "unadjusted",
+   "adjustment_spec": {
+    "policy_version": "raw-v1"
+   },
    "K": 100,
    "columns": "ohlcv",
    "slots": [
@@ -7632,6 +7791,9 @@
     "scale": 0
    },
    "adjustment": "unadjusted",
+   "adjustment_spec": {
+    "policy_version": "raw-v1"
+   },
    "K": 100,
    "columns": "close",
    "slots": [
@@ -7741,6 +7903,9 @@
     "scale": 0
    },
    "adjustment": "unadjusted",
+   "adjustment_spec": {
+    "policy_version": "raw-v1"
+   },
    "K": 100,
    "columns": "ohlcv",
    "slots": [
@@ -7850,6 +8015,9 @@
     "scale": 0
    },
    "adjustment": "unadjusted",
+   "adjustment_spec": {
+    "policy_version": "raw-v1"
+   },
    "K": 100,
    "columns": "ohlcv",
    "slots": [
@@ -7972,6 +8140,9 @@
     "scale": 2
    },
    "adjustment": "unadjusted",
+   "adjustment_spec": {
+    "policy_version": "raw-v1"
+   },
    "K": 100,
    "columns": "ohlcv",
    "slots": [
@@ -8103,6 +8274,9 @@
     "scale": 0
    },
    "adjustment": "unadjusted",
+   "adjustment_spec": {
+    "policy_version": "raw-v1"
+   },
    "K": 100,
    "columns": "ohlcv",
    "slots": [
@@ -8210,6 +8384,9 @@
     "scale": 0
    },
    "adjustment": "unadjusted",
+   "adjustment_spec": {
+    "policy_version": "raw-v1"
+   },
    "K": 100,
    "columns": "ohlcv",
    "slots": [
@@ -8297,6 +8474,9 @@
     "scale": 0
    },
    "adjustment": "unadjusted",
+   "adjustment_spec": {
+    "policy_version": "raw-v1"
+   },
    "K": 100,
    "columns": "ohlcv",
    "slots": [
@@ -8396,6 +8576,9 @@
     "scale": 0
    },
    "adjustment": "unadjusted",
+   "adjustment_spec": {
+    "policy_version": "raw-v1"
+   },
    "K": 100,
    "columns": "ohlcv",
    "slots": [
@@ -8524,6 +8707,9 @@
     "scale": 0
    },
    "adjustment": "unadjusted",
+   "adjustment_spec": {
+    "policy_version": "raw-v1"
+   },
    "K": 100,
    "columns": "ohlcv",
    "slots": [
@@ -8664,6 +8850,9 @@
     "scale": 0
    },
    "adjustment": "unadjusted",
+   "adjustment_spec": {
+    "policy_version": "raw-v1"
+   },
    "K": 100,
    "columns": "ohlcv",
    "slots": [
@@ -8764,6 +8953,9 @@
     "scale": 0
    },
    "adjustment": "unadjusted",
+   "adjustment_spec": {
+    "policy_version": "raw-v1"
+   },
    "K": 100,
    "columns": "ohlcv",
    "slots": [
@@ -8890,6 +9082,9 @@
     "scale": 0
    },
    "adjustment": "unadjusted",
+   "adjustment_spec": {
+    "policy_version": "raw-v1"
+   },
    "K": 100,
    "columns": "ohlcv",
    "slots": [
@@ -8982,6 +9177,144 @@
      "basis": "unadjusted"
     }
    }
+  },
+  {
+   "id": "TD21",
+   "group": "split_adjusted_basis",
+   "description": "accepted config with adjustment split_adjusted (shared basis split): arithmetic equal to TD01; every output echoes basis split_adjusted (PQ-1 FX-1); adjustment_spec declares action_snapshot actions-2026-10-28 and anchor anchor-2026-10-28 (required for split_adjusted, shared AdjustmentSpec)",
+   "producer": "technical",
+   "params": {
+    "policy_version": "ef5-technical1",
+    "epoch_profile": "session_reset",
+    "trend_window": 1,
+    "trend_count": 3,
+    "evidence_limit": 10000
+   },
+   "unit": {
+    "currency": "USD",
+    "scale": 0
+   },
+   "adjustment": "split_adjusted",
+   "adjustment_spec": {
+    "action_snapshot": "actions-2026-10-28",
+    "anchor": "anchor-2026-10-28",
+    "policy_version": "split-factors-v1"
+   },
+   "K": 100,
+   "columns": "ohlcv",
+   "slots": [
+    [
+     100,
+     100,
+     100,
+     100,
+     5
+    ],
+    [
+     100,
+     102,
+     100,
+     102,
+     5
+    ],
+    [
+     102,
+     102,
+     101,
+     101,
+     5
+    ],
+    [
+     101,
+     103,
+     101,
+     103,
+     5
+    ]
+   ],
+   "outputs": [
+    "technical.momentum_acceleration_fraction_per_second_squared",
+    "technical.price_velocity_fraction_per_second",
+    "technical.session_return_fraction",
+    "technical.signed_trend_window_count"
+   ],
+   "tags": [
+    "adjustment_label",
+    "split_adjusted",
+    "basis_echo"
+   ],
+   "hand_check": "same closes as TD01: v = 1/3030, session 3/100, count +1, a = 61/7417440; basis echo split_adjusted",
+   "expected": {
+    "technical.momentum_acceleration_fraction_per_second_squared": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "value": {
+      "exact": "61/7417440",
+      "float64": 8.22386160184646e-06,
+      "hex": "0x1.13f26ee9b3e97p-17",
+      "acceptance": "tolerance"
+     },
+     "witnesses": [
+      "slot:3",
+      "slot:1",
+      "slot:2"
+     ],
+     "basis": "split_adjusted"
+    },
+    "technical.price_velocity_fraction_per_second": {
+     "status": "available",
+     "reasons": [],
+     "expected": 2,
+     "observed": 2,
+     "value": {
+      "exact": "1/3030",
+      "float64": 0.00033003300330033004,
+      "hex": "0x1.5a108f4adb550p-12",
+      "acceptance": "tolerance"
+     },
+     "witnesses": [
+      "slot:3",
+      "slot:2"
+     ],
+     "basis": "split_adjusted"
+    },
+    "technical.session_return_fraction": {
+     "status": "available",
+     "reasons": [],
+     "expected": 2,
+     "observed": 2,
+     "value": {
+      "exact": "3/100",
+      "float64": 0.03,
+      "hex": "0x1.eb851eb851eb8p-6",
+      "acceptance": "tolerance"
+     },
+     "witnesses": [
+      "slot:3",
+      "slot:0"
+     ],
+     "basis": "split_adjusted"
+    },
+    "technical.signed_trend_window_count": {
+     "status": "available",
+     "reasons": [],
+     "expected": 4,
+     "observed": 4,
+     "value": {
+      "int": 1,
+      "acceptance": "exact_integer"
+     },
+     "witnesses": [
+      "slot:3",
+      "slot:0",
+      "slot:1",
+      "slot:2"
+     ],
+     "basis": "split_adjusted"
+    }
+   }
   }
  ],
  "ka_fixtures": [
@@ -9001,6 +9334,9 @@
     "scale": 0
    },
    "adjustment": "unadjusted",
+   "adjustment_spec": {
+    "policy_version": "raw-v1"
+   },
    "K": 100,
    "columns": "ohlcv",
    "slots": [
@@ -9139,6 +9475,9 @@
     "scale": 0
    },
    "adjustment": "unadjusted",
+   "adjustment_spec": {
+    "policy_version": "raw-v1"
+   },
    "K": 100,
    "columns": "ohlcv",
    "slots": [
@@ -9277,6 +9616,9 @@
     "scale": 0
    },
    "adjustment": "unadjusted",
+   "adjustment_spec": {
+    "policy_version": "raw-v1"
+   },
    "K": 100,
    "columns": "ohlcv",
    "slots": [
@@ -9445,6 +9787,9 @@
     "scale": 0
    },
    "adjustment": "unadjusted",
+   "adjustment_spec": {
+    "policy_version": "raw-v1"
+   },
    "K": 100,
    "columns": "ohlcv",
    "slots": [
@@ -9613,6 +9958,9 @@
     "scale": 0
    },
    "adjustment": "unadjusted",
+   "adjustment_spec": {
+    "policy_version": "raw-v1"
+   },
    "K": 100,
    "columns": "ohlcv",
    "slots": [
@@ -9782,6 +10130,9 @@
     "scale": 0
    },
    "adjustment": "unadjusted",
+   "adjustment_spec": {
+    "policy_version": "raw-v1"
+   },
    "K": 100,
    "columns": "ohlcv",
    "slots": [
@@ -9921,6 +10272,9 @@
     "scale": 0
    },
    "adjustment": "unadjusted",
+   "adjustment_spec": {
+    "policy_version": "raw-v1"
+   },
    "K": 100,
    "columns": "ohlcv",
    "slots": [
@@ -10089,6 +10443,9 @@
     "scale": 0
    },
    "adjustment": "unadjusted",
+   "adjustment_spec": {
+    "policy_version": "raw-v1"
+   },
    "K": 100,
    "columns": "ohlcv",
    "slots": [
@@ -10264,6 +10621,9 @@
     "scale": 0
    },
    "adjustment": "unadjusted",
+   "adjustment_spec": {
+    "policy_version": "raw-v1"
+   },
    "K": 100,
    "columns": "ohlcv",
    "slots": [
@@ -10409,6 +10769,9 @@
     "scale": 0
    },
    "adjustment": "unadjusted",
+   "adjustment_spec": {
+    "policy_version": "raw-v1"
+   },
    "K": 100,
    "columns": "ohlcv",
    "slots": [
@@ -10519,6 +10882,9 @@
     "scale": 0
    },
    "adjustment": "unadjusted",
+   "adjustment_spec": {
+    "policy_version": "raw-v1"
+   },
    "K": 100,
    "columns": "ohlcv",
    "slots": [
@@ -10629,6 +10995,9 @@
     "scale": 0
    },
    "adjustment": "unadjusted",
+   "adjustment_spec": {
+    "policy_version": "raw-v1"
+   },
    "K": 100,
    "columns": "ohlcv",
    "slots": [
@@ -10756,6 +11125,9 @@
     "scale": 0
    },
    "adjustment": "unadjusted",
+   "adjustment_spec": {
+    "policy_version": "raw-v1"
+   },
    "K": 100,
    "columns": "ohlcv",
    "slots": [
@@ -10883,6 +11255,9 @@
     "scale": 0
    },
    "adjustment": "unadjusted",
+   "adjustment_spec": {
+    "policy_version": "raw-v1"
+   },
    "K": 100,
    "columns": "ohlcv",
    "slots": [
@@ -11011,6 +11386,9 @@
     "scale": 0
    },
    "adjustment": "unadjusted",
+   "adjustment_spec": {
+    "policy_version": "raw-v1"
+   },
    "K": 100,
    "columns": "ohlcv",
    "slots": [
@@ -11122,6 +11500,9 @@
     "scale": 0
    },
    "adjustment": "unadjusted",
+   "adjustment_spec": {
+    "policy_version": "raw-v1"
+   },
    "K": 100,
    "columns": "ohlcv",
    "slots": [
@@ -11249,6 +11630,9 @@
     "scale": 0
    },
    "adjustment": "unadjusted",
+   "adjustment_spec": {
+    "policy_version": "raw-v1"
+   },
    "K": 100,
    "columns": "ohlcv",
    "slots": [
@@ -11383,6 +11767,9 @@
     "scale": 0
    },
    "adjustment": "unadjusted",
+   "adjustment_spec": {
+    "policy_version": "raw-v1"
+   },
    "K": 100,
    "columns": "ohlcv",
    "slots": [
@@ -11500,6 +11887,9 @@
     "scale": 0
    },
    "adjustment": "unadjusted",
+   "adjustment_spec": {
+    "policy_version": "raw-v1"
+   },
    "K": 100,
    "columns": "ohlcv",
    "slots": [
@@ -11605,6 +11995,9 @@
     "scale": 0
    },
    "adjustment": "unadjusted",
+   "adjustment_spec": {
+    "policy_version": "raw-v1"
+   },
    "K": 100,
    "columns": "ohlcv",
    "slots": [
@@ -11710,6 +12103,9 @@
     "scale": 0
    },
    "adjustment": "unadjusted",
+   "adjustment_spec": {
+    "policy_version": "raw-v1"
+   },
    "K": 100,
    "columns": "ohlcv",
    "slots": [
@@ -11832,6 +12228,9 @@
     "scale": 0
    },
    "adjustment": "unadjusted",
+   "adjustment_spec": {
+    "policy_version": "raw-v1"
+   },
    "K": 100,
    "columns": "ohlcv",
    "slots": [
@@ -11954,6 +12353,9 @@
     "scale": 0
    },
    "adjustment": "unadjusted",
+   "adjustment_spec": {
+    "policy_version": "raw-v1"
+   },
    "K": 100,
    "columns": "ohlcv",
    "slots": [
@@ -12077,6 +12479,9 @@
     "scale": 0
    },
    "adjustment": "unadjusted",
+   "adjustment_spec": {
+    "policy_version": "raw-v1"
+   },
    "K": 100,
    "columns": "ohlcv",
    "slots": [
@@ -12183,6 +12588,9 @@
     "scale": 0
    },
    "adjustment": "unadjusted",
+   "adjustment_spec": {
+    "policy_version": "raw-v1"
+   },
    "K": 100,
    "columns": "ohlcv",
    "slots": [
@@ -12305,6 +12713,9 @@
     "scale": 0
    },
    "adjustment": "unadjusted",
+   "adjustment_spec": {
+    "policy_version": "raw-v1"
+   },
    "K": 100,
    "columns": "ohlcv",
    "slots": [
@@ -12434,6 +12845,9 @@
     "scale": 0
    },
    "adjustment": "unadjusted",
+   "adjustment_spec": {
+    "policy_version": "raw-v1"
+   },
    "K": 100,
    "columns": "ohlcv",
    "slots": [
@@ -13494,13 +13908,112 @@
      }
     }
    ]
+  },
+  {
+   "id": "RF52",
+   "error_code": "UNSUPPORTED_ADJUSTMENT",
+   "raised_by": "ConfigSpec",
+   "stage": "config",
+   "description": "adjustment total_return not in the v1 vocabulary (shared label, not an EF5 label; PQ-1 FX-2)",
+   "base": "CD07",
+   "mutation": [
+    {
+     "set": "fixture.adjustment",
+     "value": "total_return"
+    }
+   ]
+  },
+  {
+   "id": "RF53",
+   "error_code": "UNSUPPORTED_ADJUSTMENT",
+   "raised_by": "ConfigSpec",
+   "stage": "config",
+   "description": "split_adjusted without a declared action_snapshot (shared AdjustmentSpec requires it; no default)",
+   "base": "TD21",
+   "mutation": [
+    {
+     "delete": "fixture.adjustment_spec.action_snapshot"
+    }
+   ]
+  },
+  {
+   "id": "RF54",
+   "error_code": "UNSUPPORTED_ADJUSTMENT",
+   "raised_by": "ConfigSpec",
+   "stage": "config",
+   "description": "split_adjusted with anchor none (shared AdjustmentSpec rejects none)",
+   "base": "TD21",
+   "mutation": [
+    {
+     "set": "fixture.adjustment_spec.anchor",
+     "value": "none"
+    }
+   ]
+  },
+  {
+   "id": "RF55",
+   "error_code": "UNSUPPORTED_ADJUSTMENT",
+   "raised_by": "ConfigSpec",
+   "stage": "config",
+   "description": "adjustment_spec.policy_version not declared (the shared default raw-v1 is never applied; PQ-2)",
+   "base": "CD07",
+   "mutation": [
+    {
+     "delete": "fixture.adjustment_spec.policy_version"
+    }
+   ]
+  },
+  {
+   "id": "RF56",
+   "error_code": "UNSUPPORTED_ADJUSTMENT",
+   "raised_by": "ConfigSpec",
+   "stage": "config",
+   "description": "adjustment_spec.policy_version unknown value raw-v2 (PQ-2)",
+   "base": "CD07",
+   "mutation": [
+    {
+     "set": "fixture.adjustment_spec.policy_version",
+     "value": "raw-v2"
+    }
+   ]
+  },
+  {
+   "id": "RF57",
+   "error_code": "UNSUPPORTED_ADJUSTMENT",
+   "raised_by": "ConfigSpec",
+   "stage": "config",
+   "description": "label split_adjusted paired with policy raw-v1 (mismatched pair; snapshot and anchor declared; PQ-2)",
+   "base": "TD21",
+   "mutation": [
+    {
+     "set": "fixture.adjustment_spec.policy_version",
+     "value": "raw-v1"
+    }
+   ]
   }
  ],
  "fixture_counts": {
   "candle_result": 24,
   "structure_result": 17,
-  "technical_result": 20,
+  "technical_result": 21,
   "ka_result": 27,
-  "refusal": 51
+  "refusal": 57
+ },
+ "shared_rules_and_terms": {
+  "terms": {
+   "READY": "a slot with a complete, known, coherent bar for the fields the output reads",
+   "R17": "governed intraday grid, admission, reset epoch and exact preparation (docs/features/INTRADAY_FOUNDATIONS.md)",
+   "E1-E9": "EF4 shared-amendment rulings (docs/ef4/EF4_SHARED_AMENDMENT.md)",
+   "C8-C10": "PO merge conditions on E1, E2 and E4 that gate the I/O and worker layers (DECISIONS.md)",
+   "PO-1..PO-7": "rulings recorded in open_questions (DECISIONS.md, 2026-10-28)"
+  },
+  "config_rules": {
+   "price_unit": "integer scale 0..18 and a currency (shared PriceUnit; RF39 scale 19); EF5 admission enforces exactly three upper-case letters (PQ-1 c2; RF40 INVALID_UNIT at config); shared PriceUnit unchanged (non-empty string only); divergence stated in EF5_SHARED_AMENDMENT",
+   "capability": "only batch compute; update (RF42) and restore (RF43) are UNSUPPORTED_CAPABILITY as in EF4",
+   "epoch_profile": "session_reset or governed_history only (RF19, RF20)",
+   "adjustment_vocabulary_v1": "exactly unadjusted and split_adjusted; total mapping to shared AdjustmentSpec for comparison only: unadjusted -> raw, split_adjusted -> split; the basis result field echoes the EF5 label; total_return and every other label is UNSUPPORTED_ADJUSTMENT at config (RF41); missing basis stays refused (RF21) split_adjusted maps to the shared AdjustmentSpec(basis=split), which requires a non-none action_snapshot and anchor: the EF5 config for split_adjusted must carry caller-declared adjustment_spec {action_snapshot, anchor} (non-empty, not none; no default); absent or none fails closed with UNSUPPORTED_ADJUSTMENT at config (RF53, RF54); unadjusted needs no spec. TD21 carries explicit values. PQ-2: adjustment_spec.policy_version is declared explicitly by the caller and the shared dataclass default is never read; v1 supports exactly raw-v1 for unadjusted (shared raw) and split-factors-v1 for split_adjusted (the shared AdjustmentSpec policy string, packages/contracts breadth.py, relative.py, policies.py); absent, empty, unknown or a mismatched label/policy pair is UNSUPPORTED_ADJUSTMENT at config (RF55 missing, RF56 unknown, RF57 mismatch); total_return stays unsupported. All existing result fixtures now declare policy_version explicitly (config text only; no expected value changes)."
+  },
+  "unit_spelling_note": "EF4 headers keep underscore unit spellings until the scheduled migration at the next contract-version boundary (core DECISIONS.md E9, docs/ef4/EF4_LEDGER_APPLICATION.md); EF5 uses slash spellings from day one",
+  "pq1_resolved": "PO ruling (work/po-ef5-contract-readthrough-2026-10-28.md): (b) mapping normative; (c2) EF5 enforces three-letter upper-case currency. Fixture coverage: unadjusted by all 88 result fixtures; split_adjusted is exercised by the accepted-config result fixture TD21 (FX-1; basis echo split_adjusted, mapping to shared split) and RF48 (mismatching bar basis); total_return is refused by RF52 (FX-2, single fault, UNSUPPORTED_ADJUSTMENT at config) next to RF41 (dividend_adjusted); fixtures added with the expander and the verify_ef5_fixtures pins updated, rows need recompute (EF5_FREEZE_EVIDENCE.md) Snapshot/anchor requirement covered by TD21 (explicit values) and RF53/RF54. PQ-2 recipes RF55-RF57."
  }
 }
