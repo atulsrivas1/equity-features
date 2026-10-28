@@ -73,9 +73,8 @@ records that quote the "before" hashes (`docs/ef1/*FREEZE*.json`, `docs/ef1/*/FI
 
 All 27 packages of the three repositories (12 core, 8 io plus 2 example packages, 5 workers) were built twice from fresh copies with `SOURCE_DATE_EPOCH=1700000000` and the pinned `build 1.2.2.post1` / `setuptools 80.9.0`: wheels are byte-equal and sdists are equal after the repository's own normalization (`tools/build_explanations.py normalize`), 27 of 27. Not a release build: no tag, no publish.
 
-## BLOCKING follow-up: re-pin the commit-pinned builders
+## Builder re-pin (PO ruling 2026-10-28, item 2)
 
-Builders with a `CORE`/`IO`/`WORKER` commit constant (`tools/build_*.py`, `qualify_*.py`) read their versions from `tools/_versions.py` but
-still name pre-bump commits, because the merged commit hashes do not exist yet. They were compiled and exercised only through the unit
-tests that load them; they are NOT executed end to end. This must land after the three PRs merge and before any release claim or any
-end-to-end run. No release claim until the builders are re-pinned and run.
+Commit pins re-pinned to the post-bump main commits (core 710fe05, io f889426, workers 2222d43; `tools/_versions.py` `SIBLING_COMMITS`, sibling versions in `SIBLINGS`). Run end to end on the pinned commits with the pinned venv: build_conformance, build_r10, build_evidence, build_explanations, build_diagnostics, build_continuous, build_research, build_agent_evidence, build_agent_ledger. Each builds every archive twice and asserts repeat equality; the archives carry contracts 0.0.4a5, features 0.0.4a6, evidence 0.1.0a3, diagnostics/conformance/agent-* 0.1.0a2, io-contracts/io-sdk 0.1.0a3, duckdb 0.1.0a10, duckdb-sink 0.1.0a1 and workers 0.1.0a16 (checked from the output file names and `qualification.json`). Fixes needed to make them run: staged scopes now include `tools/_versions.py`, scope entries for workflow files and a README that no longer exist were dropped, and the archive baselines of the agent builders follow the evidence cascade.
+
+Not run to completion, so the blocker stays open for these only: `build_intraday` (its gate `test_intraday_band_benchmark` already fails on main: the committed EQ-139 measurement predates later source changes), `build_r9` and `build_evidence_pilot` (re-pinned, not run), `build_evidence_evaluation` (frozen historical inputs, deliberately unchanged). No release claim until those are run or retired.
