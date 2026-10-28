@@ -1,6 +1,6 @@
 # Experimental pure calculation explanations
 
-`equity-feature-explanations==0.1.0a3`, Python3.12, Apache2. Exact dependencies are contracts0.0.4a5 and evidence0.1.0a2. This companion candidate is source-authored and unexecuted under the reserved qualification window.
+`equity-feature-explanations==0.1.0a3`, Python3.12, Apache2. Exact dependencies are contracts0.0.4a5 and evidence0.1.0a3. This companion candidate is source-authored and unexecuted under the reserved qualification window.
 
 `explain_result(result, receipt, configuration, *, entity, feature_id, inputs=(), evidence_limit=16)` validates full supplied content/context and returns immutable typed formula/quality/input declarations, bounded reported references and derived findings. `encode_explanation` emits fixed bounded JSON; there is no decoder, calculator, source acquisition, filesystem, clock, provider or resolver.
 

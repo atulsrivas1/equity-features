@@ -56,6 +56,11 @@ for pyproject in sorted((ROOT / "packages").glob("*/pyproject.toml")):
         check_requirements(project["name"], group)
 
 pkg = ROOT / "packages"
+# Every package that declares a literal __version__ must match its table entry.
+for init in sorted(pkg.glob("*/src/*/__init__.py")):
+    m = re.search(r"^__version__ = ['\"]([^'\"]+)['\"]", init.read_text(encoding="utf-8"), re.M)
+    if m:
+        expect(f"{init.relative_to(ROOT)} __version__", m.group(1), VERSIONS[init.parts[init.parts.index("packages") + 1]])
 expect("contracts __version__", constant(pkg / "contracts/src/equity_feature_contracts/__init__.py", "__version__"), CONTRACTS)
 expect("features __version__", constant(pkg / "features/src/equity_features/__init__.py", "__version__"), FEATURES)
 expect("intraday PACKAGE_VERSION", constant(pkg / "intraday/src/equity_features_intraday/_registry.py", "PACKAGE_VERSION"), VERSIONS["intraday"])

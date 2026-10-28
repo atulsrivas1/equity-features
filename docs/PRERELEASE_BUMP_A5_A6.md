@@ -20,11 +20,13 @@ which the check ties to the table. A future bump edits the table, the `pyproject
 | equity-features | 0.0.4a5 | 0.0.4a6 | 19 source commits since the bump (EF3 R5, EF4 producers, #734) |
 | equity-features-intraday | 0.1.0a3 | 0.1.0a4 | 6 source commits since the bump (EF2/EF3/EF4 producers, #734); catalog digests carry the package version |
 | equity-feature-explanations | 0.1.0a2 | 0.1.0a3 | admitted producer backend versions widened to include 0.0.4a6 (real calculators emit the features version) |
+| equity-feature-evidence | 0.1.0a2 | 0.1.0a3 | PO ruling 2026-10-28 (1): its content digests derive from the contracts label, so an old and a new a2 would differ under one version string |
+| equity-feature-diagnostics | 0.1.0a1 | 0.1.0a2 | pins evidence; consumes evidence digests (cascade) |
+| equity-feature-conformance | 0.1.0a1 | 0.1.0a2 | pins evidence and diagnostics (cascade) |
+| equity-feature-agent-evidence | 0.1.0a1 | 0.1.0a2 | pins evidence; events carry evidence fingerprints (cascade) |
+| equity-feature-agent-ledger | 0.1.0a1 | 0.1.0a2 | pins agent-evidence (cascade) |
 
-Packages whose only change is the exact contracts pin or a documentation version string keep their version and follow the pin:
-agent-evidence, agent-ledger, conformance, continuous, diagnostics, evidence, labels, strategies. Their wheels now declare
-`equity-feature-contracts==0.0.4a5`; evidence encodes the contracts version in its canonical content (`contracts_version`), so its content bytes and digests change with the contracts label, and labels and strategies admit exactly that contracts version in their codecs; their own versions stay.
-This is a decision for the PO to confirm: a stricter reading would also move evidence (a2 to a3) and cascade through everything that pins it.
+continuous, labels and strategies keep their versions (they only gained the contracts pin). Evidence for labels and strategies, per the PO ruling: their codecs call `m.version(CORE_VERSION, _CONTRACTS_VERSION)` as a check and never write the contracts version into their output, and the research oracle tests (14) pass byte for byte against unchanged oracles under contracts a5, so their emitted bytes and digests do not change. The same holds for continuous (35 tests against unchanged oracles). Evidence differs: its canonical content embeds `contracts_version`, so its digests changed (the EQ-097/EQ-099/EQ-108/EQ-109 oracles above) and it moved to a3, with the packages that pin it.
 
 ## Left as history (not live)
 
@@ -71,8 +73,9 @@ records that quote the "before" hashes (`docs/ef1/*FREEZE*.json`, `docs/ef1/*/FI
 
 All 27 packages of the three repositories (12 core, 8 io plus 2 example packages, 5 workers) were built twice from fresh copies with `SOURCE_DATE_EPOCH=1700000000` and the pinned `build 1.2.2.post1` / `setuptools 80.9.0`: wheels are byte-equal and sdists are equal after the repository's own normalization (`tools/build_explanations.py normalize`), 27 of 27. Not a release build: no tag, no publish.
 
-## Not run / carried forward
+## BLOCKING follow-up: re-pin the commit-pinned builders
 
-Commit-pinned release builders (`tools/build_*.py` with a `CORE`/`IO`/`WORKER` commit constant) read their versions from
-`tools/_versions.py` now, but their commit pins still name pre-bump commits. They must be re-pinned to the merged heads before their
-next run; they were compiled and exercised only through the unit tests that load them, not executed end to end.
+Builders with a `CORE`/`IO`/`WORKER` commit constant (`tools/build_*.py`, `qualify_*.py`) read their versions from `tools/_versions.py` but
+still name pre-bump commits, because the merged commit hashes do not exist yet. They were compiled and exercised only through the unit
+tests that load them; they are NOT executed end to end. This must land after the three PRs merge and before any release claim or any
+end-to-end run. No release claim until the builders are re-pinned and run.

@@ -2,7 +2,7 @@
 
 Pure supplied-record checks for market/knowledge/context, historical membership,
 revision, adjustment and explicit freshness. Requires Python3.12 and exact contracts
-0.0.4a5/evidence0.1.0a2. No calculator, adapter or worker imports.
+0.0.4a5/evidence0.1.0a3. No calculator, adapter or worker imports.
 
 The public `evaluate_diagnostics(context, policy, checks)` preserves observed failures
 alongside missing prerequisites. `unknown` is not an assertion of safety. Strict

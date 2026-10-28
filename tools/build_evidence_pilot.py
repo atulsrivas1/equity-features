@@ -29,7 +29,7 @@ PACKAGES = {
     'diagnostics': ('equity_feature_diagnostics', VERSIONS['diagnostics']),
     'agent-evidence': ('equity_feature_agent_evidence', VERSIONS['agent-evidence']),
     'agent-ledger': ('equity_feature_agent_ledger', VERSIONS['agent-ledger']),
-    'bundles': ('equity_feature_bundles', '0.1.0a1'),
+    'bundles': ('equity_feature_bundles', '0.1.0a2'),
 }
 
 

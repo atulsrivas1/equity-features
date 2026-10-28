@@ -14,7 +14,7 @@ class Deny(importlib.abc.MetaPathFinder):
             raise AssertionError('forbidden optional import')
 sys.meta_path.insert(0,Deny())
 import equity_feature_diagnostics as d
-assert d.__version__=='0.1.0a1'
+assert d.__version__=='0.1.0a2'
 assert not any(n.startswith('equity_features') for n in sys.modules)
 '''
         # Development source-path execution is explicitly distinct from installed -I.
