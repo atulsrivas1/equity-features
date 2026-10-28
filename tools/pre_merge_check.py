@@ -20,7 +20,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 TOOLS = ROOT / "tools"
-INSTALLED_ONLY = {"verify_public_typing.py", "verify_remote_transport.py", "verify_supplied_worker_examples.py"}
+INSTALLED_ONLY = {"verify_ef5_library.py", "verify_public_typing.py", "verify_remote_transport.py", "verify_supplied_worker_examples.py"}
 QUICKSTART_SCRATCH = ROOT / "work" / "eq132-quickstart-Windows"
 
 MANUAL = r"""Manual checks (not run here; run in the sibling repos with the same pinned interpreter; record results in the PR):
