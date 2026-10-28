@@ -158,6 +158,7 @@ def _check_output_ownership(root: Path, data: dict, stories: list[dict]) -> None
         assert row["accepted"] is False and row["implemented_by_this_packet"] is False
     check_ef3_header_parity(root, manifest)
     check_ef4_header_parity(root, manifest)
+    check_ef5_header_parity(root, manifest)
 
 
 # Owner decision pending (R9b): ownership entries with no merged header. Do not extend without an owner ruling.
@@ -211,6 +212,32 @@ def check_ef4_header_parity(root: Path, manifest: dict) -> None:
     assert not missing, f"EF4 headers with no manifest entry: {sorted(missing)}"
     orphans = (set(names) | ef4_planned) - headers
     assert not orphans, f"EF4 manifest entries with no header: {sorted(orphans)}"
+
+
+def check_ef5_header_parity(root: Path, manifest: dict) -> None:
+    """EF5 contract headers need a manifest entry (EQ-171 planned output or ef5_delivered_outputs); units use the E9 slash spelling."""
+    contract = json.loads((root / "docs/ef5/PRICE_STRUCTURES_CONTRACT_PROPOSAL.json").read_text(encoding="utf-8"))
+    rows = contract["headers"]
+    assert rows, "EF5 contract has no headers"
+    headers = {row["id"] for row in rows}
+    assert len(headers) == len(rows), "duplicate EF5 header id"
+    entries = manifest["ef5_delivered_outputs"]["entries"]
+    names = [row["canonical_name"] for row in entries]
+    assert len(names) == len(set(names)), "duplicate ef5_delivered_outputs entry"
+    planned = {row["canonical_name"] for row in manifest["outputs"]}
+    assert not planned & set(names), "entry listed in both manifest sections"
+    assert all(row["planned_delivery"] == "EF5" and row["accepted"] is False for row in entries)
+    assert all(row["implemented_by_this_packet"] is False for row in entries)
+    assert all(row["primary_numerical_owner"] == "EQ-171" and row["issue"] == 512 for row in entries)
+    ef5_planned = {row["canonical_name"] for row in manifest["outputs"] if row["planned_delivery"] == "EF5"}
+    missing = headers - planned - set(names)
+    assert not missing, f"EF5 headers with no manifest entry: {sorted(missing)}"
+    orphans = (set(names) | ef5_planned) - headers
+    assert not orphans, f"EF5 manifest entries with no header: {sorted(orphans)}"
+    units = {row["id"]: row["unit"] for row in rows}
+    for row in entries + [r for r in manifest["outputs"] if r["canonical_name"] in headers]:
+        assert row["unit"] == units[row["canonical_name"]], f"EF5 unit drift: {row['canonical_name']}"
+    assert all("_per_" not in unit for unit in units.values()), "underscore unit form on an EF5 header (E9)"
 
 
 if __name__ == "__main__":

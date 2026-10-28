@@ -730,7 +730,8 @@
     {
       "group": "B11",
       "canonical_name": "technical.price_velocity_fraction_per_second",
-      "unit": "fraction_per_second",
+      "unit": "fraction/s",
+      "unit_aliases": ["fraction_per_second"],
       "primary_numerical_owner": "EQ-171",
       "issue": 512,
       "planned_delivery": "EF5",
@@ -747,7 +748,8 @@
     {
       "group": "B11",
       "canonical_name": "technical.momentum_acceleration_fraction_per_second_squared",
-      "unit": "fraction_per_second_squared",
+      "unit": "fraction/s^2",
+      "unit_aliases": ["fraction_per_second_squared"],
       "primary_numerical_owner": "EQ-171",
       "issue": 512,
       "planned_delivery": "EF5",
@@ -2255,6 +2257,143 @@
         "accepted": false,
         "implemented_by_this_packet": false,
         "delivered_unaccepted": true
+      }
+    ]
+  },
+  "ef5_delivered_outputs": {
+    "status": "EF5 headers in the price-structures contract proposal that have no planned-output entry (candle and structural pattern evidence, EQ-171 story title 'admitted candle and structural-pattern evidence'); names, units and producers copied from the contract headers; PROPOSED in a contract, NOT accepted, NOT implemented; not part of the 47-output planned-ownership count. The 4 EF5 headers that match a planned EQ-171 output stay in outputs, with E9 slash-style units (fraction/s, fraction/s^2) and the underscore forms recorded as unit_aliases. tools/check_equity_delivery_replan.py enforces header/manifest parity (15 EF5 headers = 4 planned + the entries below).",
+    "entries": [
+      {
+        "canonical_name": "candle.body_fraction",
+        "unit": "fraction",
+        "producer": "candle",
+        "primary_numerical_owner": "EQ-171",
+        "issue": 512,
+        "planned_delivery": "EF5",
+        "contract_header_source": "docs/ef5/PRICE_STRUCTURES_CONTRACT_PROPOSAL.json",
+        "accepted": false,
+        "implemented_by_this_packet": false,
+        "proposed_in_contract": true
+      },
+      {
+        "canonical_name": "candle.doji",
+        "unit": "boolean",
+        "producer": "candle",
+        "primary_numerical_owner": "EQ-171",
+        "issue": 512,
+        "planned_delivery": "EF5",
+        "contract_header_source": "docs/ef5/PRICE_STRUCTURES_CONTRACT_PROPOSAL.json",
+        "accepted": false,
+        "implemented_by_this_packet": false,
+        "proposed_in_contract": true
+      },
+      {
+        "canonical_name": "candle.engulfing_bearish",
+        "unit": "boolean",
+        "producer": "candle",
+        "primary_numerical_owner": "EQ-171",
+        "issue": 512,
+        "planned_delivery": "EF5",
+        "contract_header_source": "docs/ef5/PRICE_STRUCTURES_CONTRACT_PROPOSAL.json",
+        "accepted": false,
+        "implemented_by_this_packet": false,
+        "proposed_in_contract": true
+      },
+      {
+        "canonical_name": "candle.engulfing_bullish",
+        "unit": "boolean",
+        "producer": "candle",
+        "primary_numerical_owner": "EQ-171",
+        "issue": 512,
+        "planned_delivery": "EF5",
+        "contract_header_source": "docs/ef5/PRICE_STRUCTURES_CONTRACT_PROPOSAL.json",
+        "accepted": false,
+        "implemented_by_this_packet": false,
+        "proposed_in_contract": true
+      },
+      {
+        "canonical_name": "candle.inside_bar",
+        "unit": "boolean",
+        "producer": "candle",
+        "primary_numerical_owner": "EQ-171",
+        "issue": 512,
+        "planned_delivery": "EF5",
+        "contract_header_source": "docs/ef5/PRICE_STRUCTURES_CONTRACT_PROPOSAL.json",
+        "accepted": false,
+        "implemented_by_this_packet": false,
+        "proposed_in_contract": true
+      },
+      {
+        "canonical_name": "candle.lower_shadow_fraction",
+        "unit": "fraction",
+        "producer": "candle",
+        "primary_numerical_owner": "EQ-171",
+        "issue": 512,
+        "planned_delivery": "EF5",
+        "contract_header_source": "docs/ef5/PRICE_STRUCTURES_CONTRACT_PROPOSAL.json",
+        "accepted": false,
+        "implemented_by_this_packet": false,
+        "proposed_in_contract": true
+      },
+      {
+        "canonical_name": "candle.upper_shadow_fraction",
+        "unit": "fraction",
+        "producer": "candle",
+        "primary_numerical_owner": "EQ-171",
+        "issue": 512,
+        "planned_delivery": "EF5",
+        "contract_header_source": "docs/ef5/PRICE_STRUCTURES_CONTRACT_PROPOSAL.json",
+        "accepted": false,
+        "implemented_by_this_packet": false,
+        "proposed_in_contract": true
+      },
+      {
+        "canonical_name": "structure.last_swing_high_price",
+        "unit": "currency/share",
+        "producer": "structure",
+        "primary_numerical_owner": "EQ-171",
+        "issue": 512,
+        "planned_delivery": "EF5",
+        "contract_header_source": "docs/ef5/PRICE_STRUCTURES_CONTRACT_PROPOSAL.json",
+        "accepted": false,
+        "implemented_by_this_packet": false,
+        "proposed_in_contract": true
+      },
+      {
+        "canonical_name": "structure.last_swing_low_price",
+        "unit": "currency/share",
+        "producer": "structure",
+        "primary_numerical_owner": "EQ-171",
+        "issue": 512,
+        "planned_delivery": "EF5",
+        "contract_header_source": "docs/ef5/PRICE_STRUCTURES_CONTRACT_PROPOSAL.json",
+        "accepted": false,
+        "implemented_by_this_packet": false,
+        "proposed_in_contract": true
+      },
+      {
+        "canonical_name": "structure.swing_high_confirmed",
+        "unit": "boolean",
+        "producer": "structure",
+        "primary_numerical_owner": "EQ-171",
+        "issue": 512,
+        "planned_delivery": "EF5",
+        "contract_header_source": "docs/ef5/PRICE_STRUCTURES_CONTRACT_PROPOSAL.json",
+        "accepted": false,
+        "implemented_by_this_packet": false,
+        "proposed_in_contract": true
+      },
+      {
+        "canonical_name": "structure.swing_low_confirmed",
+        "unit": "boolean",
+        "producer": "structure",
+        "primary_numerical_owner": "EQ-171",
+        "issue": 512,
+        "planned_delivery": "EF5",
+        "contract_header_source": "docs/ef5/PRICE_STRUCTURES_CONTRACT_PROPOSAL.json",
+        "accepted": false,
+        "implemented_by_this_packet": false,
+        "proposed_in_contract": true
       }
     ]
   }
