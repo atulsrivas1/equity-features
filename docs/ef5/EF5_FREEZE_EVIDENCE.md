@@ -76,3 +76,14 @@ Tester recompute of the new rows (md only; the expander was not read):
 ## 7. split_adjusted snapshot/anchor (second-author finding)
 
 The shared `AdjustmentSpec(basis=split)` raises UNSUPPORTED_ADJUSTMENT unless `action_snapshot` and `anchor` are not `none`. The contract now states that `split_adjusted` needs a caller-declared `adjustment_spec` {action_snapshot, anchor} (no default, fail closed). TD21 carries explicit values; new single-fault refusals RF53 (no snapshot) and RF54 (anchor none) were added (refusals now 54); the expander has a new admission rule, so its blob SHA in the README changed. **TD21's config and RF53/RF54 are new and need reviewer/tester recompute.**
+
+## 7. adjustment_spec for split_adjusted (head 0b1b76e): TD21 config, RF53, RF54
+
+Tester recompute from the md only (the expander was not read):
+- TD21 config: `split_adjusted` maps to shared `split`, which requires a non-empty, non-`none` action_snapshot and anchor; the fixture declares `actions-2026-10-28` and `anchor-2026-10-28`, so the config is accepted (md line 350 rule). Values unchanged from section 6 (a = 61/7417440, v = 1/3030, session 3/100, count +1; counts 3/3, 2/2, 2/2, 4/4; basis echo `split_adjusted`): match.
+- RF53: TD21 with action_snapshot deleted, a single fault, no default: UNSUPPORTED_ADJUSTMENT at config. Match.
+- RF54: TD21 with anchor `none`, a single fault: UNSUPPORTED_ADJUSTMENT at config. Match.
+- Parity: 62 result rows and 54 refusal rows identical between md and json; counts 24/17/21/27 = 89 and 54 over 12 codes agree in md line 158, json fixture_counts and the pinned verifier; the adjustment_spec rule appears in md line 350 and the json config_rules.
+- Docs review of the changed text, non-blocking findings (no fixture impact): D6 the md producers table (line 17), the inputs paragraph (line 49) and the capability-matrix adjustment row (line 135) do not list `adjustment_spec {action_snapshot, anchor}` as a required split_adjusted input; D7 the shared `AdjustmentSpec` also has a `policy_version` field that defaults to `raw-v1`: the md does not say whether EF5 requires it or ignores it (no-defaults rule), a question for the Architect or PO.
+- Gates: `verify_ef5_fixtures` PASS; `pre_merge_check` 17 of 17 PASS (3 installed-only skipped).
+- The second-author reviewer's recompute of TD21 (with its adjustment_spec), RF52, RF53 and RF54 is requested from the reviewer separately and is still outstanding.
