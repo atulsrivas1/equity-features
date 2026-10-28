@@ -108,7 +108,7 @@ def check_reason_coverage(problems: list[str]) -> None:
 def check_errata(problems: list[str]) -> None:
     """The additive errata recipes (E1, E2, E4): the frozen contract refusal counts stay and the errata list is whole.
 
-    Frozen refusal censuses: tape 75, quote/VWAP 80, path efficiency 39, projections 114; plus 8 errata recipes that
+    Frozen refusal censuses: tape 75, quote/VWAP 80, path efficiency 39, projections 114; plus 11 errata recipes that
     `verify_ef4_errata.py` runs against the library (it is run by the pre-merge command with the other verify scripts).
     """
     errata = json.loads((DOCS / "EF4_ERRATA_RECIPES.json").read_text(encoding="utf-8"))
@@ -120,7 +120,7 @@ def check_errata(problems: list[str]) -> None:
     ids = [r["id"] for r in errata["recipes"]]
     expect(problems, "errata recipe count", errata["recipe_count"], len(ids))
     expect(problems, "errata ids unique", len(set(ids)), len(ids))
-    expect(problems, "errata recipes", len(ids), 8)
+    expect(problems, "errata recipes", len(ids), 11)
 
 
 def main() -> int:
