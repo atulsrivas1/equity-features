@@ -11,6 +11,9 @@ Record: release ____ core SHA ____ io SHA ____ workers SHA ____ date ____ tester
 - [ ] 1.4 `tools/check_boundary.py` exits 0 (baseline 2026-10-27: fails on `import base64` in `ef1/_reference_close.py` and `_venue_status.py`; fix branch `fix/boundary-base64` unpushed).
 - [ ] 1.5 `mypy --strict` result recorded; if not clean, each remaining error is owner-waived in DECISIONS.md (baseline: 55 errors in 10 files).
 
+## Pre-merge command (per PR, no CI)
+Run `python tools/pre_merge_check.py` from the core root in the pinned venv (CONTRIBUTING.md: requirements-dev.txt plus editable core packages). It runs check_boundary, check_equity_delivery_replan and every `tools/verify_*.py` including `verify_ef4_fixtures`, prints PASS/FAIL/SKIP and exits non-zero on any FAIL. Three checks need installed wheels, io wheels or jsonschema and run with `--installed`; `verify_quickstart` skips if its ignored scratch folder `work/eq132-quickstart-Windows` exists. The script prints, but does not run, the manual commands: io `check_extraction.py` and `mypy --strict packages/duckdb/src`, and the four workers EF4 `--refusals` drivers (baselines tape 73/75, quote_vwap 80/80, path_efficiency 39/39, projections 114/114). Record the output in the PR. There is no CI workflow in this repo. Past EF4 PR verdicts: `docs/qa/EF4_PR_REVIEWER_VERDICTS.md`.
+
 ## 2. Verify scripts (installed wheels, not editable)
 - [ ] 2.1 PASS: verify_imports, verify_compatibility, verify_session_examples, verify_quote_examples, verify_history_examples, verify_context_examples, verify_timing_examples, verify_diagnostic_examples, verify_registry, verify_release_policy, verify_quickstart.
 - [ ] 2.2 PASS from installed wheels: verify_public_typing (rejects editable installs), verify_supplied_worker_examples (needs io wheels), verify_remote_transport (needs `jsonschema`; add to the dev requirements or waive).
