@@ -45,7 +45,7 @@ SCOPES=['packages/'+name for name in PACKAGES]+[
     'examples/typing/continuous_negative_expected.json',
     'tools/build_continuous.py','tools/continuous_archives.py','tools/continuous_installed.py','tools/continuous_legacy.py',
     'tools/check_boundary.py','tools/check_continuous_boundary.py','tools/build_explanations.py',
-    'requirements-dev.txt','mypy.ini','.github/workflows/continuous.yml']
+    'requirements-dev.txt','mypy.ini']
 
 
 def output(*args,cwd=ROOT,env=None):

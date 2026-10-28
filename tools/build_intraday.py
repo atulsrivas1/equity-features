@@ -31,7 +31,7 @@ SCOPES=['packages/'+name for name in PACKAGES]+[
     'tools/benchmark_intraday_preparation.py','tools/test_intraday_benchmark.py',
     'tools/benchmark_intraday_indicators.py','tools/test_intraday_indicator_benchmark.py',
     'tools/benchmark_intraday_bands.py','tools/test_intraday_band_benchmark.py',
-    '.gitattributes','requirements-dev.txt','mypy.ini','.github/workflows/packages.yml',
+    '.gitattributes','requirements-dev.txt','mypy.ini',
     'docs/stories/EQ-139_FINAL_AUTHOR_VALIDATION.json',
     'docs/api/INTRADAY.md','docs/features/INTRADAY_FOUNDATIONS.md',
     'docs/stories/EQ-137_PLAN.md','docs/stories/EQ-137_FACT_READINESS.md',
