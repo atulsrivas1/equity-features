@@ -14,15 +14,15 @@ import tomllib
 from email.parser import BytesParser
 import build_explanations as common
 sys.path.insert(0, str(Path(__file__).resolve().parent))  # tools/_versions.py, also when loaded by path from tests
-from _versions import VERSIONS, CONTRACTS, FEATURES
+from _versions import VERSIONS, CONTRACTS, FEATURES, SIBLINGS, SIBLING_COMMITS
 
 ROOT=Path(__file__).resolve().parents[1]
-PINS={'io':'f20abd5acd74a4917fdaf087e9c92757746e7ea4','workers':'b56701cc1e48920378df18a2081d0f5f9f4ad3bb'}
+PINS=dict(SIBLING_COMMITS)
 PACKAGES={'contracts':('equity_feature_contracts',CONTRACTS), 'features':('equity_features',FEATURES),
     'evidence':('equity_feature_evidence',VERSIONS['evidence']),'diagnostics':('equity_feature_diagnostics',VERSIONS['diagnostics']),
-    'io-contracts':('equity_feature_io_contracts','0.1.0a2'),
-    'io-sdk':('equity_feature_io_sdk','0.1.0a2'),'duckdb':('equity_feature_duckdb','0.1.0a9'),
-    'duckdb-sink':('equity_feature_duckdb_sink','0.1.0a0'),'workers':('equity_feature_workers','0.1.0a15'),
+    'io-contracts':('equity_feature_io_contracts',SIBLINGS['io-contracts']),
+    'io-sdk':('equity_feature_io_sdk',SIBLINGS['io-sdk']),'duckdb':('equity_feature_duckdb',SIBLINGS['duckdb']),
+    'duckdb-sink':('equity_feature_duckdb_sink',SIBLINGS['duckdb-sink']),'workers':('equity_feature_workers',SIBLINGS['workers']),
     'conformance':('equity_feature_conformance',VERSIONS['conformance'])}
 common.PACKAGES=PACKAGES
 run=common.run

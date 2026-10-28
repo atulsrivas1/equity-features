@@ -13,12 +13,14 @@ import tomllib
 from packaging.markers import Marker
 from packaging.requirements import Requirement
 import build_explanations as common
+sys.path.insert(0, str(Path(__file__).resolve().parent))  # tools/_versions.py
+from _versions import SIBLINGS, SIBLING_COMMITS
 
 ROOT=Path(__file__).resolve().parents[1]
 IO=ROOT/'work/r9-io'
-IO_HEAD='18d86761aa3eebb7414e51e8fa2aba089717b5eb'
+IO_HEAD=SIBLING_COMMITS['io']
 OUT=ROOT/'dist/r9'
-PACKAGES={**common.PACKAGES,'bundles':('equity_feature_bundles','0.1.0a2')}
+PACKAGES={**common.PACKAGES,'bundles':('equity_feature_bundles',SIBLINGS['bundles'])}
 common.PACKAGES=PACKAGES
 run=common.run
 sha=common.sha
