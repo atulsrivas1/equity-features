@@ -5,7 +5,7 @@ Library only (no I/O, no worker). Implements the frozen contract `PRICE_STRUCTUR
 (run by `tools/pre_merge_check.py --installed`) expands every contract fixture to supplied BAR chunks, a governed
 context and a final configuration, drives it through the library and compares with the contract literals; the
 independent stdlib expander (`tools/verify_ef5_fixtures.py`) remains the check on those literals. Result: 89 result
-fixtures (534 runs: each output alone and jointly) and 57 refusals over 12 error codes match. No new unit tests.
+fixtures (534 runs: each output alone and jointly) and 59 refusals over 12 error codes match. No new unit tests.
 
 ## Where it lives
 
@@ -42,3 +42,14 @@ version bump. `SlotFacts` gains one additive internal field (`open_price`).
 6. Market cutoff: the config builder allows the cutoff to fall inside the target slot (forming bar); the EF4 builder requires it
    at or after the end of the target slot.
 7. Doji threshold text is capped at 18 digits per side (the contract regex has no bound).
+
+## PO ruling 2026-10-28: all seven accepted as implemented
+
+Text errata: [EF5_LIBRARY_ERRATA.md](EF5_LIBRARY_ERRATA.md) (hosting, basis echo carrier, the 18-digit doji limit, partial coverage).
+Notes for the rest:
+- **Adjustment codes (5)**: a chunk on another basis than the configuration is INCONSISTENT_IDENTITY (contract RF48, checked before the generic
+  admission). A declared but unsupported basis (`total_return`, `dividend_adjusted`) stays UNSUPPORTED_ADJUSTMENT at config (RF41, RF52).
+- **Forming bar (6)**: a forming target bar yields `future_market`, value null, never a value in any output (CD17, SD12, TD14); a delivered row that ends
+  after the market cutoff is BOUNDS (RF09). The EF5 config builder accepts a cutoff inside the target slot; the EF4 builder requires it at or after the
+  target end. The divergence is intended; EF4 is unchanged.
+- **Negative volume (3)**: EF5 admission checks the volume column first and says INVALID_SCHEMA; the generic BOUNDS stays for other users.

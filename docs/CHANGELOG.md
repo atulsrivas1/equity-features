@@ -1,6 +1,6 @@
 ## EF5 library: candle, structure and technical producers - October 28, 2026
 
-Pure library for the frozen EF5 contract in `equity_features_intraday` (`build_ef5_config`, `compute_ef5`, `describe_ef5`): `ef5.candle` (7 outputs), `ef5.structure` (4), `ef5.technical` (4). Fixture-driven gate `tools/verify_ef5_library.py` matches all 89 result fixtures and 57 refusals. Notes and the ambiguities met: [EF5_LIBRARY_IMPLEMENTATION.md](ef5/EF5_LIBRARY_IMPLEMENTATION.md). No package version bump, no I/O or worker change.
+Pure library for the frozen EF5 contract in `equity_features_intraday` (`build_ef5_config`, `compute_ef5`, `describe_ef5`): `ef5.candle` (7 outputs), `ef5.structure` (4), `ef5.technical` (4). Fixture-driven gate `tools/verify_ef5_library.py` matches all 89 result fixtures and 59 refusals. Notes and the ambiguities met (all accepted by the PO): [EF5_LIBRARY_IMPLEMENTATION.md](ef5/EF5_LIBRARY_IMPLEMENTATION.md), errata [EF5_LIBRARY_ERRATA.md](ef5/EF5_LIBRARY_ERRATA.md); refusals 57 to 59 (RF58, RF59 additive). No package version bump, no I/O or worker change.
 
 ## EF4 compatibility note: notional cells under the same version - October 28, 2026
 

@@ -13990,6 +13990,43 @@
      "value": "raw-v1"
     }
    ]
+  },
+  {
+   "id": "RF58",
+   "error_code": "INVALID_CONFIG",
+   "raised_by": "ConfigSpec",
+   "stage": "config",
+   "description": "doji threshold above the 18-digit cap per side (library limit, refused never rounded)",
+   "base": "CD07",
+   "mutation": [
+    {
+     "set": "fixture.params.doji_body_max_fraction",
+     "value": "1/1000000000000000000"
+    }
+   ]
+  },
+  {
+   "id": "RF59",
+   "error_code": "INCONSISTENT_IDENTITY",
+   "raised_by": "admission",
+   "stage": "identity",
+   "description": "one bar delivered without its per-slot coverage while the chunk declares coverage for others (partial coverage; all-undeclared stays RF15)",
+   "base": "CD07",
+   "mutation": [
+    {
+     "set": "fixture.slots.1",
+     "value": {
+      "row": [
+       14,
+       23,
+       13,
+       22,
+       5
+      ],
+      "no_coverage": true
+     }
+    }
+   ]
   }
  ],
  "fixture_counts": {
@@ -13997,7 +14034,7 @@
   "structure_result": 17,
   "technical_result": 21,
   "ka_result": 27,
-  "refusal": 57
+  "refusal": 59
  },
  "shared_rules_and_terms": {
   "terms": {

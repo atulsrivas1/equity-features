@@ -4,7 +4,7 @@ For each of the 89 result fixtures (candle, structure, technical, known_at KA-se
 to supplied BAR chunks, a governed grid context and a final configuration (market cutoff C is the end of the last
 delivered slot, K = C + 100 s, `ka` maps to K - (100 - ka) s, exactly as the contract states), every selected output is
 run alone and jointly, and the library result is compared with the contract literal: value by the contract acceptance
-rule, status, reasons, expected and observed counts, witnesses and the echoed adjustment basis. For each of the 57
+rule, status, reasons, expected and observed counts, witnesses and the echoed adjustment basis. For each of the 59
 refusal recipes the recorded mutation is applied to its base fixture and the library must refuse with exactly the
 recorded error code. No fixture value is computed here: the expectations are the contract literals that the independent
 stdlib expander (`tools/contract_fixtures/ef5_fixture_expand.py`, gate `tools/verify_ef5_fixtures.py`) recomputes.
@@ -129,6 +129,8 @@ def expand(fx: dict[str, Any]) -> tuple[Any, Any, Any, tuple[str, ...], str]:
                      wire.get("start", start_ns[i]), wire.get("end", end_ns[i]))
             rows.append((i, *ident, values, known(version["ka"] if "ka" in version else ka), wire.get("basis")))
         coverage[i] = (1, 1, True)
+        if isinstance(slot, dict) and slot.get("no_coverage"):
+            del coverage[i]
         if wire.get("basis") is not None:
             row_basis = wire["basis"]
     chunk_adjustment = basis if row_basis is None else adjustment_spec(row_basis, {"policy_version": "split-factors-v1",
@@ -206,7 +208,7 @@ def compare(fx: dict[str, Any], result: Any, config: Any, features: tuple[str, .
         literal = (want["status"], want["reasons"], want["expected"], want["observed"])
         if not accepts(want["value"], value) or got != literal:
             problems.append(f"{column.feature_id}: value {value!r} {got} != {want['value']} {literal}")
-        if want["basis"] != basis or bindings - {basis}:
+        if want["basis"] != basis or bindings != {basis}:
             problems.append(f"{column.feature_id}: basis {basis} {bindings} != {want['basis']}")
         if len(features) == 1 and found[column.feature_id] != want["witnesses"]:
             problems.append(f"{column.feature_id}: witnesses {found[column.feature_id]} != {want['witnesses']}")
