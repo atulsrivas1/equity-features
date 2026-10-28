@@ -288,12 +288,16 @@ def main():
         'equity_feature_contracts-0.0.4a4-py3-none-any.whl':f'equity_feature_contracts-{CONTRACTS}-py3-none-any.whl',
         'equity_feature_contracts-0.0.4a4.tar.gz':f'equity_feature_contracts-{CONTRACTS}.tar.gz',
         'equity_features-0.0.4a4-py3-none-any.whl':f'equity_features-{FEATURES}-py3-none-any.whl',
-        'equity_features-0.0.4a4.tar.gz':f'equity_features-{FEATURES}.tar.gz'}
+        'equity_features-0.0.4a4.tar.gz':f'equity_features-{FEATURES}.tar.gz',
+        'equity_feature_evidence-0.1.0a2-py3-none-any.whl':f'equity_feature_evidence-{VERSIONS["evidence"]}-py3-none-any.whl',
+        'equity_feature_evidence-0.1.0a2.tar.gz':f'equity_feature_evidence-{VERSIONS["evidence"]}.tar.gz',
+        'equity_feature_agent_evidence-0.1.0a1-py3-none-any.whl':f'equity_feature_agent_evidence-{VERSIONS["agent-evidence"]}-py3-none-any.whl',
+        'equity_feature_agent_evidence-0.1.0a1.tar.gz':f'equity_feature_agent_evidence-{VERSIONS["agent-evidence"]}.tar.gz'}
     assert PACKAGES['features']==('equity_features',FEATURES)
     assert set(replacements)<=set(expected) and not set(replacements)&set(report['artifacts'])
     assert set(replacements.values())<=set(report['artifacts'])
     assert set(report['artifacts'])==((set(expected)-set(replacements))|set(replacements.values())|
-        {'equity_feature_agent_ledger-0.1.0a1-py3-none-any.whl','equity_feature_agent_ledger-0.1.0a1.tar.gz'})
+        {f'equity_feature_agent_ledger-{VERSIONS["agent-ledger"]}-py3-none-any.whl',f'equity_feature_agent_ledger-{VERSIONS["agent-ledger"]}.tar.gz'})
     # Same-named archives whose contracts pin and expected-contracts constant moved with the pre-release bump.
     pin_moved={n for n in expected if n.startswith(('equity_feature_evidence-','equity_feature_agent_evidence-'))}
     for name,item in expected.items():
