@@ -1,9 +1,9 @@
 # EF5 freeze evidence (price structures and patterns contract)
 
 Status: evidence record for `ef5-price-structures-1`. Docs only. Based on main after PR #735 merged (squash 24ace1e); docs/ef5 content checked at the #735 head 2d57e9e, identical to the 04b81ff read-through head.
-Freeze verdict: **not yet frozen pending merge: two fixture gaps open.** The tester recompute found 0 discrepancies, D1-D5 were fixed (text only) and the docs review re-run clean. The PO ruled PQ-1 ((b) normative label mapping unadjusted->raw, split_adjusted->shared split, total_return and others UNSUPPORTED_ADJUSTMENT; (c2) EF5 enforces three-letter upper-case currency); both are written into the md and json and the amendment. The ruling asks for a fixture or recipe per label plus RF41: FX-1 `split_adjusted` has no accepted-config result fixture (RF48 uses it only as a mismatching bar basis) and FX-2 `total_return` has no recipe (RF41 uses `dividend_adjusted`). Adding them needs the independent expander and the verify_ef5_fixtures pins updated, so they were not added silently. Decision for the coordinator: add FX-1/FX-2 (then recompute the new rows and freeze), or accept RF41 plus RF48 as sufficient and freeze pending merge.
+Freeze verdict: **frozen pending merge** (of this PR). Tester recompute 0 discrepancies (88 sampled fixtures/refusals of the original set plus TD21 and RF52), D1-D5 fixed and re-reviewed, PQ-1 ruling applied with FX-1 (TD21) and FX-2 (RF52) added, docs review clean, gates pass.
 
-Evidence list: second-author recompute at 50ae18c (88 fixtures, 280 values, 0 discrepancies); PO read-through READY TO FREEZE at 04b81ff; tester recompute seed 20261028, 0 discrepancies; independent docs review clean; gates pass.
+Evidence list: second-author recompute at 50ae18c (88 fixtures, 280 values, 0 discrepancies); PO read-through READY TO FREEZE at 04b81ff; tester recompute seed 20261028, 0 discrepancies (section 2); tester recompute of TD21 and RF52 from the md only, 0 discrepancies (section 6); independent docs review clean; gates pass. **Outstanding: the second-author reviewer's recompute of TD21 and RF52 (coordinator will have the reviewer cover it).**
 
 ## 1. Evidence summary
 
@@ -61,8 +61,14 @@ Environment: the pinned venv `wt-ef4-venv` (mypy 1.15.0, duckdb 1.5.6, databento
 
 ## 5. Next step
 
-Coordinator decides FX-1 and FX-2 (add fixtures with expander and pin updates, or accept the current coverage). Then merge this PR to record the freeze of `ef5-price-structures-1`.
+Reviewer recompute of TD21 and RF52, then merge this PR to record the freeze of `ef5-price-structures-1`.
 
 ## 6. FX-1 and FX-2 added (coordinator decision, PQ-1)
 
-FX-1 is result fixture TD21 (accepted config `split_adjusted`, maps to shared `split`, basis echo `split_adjusted`, values equal to TD01) and FX-2 is refusal RF52 (`total_return`, UNSUPPORTED_ADJUSTMENT at config, single fault; RF41 `dividend_adjusted` unchanged). Counts are now technical 21 (89 result fixtures) and 52 refusals, pinned in `tools/verify_ef5_fixtures.py`. The expander needed no change (it is generic over the adjustment label) so its blob SHA in `tools/contract_fixtures/README.md` is unchanged. **Rows TD21 and RF52 are new and still need the independent recompute by the reviewer and the tester** (the 88-fixture recompute above does not cover them); the freeze record stays pending that.
+FX-1 is result fixture TD21 (accepted config `split_adjusted`, maps to shared `split`, basis echo `split_adjusted`, values equal to TD01) and FX-2 is refusal RF52 (`total_return`, UNSUPPORTED_ADJUSTMENT at config, single fault; RF41 `dividend_adjusted` unchanged). Counts are now technical 21 (89 result fixtures) and 52 refusals, pinned in `tools/verify_ef5_fixtures.py`. The expander needed no change (it is generic over the adjustment label) so its blob SHA in `tools/contract_fixtures/README.md` is unchanged.
+
+Tester recompute of the new rows (md only; the expander was not read):
+- TD21: closes 100,102,101,103, N=1 M=3, dt 60 s. v_t = (2/101)/60 = 1/3030; v_(t-1) = (-1/102)/60 = -1/6120; a = (1/3030 + 1/6120)/60 = 61/7417440; session (103-100)/100 = 3/100; count +1-1+1 = +1. Counts expected/observed 3/3, 2/2, 2/2, 4/4; witnesses (3,1,2), (3,2), (3,0), (3,0,1,2); `basis` echoes `split_adjusted` on all four outputs (`split_adjusted` is in the v1 vocabulary, maps to shared `split`). Fixture matches on every value, status, count, witness and basis.
+- RF52: single fault `total_return` on CD07; not in the v1 vocabulary (`unadjusted`, `split_adjusted`), so UNSUPPORTED_ADJUSTMENT raised at config (stage config, after wire and shared stages pass). Matches.
+- Parity: 62 result rows and 52 refusal rows (description, hand_check, code, stage, base, fault) identical between md and json; counts 24/17/21/27 = 89 and 52 over 12 codes agree in md line 158, json fixture_counts and the pinned verifier. Stale text: none (the PQ-1 coverage sentence already names TD21 and RF52).
+- Gates: `verify_ef5_fixtures` PASS; `pre_merge_check` 17 of 17 PASS (3 installed-only skipped).
