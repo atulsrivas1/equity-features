@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # EF4 errata for the PO rulings E1, E2 and E4 (2026-10-28)
 
 Additive errata. The four frozen EF4 contracts, their `fixture_counts` and [EF4_SHARED_AMENDMENT.md](EF4_SHARED_AMENDMENT.md) are not edited. Regression recipes are in [EF4_ERRATA_RECIPES.json](EF4_ERRATA_RECIPES.json) (8 recipes, ER01 to ER08) and run by `tools/verify_ef4_errata.py`; `tools/verify_ef4_fixtures.py` pins that the frozen refusal censuses stay (tape 75, quote/VWAP 80, path efficiency 39, projections 114) and that the errata list is whole. Both are picked up by `tools/pre_merge_check.py`.
@@ -13,3 +14,34 @@ Library: `declared_coverage` (quote and VWAP trade source) refuses an undeclared
 ## E4. Explicit governed_history window check (ER08)
 
 `build_path_efficiency_config` and the closed decoder refuse `epoch_profile = governed_history` with `window > 63` as `INVALID_CONFIG` (`PATH_GOVERNED_WINDOW_MAX = 63`), instead of an always-`insufficient_history` result at compute. `session_reset` keeps the range 2..4096. PATH_EFFICIENCY contract line 22 (window N 2..4096) is read together with this errata.
+=======
+# EF4 errata (PO ruling E6, 2026-10-28)
+
+The frozen EF4 contract files (`TAPE_`, `QUOTE_VWAP_`, `PATH_EFFICIENCY_`, `PATH_PROJECTIONS_CONTRACT_PROPOSAL.json`) are **not edited**. This table is the recorded truth where a recorded `raised_by` label or code differs from what the merged layers do. Details and per-layer counts: [EF4_SHARED_AMENDMENT.md](EF4_SHARED_AMENDMENT.md) E6.
+
+## Code errata (library codes are the recorded truth)
+
+| Recipe | Contract | Input | Contract code | Recorded truth (code, raiser) | Ruling |
+| --- | --- | --- | --- | --- | --- |
+| RF18 | TAPE | `batch_kind = quote` | `INVALID_SCHEMA` | `UNSUPPORTED_SAMPLING`, shared batch validator | ACCEPT library code; shared validator not altered |
+| RF35 | TAPE | two identical seed facts | `INVALID_SCHEMA` | `DUPLICATE`, shared REFERENCE validator | ACCEPT library code; shared validator not altered |
+
+Both inputs are still refused. Census figure: tape 73 of 75 recipes raise the contract code (RF18 and RF35 are the two ruled differences); across the four EF4 contracts 306 of 308 refusal recipes match the contract code (G 75, H 80, I1 39, I2 114 = 308). 306/308 is the ruled, documented number. A reader comparing a driver's output with the contract code must apply this table.
+
+## raised_by label errata (refused input and code unchanged)
+
+| Recipe | Contract `raised_by` | Actual raiser |
+| --- | --- | --- |
+| RQ09 (QUOTE_VWAP) | shared validator | library (`S.cutoff`; the batch validator does not see the market cutoff) |
+| RQ12 (QUOTE_VWAP) | library | shared batch constructor (the column schema fixes the kind) |
+| RV43 (QUOTE_VWAP) | shared validator | I/O boundary (`S.bar_notional_bounds`) |
+| SPR10, SPR11, SPR18, BPR10, BPR20, RXR22, RXR26, RXR27, RXR28, RXR33, RPR27 (PATH_PROJECTIONS) | producer admission | shared canonical batch constructors at the I/O boundary (library when run library-only) |
+| SPR12, SPR13 (PATH_PROJECTIONS) | shared validator | library checks on top of the BAR validator (not refused at I/O) |
+| RF01, RF58 (TAPE; BOUNDS) | shared validator | refused at compute in the G worker |
+
+Worker code mapping (EF3 ruling R9): worker codes collapse to `INVALID_COMMAND`, with `RESULT_IDENTITY_MISMATCH` for library `INCONSISTENT_IDENTITY` and `CALCULATION_FAILED` for `OVERFLOW`; the closed `contract_code` carries the library code.
+
+## Accepted limit (E8, unchanged)
+
+The nine tape merge recipes RF41, RF42, RF43, RF54, RF55, RF60, RF65, RF66 and RF69 are library-checked only, with no worker path.
+>>>>>>> origin/main
