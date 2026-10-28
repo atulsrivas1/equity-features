@@ -716,6 +716,7 @@
       "primary_numerical_owner": "EQ-171",
       "issue": 512,
       "planned_delivery": "EF5",
+      "operand_notes": ["window_stride = N (adjacent non-overlapping windows)", "flat window counts 0", "result in [-M, M]"],
       "kind": "measurement",
       "operands": [
         "ordered_completed_close_windows",

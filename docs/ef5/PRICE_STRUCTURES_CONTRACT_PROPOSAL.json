@@ -239,7 +239,7 @@
   "session_return_fraction": "(C_t - O_0) / O_0; when t = 0 the single bar gives (C_0 - O_0) / O_0",
   "price_velocity": "v_t = ((C_t - C_(t-1)) / C_(t-1)) / dt_t with dt_t = (end_t - end_(t-1)) / 10^9 seconds, exact rational",
   "momentum_acceleration": "a_t = (v_t - v_(t-1)) / dt_t with the same dt_t; needs closes t-2..t",
-  "signed_trend_window_count": "sum over j = 0..M-1 of sign(C_(t-jN) - C_(t-(j+1)N)); an integer in [-M, M]; needs closes t-MN..t and every slot in between READY (adjacent windows, no bridging)",
+  "signed_trend_window_count": "NORMATIVE (PO-1): M adjacent non-overlapping N-bar windows (window stride = N) ending at the target; window direction = sign of the completed-window close change; a flat window counts 0; result in [-M, M]; M=1 is one window (TD19, TD20). Formula: sum over j = 0..M-1 of sign(C_(t-jN) - C_(t-(j+1)N)); an integer in [-M, M]; needs closes t-MN..t and every slot in between READY (adjacent windows, no bridging). Rejected alternatives: sliding (overlapping) windows and half-counting flat windows are consumer policy and are not part of this catalogue version",
   "publication": "float64 outputs are the exact rational correctly rounded once (Python float(Fraction) equals IEEE round-to-nearest-even); bool and int64 outputs are exact; price outputs divide the integer coefficient by 10^scale",
   "no_mathematics_of_policy": "no rank, threshold other than the caller doji fraction, score, signal or recommendation"
  },
@@ -325,9 +325,71 @@
   "exact_bool": "bool outputs are exact",
   "documented_exceptions": "none"
  },
+ "refused_definition": "PO-3: for EF5 acceptance 'refused' means (a) a typed refusal, or (b) a result-level fail-closed outcome: a non-available status, value null, no witnesses and a reason code, never a substituted value or a silently dropped row. Missing or future known_at is (b) with the ESTABLISHED reason codes unknown_availability / future_knowledge under status missing_input (the PO ruling wrote 'missing_input', which is the status; EF3/EF4 and this contract keep the codes, so no code change is needed). A bar incomplete at the market cutoff is future_market, unavailable. KA-set and fail-closed drivers assert null value plus reason code; every output echoes the declared adjustment basis in `basis` (PO-4).",
+ "tie_table": [
+  {
+   "tie": "doji body/range equals the threshold",
+   "rule": "inclusive: doji true",
+   "fixture": "CD02"
+  },
+  {
+   "tie": "zero-range bar",
+   "rule": "fractions and doji zero_denominator; inside and engulfing false",
+   "fixture": "CD04"
+  },
+  {
+   "tie": "equal high against the prior bar",
+   "rule": "inside bar false (strict)",
+   "fixture": "CD05"
+  },
+  {
+   "tie": "equal low against the prior bar",
+   "rule": "inside bar false (strict)",
+   "fixture": "CD24"
+  },
+  {
+   "tie": "identical body extents, opposite colours",
+   "rule": "engulfing false (needs one strict side)",
+   "fixture": "CD08"
+  },
+  {
+   "tie": "one side equal, other strictly beyond",
+   "rule": "engulfing true",
+   "fixture": "CD11"
+  },
+  {
+   "tie": "prior body zero (no colour)",
+   "rule": "engulfing false",
+   "fixture": "CD10"
+  },
+  {
+   "tie": "equal highs around the candidate",
+   "rule": "no swing high (strict)",
+   "fixture": "SD03"
+  },
+  {
+   "tie": "equal lows around the candidate",
+   "rule": "no swing low (strict)",
+   "fixture": "SD17"
+  },
+  {
+   "tie": "flat trend window",
+   "rule": "counts 0",
+   "fixture": "TD02"
+  },
+  {
+   "tie": "flat single window, M=1",
+   "rule": "count 0",
+   "fixture": "TD19"
+  }
+ ],
+ "known_limits": [
+  "TD10: the declared adjustment basis is trusted; no corporate-action facts are consumed and no split is detected (PO-4). EF6 may add action facts (a new optional REFERENCE role) that mark windows unavailable; non-breaking"
+ ],
+ "elapsed_time": "PO-6 normative: dt_k = (end_k - end_(k-1)) / 10^9 seconds from the supplied end instants (not nominal bar length); velocity divides by dt_t, acceleration is (v_t - v_(t-1)) / dt_t from the two successive velocities (each with its own dt); a missing end instant is INVALID_SCHEMA (wire, RF50) and a non-positive dt is refused by the shared validator (INVALID_ORDER RF51, BOUNDS); TD11 shows a 3-day weekend dt; under session_reset slot 0 is the first bar and no interval crosses the session boundary",
  "fixture_notation": "compact, NOT canonical wire. K = 100, default known_at 50, volume 5. A fixture lists slots 0..n-1 in epoch order; the target is the last slot unless `target` names an earlier index (later slots are delivered but must not matter). A slot is [O,H,L,C,V] (columns=ohlcv), [C] (columns=close), or 'absent' (no row, no coverage), 'gap' (no row, declared incomplete coverage), 'forming' (bar not complete at the market cutoff), 'null' (row with null volume and OHLC), 'empty' (zero volume, null OHLC, coverage complete), or {row, ka, rev} (ka 100 == K known, 150 > K, null unknown). Structure fixtures list H and L in the description; each slot is [L,H,L,H,5] (open at the low, close at the high). Technical fixtures build slot i from the previous close (slot 0 from the stated open) with H/L the max/min of open and close. `grid: daily` selects governed_history daily slots, `ends_s` their end offsets in seconds. hand_check states the hand-derived headline values. Result fixtures: CD (candle), SD (structure), TD (technical), KA (known_at set); refusals RF.",
  "capability_matrix": {
-  "scope": "data each output needs, whether the client or the server supplies/computes it, per source; a source that cannot supply an input yields the documented unavailable result, never a default",
+  "scope": "Per the capability-matrix rule: data each output needs, whether the client or the server supplies/computes it, per source; a source that cannot supply an input yields the documented unavailable result, never a default",
   "columns": [
    "data needed",
    "used by",
@@ -344,9 +406,9 @@
     "candle.*, structure.*, technical.session_return_fraction",
     "chooses the instrument, session and target bar, supplies bars",
     "admission, readiness, arithmetic",
-    "supported",
-    "supported (daily slots)",
-    "supported when the store holds completed bars with known_at",
+    "unverified",
+    "unverified",
+    "unverified",
     "absent_input / unknown_availability"
    ],
    [
@@ -354,9 +416,9 @@
     "technical velocity, acceleration, trend count",
     "supplies closes",
     "arithmetic",
-    "supported",
-    "supported",
-    "supported",
+    "unverified",
+    "unverified",
+    "unverified",
     "absent_input for OHLC-dependent outputs"
    ],
    [
@@ -364,9 +426,9 @@
     "technical.session_return_fraction",
     "must deliver slot 0",
     "admission",
-    "supported; a late-joining feed yields absent_input",
+    "unverified",
     "not applicable: INVALID_CONFIG under governed_history",
-    "supported when the first bar is stored",
+    "unverified",
     "absent_input / no_eligible_observations"
    ],
    [
@@ -374,9 +436,9 @@
     "all",
     "declares coverage and grid",
     "membership and gap checks",
-    "required; undeclared coverage with rows is INVALID_SCHEMA",
-    "required",
-    "required (grid from the store calendar)",
+    "unverified",
+    "unverified",
+    "unverified",
     "refusal (INVALID_SCHEMA / INCONSISTENT_IDENTITY)"
    ],
    [
@@ -384,9 +446,9 @@
     "all price outputs",
     "declares",
     "compares to the batch basis",
-    "required",
-    "required",
-    "store basis label must be supplied by the caller",
+    "unverified",
+    "unverified",
+    "unverified",
     "INVALID_CONFIG / INCONSISTENT_IDENTITY"
    ],
    [
@@ -394,9 +456,9 @@
     "all",
     "supplies K and known_at",
     "gates every consumed bar",
-    "required",
-    "required",
-    "required (stored known_at; null is unknown_availability)",
+    "unverified",
+    "unverified",
+    "unverified",
     "unknown_availability / future_knowledge"
    ],
    [
@@ -404,9 +466,9 @@
     "all",
     "supplies",
     "forming bar is future_market",
-    "required",
-    "required",
-    "required",
+    "unverified",
+    "unverified",
+    "unverified",
     "future_market"
    ],
    [
@@ -414,9 +476,9 @@
     "per producer",
     "chooses (no default anywhere)",
     "validates",
-    "required",
-    "required",
-    "required",
+    "unverified",
+    "unverified",
+    "unverified",
     "INVALID_CONFIG"
    ],
    [
@@ -434,13 +496,13 @@
     "readiness only (zero volume proves an empty slot)",
     "supplies",
     "no arithmetic on volume",
-    "supported",
-    "supported",
-    "supported",
+    "unverified",
+    "unverified",
+    "unverified",
     "null_field"
    ]
   ],
-  "provider_sources": "optional shipped provider adapters may map their bars to this contract; no provider is required and none is named by the contract"
+  "provider_sources": "Source cells are `unverified` until provider terms and field availability are checked; nothing here claims a provider supports a field. Every missing or late datum degrades to a quality outcome (absent_input, unknown_availability, future_knowledge, insufficient_history) or a typed refusal; the degradation text is in the last column. No provider is required and none is named by the contract"
  },
  "defaults_ledger": {
   "statement": "the library contract has no default value anywhere: every parameter in `producers.*.parameters`, the adjustment basis, the price unit, K, the coverage declaration and the structural context must be supplied; a missing item is INVALID_CONFIG or a typed shared/identity refusal, a missing bar fact is absent_input, unknown_availability or insufficient_history",
@@ -492,7 +554,8 @@
    "RF29",
    "RF30",
    "RF34",
-   "RF35"
+   "RF35",
+   "RF50"
   ],
   "note": "missing and future known_at are result-level fail-closed (status missing_input, value null) as in EF3/EF4; see PO-3"
  },
@@ -543,7 +606,8 @@
    "SD01",
    "SD02",
    "SD04",
-   "TD01"
+   "TD01",
+   "TD20"
   ],
   "negative_control": [
    "CD01"
@@ -553,8 +617,11 @@
    "CD05",
    "CD08",
    "CD11",
+   "CD24",
    "SD03",
-   "TD02"
+   "SD17",
+   "TD02",
+   "TD19"
   ],
   "threshold_equal": [
    "CD02"
@@ -564,8 +631,10 @@
    "CD05",
    "CD08",
    "CD10",
+   "CD24",
    "SD03",
    "SD04",
+   "SD17",
    "TD03",
    "TD10"
   ],
@@ -578,11 +647,14 @@
   "equal_high_low": [
    "CD04",
    "CD05",
-   "SD03"
+   "CD24",
+   "SD03",
+   "SD17"
   ],
   "inside_bar": [
    "CD05",
-   "CD06"
+   "CD06",
+   "CD24"
   ],
   "engulfing": [
    "CD07",
@@ -701,7 +773,8 @@
   "swing_low": [
    "SD02",
    "SD04",
-   "SD09"
+   "SD09",
+   "SD17"
   ],
   "early_close": [
    "SD05",
@@ -722,7 +795,9 @@
    "TD01",
    "TD02",
    "TD03",
-   "TD04"
+   "TD04",
+   "TD19",
+   "TD20"
   ],
   "velocity": [
    "TD01"
@@ -738,13 +813,18 @@
    "TD04"
   ],
   "flat": [
-   "TD02"
+   "TD02",
+   "TD19"
   ],
   "split_basis": [
    "TD10"
   ],
   "elapsed": [
    "TD11"
+  ],
+  "m1": [
+   "TD19",
+   "TD20"
   ],
   "known_at": [
    "KA01",
@@ -875,44 +955,44 @@
   {
    "id": "PO-1",
    "topic": "Trend count semantics",
-   "text": "RULING NEEDED: confirm the signed completed-window trend count is M adjacent non-overlapping N-bar windows, direction = sign of the close change, flat window = 0, result in [-M, M]. Alternatives: sliding windows (overlapping), or flat counted as a half or excluded. The manifest operands (ordered_completed_close_windows, adjacency, session_reset) do not decide it.",
-   "state": "PO ruling needed"
+   "text": "confirm the signed completed-window trend count is M adjacent non-overlapping N-bar windows, direction = sign of the close change, flat window = 0, result in [-M, M]. Alternatives: sliding windows (overlapping), or flat counted as a half or excluded. The manifest operands (ordered_completed_close_windows, adjacency, session_reset) do not decide it.",
+   "state": "PO ruling 2026-10-28: ACCEPT (work/po-rulings-ef5-2026-10-28.md)"
   },
   {
    "id": "PO-2",
    "topic": "Unit spellings",
-   "text": "RULING NEEDED: E9 gives no squared form. Proposed fraction/s^2 for acceleration and `windows` for the trend count; the manifest units fraction_per_second and fraction_per_second_squared are recorded as aliases and replaced with fraction/s and fraction/s^2 in this PR.",
-   "state": "PO ruling needed"
+   "text": "E9 gives no squared form. Proposed fraction/s^2 for acceleration and `windows` for the trend count; the manifest units fraction_per_second and fraction_per_second_squared are recorded as aliases and replaced with fraction/s and fraction/s^2 in this PR.",
+   "state": "PO ruling 2026-10-28: ACCEPT (work/po-rulings-ef5-2026-10-28.md)"
   },
   {
    "id": "PO-3",
    "topic": "Missing or future known_at",
-   "text": "RULING NEEDED: the acceptance criterion says these are 'refused'. The EF3/EF4 contracts treat them as result-level fail-closed (missing_input, null value, reason unknown_availability or future_knowledge). Confirm that is 'refused' for EF5, or require a typed refusal (which would change a shared EF3/EF4 semantic).",
-   "state": "PO ruling needed"
+   "text": "the acceptance criterion says these are 'refused'. The EF3/EF4 contracts treat them as result-level fail-closed (missing_input, null value, reason unknown_availability or future_knowledge). Confirm that is 'refused' for EF5, or require a typed refusal (which would change a shared EF3/EF4 semantic).",
+   "state": "PO ruling 2026-10-28: ACCEPT (work/po-rulings-ef5-2026-10-28.md)"
   },
   {
    "id": "PO-4",
    "topic": "Corporate actions",
-   "text": "RULING NEEDED: v1 consumes one caller-declared adjustment basis and does not detect splits (TD10 computes -1/120 across a 2:1 drop on an unadjusted basis). Alternative: require supplied action facts (a REFERENCE role) and mark windows crossing an action unavailable. Which for v1?",
-   "state": "PO ruling needed"
+   "text": "v1 consumes one caller-declared adjustment basis and does not detect splits (TD10 computes -1/120 across a 2:1 drop on an unadjusted basis). Alternative: require supplied action facts (a REFERENCE role) and mark windows crossing an action unavailable. Which for v1?",
+   "state": "PO ruling 2026-10-28: ACCEPT (work/po-rulings-ef5-2026-10-28.md)"
   },
   {
    "id": "PO-5",
    "topic": "Catalogue and tie conventions",
-   "text": "RULING NEEDED: accept the minimum catalogue (7 candle, 4 structure outputs) and the tie conventions (doji inclusive, inside bar strict, engulfing needs one strict side, swings strict). Is any named multi-bar pattern required for EF5 acceptance?",
-   "state": "PO ruling needed"
+   "text": "accept the minimum catalogue (7 candle, 4 structure outputs) and the tie conventions (doji inclusive, inside bar strict, engulfing needs one strict side, swings strict). Is any named multi-bar pattern required for EF5 acceptance?",
+   "state": "PO ruling 2026-10-28: ACCEPT (work/po-rulings-ef5-2026-10-28.md)"
   },
   {
    "id": "PO-6",
    "topic": "Elapsed time base",
-   "text": "RULING NEEDED: velocity and acceleration divide by the exact difference of bar end instants (a daily bar after a weekend uses 3 days: TD11). Alternative: nominal bar length. Proposed: actual end-instant difference.",
-   "state": "PO ruling needed"
+   "text": "velocity and acceleration divide by the exact difference of bar end instants (a daily bar after a weekend uses 3 days: TD11). Alternative: nominal bar length. Proposed: actual end-instant difference.",
+   "state": "PO ruling 2026-10-28: ACCEPT (work/po-rulings-ef5-2026-10-28.md)"
   },
   {
    "id": "PO-7",
    "topic": "Code for undeclared coverage",
-   "text": "RULING NEEDED (low): INVALID_SCHEMA is used for rows without declared coverage, matching the merged tape adapter; E2 allowed any existing fitting code (INCONSISTENT_IDENTITY is the alternative).",
-   "state": "PO ruling needed"
+   "text": "EF5 uses INVALID_SCHEMA (matches the merged tape adapter); the EF4 library code for the same case is the one ruled in E2 and may differ (cross-reference in EF5_SHARED_AMENDMENT). INVALID_SCHEMA is used for rows without declared coverage, matching the merged tape adapter; E2 allowed any existing fitting code (INCONSISTENT_IDENTITY is the alternative).",
+   "state": "PO ruling 2026-10-28: ACCEPT (work/po-rulings-ef5-2026-10-28.md)"
   }
  ],
  "layer_responsibilities": {
@@ -921,6 +1001,7 @@
   "worker": "routes selected outputs with exact window closure, executes a bounded pattern window without future data, preserves correction and replay scope, persists the library result unchanged; direct, adapter, worker and stored results are identical including refusal class"
  },
  "non_goals": [
+  "no named three-bar (or other multi-bar) patterns in this catalogue version; additions go through a new catalogue version",
   "consumer policy, signals, ranking thresholds or recommendations",
   "live data or partial-bar evaluation",
   "option-native patterns",
@@ -964,7 +1045,7 @@
    "aliases": []
   }
  ],
- "coordinator_freeze": "not frozen: freeze as ef5-price-structures-1 only after the second-author recompute, the tester stratified recompute, PO rulings PO-1..PO-7 and a reviewer verdict artifact are merged",
+ "coordinator_freeze": "not frozen: freeze as ef5-price-structures-1 only after the second-author recompute, the tester stratified recompute, a reviewer verdict artifact and an independent docs review are merged (PO rulings PO-1..PO-7 are applied)",
  "candle_fixtures": [
   {
    "id": "CD01",
@@ -1029,7 +1110,8 @@
      },
      "witnesses": [
       "slot:1"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "candle.doji": {
      "status": "available",
@@ -1042,7 +1124,8 @@
      },
      "witnesses": [
       "slot:1"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "candle.engulfing_bearish": {
      "status": "available",
@@ -1056,7 +1139,8 @@
      "witnesses": [
       "slot:1",
       "slot:0"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "candle.engulfing_bullish": {
      "status": "available",
@@ -1070,7 +1154,8 @@
      "witnesses": [
       "slot:1",
       "slot:0"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "candle.inside_bar": {
      "status": "available",
@@ -1084,7 +1169,8 @@
      "witnesses": [
       "slot:1",
       "slot:0"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "candle.lower_shadow_fraction": {
      "status": "available",
@@ -1099,7 +1185,8 @@
      },
      "witnesses": [
       "slot:1"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "candle.upper_shadow_fraction": {
      "status": "available",
@@ -1114,7 +1201,8 @@
      },
      "witnesses": [
       "slot:1"
-     ]
+     ],
+     "basis": "unadjusted"
     }
    }
   },
@@ -1181,7 +1269,8 @@
      },
      "witnesses": [
       "slot:1"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "candle.doji": {
      "status": "available",
@@ -1194,7 +1283,8 @@
      },
      "witnesses": [
       "slot:1"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "candle.engulfing_bearish": {
      "status": "available",
@@ -1208,7 +1298,8 @@
      "witnesses": [
       "slot:1",
       "slot:0"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "candle.engulfing_bullish": {
      "status": "available",
@@ -1222,7 +1313,8 @@
      "witnesses": [
       "slot:1",
       "slot:0"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "candle.inside_bar": {
      "status": "available",
@@ -1236,7 +1328,8 @@
      "witnesses": [
       "slot:1",
       "slot:0"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "candle.lower_shadow_fraction": {
      "status": "available",
@@ -1251,7 +1344,8 @@
      },
      "witnesses": [
       "slot:1"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "candle.upper_shadow_fraction": {
      "status": "available",
@@ -1266,7 +1360,8 @@
      },
      "witnesses": [
       "slot:1"
-     ]
+     ],
+     "basis": "unadjusted"
     }
    }
   },
@@ -1332,7 +1427,8 @@
      },
      "witnesses": [
       "slot:1"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "candle.doji": {
      "status": "available",
@@ -1345,7 +1441,8 @@
      },
      "witnesses": [
       "slot:1"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "candle.engulfing_bearish": {
      "status": "available",
@@ -1359,7 +1456,8 @@
      "witnesses": [
       "slot:1",
       "slot:0"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "candle.engulfing_bullish": {
      "status": "available",
@@ -1373,7 +1471,8 @@
      "witnesses": [
       "slot:1",
       "slot:0"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "candle.inside_bar": {
      "status": "available",
@@ -1387,7 +1486,8 @@
      "witnesses": [
       "slot:1",
       "slot:0"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "candle.lower_shadow_fraction": {
      "status": "available",
@@ -1402,7 +1502,8 @@
      },
      "witnesses": [
       "slot:1"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "candle.upper_shadow_fraction": {
      "status": "available",
@@ -1417,7 +1518,8 @@
      },
      "witnesses": [
       "slot:1"
-     ]
+     ],
+     "basis": "unadjusted"
     }
    }
   },
@@ -1479,7 +1581,8 @@
      "expected": 1,
      "observed": 1,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     },
     "candle.doji": {
      "status": "not_applicable",
@@ -1489,7 +1592,8 @@
      "expected": 1,
      "observed": 1,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     },
     "candle.engulfing_bearish": {
      "status": "available",
@@ -1503,7 +1607,8 @@
      "witnesses": [
       "slot:1",
       "slot:0"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "candle.engulfing_bullish": {
      "status": "available",
@@ -1517,7 +1622,8 @@
      "witnesses": [
       "slot:1",
       "slot:0"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "candle.inside_bar": {
      "status": "available",
@@ -1531,7 +1637,8 @@
      "witnesses": [
       "slot:1",
       "slot:0"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "candle.lower_shadow_fraction": {
      "status": "not_applicable",
@@ -1541,7 +1648,8 @@
      "expected": 1,
      "observed": 1,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     },
     "candle.upper_shadow_fraction": {
      "status": "not_applicable",
@@ -1551,7 +1659,8 @@
      "expected": 1,
      "observed": 1,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     }
    }
   },
@@ -1619,7 +1728,8 @@
      },
      "witnesses": [
       "slot:1"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "candle.doji": {
      "status": "available",
@@ -1632,7 +1742,8 @@
      },
      "witnesses": [
       "slot:1"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "candle.engulfing_bearish": {
      "status": "available",
@@ -1646,7 +1757,8 @@
      "witnesses": [
       "slot:1",
       "slot:0"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "candle.engulfing_bullish": {
      "status": "available",
@@ -1660,7 +1772,8 @@
      "witnesses": [
       "slot:1",
       "slot:0"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "candle.inside_bar": {
      "status": "available",
@@ -1674,7 +1787,8 @@
      "witnesses": [
       "slot:1",
       "slot:0"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "candle.lower_shadow_fraction": {
      "status": "available",
@@ -1689,7 +1803,8 @@
      },
      "witnesses": [
       "slot:1"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "candle.upper_shadow_fraction": {
      "status": "available",
@@ -1704,7 +1819,8 @@
      },
      "witnesses": [
       "slot:1"
-     ]
+     ],
+     "basis": "unadjusted"
     }
    }
   },
@@ -1770,7 +1886,8 @@
      },
      "witnesses": [
       "slot:1"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "candle.doji": {
      "status": "available",
@@ -1783,7 +1900,8 @@
      },
      "witnesses": [
       "slot:1"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "candle.engulfing_bearish": {
      "status": "available",
@@ -1797,7 +1915,8 @@
      "witnesses": [
       "slot:1",
       "slot:0"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "candle.engulfing_bullish": {
      "status": "available",
@@ -1811,7 +1930,8 @@
      "witnesses": [
       "slot:1",
       "slot:0"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "candle.inside_bar": {
      "status": "available",
@@ -1825,7 +1945,8 @@
      "witnesses": [
       "slot:1",
       "slot:0"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "candle.lower_shadow_fraction": {
      "status": "available",
@@ -1840,7 +1961,8 @@
      },
      "witnesses": [
       "slot:1"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "candle.upper_shadow_fraction": {
      "status": "available",
@@ -1855,7 +1977,8 @@
      },
      "witnesses": [
       "slot:1"
-     ]
+     ],
+     "basis": "unadjusted"
     }
    }
   },
@@ -1921,7 +2044,8 @@
      },
      "witnesses": [
       "slot:1"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "candle.doji": {
      "status": "available",
@@ -1934,7 +2058,8 @@
      },
      "witnesses": [
       "slot:1"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "candle.engulfing_bearish": {
      "status": "available",
@@ -1948,7 +2073,8 @@
      "witnesses": [
       "slot:1",
       "slot:0"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "candle.engulfing_bullish": {
      "status": "available",
@@ -1962,7 +2088,8 @@
      "witnesses": [
       "slot:1",
       "slot:0"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "candle.inside_bar": {
      "status": "available",
@@ -1976,7 +2103,8 @@
      "witnesses": [
       "slot:1",
       "slot:0"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "candle.lower_shadow_fraction": {
      "status": "available",
@@ -1991,7 +2119,8 @@
      },
      "witnesses": [
       "slot:1"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "candle.upper_shadow_fraction": {
      "status": "available",
@@ -2006,7 +2135,8 @@
      },
      "witnesses": [
       "slot:1"
-     ]
+     ],
+     "basis": "unadjusted"
     }
    }
   },
@@ -2073,7 +2203,8 @@
      },
      "witnesses": [
       "slot:1"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "candle.doji": {
      "status": "available",
@@ -2086,7 +2217,8 @@
      },
      "witnesses": [
       "slot:1"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "candle.engulfing_bearish": {
      "status": "available",
@@ -2100,7 +2232,8 @@
      "witnesses": [
       "slot:1",
       "slot:0"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "candle.engulfing_bullish": {
      "status": "available",
@@ -2114,7 +2247,8 @@
      "witnesses": [
       "slot:1",
       "slot:0"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "candle.inside_bar": {
      "status": "available",
@@ -2128,7 +2262,8 @@
      "witnesses": [
       "slot:1",
       "slot:0"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "candle.lower_shadow_fraction": {
      "status": "available",
@@ -2143,7 +2278,8 @@
      },
      "witnesses": [
       "slot:1"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "candle.upper_shadow_fraction": {
      "status": "available",
@@ -2158,7 +2294,8 @@
      },
      "witnesses": [
       "slot:1"
-     ]
+     ],
+     "basis": "unadjusted"
     }
    }
   },
@@ -2224,7 +2361,8 @@
      },
      "witnesses": [
       "slot:1"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "candle.doji": {
      "status": "available",
@@ -2237,7 +2375,8 @@
      },
      "witnesses": [
       "slot:1"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "candle.engulfing_bearish": {
      "status": "available",
@@ -2251,7 +2390,8 @@
      "witnesses": [
       "slot:1",
       "slot:0"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "candle.engulfing_bullish": {
      "status": "available",
@@ -2265,7 +2405,8 @@
      "witnesses": [
       "slot:1",
       "slot:0"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "candle.inside_bar": {
      "status": "available",
@@ -2279,7 +2420,8 @@
      "witnesses": [
       "slot:1",
       "slot:0"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "candle.lower_shadow_fraction": {
      "status": "available",
@@ -2294,7 +2436,8 @@
      },
      "witnesses": [
       "slot:1"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "candle.upper_shadow_fraction": {
      "status": "available",
@@ -2309,7 +2452,8 @@
      },
      "witnesses": [
       "slot:1"
-     ]
+     ],
+     "basis": "unadjusted"
     }
    }
   },
@@ -2376,7 +2520,8 @@
      },
      "witnesses": [
       "slot:1"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "candle.doji": {
      "status": "available",
@@ -2389,7 +2534,8 @@
      },
      "witnesses": [
       "slot:1"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "candle.engulfing_bearish": {
      "status": "available",
@@ -2403,7 +2549,8 @@
      "witnesses": [
       "slot:1",
       "slot:0"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "candle.engulfing_bullish": {
      "status": "available",
@@ -2417,7 +2564,8 @@
      "witnesses": [
       "slot:1",
       "slot:0"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "candle.inside_bar": {
      "status": "available",
@@ -2431,7 +2579,8 @@
      "witnesses": [
       "slot:1",
       "slot:0"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "candle.lower_shadow_fraction": {
      "status": "available",
@@ -2446,7 +2595,8 @@
      },
      "witnesses": [
       "slot:1"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "candle.upper_shadow_fraction": {
      "status": "available",
@@ -2461,7 +2611,8 @@
      },
      "witnesses": [
       "slot:1"
-     ]
+     ],
+     "basis": "unadjusted"
     }
    }
   },
@@ -2528,7 +2679,8 @@
      },
      "witnesses": [
       "slot:1"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "candle.doji": {
      "status": "available",
@@ -2541,7 +2693,8 @@
      },
      "witnesses": [
       "slot:1"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "candle.engulfing_bearish": {
      "status": "available",
@@ -2555,7 +2708,8 @@
      "witnesses": [
       "slot:1",
       "slot:0"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "candle.engulfing_bullish": {
      "status": "available",
@@ -2569,7 +2723,8 @@
      "witnesses": [
       "slot:1",
       "slot:0"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "candle.inside_bar": {
      "status": "available",
@@ -2583,7 +2738,8 @@
      "witnesses": [
       "slot:1",
       "slot:0"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "candle.lower_shadow_fraction": {
      "status": "available",
@@ -2598,7 +2754,8 @@
      },
      "witnesses": [
       "slot:1"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "candle.upper_shadow_fraction": {
      "status": "available",
@@ -2613,7 +2770,8 @@
      },
      "witnesses": [
       "slot:1"
-     ]
+     ],
+     "basis": "unadjusted"
     }
    }
   },
@@ -2672,7 +2830,8 @@
      },
      "witnesses": [
       "slot:0"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "candle.doji": {
      "status": "available",
@@ -2685,7 +2844,8 @@
      },
      "witnesses": [
       "slot:0"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "candle.engulfing_bearish": {
      "status": "insufficient_history",
@@ -2695,7 +2855,8 @@
      "expected": 2,
      "observed": 1,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     },
     "candle.engulfing_bullish": {
      "status": "insufficient_history",
@@ -2705,7 +2866,8 @@
      "expected": 2,
      "observed": 1,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     },
     "candle.inside_bar": {
      "status": "insufficient_history",
@@ -2715,7 +2877,8 @@
      "expected": 2,
      "observed": 1,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     },
     "candle.lower_shadow_fraction": {
      "status": "available",
@@ -2730,7 +2893,8 @@
      },
      "witnesses": [
       "slot:0"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "candle.upper_shadow_fraction": {
      "status": "available",
@@ -2745,7 +2909,8 @@
      },
      "witnesses": [
       "slot:0"
-     ]
+     ],
+     "basis": "unadjusted"
     }
    }
   },
@@ -2799,7 +2964,8 @@
      "expected": 1,
      "observed": 0,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     },
     "candle.doji": {
      "status": "not_applicable",
@@ -2809,7 +2975,8 @@
      "expected": 1,
      "observed": 0,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     },
     "candle.engulfing_bearish": {
      "status": "not_applicable",
@@ -2819,7 +2986,8 @@
      "expected": 2,
      "observed": 1,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     },
     "candle.engulfing_bullish": {
      "status": "not_applicable",
@@ -2829,7 +2997,8 @@
      "expected": 2,
      "observed": 1,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     },
     "candle.inside_bar": {
      "status": "not_applicable",
@@ -2839,7 +3008,8 @@
      "expected": 2,
      "observed": 1,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     },
     "candle.lower_shadow_fraction": {
      "status": "not_applicable",
@@ -2849,7 +3019,8 @@
      "expected": 1,
      "observed": 0,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     },
     "candle.upper_shadow_fraction": {
      "status": "not_applicable",
@@ -2859,7 +3030,8 @@
      "expected": 1,
      "observed": 0,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     }
    }
   },
@@ -2912,7 +3084,8 @@
      "expected": 1,
      "observed": 0,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     },
     "candle.doji": {
      "status": "missing_input",
@@ -2922,7 +3095,8 @@
      "expected": 1,
      "observed": 0,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     },
     "candle.engulfing_bearish": {
      "status": "missing_input",
@@ -2932,7 +3106,8 @@
      "expected": 2,
      "observed": 1,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     },
     "candle.engulfing_bullish": {
      "status": "missing_input",
@@ -2942,7 +3117,8 @@
      "expected": 2,
      "observed": 1,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     },
     "candle.inside_bar": {
      "status": "missing_input",
@@ -2952,7 +3128,8 @@
      "expected": 2,
      "observed": 1,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     },
     "candle.lower_shadow_fraction": {
      "status": "missing_input",
@@ -2962,7 +3139,8 @@
      "expected": 1,
      "observed": 0,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     },
     "candle.upper_shadow_fraction": {
      "status": "missing_input",
@@ -2972,7 +3150,8 @@
      "expected": 1,
      "observed": 0,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     }
    }
   },
@@ -3025,7 +3204,8 @@
      "expected": 1,
      "observed": 0,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     },
     "candle.doji": {
      "status": "missing_input",
@@ -3035,7 +3215,8 @@
      "expected": 1,
      "observed": 0,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     },
     "candle.engulfing_bearish": {
      "status": "missing_input",
@@ -3045,7 +3226,8 @@
      "expected": 2,
      "observed": 1,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     },
     "candle.engulfing_bullish": {
      "status": "missing_input",
@@ -3055,7 +3237,8 @@
      "expected": 2,
      "observed": 1,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     },
     "candle.inside_bar": {
      "status": "missing_input",
@@ -3065,7 +3248,8 @@
      "expected": 2,
      "observed": 1,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     },
     "candle.lower_shadow_fraction": {
      "status": "missing_input",
@@ -3075,7 +3259,8 @@
      "expected": 1,
      "observed": 0,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     },
     "candle.upper_shadow_fraction": {
      "status": "missing_input",
@@ -3085,7 +3270,8 @@
      "expected": 1,
      "observed": 0,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     }
    }
   },
@@ -3144,7 +3330,8 @@
      },
      "witnesses": [
       "slot:1"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "candle.doji": {
      "status": "available",
@@ -3157,7 +3344,8 @@
      },
      "witnesses": [
       "slot:1"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "candle.engulfing_bearish": {
      "status": "incomplete_coverage",
@@ -3167,7 +3355,8 @@
      "expected": 2,
      "observed": 1,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     },
     "candle.engulfing_bullish": {
      "status": "incomplete_coverage",
@@ -3177,7 +3366,8 @@
      "expected": 2,
      "observed": 1,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     },
     "candle.inside_bar": {
      "status": "incomplete_coverage",
@@ -3187,7 +3377,8 @@
      "expected": 2,
      "observed": 1,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     },
     "candle.lower_shadow_fraction": {
      "status": "available",
@@ -3202,7 +3393,8 @@
      },
      "witnesses": [
       "slot:1"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "candle.upper_shadow_fraction": {
      "status": "available",
@@ -3217,7 +3409,8 @@
      },
      "witnesses": [
       "slot:1"
-     ]
+     ],
+     "basis": "unadjusted"
     }
    }
   },
@@ -3271,7 +3464,8 @@
      "expected": 1,
      "observed": 0,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     },
     "candle.doji": {
      "status": "incomplete_coverage",
@@ -3281,7 +3475,8 @@
      "expected": 1,
      "observed": 0,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     },
     "candle.engulfing_bearish": {
      "status": "incomplete_coverage",
@@ -3291,7 +3486,8 @@
      "expected": 2,
      "observed": 1,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     },
     "candle.engulfing_bullish": {
      "status": "incomplete_coverage",
@@ -3301,7 +3497,8 @@
      "expected": 2,
      "observed": 1,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     },
     "candle.inside_bar": {
      "status": "incomplete_coverage",
@@ -3311,7 +3508,8 @@
      "expected": 2,
      "observed": 1,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     },
     "candle.lower_shadow_fraction": {
      "status": "incomplete_coverage",
@@ -3321,7 +3519,8 @@
      "expected": 1,
      "observed": 0,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     },
     "candle.upper_shadow_fraction": {
      "status": "incomplete_coverage",
@@ -3331,7 +3530,8 @@
      "expected": 1,
      "observed": 0,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     }
    }
   },
@@ -3405,7 +3605,8 @@
      },
      "witnesses": [
       "slot:1"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "candle.doji": {
      "status": "available",
@@ -3418,7 +3619,8 @@
      },
      "witnesses": [
       "slot:1"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "candle.engulfing_bearish": {
      "status": "available",
@@ -3432,7 +3634,8 @@
      "witnesses": [
       "slot:1",
       "slot:0"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "candle.engulfing_bullish": {
      "status": "available",
@@ -3446,7 +3649,8 @@
      "witnesses": [
       "slot:1",
       "slot:0"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "candle.inside_bar": {
      "status": "available",
@@ -3460,7 +3664,8 @@
      "witnesses": [
       "slot:1",
       "slot:0"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "candle.lower_shadow_fraction": {
      "status": "available",
@@ -3475,7 +3680,8 @@
      },
      "witnesses": [
       "slot:1"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "candle.upper_shadow_fraction": {
      "status": "available",
@@ -3490,7 +3696,8 @@
      },
      "witnesses": [
       "slot:1"
-     ]
+     ],
+     "basis": "unadjusted"
     }
    }
   },
@@ -3542,7 +3749,8 @@
      "expected": 1,
      "observed": 0,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     },
     "candle.doji": {
      "status": "missing_input",
@@ -3552,7 +3760,8 @@
      "expected": 1,
      "observed": 0,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     },
     "candle.engulfing_bearish": {
      "status": "missing_input",
@@ -3562,7 +3771,8 @@
      "expected": 2,
      "observed": 0,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     },
     "candle.engulfing_bullish": {
      "status": "missing_input",
@@ -3572,7 +3782,8 @@
      "expected": 2,
      "observed": 0,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     },
     "candle.inside_bar": {
      "status": "missing_input",
@@ -3582,7 +3793,8 @@
      "expected": 2,
      "observed": 0,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     },
     "candle.lower_shadow_fraction": {
      "status": "missing_input",
@@ -3592,7 +3804,8 @@
      "expected": 1,
      "observed": 0,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     },
     "candle.upper_shadow_fraction": {
      "status": "missing_input",
@@ -3602,7 +3815,8 @@
      "expected": 1,
      "observed": 0,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     }
    }
   },
@@ -3667,7 +3881,8 @@
      },
      "witnesses": [
       "slot:1"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "candle.doji": {
      "status": "available",
@@ -3680,7 +3895,8 @@
      },
      "witnesses": [
       "slot:1"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "candle.engulfing_bearish": {
      "status": "available",
@@ -3693,7 +3909,8 @@
      },
      "witnesses": [
       "slot:1"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "candle.engulfing_bullish": {
      "status": "available",
@@ -3706,7 +3923,8 @@
      },
      "witnesses": [
       "slot:1"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "candle.inside_bar": {
      "status": "available",
@@ -3719,7 +3937,8 @@
      },
      "witnesses": [
       "slot:1"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "candle.lower_shadow_fraction": {
      "status": "available",
@@ -3734,7 +3953,8 @@
      },
      "witnesses": [
       "slot:1"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "candle.upper_shadow_fraction": {
      "status": "available",
@@ -3749,7 +3969,8 @@
      },
      "witnesses": [
       "slot:1"
-     ]
+     ],
+     "basis": "unadjusted"
     }
    }
   },
@@ -3812,7 +4033,8 @@
       "hex": "0x1.999999999999ap-1",
       "acceptance": "tolerance"
      },
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     },
     "candle.doji": {
      "status": "available",
@@ -3823,7 +4045,8 @@
       "bool": false,
       "acceptance": "exact_bool"
      },
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     },
     "candle.engulfing_bearish": {
      "status": "available",
@@ -3834,7 +4057,8 @@
       "bool": false,
       "acceptance": "exact_bool"
      },
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     },
     "candle.engulfing_bullish": {
      "status": "available",
@@ -3845,7 +4069,8 @@
       "bool": true,
       "acceptance": "exact_bool"
      },
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     },
     "candle.inside_bar": {
      "status": "available",
@@ -3856,7 +4081,8 @@
       "bool": false,
       "acceptance": "exact_bool"
      },
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     },
     "candle.lower_shadow_fraction": {
      "status": "available",
@@ -3869,7 +4095,8 @@
       "hex": "0x1.999999999999ap-4",
       "acceptance": "tolerance"
      },
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     },
     "candle.upper_shadow_fraction": {
      "status": "available",
@@ -3882,7 +4109,8 @@
       "hex": "0x1.999999999999ap-4",
       "acceptance": "tolerance"
      },
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     }
    }
   },
@@ -3948,7 +4176,8 @@
      },
      "witnesses": [
       "slot:1"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "candle.doji": {
      "status": "available",
@@ -3961,7 +4190,8 @@
      },
      "witnesses": [
       "slot:1"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "candle.engulfing_bearish": {
      "status": "available",
@@ -3975,7 +4205,8 @@
      "witnesses": [
       "slot:1",
       "slot:0"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "candle.engulfing_bullish": {
      "status": "available",
@@ -3989,7 +4220,8 @@
      "witnesses": [
       "slot:1",
       "slot:0"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "candle.inside_bar": {
      "status": "available",
@@ -4003,7 +4235,8 @@
      "witnesses": [
       "slot:1",
       "slot:0"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "candle.lower_shadow_fraction": {
      "status": "available",
@@ -4018,7 +4251,8 @@
      },
      "witnesses": [
       "slot:1"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "candle.upper_shadow_fraction": {
      "status": "available",
@@ -4033,7 +4267,8 @@
      },
      "witnesses": [
       "slot:1"
-     ]
+     ],
+     "basis": "unadjusted"
     }
    }
   },
@@ -4097,7 +4332,8 @@
      },
      "witnesses": [
       "slot:1"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "candle.doji": {
      "status": "available",
@@ -4110,7 +4346,8 @@
      },
      "witnesses": [
       "slot:1"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "candle.engulfing_bearish": {
      "status": "available",
@@ -4124,7 +4361,8 @@
      "witnesses": [
       "slot:1",
       "slot:0"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "candle.engulfing_bullish": {
      "status": "available",
@@ -4138,7 +4376,8 @@
      "witnesses": [
       "slot:1",
       "slot:0"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "candle.inside_bar": {
      "status": "available",
@@ -4152,7 +4391,8 @@
      "witnesses": [
       "slot:1",
       "slot:0"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "candle.lower_shadow_fraction": {
      "status": "available",
@@ -4167,7 +4407,8 @@
      },
      "witnesses": [
       "slot:1"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "candle.upper_shadow_fraction": {
      "status": "available",
@@ -4182,7 +4423,168 @@
      },
      "witnesses": [
       "slot:1"
-     ]
+     ],
+     "basis": "unadjusted"
+    }
+   }
+  },
+  {
+   "id": "CD24",
+   "group": "inside_tie_low",
+   "description": "equal low with lower high: strict inside bar is false",
+   "producer": "candle",
+   "params": {
+    "policy_version": "ef5-candle1",
+    "epoch_profile": "session_reset",
+    "doji_body_max_fraction": "1/10",
+    "evidence_limit": 10000
+   },
+   "unit": {
+    "currency": "USD",
+    "scale": 0
+   },
+   "adjustment": "unadjusted",
+   "K": 100,
+   "columns": "ohlcv",
+   "slots": [
+    [
+     10,
+     20,
+     5,
+     12,
+     5
+    ],
+    [
+     11,
+     18,
+     5,
+     12,
+     5
+    ]
+   ],
+   "outputs": [
+    "candle.body_fraction",
+    "candle.doji",
+    "candle.engulfing_bearish",
+    "candle.engulfing_bullish",
+    "candle.inside_bar",
+    "candle.lower_shadow_fraction",
+    "candle.upper_shadow_fraction"
+   ],
+   "tags": [
+    "inside_bar",
+    "tie",
+    "equal_high_low",
+    "negative"
+   ],
+   "hand_check": "5 > 5 false",
+   "expected": {
+    "candle.body_fraction": {
+     "status": "available",
+     "reasons": [],
+     "expected": 1,
+     "observed": 1,
+     "value": {
+      "exact": "1/13",
+      "float64": 0.07692307692307693,
+      "hex": "0x1.3b13b13b13b14p-4",
+      "acceptance": "tolerance"
+     },
+     "witnesses": [
+      "slot:1"
+     ],
+     "basis": "unadjusted"
+    },
+    "candle.doji": {
+     "status": "available",
+     "reasons": [],
+     "expected": 1,
+     "observed": 1,
+     "value": {
+      "bool": true,
+      "acceptance": "exact_bool"
+     },
+     "witnesses": [
+      "slot:1"
+     ],
+     "basis": "unadjusted"
+    },
+    "candle.engulfing_bearish": {
+     "status": "available",
+     "reasons": [],
+     "expected": 2,
+     "observed": 2,
+     "value": {
+      "bool": false,
+      "acceptance": "exact_bool"
+     },
+     "witnesses": [
+      "slot:1",
+      "slot:0"
+     ],
+     "basis": "unadjusted"
+    },
+    "candle.engulfing_bullish": {
+     "status": "available",
+     "reasons": [],
+     "expected": 2,
+     "observed": 2,
+     "value": {
+      "bool": false,
+      "acceptance": "exact_bool"
+     },
+     "witnesses": [
+      "slot:1",
+      "slot:0"
+     ],
+     "basis": "unadjusted"
+    },
+    "candle.inside_bar": {
+     "status": "available",
+     "reasons": [],
+     "expected": 2,
+     "observed": 2,
+     "value": {
+      "bool": false,
+      "acceptance": "exact_bool"
+     },
+     "witnesses": [
+      "slot:1",
+      "slot:0"
+     ],
+     "basis": "unadjusted"
+    },
+    "candle.lower_shadow_fraction": {
+     "status": "available",
+     "reasons": [],
+     "expected": 1,
+     "observed": 1,
+     "value": {
+      "exact": "6/13",
+      "float64": 0.46153846153846156,
+      "hex": "0x1.d89d89d89d89ep-2",
+      "acceptance": "tolerance"
+     },
+     "witnesses": [
+      "slot:1"
+     ],
+     "basis": "unadjusted"
+    },
+    "candle.upper_shadow_fraction": {
+     "status": "available",
+     "reasons": [],
+     "expected": 1,
+     "observed": 1,
+     "value": {
+      "exact": "6/13",
+      "float64": 0.46153846153846156,
+      "hex": "0x1.d89d89d89d89ep-2",
+      "acceptance": "tolerance"
+     },
+     "witnesses": [
+      "slot:1"
+     ],
+     "basis": "unadjusted"
     }
    }
   }
@@ -4257,7 +4659,8 @@
       "slot:1",
       "slot:2",
       "slot:0"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "structure.last_swing_low_price": {
      "status": "not_applicable",
@@ -4267,7 +4670,8 @@
      "expected": 3,
      "observed": 3,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     },
     "structure.swing_high_confirmed": {
      "status": "available",
@@ -4282,7 +4686,8 @@
       "slot:2",
       "slot:0",
       "slot:1"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "structure.swing_low_confirmed": {
      "status": "available",
@@ -4297,7 +4702,8 @@
       "slot:2",
       "slot:0",
       "slot:1"
-     ]
+     ],
+     "basis": "unadjusted"
     }
    }
   },
@@ -4363,7 +4769,8 @@
      "expected": 3,
      "observed": 3,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     },
     "structure.last_swing_low_price": {
      "status": "available",
@@ -4380,7 +4787,8 @@
       "slot:1",
       "slot:2",
       "slot:0"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "structure.swing_high_confirmed": {
      "status": "available",
@@ -4395,7 +4803,8 @@
       "slot:2",
       "slot:0",
       "slot:1"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "structure.swing_low_confirmed": {
      "status": "available",
@@ -4410,7 +4819,8 @@
       "slot:2",
       "slot:0",
       "slot:1"
-     ]
+     ],
+     "basis": "unadjusted"
     }
    }
   },
@@ -4478,7 +4888,8 @@
      "expected": 3,
      "observed": 3,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     },
     "structure.last_swing_low_price": {
      "status": "not_applicable",
@@ -4488,7 +4899,8 @@
      "expected": 3,
      "observed": 3,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     },
     "structure.swing_high_confirmed": {
      "status": "available",
@@ -4503,7 +4915,8 @@
       "slot:2",
       "slot:0",
       "slot:1"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "structure.swing_low_confirmed": {
      "status": "available",
@@ -4518,7 +4931,8 @@
       "slot:2",
       "slot:0",
       "slot:1"
-     ]
+     ],
+     "basis": "unadjusted"
     }
    }
   },
@@ -4625,7 +5039,8 @@
       "slot:3",
       "slot:4",
       "slot:5"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "structure.last_swing_low_price": {
      "status": "available",
@@ -4646,7 +5061,8 @@
       "slot:2",
       "slot:3",
       "slot:5"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "structure.swing_high_confirmed": {
      "status": "available",
@@ -4663,7 +5079,8 @@
       "slot:3",
       "slot:4",
       "slot:5"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "structure.swing_low_confirmed": {
      "status": "available",
@@ -4680,7 +5097,8 @@
       "slot:3",
       "slot:4",
       "slot:5"
-     ]
+     ],
+     "basis": "unadjusted"
     }
    }
   },
@@ -4746,7 +5164,8 @@
      "expected": 5,
      "observed": 3,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     },
     "structure.last_swing_low_price": {
      "status": "insufficient_history",
@@ -4756,7 +5175,8 @@
      "expected": 5,
      "observed": 3,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     },
     "structure.swing_high_confirmed": {
      "status": "insufficient_history",
@@ -4766,7 +5186,8 @@
      "expected": 5,
      "observed": 3,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     },
     "structure.swing_low_confirmed": {
      "status": "insufficient_history",
@@ -4776,7 +5197,8 @@
      "expected": 5,
      "observed": 3,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     }
    }
   },
@@ -4857,7 +5279,8 @@
       "slot:1",
       "slot:2",
       "slot:0"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "structure.last_swing_low_price": {
      "status": "not_applicable",
@@ -4867,7 +5290,8 @@
      "expected": 3,
      "observed": 3,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     },
     "structure.swing_high_confirmed": {
      "status": "available",
@@ -4882,7 +5306,8 @@
       "slot:2",
       "slot:0",
       "slot:1"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "structure.swing_low_confirmed": {
      "status": "available",
@@ -4897,7 +5322,8 @@
       "slot:2",
       "slot:0",
       "slot:1"
-     ]
+     ],
+     "basis": "unadjusted"
     }
    }
   },
@@ -4971,7 +5397,8 @@
      "expected": 5,
      "observed": 4,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     },
     "structure.last_swing_low_price": {
      "status": "incomplete_coverage",
@@ -4981,7 +5408,8 @@
      "expected": 5,
      "observed": 4,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     },
     "structure.swing_high_confirmed": {
      "status": "available",
@@ -4996,7 +5424,8 @@
       "slot:4",
       "slot:2",
       "slot:3"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "structure.swing_low_confirmed": {
      "status": "available",
@@ -5011,7 +5440,8 @@
       "slot:4",
       "slot:2",
       "slot:3"
-     ]
+     ],
+     "basis": "unadjusted"
     }
    }
   },
@@ -5092,7 +5522,8 @@
       "slot:3",
       "slot:0",
       "slot:2"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "structure.last_swing_low_price": {
      "status": "not_applicable",
@@ -5102,7 +5533,8 @@
      "expected": 4,
      "observed": 4,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     },
     "structure.swing_high_confirmed": {
      "status": "available",
@@ -5117,7 +5549,8 @@
       "slot:3",
       "slot:1",
       "slot:2"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "structure.swing_low_confirmed": {
      "status": "available",
@@ -5132,7 +5565,8 @@
       "slot:3",
       "slot:1",
       "slot:2"
-     ]
+     ],
+     "basis": "unadjusted"
     }
    }
   },
@@ -5238,7 +5672,8 @@
       "slot:2",
       "slot:3",
       "slot:4"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "structure.last_swing_low_price": {
      "status": "available",
@@ -5259,7 +5694,8 @@
       "slot:2",
       "slot:3",
       "slot:4"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "structure.swing_high_confirmed": {
      "status": "available",
@@ -5274,7 +5710,8 @@
       "slot:6",
       "slot:4",
       "slot:5"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "structure.swing_low_confirmed": {
      "status": "available",
@@ -5289,7 +5726,8 @@
       "slot:6",
       "slot:4",
       "slot:5"
-     ]
+     ],
+     "basis": "unadjusted"
     }
    }
   },
@@ -5363,7 +5801,8 @@
      "expected": 5,
      "observed": 4,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     },
     "structure.last_swing_low_price": {
      "status": "not_applicable",
@@ -5373,7 +5812,8 @@
      "expected": 5,
      "observed": 4,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     },
     "structure.swing_high_confirmed": {
      "status": "available",
@@ -5388,7 +5828,8 @@
       "slot:4",
       "slot:2",
       "slot:3"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "structure.swing_low_confirmed": {
      "status": "available",
@@ -5403,7 +5844,8 @@
       "slot:4",
       "slot:2",
       "slot:3"
-     ]
+     ],
+     "basis": "unadjusted"
     }
    }
   },
@@ -5461,7 +5903,8 @@
      "expected": 3,
      "observed": 2,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     },
     "structure.last_swing_low_price": {
      "status": "missing_input",
@@ -5471,7 +5914,8 @@
      "expected": 3,
      "observed": 2,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     },
     "structure.swing_high_confirmed": {
      "status": "missing_input",
@@ -5481,7 +5925,8 @@
      "expected": 3,
      "observed": 2,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     },
     "structure.swing_low_confirmed": {
      "status": "missing_input",
@@ -5491,7 +5936,8 @@
      "expected": 3,
      "observed": 2,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     }
    }
   },
@@ -5550,7 +5996,8 @@
      "expected": 3,
      "observed": 2,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     },
     "structure.last_swing_low_price": {
      "status": "incomplete_coverage",
@@ -5560,7 +6007,8 @@
      "expected": 3,
      "observed": 2,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     },
     "structure.swing_high_confirmed": {
      "status": "incomplete_coverage",
@@ -5570,7 +6018,8 @@
      "expected": 3,
      "observed": 2,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     },
     "structure.swing_low_confirmed": {
      "status": "incomplete_coverage",
@@ -5580,7 +6029,8 @@
      "expected": 3,
      "observed": 2,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     }
    }
   },
@@ -5654,7 +6104,8 @@
       "slot:1",
       "slot:2",
       "slot:0"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "structure.last_swing_low_price": {
      "status": "not_applicable",
@@ -5664,7 +6115,8 @@
      "expected": 3,
      "observed": 3,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     },
     "structure.swing_high_confirmed": {
      "status": "available",
@@ -5679,7 +6131,8 @@
       "slot:2",
       "slot:0",
       "slot:1"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "structure.swing_low_confirmed": {
      "status": "available",
@@ -5694,7 +6147,8 @@
       "slot:2",
       "slot:0",
       "slot:1"
-     ]
+     ],
+     "basis": "unadjusted"
     }
    }
   },
@@ -5747,7 +6201,8 @@
      "expected": 3,
      "observed": 0,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     },
     "structure.last_swing_low_price": {
      "status": "missing_input",
@@ -5757,7 +6212,8 @@
      "expected": 3,
      "observed": 0,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     },
     "structure.swing_high_confirmed": {
      "status": "missing_input",
@@ -5767,7 +6223,8 @@
      "expected": 3,
      "observed": 0,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     },
     "structure.swing_low_confirmed": {
      "status": "missing_input",
@@ -5777,7 +6234,8 @@
      "expected": 3,
      "observed": 0,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     }
    }
   },
@@ -5866,7 +6324,8 @@
       "slot:0",
       "slot:1",
       "slot:3"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "structure.last_swing_low_price": {
      "status": "not_applicable",
@@ -5876,7 +6335,8 @@
      "expected": 5,
      "observed": 5,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     },
     "structure.swing_high_confirmed": {
      "status": "available",
@@ -5893,7 +6353,8 @@
       "slot:1",
       "slot:2",
       "slot:3"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "structure.swing_low_confirmed": {
      "status": "available",
@@ -5910,7 +6371,8 @@
       "slot:1",
       "slot:2",
       "slot:3"
-     ]
+     ],
+     "basis": "unadjusted"
     }
    }
   },
@@ -6008,7 +6470,8 @@
      },
      "witnesses": [
       "slot:2"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "structure.last_swing_low_price": {
      "status": "available",
@@ -6023,7 +6486,8 @@
      },
      "witnesses": [
       "slot:4"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "structure.swing_high_confirmed": {
      "status": "available",
@@ -6036,7 +6500,8 @@
      },
      "witnesses": [
       "slot:6"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "structure.swing_low_confirmed": {
      "status": "available",
@@ -6049,7 +6514,120 @@
      },
      "witnesses": [
       "slot:6"
-     ]
+     ],
+     "basis": "unadjusted"
+    }
+   }
+  },
+  {
+   "id": "SD17",
+   "group": "plateau_low",
+   "description": "equal lows 5,5: strict comparison, no swing low",
+   "producer": "structure",
+   "params": {
+    "policy_version": "ef5-structure1",
+    "epoch_profile": "session_reset",
+    "swing_strength": 1,
+    "lookback": 2,
+    "evidence_limit": 10000
+   },
+   "unit": {
+    "currency": "USD",
+    "scale": 0
+   },
+   "adjustment": "unadjusted",
+   "K": 100,
+   "columns": "ohlcv",
+   "slots": [
+    [
+     5,
+     10,
+     5,
+     10,
+     5
+    ],
+    [
+     5,
+     9,
+     5,
+     9,
+     5
+    ],
+    [
+     7,
+     10,
+     7,
+     10,
+     5
+    ]
+   ],
+   "outputs": [
+    "structure.last_swing_high_price",
+    "structure.last_swing_low_price",
+    "structure.swing_high_confirmed",
+    "structure.swing_low_confirmed"
+   ],
+   "tags": [
+    "swing_low",
+    "tie",
+    "equal_high_low",
+    "negative"
+   ],
+   "hand_check": "5 < 5 false",
+   "expected": {
+    "structure.last_swing_high_price": {
+     "status": "not_applicable",
+     "reasons": [
+      "no_eligible_observations"
+     ],
+     "expected": 3,
+     "observed": 3,
+     "value": null,
+     "witnesses": [],
+     "basis": "unadjusted"
+    },
+    "structure.last_swing_low_price": {
+     "status": "not_applicable",
+     "reasons": [
+      "no_eligible_observations"
+     ],
+     "expected": 3,
+     "observed": 3,
+     "value": null,
+     "witnesses": [],
+     "basis": "unadjusted"
+    },
+    "structure.swing_high_confirmed": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "value": {
+      "bool": false,
+      "acceptance": "exact_bool"
+     },
+     "witnesses": [
+      "slot:2",
+      "slot:0",
+      "slot:1"
+     ],
+     "basis": "unadjusted"
+    },
+    "structure.swing_low_confirmed": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "value": {
+      "bool": false,
+      "acceptance": "exact_bool"
+     },
+     "witnesses": [
+      "slot:2",
+      "slot:0",
+      "slot:1"
+     ],
+     "basis": "unadjusted"
     }
    }
   }
@@ -6134,7 +6712,8 @@
       "slot:3",
       "slot:1",
       "slot:2"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "technical.price_velocity_fraction_per_second": {
      "status": "available",
@@ -6150,7 +6729,8 @@
      "witnesses": [
       "slot:3",
       "slot:2"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "technical.session_return_fraction": {
      "status": "available",
@@ -6166,7 +6746,8 @@
      "witnesses": [
       "slot:3",
       "slot:0"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "technical.signed_trend_window_count": {
      "status": "available",
@@ -6182,7 +6763,8 @@
       "slot:0",
       "slot:1",
       "slot:2"
-     ]
+     ],
+     "basis": "unadjusted"
     }
    }
   },
@@ -6271,7 +6853,8 @@
       "slot:4",
       "slot:2",
       "slot:3"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "technical.price_velocity_fraction_per_second": {
      "status": "available",
@@ -6287,7 +6870,8 @@
      "witnesses": [
       "slot:4",
       "slot:3"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "technical.session_return_fraction": {
      "status": "available",
@@ -6303,7 +6887,8 @@
      "witnesses": [
       "slot:4",
       "slot:0"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "technical.signed_trend_window_count": {
      "status": "available",
@@ -6320,7 +6905,8 @@
       "slot:1",
       "slot:2",
       "slot:3"
-     ]
+     ],
+     "basis": "unadjusted"
     }
    }
   },
@@ -6400,7 +6986,8 @@
       "slot:3",
       "slot:1",
       "slot:2"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "technical.price_velocity_fraction_per_second": {
      "status": "available",
@@ -6416,7 +7003,8 @@
      "witnesses": [
       "slot:3",
       "slot:2"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "technical.session_return_fraction": {
      "status": "available",
@@ -6432,7 +7020,8 @@
      "witnesses": [
       "slot:3",
       "slot:0"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "technical.signed_trend_window_count": {
      "status": "available",
@@ -6448,7 +7037,8 @@
       "slot:0",
       "slot:1",
       "slot:2"
-     ]
+     ],
+     "basis": "unadjusted"
     }
    }
   },
@@ -6521,7 +7111,8 @@
       "slot:2",
       "slot:0",
       "slot:1"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "technical.price_velocity_fraction_per_second": {
      "status": "available",
@@ -6537,7 +7128,8 @@
      "witnesses": [
       "slot:2",
       "slot:1"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "technical.session_return_fraction": {
      "status": "available",
@@ -6553,7 +7145,8 @@
      "witnesses": [
       "slot:2",
       "slot:0"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "technical.signed_trend_window_count": {
      "status": "available",
@@ -6568,7 +7161,8 @@
       "slot:2",
       "slot:0",
       "slot:1"
-     ]
+     ],
+     "basis": "unadjusted"
     }
    }
   },
@@ -6620,7 +7214,8 @@
      "expected": 3,
      "observed": 1,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     },
     "technical.price_velocity_fraction_per_second": {
      "status": "insufficient_history",
@@ -6630,7 +7225,8 @@
      "expected": 2,
      "observed": 1,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     },
     "technical.session_return_fraction": {
      "status": "available",
@@ -6645,7 +7241,8 @@
      },
      "witnesses": [
       "slot:0"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "technical.signed_trend_window_count": {
      "status": "insufficient_history",
@@ -6655,7 +7252,8 @@
      "expected": 3,
      "observed": 1,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     }
    }
   },
@@ -6728,7 +7326,8 @@
       "slot:2",
       "slot:0",
       "slot:1"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "technical.price_velocity_fraction_per_second": {
      "status": "available",
@@ -6744,7 +7343,8 @@
      "witnesses": [
       "slot:2",
       "slot:1"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "technical.session_return_fraction": {
      "status": "available",
@@ -6760,7 +7360,8 @@
      "witnesses": [
       "slot:2",
       "slot:0"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "technical.signed_trend_window_count": {
      "status": "insufficient_history",
@@ -6770,7 +7371,8 @@
      "expected": 5,
      "observed": 3,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     }
    }
   },
@@ -6850,7 +7452,8 @@
       "slot:4",
       "slot:2",
       "slot:3"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "technical.price_velocity_fraction_per_second": {
      "status": "available",
@@ -6866,7 +7469,8 @@
      "witnesses": [
       "slot:4",
       "slot:3"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "technical.session_return_fraction": {
      "status": "available",
@@ -6882,7 +7486,8 @@
      "witnesses": [
       "slot:4",
       "slot:0"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "technical.signed_trend_window_count": {
      "status": "incomplete_coverage",
@@ -6892,7 +7497,8 @@
      "expected": 4,
      "observed": 3,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     }
    }
   },
@@ -6965,7 +7571,8 @@
       "slot:3",
       "slot:1",
       "slot:2"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "technical.price_velocity_fraction_per_second": {
      "status": "available",
@@ -6981,7 +7588,8 @@
      "witnesses": [
       "slot:3",
       "slot:2"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "technical.session_return_fraction": {
      "status": "not_applicable",
@@ -6991,7 +7599,8 @@
      "expected": 2,
      "observed": 1,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     },
     "technical.signed_trend_window_count": {
      "status": "not_applicable",
@@ -7001,7 +7610,8 @@
      "expected": 4,
      "observed": 3,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     }
    }
   },
@@ -7064,7 +7674,8 @@
       "slot:3",
       "slot:1",
       "slot:2"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "technical.price_velocity_fraction_per_second": {
      "status": "available",
@@ -7080,7 +7691,8 @@
      "witnesses": [
       "slot:3",
       "slot:2"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "technical.session_return_fraction": {
      "status": "missing_input",
@@ -7090,7 +7702,8 @@
      "expected": 2,
      "observed": 1,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     },
     "technical.signed_trend_window_count": {
      "status": "available",
@@ -7106,7 +7719,8 @@
       "slot:0",
       "slot:1",
       "slot:2"
-     ]
+     ],
+     "basis": "unadjusted"
     }
    }
   },
@@ -7165,7 +7779,8 @@
      "expected": 3,
      "observed": 2,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     },
     "technical.price_velocity_fraction_per_second": {
      "status": "available",
@@ -7181,7 +7796,8 @@
      "witnesses": [
       "slot:1",
       "slot:0"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "technical.session_return_fraction": {
      "status": "available",
@@ -7197,7 +7813,8 @@
      "witnesses": [
       "slot:1",
       "slot:0"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "technical.signed_trend_window_count": {
      "status": "available",
@@ -7211,7 +7828,8 @@
      "witnesses": [
       "slot:1",
       "slot:0"
-     ]
+     ],
+     "basis": "unadjusted"
     }
    }
   },
@@ -7298,7 +7916,8 @@
       "slot:3",
       "slot:1",
       "slot:2"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "technical.price_velocity_fraction_per_second": {
      "status": "available",
@@ -7314,7 +7933,8 @@
      "witnesses": [
       "slot:3",
       "slot:2"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "technical.signed_trend_window_count": {
      "status": "available",
@@ -7330,7 +7950,8 @@
       "slot:0",
       "slot:1",
       "slot:2"
-     ]
+     ],
+     "basis": "unadjusted"
     }
    }
   },
@@ -7409,7 +8030,8 @@
       "slot:3",
       "slot:1",
       "slot:2"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "technical.price_velocity_fraction_per_second": {
      "status": "available",
@@ -7425,7 +8047,8 @@
      "witnesses": [
       "slot:3",
       "slot:2"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "technical.session_return_fraction": {
      "status": "available",
@@ -7441,7 +8064,8 @@
      "witnesses": [
       "slot:3",
       "slot:0"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "technical.signed_trend_window_count": {
      "status": "available",
@@ -7457,7 +8081,8 @@
       "slot:0",
       "slot:1",
       "slot:2"
-     ]
+     ],
+     "basis": "unadjusted"
     }
    }
   },
@@ -7514,7 +8139,8 @@
      "expected": 3,
      "observed": 2,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     },
     "technical.price_velocity_fraction_per_second": {
      "status": "available",
@@ -7530,7 +8156,8 @@
      "witnesses": [
       "slot:1",
       "slot:0"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "technical.session_return_fraction": {
      "status": "available",
@@ -7546,7 +8173,8 @@
      "witnesses": [
       "slot:1",
       "slot:0"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "technical.signed_trend_window_count": {
      "status": "available",
@@ -7560,7 +8188,8 @@
      "witnesses": [
       "slot:1",
       "slot:0"
-     ]
+     ],
+     "basis": "unadjusted"
     }
    }
   },
@@ -7613,7 +8242,8 @@
      "expected": 3,
      "observed": 1,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     },
     "technical.price_velocity_fraction_per_second": {
      "status": "incomplete_coverage",
@@ -7623,7 +8253,8 @@
      "expected": 2,
      "observed": 1,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     },
     "technical.session_return_fraction": {
      "status": "incomplete_coverage",
@@ -7633,7 +8264,8 @@
      "expected": 2,
      "observed": 1,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     },
     "technical.signed_trend_window_count": {
      "status": "incomplete_coverage",
@@ -7643,7 +8275,8 @@
      "expected": 2,
      "observed": 1,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     }
    }
   },
@@ -7702,7 +8335,8 @@
      "expected": 3,
      "observed": 2,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     },
     "technical.price_velocity_fraction_per_second": {
      "status": "missing_input",
@@ -7712,7 +8346,8 @@
      "expected": 2,
      "observed": 1,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     },
     "technical.session_return_fraction": {
      "status": "available",
@@ -7728,7 +8363,8 @@
      "witnesses": [
       "slot:2",
       "slot:0"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "technical.signed_trend_window_count": {
      "status": "missing_input",
@@ -7738,7 +8374,8 @@
      "expected": 2,
      "observed": 1,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     }
    }
   },
@@ -7816,7 +8453,8 @@
      "witnesses": [
       "slot:3",
       "slot:1"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "technical.price_velocity_fraction_per_second": {
      "status": "available",
@@ -7832,7 +8470,8 @@
      "witnesses": [
       "slot:3",
       "slot:2"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "technical.session_return_fraction": {
      "status": "available",
@@ -7848,7 +8487,8 @@
      "witnesses": [
       "slot:3",
       "slot:0"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "technical.signed_trend_window_count": {
      "status": "available",
@@ -7862,7 +8502,8 @@
      "witnesses": [
       "slot:3",
       "slot:0"
-     ]
+     ],
+     "basis": "unadjusted"
     }
    }
   },
@@ -7950,7 +8591,8 @@
       "slot:3",
       "slot:1",
       "slot:2"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "technical.price_velocity_fraction_per_second": {
      "status": "available",
@@ -7966,7 +8608,8 @@
      "witnesses": [
       "slot:3",
       "slot:2"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "technical.session_return_fraction": {
      "status": "available",
@@ -7982,7 +8625,8 @@
      "witnesses": [
       "slot:3",
       "slot:0"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "technical.signed_trend_window_count": {
      "status": "available",
@@ -7998,7 +8642,8 @@
       "slot:0",
       "slot:1",
       "slot:2"
-     ]
+     ],
+     "basis": "unadjusted"
     }
    }
   },
@@ -8064,7 +8709,8 @@
      "expected": 3,
      "observed": 2,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     },
     "technical.price_velocity_fraction_per_second": {
      "status": "not_applicable",
@@ -8074,7 +8720,8 @@
      "expected": 2,
      "observed": 1,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     },
     "technical.session_return_fraction": {
      "status": "not_applicable",
@@ -8084,7 +8731,8 @@
      "expected": 2,
      "observed": 1,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     },
     "technical.signed_trend_window_count": {
      "status": "not_applicable",
@@ -8094,7 +8742,244 @@
      "expected": 4,
      "observed": 3,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
+    }
+   }
+  },
+  {
+   "id": "TD19",
+   "group": "m1_flat",
+   "description": "M=1 N=2: the single window is flat, count 0 (flat counts 0)",
+   "producer": "technical",
+   "params": {
+    "policy_version": "ef5-technical1",
+    "epoch_profile": "session_reset",
+    "trend_window": 2,
+    "trend_count": 1,
+    "evidence_limit": 10000
+   },
+   "unit": {
+    "currency": "USD",
+    "scale": 0
+   },
+   "adjustment": "unadjusted",
+   "K": 100,
+   "columns": "ohlcv",
+   "slots": [
+    [
+     10,
+     10,
+     10,
+     10,
+     5
+    ],
+    [
+     10,
+     11,
+     10,
+     11,
+     5
+    ],
+    [
+     11,
+     11,
+     10,
+     10,
+     5
+    ]
+   ],
+   "outputs": [
+    "technical.momentum_acceleration_fraction_per_second_squared",
+    "technical.price_velocity_fraction_per_second",
+    "technical.session_return_fraction",
+    "technical.signed_trend_window_count"
+   ],
+   "tags": [
+    "trend",
+    "tie",
+    "flat",
+    "m1"
+   ],
+   "hand_check": "close 10 -> 10: count 0",
+   "expected": {
+    "technical.momentum_acceleration_fraction_per_second_squared": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "value": {
+      "exact": "-7/132000",
+      "float64": -5.303030303030303e-05,
+      "hex": "-0x1.bcd9b56734f01p-15",
+      "acceptance": "tolerance"
+     },
+     "witnesses": [
+      "slot:2",
+      "slot:0",
+      "slot:1"
+     ],
+     "basis": "unadjusted"
+    },
+    "technical.price_velocity_fraction_per_second": {
+     "status": "available",
+     "reasons": [],
+     "expected": 2,
+     "observed": 2,
+     "value": {
+      "exact": "-1/660",
+      "float64": -0.0015151515151515152,
+      "hex": "-0x1.8d3018d3018d3p-10",
+      "acceptance": "tolerance"
+     },
+     "witnesses": [
+      "slot:2",
+      "slot:1"
+     ],
+     "basis": "unadjusted"
+    },
+    "technical.session_return_fraction": {
+     "status": "available",
+     "reasons": [],
+     "expected": 2,
+     "observed": 2,
+     "value": {
+      "exact": "0/1",
+      "float64": 0.0,
+      "hex": "0x0.0p+0",
+      "acceptance": "exact_plus_zero"
+     },
+     "witnesses": [
+      "slot:2",
+      "slot:0"
+     ],
+     "basis": "unadjusted"
+    },
+    "technical.signed_trend_window_count": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "value": {
+      "int": 0,
+      "acceptance": "exact_integer"
+     },
+     "witnesses": [
+      "slot:2",
+      "slot:0",
+      "slot:1"
+     ],
+     "basis": "unadjusted"
+    }
+   }
+  },
+  {
+   "id": "TD20",
+   "group": "m1_up",
+   "description": "M=1 N=1: one window up, count +1",
+   "producer": "technical",
+   "params": {
+    "policy_version": "ef5-technical1",
+    "epoch_profile": "session_reset",
+    "trend_window": 1,
+    "trend_count": 1,
+    "evidence_limit": 10000
+   },
+   "unit": {
+    "currency": "USD",
+    "scale": 0
+   },
+   "adjustment": "unadjusted",
+   "K": 100,
+   "columns": "ohlcv",
+   "slots": [
+    [
+     10,
+     10,
+     10,
+     10,
+     5
+    ],
+    [
+     10,
+     12,
+     10,
+     12,
+     5
+    ]
+   ],
+   "outputs": [
+    "technical.momentum_acceleration_fraction_per_second_squared",
+    "technical.price_velocity_fraction_per_second",
+    "technical.session_return_fraction",
+    "technical.signed_trend_window_count"
+   ],
+   "tags": [
+    "trend",
+    "m1",
+    "positive"
+   ],
+   "hand_check": "count +1",
+   "expected": {
+    "technical.momentum_acceleration_fraction_per_second_squared": {
+     "status": "insufficient_history",
+     "reasons": [
+      "insufficient_history"
+     ],
+     "expected": 3,
+     "observed": 2,
+     "value": null,
+     "witnesses": [],
+     "basis": "unadjusted"
+    },
+    "technical.price_velocity_fraction_per_second": {
+     "status": "available",
+     "reasons": [],
+     "expected": 2,
+     "observed": 2,
+     "value": {
+      "exact": "1/300",
+      "float64": 0.0033333333333333335,
+      "hex": "0x1.b4e81b4e81b4fp-9",
+      "acceptance": "tolerance"
+     },
+     "witnesses": [
+      "slot:1",
+      "slot:0"
+     ],
+     "basis": "unadjusted"
+    },
+    "technical.session_return_fraction": {
+     "status": "available",
+     "reasons": [],
+     "expected": 2,
+     "observed": 2,
+     "value": {
+      "exact": "1/5",
+      "float64": 0.2,
+      "hex": "0x1.999999999999ap-3",
+      "acceptance": "tolerance"
+     },
+     "witnesses": [
+      "slot:1",
+      "slot:0"
+     ],
+     "basis": "unadjusted"
+    },
+    "technical.signed_trend_window_count": {
+     "status": "available",
+     "reasons": [],
+     "expected": 2,
+     "observed": 2,
+     "value": {
+      "int": 1,
+      "acceptance": "exact_integer"
+     },
+     "witnesses": [
+      "slot:1",
+      "slot:0"
+     ],
+     "basis": "unadjusted"
     }
    }
   }
@@ -8167,7 +9052,8 @@
      "expected": 1,
      "observed": 0,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     },
     "candle.doji": {
      "status": "missing_input",
@@ -8177,7 +9063,8 @@
      "expected": 1,
      "observed": 0,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     },
     "candle.engulfing_bearish": {
      "status": "missing_input",
@@ -8187,7 +9074,8 @@
      "expected": 2,
      "observed": 1,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     },
     "candle.engulfing_bullish": {
      "status": "missing_input",
@@ -8197,7 +9085,8 @@
      "expected": 2,
      "observed": 1,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     },
     "candle.inside_bar": {
      "status": "missing_input",
@@ -8207,7 +9096,8 @@
      "expected": 2,
      "observed": 1,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     },
     "candle.lower_shadow_fraction": {
      "status": "missing_input",
@@ -8217,7 +9107,8 @@
      "expected": 1,
      "observed": 0,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     },
     "candle.upper_shadow_fraction": {
      "status": "missing_input",
@@ -8227,7 +9118,8 @@
      "expected": 1,
      "observed": 0,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     }
    }
   },
@@ -8298,7 +9190,8 @@
      "expected": 1,
      "observed": 0,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     },
     "candle.doji": {
      "status": "missing_input",
@@ -8308,7 +9201,8 @@
      "expected": 1,
      "observed": 0,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     },
     "candle.engulfing_bearish": {
      "status": "missing_input",
@@ -8318,7 +9212,8 @@
      "expected": 2,
      "observed": 1,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     },
     "candle.engulfing_bullish": {
      "status": "missing_input",
@@ -8328,7 +9223,8 @@
      "expected": 2,
      "observed": 1,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     },
     "candle.inside_bar": {
      "status": "missing_input",
@@ -8338,7 +9234,8 @@
      "expected": 2,
      "observed": 1,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     },
     "candle.lower_shadow_fraction": {
      "status": "missing_input",
@@ -8348,7 +9245,8 @@
      "expected": 1,
      "observed": 0,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     },
     "candle.upper_shadow_fraction": {
      "status": "missing_input",
@@ -8358,7 +9256,8 @@
      "expected": 1,
      "observed": 0,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     }
    }
   },
@@ -8434,7 +9333,8 @@
      },
      "witnesses": [
       "slot:2"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "candle.doji": {
      "status": "available",
@@ -8447,7 +9347,8 @@
      },
      "witnesses": [
       "slot:2"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "candle.engulfing_bearish": {
      "status": "available",
@@ -8461,7 +9362,8 @@
      "witnesses": [
       "slot:2",
       "slot:1"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "candle.engulfing_bullish": {
      "status": "available",
@@ -8475,7 +9377,8 @@
      "witnesses": [
       "slot:2",
       "slot:1"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "candle.inside_bar": {
      "status": "available",
@@ -8489,7 +9392,8 @@
      "witnesses": [
       "slot:2",
       "slot:1"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "candle.lower_shadow_fraction": {
      "status": "available",
@@ -8504,7 +9408,8 @@
      },
      "witnesses": [
       "slot:2"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "candle.upper_shadow_fraction": {
      "status": "available",
@@ -8519,7 +9424,8 @@
      },
      "witnesses": [
       "slot:2"
-     ]
+     ],
+     "basis": "unadjusted"
     }
    }
   },
@@ -8595,7 +9501,8 @@
      },
      "witnesses": [
       "slot:2"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "candle.doji": {
      "status": "available",
@@ -8608,7 +9515,8 @@
      },
      "witnesses": [
       "slot:2"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "candle.engulfing_bearish": {
      "status": "available",
@@ -8622,7 +9530,8 @@
      "witnesses": [
       "slot:2",
       "slot:1"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "candle.engulfing_bullish": {
      "status": "available",
@@ -8636,7 +9545,8 @@
      "witnesses": [
       "slot:2",
       "slot:1"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "candle.inside_bar": {
      "status": "available",
@@ -8650,7 +9560,8 @@
      "witnesses": [
       "slot:2",
       "slot:1"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "candle.lower_shadow_fraction": {
      "status": "available",
@@ -8665,7 +9576,8 @@
      },
      "witnesses": [
       "slot:2"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "candle.upper_shadow_fraction": {
      "status": "available",
@@ -8680,7 +9592,8 @@
      },
      "witnesses": [
       "slot:2"
-     ]
+     ],
+     "basis": "unadjusted"
     }
    }
   },
@@ -8757,7 +9670,8 @@
      },
      "witnesses": [
       "slot:2"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "candle.doji": {
      "status": "available",
@@ -8770,7 +9684,8 @@
      },
      "witnesses": [
       "slot:2"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "candle.engulfing_bearish": {
      "status": "available",
@@ -8784,7 +9699,8 @@
      "witnesses": [
       "slot:2",
       "slot:1"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "candle.engulfing_bullish": {
      "status": "available",
@@ -8798,7 +9714,8 @@
      "witnesses": [
       "slot:2",
       "slot:1"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "candle.inside_bar": {
      "status": "available",
@@ -8812,7 +9729,8 @@
      "witnesses": [
       "slot:2",
       "slot:1"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "candle.lower_shadow_fraction": {
      "status": "available",
@@ -8827,7 +9745,8 @@
      },
      "witnesses": [
       "slot:2"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "candle.upper_shadow_fraction": {
      "status": "available",
@@ -8842,7 +9761,8 @@
      },
      "witnesses": [
       "slot:2"
-     ]
+     ],
+     "basis": "unadjusted"
     }
    }
   },
@@ -8914,7 +9834,8 @@
      "expected": 1,
      "observed": 0,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     },
     "candle.doji": {
      "status": "missing_input",
@@ -8924,7 +9845,8 @@
      "expected": 1,
      "observed": 0,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     },
     "candle.engulfing_bearish": {
      "status": "missing_input",
@@ -8934,7 +9856,8 @@
      "expected": 2,
      "observed": 1,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     },
     "candle.engulfing_bullish": {
      "status": "missing_input",
@@ -8944,7 +9867,8 @@
      "expected": 2,
      "observed": 1,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     },
     "candle.inside_bar": {
      "status": "missing_input",
@@ -8954,7 +9878,8 @@
      "expected": 2,
      "observed": 1,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     },
     "candle.lower_shadow_fraction": {
      "status": "missing_input",
@@ -8964,7 +9889,8 @@
      "expected": 1,
      "observed": 0,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     },
     "candle.upper_shadow_fraction": {
      "status": "missing_input",
@@ -8974,7 +9900,8 @@
      "expected": 1,
      "observed": 0,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     }
    }
   },
@@ -9050,7 +9977,8 @@
      },
      "witnesses": [
       "slot:2"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "candle.doji": {
      "status": "available",
@@ -9063,7 +9991,8 @@
      },
      "witnesses": [
       "slot:2"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "candle.engulfing_bearish": {
      "status": "available",
@@ -9077,7 +10006,8 @@
      "witnesses": [
       "slot:2",
       "slot:1"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "candle.engulfing_bullish": {
      "status": "available",
@@ -9091,7 +10021,8 @@
      "witnesses": [
       "slot:2",
       "slot:1"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "candle.inside_bar": {
      "status": "available",
@@ -9105,7 +10036,8 @@
      "witnesses": [
       "slot:2",
       "slot:1"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "candle.lower_shadow_fraction": {
      "status": "available",
@@ -9120,7 +10052,8 @@
      },
      "witnesses": [
       "slot:2"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "candle.upper_shadow_fraction": {
      "status": "available",
@@ -9135,7 +10068,8 @@
      },
      "witnesses": [
       "slot:2"
-     ]
+     ],
+     "basis": "unadjusted"
     }
    }
   },
@@ -9218,7 +10152,8 @@
      },
      "witnesses": [
       "slot:2"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "candle.doji": {
      "status": "available",
@@ -9231,7 +10166,8 @@
      },
      "witnesses": [
       "slot:2"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "candle.engulfing_bearish": {
      "status": "available",
@@ -9245,7 +10181,8 @@
      "witnesses": [
       "slot:2",
       "slot:1"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "candle.engulfing_bullish": {
      "status": "available",
@@ -9259,7 +10196,8 @@
      "witnesses": [
       "slot:2",
       "slot:1"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "candle.inside_bar": {
      "status": "available",
@@ -9273,7 +10211,8 @@
      "witnesses": [
       "slot:2",
       "slot:1"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "candle.lower_shadow_fraction": {
      "status": "available",
@@ -9288,7 +10227,8 @@
      },
      "witnesses": [
       "slot:2"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "candle.upper_shadow_fraction": {
      "status": "available",
@@ -9303,7 +10243,8 @@
      },
      "witnesses": [
       "slot:2"
-     ]
+     ],
+     "basis": "unadjusted"
     }
    }
   },
@@ -9377,7 +10318,8 @@
      "expected": 1,
      "observed": 0,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     },
     "candle.doji": {
      "status": "missing_input",
@@ -9387,7 +10329,8 @@
      "expected": 1,
      "observed": 0,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     },
     "candle.engulfing_bearish": {
      "status": "missing_input",
@@ -9398,7 +10341,8 @@
      "expected": 2,
      "observed": 0,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     },
     "candle.engulfing_bullish": {
      "status": "missing_input",
@@ -9409,7 +10353,8 @@
      "expected": 2,
      "observed": 0,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     },
     "candle.inside_bar": {
      "status": "missing_input",
@@ -9420,7 +10365,8 @@
      "expected": 2,
      "observed": 0,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     },
     "candle.lower_shadow_fraction": {
      "status": "missing_input",
@@ -9430,7 +10376,8 @@
      "expected": 1,
      "observed": 0,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     },
     "candle.upper_shadow_fraction": {
      "status": "missing_input",
@@ -9440,7 +10387,8 @@
      "expected": 1,
      "observed": 0,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     }
    }
   },
@@ -9516,7 +10464,8 @@
      "expected": 3,
      "observed": 2,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     },
     "structure.last_swing_low_price": {
      "status": "missing_input",
@@ -9526,7 +10475,8 @@
      "expected": 3,
      "observed": 2,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     },
     "structure.swing_high_confirmed": {
      "status": "missing_input",
@@ -9536,7 +10486,8 @@
      "expected": 3,
      "observed": 2,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     },
     "structure.swing_low_confirmed": {
      "status": "missing_input",
@@ -9546,7 +10497,8 @@
      "expected": 3,
      "observed": 2,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     }
    }
   },
@@ -9622,7 +10574,8 @@
      "expected": 3,
      "observed": 2,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     },
     "structure.last_swing_low_price": {
      "status": "missing_input",
@@ -9632,7 +10585,8 @@
      "expected": 3,
      "observed": 2,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     },
     "structure.swing_high_confirmed": {
      "status": "missing_input",
@@ -9642,7 +10596,8 @@
      "expected": 3,
      "observed": 2,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     },
     "structure.swing_low_confirmed": {
      "status": "missing_input",
@@ -9652,7 +10607,8 @@
      "expected": 3,
      "observed": 2,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     }
    }
   },
@@ -9735,7 +10691,8 @@
       "slot:2",
       "slot:3",
       "slot:1"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "structure.last_swing_low_price": {
      "status": "not_applicable",
@@ -9745,7 +10702,8 @@
      "expected": 3,
      "observed": 3,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     },
     "structure.swing_high_confirmed": {
      "status": "available",
@@ -9760,7 +10718,8 @@
       "slot:3",
       "slot:1",
       "slot:2"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "structure.swing_low_confirmed": {
      "status": "available",
@@ -9775,7 +10734,8 @@
       "slot:3",
       "slot:1",
       "slot:2"
-     ]
+     ],
+     "basis": "unadjusted"
     }
    }
   },
@@ -9858,7 +10818,8 @@
       "slot:2",
       "slot:3",
       "slot:1"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "structure.last_swing_low_price": {
      "status": "not_applicable",
@@ -9868,7 +10829,8 @@
      "expected": 3,
      "observed": 3,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     },
     "structure.swing_high_confirmed": {
      "status": "available",
@@ -9883,7 +10845,8 @@
       "slot:3",
       "slot:1",
       "slot:2"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "structure.swing_low_confirmed": {
      "status": "available",
@@ -9898,7 +10861,8 @@
       "slot:3",
       "slot:1",
       "slot:2"
-     ]
+     ],
+     "basis": "unadjusted"
     }
    }
   },
@@ -9982,7 +10946,8 @@
       "slot:2",
       "slot:3",
       "slot:1"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "structure.last_swing_low_price": {
      "status": "not_applicable",
@@ -9992,7 +10957,8 @@
      "expected": 3,
      "observed": 3,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     },
     "structure.swing_high_confirmed": {
      "status": "available",
@@ -10007,7 +10973,8 @@
       "slot:3",
       "slot:1",
       "slot:2"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "structure.swing_low_confirmed": {
      "status": "available",
@@ -10022,7 +10989,8 @@
       "slot:3",
       "slot:1",
       "slot:2"
-     ]
+     ],
+     "basis": "unadjusted"
     }
    }
   },
@@ -10099,7 +11067,8 @@
      "expected": 3,
      "observed": 2,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     },
     "structure.last_swing_low_price": {
      "status": "missing_input",
@@ -10109,7 +11078,8 @@
      "expected": 3,
      "observed": 2,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     },
     "structure.swing_high_confirmed": {
      "status": "missing_input",
@@ -10119,7 +11089,8 @@
      "expected": 3,
      "observed": 2,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     },
     "structure.swing_low_confirmed": {
      "status": "missing_input",
@@ -10129,7 +11100,8 @@
      "expected": 3,
      "observed": 2,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     }
    }
   },
@@ -10212,7 +11184,8 @@
       "slot:2",
       "slot:3",
       "slot:1"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "structure.last_swing_low_price": {
      "status": "not_applicable",
@@ -10222,7 +11195,8 @@
      "expected": 3,
      "observed": 3,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     },
     "structure.swing_high_confirmed": {
      "status": "available",
@@ -10237,7 +11211,8 @@
       "slot:3",
       "slot:1",
       "slot:2"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "structure.swing_low_confirmed": {
      "status": "available",
@@ -10252,7 +11227,8 @@
       "slot:3",
       "slot:1",
       "slot:2"
-     ]
+     ],
+     "basis": "unadjusted"
     }
    }
   },
@@ -10342,7 +11318,8 @@
       "slot:2",
       "slot:3",
       "slot:1"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "structure.last_swing_low_price": {
      "status": "not_applicable",
@@ -10352,7 +11329,8 @@
      "expected": 3,
      "observed": 3,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     },
     "structure.swing_high_confirmed": {
      "status": "available",
@@ -10367,7 +11345,8 @@
       "slot:3",
       "slot:1",
       "slot:2"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "structure.swing_low_confirmed": {
      "status": "available",
@@ -10382,7 +11361,8 @@
       "slot:3",
       "slot:1",
       "slot:2"
-     ]
+     ],
+     "basis": "unadjusted"
     }
    }
   },
@@ -10462,7 +11442,8 @@
      "expected": 3,
      "observed": 1,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     },
     "structure.last_swing_low_price": {
      "status": "missing_input",
@@ -10473,7 +11454,8 @@
      "expected": 3,
      "observed": 1,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     },
     "structure.swing_high_confirmed": {
      "status": "missing_input",
@@ -10484,7 +11466,8 @@
      "expected": 3,
      "observed": 1,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     },
     "structure.swing_low_confirmed": {
      "status": "missing_input",
@@ -10495,7 +11478,8 @@
      "expected": 3,
      "observed": 1,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     }
    }
   },
@@ -10577,7 +11561,8 @@
      "expected": 3,
      "observed": 2,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     },
     "technical.price_velocity_fraction_per_second": {
      "status": "missing_input",
@@ -10587,7 +11572,8 @@
      "expected": 2,
      "observed": 1,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     },
     "technical.signed_trend_window_count": {
      "status": "missing_input",
@@ -10597,7 +11583,8 @@
      "expected": 2,
      "observed": 1,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     }
    }
   },
@@ -10679,7 +11666,8 @@
      "expected": 3,
      "observed": 2,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     },
     "technical.price_velocity_fraction_per_second": {
      "status": "missing_input",
@@ -10689,7 +11677,8 @@
      "expected": 2,
      "observed": 1,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     },
     "technical.signed_trend_window_count": {
      "status": "missing_input",
@@ -10699,7 +11688,8 @@
      "expected": 2,
      "observed": 1,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     }
    }
   },
@@ -10788,7 +11778,8 @@
       "slot:4",
       "slot:2",
       "slot:3"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "technical.price_velocity_fraction_per_second": {
      "status": "available",
@@ -10804,7 +11795,8 @@
      "witnesses": [
       "slot:4",
       "slot:3"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "technical.signed_trend_window_count": {
      "status": "available",
@@ -10818,7 +11810,8 @@
      "witnesses": [
       "slot:4",
       "slot:3"
-     ]
+     ],
+     "basis": "unadjusted"
     }
    }
   },
@@ -10907,7 +11900,8 @@
       "slot:4",
       "slot:2",
       "slot:3"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "technical.price_velocity_fraction_per_second": {
      "status": "available",
@@ -10923,7 +11917,8 @@
      "witnesses": [
       "slot:4",
       "slot:3"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "technical.signed_trend_window_count": {
      "status": "available",
@@ -10937,7 +11932,8 @@
      "witnesses": [
       "slot:4",
       "slot:3"
-     ]
+     ],
+     "basis": "unadjusted"
     }
    }
   },
@@ -11027,7 +12023,8 @@
       "slot:4",
       "slot:2",
       "slot:3"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "technical.price_velocity_fraction_per_second": {
      "status": "available",
@@ -11043,7 +12040,8 @@
      "witnesses": [
       "slot:4",
       "slot:3"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "technical.signed_trend_window_count": {
      "status": "available",
@@ -11057,7 +12055,8 @@
      "witnesses": [
       "slot:4",
       "slot:3"
-     ]
+     ],
+     "basis": "unadjusted"
     }
    }
   },
@@ -11140,7 +12139,8 @@
      "expected": 3,
      "observed": 2,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     },
     "technical.price_velocity_fraction_per_second": {
      "status": "missing_input",
@@ -11150,7 +12150,8 @@
      "expected": 2,
      "observed": 1,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     },
     "technical.signed_trend_window_count": {
      "status": "missing_input",
@@ -11160,7 +12161,8 @@
      "expected": 2,
      "observed": 1,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     }
    }
   },
@@ -11249,7 +12251,8 @@
       "slot:4",
       "slot:2",
       "slot:3"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "technical.price_velocity_fraction_per_second": {
      "status": "available",
@@ -11265,7 +12268,8 @@
      "witnesses": [
       "slot:4",
       "slot:3"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "technical.signed_trend_window_count": {
      "status": "available",
@@ -11279,7 +12283,8 @@
      "witnesses": [
       "slot:4",
       "slot:3"
-     ]
+     ],
+     "basis": "unadjusted"
     }
    }
   },
@@ -11375,7 +12380,8 @@
       "slot:4",
       "slot:2",
       "slot:3"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "technical.price_velocity_fraction_per_second": {
      "status": "available",
@@ -11391,7 +12397,8 @@
      "witnesses": [
       "slot:4",
       "slot:3"
-     ]
+     ],
+     "basis": "unadjusted"
     },
     "technical.signed_trend_window_count": {
      "status": "available",
@@ -11405,7 +12412,8 @@
      "witnesses": [
       "slot:4",
       "slot:3"
-     ]
+     ],
+     "basis": "unadjusted"
     }
    }
   },
@@ -11491,7 +12499,8 @@
      "expected": 3,
      "observed": 1,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     },
     "technical.price_velocity_fraction_per_second": {
      "status": "missing_input",
@@ -11502,7 +12511,8 @@
      "expected": 2,
      "observed": 0,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     },
     "technical.signed_trend_window_count": {
      "status": "missing_input",
@@ -11513,7 +12523,8 @@
      "expected": 2,
      "observed": 0,
      "value": null,
-     "witnesses": []
+     "witnesses": [],
+     "basis": "unadjusted"
     }
    }
   }
@@ -12416,13 +13427,80 @@
      }
     }
    ]
+  },
+  {
+   "id": "RF50",
+   "error_code": "INVALID_SCHEMA",
+   "raised_by": "wire",
+   "stage": "wire",
+   "description": "bar 2 delivered without an end instant (missing interval)",
+   "base": "TD01",
+   "mutation": [
+    {
+     "set": "fixture.slots.2",
+     "value": {
+      "wire": {
+       "end": null,
+       "row": [
+        102,
+        102,
+        101,
+        101,
+        5
+       ]
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "RF51",
+   "error_code": "INVALID_ORDER",
+   "raised_by": "shared validator",
+   "stage": "shared",
+   "description": "bars 2 and 3 delivered with decreasing end instants (non-positive elapsed time)",
+   "base": "TD01",
+   "mutation": [
+    {
+     "set": "fixture.slots.2",
+     "value": {
+      "wire": {
+       "start": 1700000180000000000,
+       "end": 1700000240000000000,
+       "row": [
+        101,
+        103,
+        101,
+        103,
+        5
+       ]
+      }
+     }
+    },
+    {
+     "set": "fixture.slots.3",
+     "value": {
+      "wire": {
+       "start": 1700000120000000000,
+       "end": 1700000180000000000,
+       "row": [
+        102,
+        102,
+        101,
+        101,
+        5
+       ]
+      }
+     }
+    }
+   ]
   }
  ],
  "fixture_counts": {
-  "candle_result": 23,
-  "structure_result": 16,
-  "technical_result": 18,
+  "candle_result": 24,
+  "structure_result": 17,
+  "technical_result": 20,
   "ka_result": 27,
-  "refusal": 49
+  "refusal": 51
  }
 }

@@ -174,6 +174,7 @@ def evaluate(fx):
             causes.extend(extra)
         status = decide(causes)
         out["status"], out["reasons"] = status, sorted(set(causes))
+        out["basis"] = fx.get("adjustment")
         out["value"], out["witnesses"] = None, []
         if status == "available":
             out["value"] = (kind, value)
@@ -252,7 +253,7 @@ def accept_rule(x):
 
 
 def compare(where, exp, got):
-    for key in ("status", "reasons", "expected", "observed", "witnesses"):
+    for key in ("status", "reasons", "expected", "observed", "witnesses", "basis"):
         if exp[key] != got[key]:
             fail(where, "%s: fixture %r recomputed %r" % (key, exp[key], got[key]))
     ev, gv = exp["value"], got["value"]
@@ -321,6 +322,8 @@ def admission(fx):
             problem = "INVALID_SCHEMA"
         elif any(c > INT64 or c < -INT64 - 1 for c in cells):
             problem = "OVERFLOW"
+        elif not is_int(r["start"]) or not is_int(r["end"]):
+            problem = "INVALID_SCHEMA"
         elif r["ka"] is not None and not is_int(r["ka"]):
             problem = "INVALID_SCHEMA"
         if problem:

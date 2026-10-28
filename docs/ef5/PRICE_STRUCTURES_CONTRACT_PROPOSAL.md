@@ -64,7 +64,7 @@ Notation: target slot t, epoch slots 0..t, bar i = (O, H, L, C, V) positive int6
 - **session_return_fraction**: (C_t - O_0) / O_0; when t = 0 the single bar gives (C_0 - O_0) / O_0
 - **price_velocity**: v_t = ((C_t - C_(t-1)) / C_(t-1)) / dt_t with dt_t = (end_t - end_(t-1)) / 10^9 seconds, exact rational
 - **momentum_acceleration**: a_t = (v_t - v_(t-1)) / dt_t with the same dt_t; needs closes t-2..t
-- **signed_trend_window_count**: sum over j = 0..M-1 of sign(C_(t-jN) - C_(t-(j+1)N)); an integer in [-M, M]; needs closes t-MN..t and every slot in between READY (adjacent windows, no bridging)
+- **signed_trend_window_count**: NORMATIVE (PO-1): M adjacent non-overlapping N-bar windows (window stride = N) ending at the target; window direction = sign of the completed-window close change; a flat window counts 0; result in [-M, M]; M=1 is one window (TD19, TD20). Formula: sum over j = 0..M-1 of sign(C_(t-jN) - C_(t-(j+1)N)); an integer in [-M, M]; needs closes t-MN..t and every slot in between READY (adjacent windows, no bridging). Rejected alternatives: sliding (overlapping) windows and half-counting flat windows are consumer policy and are not part of this catalogue version
 - **publication**: float64 outputs are the exact rational correctly rounded once (Python float(Fraction) equals IEEE round-to-nearest-even); bool and int64 outputs are exact; price outputs divide the integer coefficient by 10^scale
 
 Tie and edge conventions (all pinned by fixtures): doji is inclusive at the threshold (CD02); inside bar is strict, an equal high is not inside (CD05); engulfing needs opposite colours, a covering body and at least one strictly beyond side (CD07, CD08, CD11); a zero-body bar has no colour (CD10); a zero-range bar gives zero_denominator on the fractions and doji and false on the boolean geometry (CD04); equal highs never form a swing (SD03); a flat trend window counts 0 (TD02).
@@ -102,22 +102,22 @@ R17/EF2 numeric policy applies: exact rationals in the contract, int64 coefficie
 
 ## Data-capability matrix
 
-data each output needs, whether the client or the server supplies/computes it, per source; a source that cannot supply an input yields the documented unavailable result, never a default.
+Per the capability-matrix rule: data each output needs, whether the client or the server supplies/computes it, per source; a source that cannot supply an input yields the documented unavailable result, never a default.
 
 | data needed | used by | client side | server side | supplied bars (any source) | daily bars (governed_history) | DuckDB store (read-only) | if absent |
 |---|---|---|---|---|---|---|---|
-| completed OHLCV bars of the target session with original known_at | candle.*, structure.*, technical.session_return_fraction | chooses the instrument, session and target bar, supplies bars | admission, readiness, arithmetic | supported | supported (daily slots) | supported when the store holds completed bars with known_at | absent_input / unknown_availability |
-| completed close series (close-only delivery) | technical velocity, acceleration, trend count | supplies closes | arithmetic | supported | supported | supported | absent_input for OHLC-dependent outputs |
-| first governed slot of the session (open of slot 0) | technical.session_return_fraction | must deliver slot 0 | admission | supported; a late-joining feed yields absent_input | not applicable: INVALID_CONFIG under governed_history | supported when the first bar is stored | absent_input / no_eligible_observations |
-| structural context: governed slot grid, declared coverage, session identity | all | declares coverage and grid | membership and gap checks | required; undeclared coverage with rows is INVALID_SCHEMA | required | required (grid from the store calendar) | refusal (INVALID_SCHEMA / INCONSISTENT_IDENTITY) |
-| adjustment basis (one label for the whole series) | all price outputs | declares | compares to the batch basis | required | required | store basis label must be supplied by the caller | INVALID_CONFIG / INCONSISTENT_IDENTITY |
-| knowledge cutoff K and original known_at per bar | all | supplies K and known_at | gates every consumed bar | required | required | required (stored known_at; null is unknown_availability) | unknown_availability / future_knowledge |
-| market cutoff C (completion of the last bar) | all | supplies | forming bar is future_market | required | required | required | future_market |
-| swing_strength, lookback, doji fraction, trend window and count, evidence limit | per producer | chooses (no default anywhere) | validates | required | required | required | INVALID_CONFIG |
+| completed OHLCV bars of the target session with original known_at | candle.*, structure.*, technical.session_return_fraction | chooses the instrument, session and target bar, supplies bars | admission, readiness, arithmetic | unverified | unverified | unverified | absent_input / unknown_availability |
+| completed close series (close-only delivery) | technical velocity, acceleration, trend count | supplies closes | arithmetic | unverified | unverified | unverified | absent_input for OHLC-dependent outputs |
+| first governed slot of the session (open of slot 0) | technical.session_return_fraction | must deliver slot 0 | admission | unverified | not applicable: INVALID_CONFIG under governed_history | unverified | absent_input / no_eligible_observations |
+| structural context: governed slot grid, declared coverage, session identity | all | declares coverage and grid | membership and gap checks | unverified | unverified | unverified | refusal (INVALID_SCHEMA / INCONSISTENT_IDENTITY) |
+| adjustment basis (one label for the whole series) | all price outputs | declares | compares to the batch basis | unverified | unverified | unverified | INVALID_CONFIG / INCONSISTENT_IDENTITY |
+| knowledge cutoff K and original known_at per bar | all | supplies K and known_at | gates every consumed bar | unverified | unverified | unverified | unknown_availability / future_knowledge |
+| market cutoff C (completion of the last bar) | all | supplies | forming bar is future_market | unverified | unverified | unverified | future_market |
+| swing_strength, lookback, doji fraction, trend window and count, evidence limit | per producer | chooses (no default anywhere) | validates | unverified | unverified | unverified | INVALID_CONFIG |
 | corporate-action facts | none in v1 | not consumed | not consumed; actions are not detected (PO-4) | not applicable | not applicable | not applicable | not applicable |
-| volume | readiness only (zero volume proves an empty slot) | supplies | no arithmetic on volume | supported | supported | supported | null_field |
+| volume | readiness only (zero volume proves an empty slot) | supplies | no arithmetic on volume | unverified | unverified | unverified | null_field |
 
-optional shipped provider adapters may map their bars to this contract; no provider is required and none is named by the contract.
+Source cells are `unverified` until provider terms and field availability are checked; nothing here claims a provider supports a field. Every missing or late datum degrades to a quality outcome (absent_input, unknown_availability, future_knowledge, insufficient_history) or a typed refusal; the degradation text is in the last column. No provider is required and none is named by the contract.
 
 ## No defaults (defaults ledger)
 
@@ -133,7 +133,7 @@ I/O and worker layers do not start before PO conditions C8-C10 (E1 rank-aware ch
 
 ## Fixtures
 
-Counts (pinned in `tools/verify_ef5_fixtures.py`): candle 23, structure 16, technical 18, known_at KA-set 27 = 84 result fixtures, and 49 refusal fixtures over 12 distinct error codes. `tools/contract_fixtures/ef5_fixture_expand.py` (stdlib) recomputes every output of every result fixture and applies every refusal mutation to an independent admission model.
+Counts (pinned in `tools/verify_ef5_fixtures.py`): candle 24, structure 17, technical 20, known_at KA-set 27 = 88 result fixtures, and 51 refusal fixtures over 12 distinct error codes. `tools/contract_fixtures/ef5_fixture_expand.py` (stdlib) recomputes every output of every result fixture and applies every refusal mutation to an independent admission model.
 
 Notation: compact, NOT canonical wire. K = 100, default known_at 50, volume 5. A fixture lists slots 0..n-1 in epoch order; the target is the last slot unless `target` names an earlier index (later slots are delivered but must not matter). A slot is [O,H,L,C,V] (columns=ohlcv), [C] (columns=close), or 'absent' (no row, no coverage), 'gap' (no row, declared incomplete coverage), 'forming' (bar not complete at the market cutoff), 'null' (row with null volume and OHLC), 'empty' (zero volume, null OHLC, coverage complete), or {row, ka, rev} (ka 100 == K known, 150 > K, null unknown). Structure fixtures list H and L in the description; each slot is [L,H,L,H,5] (open at the low, close at the high). Technical fixtures build slot i from the previous close (slot 0 from the stated open) with H/L the max/min of open and close. `grid: daily` selects governed_history daily slots, `ends_s` their end offsets in seconds. hand_check states the hand-derived headline values. Result fixtures: CD (candle), SD (structure), TD (technical), KA (known_at set); refusals RF.
 
@@ -164,6 +164,7 @@ Notation: compact, NOT canonical wire. K = 100, default known_at 50, volume 5. A
 | CD21 | evidence_limit 0 emits no witnesses |  |
 | CD22 | governed_history: daily bars, same arithmetic as CD07 |  |
 | CD23 | coefficients at the int64 limit: exact rational, no overflow |  |
+| CD24 | equal low with lower high: strict inside bar is false | 5 > 5 false |
 
 ### Structure fixtures (SD)
 
@@ -185,6 +186,7 @@ Notation: compact, NOT canonical wire. K = 100, default known_at 50, volume 5. A
 | SD14 | close-only delivery cannot serve structure |  |
 | SD15 | k=2 L=4: the single candidate s=2 is a swing high | high 5, confirmed true |
 | SD16 | limit 1 keeps only the first witness (the located swing for price outputs) |  |
+| SD17 | equal lows 5,5: strict comparison, no swing low | 5 < 5 false |
 
 ### Technical fixtures (TD)
 
@@ -208,6 +210,8 @@ Notation: compact, NOT canonical wire. K = 100, default known_at 50, volume 5. A
 | TD16 | limit 2 truncates the trend witnesses |  |
 | TD17 | bar 4 delivered after target 3 must not matter | equal to TD01 |
 | TD18 | zero-volume target bar |  |
+| TD19 | M=1 N=2: the single window is flat, count 0 (flat counts 0) | close 10 -> 10: count 0 |
+| TD20 | M=1 N=1: one window up, count +1 | count +1 |
 
 ### Known_at KA-set (KA01-KA27)
 
@@ -266,6 +270,8 @@ KA01-KA27: for each producer a base fixture and nine known_at variants (null, fu
 | RF47 | INCONSISTENT_IDENTITY | identity | CD07 | bar 1 in another session under session_reset |
 | RF48 | INCONSISTENT_IDENTITY | identity | TD01 | bar 2 on another adjustment basis than the config |
 | RF49 | INCONSISTENT_IDENTITY | identity | SD04 | last bar ends 30 s after its start: not a governed slot |
+| RF50 | INVALID_SCHEMA | wire | TD01 | bar 2 delivered without an end instant (missing interval) |
+| RF51 | INVALID_ORDER | shared | TD01 | bars 2 and 3 delivered with decreasing end instants (non-positive elapsed time) |
 
 ### Fail-closed drivers (PO acceptance: zero fail-open)
 
@@ -274,11 +280,12 @@ KA01-KA27: for each producer a base fixture and nine known_at variants (null, fu
 - future known at: KA02, KA11, KA20, KA06, KA15, KA24, KA09, KA18, KA27
 - missing context: RF16
 - missing adjustment: RF21
-- missing parameters: RF18, RF19, RF22, RF23, RF29, RF30, RF34, RF35
+- missing parameters: RF18, RF19, RF22, RF23, RF29, RF30, RF34, RF35, RF50
 - note: missing and future known_at are result-level fail-closed (status missing_input, value null) as in EF3/EF4; see PO-3
 
 ## Explicit non-goals
 
+- no named three-bar (or other multi-bar) patterns in this catalogue version; additions go through a new catalogue version
 - consumer policy, signals, ranking thresholds or recommendations
 - live data or partial-bar evaluation
 - option-native patterns
@@ -302,13 +309,13 @@ KA01-KA27: for each producer a base fixture and nine known_at variants (null, fu
 
 ## PO rulings needed (not guessed)
 
-- **PO-1 Trend count semantics**: RULING NEEDED: confirm the signed completed-window trend count is M adjacent non-overlapping N-bar windows, direction = sign of the close change, flat window = 0, result in [-M, M]. Alternatives: sliding windows (overlapping), or flat counted as a half or excluded. The manifest operands (ordered_completed_close_windows, adjacency, session_reset) do not decide it.
-- **PO-2 Unit spellings**: RULING NEEDED: E9 gives no squared form. Proposed fraction/s^2 for acceleration and `windows` for the trend count; the manifest units fraction_per_second and fraction_per_second_squared are recorded as aliases and replaced with fraction/s and fraction/s^2 in this PR.
-- **PO-3 Missing or future known_at**: RULING NEEDED: the acceptance criterion says these are 'refused'. The EF3/EF4 contracts treat them as result-level fail-closed (missing_input, null value, reason unknown_availability or future_knowledge). Confirm that is 'refused' for EF5, or require a typed refusal (which would change a shared EF3/EF4 semantic).
-- **PO-4 Corporate actions**: RULING NEEDED: v1 consumes one caller-declared adjustment basis and does not detect splits (TD10 computes -1/120 across a 2:1 drop on an unadjusted basis). Alternative: require supplied action facts (a REFERENCE role) and mark windows crossing an action unavailable. Which for v1?
-- **PO-5 Catalogue and tie conventions**: RULING NEEDED: accept the minimum catalogue (7 candle, 4 structure outputs) and the tie conventions (doji inclusive, inside bar strict, engulfing needs one strict side, swings strict). Is any named multi-bar pattern required for EF5 acceptance?
-- **PO-6 Elapsed time base**: RULING NEEDED: velocity and acceleration divide by the exact difference of bar end instants (a daily bar after a weekend uses 3 days: TD11). Alternative: nominal bar length. Proposed: actual end-instant difference.
-- **PO-7 Code for undeclared coverage**: RULING NEEDED (low): INVALID_SCHEMA is used for rows without declared coverage, matching the merged tape adapter; E2 allowed any existing fitting code (INCONSISTENT_IDENTITY is the alternative).
+- **PO-1 Trend count semantics**: confirm the signed completed-window trend count is M adjacent non-overlapping N-bar windows, direction = sign of the close change, flat window = 0, result in [-M, M]. Alternatives: sliding windows (overlapping), or flat counted as a half or excluded. The manifest operands (ordered_completed_close_windows, adjacency, session_reset) do not decide it.
+- **PO-2 Unit spellings**: E9 gives no squared form. Proposed fraction/s^2 for acceleration and `windows` for the trend count; the manifest units fraction_per_second and fraction_per_second_squared are recorded as aliases and replaced with fraction/s and fraction/s^2 in this PR.
+- **PO-3 Missing or future known_at**: the acceptance criterion says these are 'refused'. The EF3/EF4 contracts treat them as result-level fail-closed (missing_input, null value, reason unknown_availability or future_knowledge). Confirm that is 'refused' for EF5, or require a typed refusal (which would change a shared EF3/EF4 semantic).
+- **PO-4 Corporate actions**: v1 consumes one caller-declared adjustment basis and does not detect splits (TD10 computes -1/120 across a 2:1 drop on an unadjusted basis). Alternative: require supplied action facts (a REFERENCE role) and mark windows crossing an action unavailable. Which for v1?
+- **PO-5 Catalogue and tie conventions**: accept the minimum catalogue (7 candle, 4 structure outputs) and the tie conventions (doji inclusive, inside bar strict, engulfing needs one strict side, swings strict). Is any named multi-bar pattern required for EF5 acceptance?
+- **PO-6 Elapsed time base**: velocity and acceleration divide by the exact difference of bar end instants (a daily bar after a weekend uses 3 days: TD11). Alternative: nominal bar length. Proposed: actual end-instant difference.
+- **PO-7 Code for undeclared coverage**: EF5 uses INVALID_SCHEMA (matches the merged tape adapter); the EF4 library code for the same case is the one ruled in E2 and may differ (cross-reference in EF5_SHARED_AMENDMENT). INVALID_SCHEMA is used for rows without declared coverage, matching the merged tape adapter; E2 allowed any existing fitting code (INCONSISTENT_IDENTITY is the alternative).
 
 ## Verification
 
@@ -320,4 +327,4 @@ Units and aliases for the sibling shared-ledger amendment are in [EF5_SHARED_AME
 
 ## Freeze
 
-not frozen: freeze as ef5-price-structures-1 only after the second-author recompute, the tester stratified recompute, PO rulings PO-1..PO-7 and a reviewer verdict artifact are merged
+not frozen: freeze as ef5-price-structures-1 only after the second-author recompute, the tester stratified recompute, a reviewer verdict artifact and an independent docs review are merged (PO rulings PO-1..PO-7 are applied)

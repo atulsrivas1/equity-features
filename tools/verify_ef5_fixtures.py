@@ -25,7 +25,7 @@ CONTRACT = ROOT / "docs" / "ef5" / "PRICE_STRUCTURES_CONTRACT_PROPOSAL.json"
 HELPER = ROOT / "tools" / "contract_fixtures" / "ef5_fixture_expand.py"
 K = 100
 # Pinned counts: a change to a fixture list must change these numbers in the same PR.
-PINNED = {"candle_result": 23, "structure_result": 16, "technical_result": 18, "ka_result": 27, "refusal": 49}
+PINNED = {"candle_result": 24, "structure_result": 17, "technical_result": 20, "ka_result": 27, "refusal": 51}
 PINNED_HEADERS = 15
 PINNED_REFUSAL_CODES = 12
 LISTS = ("candle_fixtures", "structure_fixtures", "technical_fixtures", "ka_fixtures")
@@ -110,6 +110,10 @@ def check_fail_closed(problems: list[str], doc: dict[str, Any]) -> None:
             problems.append(f"{fid}: known_at driver yields no null-valued missing_input output")
     for fx in (f for key in LISTS for f in doc[key]):
         for name, res in fx["expected"].items():
+            if res["basis"] != fx["adjustment"]:
+                problems.append(f"{fx['id']} {name}: adjustment basis not echoed")
+            if res["status"] != "available" and not res["reasons"]:
+                problems.append(f"{fx['id']} {name}: unavailable without a reason code")
             if (res["status"] == "available") != (res["value"] is not None):
                 problems.append(f"{fx['id']} {name}: value null exactly when not available is violated")
             if res["status"] == "available" and res["expected"] != res["observed"]:

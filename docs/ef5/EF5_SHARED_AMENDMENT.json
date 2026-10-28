@@ -36,6 +36,8 @@
   "currency/share",
   "fraction"
  ],
+ "e9_erratum": "additive erratum to E9 (not a frozen-file edit): the squared form of the slash style is fraction/s^2; aliases fraction_per_second and fraction_per_second_squared appear in no header",
+ "po7_cross_reference": "EF5 rejects rows with undeclared coverage as INVALID_SCHEMA (matches the merged tape adapter); the EF4 library uses the code ruled in E2; the divergence is documented here, not accidental; zero rows with undeclared coverage stays absent_input",
  "unit_alias_rule": "E9: underscore forms (fraction_per_second, fraction_per_second_squared) are aliases recorded here and rejected on new headers",
  "header_ledger_additions": [
   {
