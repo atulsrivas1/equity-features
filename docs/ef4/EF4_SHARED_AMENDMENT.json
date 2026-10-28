@@ -863,7 +863,7 @@
   ],
   "open_items": [
     "E1: the rank-aware `TopKTrades` check is still to be written (shared-validator change in packages/contracts) before any layer rebuilds the notional cell through the public constructor; bundles must then accept the cell.",
-    "E2: whether to make an undeclared batch a refusal instead of reading it as complete (contract amendment).",
+    "E2: whether to make an undeclared batch a refusal in the library instead of reading it as complete (contract amendment); the tape adapter half is decided (core #730).",
     "E4: whether to add an explicit window <= 63 check for governed_history instead of insufficient_history at compute.",
     "E5: owner preference on moving the I1 producer to packages/features.",
     "E6: whether to edit the four contract files' raised_by labels and the RF18/RF35 codes or keep them as errata only.",

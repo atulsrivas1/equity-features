@@ -137,7 +137,7 @@ These are the coordinator's rulings. They are decided for the work in flight and
 
 ### E2. Coverage form and the fail-open of undeclared coverage
 
-**Ruling.** The declaration is one `IntervalCoverage` entry exactly equal to [S, E) on the quote or trade batch, with the aggregate `Coverage` as fallback (complete; incomplete with a known `expected`; undeclared when `expected` is null). Bars use per-slot entries equal to a grid slot. An undeclared batch that delivers rows is read as complete: this fails open, so every I/O mapper must always declare coverage; the tape adapter enforces it: a tape batch that delivers rows with no declared coverage is refused INVALID_SCHEMA (\"coverage not declared\") at the io adapter (core #730, DECISIONS.md); zero rows with no declaration stays an empty complete batch; the fixture-notation default (complete) applies to fixtures only.
+**Ruling.** The declaration is one `IntervalCoverage` entry exactly equal to [S, E) on the quote or trade batch, with the aggregate `Coverage` as fallback (complete; incomplete with a known `expected`; undeclared when `expected` is null). Bars use per-slot entries equal to a grid slot. An undeclared batch that delivers rows is read as complete: this fails open, so every I/O mapper must always declare coverage; the tape adapter enforces it: a tape batch that delivers rows with no declared coverage is refused INVALID_SCHEMA ("coverage not declared") at the io adapter (core #730, DECISIONS.md); zero rows with no declaration stays an empty complete batch; the fixture-notation default (complete) applies to fixtures only.
 
 **Contract lines affected.**
 
