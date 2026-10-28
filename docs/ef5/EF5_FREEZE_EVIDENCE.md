@@ -91,3 +91,17 @@ Tester recompute from the md only (the expander was not read):
 ## 8. PQ-2 policy_version and D6 (coordinator, PO ruling)
 
 `adjustment_spec.policy_version` is declared explicitly (raw-v1 for unadjusted, split-factors-v1 for split_adjusted, the shared string); absent, unknown or mismatched is UNSUPPORTED_ADJUSTMENT at config. New single-fault recipes RF55 (missing), RF56 (unknown), RF57 (mismatched pair); refusals are now 57 (the PO figure 51 to 54 was stale). All 89 result fixtures now declare `adjustment_spec.policy_version`: this changes config text only, no expected value or status changed. D6 is applied (producers table, inputs paragraph, capability row). The expander changed (SHA in the README). **RF55-RF57 and the changed fixture config text need reviewer and tester recompute.**
+
+## 8. PQ-2 explicit adjustment_spec.policy_version (head 15c7321): RF55-RF57, D6, D7
+
+Tester check from the md (the expander was not read):
+- RF55: CD07 with `adjustment_spec.policy_version` deleted: the policy must be declared (shared default raw-v1 never applied), so UNSUPPORTED_ADJUSTMENT at config. Match.
+- RF56: CD07 with policy `raw-v2`: not a supported policy (v1: `raw-v1` for `unadjusted`, `split-factors-v1` for `split_adjusted`), UNSUPPORTED_ADJUSTMENT at config. Match.
+- RF57: TD21 (`split_adjusted`, snapshot and anchor declared) with policy `raw-v1`: mismatched label/policy pair, UNSUPPORTED_ADJUSTMENT at config. Match. Each is a single fault; none collides with RF22 (the producer `policy_version`, INVALID_CONFIG) or RF44 (INCOMPATIBLE_VERSION, version stage).
+- Pair strings confirmed against the shared code (`raw` -> `raw-v1`, `split` -> `split-factors-v1`: packages/contracts breadth.py, relative.py, policies.py).
+- D6 confirmed fixed: the three producer rows (md lines 17-19), the inputs paragraph (line 49) and the capability-matrix adjustment row now list `adjustment_spec`. D7 confirmed fixed: PQ-2 text in the config rules states the policy is explicit, the shared default is never read, and the exact label/policy pairs.
+- Result-set diff against 8669711: all 89 result fixtures declare `adjustment_spec.policy_version` (88 `raw-v1` with `unadjusted`, TD21 `split-factors-v1` with `split_adjusted`); the `expected` block of every fixture (status, reasons, counts, value, witnesses, basis) is byte-identical to 8669711 (0 changed), and slots, outputs, target, unit, K and columns are unchanged. Only the config declaration was added.
+- Parity: 62 result rows and 57 refusal rows identical between md and json; counts 24/17/21/27 = 89 and 57 over 12 codes agree in md line 158, json fixture_counts and the pinned verifier. No stale text found in the changed lines.
+- Gates: `verify_ef5_fixtures` PASS; `pre_merge_check` 17 of 17 PASS (3 installed-only skipped).
+
+Verdict: no discrepancy and no open docs defect. **Frozen pending merge** (of this PR). Outstanding: the second-author reviewer's recompute of TD21 (spec and policy), RF52-RF57 is requested from the reviewer separately.
