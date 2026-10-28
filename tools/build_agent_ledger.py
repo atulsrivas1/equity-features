@@ -241,7 +241,7 @@ def main():
         'docs/stories/EQ-106_EVENT_ORACLE.json','docs/stories/EQ-106_KIND_CASES.json','docs/stories/EQ-106_REFUSAL_CASES.json','docs/stories/EQ-106_OPERATION_CONTROLS.json',
         'docs/stories/EQ-107_PROFILE.json','docs/stories/EQ-107_ORACLE.json','docs/stories/EQ-107_CASES.json','docs/stories/EQ-107_PAGES.json','docs/stories/EQ-107_BOUNDARIES.json','docs/stories/EQ-107_ACCEPTED_ARCHIVES.json','docs/stories/EQ-107_CRASH_PROPOSAL.json',
         'docs/stories/EQ-097_CONFIG_ORACLE.json','docs/stories/EQ-097_RESULT_ORACLE.json','docs/stories/EQ-097_BATCH_ORACLE.json','docs/stories/EQ-096_RECEIPT_ORACLE.json',
-        'tools/build_agent_ledger.py','tools/qualification','tools/check_boundary.py','.github/workflows/agent-ledger.yml','requirements-dev.txt']
+        'tools/build_agent_ledger.py','tools/qualification','tools/check_boundary.py','tools/_versions.py','requirements-dev.txt']
     paths=tuple(subprocess.check_output(['git','ls-files','--',*scopes],cwd=ROOT,encoding='utf-8').splitlines());assert paths
     snapshot={};materialized={};source_map={}
     for name in paths:

@@ -38,13 +38,13 @@ SCOPES=['packages/'+name for name in PACKAGES]+[
     'docs/contracts/REGISTRY.md',
     'docs/CONTINUOUS_API.md',
     'docs/api/CONTINUOUS_RESEARCH.md','docs/features/CROSS_VENUE_FORMULAS.md',
-    'docs/stories/EQ113_VALIDATION.json','README.md','docs/CHANGELOG.md',
+    'docs/stories/EQ113_VALIDATION.json','docs/CHANGELOG.md',
     'docs/CONTINUOUS_MARKET_DESIGN.md','docs/COMPATIBILITY.md','docs/BUILD_DELIVERY.md',
     'docs/PROJECT_KNOWLEDGE.md','docs/SESSION_HANDOFF.md','docs/knowledge/LESSONS.md',
     'examples/typing/continuous_positive.py','examples/typing/continuous_negative.py',
     'examples/typing/continuous_negative_expected.json',
     'tools/build_continuous.py','tools/continuous_archives.py','tools/continuous_installed.py','tools/continuous_legacy.py',
-    'tools/check_boundary.py','tools/check_continuous_boundary.py','tools/build_explanations.py',
+    'tools/check_boundary.py','tools/_versions.py','tools/check_continuous_boundary.py','tools/build_explanations.py',
     'requirements-dev.txt','mypy.ini']
 
 

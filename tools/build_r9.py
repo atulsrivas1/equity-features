@@ -65,7 +65,7 @@ def main():
     OUT.mkdir(parents=True,exist_ok=True)
     head=subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,encoding='utf-8').strip()
     scopes=['packages/'+p for p in PACKAGES if p!='bundles']+['tests/evidence','tests/explanations','tests/r9',
-        'examples/r9_reproduction.py','tools/measure_r9.py','tools/build_r9.py','tools/build_explanations.py','tools/check_boundary.py',
+        'examples/r9_reproduction.py','tools/measure_r9.py','tools/build_r9.py','tools/build_explanations.py','tools/check_boundary.py','tools/_versions.py',
         '.github/workflows/r9.yml','requirements-dev.txt']
     # Only pinned test vectors, not recursively copied validation receipts.
     scopes+=['docs/stories/'+n for n in ('EQ-096_RECEIPT_ORACLE.json','EQ-097_BATCH_ORACLE.json','EQ-097_CONFIG_ORACLE.json',

@@ -27,7 +27,7 @@ SCOPES=['packages/'+name for name in PACKAGES]+[
     'examples/typing/intraday_negative_expected.json',
     'tools/build_intraday.py','tools/continuous_archives.py','tools/continuous_installed.py',
     'tools/continuous_legacy.py','tools/build_explanations.py',
-    'tools/check_boundary.py','tools/check_intraday_boundary.py','tools/test_ci_gate.py',
+    'tools/check_boundary.py','tools/_versions.py','tools/check_intraday_boundary.py','tools/test_ci_gate.py',
     'tools/benchmark_intraday_preparation.py','tools/test_intraday_benchmark.py',
     'tools/benchmark_intraday_indicators.py','tools/test_intraday_indicator_benchmark.py',
     'tools/benchmark_intraday_bands.py','tools/test_intraday_band_benchmark.py',

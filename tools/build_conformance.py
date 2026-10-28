@@ -80,7 +80,7 @@ def main():
         'docs/stories/EQ-097_*','docs/stories/EQ-101_TRUTH_TABLE.json','docs/stories/EQ-103_*',
         'docs/stories/EQ-104_*','docs/api/POINT_IN_TIME_CONFORMANCE.md',
         'examples/conformance_declarations.py','tools/build_conformance.py',
-        'tools/build_explanations.py','tools/check_boundary.py','requirements-dev.txt','mypy.ini','.github/workflows/conformance.yml'],
+        'tools/build_explanations.py','tools/check_boundary.py','tools/_versions.py','requirements-dev.txt','mypy.ini','.github/workflows/conformance.yml'],
         'io':['packages/'+p for p in ('io-contracts','io-sdk','duckdb','duckdb-sink')],
         'workers':['packages/workers']}
     snapshot={};materialized={};source_map={}
