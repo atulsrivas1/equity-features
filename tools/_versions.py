@@ -25,3 +25,18 @@ CONTRACTS = VERSIONS["contracts"]
 FEATURES = VERSIONS["features"]
 # Producer versions the explanations package admits: the current features version and the earlier ones it still admits.
 EXPLANATION_BACKEND_VERSIONS = ("0.0.4a4", "0.0.4a5", FEATURES)
+
+# Sibling-repository distributions the multi-repository builders (build_conformance, build_r10, build_r9, build_evidence_pilot) build.
+SIBLINGS: dict[str, str] = {
+    "io-contracts": "0.1.0a3",
+    "io-sdk": "0.1.0a3",
+    "duckdb": "0.1.0a10",
+    "duckdb-sink": "0.1.0a1",
+    "bundles": "0.1.0a2",
+    "workers": "0.1.0a16",
+}
+# Exact sibling commits those builders read: the post-bump main commits (core 710fe05, io f889426, workers 2222d43).
+SIBLING_COMMITS: dict[str, str] = {
+    "io": "f8894267b8f9c64fbe32d174193760ae71b95d36",
+    "workers": "2222d4325457b448aacdbb57ee4805bb8923881e",
+}

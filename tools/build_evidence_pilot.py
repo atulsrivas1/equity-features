@@ -15,12 +15,12 @@ import subprocess
 import sys
 import tempfile
 sys.path.insert(0, str(Path(__file__).resolve().parent))  # tools/_versions.py, also when loaded by path from tests
-from _versions import VERSIONS, CONTRACTS, FEATURES
+from _versions import VERSIONS, CONTRACTS, FEATURES, SIBLINGS, SIBLING_COMMITS
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / 'dist/evidence-pilot'
 IO = ROOT / '.eq116-inputs/io'
-IO_HEAD = '18d86761aa3eebb7414e51e8fa2aba089717b5eb'
+IO_HEAD = SIBLING_COMMITS['io']
 PACKAGES = {
     'contracts': ('equity_feature_contracts', CONTRACTS),
     'features': ('equity_features', FEATURES),
@@ -29,7 +29,7 @@ PACKAGES = {
     'diagnostics': ('equity_feature_diagnostics', VERSIONS['diagnostics']),
     'agent-evidence': ('equity_feature_agent_evidence', VERSIONS['agent-evidence']),
     'agent-ledger': ('equity_feature_agent_ledger', VERSIONS['agent-ledger']),
-    'bundles': ('equity_feature_bundles', '0.1.0a2'),
+    'bundles': ('equity_feature_bundles', SIBLINGS['bundles']),
 }
 
 

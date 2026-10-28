@@ -241,7 +241,7 @@ def main():
         'docs/stories/EQ-106_EVENT_ORACLE.json','docs/stories/EQ-106_KIND_CASES.json','docs/stories/EQ-106_REFUSAL_CASES.json','docs/stories/EQ-106_OPERATION_CONTROLS.json',
         'docs/stories/EQ-107_PROFILE.json','docs/stories/EQ-107_ORACLE.json','docs/stories/EQ-107_CASES.json','docs/stories/EQ-107_PAGES.json','docs/stories/EQ-107_BOUNDARIES.json','docs/stories/EQ-107_ACCEPTED_ARCHIVES.json','docs/stories/EQ-107_CRASH_PROPOSAL.json',
         'docs/stories/EQ-097_CONFIG_ORACLE.json','docs/stories/EQ-097_RESULT_ORACLE.json','docs/stories/EQ-097_BATCH_ORACLE.json','docs/stories/EQ-096_RECEIPT_ORACLE.json',
-        'tools/build_agent_ledger.py','tools/qualification','tools/check_boundary.py','.github/workflows/agent-ledger.yml','requirements-dev.txt']
+        'tools/build_agent_ledger.py','tools/qualification','tools/check_boundary.py','tools/_versions.py','requirements-dev.txt']
     paths=tuple(subprocess.check_output(['git','ls-files','--',*scopes],cwd=ROOT,encoding='utf-8').splitlines());assert paths
     snapshot={};materialized={};source_map={}
     for name in paths:
@@ -288,12 +288,16 @@ def main():
         'equity_feature_contracts-0.0.4a4-py3-none-any.whl':f'equity_feature_contracts-{CONTRACTS}-py3-none-any.whl',
         'equity_feature_contracts-0.0.4a4.tar.gz':f'equity_feature_contracts-{CONTRACTS}.tar.gz',
         'equity_features-0.0.4a4-py3-none-any.whl':f'equity_features-{FEATURES}-py3-none-any.whl',
-        'equity_features-0.0.4a4.tar.gz':f'equity_features-{FEATURES}.tar.gz'}
+        'equity_features-0.0.4a4.tar.gz':f'equity_features-{FEATURES}.tar.gz',
+        'equity_feature_evidence-0.1.0a2-py3-none-any.whl':f'equity_feature_evidence-{VERSIONS["evidence"]}-py3-none-any.whl',
+        'equity_feature_evidence-0.1.0a2.tar.gz':f'equity_feature_evidence-{VERSIONS["evidence"]}.tar.gz',
+        'equity_feature_agent_evidence-0.1.0a1-py3-none-any.whl':f'equity_feature_agent_evidence-{VERSIONS["agent-evidence"]}-py3-none-any.whl',
+        'equity_feature_agent_evidence-0.1.0a1.tar.gz':f'equity_feature_agent_evidence-{VERSIONS["agent-evidence"]}.tar.gz'}
     assert PACKAGES['features']==('equity_features',FEATURES)
     assert set(replacements)<=set(expected) and not set(replacements)&set(report['artifacts'])
     assert set(replacements.values())<=set(report['artifacts'])
     assert set(report['artifacts'])==((set(expected)-set(replacements))|set(replacements.values())|
-        {'equity_feature_agent_ledger-0.1.0a1-py3-none-any.whl','equity_feature_agent_ledger-0.1.0a1.tar.gz'})
+        {f'equity_feature_agent_ledger-{VERSIONS["agent-ledger"]}-py3-none-any.whl',f'equity_feature_agent_ledger-{VERSIONS["agent-ledger"]}.tar.gz'})
     # Same-named archives whose contracts pin and expected-contracts constant moved with the pre-release bump.
     pin_moved={n for n in expected if n.startswith(('equity_feature_evidence-','equity_feature_agent_evidence-'))}
     for name,item in expected.items():

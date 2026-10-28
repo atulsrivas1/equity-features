@@ -13,12 +13,14 @@ import tomllib
 from packaging.markers import Marker
 from packaging.requirements import Requirement
 import build_explanations as common
+sys.path.insert(0, str(Path(__file__).resolve().parent))  # tools/_versions.py
+from _versions import SIBLINGS, SIBLING_COMMITS
 
 ROOT=Path(__file__).resolve().parents[1]
 IO=ROOT/'work/r9-io'
-IO_HEAD='18d86761aa3eebb7414e51e8fa2aba089717b5eb'
+IO_HEAD=SIBLING_COMMITS['io']
 OUT=ROOT/'dist/r9'
-PACKAGES={**common.PACKAGES,'bundles':('equity_feature_bundles','0.1.0a2')}
+PACKAGES={**common.PACKAGES,'bundles':('equity_feature_bundles',SIBLINGS['bundles'])}
 common.PACKAGES=PACKAGES
 run=common.run
 sha=common.sha
@@ -63,7 +65,7 @@ def main():
     OUT.mkdir(parents=True,exist_ok=True)
     head=subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,encoding='utf-8').strip()
     scopes=['packages/'+p for p in PACKAGES if p!='bundles']+['tests/evidence','tests/explanations','tests/r9',
-        'examples/r9_reproduction.py','tools/measure_r9.py','tools/build_r9.py','tools/build_explanations.py','tools/check_boundary.py',
+        'examples/r9_reproduction.py','tools/measure_r9.py','tools/build_r9.py','tools/build_explanations.py','tools/check_boundary.py','tools/_versions.py',
         '.github/workflows/r9.yml','requirements-dev.txt']
     # Only pinned test vectors, not recursively copied validation receipts.
     scopes+=['docs/stories/'+n for n in ('EQ-096_RECEIPT_ORACLE.json','EQ-097_BATCH_ORACLE.json','EQ-097_CONFIG_ORACLE.json',
