@@ -65,7 +65,7 @@ Each result demo ran adapter, worker, library, a separate DuckDB sink, SDK readb
 
 - Nine tape merge refusal recipes have no worker path and are checked at the library only: RF41, RF42, RF43, RF54, RF55, RF60, RF65, RF66 and RF69 (ruling E8). Status: accepted limit (decided, pending owner review, DECISIONS.md 2026-10-28). They are library-only by design under ruling E8: the top-K merge worker uses one shared configuration. They stay covered by the library fixtures and `tools/verify_ef4_fixtures.py` counts; the owner may choose a worker path under E8.
 - Tape generator fixtures G01 to G03 were not run in the qualification.
-- Unit test suites (none by policy), Parquet or bundles round trip for notional cells, real or observed data, browser inspection of generated HTML.
+- Unit test suites (none by policy), real or observed data, browser inspection of generated HTML. (The Parquet and bundles notional round trip is now recorded, see L2 below.)
 
 ## Installed qualification (Windows)
 
@@ -73,18 +73,22 @@ Core PR #714 (`docs/ef4/EF4_INSTALLED_QUALIFICATION.md`) is **merged** (`ab80b98
 
 ## Known limits and release-gate items
 
-- Superseded by PO ruling E1 (2026-10-28, [EF4_ERRATA.md](EF4_ERRATA.md)): the rank-aware `TopKTrades` check is built and the workaround below is removed. Historic text: rank-aware check not built (E1). The shared validator still demands the size-ranked key; `tape.top_k_notional` cells are assembled with `object.__new__` plus `object.__setattr__`; the io codec is feature-aware and rechecks notional order on read; the bundles decoder refuses notional cells. `EF4_TAPE_IO.md` lines 17 and 41 are stale against io main `4ebfa30`.
-- Coverage fails open (E2, L5): an undeclared batch that delivers rows reads as complete, and, per core #730, the tape adapter refuses INVALID_SCHEMA for a batch with rows and no declared coverage (zero rows stays empty/complete; the fixture-notation default applies to fixtures only). The other adapters always declare.
+- E1 (rank-aware check): CLOSED. Core #734 built the rank-aware `TopKTrades(k, rows, ranking=)` check and removed the `object.__new__` workaround; io #54 makes the bundles typed decoder and the io-sdk codec accept `tape.top_k_notional` cells (merged 2026-10-28; `EF4_TAPE_IO.md` was refreshed in io #52 and #54). Historic text (pre-#734: the shared validator demanded the size-ranked key and the bundles decoder refused notional cells) no longer applies.
+- E2 (coverage fails open): CLOSED. Tape adapter: rows without declared coverage are refused INVALID_SCHEMA (io #51), no rows without coverage INVALID_CONFIG (io #54); core #734 makes `declared_coverage` for quote and VWAP trade sources refuse an undeclared batch that delivers rows; incomplete coverage reads as `governed_gap` (DP-T12, recipes ER09 to ER11, #737).
 - RF18 and RF35 adapter deviation (E6): through the adapter the shared validator refuses first with `UNSUPPORTED_SAMPLING` and `DUPLICATE` instead of the contract `INVALID_SCHEMA`; both inputs are still refused.
 - Refusals are raised by different layers than the contract `raised_by` for H (RQ09, RQ12, RV43) and I2 (11 producer-admission recipes, SPR12, SPR13); codes match, layers differ, contract files not edited (L1). Worker codes collapse to `INVALID_COMMAND` as in EF3 ruling R9.
-- The Parquet and bundles round trip was not run for notional cells (L2).
-- mypy was not installed in the author environments; strict typing is not claimed for any EF4 layer (L3).
-- Package versions were not bumped (as built in #714: workers `0.1.0a15`, features `0.0.4a5`, intraday `0.1.0a3`); a version bump and release publication are owed and need the owner.
+- L2 (Parquet and bundles round trip for notional cells): RUN and recorded. `tools/verify_ef4_notional_cells.py` in equity-feature-io (extended by io #59) round trips a `tape.top_k_notional` result (prints a(1x10), b(2x3), c(1x1): size order b,a,c; notional order a,b,c) through the bundles typed decoder, the io-sdk codec, the core Arrow conversion and a `ParquetSink` publish and read-back, and inspects the stored `cells.parquet` cell wire and `evidence.parquet` rows (notional order a,b,c). Result on 2026-10-28: OK, with io main `106897a`, core main `3af2d99`, CPython 3.12.10, pyarrow 20.0.0, Windows (the first three round trips were recorded by io #54 for `97feb48`). Not covered: the workers remote client cannot decode notional cells (documented limit; PO verdict C3), and a full reproduction bundle for `tape.top_k_notional` does not exist because the bundle format is `session.compute_trades.v1` only (bundle `result.json` goes through the typed decoder checked above).
+- L3 (mypy): CLOSED for the io examples (io #52) and the workers EF4 modules (workers #95); `mypy --strict packages/duckdb/src` is clean in io. Not claimed for core: `mypy` on `packages/intraday` still reports the 13 baseline errors (core #742 body), unchanged by EF4/EF5.
+- Package versions (as built in #714: workers `0.1.0a15`, features `0.0.4a5`, intraday `0.1.0a3`) are STALE. Current main after the coordinated pre-release bump (core #739 `710fe05`, io #56 `f889426`, workers #97 `2222d43`; record `docs/PRERELEASE_BUMP_A5_A6.md`): contracts `0.0.4a5`, features `0.0.4a6`, intraday `0.1.0a4`, explanations `0.1.0a3`, evidence `0.1.0a3`, diagnostics/conformance/agent-evidence/agent-ledger `0.1.0a2`, io-contracts and io-sdk `0.1.0a3`, bundles `0.1.0a2`, duckdb `0.1.0a10`, duckdb-sink `0.1.0a1`, parquet `0.1.0a2`, workers `0.1.0a16`, provenance `0.1.0a3`, mcp `0.1.0a2`. Pre-release label move only: no tag, no publish, no release claim; publication still needs the owner. Wording stays "internal, synthetic, pre-release a5/a6".
 - Batch API holds data in memory (O(n)); no incremental state.
-- `tools/check_boundary.py` fails on the base at `ef1/_reference_close.py` (`import base64`); EF4 modules report no violation (author-reported) (L6).
-- Tape window `evidence_limit` is published as 9 times the config value (E7); the `governed_history` cap N <= 63 is implicit with no explicit check (E4); I1 is hosted in packages/intraday (E5); unit spelling is not unified (E9).
+- `tools/check_boundary.py` (L6): historic text said it failed on the base at `ef1/_reference_close.py`; on origin/main `3af2d99` it exits 0 (run 2026-10-28).
+- Tape window `evidence_limit` is published as 9 times the config value (E7); the `governed_history` window N <= 63 is now an explicit INVALID_CONFIG check (E4, core #734); I1 is hosted in packages/intraday (E5); unit spelling is not unified (E9: ledger applied in `EF4_LEDGER_APPLICATION`, unit-spelling unification deferred to the next contract-version migration because of hash impact).
 - The output ownership manifest `docs/plans/equity-output-ownership.json` was not checked against the 59 EF4 headers.
-- Shared amendment rulings E1 to E9 are pending owner review. Cost figures and fixture pass counts are author-reported (L7).
+- Shared amendment rulings E1 to E9 are pending owner awareness (PO ratified them 2026-10-28, `work/po-acceptance-ef1-ef4-2026-10-28.md`). Cost figures and fixture pass counts are author-reported (L7).
+
+## Later changes and open items (added 2026-10-28)
+
+Merged after this package was written: E1/E2/E4 core #734 with io #54 and #51, errata #737, compatibility notes #738/#55, bump #739/#56/#97, builder re-pin #740/#57/#98, nits #741/#99/#744, EF5 library #742/#743, EF5 io #58, EF5 workers plan #100. Reviewer verdict records: `docs/qa/EF4_PR_REVIEWER_VERDICTS.md` (GitHub holds no reviews). Builders not run to completion are listed in each repo's `docs/PRERELEASE_BUMP_A5_A6.md`. Independent EF4 docs review is not done.
 
 ## Not done (not claimed)
 
