@@ -23,6 +23,9 @@ from equity_feature_explanations import (
 )
 from equity_feature_explanations import _explain as implementation
 
+# The newest admitted producer backend version (the current equity-features release); older ones are legacy.
+CURRENT_BACKEND = implementation._LEGACY_BACKEND_VERSIONS[-1]
+
 
 def fixture(backend_version='0.0.4a4'):
     entity = EntityKey('A', 'S'); fid = 'session.trade.count'
@@ -97,7 +100,7 @@ class ExplanationTests(unittest.TestCase):
     def test_independent_zero_reference_wire(self):
         expected = (Path(__file__).parents[2] / 'docs/stories/EQ-099_EXPLANATION_ORACLE.json').read_bytes()
         self.assertEqual((len(expected), hashlib.sha256(expected).hexdigest()),
-            (3829, '12da2aa17eb6173a6846e825f425c2b526570a395946bd73967fbcc05587f0eb'))
+            (3829, '2e5487fb5c7bf50fc66014f44c6ba560117450698b55c03290f9d531f265acd6'))
         value = self.operation()
         self.assertEqual(encode_explanation(value), expected)
         self.assertEqual((value.displayed_count, value.omitted_retained_count), (0, 0))
@@ -106,7 +109,7 @@ class ExplanationTests(unittest.TestCase):
     def test_independent_retained_excluded_wire(self):
         expected = (Path(__file__).parents[2] / 'docs/stories/EQ-099_REFERENCE_ORACLE.json').read_bytes()
         self.assertEqual((len(expected), hashlib.sha256(expected).hexdigest()),
-            (4180, '3513cdd0a60d855e34644b36ee67ca2728d2fdf69070a7a6c4dc6f7bf4e2da49'))
+            (4180, 'fb8ae1d43ceab18fc68c41fe2c2fc252f63d5798a23894cb1f2fc5cb4e2a58fe'))
         value = self.operation(retained(), evidence_limit=1)
         self.assertEqual(encode_explanation(value), expected)
         self.assertEqual(value.evidence[0].index, 0)
@@ -163,7 +166,7 @@ class ExplanationTests(unittest.TestCase):
         # These are separate hand-authored declaration fixtures, not an actual
         # calculator result with its identity rewritten to impersonate a4/a5.
         legacy = declared_trade_fixture('0.0.4a4')
-        current = declared_trade_fixture('0.0.4a5')
+        current = declared_trade_fixture(CURRENT_BACKEND)
         self.assertEqual(legacy[2].values, current[2].values)
         self.assertEqual(legacy[2].quality, current[2].quality)
         self.assertEqual(legacy[2].values[0].values, (3,))
@@ -171,7 +174,7 @@ class ExplanationTests(unittest.TestCase):
                          (3, 10, 1011, 101.1, 10 / 3))
         self.assertEqual(legacy[2].quality[0], QualityRow(legacy[4], legacy[5], Status.AVAILABLE, 3, 3))
         self.assertNotEqual(legacy[3].output, current[3].output)
-        for values, version in ((legacy, '0.0.4a4'), (current, '0.0.4a5')):
+        for values, version in ((legacy, '0.0.4a4'), (declared_trade_fixture('0.0.4a5'), '0.0.4a5'), (current, CURRENT_BACKEND)):
             explanation = self.operation(values)
             self.assertEqual(explanation.quality, values[2].quality[0])
             self.assertEqual(explanation.receipt.metadata.backend_version, version)
@@ -180,9 +183,9 @@ class ExplanationTests(unittest.TestCase):
         self.assertEqual(self.operation(legacy).findings, self.operation(current).findings)
 
     def test_lib02_unknown_backend_refuses_factory_and_direct_constructor(self):
-        unknown = declared_trade_fixture('0.0.4a6')
+        unknown = declared_trade_fixture('9.9.9')
         self.rejects('unsupported_version', lambda: self.operation(unknown))
-        current = self.operation(declared_trade_fixture('0.0.4a5'))
+        current = self.operation(declared_trade_fixture(CURRENT_BACKEND))
         self.rejects('unsupported_version', lambda: replace(current, receipt=unknown[3]))
 
     def test_output_mutation_same_metadata(self):
@@ -286,7 +289,7 @@ class ExplanationTests(unittest.TestCase):
         for supplied, target in zip(variants, expected, strict=True):
             result = compute_trades(supplied, cfg, entity=entity)
             self.assertEqual(result.metadata.backend_version, producer_version)
-            self.assertIn(producer_version, ('0.0.4a4', '0.0.4a5'))
+            self.assertIn(producer_version, implementation._LEGACY_BACKEND_VERSIONS)
             ref = receipt(cfg, supplied, result)
             value = self.operation((cfg, supplied, result, ref, entity, fid))
             q = value.quality

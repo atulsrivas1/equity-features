@@ -10,13 +10,15 @@ import sys
 import tempfile
 from email.parser import BytesParser
 import build_explanations as common
+sys.path.insert(0, str(Path(__file__).resolve().parent))  # tools/_versions.py, also when loaded by path from tests
+from _versions import VERSIONS, CONTRACTS, FEATURES
 
 ROOT=Path(__file__).resolve().parents[1]
 OUT=ROOT/'dist/diagnostics'
 EPOCH=1700000000
-PACKAGES={'contracts':('equity_feature_contracts','0.0.4a4'),
-    'features':('equity_features','0.0.4a5'), 'evidence':('equity_feature_evidence','0.1.0a2'),
-    'diagnostics':('equity_feature_diagnostics','0.1.0a1')}
+PACKAGES={'contracts':('equity_feature_contracts',CONTRACTS),
+    'features':('equity_features',FEATURES), 'evidence':('equity_feature_evidence',VERSIONS['evidence']),
+    'diagnostics':('equity_feature_diagnostics',VERSIONS['diagnostics'])}
 # Reuse the unchanged reviewed archive/install functions with this closed table.
 common.PACKAGES=PACKAGES
 run=common.run
@@ -32,7 +34,7 @@ def inspect(path,name,source):
         files=common.contents(path)
         metadata=next(v for k,v in files.items() if k.endswith('/METADATA') or k==path.name.removesuffix('.tar.gz')+'/PKG-INFO')
         parsed=BytesParser().parsebytes(metadata)
-        assert parsed.get_all('Requires-Dist',[])==['equity-feature-contracts==0.0.4a4','equity-feature-evidence==0.1.0a2']
+        assert parsed.get_all('Requires-Dist',[])==[f'equity-feature-contracts=={CONTRACTS}',f'equity-feature-evidence=={VERSIONS["evidence"]}']
         assert not parsed.get_all('Provides-Extra',[])
     return value
 

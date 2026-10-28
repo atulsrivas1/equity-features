@@ -17,12 +17,14 @@ import sys
 import tarfile
 import tempfile
 import zipfile
+sys.path.insert(0, str(Path(__file__).resolve().parent))  # tools/_versions.py, also when loaded by path from tests
+from _versions import VERSIONS, CONTRACTS, FEATURES
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / 'dist/evidence'
 EPOCH = 1700000000
-PACKAGES = {'contracts':('equity_feature_contracts','0.0.4a4'),
-            'features':('equity_features','0.0.4a5'), 'evidence':('equity_feature_evidence','0.1.0a2')}
+PACKAGES = {'contracts':('equity_feature_contracts',CONTRACTS),
+            'features':('equity_features',FEATURES), 'evidence':('equity_feature_evidence',VERSIONS['evidence'])}
 
 
 def run(*args, cwd=ROOT, env=None):
@@ -67,7 +69,7 @@ def inspect(path, name, source):
     metadata=BytesParser().parsebytes(files[metadata_name])
     assert metadata['Name']==module.replace('_','-') and metadata['Version']==version
     assert metadata['License-Expression']=='Apache-2.0' and metadata['Requires-Python']=='<3.13,>=3.12'
-    if name=='evidence': assert metadata.get_all('Requires-Dist',[])==['equity-feature-contracts==0.0.4a4']
+    if name=='evidence': assert metadata.get_all('Requires-Dist',[])==[f'equity-feature-contracts=={CONTRACTS}']
     package_prefix=module+'/' if wheel else prefix+'src/'+module+'/'
     expected={p.relative_to(source/'src').as_posix():p.read_bytes() for p in (source/'src'/module).rglob('*') if p.is_file()}
     actual={module+'/'+n.removeprefix(package_prefix):body for n,body in files.items() if n.startswith(package_prefix)}

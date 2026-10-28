@@ -11,7 +11,7 @@
     "value": {
       "algorithm": "sha256",
       "canonicalization": "typed-json-v1",
-      "contracts_version": "0.0.4a4",
+      "contracts_version": "0.0.4a5",
       "domain": "configuration",
       "project": "equity-features",
       "schema_version": "1",
@@ -87,7 +87,7 @@
       }
     },
     "bytes": 1186,
-    "sha256": "84623ae5ac7b5d30f2683822b11db487d37c3166f00265c09aa61c30ff8c2a67",
+    "sha256": "de5d6626c63b85fd97b9d0c58b39b7bccb2587e4732ee3b07632b739549b9023",
     "public_ConfigSpec_JSON": {
       "adjustment": {
         "action_snapshot": "none",
@@ -142,7 +142,7 @@
     "value": {
       "algorithm": "sha256",
       "canonicalization": "typed-json-v1",
-      "contracts_version": "0.0.4a4",
+      "contracts_version": "0.0.4a5",
       "domain": "canonical_batch",
       "project": "equity-features",
       "schema_version": "1",
@@ -309,7 +309,7 @@
       }
     },
     "bytes": 1751,
-    "sha256": "aa3697b5c4c1d5939570dda4396344b8fad7b9eef499eb7c65716d6858fa78bb"
+    "sha256": "4aa0d78488ea20c5d53dafb9e3ff2afceb70eeb2b82f33bed7bcd43dab5001af"
   },
   "producer": {
     "case": "trades",

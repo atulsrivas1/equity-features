@@ -3,6 +3,9 @@ from __future__ import annotations
 import ast
 from pathlib import Path
 import tomllib
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parent))  # tools/_versions.py, also when loaded by path from tests
+from _versions import CONTRACTS
 
 ROOT = Path(__file__).resolve().parents[1]
 SYMBOLS = {
@@ -128,7 +131,7 @@ def check_intraday() -> None:
     package = ROOT/'packages/intraday'
     project = tomllib.loads((package/'pyproject.toml').read_text(encoding='utf-8'))['project']
     assert project['name'] == 'equity-features-intraday'
-    assert project['dependencies'] == ['equity-feature-contracts==0.0.4a4']
+    assert project['dependencies'] == [f'equity-feature-contracts=={CONTRACTS}']
     assert not project.get('optional-dependencies')
     assert project['license'] == 'Apache-2.0' and project['license-files'] == ['LICENSE']
     assert (package/'LICENSE').read_bytes() == (ROOT/'LICENSE').read_bytes()

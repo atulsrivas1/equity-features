@@ -13,12 +13,14 @@ import tempfile
 
 from build_explanations import run, normalize, sha
 from continuous_archives import inspect
+sys.path.insert(0, str(Path(__file__).resolve().parent))  # tools/_versions.py, also when loaded by path from tests
+from _versions import VERSIONS, CONTRACTS, FEATURES
 
 ROOT=Path(__file__).resolve().parents[1]
 OUT=ROOT/'dist/continuous'
-PACKAGES={'contracts':('equity_feature_contracts','0.0.4a4'),
-          'features':('equity_features','0.0.4a5'),
-          'continuous':('equity_feature_continuous','0.1.0a2')}
+PACKAGES={'contracts':('equity_feature_contracts',CONTRACTS),
+          'features':('equity_features',FEATURES),
+          'continuous':('equity_feature_continuous',VERSIONS['continuous'])}
 SCOPES=['packages/'+name for name in PACKAGES]+[
     'tests/continuous','tests/unit/test_continuous_capability.py',
     'docs/stories/EQ112_MATHEMATICS.md','docs/stories/EQ112_DECISIONS.md',

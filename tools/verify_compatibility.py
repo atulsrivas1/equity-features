@@ -7,9 +7,12 @@ import numpy as np
 import pyarrow as pa
 import equity_feature_contracts as c
 import equity_features as f
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).resolve().parent))  # tools/_versions.py, also when loaded by path from tests
+from _versions import CONTRACTS, FEATURES
 
 assert sys.version_info[:2]==(3,12) and sys.maxsize==2**63-1
-assert (c.__version__,f.__version__,f.contracts_version)==('0.0.4a4','0.0.4a5','0.0.4a4')
+assert (c.__version__,f.__version__,f.contracts_version)==(CONTRACTS,FEATURES,CONTRACTS)
 assert np.__version__=='2.2.6' and pa.__version__=='20.0.0'
 a=np.array([2**63-1,-2**63],dtype=np.int64)
 assert a.tolist()==[2**63-1,-2**63]

@@ -7,6 +7,7 @@ import hashlib
 import json
 import math
 from pathlib import Path
+from equity_features_intraday import __version__ as PACKAGE_VERSION
 import unittest
 
 from equity_feature_contracts import (
@@ -180,7 +181,7 @@ class BandTests(unittest.TestCase):
             self.assertEqual(result,compute_intraday(b,c,cfg,features=ALL,preparation=prepared))
             expected=[(feature,f'slot:{i}') for feature in ALL for i in (range(2,5) if feature in BANDS else range(5))][:limit]
             self.assertEqual([(e.feature_id,e.row_id) for e in result.evidence],expected)
-            self.assertEqual(result.metadata.backend_version,'0.1.0a3')
+            self.assertEqual(result.metadata.backend_version,PACKAGE_VERSION)
             self.assertEqual(result.metadata.config_digest,cfg.digest)
             for col,q in zip(result.values,result.quality):
                 single=compute_intraday(b,c,cfg,features=(col.feature_id,))

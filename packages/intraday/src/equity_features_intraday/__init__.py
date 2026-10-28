@@ -2,7 +2,7 @@
 from ._context import IntradayContext, IntradayRun, build_intraday_config
 from ._prepare import IntradayPreparation, OperandEvidence, PreparedOperand, prepare_intraday
 from ._dispatch import compute_intraday
-from ._registry import (IntradayFeature, describe_intraday, intraday_catalog_digest,
+from ._registry import (PACKAGE_VERSION, IntradayFeature, describe_intraday, intraday_catalog_digest,
                         require_intraday_capability)
 
 # EF2 money flow (ef2-mf1): own config identity, discovery and dispatch; the R17 catalog is unchanged.
@@ -41,7 +41,7 @@ from ._path import compute_path_efficiency
 from ._path_registry import (describe_path_efficiency, path_efficiency_catalog_digest,
                              require_path_efficiency_capability)
 
-__version__ = "0.1.0a3"
+__version__ = PACKAGE_VERSION
 __all__ = ["IntradayContext", "IntradayRun", "build_intraday_config",
            "IntradayPreparation", "OperandEvidence", "PreparedOperand", "prepare_intraday",
            "compute_intraday", "IntradayFeature", "describe_intraday",

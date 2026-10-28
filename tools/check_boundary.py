@@ -11,6 +11,9 @@ import ast
 from pathlib import Path
 import re
 import tomllib
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parent))  # tools/_versions.py, also when loaded by path from tests
+from _versions import VERSIONS, CONTRACTS
 
 ROOT=Path(__file__).resolve().parents[1]
 ALLOWED={'__future__','dataclasses','enum','typing','collections','math','fractions','decimal','json','hashlib','re','numpy','pyarrow','equity_feature_contracts','equity_features'}
@@ -622,7 +625,7 @@ def check_continuous():
     root=ROOT/'packages/continuous'
     if not root.exists():return
     project=tomllib.loads((root/'pyproject.toml').read_text(encoding='utf-8'))['project']
-    assert project['dependencies']==['equity-feature-contracts==0.0.4a4']
+    assert project['dependencies']==[f'equity-feature-contracts=={CONTRACTS}']
     assert not project.get('optional-dependencies',{}),'unreviewed continuous extras'
     for path in root.glob('src/**/*.py'):
         errors=continuous_violations(path.read_text(encoding='utf-8'))
@@ -813,7 +816,7 @@ def check(siblings=()):
     for research in (*research_packages,*evidence_packages):
         if not research.exists(): continue
         project=tomllib.loads((research/'pyproject.toml').read_text(encoding='utf-8'))['project']
-        assert project['dependencies']==['equity-feature-contracts==0.0.4a4']
+        assert project['dependencies']==[f'equity-feature-contracts=={CONTRACTS}']
         assert not project.get('optional-dependencies',{}),'unreviewed research extras'
         for path in research.glob('src/**/*.py'):
             errors=research_violations(path.read_text(encoding='utf-8'),codec=path.name=='_codec.py')
@@ -825,7 +828,7 @@ def check(siblings=()):
     for root in explanation_packages:
         if not root.exists(): continue
         project=tomllib.loads((root/'pyproject.toml').read_text(encoding='utf-8'))['project']
-        assert project['dependencies']==['equity-feature-contracts==0.0.4a4','equity-feature-evidence==0.1.0a2']
+        assert project['dependencies']==[f'equity-feature-contracts=={CONTRACTS}',f'equity-feature-evidence=={VERSIONS["evidence"]}']
         assert not project.get('optional-dependencies',{})
         for path in root.glob('src/**/*.py'):
             errors=research_violations(path.read_text(encoding='utf-8'),explanation=True)
@@ -842,7 +845,7 @@ def check(siblings=()):
     for root in diagnostic_packages:
         if not root.exists(): continue
         project=tomllib.loads((root/'pyproject.toml').read_text(encoding='utf-8'))['project']
-        assert project['dependencies']==['equity-feature-contracts==0.0.4a4','equity-feature-evidence==0.1.0a2']
+        assert project['dependencies']==[f'equity-feature-contracts=={CONTRACTS}',f'equity-feature-evidence=={VERSIONS["evidence"]}']
         assert not project.get('optional-dependencies',{})
         for path in root.glob('src/**/*.py'):
             errors=research_violations(path.read_text(encoding='utf-8'),diagnostics=True)
@@ -858,7 +861,7 @@ def check(siblings=()):
     for root in conformance_packages:
         if not root.exists():continue
         project=tomllib.loads((root/'pyproject.toml').read_text(encoding='utf-8'))['project']
-        assert project['dependencies']==['equity-feature-contracts==0.0.4a4','equity-feature-evidence==0.1.0a2','equity-feature-diagnostics==0.1.0a1']
+        assert project['dependencies']==[f'equity-feature-contracts=={CONTRACTS}',f'equity-feature-evidence=={VERSIONS["evidence"]}',f'equity-feature-diagnostics=={VERSIONS["diagnostics"]}']
         assert not project.get('optional-dependencies',{})
         for path in root.glob('src/**/*.py'):
             errors=research_violations(path.read_text(encoding='utf-8'),conformance=True);assert not errors,(path,errors)
@@ -873,7 +876,7 @@ def check(siblings=()):
     for root in agent_packages:
         if not root.exists():continue
         project=tomllib.loads((root/'pyproject.toml').read_text(encoding='utf-8'))['project']
-        assert project['dependencies']==['equity-feature-contracts==0.0.4a4','equity-feature-evidence==0.1.0a2']
+        assert project['dependencies']==[f'equity-feature-contracts=={CONTRACTS}',f'equity-feature-evidence=={VERSIONS["evidence"]}']
         assert not project.get('optional-dependencies',{})
         for path in root.glob('src/**/*.py'):
             errors=agent_violations(path.read_text(encoding='utf-8'));assert not errors,(path,errors)
@@ -882,7 +885,7 @@ def check(siblings=()):
     for root in ledger_packages:
         if not root.exists():continue
         project=tomllib.loads((root/'pyproject.toml').read_text(encoding='utf-8'))['project']
-        assert project['dependencies']==['equity-feature-agent-evidence==0.1.0a1'] and not project.get('optional-dependencies',{})
+        assert project['dependencies']==[f'equity-feature-agent-evidence=={VERSIONS["agent-evidence"]}'] and not project.get('optional-dependencies',{})
         for path in root.glob('src/**/*.py'):
             errors=ledger_violations(path.read_text(encoding='utf-8'),storage=path.name=='_store.py');assert not errors,(path,errors)
     for source in ['import socket','import subprocess','import equity_features','from equity_feature_agent_evidence._codec import decode_event','import equity_feature_agent_evidence._codec','from equity_feature_agent_evidence import _codec','from . import arbitrary_module','from .. import _store','from .._model import Checkpoint','import urllib.request','import urllib','from urllib.request import urlopen','from equity_feature_agent_evidence import *','eval(x)','__import__(x)','getattr(obj,name)']:

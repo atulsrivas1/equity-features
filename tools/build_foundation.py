@@ -11,6 +11,8 @@ import sys
 import tarfile
 import tempfile
 import zipfile
+sys.path.insert(0, str(Path(__file__).resolve().parent))  # tools/_versions.py, also when loaded by path from tests
+from _versions import CONTRACTS, FEATURES
 
 ROOT=Path(__file__).resolve().parents[1]
 EPOCH=1700000000
@@ -92,7 +94,7 @@ def clean_install(paths):
         if paths[0].suffix!='.whl': run(str(py),'-m','pip','install','--no-deps','setuptools==80.9.0')
         run(str(py),'-m','pip','install','--no-index','--no-deps','--no-build-isolation',*[str(p) for p in paths])
         run(str(py),'-m','pip','check')
-        run(str(py),'-I','-c','import equity_feature_contracts as c; import equity_features as f; assert (c.__version__,f.__version__,f.contracts_version)==("0.0.4a4","0.0.4a5","0.0.4a4"); print("Clean installed foundation imports verified",c.__version__,f.__version__)')
+        run(str(py),'-I','-c','import equity_feature_contracts as c; import equity_features as f; assert (c.__version__,f.__version__,f.contracts_version)==("'+CONTRACTS+'","'+FEATURES+'","'+CONTRACTS+'"); print("Clean installed foundation imports verified",c.__version__,f.__version__)')
         run(str(py),'-m','pip','install','--no-deps','numpy==2.2.6','pyarrow==20.0.0')
         consumer_paths=sorted(p for p in paths[0].parent.glob('equity_feature_demo-*') if (p.suffix=='.whl')==(paths[0].suffix=='.whl'))
         assert len(consumer_paths)==1,'matching standalone consumer artifact required'

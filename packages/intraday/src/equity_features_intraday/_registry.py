@@ -6,7 +6,7 @@ import json
 from equity_feature_contracts import ErrorCode
 from ._context import ALGORITHM, fail
 
-PACKAGE_VERSION = "0.1.0a3"
+PACKAGE_VERSION = "0.1.0a4"
 
 
 @dataclass(frozen=True)
