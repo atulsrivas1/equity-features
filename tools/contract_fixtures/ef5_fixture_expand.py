@@ -371,11 +371,17 @@ def admission(fx):
         faults.add(("config", "INVALID_CONFIG"))
     elif fx["adjustment"] not in ("unadjusted", "split_adjusted"):
         faults.add(("config", "UNSUPPORTED_ADJUSTMENT"))
-    elif fx["adjustment"] == "split_adjusted":
-        # shared AdjustmentSpec(basis=split) needs a caller-declared action_snapshot and anchor, never "none", no default
+    else:
+        # PQ-2: the caller declares adjustment_spec.policy_version explicitly (never the dataclass default); the
+        # label/policy pairing is normative: unadjusted <-> raw-v1, split_adjusted <-> split-factors-v1.
+        # split_adjusted also needs a declared action_snapshot and anchor (shared AdjustmentSpec), never "none".
         spec = fx.get("adjustment_spec") or {}
-        if any(not isinstance(spec.get(k), str) or not spec[k].strip() or spec[k] == "none"
-               for k in ("action_snapshot", "anchor")):
+        pairs = {"unadjusted": "raw-v1", "split_adjusted": "split-factors-v1"}
+        spec_bad = spec.get("policy_version") != pairs[fx["adjustment"]]
+        if fx["adjustment"] == "split_adjusted":
+            spec_bad = spec_bad or any(not isinstance(spec.get(k), str) or not spec[k].strip() or spec[k] == "none"
+                             for k in ("action_snapshot", "anchor"))
+        if spec_bad:
             faults.add(("config", "UNSUPPORTED_ADJUSTMENT"))
     if p.get("epoch_profile") not in (None, "session_reset", "governed_history"):
         faults.add(("config", "INVALID_CONFIG"))

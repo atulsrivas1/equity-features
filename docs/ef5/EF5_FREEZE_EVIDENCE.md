@@ -87,3 +87,7 @@ Tester recompute from the md only (the expander was not read):
 - Docs review of the changed text, non-blocking findings (no fixture impact): D6 the md producers table (line 17), the inputs paragraph (line 49) and the capability-matrix adjustment row (line 135) do not list `adjustment_spec {action_snapshot, anchor}` as a required split_adjusted input; D7 the shared `AdjustmentSpec` also has a `policy_version` field that defaults to `raw-v1`: the md does not say whether EF5 requires it or ignores it (no-defaults rule), a question for the Architect or PO.
 - Gates: `verify_ef5_fixtures` PASS; `pre_merge_check` 17 of 17 PASS (3 installed-only skipped).
 - The second-author reviewer's recompute of TD21 (with its adjustment_spec), RF52, RF53 and RF54 is requested from the reviewer separately and is still outstanding.
+
+## 8. PQ-2 policy_version and D6 (coordinator, PO ruling)
+
+`adjustment_spec.policy_version` is declared explicitly (raw-v1 for unadjusted, split-factors-v1 for split_adjusted, the shared string); absent, unknown or mismatched is UNSUPPORTED_ADJUSTMENT at config. New single-fault recipes RF55 (missing), RF56 (unknown), RF57 (mismatched pair); refusals are now 57 (the PO figure 51 to 54 was stale). All 89 result fixtures now declare `adjustment_spec.policy_version`: this changes config text only, no expected value or status changed. D6 is applied (producers table, inputs paragraph, capability row). The expander changed (SHA in the README). **RF55-RF57 and the changed fixture config text need reviewer and tester recompute.**
