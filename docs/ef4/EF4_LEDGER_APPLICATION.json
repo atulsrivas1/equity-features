@@ -1,0 +1,747 @@
+{
+  "version": "ef4-ledger-application1",
+  "status": "applied_additive_documentation_ledger_unit_rename_deferred",
+  "ruling": "PO ruling 2026-10-28 E9 (work/po-acceptance-ef1-ef4-2026-10-28.md)",
+  "source": "docs/ef4/EF4_SHARED_AMENDMENT.json header_ledger_additions and the four EF4 contract JSON headers arrays",
+  "frozen_files_edited": false,
+  "canonical_units": [
+    "trades/s",
+    "currency/s",
+    "fraction/s",
+    "shares/s",
+    "currency/share/s",
+    "bps"
+  ],
+  "aliases": {
+    "trades_per_second": {
+      "canonical": "trades/s",
+      "status": "alias_recorded_rejected_on_new_headers",
+      "rename_in_code": "DEFERRED to the next contract version (unit string is part of content hashes)"
+    },
+    "currency_per_second": {
+      "canonical": "currency/s",
+      "status": "alias_recorded_rejected_on_new_headers",
+      "rename_in_code": "DEFERRED to the next contract version (unit string is part of content hashes)"
+    },
+    "fraction_per_second": {
+      "canonical": "fraction/s",
+      "status": "alias_recorded_rejected_on_new_headers",
+      "rename_in_code": "DEFERRED to the next contract version (unit string is part of content hashes)"
+    },
+    "currency/share/second": {
+      "canonical": "currency/share/s",
+      "status": "alias_recorded_rejected_on_new_headers",
+      "rename_in_code": "DEFERRED to the next contract version (unit string is part of content hashes)"
+    }
+  },
+  "ledger_totals": {
+    "ef4_added": 59,
+    "cumulative_documentation_figure": 206
+  },
+  "unit_rows": [
+    {
+      "unit": "boolean",
+      "dtype": "bool",
+      "count": 1,
+      "used_by": [
+        "projection.close_above_sma"
+      ]
+    },
+    {
+      "unit": "currency",
+      "dtype": "decimal128",
+      "count": 2,
+      "used_by": [
+        "projection.down_dollar_volume",
+        "projection.up_dollar_volume"
+      ]
+    },
+    {
+      "unit": "currency coefficient / 10^price_scale",
+      "dtype": "decimal128",
+      "count": 2,
+      "used_by": [
+        "tape.tick.net_notional",
+        "tape.window.notional"
+      ]
+    },
+    {
+      "unit": "bps",
+      "dtype": "float64",
+      "count": 4,
+      "used_by": [
+        "quote.change.midpoint_bps",
+        "quote.microprice.last_offset_bps",
+        "quote.sampled.maximum_midpoint_bps",
+        "vwap.path.change_bps"
+      ]
+    },
+    {
+      "unit": "currency/share",
+      "dtype": "float64",
+      "count": 11,
+      "used_by": [
+        "path.net_displacement",
+        "path.path_length",
+        "path.true_range_sum",
+        "path.window_range",
+        "quote.change.spread",
+        "quote.microprice.last",
+        "quote.microprice.mean",
+        "quote.sampled.maximum_spread",
+        "vwap.path.last",
+        "vwap.path.maximum",
+        "vwap.path.minimum"
+      ]
+    },
+    {
+      "unit": "currency/share/second",
+      "dtype": "float64",
+      "count": 2,
+      "used_by": [
+        "vwap.slope.endpoint",
+        "vwap.slope.ols"
+      ]
+    },
+    {
+      "unit": "currency_per_second",
+      "dtype": "float64",
+      "count": 1,
+      "used_by": [
+        "rate.window.notional_rate"
+      ]
+    },
+    {
+      "unit": "fraction",
+      "dtype": "float64",
+      "count": 21,
+      "used_by": [
+        "core.benchmark_direction_agreement_fraction",
+        "core.benchmark_return_dispersion_fraction",
+        "path.choppiness_fraction",
+        "path.efficiency_ratio",
+        "path.log_efficiency_ratio",
+        "projection.close_vs_sma_fraction",
+        "projection.distance_from_low_fraction",
+        "projection.down_session_fraction",
+        "projection.drawdown_fraction",
+        "projection.max_drawdown_fraction",
+        "projection.up_dollar_volume_fraction",
+        "projection.up_session_fraction",
+        "projection.up_volume_fraction",
+        "rate.window.raw_return_fraction",
+        "relative.session.primary.prior_close_excess_fraction",
+        "relative.session.primary.window_excess_fraction",
+        "relative.session.secondary.prior_close_excess_fraction",
+        "relative.session.secondary.window_excess_fraction",
+        "relative.session.sector.prior_close_excess_fraction",
+        "relative.session.sector.window_excess_fraction",
+        "tape.tick.imbalance"
+      ]
+    },
+    {
+      "unit": "fraction_per_second",
+      "dtype": "float64",
+      "count": 1,
+      "used_by": [
+        "rate.window.return_rate_difference"
+      ]
+    },
+    {
+      "unit": "shares/s",
+      "dtype": "float64",
+      "count": 1,
+      "used_by": [
+        "rate.window.share_volume_rate"
+      ]
+    },
+    {
+      "unit": "trades_per_second",
+      "dtype": "float64",
+      "count": 1,
+      "used_by": [
+        "rate.window.trade_rate"
+      ]
+    },
+    {
+      "unit": "pairs",
+      "dtype": "int64",
+      "count": 2,
+      "used_by": [
+        "quote.change.midpoint_change_count",
+        "quote.change.pair_count"
+      ]
+    },
+    {
+      "unit": "points",
+      "dtype": "int64",
+      "count": 1,
+      "used_by": [
+        "vwap.path.point_count"
+      ]
+    },
+    {
+      "unit": "shares",
+      "dtype": "int64",
+      "count": 7,
+      "used_by": [
+        "projection.down_volume",
+        "projection.up_volume",
+        "tape.tick.down_volume",
+        "tape.tick.net_volume",
+        "tape.tick.neutral_volume",
+        "tape.tick.up_volume",
+        "tape.window.volume"
+      ]
+    },
+    {
+      "unit": "trades",
+      "dtype": "int64",
+      "count": 1,
+      "used_by": [
+        "tape.window.count"
+      ]
+    },
+    {
+      "unit": "bounded original trade-row evidence",
+      "dtype": "top_k_trades",
+      "count": 1,
+      "used_by": [
+        "tape.top_k_notional"
+      ]
+    }
+  ],
+  "headers": [
+    {
+      "id": "core.benchmark_direction_agreement_fraction",
+      "dtype": "float64",
+      "unit_as_implemented": "fraction",
+      "unit_canonical": "fraction",
+      "contract": "PATH_PROJECTIONS",
+      "producer": "relative_excess",
+      "alias_pending_migration": false
+    },
+    {
+      "id": "core.benchmark_return_dispersion_fraction",
+      "dtype": "float64",
+      "unit_as_implemented": "fraction",
+      "unit_canonical": "fraction",
+      "contract": "PATH_PROJECTIONS",
+      "producer": "relative_excess",
+      "alias_pending_migration": false
+    },
+    {
+      "id": "path.choppiness_fraction",
+      "dtype": "float64",
+      "unit_as_implemented": "fraction",
+      "unit_canonical": "fraction",
+      "contract": "PATH_EFFICIENCY",
+      "producer": "path_efficiency",
+      "alias_pending_migration": false
+    },
+    {
+      "id": "path.efficiency_ratio",
+      "dtype": "float64",
+      "unit_as_implemented": "fraction",
+      "unit_canonical": "fraction",
+      "contract": "PATH_EFFICIENCY",
+      "producer": "path_efficiency",
+      "alias_pending_migration": false
+    },
+    {
+      "id": "path.log_efficiency_ratio",
+      "dtype": "float64",
+      "unit_as_implemented": "fraction",
+      "unit_canonical": "fraction",
+      "contract": "PATH_EFFICIENCY",
+      "producer": "path_efficiency",
+      "alias_pending_migration": false
+    },
+    {
+      "id": "path.net_displacement",
+      "dtype": "float64",
+      "unit_as_implemented": "currency/share",
+      "unit_canonical": "currency/share",
+      "contract": "PATH_EFFICIENCY",
+      "producer": "path_efficiency",
+      "alias_pending_migration": false
+    },
+    {
+      "id": "path.path_length",
+      "dtype": "float64",
+      "unit_as_implemented": "currency/share",
+      "unit_canonical": "currency/share",
+      "contract": "PATH_EFFICIENCY",
+      "producer": "path_efficiency",
+      "alias_pending_migration": false
+    },
+    {
+      "id": "path.true_range_sum",
+      "dtype": "float64",
+      "unit_as_implemented": "currency/share",
+      "unit_canonical": "currency/share",
+      "contract": "PATH_EFFICIENCY",
+      "producer": "path_efficiency",
+      "alias_pending_migration": false
+    },
+    {
+      "id": "path.window_range",
+      "dtype": "float64",
+      "unit_as_implemented": "currency/share",
+      "unit_canonical": "currency/share",
+      "contract": "PATH_EFFICIENCY",
+      "producer": "path_efficiency",
+      "alias_pending_migration": false
+    },
+    {
+      "id": "projection.close_above_sma",
+      "dtype": "bool",
+      "unit_as_implemented": "boolean",
+      "unit_canonical": "boolean",
+      "contract": "PATH_PROJECTIONS",
+      "producer": "session_projection",
+      "alias_pending_migration": false
+    },
+    {
+      "id": "projection.close_vs_sma_fraction",
+      "dtype": "float64",
+      "unit_as_implemented": "fraction",
+      "unit_canonical": "fraction",
+      "contract": "PATH_PROJECTIONS",
+      "producer": "session_projection",
+      "alias_pending_migration": false
+    },
+    {
+      "id": "projection.distance_from_low_fraction",
+      "dtype": "float64",
+      "unit_as_implemented": "fraction",
+      "unit_canonical": "fraction",
+      "contract": "PATH_PROJECTIONS",
+      "producer": "session_projection",
+      "alias_pending_migration": false
+    },
+    {
+      "id": "projection.down_dollar_volume",
+      "dtype": "decimal128",
+      "unit_as_implemented": "currency",
+      "unit_canonical": "currency",
+      "contract": "PATH_PROJECTIONS",
+      "producer": "bar_projection",
+      "alias_pending_migration": false
+    },
+    {
+      "id": "projection.down_session_fraction",
+      "dtype": "float64",
+      "unit_as_implemented": "fraction",
+      "unit_canonical": "fraction",
+      "contract": "PATH_PROJECTIONS",
+      "producer": "session_projection",
+      "alias_pending_migration": false
+    },
+    {
+      "id": "projection.down_volume",
+      "dtype": "int64",
+      "unit_as_implemented": "shares",
+      "unit_canonical": "shares",
+      "contract": "PATH_PROJECTIONS",
+      "producer": "bar_projection",
+      "alias_pending_migration": false
+    },
+    {
+      "id": "projection.drawdown_fraction",
+      "dtype": "float64",
+      "unit_as_implemented": "fraction",
+      "unit_canonical": "fraction",
+      "contract": "PATH_PROJECTIONS",
+      "producer": "session_projection",
+      "alias_pending_migration": false
+    },
+    {
+      "id": "projection.max_drawdown_fraction",
+      "dtype": "float64",
+      "unit_as_implemented": "fraction",
+      "unit_canonical": "fraction",
+      "contract": "PATH_PROJECTIONS",
+      "producer": "session_projection",
+      "alias_pending_migration": false
+    },
+    {
+      "id": "projection.up_dollar_volume",
+      "dtype": "decimal128",
+      "unit_as_implemented": "currency",
+      "unit_canonical": "currency",
+      "contract": "PATH_PROJECTIONS",
+      "producer": "bar_projection",
+      "alias_pending_migration": false
+    },
+    {
+      "id": "projection.up_dollar_volume_fraction",
+      "dtype": "float64",
+      "unit_as_implemented": "fraction",
+      "unit_canonical": "fraction",
+      "contract": "PATH_PROJECTIONS",
+      "producer": "bar_projection",
+      "alias_pending_migration": false
+    },
+    {
+      "id": "projection.up_session_fraction",
+      "dtype": "float64",
+      "unit_as_implemented": "fraction",
+      "unit_canonical": "fraction",
+      "contract": "PATH_PROJECTIONS",
+      "producer": "session_projection",
+      "alias_pending_migration": false
+    },
+    {
+      "id": "projection.up_volume",
+      "dtype": "int64",
+      "unit_as_implemented": "shares",
+      "unit_canonical": "shares",
+      "contract": "PATH_PROJECTIONS",
+      "producer": "bar_projection",
+      "alias_pending_migration": false
+    },
+    {
+      "id": "projection.up_volume_fraction",
+      "dtype": "float64",
+      "unit_as_implemented": "fraction",
+      "unit_canonical": "fraction",
+      "contract": "PATH_PROJECTIONS",
+      "producer": "bar_projection",
+      "alias_pending_migration": false
+    },
+    {
+      "id": "quote.change.midpoint_bps",
+      "dtype": "float64",
+      "unit_as_implemented": "bps",
+      "unit_canonical": "bps",
+      "contract": "QUOTE_VWAP",
+      "producer": "quote_dynamics",
+      "alias_pending_migration": false
+    },
+    {
+      "id": "quote.change.midpoint_change_count",
+      "dtype": "int64",
+      "unit_as_implemented": "pairs",
+      "unit_canonical": "pairs",
+      "contract": "QUOTE_VWAP",
+      "producer": "quote_dynamics",
+      "alias_pending_migration": false
+    },
+    {
+      "id": "quote.change.pair_count",
+      "dtype": "int64",
+      "unit_as_implemented": "pairs",
+      "unit_canonical": "pairs",
+      "contract": "QUOTE_VWAP",
+      "producer": "quote_dynamics",
+      "alias_pending_migration": false
+    },
+    {
+      "id": "quote.change.spread",
+      "dtype": "float64",
+      "unit_as_implemented": "currency/share",
+      "unit_canonical": "currency/share",
+      "contract": "QUOTE_VWAP",
+      "producer": "quote_dynamics",
+      "alias_pending_migration": false
+    },
+    {
+      "id": "quote.microprice.last",
+      "dtype": "float64",
+      "unit_as_implemented": "currency/share",
+      "unit_canonical": "currency/share",
+      "contract": "QUOTE_VWAP",
+      "producer": "quote_dynamics",
+      "alias_pending_migration": false
+    },
+    {
+      "id": "quote.microprice.last_offset_bps",
+      "dtype": "float64",
+      "unit_as_implemented": "bps",
+      "unit_canonical": "bps",
+      "contract": "QUOTE_VWAP",
+      "producer": "quote_dynamics",
+      "alias_pending_migration": false
+    },
+    {
+      "id": "quote.microprice.mean",
+      "dtype": "float64",
+      "unit_as_implemented": "currency/share",
+      "unit_canonical": "currency/share",
+      "contract": "QUOTE_VWAP",
+      "producer": "quote_dynamics",
+      "alias_pending_migration": false
+    },
+    {
+      "id": "quote.sampled.maximum_midpoint_bps",
+      "dtype": "float64",
+      "unit_as_implemented": "bps",
+      "unit_canonical": "bps",
+      "contract": "QUOTE_VWAP",
+      "producer": "quote_dynamics",
+      "alias_pending_migration": false
+    },
+    {
+      "id": "quote.sampled.maximum_spread",
+      "dtype": "float64",
+      "unit_as_implemented": "currency/share",
+      "unit_canonical": "currency/share",
+      "contract": "QUOTE_VWAP",
+      "producer": "quote_dynamics",
+      "alias_pending_migration": false
+    },
+    {
+      "id": "rate.window.notional_rate",
+      "dtype": "float64",
+      "unit_as_implemented": "currency_per_second",
+      "unit_canonical": "currency/s",
+      "contract": "PATH_PROJECTIONS",
+      "producer": "rate_projection",
+      "alias_pending_migration": true
+    },
+    {
+      "id": "rate.window.raw_return_fraction",
+      "dtype": "float64",
+      "unit_as_implemented": "fraction",
+      "unit_canonical": "fraction",
+      "contract": "PATH_PROJECTIONS",
+      "producer": "rate_projection",
+      "alias_pending_migration": false
+    },
+    {
+      "id": "rate.window.return_rate_difference",
+      "dtype": "float64",
+      "unit_as_implemented": "fraction_per_second",
+      "unit_canonical": "fraction/s",
+      "contract": "PATH_PROJECTIONS",
+      "producer": "rate_projection",
+      "alias_pending_migration": true
+    },
+    {
+      "id": "rate.window.share_volume_rate",
+      "dtype": "float64",
+      "unit_as_implemented": "shares/s",
+      "unit_canonical": "shares/s",
+      "contract": "PATH_PROJECTIONS",
+      "producer": "rate_projection",
+      "alias_pending_migration": false
+    },
+    {
+      "id": "rate.window.trade_rate",
+      "dtype": "float64",
+      "unit_as_implemented": "trades_per_second",
+      "unit_canonical": "trades/s",
+      "contract": "PATH_PROJECTIONS",
+      "producer": "rate_projection",
+      "alias_pending_migration": true
+    },
+    {
+      "id": "relative.session.primary.prior_close_excess_fraction",
+      "dtype": "float64",
+      "unit_as_implemented": "fraction",
+      "unit_canonical": "fraction",
+      "contract": "PATH_PROJECTIONS",
+      "producer": "relative_excess",
+      "alias_pending_migration": false
+    },
+    {
+      "id": "relative.session.primary.window_excess_fraction",
+      "dtype": "float64",
+      "unit_as_implemented": "fraction",
+      "unit_canonical": "fraction",
+      "contract": "PATH_PROJECTIONS",
+      "producer": "relative_excess",
+      "alias_pending_migration": false
+    },
+    {
+      "id": "relative.session.secondary.prior_close_excess_fraction",
+      "dtype": "float64",
+      "unit_as_implemented": "fraction",
+      "unit_canonical": "fraction",
+      "contract": "PATH_PROJECTIONS",
+      "producer": "relative_excess",
+      "alias_pending_migration": false
+    },
+    {
+      "id": "relative.session.secondary.window_excess_fraction",
+      "dtype": "float64",
+      "unit_as_implemented": "fraction",
+      "unit_canonical": "fraction",
+      "contract": "PATH_PROJECTIONS",
+      "producer": "relative_excess",
+      "alias_pending_migration": false
+    },
+    {
+      "id": "relative.session.sector.prior_close_excess_fraction",
+      "dtype": "float64",
+      "unit_as_implemented": "fraction",
+      "unit_canonical": "fraction",
+      "contract": "PATH_PROJECTIONS",
+      "producer": "relative_excess",
+      "alias_pending_migration": false
+    },
+    {
+      "id": "relative.session.sector.window_excess_fraction",
+      "dtype": "float64",
+      "unit_as_implemented": "fraction",
+      "unit_canonical": "fraction",
+      "contract": "PATH_PROJECTIONS",
+      "producer": "relative_excess",
+      "alias_pending_migration": false
+    },
+    {
+      "id": "tape.tick.down_volume",
+      "dtype": "int64",
+      "unit_as_implemented": "shares",
+      "unit_canonical": "shares",
+      "contract": "TAPE",
+      "producer": "tape_window_sign",
+      "alias_pending_migration": false
+    },
+    {
+      "id": "tape.tick.imbalance",
+      "dtype": "float64",
+      "unit_as_implemented": "fraction",
+      "unit_canonical": "fraction",
+      "contract": "TAPE",
+      "producer": "tape_window_sign",
+      "alias_pending_migration": false
+    },
+    {
+      "id": "tape.tick.net_notional",
+      "dtype": "decimal128",
+      "unit_as_implemented": "currency coefficient / 10^price_scale",
+      "unit_canonical": "currency coefficient / 10^price_scale",
+      "contract": "TAPE",
+      "producer": "tape_window_sign",
+      "alias_pending_migration": false
+    },
+    {
+      "id": "tape.tick.net_volume",
+      "dtype": "int64",
+      "unit_as_implemented": "shares",
+      "unit_canonical": "shares",
+      "contract": "TAPE",
+      "producer": "tape_window_sign",
+      "alias_pending_migration": false
+    },
+    {
+      "id": "tape.tick.neutral_volume",
+      "dtype": "int64",
+      "unit_as_implemented": "shares",
+      "unit_canonical": "shares",
+      "contract": "TAPE",
+      "producer": "tape_window_sign",
+      "alias_pending_migration": false
+    },
+    {
+      "id": "tape.tick.up_volume",
+      "dtype": "int64",
+      "unit_as_implemented": "shares",
+      "unit_canonical": "shares",
+      "contract": "TAPE",
+      "producer": "tape_window_sign",
+      "alias_pending_migration": false
+    },
+    {
+      "id": "tape.top_k_notional",
+      "dtype": "top_k_trades",
+      "unit_as_implemented": "bounded original trade-row evidence",
+      "unit_canonical": "bounded original trade-row evidence",
+      "contract": "TAPE",
+      "producer": "trade_top_k_notional",
+      "alias_pending_migration": false
+    },
+    {
+      "id": "tape.window.count",
+      "dtype": "int64",
+      "unit_as_implemented": "trades",
+      "unit_canonical": "trades",
+      "contract": "TAPE",
+      "producer": "tape_window_sign",
+      "alias_pending_migration": false
+    },
+    {
+      "id": "tape.window.notional",
+      "dtype": "decimal128",
+      "unit_as_implemented": "currency coefficient / 10^price_scale",
+      "unit_canonical": "currency coefficient / 10^price_scale",
+      "contract": "TAPE",
+      "producer": "tape_window_sign",
+      "alias_pending_migration": false
+    },
+    {
+      "id": "tape.window.volume",
+      "dtype": "int64",
+      "unit_as_implemented": "shares",
+      "unit_canonical": "shares",
+      "contract": "TAPE",
+      "producer": "tape_window_sign",
+      "alias_pending_migration": false
+    },
+    {
+      "id": "vwap.path.change_bps",
+      "dtype": "float64",
+      "unit_as_implemented": "bps",
+      "unit_canonical": "bps",
+      "contract": "QUOTE_VWAP",
+      "producer": "vwap_path",
+      "alias_pending_migration": false
+    },
+    {
+      "id": "vwap.path.last",
+      "dtype": "float64",
+      "unit_as_implemented": "currency/share",
+      "unit_canonical": "currency/share",
+      "contract": "QUOTE_VWAP",
+      "producer": "vwap_path",
+      "alias_pending_migration": false
+    },
+    {
+      "id": "vwap.path.maximum",
+      "dtype": "float64",
+      "unit_as_implemented": "currency/share",
+      "unit_canonical": "currency/share",
+      "contract": "QUOTE_VWAP",
+      "producer": "vwap_path",
+      "alias_pending_migration": false
+    },
+    {
+      "id": "vwap.path.minimum",
+      "dtype": "float64",
+      "unit_as_implemented": "currency/share",
+      "unit_canonical": "currency/share",
+      "contract": "QUOTE_VWAP",
+      "producer": "vwap_path",
+      "alias_pending_migration": false
+    },
+    {
+      "id": "vwap.path.point_count",
+      "dtype": "int64",
+      "unit_as_implemented": "points",
+      "unit_canonical": "points",
+      "contract": "QUOTE_VWAP",
+      "producer": "vwap_path",
+      "alias_pending_migration": false
+    },
+    {
+      "id": "vwap.slope.endpoint",
+      "dtype": "float64",
+      "unit_as_implemented": "currency/share/second",
+      "unit_canonical": "currency/share/s",
+      "contract": "QUOTE_VWAP",
+      "producer": "vwap_path",
+      "alias_pending_migration": true
+    },
+    {
+      "id": "vwap.slope.ols",
+      "dtype": "float64",
+      "unit_as_implemented": "currency/share/second",
+      "unit_canonical": "currency/share/s",
+      "contract": "QUOTE_VWAP",
+      "producer": "vwap_path",
+      "alias_pending_migration": true
+    }
+  ]
+}
