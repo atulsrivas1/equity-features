@@ -25,7 +25,7 @@ CONTRACT = ROOT / "docs" / "ef5" / "PRICE_STRUCTURES_CONTRACT_PROPOSAL.json"
 HELPER = ROOT / "tools" / "contract_fixtures" / "ef5_fixture_expand.py"
 K = 100
 # Pinned counts: a change to a fixture list must change these numbers in the same PR.
-PINNED = {"candle_result": 24, "structure_result": 17, "technical_result": 20, "ka_result": 27, "refusal": 51}
+PINNED = {"candle_result": 24, "structure_result": 17, "technical_result": 21, "ka_result": 27, "refusal": 52}
 PINNED_HEADERS = 15
 PINNED_REFUSAL_CODES = 12
 LISTS = ("candle_fixtures", "structure_fixtures", "technical_fixtures", "ka_fixtures")

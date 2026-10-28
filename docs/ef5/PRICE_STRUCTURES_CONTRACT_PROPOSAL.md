@@ -155,7 +155,7 @@ I/O and worker layers do not start before PO conditions C8-C10 (E1 rank-aware ch
 
 ## Fixtures
 
-Counts (pinned in `tools/verify_ef5_fixtures.py`): candle 24, structure 17, technical 20, known_at KA-set 27 = 88 result fixtures, and 51 refusal fixtures over 12 distinct error codes. `tools/contract_fixtures/ef5_fixture_expand.py` (stdlib) recomputes every output of every result fixture and applies every refusal mutation to an independent admission model.
+Counts (pinned in `tools/verify_ef5_fixtures.py`): candle 24, structure 17, technical 21, known_at KA-set 27 = 89 result fixtures, and 52 refusal fixtures over 12 distinct error codes. `tools/contract_fixtures/ef5_fixture_expand.py` (stdlib) recomputes every output of every result fixture and applies every refusal mutation to an independent admission model.
 
 Notation: compact, NOT canonical wire. K = 100, default known_at 50, volume 5. A fixture lists slots 0..n-1 in epoch order; the target is the last slot unless `target` names an earlier index (later slots are delivered but must not matter). A slot is [O,H,L,C,V] (columns=ohlcv), [C] (columns=close), or 'absent' (no row, no coverage), 'gap' (no row, declared incomplete coverage), 'forming' (bar not complete at the market cutoff), 'null' (row with null volume and OHLC), 'empty' (zero volume, null OHLC, coverage complete), or {row, ka, rev} (ka 100 == K known, 150 > K, null unknown). Structure fixtures list H and L in the description; each slot is [L,H,L,H,5] (open at the low, close at the high). Technical fixtures build slot i from the previous close (slot 0 from the stated open) with H/L the max/min of open and close. `grid: daily` selects governed_history daily slots, `ends_s` their end offsets in seconds. hand_check states the hand-derived headline values. Result fixtures: CD (candle), SD (structure), TD (technical), KA (known_at set); refusals RF.
 
@@ -234,6 +234,7 @@ Notation: compact, NOT canonical wire. K = 100, default known_at 50, volume 5. A
 | TD18 | zero-volume target bar |  |
 | TD19 | M=1 N=2: the single window is flat, count 0 (flat counts 0) | close 10 -> 10: count 0 |
 | TD20 | M=1 N=1: one window up, count +1 | count +1 |
+| TD21 | accepted config with adjustment split_adjusted (shared basis split): arithmetic equal to TD01; every output echoes basis split_adjusted (PQ-1 FX-1) | same closes as TD01: v = 1/3030, session 3/100, count +1, a = 61/7417440; basis echo split_adjusted |
 
 ### Known_at KA-set (KA01-KA27)
 
@@ -294,6 +295,7 @@ KA01-KA27: for each producer a base fixture and nine known_at variants (null, fu
 | RF49 | INCONSISTENT_IDENTITY | identity | SD04 | last bar ends 30 s after its start: not a governed slot |
 | RF50 | INVALID_SCHEMA | wire | TD01 | bar 2 delivered without an end instant (missing interval) |
 | RF51 | INVALID_ORDER | shared | TD01 | bars 2 and 3 delivered with decreasing end instants (non-positive elapsed time) |
+| RF52 | UNSUPPORTED_ADJUSTMENT | config | CD07 | adjustment total_return not in the v1 vocabulary (shared label, not an EF5 label; PQ-1 FX-2) |
 
 ### Fail-closed drivers (PO acceptance: zero fail-open)
 
@@ -345,7 +347,7 @@ Terms: **READY** is a slot with a complete, known, coherent bar for the fields t
 
 Config and unit rules used by the refusals: the price unit needs an integer `scale` in 0..18 and a currency (shared `PriceUnit`, `packages/contracts/.../inputs.py`; RF39 scale 19). EF5 admission additionally enforces the currency as exactly three upper-case letters (PO ruling PQ-1 (c2)), so RF40 stays an INVALID_UNIT refusal at config; the shared `PriceUnit` is unchanged (it only requires a non-empty string) and this divergence is stated in EF5_SHARED_AMENDMENT.md. The only EF5 config verb is batch compute: `update` (RF42) and `restore` (RF43) are UNSUPPORTED_CAPABILITY, as in EF4. `epoch_profile` accepts only `session_reset` and `governed_history` (RF19, RF20). The v1 adjustment vocabulary is exactly `unadjusted` and `split_adjusted`, mapped totally to the shared `AdjustmentSpec` bases for comparison only: `unadjusted` -> `raw`, `split_adjusted` -> `split`. The `basis` result field echoes the EF5 label, never the shared one. `total_return` and every other label (shared or not, RF41 `dividend_adjusted`) is UNSUPPORTED_ADJUSTMENT at config; a missing or undeclared basis stays refused (RF21).
 
-PQ-1 resolved (PO ruling, work/po-ef5-contract-readthrough-2026-10-28.md): (b) the label mapping above is normative; (c2) the three-letter upper-case currency rule is an EF5 admission rule. Fixture coverage of the mapping: `unadjusted` is exercised by all 88 result fixtures; `split_adjusted` has no accepted-config result fixture (RF48 only uses it as a mismatching bar basis) and `total_return` has no RF41-style recipe (RF41 uses `dividend_adjusted`); adding them needs the independent expander and the pins in verify_ef5_fixtures updated, so they are reported as open gaps FX-1 and FX-2 and not added here.
+PQ-1 resolved (PO ruling, work/po-ef5-contract-readthrough-2026-10-28.md): (b) the label mapping above is normative; (c2) the three-letter upper-case currency rule is an EF5 admission rule. Fixture coverage of the mapping: `unadjusted` is exercised by the result fixtures; `split_adjusted` by the accepted-config result fixture TD21 (FX-1, basis echo `split_adjusted`, maps to shared `split`) and RF48 (mismatching bar basis); `total_return` is refused by RF52 (FX-2, single fault, UNSUPPORTED_ADJUSTMENT at config) beside RF41 (`dividend_adjusted`). TD21 and RF52 were added with the independent expander and the verify_ef5_fixtures pins; they need recompute (EF5_FREEZE_EVIDENCE.md).
 
 Unit spellings: the EF5 headers use the E9 slash spellings from day one. The EF4 headers keep their underscore spellings (for example `fraction_per_second`) in the library META and contract JSON until the scheduled migration at the next contract-version boundary (core `DECISIONS.md` E9, `docs/ef4/EF4_LEDGER_APPLICATION.md`); the underscore forms are recorded aliases only.
 

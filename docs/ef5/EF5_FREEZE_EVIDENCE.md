@@ -62,3 +62,7 @@ Environment: the pinned venv `wt-ef4-venv` (mypy 1.15.0, duckdb 1.5.6, databento
 ## 5. Next step
 
 Coordinator decides FX-1 and FX-2 (add fixtures with expander and pin updates, or accept the current coverage). Then merge this PR to record the freeze of `ef5-price-structures-1`.
+
+## 6. FX-1 and FX-2 added (coordinator decision, PQ-1)
+
+FX-1 is result fixture TD21 (accepted config `split_adjusted`, maps to shared `split`, basis echo `split_adjusted`, values equal to TD01) and FX-2 is refusal RF52 (`total_return`, UNSUPPORTED_ADJUSTMENT at config, single fault; RF41 `dividend_adjusted` unchanged). Counts are now technical 21 (89 result fixtures) and 52 refusals, pinned in `tools/verify_ef5_fixtures.py`. The expander needed no change (it is generic over the adjustment label) so its blob SHA in `tools/contract_fixtures/README.md` is unchanged. **Rows TD21 and RF52 are new and still need the independent recompute by the reviewer and the tester** (the 88-fixture recompute above does not cover them); the freeze record stays pending that.

@@ -899,6 +899,15 @@
    "KA09",
    "KA18",
    "KA27"
+  ],
+  "adjustment_label": [
+   "TD21"
+  ],
+  "split_adjusted": [
+   "TD21"
+  ],
+  "basis_echo": [
+   "TD21"
   ]
  },
  "decisions_proposed": [
@@ -8982,6 +8991,139 @@
      "basis": "unadjusted"
     }
    }
+  },
+  {
+   "id": "TD21",
+   "group": "split_adjusted_basis",
+   "description": "accepted config with adjustment split_adjusted (shared basis split): arithmetic equal to TD01; every output echoes basis split_adjusted (PQ-1 FX-1)",
+   "producer": "technical",
+   "params": {
+    "policy_version": "ef5-technical1",
+    "epoch_profile": "session_reset",
+    "trend_window": 1,
+    "trend_count": 3,
+    "evidence_limit": 10000
+   },
+   "unit": {
+    "currency": "USD",
+    "scale": 0
+   },
+   "adjustment": "split_adjusted",
+   "K": 100,
+   "columns": "ohlcv",
+   "slots": [
+    [
+     100,
+     100,
+     100,
+     100,
+     5
+    ],
+    [
+     100,
+     102,
+     100,
+     102,
+     5
+    ],
+    [
+     102,
+     102,
+     101,
+     101,
+     5
+    ],
+    [
+     101,
+     103,
+     101,
+     103,
+     5
+    ]
+   ],
+   "outputs": [
+    "technical.momentum_acceleration_fraction_per_second_squared",
+    "technical.price_velocity_fraction_per_second",
+    "technical.session_return_fraction",
+    "technical.signed_trend_window_count"
+   ],
+   "tags": [
+    "adjustment_label",
+    "split_adjusted",
+    "basis_echo"
+   ],
+   "hand_check": "same closes as TD01: v = 1/3030, session 3/100, count +1, a = 61/7417440; basis echo split_adjusted",
+   "expected": {
+    "technical.momentum_acceleration_fraction_per_second_squared": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "value": {
+      "exact": "61/7417440",
+      "float64": 8.22386160184646e-06,
+      "hex": "0x1.13f26ee9b3e97p-17",
+      "acceptance": "tolerance"
+     },
+     "witnesses": [
+      "slot:3",
+      "slot:1",
+      "slot:2"
+     ],
+     "basis": "split_adjusted"
+    },
+    "technical.price_velocity_fraction_per_second": {
+     "status": "available",
+     "reasons": [],
+     "expected": 2,
+     "observed": 2,
+     "value": {
+      "exact": "1/3030",
+      "float64": 0.00033003300330033004,
+      "hex": "0x1.5a108f4adb550p-12",
+      "acceptance": "tolerance"
+     },
+     "witnesses": [
+      "slot:3",
+      "slot:2"
+     ],
+     "basis": "split_adjusted"
+    },
+    "technical.session_return_fraction": {
+     "status": "available",
+     "reasons": [],
+     "expected": 2,
+     "observed": 2,
+     "value": {
+      "exact": "3/100",
+      "float64": 0.03,
+      "hex": "0x1.eb851eb851eb8p-6",
+      "acceptance": "tolerance"
+     },
+     "witnesses": [
+      "slot:3",
+      "slot:0"
+     ],
+     "basis": "split_adjusted"
+    },
+    "technical.signed_trend_window_count": {
+     "status": "available",
+     "reasons": [],
+     "expected": 4,
+     "observed": 4,
+     "value": {
+      "int": 1,
+      "acceptance": "exact_integer"
+     },
+     "witnesses": [
+      "slot:3",
+      "slot:0",
+      "slot:1",
+      "slot:2"
+     ],
+     "basis": "split_adjusted"
+    }
+   }
   }
  ],
  "ka_fixtures": [
@@ -13494,14 +13636,28 @@
      }
     }
    ]
+  },
+  {
+   "id": "RF52",
+   "error_code": "UNSUPPORTED_ADJUSTMENT",
+   "raised_by": "ConfigSpec",
+   "stage": "config",
+   "description": "adjustment total_return not in the v1 vocabulary (shared label, not an EF5 label; PQ-1 FX-2)",
+   "base": "CD07",
+   "mutation": [
+    {
+     "set": "fixture.adjustment",
+     "value": "total_return"
+    }
+   ]
   }
  ],
  "fixture_counts": {
   "candle_result": 24,
   "structure_result": 17,
-  "technical_result": 20,
+  "technical_result": 21,
   "ka_result": 27,
-  "refusal": 51
+  "refusal": 52
  },
  "shared_rules_and_terms": {
   "terms": {
@@ -13518,6 +13674,6 @@
    "adjustment_vocabulary_v1": "exactly unadjusted and split_adjusted; total mapping to shared AdjustmentSpec for comparison only: unadjusted -> raw, split_adjusted -> split; the basis result field echoes the EF5 label; total_return and every other label is UNSUPPORTED_ADJUSTMENT at config (RF41); missing basis stays refused (RF21)"
   },
   "unit_spelling_note": "EF4 headers keep underscore unit spellings until the scheduled migration at the next contract-version boundary (core DECISIONS.md E9, docs/ef4/EF4_LEDGER_APPLICATION.md); EF5 uses slash spellings from day one",
-  "pq1_resolved": "PO ruling (work/po-ef5-contract-readthrough-2026-10-28.md): (b) mapping normative; (c2) EF5 enforces three-letter upper-case currency. Fixture coverage: unadjusted by all 88 result fixtures; gap FX-1 split_adjusted has no accepted-config result fixture (RF48 uses it only as a mismatching bar basis); gap FX-2 total_return has no RF41-style recipe (RF41 uses dividend_adjusted). Not added: needs the independent expander and verify_ef5_fixtures pins updated"
+  "pq1_resolved": "PO ruling (work/po-ef5-contract-readthrough-2026-10-28.md): (b) mapping normative; (c2) EF5 enforces three-letter upper-case currency. Fixture coverage: unadjusted by all 88 result fixtures; split_adjusted is exercised by the accepted-config result fixture TD21 (FX-1; basis echo split_adjusted, mapping to shared split) and RF48 (mismatching bar basis); total_return is refused by RF52 (FX-2, single fault, UNSUPPORTED_ADJUSTMENT at config) next to RF41 (dividend_adjusted); fixtures added with the expander and the verify_ef5_fixtures pins updated, rows need recompute (EF5_FREEZE_EVIDENCE.md)"
  }
 }
