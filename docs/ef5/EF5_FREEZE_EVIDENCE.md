@@ -1,9 +1,9 @@
 # EF5 freeze evidence (price structures and patterns contract)
 
 Status: evidence record for `ef5-price-structures-1`. Docs only. Based on main after PR #735 merged (squash 24ace1e); docs/ef5 content checked at the #735 head 2d57e9e, identical to the 04b81ff read-through head.
-Freeze verdict: **frozen pending merge** (of this PR). The docs defects D1-D5 found in the first review pass were fixed as text only (no fixture or behavior change) and the docs review was re-run clean. Open PO question PQ-1 (adjustment label vocabulary versus the shared `AdjustmentSpec`, section 3) is recorded and does not change any fixture.
+Freeze verdict: **not yet frozen pending merge: two fixture gaps open.** The tester recompute found 0 discrepancies, D1-D5 were fixed (text only) and the docs review re-run clean. The PO ruled PQ-1 ((b) normative label mapping unadjusted->raw, split_adjusted->shared split, total_return and others UNSUPPORTED_ADJUSTMENT; (c2) EF5 enforces three-letter upper-case currency); both are written into the md and json and the amendment. The ruling asks for a fixture or recipe per label plus RF41: FX-1 `split_adjusted` has no accepted-config result fixture (RF48 uses it only as a mismatching bar basis) and FX-2 `total_return` has no recipe (RF41 uses `dividend_adjusted`). Adding them needs the independent expander and the verify_ef5_fixtures pins updated, so they were not added silently. Decision for the coordinator: add FX-1/FX-2 (then recompute the new rows and freeze), or accept RF41 plus RF48 as sufficient and freeze pending merge.
 
-Evidence list: second-author recompute at 50ae18c (88 fixtures, 280 values, 0 discrepancies); PO read-through READY TO FREEZE at 04b81ff; tester recompute seed 20261028, 0 discrepancies; independent docs review clean after fixes; gates pass.
+Evidence list: second-author recompute at 50ae18c (88 fixtures, 280 values, 0 discrepancies); PO read-through READY TO FREEZE at 04b81ff; tester recompute seed 20261028, 0 discrepancies; independent docs review clean; gates pass.
 
 ## 1. Evidence summary
 
@@ -47,7 +47,7 @@ First-pass defects, all FIXED in this PR (text only) and re-reviewed clean (md/j
 
 Findings (non-blocking, fix or accept):
 - **D2 (fixed: md line 108 now states lexical retained order, why KA09/KA18/KA27 are as pinned, and the reason-to-status map)** reason order: PRICE_STRUCTURES md line 108 lists a precedence but does not say retained reasons are listed in lexical order (EF4 md line 83 does). Fixtures KA09/KA18/KA27 list `future_knowledge` before `unknown_availability`, which reads as contradicting the line 108 order. Add the lexical-order sentence and the reason-to-status map (missing_input, incomplete_coverage, not_applicable), which only the JSON shows.
-- **D3 (fixed: new md section 'Shared rules and terms'; scale 0..18 is the shared PriceUnit, currency letters, update/restore, epoch_profile and the v1 adjustment labels are stated; the label mismatch with the shared AdjustmentSpec is raised as PO question PQ-1, not decided)** undefined terms in refusals (lines 276-290 area, RF24-RF43)**: price scale bound (RF39: 19), currency spelling (RF40), the v1 adjustment vocabulary (RF41), unsupported update/restore (RF42, RF43) and epoch_profile `carry` (RF20) are not defined in the md; they rely on shared EF3/EF4 text. Add one sentence citing it.
+- **D3 (fixed, then PQ-1 ruled and applied: new md section 'Shared rules and terms'; scale 0..18 is the shared PriceUnit, currency letters, update/restore, epoch_profile and the v1 adjustment labels are stated; the label mismatch with the shared AdjustmentSpec is raised as PO question PQ-1, not decided)** undefined terms in refusals (lines 276-290 area, RF24-RF43)**: price scale bound (RF39: 19), currency spelling (RF40), the v1 adjustment vocabulary (RF41), unsupported update/restore (RF42, RF43) and epoch_profile `carry` (RF20) are not defined in the md; they rely on shared EF3/EF4 text. Add one sentence citing it.
 - **D4 (fixed: glossary in the same section)** unexplained terms: READY, R17, E1-E9, C8-C10, EQ numbers and "slot clock" are used without a glossary line (lines 7, 154, 160).
 - **D5 (fixed: stated in the md section and the amendment md/json)** EF4 unit cross-reference: md line 25 and the amendment say underscore forms appear on no header; EF4_LEDGER_APPLICATION.md section 2 defers EF4's slash migration, so EF4 headers keep underscore spellings for now. State this asymmetry once.
 - Expected freeze-time text (not defects): "not frozen" wording at md lines 3, 344, 352 and JSON `status`/`coordinator_freeze` must change only when freeze is declared.
@@ -61,4 +61,4 @@ Environment: the pinned venv `wt-ef4-venv` (mypy 1.15.0, duckdb 1.5.6, databento
 
 ## 5. Next step
 
-Merge this PR to record the freeze of `ef5-price-structures-1`. PQ-1 goes to the PO; it does not block the freeze because no fixture changes.
+Coordinator decides FX-1 and FX-2 (add fixtures with expander and pin updates, or accept the current coverage). Then merge this PR to record the freeze of `ef5-price-structures-1`.

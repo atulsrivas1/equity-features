@@ -13512,12 +13512,12 @@
    "PO-1..PO-7": "rulings recorded in open_questions (DECISIONS.md, 2026-10-28)"
   },
   "config_rules": {
-   "price_unit": "integer scale 0..18 and a currency (shared PriceUnit; RF39 scale 19); EF5 additionally pins currency as three upper-case letters (RF40); the shared PriceUnit only requires a non-empty string",
+   "price_unit": "integer scale 0..18 and a currency (shared PriceUnit; RF39 scale 19); EF5 admission enforces exactly three upper-case letters (PQ-1 c2; RF40 INVALID_UNIT at config); shared PriceUnit unchanged (non-empty string only); divergence stated in EF5_SHARED_AMENDMENT",
    "capability": "only batch compute; update (RF42) and restore (RF43) are UNSUPPORTED_CAPABILITY as in EF4",
    "epoch_profile": "session_reset or governed_history only (RF19, RF20)",
-   "adjustment_vocabulary_v1": "unadjusted, split_adjusted; any other label (RF41 dividend_adjusted) is UNSUPPORTED_ADJUSTMENT"
+   "adjustment_vocabulary_v1": "exactly unadjusted and split_adjusted; total mapping to shared AdjustmentSpec for comparison only: unadjusted -> raw, split_adjusted -> split; the basis result field echoes the EF5 label; total_return and every other label is UNSUPPORTED_ADJUSTMENT at config (RF41); missing basis stays refused (RF21)"
   },
-  "po_question_PQ1": "shared AdjustmentSpec vocabulary is raw/split/total_return while EF5 fixtures pin unadjusted/split_adjusted, and shared PriceUnit does not check currency letters; map the labels or extend the shared checks? Not decided; fixtures unchanged",
-  "unit_spelling_note": "EF4 headers keep underscore unit spellings until the scheduled migration at the next contract-version boundary (core DECISIONS.md E9, docs/ef4/EF4_LEDGER_APPLICATION.md); EF5 uses slash spellings from day one"
+  "unit_spelling_note": "EF4 headers keep underscore unit spellings until the scheduled migration at the next contract-version boundary (core DECISIONS.md E9, docs/ef4/EF4_LEDGER_APPLICATION.md); EF5 uses slash spellings from day one",
+  "pq1_resolved": "PO ruling (work/po-ef5-contract-readthrough-2026-10-28.md): (b) mapping normative; (c2) EF5 enforces three-letter upper-case currency. Fixture coverage: unadjusted by all 88 result fixtures; gap FX-1 split_adjusted has no accepted-config result fixture (RF48 uses it only as a mismatching bar basis); gap FX-2 total_return has no RF41-style recipe (RF41 uses dividend_adjusted). Not added: needs the independent expander and verify_ef5_fixtures pins updated"
  }
 }

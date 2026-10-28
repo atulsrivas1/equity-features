@@ -153,5 +153,9 @@
   ],
   "delivered_section": "ef5_delivered_outputs (11 entries)"
  },
- "hash_impact": "no unit string of an existing frozen contract is changed; the two manifest unit strings are documentation, not part of any content hash read in this PR"
+ "hash_impact": "no unit string of an existing frozen contract is changed; the two manifest unit strings are documentation, not part of any content hash read in this PR",
+ "divergences_from_shared_validators": {
+  "currency": "EF5 admission enforces exactly three upper-case letters (RF40 INVALID_UNIT at config); shared PriceUnit unchanged (non-empty string)",
+  "adjustment_labels": "unadjusted -> raw, split_adjusted -> split for comparison only; basis echoes the EF5 label; total_return and all other labels UNSUPPORTED_ADJUSTMENT at config (RF41); shared AdjustmentSpec unchanged"
+ }
 }
