@@ -48,7 +48,7 @@ Run `python tools/pre_merge_check.py` from the core root in the pinned venv (CON
 ## 7. Linux qualification
 - [ ] 7.1 WSL Ubuntu (or CI Linux) has python3-venv and pip (owner action outstanding).
 - [ ] 7.2 Steps 1 to 6 re-run on Linux; `content_sha256` equal to the Windows values for every case (bit equality; any tolerance fallback needs an owner ruling, see parity policy in EDGE_CASE_MATRIX.md).
-- [ ] 7.3 Line-ending rule (`.gitattributes`) decided and fixtures hash identically under both endings.
+- [ ] 7.3 Line-ending rule (`.gitattributes`, LF) decided by PO ruling 2026-10-28 and fixtures hash identically under both endings (evidence in DECISIONS.md 2026-10-28; re-confirm on Linux).
 
 ## 8. Real-source parity
 - [ ] 8.1 Real-source demo for the release's families (EF1 done for one symbol and day; EF2 to EF4 not done): real data labelled real, synthetic parts labelled synthetic.
