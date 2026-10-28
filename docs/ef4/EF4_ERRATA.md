@@ -32,7 +32,7 @@ The nine tape merge recipes RF41, RF42, RF43, RF54, RF55, RF60, RF65, RF66 and R
 
 ## Errata for PO rulings E1, E2 and E4 (2026-10-28)
 
-Additive errata. The four frozen EF4 contracts, their `fixture_counts` and [EF4_SHARED_AMENDMENT.md](EF4_SHARED_AMENDMENT.md) are not edited. Regression recipes are in [EF4_ERRATA_RECIPES.json](EF4_ERRATA_RECIPES.json) (8 recipes, ER01 to ER08) and run by `tools/verify_ef4_errata.py`; `tools/verify_ef4_fixtures.py` pins that the frozen refusal censuses stay (tape 75, quote/VWAP 80, path efficiency 39, projections 114) and that the errata list is whole. Both are picked up by `tools/pre_merge_check.py`.
+Additive errata. The four frozen EF4 contracts, their `fixture_counts` and [EF4_SHARED_AMENDMENT.md](EF4_SHARED_AMENDMENT.md) are not edited. Regression recipes are in [EF4_ERRATA_RECIPES.json](EF4_ERRATA_RECIPES.json) (11 recipes, ER01 to ER11) and run by `tools/verify_ef4_errata.py`; `tools/verify_ef4_fixtures.py` pins that the frozen refusal censuses stay (tape 75, quote/VWAP 80, path efficiency 39, projections 114) and that the errata list is whole. Both are picked up by `tools/pre_merge_check.py`.
 
 ### E1. Rank-aware TopKTrades check (ER01 to ER04)
 
@@ -41,6 +41,10 @@ Additive errata. The four frozen EF4 contracts, their `fixture_counts` and [EF4_
 ### E2. No fail-open on undeclared coverage (ER05 to ER07)
 
 Library: `declared_coverage` (quote and VWAP trade source) refuses an undeclared batch that delivers rows (no interval entry, aggregate incomplete with unknown expected count) with `INVALID_SCHEMA` ("coverage not declared"), the code io #51 uses for the tape adapter. Zero rows with no declaration stays `undeclared`, which the producers read as `absent_input`. The tape library already reads an incomplete batch (complete false or expected different from the delivered count) as `governed_gap` (TAPE contract DP-T12), so it never reads undeclared as complete and is unchanged. Tape adapter (equity-feature-io): no default to complete, see the paired io PR. The fixture notation `quotes.coverage`/`trades.coverage` default `complete` applies to fixtures only; the quote/VWAP I/O mapper (`quote_vwap._event_coverage`) already refuses `absent` with rows. Contract lines affected: QUOTE_VWAP DP-Q3 and DP-Q11 (delivery completeness is the declared IntervalCoverage), TAPE DP-T12.
+
+**Normative error-code split (PO follow-up 2026-10-28, definitive; supersedes the INVALID_CONFIG wording in the earlier E2 ruling).** Rows delivered without declared coverage are refused `INVALID_SCHEMA`, because the data violates the schema contract. No rows and no declaration is `INVALID_CONFIG` in the I/O adapter (the caller misconfigured it) and `absent_input` in the library (the producers read `undeclared` as an absent input). The split is the same for the tape and the quote/VWAP library and adapter paths and matches merged io #51.
+
+**Tape governed_gap refusal recipe (ER09 to ER11, DP-T12).** The tape library never reads undeclared coverage as complete: coverage declared incomplete (`complete` false), or whose expected count differs from the delivered count, gives status `incomplete_coverage` with reason `governed_gap` for every output (ER09 and ER10), and a complete declaration with the delivered count stays `available` (ER11, control). Rows delivered with incomplete or undeclared coverage are therefore covered as follows: undeclared with rows is ER05 and ER06 (`INVALID_SCHEMA`); declared incomplete is ER09 and ER10 (`governed_gap`). Census: frozen contract refusal recipes stay 75, 80, 39 and 114 (308); errata recipes are ER01 to ER11 (11), run by `tools/verify_ef4_errata.py` and counted by `tools/verify_ef4_fixtures.py`.
 
 ### E4. Explicit governed_history window check (ER08)
 

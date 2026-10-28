@@ -83,7 +83,7 @@ Prior-only robust history summaries and ranks, the robust same-bucket volume pac
 
 ## EF4 tape windows and notional-ranked largest prints
 
-Rolling trade-window totals with tick-rule signed volume and the exact notional-ranked largest prints are specified by the frozen [EF4 tape contract](../ef4/TAPE_CONTRACT_PROPOSAL.md) over the same governed trade admission, reset epoch and exact arithmetic and are implemented as the separate `ef4.tape_window_sign` and `ef4.trade_top_k_notional` producers; the size-ranked `session.trade.top_k`, R17 mathematics, quality and evidence are unchanged.
+Rolling trade-window totals with tick-rule signed volume and the exact notional-ranked largest prints are specified by the frozen [EF4 tape contract](../ef4/TAPE_CONTRACT_PROPOSAL.md) over the same governed trade admission, reset epoch and exact arithmetic and are implemented as the separate `ef4.tape_window_sign` and `ef4.trade_top_k_notional` producers; the size-ranked `session.trade.top_k`, R17 mathematics, quality and evidence are unchanged. The additive [EF4 errata](../ef4/EF4_ERRATA.md) (ER01 to ER11, including the tape `governed_gap` recipes and the coverage error-code split) read together with the four frozen EF4 contracts.
 
 ## EF4 path efficiency and choppiness
 
