@@ -27,6 +27,8 @@ class SlotFacts:
     empty: bool = False
     # Additive internal field for EF2 money flow (ef2-mf1); no R17 output reads it.
     volume: int | None = None
+    # Additive internal field for EF5 candle geometry and session return (open of the bar).
+    open_price: int | None = None
 
 
 @dataclass(frozen=True)
@@ -184,6 +186,7 @@ def admit(batches: tuple[CanonicalBatch, ...], context: IntradayContext,
                 None if knowledge is None else Reason(knowledge),
                 empty or (row_index is not None and number("volume", row_index) == 0),
                 None if row_index is None else number("volume", row_index),
+                None if row_index is None else number("open", row_index),
             )
         if not set(rows) <= local_coverage:
             fail("every supplied row needs exact per-slot coverage", ErrorCode.INCONSISTENT_IDENTITY)

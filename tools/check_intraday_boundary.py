@@ -31,7 +31,8 @@ INTERNAL = {'_context', '_admission', '_prepare', '_registry', '_dispatch', '_in
             '_momentum', '_momentum_config', '_momentum_math', '_momentum_registry',
             '_channels', '_channels_config', '_channels_math', '_channels_registry',
             '_rv', '_rv_config', '_rv_registry',
-            '_path', '_path_config', '_path_registry'}
+            '_path', '_path_config', '_path_registry',
+            '_ef5', '_ef5_config', '_ef5_registry'}
 FORBIDDEN = {
     'open', '__import__', 'eval', 'exec', 'compile', 'getattr', 'setattr', 'delattr',
     'globals', 'locals', 'vars', 'dir', 'input', 'print', 'breakpoint', 'help',

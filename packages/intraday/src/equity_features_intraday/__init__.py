@@ -41,6 +41,10 @@ from ._path import compute_path_efficiency
 from ._path_registry import (describe_path_efficiency, path_efficiency_catalog_digest,
                              require_path_efficiency_capability)
 
+from ._ef5 import compute_ef5
+from ._ef5_config import ADJUSTMENT_LABELS, EF5_PROFILES, PRODUCERS as EF5_PRODUCERS, Ef5Settings, build_ef5_config, decode_ef5_config
+from ._ef5_registry import describe_ef5, ef5_catalog_digest, require_ef5_capability
+
 __version__ = PACKAGE_VERSION
 __all__ = ["IntradayContext", "IntradayRun", "build_intraday_config",
            "IntradayPreparation", "OperandEvidence", "PreparedOperand", "prepare_intraday",
@@ -63,4 +67,6 @@ __all__ = ["IntradayContext", "IntradayRun", "build_intraday_config",
            "PATH_EFFICIENCY_ALGORITHM", "PATH_EFFICIENCY_IDENTITY", "PATH_EFFICIENCY_POLICY",
            "PATH_EFFICIENCY_PROFILES", "PathEfficiencySettings", "build_path_efficiency_config",
            "decode_path_efficiency_config", "compute_path_efficiency", "describe_path_efficiency",
-           "path_efficiency_catalog_digest", "require_path_efficiency_capability"]
+           "path_efficiency_catalog_digest", "require_path_efficiency_capability",
+           "ADJUSTMENT_LABELS", "EF5_PROFILES", "EF5_PRODUCERS", "Ef5Settings", "build_ef5_config", "compute_ef5",
+           "decode_ef5_config", "describe_ef5", "ef5_catalog_digest", "require_ef5_capability"]
