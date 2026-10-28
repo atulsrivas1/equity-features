@@ -1,0 +1,25 @@
+{
+  "errata_version": "ef4-errata-recipes-1",
+  "status": "additive errata; the four frozen EF4 contracts and their fixture_counts are not edited",
+  "rulings": "PO ruling 2026-10-28 (EF4_SHARED_AMENDMENT.md E1, E2, E4)",
+  "contract_counts_unchanged": {"tape_refusal": 75, "quote_vwap_refusal": 80, "path_refusal": 39, "projections_refusal": 114},
+  "recipe_count": 8,
+  "recipes": [
+    {"id": "ER01", "ruling": "E1", "kind": "topk_constructor", "ranking": "size", "rows": "notional_order", "expect": "invalid_order",
+     "description": "rows in notional order, not in size order, built with the default size ranking are refused"},
+    {"id": "ER02", "ruling": "E1", "kind": "topk_constructor", "ranking": "notional", "rows": "notional_order", "expect": "ok",
+     "description": "the same rows built with the notional ranking are accepted through the public constructor (no object.__new__)"},
+    {"id": "ER03", "ruling": "E1", "kind": "topk_constructor", "ranking": "notional", "rows": "size_order", "expect": "invalid_order",
+     "description": "rows in size order, not in notional order, built with the notional ranking are refused"},
+    {"id": "ER04", "ruling": "E1", "kind": "topk_result_feature", "feature_id": "session.trade.top_k", "expect": "invalid_order",
+     "description": "a FeatureResult that carries a notional-ranked cell under the size-ranked feature id is refused"},
+    {"id": "ER05", "ruling": "E2", "kind": "coverage", "role": "quote", "rows": 2, "expected": null, "complete": false, "expect": "invalid_schema",
+     "description": "an undeclared quote batch (no interval entry, aggregate incomplete with unknown expected) that delivers rows is refused"},
+    {"id": "ER06", "ruling": "E2", "kind": "coverage", "role": "trade", "rows": 2, "expected": null, "complete": false, "expect": "invalid_schema",
+     "description": "an undeclared trade batch of the VWAP trade source that delivers rows is refused"},
+    {"id": "ER07", "ruling": "E2", "kind": "coverage", "role": "quote", "rows": 0, "expected": null, "complete": false, "expect": "undeclared",
+     "description": "zero rows with no declaration stay undeclared, which the producers read as absent_input"},
+    {"id": "ER08", "ruling": "E4", "kind": "path_config", "window": 64, "profile": "governed_history", "expect": "invalid_config",
+     "description": "governed_history with window 64 can never be available and is refused at configuration; window 63 and session_reset 64 stay accepted"}
+  ]
+}

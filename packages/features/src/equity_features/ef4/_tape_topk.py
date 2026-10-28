@@ -60,18 +60,9 @@ def notional_key(row: TopKTradeRow) -> Key:
 
 
 def notional_cell(k: int, rows: Sequence[TopKTradeRow]) -> TopKTrades:
-    """The accepted `TopKTrades` cell with rows in notional rank order.
-
-    The shared constructor checks the rows against the size-ranked key, which this ranking does not follow, and the
-    contract forbids changing the cell. The rows are therefore validated by the shared constructor in the size order
-    (type, bounds, duplicates, K) and the frozen cell is then assembled in the notional order without a second
-    ordering check.
-    """
-    TopKTrades(k, tuple(sorted(rows, key=lambda row: row.rank_key)))
-    cell = object.__new__(TopKTrades)
-    object.__setattr__(cell, "k", k)
-    object.__setattr__(cell, "rows", tuple(rows))
-    return cell
+    """The accepted `TopKTrades` cell with rows in notional rank order, built through the shared rank-aware constructor
+    (type, bounds, duplicates, K and the notional order); FeatureResult binds this ranking to `tape.top_k_notional`."""
+    return TopKTrades(k, tuple(rows), ranking="notional")
 
 
 def _check(policy: object, top_k: object, limit: object, eligibility: object) -> NotionalTopKSettings:

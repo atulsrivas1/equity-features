@@ -1,6 +1,7 @@
 """Typed immutable result tables, quality, provenance and bounded evidence."""
 from __future__ import annotations
-from dataclasses import asdict, dataclass
+from collections.abc import Callable
+from dataclasses import InitVar, asdict, dataclass
 from enum import StrEnum
 from fractions import Fraction
 import hashlib
@@ -168,6 +169,9 @@ def _interval_rows(rows: tuple[IntervalOHLCVRow, ...] | tuple[IntervalVolumeShar
     if len({x.interval.name for x in rows}) != len(rows):
         raise ContractError(ErrorCode.DUPLICATE,"duplicate interval output name")
 
+def _top_k_key(ranking: str) -> Callable[["TopKTradeRow"],tuple[int,int,int,str]]:
+    return (lambda x: x.notional_rank_key) if ranking == "notional" else (lambda x: x.rank_key)
+
 @dataclass(frozen=True)
 class TopKTradeRow:
     input_id: str
@@ -193,12 +197,25 @@ class TopKTradeRow:
     def rank_key(self) -> tuple[int,int,int,str]:
         return (-self.size,self.event_ns,self.order_key,self.event_id)
 
+    @property
+    def notional_rank_key(self) -> tuple[int,int,int,str]:
+        return (-(self.price*self.size),self.event_ns,self.order_key,self.event_id)
+
+TOP_K_RANKINGS = ("size","notional")
+# Features whose top-K cell is ranked by exact notional; every other TopKTrades feature is ranked by size.
+NOTIONAL_RANKED_FEATURES = frozenset({"tape.top_k_notional"})
+
 @dataclass(frozen=True)
 class TopKTrades:
+    """Bounded original trade rows. `ranking` is a constructor-only argument (not a stored field, so the wire and
+    columnar forms are unchanged): `size` (default) or `notional`. FeatureResult binds the ranking to the feature id."""
     k: int
     rows: tuple[TopKTradeRow, ...]
+    ranking: InitVar[str] = "size"
 
-    def __post_init__(self) -> None:
+    def __post_init__(self, ranking: str = "size") -> None:
+        if ranking not in TOP_K_RANKINGS:
+            raise ContractError(ErrorCode.INVALID_SCHEMA,"topK ranking must be size or notional")
         if type(self.k) is not int or not 1 <= self.k <= 10000:
             raise ContractError(ErrorCode.BOUNDS,"topK bound1..10000 required")
         if type(self.rows) not in (tuple,list) or any(type(x) is not TopKTradeRow for x in self.rows):
@@ -208,7 +225,8 @@ class TopKTrades:
             raise ContractError(ErrorCode.BOUNDS,"topK retained bound exceeded")
         if len({(x.input_id,x.event_id) for x in self.rows}) != len(self.rows):
             raise ContractError(ErrorCode.DUPLICATE,"duplicate topK source/event identity")
-        if tuple(x.rank_key for x in self.rows) != tuple(sorted(x.rank_key for x in self.rows)):
+        key = _top_k_key(ranking)
+        if tuple(key(x) for x in self.rows) != tuple(sorted(key(x) for x in self.rows)):
             raise ContractError(ErrorCode.INVALID_ORDER,"topK rows must be ranked")
 
 @dataclass(frozen=True)
@@ -572,6 +590,10 @@ class FeatureResult:
         if len(evidence_keys) != len(self.evidence): raise ContractError(ErrorCode.DUPLICATE,"duplicate evidence identity")
         for c in self.values:
             for entity,value in zip(c.entities,c.values,strict=True):
+                if type(value) is TopKTrades:
+                    ranking = "notional" if c.feature_id in NOTIONAL_RANKED_FEATURES else "size"
+                    if [x.rank_key if ranking == "size" else x.notional_rank_key for x in value.rows] != sorted(x.rank_key if ranking == "size" else x.notional_rank_key for x in value.rows):
+                        raise ContractError(ErrorCode.INVALID_ORDER,f"topK rows must follow the {ranking} rank of {c.feature_id}")
                 if isinstance(value,(TopKTrades,SampledSpread)):
                     matched = [e for e in self.evidence if e.entity == entity and e.feature_id == c.feature_id]
                     if len(matched) != len(value.rows):
