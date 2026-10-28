@@ -24,7 +24,7 @@ SHA-256 (committed blobs, LF endings):
 - ef4g_fixture_expand.py: d28f551c2ea21ea4454e6c81b329a52d4edcf06e36ec3e097ee80033f940fd7f
 - ef4h_fixture_expand.py: ca986ccffceb5cc8b318dbc20f3339c89f9bd585e34e32f8a42fc368eaf8b3ad
 - ef4i_fixture_expand.py: ffc65b2156acaadcfb1969612cbd88e4f628e025847dfd62e0585cf8a66150b8
-- ef5_fixture_expand.py: 8d465730d29bffdce766c05df3467e3966b3a772b6a2de1e414f61973c1afb63
+- ef5_fixture_expand.py: ae93aa5c584755f82f289cf60084b31bc1c8db0d6eec690ba14cf7096a53c5a9
 
 Rule: these are fixture-expansion helpers, not tests. `tools/verify_ef4_fixtures.py` is the gate that runs the three EF4 helpers (`tools/verify_ef5_fixtures.py` gates the EF5 helper)
 and pins the known_at semantics; a passing run is a verification result, not a unit test. The paired review comparators are intentionally not vendored here.

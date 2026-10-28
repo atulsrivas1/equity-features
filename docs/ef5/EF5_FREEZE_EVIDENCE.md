@@ -72,3 +72,7 @@ Tester recompute of the new rows (md only; the expander was not read):
 - RF52: single fault `total_return` on CD07; not in the v1 vocabulary (`unadjusted`, `split_adjusted`), so UNSUPPORTED_ADJUSTMENT raised at config (stage config, after wire and shared stages pass). Matches.
 - Parity: 62 result rows and 52 refusal rows (description, hand_check, code, stage, base, fault) identical between md and json; counts 24/17/21/27 = 89 and 52 over 12 codes agree in md line 158, json fixture_counts and the pinned verifier. Stale text: none (the PQ-1 coverage sentence already names TD21 and RF52).
 - Gates: `verify_ef5_fixtures` PASS; `pre_merge_check` 17 of 17 PASS (3 installed-only skipped).
+
+## 7. split_adjusted snapshot/anchor (second-author finding)
+
+The shared `AdjustmentSpec(basis=split)` raises UNSUPPORTED_ADJUSTMENT unless `action_snapshot` and `anchor` are not `none`. The contract now states that `split_adjusted` needs a caller-declared `adjustment_spec` {action_snapshot, anchor} (no default, fail closed). TD21 carries explicit values; new single-fault refusals RF53 (no snapshot) and RF54 (anchor none) were added (refusals now 54); the expander has a new admission rule, so its blob SHA in the README changed. **TD21's config and RF53/RF54 are new and need reviewer/tester recompute.**

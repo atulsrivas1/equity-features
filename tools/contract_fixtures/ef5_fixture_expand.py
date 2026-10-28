@@ -371,6 +371,12 @@ def admission(fx):
         faults.add(("config", "INVALID_CONFIG"))
     elif fx["adjustment"] not in ("unadjusted", "split_adjusted"):
         faults.add(("config", "UNSUPPORTED_ADJUSTMENT"))
+    elif fx["adjustment"] == "split_adjusted":
+        # shared AdjustmentSpec(basis=split) needs a caller-declared action_snapshot and anchor, never "none", no default
+        spec = fx.get("adjustment_spec") or {}
+        if any(not isinstance(spec.get(k), str) or not spec[k].strip() or spec[k] == "none"
+               for k in ("action_snapshot", "anchor")):
+            faults.add(("config", "UNSUPPORTED_ADJUSTMENT"))
     if p.get("epoch_profile") not in (None, "session_reset", "governed_history"):
         faults.add(("config", "INVALID_CONFIG"))
     if "evidence_limit" in p and not (is_int(p["evidence_limit"]) and 0 <= p["evidence_limit"] <= 10000):
