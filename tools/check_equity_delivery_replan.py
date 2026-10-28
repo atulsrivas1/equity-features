@@ -157,6 +157,7 @@ def _check_output_ownership(root: Path, data: dict, stories: list[dict]) -> None
         assert row["planned_ownership_accepted"] is True
         assert row["accepted"] is False and row["implemented_by_this_packet"] is False
     check_ef3_header_parity(root, manifest)
+    check_ef4_header_parity(root, manifest)
 
 
 # Owner decision pending (R9b): ownership entries with no merged header. Do not extend without an owner ruling.
@@ -185,6 +186,31 @@ def check_ef3_header_parity(root: Path, manifest: dict) -> None:
     for row in manifest["outputs"]:
         if row["canonical_name"] in STALE_EF3_ENTRIES:
             assert row.get("delivered") is False and row.get("superseded_note"), row["canonical_name"]
+
+
+EF4_CONTRACTS = ("TAPE", "QUOTE_VWAP", "PATH_EFFICIENCY", "PATH_PROJECTIONS")
+
+
+def check_ef4_header_parity(root: Path, manifest: dict) -> None:
+    """Every EF4 contract header needs a manifest entry (planned output or ef4_delivered_outputs), and no EF4 entry may lack a header."""
+    headers: set[str] = set()
+    for name in EF4_CONTRACTS:
+        path = root / f"docs/ef4/{name}_CONTRACT_PROPOSAL.json"
+        rows = json.loads(path.read_text(encoding="utf-8"))["headers"]
+        assert rows, f"EF4 contract {name} has no headers"
+        headers |= {row["id"] for row in rows}
+    delivered = manifest["ef4_delivered_outputs"]["entries"]
+    names = [row["canonical_name"] for row in delivered]
+    assert len(names) == len(set(names)), "duplicate ef4_delivered_outputs entry"
+    planned = {row["canonical_name"] for row in manifest["outputs"]}
+    assert not planned & set(names), "entry listed in both manifest sections"
+    assert all(row["planned_delivery"] == "EF4" and row["accepted"] is False for row in delivered)
+    assert all(row["implemented_by_this_packet"] is False for row in delivered)
+    ef4_planned = {row["canonical_name"] for row in manifest["outputs"] if row["planned_delivery"] == "EF4"}
+    missing = headers - planned - set(names)
+    assert not missing, f"EF4 headers with no manifest entry: {sorted(missing)}"
+    orphans = (set(names) | ef4_planned) - headers
+    assert not orphans, f"EF4 manifest entries with no header: {sorted(orphans)}"
 
 
 if __name__ == "__main__":

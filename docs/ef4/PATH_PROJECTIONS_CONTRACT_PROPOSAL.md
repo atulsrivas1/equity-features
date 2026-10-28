@@ -164,6 +164,19 @@ Exact integer/rational arithmetic throughout, one correctly rounded float64 per 
 
 Total 220 classified outputs among the available ones; no documented exceptions. Reconciliation with the single-rounding publication rule: the published value is the exact rational rounded once, so an exact implementation returns the correctly rounded float64 (within 0.5 ulp) and the fixture float64 is that value; the envelope is the R17 pass/fail rule inherited for Decimal120 and other conforming backends, not a licence for a looser exact path. Measurement of cost is not part of this contract.
 
+## Data-capability matrix
+
+Per the capability-matrix rule: the data this contract needs, where it can compute, and how it degrades per source. The library is pure (no acquisition, clock or I/O), so it computes on the client or on a server wherever the caller supplies the roles; the host choice follows data volume and data availability, not the mathematics. Source cells are `unverified` until provider terms and field availability are checked; nothing here claims a provider supports a field. Every missing or late datum degrades to a quality outcome (`absent_input`, `unknown_availability`, `future_knowledge`) or a typed refusal, never to an imputed value.
+
+| Data needed | Compute host | Platform or historical feed | BYOK live provider | Supplied files (parquet, DuckDB) | Degradation when absent |
+| --- | --- | --- | --- | --- | --- |
+| Daily closes on the governed daily grid (session projections) | client or server | unverified | unverified | unverified | slot gap, absent or null blocks the affected outputs |
+| Epoch bars with OHLC, volume and optional `actual_notional` (bar projections) | client or server | unverified | unverified | unverified | `notional_column=false` blocks notional-dependent outputs; empty bars are proven-empty, not missing |
+| Leg start and end facts with time, session, profile, revision and action snapshot (relative excess, rate) | either; caller-governed | unverified | unverified | unverified | missing leg is `absent_input`; unknown endpoint is never bridged by an earlier row |
+| Sector membership fact (sector outputs only) | either; caller-governed | unverified | unverified | unverified | `absent_input`; benchmark never inferred from a sector name |
+| Tape window aggregates (count, volume, notional) from contract G | either (consumes G results) | unverified | unverified | unverified | independently ready; absent is `absent_input` for rate outputs only |
+| Original `known_at_ns` per row and fact | either | unverified | unverified (live feeds may not retain original knowledge time) | unverified | null is `unknown_availability`; later than K is `future_knowledge`; equal to K is available |
+
 ## Layer responsibilities
 
 - **Library (#513).** Admission of the supplied rows, facts and context, closure and eligibility per output, exact sums, returns, ratios and rates, quality, evidence and every library refusal; pure and deterministic with exact rational intermediates and one final rounding; one shared closure preparation per producer reused across its outputs without coupling their readiness.

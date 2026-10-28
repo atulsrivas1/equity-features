@@ -295,3 +295,7 @@ These are the coordinator's rulings. They are decided for the work in flight and
 - The workers' source and the adapters' source beyond their coverage declarations were not read, beyond the io-sdk codec, the bundles typed decoder and the service codec import list; the sibling documents were read (io main 4ebfa30, workers main 51f5e7f).
 - The combined ledger total 206 is a static count; no code enumerates it.
 - Catalog digests of `describe_intraday()` and the other catalogs are cited from the implementation documents.
+
+## Data-capability matrix
+
+The amendment adds no data requirement. Each EF4 contract defines its own data-capability matrix (data needed, compute host, per-source degradation, source cells `unverified`) in the "Data-capability matrix" section of `TAPE_CONTRACT_PROPOSAL.md`, `QUOTE_VWAP_CONTRACT_PROPOSAL.md`, `PATH_EFFICIENCY_CONTRACT_PROPOSAL.md` and `PATH_PROJECTIONS_CONTRACT_PROPOSAL.md`.

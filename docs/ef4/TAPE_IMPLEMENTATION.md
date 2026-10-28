@@ -40,3 +40,7 @@ A standalone manual script (not committed, no test files added) expanded the con
 20000 prints: all nine window outputs in about 0.12 s and `tape.top_k_notional` with K = 64 in about 0.17 s on one machine (author-observed single runs, not a performance claim or gate). The pass is O(n) with O(1) numeric state; the top-K keeps at most K + 1 candidates and a merge touches P * K rows.
 
 See the [tape window API](../api/EF4_TAPE_WINDOW.md) and the [notional top-K API](../api/EF4_TAPE_TOP_K_NOTIONAL.md). No I/O, worker, installed, cross-layer, performance or release claim follows from this source result.
+
+## Data-capability matrix
+
+The data this implementation needs, the compute host and the per-source degradation are defined in the "Data-capability matrix" section of `TAPE_CONTRACT_PROPOSAL.md`; source-specific cells there are `unverified`. This implementation adds no data requirement beyond that matrix: the library is pure and the adapters map only the supplied roles.
