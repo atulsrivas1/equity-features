@@ -63,7 +63,7 @@ Each result demo ran adapter, worker, library, a separate DuckDB sink, SDK readb
 
 ### What was NOT driven
 
-- Nine tape merge refusal recipes have no worker path and are checked at the library only: RF41, RF42, RF43, RF54, RF55, RF60, RF65, RF66 and RF69 (ruling E8).
+- Nine tape merge refusal recipes have no worker path and are checked at the library only: RF41, RF42, RF43, RF54, RF55, RF60, RF65, RF66 and RF69 (ruling E8). Status: accepted limit (decided, pending owner review, DECISIONS.md 2026-10-28). They are library-only by design under ruling E8: the top-K merge worker uses one shared configuration. They stay covered by the library fixtures and `tools/verify_ef4_fixtures.py` counts; the owner may choose a worker path under E8.
 - Tape generator fixtures G01 to G03 were not run in the qualification.
 - Unit test suites (none by policy), Parquet or bundles round trip for notional cells, real or observed data, browser inspection of generated HTML.
 

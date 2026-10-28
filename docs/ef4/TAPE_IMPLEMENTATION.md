@@ -44,3 +44,7 @@ See the [tape window API](../api/EF4_TAPE_WINDOW.md) and the [notional top-K API
 ## Data-capability matrix
 
 The data this implementation needs, the compute host and the per-source degradation are defined in the "Data-capability matrix" section of `TAPE_CONTRACT_PROPOSAL.md`; source-specific cells there are `unverified`. This implementation adds no data requirement beyond that matrix: the library is pure and the adapters map only the supplied roles.
+
+## Library-only merge refusals (accepted limit)
+
+The nine merge refusal recipes RF41, RF42, RF43, RF54, RF55, RF60, RF65, RF66 and RF69 are exercised at the library (`merge_trade_top_k_notional`) only; the workers have no path for them because the merge worker uses one shared configuration (shared amendment E8). Accepted limit, decided and pending owner review (DECISIONS.md 2026-10-28); the owner may instead pick a worker path under E8. See `EF4_DELIVERY_EVIDENCE.md` "What was NOT driven".
