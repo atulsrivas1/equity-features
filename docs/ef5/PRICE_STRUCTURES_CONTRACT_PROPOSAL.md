@@ -1,6 +1,6 @@
 # EF5 price structures and patterns - library contract proposal (candle, structure, technical)
 
-Status: architect proposal for EQ-171 #512 (acceptance story EQ235 #623). Docs and fixtures only. No library, I/O or worker code. Not frozen: freeze needs the second-author recompute, the tester stratified recompute, the PO rulings PO-1 to PO-7 below and a reviewer verdict artifact. Scope of any acceptance: internal, synthetic data, not releasable. Machine-readable twin: [PRICE_STRUCTURES_CONTRACT_PROPOSAL.json](PRICE_STRUCTURES_CONTRACT_PROPOSAL.json).
+Status: architect proposal for EQ-171 #512 (acceptance story EQ235 #623). Docs and fixtures only. No library, I/O or worker code. Not frozen: freeze needs the second-author recompute, the tester stratified recompute, an independent docs review (including md/json parity) and a reviewer verdict artifact; PO rulings PO-1 to PO-7 are accepted and applied. Scope of any acceptance: internal, synthetic data, not releasable. Machine-readable twin: [PRICE_STRUCTURES_CONTRACT_PROPOSAL.json](PRICE_STRUCTURES_CONTRACT_PROPOSAL.json).
 
 ## Authority and inspected sources
 
@@ -63,7 +63,7 @@ Notation: target slot t, epoch slots 0..t, bar i = (O, H, L, C, V) positive int6
 - **last_swing_price**: scan s = t-k down to t-L+k; the first swing gives H_s / 10^scale (or L_s); needs slots t-L..t; none found is no_eligible_observations
 - **session_return_fraction**: (C_t - O_0) / O_0; when t = 0 the single bar gives (C_0 - O_0) / O_0
 - **price_velocity**: v_t = ((C_t - C_(t-1)) / C_(t-1)) / dt_t with dt_t = (end_t - end_(t-1)) / 10^9 seconds, exact rational
-- **momentum_acceleration**: a_t = (v_t - v_(t-1)) / dt_t with the same dt_t; needs closes t-2..t
+- **momentum_acceleration**: a_t = (v_t - v_(t-1)) / dt_t, where v_t uses dt_t and v_(t-1) uses its own dt_(t-1); needs closes t-2..t
 - **signed_trend_window_count**: NORMATIVE (PO-1): M adjacent non-overlapping N-bar windows (window stride = N) ending at the target; window direction = sign of the completed-window close change; a flat window counts 0; result in [-M, M]; M=1 is one window (TD19, TD20). Formula: sum over j = 0..M-1 of sign(C_(t-jN) - C_(t-(j+1)N)); an integer in [-M, M]; needs closes t-MN..t and every slot in between READY (adjacent windows, no bridging). Rejected alternatives: sliding (overlapping) windows and half-counting flat windows are consumer policy and are not part of this catalogue version
 - **publication**: float64 outputs are the exact rational correctly rounded once (Python float(Fraction) equals IEEE round-to-nearest-even); bool and int64 outputs are exact; price outputs divide the integer coefficient by 10^scale
 
@@ -72,6 +72,26 @@ Tie and edge conventions (all pinned by fixtures): doji is inclusive at the thre
 ## Epochs, windows and gaps
 
 `session_reset`: the epoch is the target session (slot 0 is its first governed bar). `governed_history`: the epoch is the supplied governed daily grid. Windows are strict: no shrinking, no bridging of a hole, no min_history; fewer epoch slots than an output requires is `insufficient_history` (early close: SD05, TD06). Ruling E4 is applied from day one: under `governed_history` any selected output whose span exceeds 63 is INVALID_CONFIG at config, and `technical.session_return_fraction` is not defined for it. Spans: candle 0 or 1, swing confirmation 2k, last swing L, velocity 1, acceleration 2, trend M*N.
+
+## Normative tie table, elapsed time and limits
+
+| Tie | Rule | Boundary fixture |
+|---|---|---|
+| doji body/range equals the threshold | inclusive: doji true | CD02 |
+| zero-range bar | fractions and doji zero_denominator; inside and engulfing false | CD04 |
+| equal high against the prior bar | inside bar false (strict) | CD05 |
+| equal low against the prior bar | inside bar false (strict) | CD24 |
+| identical body extents, opposite colours | engulfing false (needs one strict side) | CD08 |
+| one side equal, other strictly beyond | engulfing true | CD11 |
+| prior body zero (no colour) | engulfing false | CD10 |
+| equal highs around the candidate | no swing high (strict) | SD03 |
+| equal lows around the candidate | no swing low (strict) | SD17 |
+| flat trend window | counts 0 | TD02 |
+| flat single window, M=1 | count 0 | TD19 |
+
+- **elapsed time (PO-6)**: PO-6 normative: dt_k = (end_k - end_(k-1)) / 10^9 seconds from the supplied end instants (not nominal bar length); velocity divides by dt_t, acceleration is (v_t - v_(t-1)) / dt_t from the two successive velocities (each with its own dt); a missing end instant is INVALID_SCHEMA (wire, RF50) and a non-positive dt is refused by the shared validator (INVALID_ORDER RF51, BOUNDS); TD11 shows a 3-day weekend dt; under session_reset slot 0 is the first bar, has no velocity (a window reaching before it is insufficient_history) and no interval crosses the session boundary
+- **'refused' for EF5 acceptance (PO-3)**: PO-3: for EF5 acceptance 'refused' means (a) a typed refusal, or (b) a result-level fail-closed outcome: a non-available status, value null, no witnesses and a reason code, never a substituted value or a silently dropped row. Missing or future known_at is (b) with the ESTABLISHED reason codes unknown_availability / future_knowledge under status missing_input (the PO ruling wrote 'missing_input', which is the status; EF3/EF4 and this contract keep the codes, so no code change is needed). A bar incomplete at the market cutoff is future_market, unavailable. KA-set and fail-closed drivers assert null value plus reason code; every output echoes the declared adjustment basis in the result field `basis` (PO-4; decision: a result field, not a witness, because witnesses are slot row ids; recorded in DECISIONS.md).
+- **known limit**: TD10: the declared basis is trusted and no action facts are consumed; no split is detected (PO-4). EF6 may add action facts (a new optional REFERENCE role) that mark windows unavailable; non-breaking
 
 ## Knowledge, no lookahead and refusal precedence
 
@@ -86,6 +106,8 @@ Tie and edge conventions (all pinned by fixtures): doji is inclusive at the thre
 ## Availability, quality, evidence and refusals
 
 Reason precedence: `absent_input`, `unknown_availability`, `future_knowledge`, `null_field`, `governed_gap`, `future_market`, `insufficient_history`, `no_eligible_observations`, `zero_denominator`. Status follows the first applicable reason; a value is null exactly when status is not available; available implies observed = expected. expected = number of slots the output requires (including slots before the epoch start); observed = READY required slots inside the epoch; insufficient_history is added when the first required slot precedes the epoch; there is no shrinking window and no bridging of a hole.
+
+Basis echo (PO-4): every output, available or not, carries the declared adjustment basis in the result field `basis` (not in the witnesses: witnesses are slot row ids). Decision recorded in DECISIONS.md; the JSON and the expander do exactly this.
 
 Evidence: target slot first, then the remaining required slots ascending; the two last_swing_*_price outputs list the located swing slot first, then the target, then the rest ascending; unavailable outputs emit none. `evidence_limit` 0..10000 truncates (CD20, CD21, SD16, TD16).
 
@@ -215,7 +237,7 @@ Notation: compact, NOT canonical wire. K = 100, default known_at 50, volume 5. A
 
 ### Known_at KA-set (KA01-KA27)
 
-KA01-KA27: for each producer a base fixture and nine known_at variants (null, future, equal to K, one before K, revised and known, revised and late, future outside the window, future after the target, mixed null and future); built with the contract, not retrofitted. Ids by producer: candle KA01-KA09, structure KA10-KA18, technical KA19-KA27, in the order null_target, future_target, equal_cutoff, one_before, revised_known, revised_late, future_outside_window, future_after_target, mixed_null_future. Equal to K and one second before K are available; null and later than K lose the target; a late revision is not replaced by the original; a leading slot no output reads and a slot after the target have no effect; null and future on different slots keep both reasons.
+KA01-KA27: for each producer a base fixture and nine known_at variants (null, future, equal to K, one before K, revised and known, revised and late, future outside the window, future after the target, mixed null and future); built with the contract, not retrofitted. Ids by producer: candle KA01-KA09, structure KA10-KA18, technical KA19-KA27, in the order null_target, future_target, equal_cutoff, one_before, revised_known, revised_late, future_outside_window, future_after_target, mixed_null_future. Every null or later-than-K row asserts status missing_input, value null, no witnesses and the reason unknown_availability or future_knowledge (that outcome is 'refused' for EF5, PO-3). Equal to K and one second before K are available; null and later than K lose the target; a late revision is not replaced by the original; a leading slot no output reads and a slot after the target have no effect; null and future on different slots keep both reasons.
 
 ### Refusal fixtures (RF)
 
@@ -307,7 +329,7 @@ KA01-KA27: for each producer a base fixture and nine known_at variants (null, fu
 - **DP-F7 Fail-closed**: no default for any parameter, K, basis, unit or coverage; undeclared coverage with rows and missing structural context are refused; null/future known_at is missing_input with a null value (architect proposal following PO rule 2, PO-3 and PO-7)
 - **DP-F8 Hosting**: packages/features EF5 module, config namespace ef5.*, separate catalog; describe_intraday() and its digest unchanged (architect proposal; not an implementation)
 
-## PO rulings needed (not guessed)
+## PO rulings (accepted 2026-10-28)
 
 - **PO-1 Trend count semantics**: confirm the signed completed-window trend count is M adjacent non-overlapping N-bar windows, direction = sign of the close change, flat window = 0, result in [-M, M]. Alternatives: sliding windows (overlapping), or flat counted as a half or excluded. The manifest operands (ordered_completed_close_windows, adjacency, session_reset) do not decide it.
 - **PO-2 Unit spellings**: E9 gives no squared form. Proposed fraction/s^2 for acceleration and `windows` for the trend count; the manifest units fraction_per_second and fraction_per_second_squared are recorded as aliases and replaced with fraction/s and fraction/s^2 in this PR.

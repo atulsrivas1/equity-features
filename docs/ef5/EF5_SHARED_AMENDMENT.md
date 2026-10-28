@@ -1,6 +1,6 @@
 # EF5 shared amendment (proposal): header ledger and unit additions
 
-Status: proposal, additive, pending PO ruling PO-2. Docs only.
+Status: proposal, additive, PO-2 and PO-7 accepted 2026-10-28. Docs only.
 
 ## Unit additions (E9 slash style)
 
@@ -33,6 +33,16 @@ The 15 headers of [PRICE_STRUCTURES_CONTRACT_PROPOSAL.json](PRICE_STRUCTURES_CON
 | `technical.price_velocity_fraction_per_second` | float64 | `fraction/s` | technical |
 | `technical.session_return_fraction` | float64 | `fraction` | technical |
 | `technical.signed_trend_window_count` | int64 | `windows` | technical |
+
+## E9 erratum (squared form)
+
+Additive erratum to E9, not a frozen-file edit: the squared form of the slash style is `fraction/s^2`. The underscore spellings `fraction_per_second` and `fraction_per_second_squared` are aliases only, recorded in the ownership manifest (`unit_aliases`), and appear in no header.
+
+
+## Cross-reference: undeclared coverage (PO-7)
+
+EF5 refuses rows delivered with undeclared coverage as INVALID_SCHEMA, matching the merged tape adapter; the EF4 library uses the code ruled in E2. The divergence is documented, not accidental. Zero rows with undeclared coverage stays absent_input.
+
 
 ## Ownership manifest
 
