@@ -7,7 +7,7 @@ from .inputs import (
 from .specs import AvailabilitySpec, ConfigSpec, IntervalSpec, Parameter, SessionSpec, WindowSpec
 
 from .errors import ContractError, ErrorCode
-from .results import (QuoteDurations, TimeWeightedSpread, QuoteStateCounts, QuoteObservation, SampledSpread, TopKTrades, TopKTradeRow, IntervalOHLCV, IntervalOHLCVRow, IntervalVolumeShares, IntervalVolumeShareRow, BreadthCounts, BreadthFraction, EntityKey, EvidenceRow,
+from .results import (QuoteDurations, TimeWeightedSpread, QuoteStateCounts, QuoteObservation, SampledSpread, TopKTrades, TopKTradeRow, NOTIONAL_RANKED_FEATURES, TOP_K_RANKINGS, IntervalOHLCV, IntervalOHLCVRow, IntervalVolumeShares, IntervalVolumeShareRow, BreadthCounts, BreadthFraction, EntityKey, EvidenceRow,
     FeatureColumn, FeatureResult, InputBinding, QualityRow, Reason, ResultCell,
     ResultMetadata, Status, ValueType)
 
@@ -28,7 +28,7 @@ from .relative import ReturnReference, RelativeSpec, SectorBenchmark
 from .policies import ActionPolicy, ReferenceFact, PolicyAdmission, AdjustmentApplication, ClassificationAdmission
 
 __version__ = "0.0.4a4"
-__all__ = ["CompositionSpec", "FamilyResult", "FeatureBundle", "DeclaredUniverseSpec", "CompletedClose", "SMAInput", "MemberFeatures", "BreadthSpec", "MemberExclusion", "BreadthResult", "ReturnReference", "RelativeSpec", "SectorBenchmark", "VolumeBucket", "BucketContext", "IntervalBaseline", "BucketVolume", "VolumeBaseline", "TargetVolume", "SMAReference", "HistoryContext", "ActionPolicy", "ReferenceFact", "PolicyAdmission", "AdjustmentApplication", "ClassificationAdmission", "PartitionSpan", "AccumulatorState", "StreamPopulation", "PrefixCoverage", "QuoteDurations", "TimeWeightedSpread", "QuoteStateCounts", "QuoteObservation", "SampledSpread", "TopKTrades", "TopKTradeRow", "AdjustmentSpec", "BatchMetadata", "CanonicalBatch", "Cell", "Column",
+__all__ = ["CompositionSpec", "FamilyResult", "FeatureBundle", "DeclaredUniverseSpec", "CompletedClose", "SMAInput", "MemberFeatures", "BreadthSpec", "MemberExclusion", "BreadthResult", "ReturnReference", "RelativeSpec", "SectorBenchmark", "VolumeBucket", "BucketContext", "IntervalBaseline", "BucketVolume", "VolumeBaseline", "TargetVolume", "SMAReference", "HistoryContext", "ActionPolicy", "ReferenceFact", "PolicyAdmission", "AdjustmentApplication", "ClassificationAdmission", "PartitionSpan", "AccumulatorState", "StreamPopulation", "PrefixCoverage", "QuoteDurations", "TimeWeightedSpread", "QuoteStateCounts", "QuoteObservation", "SampledSpread", "TopKTrades", "TopKTradeRow", "NOTIONAL_RANKED_FEATURES", "TOP_K_RANKINGS", "AdjustmentSpec", "BatchMetadata", "CanonicalBatch", "Cell", "Column",
            "IntervalCoverage", "IntervalOHLCV", "IntervalOHLCVRow", "IntervalVolumeShares", "IntervalVolumeShareRow", "InputScope", "Coverage", "DataKind", "DType", "Field", "InputSchema", "PriceUnit",
            "SourceBinding", "schema_for", "AvailabilitySpec", "ConfigSpec", "IntervalSpec",
            "Parameter", "SessionSpec", "WindowSpec", "ContractError", "ErrorCode",

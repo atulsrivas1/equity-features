@@ -29,7 +29,7 @@ Readiness follows DP-T12 exactly: a window output needs the in-window rows (and 
 
 ## Rulings to pin in the EF4 shared amendment
 
-Coordinator decision: no shared-validator change in EF4; a rank-aware `TopKTrades` order check goes into the EF4 shared amendment before I/O readback. Until then the workaround is pinned: `notional_cell` (used by `compute_trade_top_k_notional` and `merge_trade_top_k_notional`) builds the cell with `object.__new__(TopKTrades)` and `object.__setattr__`. Any `dataclasses.replace(cell)`, `TopKTrades(k, rows)` on notional-ordered rows or a state restore that revalidates raises `INVALID_ORDER`. Top-K witnesses are plain `event_id`, window witnesses keep the `trade:` / `seed:` prefixes. Capability is checked before the unknown feature (contract refusal order).
+PO ruling E1 (2026-10-28, see [EF4_ERRATA.md](EF4_ERRATA.md)): the shared `TopKTrades` order check is rank-aware. `notional_cell` (used by `compute_trade_top_k_notional` and `merge_trade_top_k_notional`) builds the cell through the public constructor, `TopKTrades(k, rows, ranking="notional")`; the `object.__new__` workaround is removed. `ranking` is a constructor-only argument (default `size`), so the cell fields, the wire form and the Arrow struct are unchanged, and `FeatureResult` binds the ranking to the feature id (`tape.top_k_notional` is notional-ranked, every other feature size-ranked). Top-K witnesses are plain `event_id`, window witnesses keep the `trade:` / `seed:` prefixes. Capability is checked before the unknown feature (contract refusal order).
 
 ## Author source validation
 

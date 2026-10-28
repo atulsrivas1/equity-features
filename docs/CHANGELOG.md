@@ -1,3 +1,7 @@
+## EF4 PO rulings E1, E2, E4 - October 28, 2026
+
+`TopKTrades` takes a constructor-only `ranking` (`size` default, `notional`) and `FeatureResult` binds the ranking to the feature id, so notional-ranked `tape.top_k_notional` cells are built and verified through the public constructor (the `object.__new__` workaround is removed). `declared_coverage` refuses an undeclared quote or trade batch that delivers rows (INVALID_SCHEMA). `governed_history` path efficiency refuses `window > 63` at configuration (INVALID_CONFIG). Additive errata: [EF4_ERRATA.md](ef4/EF4_ERRATA.md), `tools/verify_ef4_errata.py`. No version bump in this change.
+
 ## EF3 contract E amendment E-A2: knowledge gating of grid facts - October 27, 2026
 
 `ef3.robust_history`, `ef3.volume_pace_robust` and `ef3.volume_ratio_mean` now assess the `known_at` of the session bounds, bucket edge and declared population facts a selected output uses against the knowledge cutoff, as contract F already does (null gives `unknown_availability`, later than the cutoff `future_knowledge`, equal is available; no new reason or code). Behavior changes only where those facts carry a null or late `known_at`; the 124 existing E result fixtures are unchanged. See [ROBUST_PACE_AMENDMENT_E_A2.md](ef3/ROBUST_PACE_AMENDMENT_E_A2.md) (fixtures KA01 to KA32) and `tools/verify_ef3_robust_known_at.py`.

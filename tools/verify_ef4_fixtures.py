@@ -105,9 +105,28 @@ def check_reason_coverage(problems: list[str]) -> None:
                 problems.append(f"{name}: no result fixture exercises {reason}")
 
 
+def check_errata(problems: list[str]) -> None:
+    """The additive errata recipes (E1, E2, E4): the frozen contract refusal counts stay and the errata list is whole.
+
+    Frozen refusal censuses: tape 75, quote/VWAP 80, path efficiency 39, projections 114; plus 8 errata recipes that
+    `verify_ef4_errata.py` runs against the library (it is run by the pre-merge command with the other verify scripts).
+    """
+    errata = json.loads((DOCS / "EF4_ERRATA_RECIPES.json").read_text(encoding="utf-8"))
+    frozen = {"tape_refusal": contract("TAPE")["fixture_counts"]["refusal"],
+              "quote_vwap_refusal": contract("QUOTE_VWAP")["fixture_counts"]["refusal"],
+              "path_refusal": contract("PATH_EFFICIENCY")["fixture_counts"]["refusal"],
+              "projections_refusal": contract("PATH_PROJECTIONS")["fixture_counts"]["refusal"]}
+    expect(problems, "frozen refusal counts", frozen, errata["contract_counts_unchanged"])
+    ids = [r["id"] for r in errata["recipes"]]
+    expect(problems, "errata recipe count", errata["recipe_count"], len(ids))
+    expect(problems, "errata ids unique", len(set(ids)), len(ids))
+    expect(problems, "errata recipes", len(ids), 8)
+
+
 def main() -> int:
     problems: list[str] = []
     check_expanders(problems)
+    check_errata(problems)
     check_known_at_rules(problems)
     check_reason_coverage(problems)
     for line in problems:

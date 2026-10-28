@@ -199,7 +199,8 @@ def admit_bounds(batch: CanonicalBatch | None, config: ConfigSpec, entity: Entit
 
 
 def declared_coverage(batch: CanonicalBatch, start: int, end: int) -> str:
-    """`complete`, `incomplete` or `undeclared` (no IntervalCoverage for the interval and no aggregate declaration)."""
+    """`complete`, `incomplete`, or `undeclared` (no declaration; only a batch with zero rows, which the caller reads as
+    absent_input). An undeclared batch that delivers rows is refused INVALID_SCHEMA (E2, no fail-open)."""
     meta = batch.metadata
     entries = meta.interval_coverage
     if entries:
@@ -210,7 +211,11 @@ def declared_coverage(batch: CanonicalBatch, start: int, end: int) -> str:
         return "complete" if entries[0].coverage.complete else "incomplete"
     if meta.coverage.complete:
         return "complete"
-    return "incomplete" if meta.coverage.expected is not None else "undeclared"
+    if meta.coverage.expected is not None:
+        return "incomplete"
+    if batch.row_count:
+        fail(ErrorCode.INVALID_SCHEMA, "coverage not declared")  # fail closed: rows without a declaration are never complete
+    return "undeclared"
 
 
 # ------------------------------------------------------------------------------------------------ result assembly

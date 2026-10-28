@@ -18,6 +18,9 @@ PATH_SESSION_RESET = "session_reset"
 PATH_GOVERNED_HISTORY = "governed_history"
 PATH_EFFICIENCY_PROFILES = (PATH_GOVERNED_HISTORY, PATH_SESSION_RESET)
 PATH_WINDOW_MAX = 4096
+# governed_history has one governed slot per session in an R17 context of at most 64 sessions, so N returns need
+# N + 1 <= 64 slots: a larger window can never be available and is refused at configuration (E4), not at compute.
+PATH_GOVERNED_WINDOW_MAX = 63
 # The epoch profile fixes the R17 context mode: the target session resets (reset); a supplied governed daily grid
 # is one epoch from its anchor (carry in the R17 context vocabulary; no value ever crosses a session boundary).
 _MODE = {PATH_SESSION_RESET: "reset", PATH_GOVERNED_HISTORY: "carry"}
@@ -36,6 +39,8 @@ def _check(policy: object, window: object, profile: object, limit: object) -> Pa
     n = integer(window, 2, PATH_WINDOW_MAX, ErrorCode.INVALID_CONFIG)
     if type(profile) is not str or profile not in PATH_EFFICIENCY_PROFILES:
         fail("epoch_profile must be session_reset or governed_history (there is no default and no carry)")
+    if profile == PATH_GOVERNED_HISTORY and n > PATH_GOVERNED_WINDOW_MAX:
+        fail(f"governed_history needs window <= {PATH_GOVERNED_WINDOW_MAX} (one governed slot per session, at most 64 sessions)")
     cap = integer(limit, 0, 10000, ErrorCode.INVALID_CONFIG)
     if type(policy) is not str:
         fail("exact path-efficiency policy label required")
