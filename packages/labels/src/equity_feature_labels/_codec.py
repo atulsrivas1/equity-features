@@ -7,6 +7,9 @@ from typing import cast
 from equity_feature_contracts import AvailabilitySpec, __version__ as CORE_VERSION
 from . import _model as m
 
+# The one contracts version this distribution is built against (pinned in pyproject.toml; tools/verify_versions.py checks both).
+_CONTRACTS_VERSION = "0.0.4a5"
+
 RECORDS: dict[type[object], tuple[str, tuple[str, ...]]] = {
     AvailabilitySpec: ('specs.AvailabilitySpec', ('market_cutoff_ns', 'knowledge_cutoff_ns', 'evaluation_ns', 'mode', 'reconstruction_reason')),
     m.Entity: ('Entity', ('namespace', 'instrument_id', 'session_id')),
@@ -57,7 +60,7 @@ def _encoded(value: object, active: set[int]) -> object:
 
 def encode(value: object) -> bytes:
     """Encode this distribution's closed records and primitives as canonical ASCII."""
-    m.version(CORE_VERSION, '0.0.4a4')
+    m.version(CORE_VERSION, _CONTRACTS_VERSION)
     return json.dumps(_encoded(value, set()), sort_keys=True, separators=(',', ':'),
         ensure_ascii=True, allow_nan=False).encode('ascii')
 

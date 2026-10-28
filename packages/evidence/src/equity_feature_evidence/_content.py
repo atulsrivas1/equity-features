@@ -8,6 +8,8 @@ import equity_feature_contracts as contracts
 from equity_feature_contracts import inputs as i, results as r, specs as s
 from . import _model as m
 
+# The one contracts version this distribution is built against (pinned in pyproject.toml; tools/verify_versions.py checks both).
+_CONTRACTS_VERSION = "0.0.4a5"
 MAX_CONTENT_BYTES = 32 * 1024 * 1024
 MAX_CONTENT_NODES = 1000000
 MAX_CONTENT_DEPTH = 24
@@ -176,7 +178,7 @@ def _visit(value: object, depth: int, budget: _Budget, payload: bool = False) ->
 
 
 def _domain(value: object) -> str:
-    m.require(contracts.__version__ == '0.0.4a4', 'unsupported_version')
+    m.require(contracts.__version__ == _CONTRACTS_VERSION, 'unsupported_version')
     if type(value) is i.CanonicalBatch: return 'canonical_batch'
     if type(value) is r.FeatureResult: return 'feature_result'
     if type(value) is s.ConfigSpec: return 'configuration'
@@ -186,7 +188,7 @@ def _domain(value: object) -> str:
 def _tokens(value: Root, budget: _Budget) -> Iterator[bytes]:
     domain = _domain(value)
     yield from _object((('algorithm', 'sha256'), ('canonicalization', 'typed-json-v1'),
-        ('contracts_version', '0.0.4a4'), ('domain', domain), ('project', 'equity-features'),
+        ('contracts_version', _CONTRACTS_VERSION), ('domain', domain), ('project', 'equity-features'),
         ('schema_version', '1'), ('value', value)), 0, budget)
 
 

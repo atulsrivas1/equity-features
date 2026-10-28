@@ -81,7 +81,7 @@ class PeriodPhasePackets(unittest.TestCase):
         self.assertEqual(packet, original)
 
     def test_frozen_population_and_bytes(self):
-        self.assertEqual(hashlib.sha256(SPEC_BYTES).hexdigest(), "b4c78f03b3c1ec5100740803d4b853920f9aa28cb58d73446dea6b3f403db09c")
+        self.assertEqual(hashlib.sha256(SPEC_BYTES).hexdigest(), "298851f79f26da042fada31163c8384eb497f9769d9c3b38b1f51128ec8f93be")
         self.assertEqual(len(PACKETS), 62)
         self.assertEqual(sum(p["expected_result"] is not None for p in PACKETS.values()), 42)
 

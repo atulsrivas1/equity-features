@@ -13,12 +13,14 @@ import tempfile
 
 from build_explanations import run, normalize, sha
 from continuous_archives import inspect
+sys.path.insert(0, str(Path(__file__).resolve().parent))  # tools/_versions.py, also when loaded by path from tests
+from _versions import VERSIONS, CONTRACTS, FEATURES
 
 ROOT=Path(__file__).resolve().parents[1]
 OUT_ROOT=ROOT/'dist/intraday'
-PACKAGES={'contracts':('equity_feature_contracts','0.0.4a4'),
-          'features':('equity_features','0.0.4a5'),
-          'intraday':('equity_features_intraday','0.1.0a3')}
+PACKAGES={'contracts':('equity_feature_contracts',CONTRACTS),
+          'features':('equity_features',FEATURES),
+          'intraday':('equity_features_intraday',VERSIONS['intraday'])}
 SCOPES=['packages/'+name for name in PACKAGES]+[
     'tests/intraday','tests/fixtures/intraday_bands','examples/intraday_preparation.py',
     'examples/typing/intraday_positive.py','examples/typing/intraday_negative.py',

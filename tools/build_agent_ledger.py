@@ -20,14 +20,16 @@ import tomllib
 import zipfile
 from packaging.requirements import Requirement
 from packaging.specifiers import SpecifierSet
+sys.path.insert(0, str(Path(__file__).resolve().parent))  # tools/_versions.py, also when loaded by path from tests
+from _versions import VERSIONS, CONTRACTS, FEATURES
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / 'dist/agent-ledger-corrected'
 EPOCH = 1700000000
-PACKAGES = {'contracts':('equity_feature_contracts','0.0.4a4'),
-            'features':('equity_features','0.0.4a5'), 'evidence':('equity_feature_evidence','0.1.0a2'),
-            'agent-evidence':('equity_feature_agent_evidence','0.1.0a1'),
-            'agent-ledger':('equity_feature_agent_ledger','0.1.0a1')}
+PACKAGES = {'contracts':('equity_feature_contracts',CONTRACTS),
+            'features':('equity_features',FEATURES), 'evidence':('equity_feature_evidence',VERSIONS['evidence']),
+            'agent-evidence':('equity_feature_agent_evidence',VERSIONS['agent-evidence']),
+            'agent-ledger':('equity_feature_agent_ledger',VERSIONS['agent-ledger'])}
 
 
 def run(*args, cwd=ROOT, env=None):
@@ -127,8 +129,8 @@ def inspect(path, name, source):
     readme=(source/'README.md').read_bytes()
     body=metadata.get_payload(decode=True)
     assert type(body) is bytes and body.replace(b'\r\n',b'\n')==readme.replace(b'\r\n',b'\n'), 'metadata README drift'
-    if name=='evidence': assert metadata.get_all('Requires-Dist',[])==['equity-feature-contracts==0.0.4a4']
-    if name=='agent-evidence': assert metadata.get_all('Requires-Dist',[])==['equity-feature-contracts==0.0.4a4','equity-feature-evidence==0.1.0a2']
+    if name=='evidence': assert metadata.get_all('Requires-Dist',[])==[f'equity-feature-contracts=={CONTRACTS}']
+    if name=='agent-evidence': assert metadata.get_all('Requires-Dist',[])==[f'equity-feature-contracts=={CONTRACTS}',f'equity-feature-evidence=={VERSIONS["evidence"]}']
     package_prefix=module+'/' if wheel else prefix+'src/'+module+'/'
     expected={p.relative_to(source/'src').as_posix():p.read_bytes() for p in (source/'src'/module).rglob('*') if p.is_file()}
     actual={module+'/'+n.removeprefix(package_prefix):body for n,body in files.items() if n.startswith(package_prefix)}
@@ -282,21 +284,27 @@ def main():
     assert sha(baseline_bytes)=='7b404c0668fc1959cf4c0809c9bda3a38c90b0d348585e28e3c7a3289b1dbd4e', 'historical archive receipt changed'
     baseline=json.loads(baseline_bytes);expected=baseline['systems'][platform.system()]['archives'];assert len(expected)==8
     replacements={
-        'equity_features-0.0.4a4-py3-none-any.whl':'equity_features-0.0.4a5-py3-none-any.whl',
-        'equity_features-0.0.4a4.tar.gz':'equity_features-0.0.4a5.tar.gz'}
-    assert PACKAGES['features']==('equity_features','0.0.4a5')
+        # The accepted EQ archives were built from the a4/a4 pair; the current pair replaces both distributions.
+        'equity_feature_contracts-0.0.4a4-py3-none-any.whl':f'equity_feature_contracts-{CONTRACTS}-py3-none-any.whl',
+        'equity_feature_contracts-0.0.4a4.tar.gz':f'equity_feature_contracts-{CONTRACTS}.tar.gz',
+        'equity_features-0.0.4a4-py3-none-any.whl':f'equity_features-{FEATURES}-py3-none-any.whl',
+        'equity_features-0.0.4a4.tar.gz':f'equity_features-{FEATURES}.tar.gz'}
+    assert PACKAGES['features']==('equity_features',FEATURES)
     assert set(replacements)<=set(expected) and not set(replacements)&set(report['artifacts'])
     assert set(replacements.values())<=set(report['artifacts'])
     assert set(report['artifacts'])==((set(expected)-set(replacements))|set(replacements.values())|
         {'equity_feature_agent_ledger-0.1.0a1-py3-none-any.whl','equity_feature_agent_ledger-0.1.0a1.tar.gz'})
+    # Same-named archives whose contracts pin and expected-contracts constant moved with the pre-release bump.
+    pin_moved={n for n in expected if n.startswith(('equity_feature_evidence-','equity_feature_agent_evidence-'))}
     for name,item in expected.items():
-        if name in replacements:continue  # Explicit a4->a5 evolution; preserve historical evidence below.
+        if name in replacements or name in pin_moved:continue  # Explicit pre-release evolution; preserve historical evidence below.
         assert report['artifacts'][name]['sha256']==item['sha256'] and report['artifacts'][name]['bytes']==item['bytes'], 'accepted archive drift'
     report['historical_archive_comparison']={'head':baseline['head'],'archives':expected,
-        'unchanged_archive_count':6,'unchanged_archive_parity':True,
+        'unchanged_archive_count':len(expected)-len(replacements)-len(pin_moved),'unchanged_archive_parity':True,
+        'pin_moved_archives':sorted(pin_moved),
         'changed_artifacts':{old:{'current_name':new,'historical':expected[old],
             'current':report['artifacts'][new]} for old,new in replacements.items()},
-        'accepted_eight_archive_parity':False,'reason':'EF1 explicitly replaces only features a4 with a5'};save()
+        'accepted_eight_archive_parity':False,'reason':'the coordinated pre-release bump replaces contracts and features and moves the contracts pin of the dependent archives'};save()
     for form,suffix in [('wheel','.whl'),('sdist','.tar.gz')]:
         archives={n:next(OUT.glob(module+'-*'+suffix)) for n,(module,_) in PACKAGES.items()}
         for combined in (False,True):

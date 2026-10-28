@@ -90,7 +90,7 @@ def canonical_mode(config, mode):
 
 class ObservablePackets(unittest.TestCase):
     def test_frozen_bytes(self):
-        self.assertEqual(hashlib.sha256(SPEC_BYTES).hexdigest(), "646e402e321eb97a171a2f8f64ce3c1ee399f7bcb81906fd929be4e6477170a6")
+        self.assertEqual(hashlib.sha256(SPEC_BYTES).hexdigest(), "8404a1871c7841abbca8551e6c6b31e52dc3c4fd0a16eefead826d38bac9c3aa")
 
     def test_packet_stage_accounting(self):
         self.assertEqual(sum(p.get("expected_result") is not None for p in PACKETS.values()),58)

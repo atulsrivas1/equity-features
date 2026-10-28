@@ -3,7 +3,7 @@
 Experimental `equity-feature-labels==0.1.0a1` for CPython 3.12. Pure immutable
 elapsed-horizon price-return labels with explicit origin, supplied raw/split basis,
 knowledge cutoffs and pending/incomplete/mature states. Requires only
-`equity-feature-contracts==0.0.4a4`; strategies and features are independently optional.
+`equity-feature-contracts==0.0.4a5`; strategies and features are independently optional.
 
 `evaluate_label(LabelRequest(...))` computes endpoint price ratio minus one only
 after maturity. No interpolation, calendar, dividends, fetching or adjustment

@@ -1,7 +1,7 @@
 # Equity Features Intraday
 
 Experimental pure supplied-data intraday preparation and snapshot EMA/RSI/ATR and rolling price bands,
-distribution `equity-features-intraday`0.1.0a3, Python3.12, Apache-2.0.
+distribution `equity-features-intraday`0.1.0a4, Python3.12, Apache-2.0.
 Callers supply canonical BAR facts, actual exchange sessions and an explicit
 bounded intraday grid. Context/configuration, coverage, action/unit/source
 identity and known-at eligibility are validated without acquisition or I/O.

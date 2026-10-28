@@ -17,13 +17,21 @@ import sys
 import tarfile
 import tempfile
 import zipfile
+sys.path.insert(0, str(Path(__file__).resolve().parent))  # tools/_versions.py, also when loaded by path from tests
+from _versions import VERSIONS, CONTRACTS, FEATURES
+
+
+def _fill(code, component='strategies'):
+    """Substitute the version placeholders of the isolated-interpreter probe snippets from tools/_versions.py."""
+    return (code.replace('@CONTRACTS@', CONTRACTS).replace('@FEATURES@', FEATURES)
+            .replace('@STRATEGIES@', VERSIONS[component]))
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / 'dist/research'
 EPOCH = 1700000000
-PACKAGES = {'contracts': ('equity_feature_contracts', '0.0.4a4'),
-            'features': ('equity_features', '0.0.4a5'), 'strategies': ('equity_feature_strategies', '0.1.0a1'),
-            'labels': ('equity_feature_labels', '0.1.0a1')}
+PACKAGES = {'contracts': ('equity_feature_contracts', CONTRACTS),
+            'features': ('equity_features', FEATURES), 'strategies': ('equity_feature_strategies', VERSIONS['strategies']),
+            'labels': ('equity_feature_labels', VERSIONS['labels'])}
 
 
 def run(*args, cwd=ROOT, env=None):
@@ -80,7 +88,7 @@ def inspect(path, package, source):
     assert metadata['License-Expression'] == 'Apache-2.0'
     assert metadata['Requires-Python'] == '<3.13,>=3.12'
     if package in ('strategies', 'labels'):
-        assert metadata.get_all('Requires-Dist', []) == ['equity-feature-contracts==0.0.4a4']
+        assert metadata.get_all('Requires-Dist', []) == [f'equity-feature-contracts=={CONTRACTS}']
     module_prefix = module + '/' if wheel else prefix + 'src/' + module + '/'
     expected = {p.relative_to(source / 'src').as_posix(): p.read_bytes()
                 for p in (source / 'src' / module).rglob('*') if p.is_file() and '__pycache__' not in p.parts}
@@ -131,7 +139,7 @@ for module_name in sys.argv[1:]:
             result[relative.as_posix()]=hashlib.sha256(path.read_bytes()).hexdigest()
 print(json.dumps(result,sort_keys=True))
 '''
-    return json.loads(subprocess.check_output([str(py), '-I', '-c', code, *modules], cwd=py.parent, encoding='utf-8'))
+    return json.loads(subprocess.check_output([str(py), '-I', '-c', _fill(code), *modules], cwd=py.parent, encoding='utf-8'))
 
 
 def install(paths, directory):
@@ -162,12 +170,12 @@ from pathlib import Path
 from importlib.metadata import distribution
 import equity_feature_contracts as c
 import equity_features as f
-assert (c.__version__,f.__version__,f.contracts_version)==('0.0.4a4','0.0.4a5','0.0.4a4')
-assert distribution('equity-feature-contracts').version=='0.0.4a4'
-assert distribution('equity-features').version=='0.0.4a5'
+assert (c.__version__,f.__version__,f.contracts_version)==('@CONTRACTS@','@FEATURES@','@CONTRACTS@')
+assert distribution('equity-feature-contracts').version=='@CONTRACTS@'
+assert distribution('equity-features').version=='@FEATURES@'
 assert distribution('equity-feature-contracts').requires is not None
 required=[r for r in distribution('equity-features').requires if ';' not in r]
-assert required==['equity-feature-contracts==0.0.4a4']
+assert required==['equity-feature-contracts==@CONTRACTS@']
 assert all('equity-feature-strategies' not in r and 'equity-feature-labels' not in r for d in ('equity-feature-contracts','equity-features') for r in distribution(d).requires)
 for module in (c,f):
     root=Path(module.__file__).resolve().parent
@@ -177,7 +185,7 @@ assert all(importlib.util.find_spec(name) is None for name in absent)
 assert not any(name.split('.')[0] in absent for name in sys.modules)
 print(json.dumps({'contracts_version':c.__version__,'features_version':f.__version__,'site_packages_origins':True,'optional_and_native_absent':list(absent),'required_features_dependency':required},sort_keys=True))
 '''
-    return json.loads(subprocess.check_output([str(py), '-I', '-c', code], cwd=py.parent, encoding='utf-8'))
+    return json.loads(subprocess.check_output([str(py), '-I', '-c', _fill(code)], cwd=py.parent, encoding='utf-8'))
 
 
 def installed_component(py, artifact, component):
@@ -191,8 +199,8 @@ from importlib.metadata import distribution,version
 import equity_feature_strategies as s
 root=Path(s.__file__).resolve().parent
 assert 'site-packages' in root.parts
-assert s.__version__==version('equity-feature-strategies')=='0.1.0a1'
-assert distribution('equity-feature-strategies').requires==['equity-feature-contracts==0.0.4a4']
+assert s.__version__==version('equity-feature-strategies')=='@STRATEGIES@'
+assert distribution('equity-feature-strategies').requires==['equity-feature-contracts==@CONTRACTS@']
 dist=distribution('equity-feature-strategies')
 record=next(f for f in dist.files if f.name=='RECORD')
 rows=list(csv.reader(io.StringIO(Path(dist.locate_file(record)).read_text(encoding='utf-8'))))
@@ -220,7 +228,7 @@ print(json.dumps({p.relative_to(root).as_posix():hashlib.sha256(p.read_bytes()).
     if component == 'labels':
         code = code.replace('equity_feature_labels', '__SIBLING__').replace('equity_feature_strategies', 'equity_feature_labels').replace('__SIBLING__', 'equity_feature_strategies')
         code = code.replace('equity-feature-strategies', 'equity-feature-labels')
-    actual = json.loads(subprocess.check_output([str(py), '-I', '-c', code], cwd=py.parent, encoding='utf-8'))
+    actual = json.loads(subprocess.check_output([str(py), '-I', '-c', _fill(code, component)], cwd=py.parent, encoding='utf-8'))
     assert actual == expected, 'installed component differs from archive source'
     return actual
 

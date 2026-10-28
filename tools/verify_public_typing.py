@@ -4,6 +4,8 @@ from pathlib import Path
 import subprocess
 import sys
 import tempfile
+sys.path.insert(0, str(Path(__file__).resolve().parent))  # tools/_versions.py, also when loaded by path from tests
+from _versions import CONTRACTS, FEATURES
 
 
 def main():
@@ -15,7 +17,7 @@ def main():
         folder = Path(module.__file__).resolve().parent
         assert 'site-packages' in folder.parts, 'installed qualification rejects editable/source imports'
         assert (folder/'py.typed').is_file(), folder
-    assert (contracts.__version__, features.__version__, features.contracts_version) == ('0.0.4a4', '0.0.4a5', '0.0.4a4')
+    assert (contracts.__version__, features.__version__, features.contracts_version) == (CONTRACTS, FEATURES, CONTRACTS)
     for module in (contracts, features):
         assert all(hasattr(module, name) for name in module.__all__)
     work = root/'work';work.mkdir(exist_ok=True)

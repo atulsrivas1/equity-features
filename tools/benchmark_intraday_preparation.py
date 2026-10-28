@@ -20,6 +20,8 @@ from equity_feature_contracts import (
 )
 from equity_features_intraday import IntradayContext, IntradayRun, build_intraday_config, prepare_intraday
 from equity_features_intraday._prepare import validate_preparation
+sys.path.insert(0, str(Path(__file__).resolve().parent))  # tools/_versions.py, also when loaded by path from tests
+from _versions import CONTRACTS, VERSIONS
 
 ROOT=Path(__file__).resolve().parents[1]
 FAMILIES=('anchored_closes','true_ranges','price_moments','high_extrema','low_extrema','simple_returns')
@@ -56,8 +58,8 @@ def source_identity():
         wanted={name for name in paths if name.startswith(root.relative_to(ROOT).as_posix()+'/')}
         assert actual==wanted,('untracked/missing runtime module',module.__name__)
         origins[module.__name__]={'origin':origin.relative_to(ROOT).as_posix(),'version':version(distribution)}
-    assert origins['equity_feature_contracts']['version']=='0.0.4a4'
-    assert origins['equity_features_intraday']['version']=='0.1.0a3'
+    assert origins['equity_feature_contracts']['version']==CONTRACTS
+    assert origins['equity_features_intraday']['version']==VERSIONS['intraday']
     return {'head':head,'source':sources,'libraries':origins,'runtime':'pinned source development environment; artifact installs qualified separately'}
 
 

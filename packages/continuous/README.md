@@ -1,6 +1,6 @@
 # Experimental continuous research batch kernels
 
-`equity-feature-continuous0.1.0a2` supplies immutable bounded data/config/result contracts, strict own JSON codecs and pure exact batch calculations. It depends only on `equity-feature-contracts0.0.4a4` and Python3.12. Existing core schemas, versions,39feature IDs and digests are unchanged; there is no automatic old-registry, Arrow/state, worker, MCP or receipt integration.
+`equity-feature-continuous0.1.0a2` supplies immutable bounded data/config/result contracts, strict own JSON codecs and pure exact batch calculations. It depends only on `equity-feature-contracts0.0.4a5` and Python3.12. Existing core schemas, versions,39feature IDs and digests are unchanged; there is no automatic old-registry, Arrow/state, worker, MCP or receipt integration.
 
 Inputs are caller-supplied raw positive scaled last trades, finite complete delivery scopes and original knowledge times, feed/product states and effective conversion facts. Same currency and declared underlying/quantity identities are required. The declarations do not authenticate economic equivalence, source completeness, provider rights or market truth. Calendars and DST partitions remain external supplied finite intervals.
 

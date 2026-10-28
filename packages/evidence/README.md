@@ -1,7 +1,7 @@
 # equity-feature-evidence
 
 Experimental optional pure receipt contracts, Python3.12. Required dependency:
-equity-feature-contracts0.0.4a4. Core calculations do not import this package.
+equity-feature-contracts0.0.4a5. Core calculations do not import this package.
 
 `make_receipt` binds supplied fingerprints/declarations to an accepted FeatureResult's
 metadata, feature versions and retained evidence count. `encode_receipt`,

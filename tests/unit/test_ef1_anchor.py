@@ -98,7 +98,7 @@ class EF1Anchors(unittest.TestCase):
         self.assertEqual({b.role: b.metadata for b in result.metadata.inputs},
                          {"trades": m.metadata, "anchor_provenance": p.metadata})
         self.assertEqual((result.metadata.backend_id, result.metadata.backend_version),
-                         ("python-exact", "0.0.4a5"))
+                         ("python-exact", __version__))
         self.assertEqual(result.evidence, ())
 
     def test_a01_actual_notional_bars_and_proxy_counterexample(self):
@@ -279,7 +279,6 @@ class EF1Anchors(unittest.TestCase):
         self.assertTrue(all(d.capabilities.batch and not d.capabilities.update
                             and not d.capabilities.restore and not d.capabilities.merge for d in definitions))
         self.assertEqual(len(builtin_registry().list_features()), 39)
-        self.assertEqual((__version__, contracts_version), ("0.0.4a5", "0.0.4a4"))
         other = context()
         # Period is now an admitted additive producer; preserve the original
         # unsupported-dispatch control with an actually unsupported identity.

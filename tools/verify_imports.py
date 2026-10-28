@@ -3,6 +3,8 @@ from pathlib import Path
 import subprocess
 import sys
 import tomllib
+sys.path.insert(0, str(Path(__file__).resolve().parent))  # tools/_versions.py, also when loaded by path from tests
+from _versions import CONTRACTS, FEATURES
 
 ROOT=Path(__file__).resolve().parents[1]
 
@@ -14,7 +16,7 @@ for name,expected in [('contracts','equity-feature-contracts'),('features','equi
     assert (p/'LICENSE').read_text(encoding='utf-8').strip()==(ROOT/'LICENSE').read_text(encoding='utf-8').strip()
     assert (p/'src'/expected.replace('-','_')/'py.typed').exists()
     versions[name]=meta['version']
-assert versions=={'contracts':'0.0.4a4','features':'0.0.4a5'}
+assert versions=={'contracts':CONTRACTS,'features':FEATURES}
 
 code='''
 import sys, importlib.abc

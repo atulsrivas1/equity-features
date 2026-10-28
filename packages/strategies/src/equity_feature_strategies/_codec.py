@@ -11,6 +11,9 @@ from equity_feature_contracts import __version__ as CORE_VERSION
 from equity_feature_contracts import inputs as i, results as r, specs as s
 from . import _model as m
 
+# The one contracts version this distribution is built against (pinned in pyproject.toml; tools/verify_versions.py checks both).
+_CONTRACTS_VERSION = "0.0.4a5"
+
 # Exact labels and fields from the accepted v1 record whitelist, never __dict__/pickle.
 RECORDS: dict[type[object], tuple[str, tuple[str, ...]]] = {
     r.EntityKey: ('results.EntityKey', ('instrument_id', 'session_id')),
@@ -129,7 +132,7 @@ def _encoded(value: object, active: set[int]) -> object:
 
 def encode(value: object) -> bytes:
     """ASCII canonical bytes for this closed record/primitive set; never file I/O."""
-    m.version(CORE_VERSION, '0.0.4a4')
+    m.version(CORE_VERSION, _CONTRACTS_VERSION)
     return _json(_encoded(value, set()))
 
 

@@ -10,6 +10,7 @@ from equity_feature_contracts import (
     Coverage, DataKind, EntityKey, ErrorCode, Reason, SessionSpec, SourceBinding, Status,
     ValueType, WindowSpec, builtin_registry,
 )
+from equity_features import __version__
 from equity_features.ef1 import build_ef1_config, compute_ef1, decode_ef1_context, ef1_definitions
 
 ENTITY = EntityKey("X", "S")
@@ -86,7 +87,7 @@ class EF1Clocks(unittest.TestCase):
         self.assertEqual(result.metadata.availability, c.availability)
         self.assertEqual(result.metadata.inputs[0].role, "calendar_provenance")
         self.assertEqual(result.metadata.inputs[0].metadata, p.metadata)
-        self.assertEqual((result.metadata.backend_id, result.metadata.backend_version), ("python-exact", "0.0.4a5"))
+        self.assertEqual((result.metadata.backend_id, result.metadata.backend_version), ("python-exact", __version__))
         self.assertEqual(result.evidence, ())
         with self.assertRaises(TypeError):
             decode_ef1_context(c)["calendar"]["revision"] = "changed"

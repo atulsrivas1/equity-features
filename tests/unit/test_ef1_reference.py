@@ -103,7 +103,7 @@ class ReferencePackets(unittest.TestCase):
         self.assertEqual(len(PACKETS), 55)
         self.assertEqual(len(SPEC["negative_controls"]), 42)
         self.assertEqual(hashlib.sha256(SPEC_BYTES).hexdigest(),
-                         "5160d91fc966137a1728c6c26dde15d6772ea35811efc4ea9832b2f7460a28f0")
+                         "5b751632a5dba5bf53ac59cbf9602124ff2fb8f50e423a80f84a5346c107fa4e")
     def test_packet_r01_canonical(self):
         self.assert_packet("R01-CANONICAL")
 
