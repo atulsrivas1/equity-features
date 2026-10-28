@@ -389,7 +389,7 @@ def admission(fx):
         faults.add(("config", "INVALID_CONFIG"))
     if prod == "candle" and "doji_body_max_fraction" in p:
         m = re.fullmatch(r"([1-9][0-9]*)/([1-9][0-9]*)", str(p["doji_body_max_fraction"]))
-        if not m or int(m.group(1)) > int(m.group(2)):
+        if not m or int(m.group(1)) > int(m.group(2)) or len(m.group(1)) > 18 or len(m.group(2)) > 18:
             faults.add(("config", "INVALID_CONFIG"))
     if prod == "structure" and "swing_strength" in p and "lookback" in p:
         k, lb = p["swing_strength"], p["lookback"]
@@ -426,6 +426,9 @@ def admission(fx):
         ss_ok = slot_index is not None and r["ss"] == ("D%d" % slot_index if fx.get("grid") == "daily" else "S1")
         if r["inst"] != "X" or not ss_ok or r["basis"] != fx.get("adjustment"):
             faults.add(("identity", "INCONSISTENT_IDENTITY"))
+    # partial coverage: a delivered bar without its per-slot coverage entry (all-undeclared is the shared RF15)
+    if any(isinstance(s, dict) and s.get("no_coverage") for s in fx["slots"]):
+        faults.add(("identity", "INCONSISTENT_IDENTITY"))
     return sorted(faults)
 
 
