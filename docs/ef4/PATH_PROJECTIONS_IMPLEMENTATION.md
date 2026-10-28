@@ -56,3 +56,6 @@ No acquisition, source rights, installed, cross-layer, performance or release cl
 - REFERENCE text-grammar (wire) faults are checked after the shared duplicate/order check, because the shared validator runs before the slot-kind check; a batch with both faults reports the shared one. Single-fault recipes are unaffected.
 - Distinct input ids are enforced for the two REFERENCE roles of relative excess and rate projection (`DUPLICATE`).
 
+## Data-capability matrix
+
+The data this implementation needs, the compute host and the per-source degradation are defined in the "Data-capability matrix" section of `PATH_PROJECTIONS_CONTRACT_PROPOSAL.md`; source-specific cells there are `unverified`. This implementation adds no data requirement beyond that matrix: the library is pure and the adapters map only the supplied roles.

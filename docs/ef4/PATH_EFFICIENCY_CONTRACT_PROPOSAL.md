@@ -98,6 +98,16 @@ Exact integer/rational arithmetic throughout, one correctly rounded float64 per 
 
 Total 131 classified outputs; no documented exceptions. Reconciliation with the single-rounding publication rule: the published value is the exact rational (or 120-digit logarithm value) rounded once, so an exact implementation returns the correctly rounded float64 (within 0.5 ulp) and the fixture float64 is that value; the envelope is the R17 pass/fail rule inherited for Decimal120 and other conforming backends, not a licence for a looser exact path. Measurement of cost is not part of this contract; the processing is O(N) per window with bounded N, and any speed claim belongs to the release baseline.
 
+## Data-capability matrix
+
+Per the capability-matrix rule: the data this contract needs, where it can compute, and how it degrades per source. The library is pure (no acquisition, clock or I/O), so it computes on the client or on a server wherever the caller supplies the roles; the host choice follows data volume and data availability, not the mathematics. Source cells are `unverified` until provider terms and field availability are checked; nothing here claims a provider supports a field. Every missing or late datum degrades to a quality outcome (`absent_input`, `unknown_availability`, `future_knowledge`) or a typed refusal, never to an imputed value.
+
+| Data needed | Compute host | Platform or historical feed | BYOK live provider | Supplied files (parquet, DuckDB) | Degradation when absent |
+| --- | --- | --- | --- | --- | --- |
+| Bars (completed, end <= market cutoff) on the governed grid for the epoch: intraday for `session_reset`, daily for `governed_history`; close-only delivery allowed | client or server | unverified | unverified | unverified | slot `absent`, `gap` or `null` blocks the outputs that need it; close-only blocks high/low outputs |
+| Governed grid and per-slot coverage (R17 context) | either; caller-governed | unverified | unverified | unverified | omitted expected slots are never compressed away; missing context refused or `absent_input` |
+| Original `known_at_ns` per bar | either | unverified | unverified (live feeds may not retain original knowledge time) | unverified | null is `unknown_availability`; later than K is `future_knowledge`; equal to K is available |
+
 ## Layer responsibilities
 
 - **Library (#495).** Admission of the supplied bars and context, window and slot readiness, exact sums and ratios, logarithms with the stated accuracy, quality, evidence and every library refusal above; pure and deterministic; one shared window preparation (closes, true ranges, extended range) reused by the seven outputs without coupling their readiness.

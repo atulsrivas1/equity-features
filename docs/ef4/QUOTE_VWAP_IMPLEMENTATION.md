@@ -48,3 +48,7 @@ See the [quote dynamics](../api/EF4_QUOTE_DYNAMICS.md) and [VWAP path](../api/EF
 4. **The evidence cap is result-wide** (contract nit): the shared `FeatureResult` bounds the total rows by `evidence_limit`; builders have no `evidence_limit` default.
 5. **Refusal order.** The wrong-slot-kind check runs after the shared validator (tier four); only a non-batch object in a slot is refused first.
 6. The extra refusals in note 4 are implementation additions, not contract text. The cost figures and the absent mypy run were author-observed only.
+
+## Data-capability matrix
+
+The data this implementation needs, the compute host and the per-source degradation are defined in the "Data-capability matrix" section of `QUOTE_VWAP_CONTRACT_PROPOSAL.md`; source-specific cells there are `unverified`. This implementation adds no data requirement beyond that matrix: the library is pure and the adapters map only the supplied roles.

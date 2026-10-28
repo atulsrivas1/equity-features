@@ -138,6 +138,18 @@ Exact integer/rational arithmetic throughout, one correctly rounded float64 per 
 
 No documented exceptions. Measurement of cost is not part of this contract; the processing is linear in the rows (the OLS sums are one pass) with no whole-series barrier, and any speed claim belongs to the release baseline.
 
+## Data-capability matrix
+
+Per the capability-matrix rule: the data this contract needs, where it can compute, and how it degrades per source. The library is pure (no acquisition, clock or I/O), so it computes on the client or on a server wherever the caller supplies the roles; the host choice follows data volume and data availability, not the mathematics. Source cells are `unverified` until provider terms and field availability are checked; nothing here claims a provider supports a field. Every missing or late datum degrades to a quality outcome (`absent_input`, `unknown_availability`, `future_knowledge`) or a typed refusal, never to an imputed value.
+
+| Data needed | Compute host | Platform or historical feed | BYOK live provider | Supplied files (parquet, DuckDB) | Degradation when absent |
+| --- | --- | --- | --- | --- | --- |
+| Quote states (bid, ask, optional sizes) in `[S, E)` with sampling mode and declared interval coverage | client or server | unverified | unverified | unverified | `absent_input`; incomplete coverage is `governed_gap`; invalid sides counted, not refused |
+| Trades with eligibility, price, size and declared coverage (trade VWAP source) | client or server | unverified | unverified | unverified | `absent_input`; `governed_gap`; invalid eligible trade refused |
+| Bars with volume and actual notional per grid slot (bar and prepared sources) plus grid edge facts | either | unverified | unverified | unverified | slot gap or absent is `governed_gap` or `absent_input`; no synthesis from OHLC |
+| Interval bounds fact and, for prepared sources, the series proof fact | either; caller-governed | unverified | unverified | unverified | `absent_input`; identity mismatch refused |
+| Original `known_at_ns` per row and per fact | either | unverified | unverified (live feeds may not retain original knowledge time) | unverified | null is `unknown_availability`; later than K is `future_knowledge`; equal to K is available |
+
 ## Layer responsibilities
 
 - **Library (#493, #494).** Admission of the supplied facts, interval and anchor handling, observation classification, microprice, maxima, change and path arithmetic, extrema and slopes, quality, evidence and every library refusal; pure and deterministic with exact rational intermediates and one final rounding; one shared interval and knowledge admission for both producers with no coupling of output readiness.
