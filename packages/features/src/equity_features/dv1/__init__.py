@@ -14,3 +14,9 @@ __all__ = ["DV1Definition", "LOG_BETA", "LOG_CORRELATION", "RLOG_ALGORITHM", "RL
            "OFFSET_UNIT", "WEXT_ALGORITHM", "WEXT_FEATURES", "WEXT_IDENTITY", "WEXT_POLICY", "WINDOW_HIGH",
            "WINDOW_HIGH_OFFSET", "WINDOW_LOW", "WINDOW_LOW_OFFSET", "WindowExtremeSettings",
            "build_window_extreme_config", "compute_window_extreme", "decode_window_extreme_config"]
+
+from ._atr_simple_mean import (ATR_ALGORITHM, ATR_FEATURES, ATR_IDENTITY, ATR_MEAN, ATR_POLICY, AtrSimpleMeanSettings,
+                               build_atr_simple_mean_config, compute_atr_simple_mean, decode_atr_simple_mean_config)
+
+__all__ += ["ATR_ALGORITHM", "ATR_FEATURES", "ATR_IDENTITY", "ATR_MEAN", "ATR_POLICY", "AtrSimpleMeanSettings",
+            "build_atr_simple_mean_config", "compute_atr_simple_mean", "decode_atr_simple_mean_config"]

@@ -7,6 +7,9 @@ from equity_feature_contracts import (
     Capabilities, ConfigSpec, DataKind, ErrorCode, InputRequirement, OutputField, ValueType,
 )
 from equity_features.ef3._common import CLOSE_FIELDS, DailyGrid, fail
+from ._atr_simple_mean import (
+    ATR_ALGORITHM, ATR_FEATURES, ATR_FORMULA, ATR_IDENTITY, ATR_MEAN, atr_requirements, decode_atr_simple_mean_config,
+)
 from ._window_extreme import (
     OFFSET_UNIT, WEXT_ALGORITHM, WEXT_FEATURES, WEXT_IDENTITY, WINDOW_HIGH, WINDOW_HIGH_OFFSET, WINDOW_LOW,
     WINDOW_LOW_OFFSET, decode_window_extreme_config, window_field,
@@ -90,12 +93,17 @@ def dv1_definitions(grid: DailyGrid, config: ConfigSpec) -> tuple[DV1Definition,
                 (InputRequirement("daily", "canonical:1", fields, DataKind.BAR, rule=rule),), _WINDOW_FORMULAS[feature],
                 WEXT_ALGORITHM))
         return tuple(definitions)
+    if config.identity == ATR_IDENTITY:
+        decode_atr_simple_mean_config(grid, config)
+        assert config.price_unit is not None
+        return (DV1Definition(ATR_MEAN, ValueType.FLOAT64, f"{config.price_unit.currency}/share", atr_requirements(),
+                              ATR_FORMULA, ATR_ALGORITHM),)
     fail(ErrorCode.UNSUPPORTED_CAPABILITY, "DV1 producer is not implemented")
 
 
 def require_dv1_capability(feature_id: str, capability: str) -> None:
     """Batch only; update, restore and merge are unsupported."""
-    if feature_id not in RLOG_FEATURES + WEXT_FEATURES:
+    if feature_id not in RLOG_FEATURES + WEXT_FEATURES + ATR_FEATURES:
         fail(ErrorCode.UNKNOWN_FEATURE, "unknown DV1 feature")
     if capability != "batch":
         fail(ErrorCode.UNSUPPORTED_CAPABILITY, "output capability is not implemented in this package version")
