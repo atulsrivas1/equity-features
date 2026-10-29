@@ -1,0 +1,13 @@
+{
+  "schema": "eq139.band.provenance:1",
+  "record": "EQ-139_BAND_BENCHMARK_20261029.json",
+  "record_sha256": "3a46c6269fa6ee3ba1a919e7a3e192a84c86330f14478e8bd0f9cb2840f13c1b",
+  "measured_commit": "a79a35667f9edb2a8be49ed1a5d5b7d463da25ee",
+  "date": "2026-10-29",
+  "machine": "developer workstation, 2 x Intel(R) Xeon(R) Platinum 8160 CPU @ 2.10GHz, 48 logical CPUs in the measured process group, 185 GB available memory",
+  "os": "Windows 11 Pro 10.0.26300",
+  "python": "3.12.10 (MSC v.1943 64 bit AMD64)",
+  "run_class": "uncontrolled developer-machine run (shared machine, no isolation; 42 minutes)",
+  "statement": "Adoption decisions in the record are measured on this machine and are not contractual. The contract is full projection parity, which holds for every case.",
+  "open_item": "Controlled-machine Linux rerun of the EQ-139 band benchmark is an owner/Linux open item. A different adoption set there is acceptable; only a parity failure blocks. No release claim cites band adoption or speedup numbers before that rerun."
+}
