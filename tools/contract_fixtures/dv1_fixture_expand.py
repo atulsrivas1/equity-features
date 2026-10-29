@@ -297,7 +297,7 @@ def eval_rl(fx, want_parts=False):
     syy = sum((a - mx) ** 2 for a in xs)
     used = sorted({k for j in good for k in (j - 1, j)})
     order = ([t] if t in used else []) + [k for k in used if k != t]
-    wit = [("inst:%d" % k) if s == 0 else ("bench:%d" % k) for k in order for s in (0, 1)]
+    wit = [("instrument/slot:%d" % k) if s == 0 else ("benchmark/slot:%d" % k) for k in order for s in (0, 1)]
     out = {}
     if var_y_zero:
         out[names[0]] = result(reasons | {"zero_denominator"}, w, n, None, [], lim, fx["adjustment"])
@@ -483,6 +483,13 @@ def compare(fx, got):
             fail(where, "unavailable without a reason")
     if set(fx["expected"]) != set(fx["outputs"]):
         fail(fx["id"], "outputs and expected differ")
+    if "joint_evidence" in fx:
+        # evidence_limit bounds the combined list of a joint call: outputs in lexical order, then truncated.
+        lim = fx["params"]["evidence_limit"]
+        flat = [w for name in sorted(fx["outputs"]) for w in got[name]["witnesses"]]
+        full = [w for name in sorted(fx["outputs"]) for w in fx["expected"][name]["witnesses"]]
+        if fx["joint_evidence"] != flat[:lim] or len(fx["joint_evidence"]) != lim or lim >= len(full):
+            fail(fx["id"], "joint_evidence differs from the recomputed combined list or does not cut mid-list")
 
 
 # ------------------------------------------------------------------ wrong conventions and cross checks
