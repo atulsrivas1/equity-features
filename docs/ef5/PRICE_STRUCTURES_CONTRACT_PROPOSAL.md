@@ -1,6 +1,6 @@
 # EF5 price structures and patterns - library contract proposal (candle, structure, technical)
 
-Status: architect proposal for EQ-171 #512 (acceptance story EQ235 #623). Docs and fixtures only. No library, I/O or worker code. Not frozen: freeze needs the second-author recompute, the tester stratified recompute, an independent docs review (including md/json parity) and a reviewer verdict artifact; PO rulings PO-1 to PO-7 are accepted and applied. Scope of any acceptance: internal, synthetic data, not releasable. Machine-readable twin: [PRICE_STRUCTURES_CONTRACT_PROPOSAL.json](PRICE_STRUCTURES_CONTRACT_PROPOSAL.json).
+Status: architect proposal for EQ-171 #512 (acceptance story EQ235 #623). Docs and fixtures only. No library, I/O or worker code. Frozen as ef5-price-structures-1 on 2026-10-29 (see the Freeze section): internal, synthetic, pre-release; internal acceptance only; PO rulings PO-1 to PO-7 are applied and pending owner ratification. Scope of any acceptance: internal, synthetic data, not releasable. Machine-readable twin: [PRICE_STRUCTURES_CONTRACT_PROPOSAL.json](PRICE_STRUCTURES_CONTRACT_PROPOSAL.json).
 
 ## Authority and inspected sources
 
@@ -155,7 +155,7 @@ I/O and worker layers do not start before PO conditions C8-C10 (E1 rank-aware ch
 
 ## Fixtures
 
-Counts (pinned in `tools/verify_ef5_fixtures.py`): candle 24, structure 17, technical 21, known_at KA-set 27 = 89 result fixtures, and 57 refusal fixtures over 12 distinct error codes. `tools/contract_fixtures/ef5_fixture_expand.py` (stdlib) recomputes every output of every result fixture and applies every refusal mutation to an independent admission model.
+Counts (pinned in `tools/verify_ef5_fixtures.py`): candle 24, structure 17, technical 21, known_at KA-set 27 = 89 result fixtures, and 59 refusal fixtures over 12 distinct error codes. `tools/contract_fixtures/ef5_fixture_expand.py` (stdlib) recomputes every output of every result fixture and applies every refusal mutation to an independent admission model.
 
 Notation: compact, NOT canonical wire. K = 100, default known_at 50, volume 5. A fixture lists slots 0..n-1 in epoch order; the target is the last slot unless `target` names an earlier index (later slots are delivered but must not matter). A slot is [O,H,L,C,V] (columns=ohlcv), [C] (columns=close), or 'absent' (no row, no coverage), 'gap' (no row, declared incomplete coverage), 'forming' (bar not complete at the market cutoff), 'null' (row with null volume and OHLC), 'empty' (zero volume, null OHLC, coverage complete), or {row, ka, rev} (ka 100 == K known, 150 > K, null unknown). Structure fixtures list H and L in the description; each slot is [L,H,L,H,5] (open at the low, close at the high). Technical fixtures build slot i from the previous close (slot 0 from the stated open) with H/L the max/min of open and close. `grid: daily` selects governed_history daily slots, `ends_s` their end offsets in seconds. hand_check states the hand-derived headline values. Result fixtures: CD (candle), SD (structure), TD (technical), KA (known_at set); refusals RF.
 
@@ -366,6 +366,6 @@ Units and aliases for the sibling shared-ledger amendment are in [EF5_SHARED_AME
 
 ## Freeze
 
-not frozen: freeze as ef5-price-structures-1 only after the second-author recompute, the tester stratified recompute, a reviewer verdict artifact and an independent docs review are merged (PO rulings PO-1..PO-7 are applied)
+frozen as ef5-price-structures-1 on 2026-10-29 (internal, synthetic, pre-release; internal acceptance only, pending owner ratification of PO-1..PO-7 and E1-E9). Basis: second-author recompute of TD21 and RF52-RF59 with 0 discrepancies, tester count recompute (89 results, 445 outputs, 534 runs, 59 refusals, 12 codes) at library, adapter and worker layers, reviewer verdict record docs/qa/EF4_PR_REVIEWER_VERDICTS.md, independent docs review of the evidence documents. Any change to values, codes, stages or vocabulary after this point requires a new contract version, not an edit.
 
-> Note: the refusal count 57 stated in this document was corrected to 59 (new refusals RF58 and RF59) by `EF5_LIBRARY_ERRATA.md`; the frozen JSON is untouched.
+> Note: the refusal count 57 stated in this document was corrected to 59 (new refusals RF58 and RF59) by `EF5_LIBRARY_ERRATA.md`; the fixture content is untouched by the freeze. Partial coverage (some slots declared, a delivered row not) is INCONSISTENT_IDENTITY at stage identity (E-L4, RF59); all-undeclared stays INVALID_SCHEMA (RF15).
