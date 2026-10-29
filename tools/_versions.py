@@ -30,13 +30,13 @@ EXPLANATION_BACKEND_VERSIONS = ("0.0.4a4", "0.0.4a5", FEATURES)
 SIBLINGS: dict[str, str] = {
     "io-contracts": "0.1.0a3",
     "io-sdk": "0.1.0a3",
-    "duckdb": "0.1.0a10",
+    "duckdb": "0.1.0a11",
     "duckdb-sink": "0.1.0a1",
     "bundles": "0.1.0a2",
-    "workers": "0.1.0a16",
+    "workers": "0.1.0a17",
 }
-# Exact sibling commits those builders read: the post-bump main commits (core 710fe05, io f889426, workers 2222d43).
+# Exact sibling commits those builders read: the post-bump main commits (core 98778e7, io 94217cf, workers 99b5fed).
 SIBLING_COMMITS: dict[str, str] = {
-    "io": "f8894267b8f9c64fbe32d174193760ae71b95d36",
-    "workers": "2222d4325457b448aacdbb57ee4805bb8923881e",
+    "io": "94217cfafe5e54461c8dc9efdf4848809e04082a",
+    "workers": "99b5fed2c0153ac0697feef8c06cc919b30eac8a",
 }
