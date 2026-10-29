@@ -41,7 +41,7 @@ FORBIDDEN = {
     'now', 'today', 'utcnow', 'time', 'perf_counter', 'monotonic',
 }
 FACTORY_FIELDS = {'context_digest', 'config_digest', 'requirements', 'input_bindings',
-                  'batches', '_views', '_issuer', 'schema_version'}
+                  'batches', '_views', '_issuer', 'schema_version', '_admitted', '_admission_key'}
 
 
 def intraday_violations(source: str) -> list[str]:
