@@ -38,3 +38,10 @@ source changes, so there is no intraday builder archive; intraday 0.1.0a5 is con
 build_evidence_pilot (re-pinned, not run), build_evidence_evaluation (frozen historical inputs, deliberately unchanged).
 
 The blocker is therefore only partly closed. No release claim until the unrun builders across the three repositories are run or retired.
+
+## Known limits of the README version gate
+
+`tools/verify_versions.py` checks version statements of the forms `name==V`, ``name`V`` and `shortV` (for example `contracts0.0.4a5`) in package READMEs. It does not cover: a wrong version in a
+heading (a heading that names an older version opens a section treated as history and skipped); names glued to a version without a separator that the patterns do not know (for example
+`workers0.1.0a12`, `workera17`, `MCP0.1.0a1`); versions in prose without the distribution name; and README text outside `packages/*/README.md`. Treat the gate as a net for the common current-pin
+statements, not as proof that every README is current. One stale pin of this kind in the io acquisition README was corrected by hand.
