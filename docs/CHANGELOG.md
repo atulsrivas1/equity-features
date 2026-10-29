@@ -7,6 +7,11 @@ Additive, backward-compatible: `compute_momentum` takes a keyword-only `preparat
 
 Additive pure library in `equity_features.dv1` for the draft contract `dv1-definition-variants-1` (internal, synthetic, pre-release): `relative.log_return_beta` and `relative.log_return_correlation` (identity `dv1.relative_log_stats`, policy `dv1-rlog1`). Decimal120 logarithm of the exact close ratio, exact-ratio zero tests, one float64 per value; the simple-return `relative.beta` and `relative.correlation` (ef3-rel1) are unchanged. Gate `tools/verify_dv1_library.py` matches all 23 relative-log result fixtures and 12 refusals bit for bit. Notes: [DV1_LIBRARY_IMPLEMENTATION.md](dv1/DV1_LIBRARY_IMPLEMENTATION.md). No version bump; registry and catalog digests unchanged.
 
+## DV1-6 library: window extremes with the date of the extreme - October 29, 2026
+
+Additive pure library in `equity_features.dv1` for the draft contract `dv1-definition-variants-1` (internal, synthetic, pre-release): `history.window_high`, `history.window_low` and the int64 `history.window_high_offset`, `history.window_low_offset` in the unit `sessions` (identity `dv1.window_extreme`, policy `dv1-wext1`). The window is the explicit `period` most recent sessions including the target; `extreme_basis` is explicit `intraday` (daily high and low) or `close`; the latest session wins a tie; readiness is per field. `history.prior_high` and `history.prior_low` (target excluded) are unchanged. Gate `tools/verify_dv1_window_library.py` matches all 25 window result fixtures and 10 refusals bit for bit. Notes: [DV1_WINDOW_EXTREME_LIBRARY.md](dv1/DV1_WINDOW_EXTREME_LIBRARY.md). No version bump; registry and catalog digests unchanged.
+
+
 ## DV1 definition-variants contract (draft) - October 29, 2026
 
 Docs, fixtures and a gate only (internal, synthetic, pre-release; no library, io or worker code; contract status draft, not frozen). New `docs/dv1/DEFINITION_VARIANTS_CONTRACT_PROPOSAL.md/.json` (`dv1-definition-variants-1`, ten additive output ids, input and output contract for each), `docs/dv1/DV1_SHARED_AMENDMENT.*`, the independent recompute helper `tools/contract_fixtures/dv1_fixture_expand.py` and the gate `tools/verify_dv1_fixtures.py`. EF4 errata gains the deprecation entry for `core.benchmark_return_dispersion_fraction` (description only; the id is unchanged). No frozen EF1-EF5 file is edited.
