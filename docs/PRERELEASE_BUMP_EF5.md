@@ -18,3 +18,23 @@ packages are unchanged. No tag, no publish, no release claim. Single source: eac
 - Result identity: the same EF5 library result (fixture CD07) encodes to a different SHA-256 under backend_version 0.1.0a5 (`c1f33a43416c...`) than under
   0.1.0a4 (`6b866b365e5c...`), so an a4 artifact and an a5 artifact cannot be confused.
 - DuckDB: the receipt `adapter_version` default is now 0.1.0a11, so acquisition receipt identity digests differ from a10 by construction.
+
+## Builder re-pin after the EF5 bump (closed in part)
+
+Commit pins now name the post-bump main commits (core 98778e7, io 94217cf, workers 99b5fed; core `tools/_versions.py` `SIBLING_COMMITS` and `SIBLINGS` carry them and the
+sibling versions). Builders were run end to end with the pinned venv against detached checkouts of those commits; each builder builds its archives twice and asserts
+repeat equality. Independently, a fresh double build of all 27 packages of the three repositories (SOURCE_DATE_EPOCH, sdists normalized as by
+`tools/build_explanations.py`) is byte-equal for wheels and equal for sdists: 27 of 27. Wheel names confirm intraday 0.1.0a5, duckdb 0.1.0a11, workers 0.1.0a17,
+client 0.1.0a1, provenance 0.1.0a4 and the earlier versions (contracts 0.0.4a5, features 0.0.4a6, evidence 0.1.0a3, io-sdk 0.1.0a3, mcp 0.1.0a2, duckdb-sink 0.1.0a1,
+parquet 0.1.0a2, bundles 0.1.0a2); the conformance and r10 archives carry duckdb 0.1.0a11 and workers 0.1.0a17, the supplied-inputs archive carries intraday 0.1.0a5.
+
+Also in this change: `tools/verify_versions.py` now gates the version pins stated in package READMEs (`name==V`, ``name`V`` or `shortV`; sections headed by an older
+version are history and skipped). An altered README fails; stale statements in the workers README were corrected.
+
+**Ran and passed (core):** build_evidence, build_explanations, build_diagnostics, build_continuous, build_research, build_agent_evidence, build_agent_ledger,
+build_conformance, build_r10.
+**Not run / still open (core):** build_intraday (its gate `tools/test_intraday_band_benchmark.py` already fails on main: the committed EQ-139 measurement predates later
+source changes, so there is no intraday builder archive; intraday 0.1.0a5 is confirmed from the fresh wheel build and the supplied-inputs archive), build_r9 and
+build_evidence_pilot (re-pinned, not run), build_evidence_evaluation (frozen historical inputs, deliberately unchanged).
+
+The blocker is therefore only partly closed. No release claim until the unrun builders across the three repositories are run or retired.
