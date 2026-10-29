@@ -1,6 +1,6 @@
 # Coordinated pre-release bump: contracts a4 to a5, features a5 to a6 - October 28, 2026
 
-PO ruling `work/po-rulings-e1e2-followups-2026-10-28.md` item 1. This is a pre-release label move only: no tag, no publish,
+PO ruling (recorded in DECISIONS.md) item 1. This is a pre-release label move only: no tag, no publish,
 no release claim. Paired changes: equity-feature-io and equity-feature-workers (see their PRs).
 
 ## Single source
