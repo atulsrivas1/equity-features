@@ -1,4 +1,8 @@
-"""Fresh EQ117 wheel-compute qualification, optionally followed by one fixed study.
+"""RETIRED (PO final status 2026-10-29; docs/RETIRED_BUILDERS.md): historical EQ117 evidence-evaluation qualification over frozen inputs.
+
+The module is kept so the historical receipts that name it still resolve; `main()` refuses to run. Original description:
+
+Fresh EQ117 wheel-compute qualification, optionally followed by one fixed study.
 
 Reuses accepted archive verification functions, not EQ116 study observations.
 Every output/work directory is new. Failed outputs are retained.
@@ -54,6 +58,10 @@ def module(name,path):
     return value
 
 def main():
+    raise SystemExit('tools/build_evidence_evaluation.py is retired (historical EQ117 inputs); see docs/RETIRED_BUILDERS.md')
+
+
+def _retired_main():
     assert len(sys.argv) in (2,3) and sys.argv[1] in ('qualify','study')
     study=sys.argv[1]=='study'
     assert len(sys.argv)==(3 if study else 2)
