@@ -62,7 +62,7 @@ def parts(cell: Any) -> tuple[Any, Any]:
     return cell, KA_DEFAULT
 
 
-def expand(fx: dict[str, Any], simple: bool = False) -> tuple[DailyGrid, tuple[CanonicalBatch | None, ...], Any]:
+def expand(fx: dict[str, Any], simple: bool = False, deliver_forming: bool = False) -> tuple[DailyGrid, tuple[CanonicalBatch | None, ...], Any]:
     """Fixture -> (grid, role batches, config); every contract refusal is a ContractError raised here or later."""
     p = fx["params"]
     series = {"instrument": fx["inst"], "benchmark": fx["bench"]}
@@ -103,11 +103,13 @@ def expand(fx: dict[str, Any], simple: bool = False) -> tuple[DailyGrid, tuple[C
         coverage: dict[int, Coverage] = {}
         for i in delivery:
             body, ka = parts(cells[i])
-            if i in forming or body == "absent":
+            if (i in forming and not deliver_forming) or body == "absent":
                 continue
             if body == "gap":
                 coverage[i] = Coverage(1, 0, False)
                 continue
+            if i in forming and body == "forming":
+                continue  # the forming cell itself never carries a value
             rows.append((i, body, known(ka)))
             coverage[i] = Coverage(1, 1, True)
         intervals = tuple(IntervalCoverage(f"slot:{i}", starts[i], ends[i], coverage[i]) for i in sorted(coverage))
@@ -154,10 +156,10 @@ def compare(fx: dict[str, Any], result: Any, config: Any, features: tuple[str, .
     if tuple(c.feature_id for c in result.values) != tuple(sorted(features)):
         return ["selected outputs differ"]
     limit = fx["params"]["evidence_limit"]
-    role_of = {b.metadata.source.input_id: ("inst" if b.role == "instrument" else "bench") for b in result.metadata.inputs}
+    role_of = {b.metadata.source.input_id: b.role for b in result.metadata.inputs}
     found: dict[str, list[str]] = {f: [] for f in features}
     for row in result.evidence:
-        found[row.feature_id].append(f"{role_of[row.input_id]}:{row.row_id.split(':')[1]}")
+        found[row.feature_id].append(f"{role_of[row.input_id]}/{row.row_id}")
     basis = LABEL_OF[config.adjustment.basis]
     bindings = {LABEL_OF[b.metadata.adjustment.basis] for b in result.metadata.inputs}
     for column in result.values:
@@ -176,6 +178,8 @@ def compare(fx: dict[str, Any], result: Any, config: Any, features: tuple[str, .
         flat = [w for f in sorted(features) for w in found[f]]
         joint = [w for f in sorted(features) for w in expected[f]["witnesses"]]
         # The evidence limit bounds the whole result list, as in EF3 and EF5.
+        if "joint_evidence" in fx and flat != fx["joint_evidence"]:
+            problems.append(f"joint evidence {flat} != contract joint_evidence {fx['joint_evidence']}")
         if flat != joint[:limit] or any(len(found[f]) > limit for f in features):
             problems.append(f"joint evidence {flat} != {joint[:limit]}")
     return problems
@@ -237,6 +241,31 @@ def main() -> int:
             problems += [f"{fx['id']}: {p}" for p in compare(fx, result, config, features)]
             if len(features) == len(outputs) and fx.get("wrong_convention"):
                 problems += [f"{fx['id']}: {p}" for p in rival_problems(fx, result)]
+    # A forming slot must never be delivered: the library refuses a row past the market cutoff (BOUNDS), so a
+    # forming slot is never read as a value; "delivered in neither series" is fixture notation only.
+    forming_fixtures = [fx for fx in by_id.values() if any(c == "forming" for s_ in (fx["inst"], fx["bench"])
+                                                           if s_ != "absent" for c in s_)]
+    if not forming_fixtures:
+        problems.append("no fixture marks a forming slot")
+    for fx in forming_fixtures:
+        grid, batches, _ = expand(fx)
+        starts = {sess.session_id for sess in grid.sessions}
+        for batch in batches:
+            if batch is None:
+                continue
+            ids = set(next(c.values for c in batch.columns if c.name == "session_id"))
+            forming_ids = {f"D{i}" for s_ in (fx["inst"], fx["bench"]) if s_ != "absent"
+                           for i, c in enumerate(s_) if c == "forming"}
+            if ids & forming_ids or not forming_ids <= starts:
+                problems.append(f"{fx['id']}: a forming slot is delivered")
+        try:
+            g2, b2, c2 = expand(fx, deliver_forming=True)
+            compute_dv1(b2, g2, c2, features=tuple(fx["outputs"]))
+        except ContractError as error:
+            if error.code.name != "BOUNDS":
+                problems.append(f"{fx['id']}: forced forming delivery refused {error.code.name}, expected BOUNDS")
+        else:
+            problems.append(f"{fx['id']}: forced forming delivery was not refused")
     codes: set[str] = set()
     for rf in refusals:
         mutated = apply(by_id[rf["base"]], rf["mutation"])

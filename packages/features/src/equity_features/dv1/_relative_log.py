@@ -56,10 +56,9 @@ def _status(reasons: set[Reason]) -> Status:
 
 
 def _check(policy: object, benchmark: object, window: object, min_pairs: object, limit: object) -> RelativeLogSettings:
+    """Config-stage checks of the parameters (types, bounds, no default); the policy label is the version stage."""
     if type(policy) is not str:
         fail(ErrorCode.INVALID_CONFIG, "exact relative-log policy label required")
-    if policy != RLOG_POLICY:
-        fail(ErrorCode.INCOMPATIBLE_VERSION, "unsupported relative-log policy label")
     benchmark_id = label(benchmark)
     width = integer(window, 2, 4096)
     minimum = integer(min_pairs, 2, width)
@@ -69,13 +68,12 @@ def _check(policy: object, benchmark: object, window: object, min_pairs: object,
 def build_relative_log_config(grid: DailyGrid, *, policy_version: str | None = None, benchmark_id: str | None = None,
                               window: int | None = None, min_pairs: int | None = None,
                               availability: AvailabilitySpec, adjustment: AdjustmentSpec, price_unit: PriceUnit,
-                              evidence_limit: int = 0) -> ConfigSpec:
-    """Final ConfigSpec for one instrument and exactly one benchmark; every parameter is explicit with no default."""
+                              evidence_limit: int | None = None) -> ConfigSpec:
+    """Final ConfigSpec for one instrument and exactly one benchmark; every parameter is explicit with no default
+    (an omitted evidence_limit is INVALID_CONFIG). Refusal stages in the contract's order: config, version, identity."""
     if type(grid) is not DailyGrid:
         fail(ErrorCode.INVALID_CONFIG, "concrete daily grid required")
     settings = _check(policy_version, benchmark_id, window, min_pairs, evidence_limit)
-    if settings.benchmark_id == grid.instrument_id:
-        fail(ErrorCode.INCONSISTENT_IDENTITY, "the benchmark must differ from the instrument (no self-pair)")
     if type(availability) is not AvailabilitySpec or type(adjustment) is not AdjustmentSpec:
         fail(ErrorCode.INVALID_CONFIG, "concrete timing/action required")
     if type(price_unit) is not PriceUnit:
@@ -88,6 +86,10 @@ def build_relative_log_config(grid: DailyGrid, *, policy_version: str | None = N
     # A target session still forming at the market cutoff is a lost close (future_market), not a refusal.
     if not target.open_ns <= availability.market_cutoff_ns <= grid.sessions[-1].close_ns:
         fail(ErrorCode.BOUNDS, "market cutoff must lie between the target session open and the last grid session close")
+    if settings.policy_version != RLOG_POLICY:
+        fail(ErrorCode.INCOMPATIBLE_VERSION, "unsupported relative-log policy label")
+    if settings.benchmark_id == grid.instrument_id:
+        fail(ErrorCode.INCONSISTENT_IDENTITY, "the benchmark must differ from the instrument (no self-pair)")
     params = (Parameter("policy_version", settings.policy_version), Parameter("benchmark_id", settings.benchmark_id),
               Parameter("window", settings.window), Parameter("min_pairs", settings.min_pairs),
               Parameter("evidence_limit", settings.evidence_limit))

@@ -658,9 +658,10 @@
    "core": "expected K, observed eligible funds",
    "range_over_open": "expected 1, observed 1 or 0"
   },
-  "evidence": "target slot first, then the remaining required slots ascending (core: legs in declared order start then end; relative: inst:i then bench:i); unavailable outputs emit none; evidence_limit 0..10000 truncates the list, never the value"
+  "evidence": "target slot first, then the remaining required slots ascending (core: legs in declared order start then end; relative: instrument then benchmark per slot); a row id is slot:<index> bound to the role input id (fixture witnesses are written <role>/slot:<index>); unavailable outputs emit none; evidence_limit 0..10000 truncates the list, never the value, and bounds the combined evidence list across the selected outputs of one call (outputs in lexical order, so a joint call cuts mid-list; RL20 pins it)"
  },
  "knowledge_readiness": {
+  "market_cutoff": "DV1 may place the market cutoff inside the target session (from its open to the last grid session close); a slot that ends after the cutoff is future_market (the row is not delivered); a delivered row past the cutoff is refused as BOUNDS. This is DV1 only; the stricter EF3 envelope is unchanged.", 
   "K": "as EF5: a bar or fact is KNOWN iff original known_at is non-null and <= K; null is unknown_availability, later than K is future_knowledge; the producer enforces it identically in known_at and reconstruction modes",
   "compact": "ka maps to known_at_ns = K_ns - (100 - ka) s"
  },
@@ -737,7 +738,7 @@
    "fixture": "RL07"
   }
  ],
- "fixture_notation": "compact, NOT canonical wire. K = 100, default known_at 50. Slots 0..n-1 in grid order, the target is the last unless `target` names an earlier index (later slots are delivered and must not matter). ATR/window: slots [H,L,C] (a null cell is a null field), `slots_fill` {n, base, set} expands a long series. Relative: `inst` and `bench` are lists of closes (an integer, null, 'absent', 'gap', 'forming' or {row, ka}) or the string 'absent'. Core: facts {inst, kind start|end, t, p, ss, pf, act, rev, ka, op} with the cutoff C and `decoys` (first_trade_price, first_bar_open, prior_close per fund) for wrong-operand values. Range over open: `trades` [price, size] in event order, `chunks` index ranges for the update/restore/merge modes. `delivery` (slot order delivered), `coverage`, `capability`, `delivered_after_cutoff`, `batch_instrument` are refusal-only keys. Float results carry the exact rational (or a 50-digit decimal for irrational values), the float64 and its hex. Refusal fixtures are mutations (set/delete on fixture.*) of a named result fixture.",
+ "fixture_notation": "compact, NOT canonical wire. K = 100, default known_at 50. Slots 0..n-1 in grid order, the target is the last unless `target` names an earlier index (later slots are delivered and must not matter). ATR/window: slots [H,L,C] (a null cell is a null field), `slots_fill` {n, base, set} expands a long series. Relative: `inst` and `bench` are lists of closes (an integer, null, 'absent', 'gap', 'forming' or {row, ka}) or the string 'absent'. `forming` means the slot is still forming at the market cutoff: the row is not delivered (in either series) and the library reads it as future_market; a fixture that delivers a forming slot is invalid. Core: facts {inst, kind start|end, t, p, ss, pf, act, rev, ka, op} with the cutoff C and `decoys` (first_trade_price, first_bar_open, prior_close per fund) for wrong-operand values. Range over open: `trades` [price, size] in event order, `chunks` index ranges for the update/restore/merge modes. `delivery` (slot order delivered), `coverage`, `capability`, `delivered_after_cutoff`, `batch_instrument` are refusal-only keys. Float results carry the exact rational (or a 50-digit decimal for irrational values), the float64 and its hex. Refusal fixtures are mutations (set/delete on fixture.*) of a named result fixture.",
  "wrong_convention_policy": "every output id has at least one fixture whose `wrong_convention` list names a rival convention and its computed value; the value of the id must differ from every listed rival (except the two records marked equal, which document where conventions coincide: AT02, AT04)",
  "capability_matrix": {
   "scope": "data each output needs, client or server, per source; a source that cannot supply an input yields the documented unavailable result, never a default",
@@ -11962,14 +11963,14 @@
       "acceptance": "correctly_rounded"
      },
      "witnesses": [
-      "inst:3",
-      "bench:3",
-      "inst:0",
-      "bench:0",
-      "inst:1",
-      "bench:1",
-      "inst:2",
-      "bench:2"
+      "instrument/slot:3",
+      "benchmark/slot:3",
+      "instrument/slot:0",
+      "benchmark/slot:0",
+      "instrument/slot:1",
+      "benchmark/slot:1",
+      "instrument/slot:2",
+      "benchmark/slot:2"
      ],
      "basis": "unadjusted"
     },
@@ -11985,14 +11986,14 @@
       "acceptance": "correctly_rounded"
      },
      "witnesses": [
-      "inst:3",
-      "bench:3",
-      "inst:0",
-      "bench:0",
-      "inst:1",
-      "bench:1",
-      "inst:2",
-      "bench:2"
+      "instrument/slot:3",
+      "benchmark/slot:3",
+      "instrument/slot:0",
+      "benchmark/slot:0",
+      "instrument/slot:1",
+      "benchmark/slot:1",
+      "instrument/slot:2",
+      "benchmark/slot:2"
      ],
      "basis": "unadjusted"
     }
@@ -12081,14 +12082,14 @@
       "acceptance": "correctly_rounded"
      },
      "witnesses": [
-      "inst:3",
-      "bench:3",
-      "inst:0",
-      "bench:0",
-      "inst:1",
-      "bench:1",
-      "inst:2",
-      "bench:2"
+      "instrument/slot:3",
+      "benchmark/slot:3",
+      "instrument/slot:0",
+      "benchmark/slot:0",
+      "instrument/slot:1",
+      "benchmark/slot:1",
+      "instrument/slot:2",
+      "benchmark/slot:2"
      ],
      "basis": "unadjusted"
     },
@@ -12104,14 +12105,14 @@
       "acceptance": "correctly_rounded"
      },
      "witnesses": [
-      "inst:3",
-      "bench:3",
-      "inst:0",
-      "bench:0",
-      "inst:1",
-      "bench:1",
-      "inst:2",
-      "bench:2"
+      "instrument/slot:3",
+      "benchmark/slot:3",
+      "instrument/slot:0",
+      "benchmark/slot:0",
+      "instrument/slot:1",
+      "benchmark/slot:1",
+      "instrument/slot:2",
+      "benchmark/slot:2"
      ],
      "basis": "unadjusted"
     }
@@ -12201,16 +12202,16 @@
       "acceptance": "decimal_correctly_rounded"
      },
      "witnesses": [
-      "inst:4",
-      "bench:4",
-      "inst:0",
-      "bench:0",
-      "inst:1",
-      "bench:1",
-      "inst:2",
-      "bench:2",
-      "inst:3",
-      "bench:3"
+      "instrument/slot:4",
+      "benchmark/slot:4",
+      "instrument/slot:0",
+      "benchmark/slot:0",
+      "instrument/slot:1",
+      "benchmark/slot:1",
+      "instrument/slot:2",
+      "benchmark/slot:2",
+      "instrument/slot:3",
+      "benchmark/slot:3"
      ],
      "basis": "unadjusted"
     },
@@ -12226,16 +12227,16 @@
       "acceptance": "decimal_correctly_rounded"
      },
      "witnesses": [
-      "inst:4",
-      "bench:4",
-      "inst:0",
-      "bench:0",
-      "inst:1",
-      "bench:1",
-      "inst:2",
-      "bench:2",
-      "inst:3",
-      "bench:3"
+      "instrument/slot:4",
+      "benchmark/slot:4",
+      "instrument/slot:0",
+      "benchmark/slot:0",
+      "instrument/slot:1",
+      "benchmark/slot:1",
+      "instrument/slot:2",
+      "benchmark/slot:2",
+      "instrument/slot:3",
+      "benchmark/slot:3"
      ],
      "basis": "unadjusted"
     }
@@ -12326,16 +12327,16 @@
       "acceptance": "decimal_correctly_rounded"
      },
      "witnesses": [
-      "inst:4",
-      "bench:4",
-      "inst:0",
-      "bench:0",
-      "inst:1",
-      "bench:1",
-      "inst:2",
-      "bench:2",
-      "inst:3",
-      "bench:3"
+      "instrument/slot:4",
+      "benchmark/slot:4",
+      "instrument/slot:0",
+      "benchmark/slot:0",
+      "instrument/slot:1",
+      "benchmark/slot:1",
+      "instrument/slot:2",
+      "benchmark/slot:2",
+      "instrument/slot:3",
+      "benchmark/slot:3"
      ],
      "basis": "unadjusted"
     },
@@ -12351,16 +12352,16 @@
       "acceptance": "decimal_correctly_rounded"
      },
      "witnesses": [
-      "inst:4",
-      "bench:4",
-      "inst:0",
-      "bench:0",
-      "inst:1",
-      "bench:1",
-      "inst:2",
-      "bench:2",
-      "inst:3",
-      "bench:3"
+      "instrument/slot:4",
+      "benchmark/slot:4",
+      "instrument/slot:0",
+      "benchmark/slot:0",
+      "instrument/slot:1",
+      "benchmark/slot:1",
+      "instrument/slot:2",
+      "benchmark/slot:2",
+      "instrument/slot:3",
+      "benchmark/slot:3"
      ],
      "basis": "unadjusted"
     }
@@ -12529,14 +12530,14 @@
       "acceptance": "exact_plus_zero"
      },
      "witnesses": [
-      "inst:3",
-      "bench:3",
-      "inst:0",
-      "bench:0",
-      "inst:1",
-      "bench:1",
-      "inst:2",
-      "bench:2"
+      "instrument/slot:3",
+      "benchmark/slot:3",
+      "instrument/slot:0",
+      "benchmark/slot:0",
+      "instrument/slot:1",
+      "benchmark/slot:1",
+      "instrument/slot:2",
+      "benchmark/slot:2"
      ],
      "basis": "unadjusted"
     },
@@ -12628,16 +12629,16 @@
       "acceptance": "decimal_correctly_rounded"
      },
      "witnesses": [
-      "inst:5",
-      "bench:5",
-      "inst:0",
-      "bench:0",
-      "inst:1",
-      "bench:1",
-      "inst:3",
-      "bench:3",
-      "inst:4",
-      "bench:4"
+      "instrument/slot:5",
+      "benchmark/slot:5",
+      "instrument/slot:0",
+      "benchmark/slot:0",
+      "instrument/slot:1",
+      "benchmark/slot:1",
+      "instrument/slot:3",
+      "benchmark/slot:3",
+      "instrument/slot:4",
+      "benchmark/slot:4"
      ],
      "basis": "unadjusted"
     },
@@ -12655,16 +12656,16 @@
       "acceptance": "decimal_correctly_rounded"
      },
      "witnesses": [
-      "inst:5",
-      "bench:5",
-      "inst:0",
-      "bench:0",
-      "inst:1",
-      "bench:1",
-      "inst:3",
-      "bench:3",
-      "inst:4",
-      "bench:4"
+      "instrument/slot:5",
+      "benchmark/slot:5",
+      "instrument/slot:0",
+      "benchmark/slot:0",
+      "instrument/slot:1",
+      "benchmark/slot:1",
+      "instrument/slot:3",
+      "benchmark/slot:3",
+      "instrument/slot:4",
+      "benchmark/slot:4"
      ],
      "basis": "unadjusted"
     }
@@ -13317,16 +13318,16 @@
       "acceptance": "decimal_correctly_rounded"
      },
      "witnesses": [
-      "inst:4",
-      "bench:4",
-      "inst:0",
-      "bench:0",
-      "inst:1",
-      "bench:1",
-      "inst:2",
-      "bench:2",
-      "inst:3",
-      "bench:3"
+      "instrument/slot:4",
+      "benchmark/slot:4",
+      "instrument/slot:0",
+      "benchmark/slot:0",
+      "instrument/slot:1",
+      "benchmark/slot:1",
+      "instrument/slot:2",
+      "benchmark/slot:2",
+      "instrument/slot:3",
+      "benchmark/slot:3"
      ],
      "basis": "unadjusted"
     },
@@ -13342,16 +13343,16 @@
       "acceptance": "decimal_correctly_rounded"
      },
      "witnesses": [
-      "inst:4",
-      "bench:4",
-      "inst:0",
-      "bench:0",
-      "inst:1",
-      "bench:1",
-      "inst:2",
-      "bench:2",
-      "inst:3",
-      "bench:3"
+      "instrument/slot:4",
+      "benchmark/slot:4",
+      "instrument/slot:0",
+      "benchmark/slot:0",
+      "instrument/slot:1",
+      "benchmark/slot:1",
+      "instrument/slot:2",
+      "benchmark/slot:2",
+      "instrument/slot:3",
+      "benchmark/slot:3"
      ],
      "basis": "unadjusted"
     }
@@ -13499,12 +13500,12 @@
       "acceptance": "decimal_correctly_rounded"
      },
      "witnesses": [
-      "inst:2",
-      "bench:2",
-      "inst:0",
-      "bench:0",
-      "inst:1",
-      "bench:1"
+      "instrument/slot:2",
+      "benchmark/slot:2",
+      "instrument/slot:0",
+      "benchmark/slot:0",
+      "instrument/slot:1",
+      "benchmark/slot:1"
      ],
      "basis": "unadjusted"
     },
@@ -13520,12 +13521,12 @@
       "acceptance": "correctly_rounded"
      },
      "witnesses": [
-      "inst:2",
-      "bench:2",
-      "inst:0",
-      "bench:0",
-      "inst:1",
-      "bench:1"
+      "instrument/slot:2",
+      "benchmark/slot:2",
+      "instrument/slot:0",
+      "benchmark/slot:0",
+      "instrument/slot:1",
+      "benchmark/slot:1"
      ],
      "basis": "unadjusted"
     }
@@ -13600,16 +13601,16 @@
       "acceptance": "decimal_correctly_rounded"
      },
      "witnesses": [
-      "inst:4",
-      "bench:4",
-      "inst:0",
-      "bench:0",
-      "inst:1",
-      "bench:1",
-      "inst:2",
-      "bench:2",
-      "inst:3",
-      "bench:3"
+      "instrument/slot:4",
+      "benchmark/slot:4",
+      "instrument/slot:0",
+      "benchmark/slot:0",
+      "instrument/slot:1",
+      "benchmark/slot:1",
+      "instrument/slot:2",
+      "benchmark/slot:2",
+      "instrument/slot:3",
+      "benchmark/slot:3"
      ],
      "basis": "unadjusted"
     },
@@ -13625,16 +13626,16 @@
       "acceptance": "decimal_correctly_rounded"
      },
      "witnesses": [
-      "inst:4",
-      "bench:4",
-      "inst:0",
-      "bench:0",
-      "inst:1",
-      "bench:1",
-      "inst:2",
-      "bench:2",
-      "inst:3",
-      "bench:3"
+      "instrument/slot:4",
+      "benchmark/slot:4",
+      "instrument/slot:0",
+      "benchmark/slot:0",
+      "instrument/slot:1",
+      "benchmark/slot:1",
+      "instrument/slot:2",
+      "benchmark/slot:2",
+      "instrument/slot:3",
+      "benchmark/slot:3"
      ],
      "basis": "unadjusted"
     }
@@ -13722,14 +13723,14 @@
       "acceptance": "decimal_correctly_rounded"
      },
      "witnesses": [
-      "inst:3",
-      "bench:3",
-      "inst:0",
-      "bench:0",
-      "inst:1",
-      "bench:1",
-      "inst:2",
-      "bench:2"
+      "instrument/slot:3",
+      "benchmark/slot:3",
+      "instrument/slot:0",
+      "benchmark/slot:0",
+      "instrument/slot:1",
+      "benchmark/slot:1",
+      "instrument/slot:2",
+      "benchmark/slot:2"
      ],
      "basis": "unadjusted"
     },
@@ -13745,14 +13746,14 @@
       "acceptance": "decimal_correctly_rounded"
      },
      "witnesses": [
-      "inst:3",
-      "bench:3",
-      "inst:0",
-      "bench:0",
-      "inst:1",
-      "bench:1",
-      "inst:2",
-      "bench:2"
+      "instrument/slot:3",
+      "benchmark/slot:3",
+      "instrument/slot:0",
+      "benchmark/slot:0",
+      "instrument/slot:1",
+      "benchmark/slot:1",
+      "instrument/slot:2",
+      "benchmark/slot:2"
      ],
      "basis": "unadjusted"
     }
@@ -13771,6 +13772,7 @@
   },
   {
    "id": "RL20",
+  "joint_evidence": ["instrument/slot:4", "benchmark/slot:4", "instrument/slot:0"],
    "group": "evidence_limit",
    "description": "RL03 data with evidence_limit 3",
    "producer": "relative_log_stats",
@@ -13827,9 +13829,9 @@
       "acceptance": "decimal_correctly_rounded"
      },
      "witnesses": [
-      "inst:4",
-      "bench:4",
-      "inst:0"
+      "instrument/slot:4",
+      "benchmark/slot:4",
+      "instrument/slot:0"
      ],
      "basis": "unadjusted"
     },
@@ -13845,9 +13847,9 @@
       "acceptance": "decimal_correctly_rounded"
      },
      "witnesses": [
-      "inst:4",
-      "bench:4",
-      "inst:0"
+      "instrument/slot:4",
+      "benchmark/slot:4",
+      "instrument/slot:0"
      ],
      "basis": "unadjusted"
     }
@@ -13926,16 +13928,16 @@
       "acceptance": "decimal_correctly_rounded"
      },
      "witnesses": [
-      "inst:4",
-      "bench:4",
-      "inst:0",
-      "bench:0",
-      "inst:1",
-      "bench:1",
-      "inst:2",
-      "bench:2",
-      "inst:3",
-      "bench:3"
+      "instrument/slot:4",
+      "benchmark/slot:4",
+      "instrument/slot:0",
+      "benchmark/slot:0",
+      "instrument/slot:1",
+      "benchmark/slot:1",
+      "instrument/slot:2",
+      "benchmark/slot:2",
+      "instrument/slot:3",
+      "benchmark/slot:3"
      ],
      "basis": "split_adjusted"
     },
@@ -13951,16 +13953,16 @@
       "acceptance": "decimal_correctly_rounded"
      },
      "witnesses": [
-      "inst:4",
-      "bench:4",
-      "inst:0",
-      "bench:0",
-      "inst:1",
-      "bench:1",
-      "inst:2",
-      "bench:2",
-      "inst:3",
-      "bench:3"
+      "instrument/slot:4",
+      "benchmark/slot:4",
+      "instrument/slot:0",
+      "benchmark/slot:0",
+      "instrument/slot:1",
+      "benchmark/slot:1",
+      "instrument/slot:2",
+      "benchmark/slot:2",
+      "instrument/slot:3",
+      "benchmark/slot:3"
      ],
      "basis": "split_adjusted"
     }
@@ -14037,14 +14039,14 @@
       "acceptance": "decimal_correctly_rounded"
      },
      "witnesses": [
-      "inst:3",
-      "bench:3",
-      "inst:0",
-      "bench:0",
-      "inst:1",
-      "bench:1",
-      "inst:2",
-      "bench:2"
+      "instrument/slot:3",
+      "benchmark/slot:3",
+      "instrument/slot:0",
+      "benchmark/slot:0",
+      "instrument/slot:1",
+      "benchmark/slot:1",
+      "instrument/slot:2",
+      "benchmark/slot:2"
      ],
      "basis": "unadjusted"
     },
@@ -14060,14 +14062,14 @@
       "acceptance": "decimal_correctly_rounded"
      },
      "witnesses": [
-      "inst:3",
-      "bench:3",
-      "inst:0",
-      "bench:0",
-      "inst:1",
-      "bench:1",
-      "inst:2",
-      "bench:2"
+      "instrument/slot:3",
+      "benchmark/slot:3",
+      "instrument/slot:0",
+      "benchmark/slot:0",
+      "instrument/slot:1",
+      "benchmark/slot:1",
+      "instrument/slot:2",
+      "benchmark/slot:2"
      ],
      "basis": "unadjusted"
     }
@@ -14142,14 +14144,14 @@
       "acceptance": "decimal_correctly_rounded"
      },
      "witnesses": [
-      "inst:4",
-      "bench:4",
-      "inst:1",
-      "bench:1",
-      "inst:2",
-      "bench:2",
-      "inst:3",
-      "bench:3"
+      "instrument/slot:4",
+      "benchmark/slot:4",
+      "instrument/slot:1",
+      "benchmark/slot:1",
+      "instrument/slot:2",
+      "benchmark/slot:2",
+      "instrument/slot:3",
+      "benchmark/slot:3"
      ],
      "basis": "unadjusted"
     },
@@ -14165,14 +14167,14 @@
       "acceptance": "decimal_correctly_rounded"
      },
      "witnesses": [
-      "inst:4",
-      "bench:4",
-      "inst:1",
-      "bench:1",
-      "inst:2",
-      "bench:2",
-      "inst:3",
-      "bench:3"
+      "instrument/slot:4",
+      "benchmark/slot:4",
+      "instrument/slot:1",
+      "benchmark/slot:1",
+      "instrument/slot:2",
+      "benchmark/slot:2",
+      "instrument/slot:3",
+      "benchmark/slot:3"
      ],
      "basis": "unadjusted"
     }

@@ -33,12 +33,25 @@ precedence is the contract's eleven-entry list. A slot that ends after the marke
 cause `future_market` (a delivered row beyond the cutoff stays a `BOUNDS` refusal); the envelope therefore accepts a market
 cutoff from the target session open to the last grid session close (EF3 requires the completed target). Evidence rows are the
 consumed close rows of the used slots, target first then ascending, instrument before benchmark, row id `slot:<index>` bound
-to the role input id; the contract witness `inst:<k>` / `bench:<k>` is that pair. Unavailable outputs emit none.
+to the role input id; the contract witness `<role>/slot:<index>` is that pair. Unavailable outputs emit none.
 
-## Points where the contract was silent (decided here, flagged to the PO)
+## Points settled by PO ruling (work/po-rulings-dv1-1-2026-10-29.md), now written in the contract
 
-1. Joint calls: `evidence_limit` bounds the whole evidence list of a result (as `ef3-rel1` and EF5), so a call selecting both
-   outputs truncates the concatenated list; single-output calls match the per-output witnesses. The gate pins this.
-2. Row id vocabulary: `slot:<index>` (EF3 convention) with the role in the input id, instead of the literal `inst:<k>`.
-3. A `forming` slot is delivered by neither series in the gate (the market cutoff is the end of the last delivered slot).
-4. No version bump: the registry and catalog are unchanged; the coordinated bump (features a6 to a7) belongs to DV1-4.
+1. Market cutoff inside the target session; slot ending after it is `future_market`; a delivered row past it is `BOUNDS`.
+2. `evidence_limit` bounds the combined evidence list across the selected outputs (lexical order); fixture RL20 pins a joint
+   call that cuts mid-list (`joint_evidence`).
+3. Row id `slot:<index>` bound to the role input id; contract witnesses are written `<role>/slot:<index>`.
+4. `forming` is fixture notation only (the row is not delivered); the gate fails if a forming slot is delivered and checks that
+   the library refuses a forced delivery as `BOUNDS`.
+5. No version bump: the registry and catalog are unchanged; the coordinated bump (features a6 to a7) belongs to DV1-4. The
+   ownership manifest is not touched (flipped for all 10 headers at the closeout).
+
+## Review follow-ups (core #755 review)
+
+- `evidence_limit` has no default: `build_relative_log_config` takes it as an optional-typed keyword that is validated like every
+  other parameter, so an omitted value is `INVALID_CONFIG` (not 0).
+- Refusal stage order follows the contract (wire, shared, config, version, identity, data): parameter type and bound checks
+  and the unit, adjustment and cutoff checks come first, then the policy label (`INCOMPATIBLE_VERSION`), then the self-pair
+  check (`INCONSISTENT_IDENTITY`).
+- Joint-call `evidence_limit` (one bound over the combined list, outputs in lexical order) is a PO ruling now written in the
+  contract and pinned by RL20; it is noted here for PO ratification before the contract is frozen.
