@@ -77,13 +77,13 @@ def dv1_definitions(grid: DailyGrid, config: ConfigSpec) -> tuple[DV1Definition,
         return tuple(DV1Definition(feature, ValueType.FLOAT64, "fraction", requirements, _FORMULAS[feature],
                                    RLOG_ALGORITHM) for feature in RLOG_FEATURES)
     if config.identity == WEXT_IDENTITY:
-        settings = decode_window_extreme_config(grid, config)
+        window_settings = decode_window_extreme_config(grid, config)
         definitions = []
         for feature in WEXT_FEATURES:
-            field = window_field(feature, settings.extreme_basis)
+            field = window_field(feature, window_settings.extreme_basis)
             fields = ("instrument_id", "session_id", "start_ns", "end_ns", field, "known_at_ns")
             rule = (f"nullable {field}-only BAR on the daily governed grid, instrument id of the grid; "
-                    f"{settings.period} sessions including the target, one declared adjustment basis")
+                    f"{window_settings.period} sessions including the target, one declared adjustment basis")
             offset = feature in (WINDOW_HIGH_OFFSET, WINDOW_LOW_OFFSET)
             definitions.append(DV1Definition(
                 feature, ValueType.INT64 if offset else ValueType.FLOAT64, OFFSET_UNIT if offset else "currency/share",
