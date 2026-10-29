@@ -1,6 +1,6 @@
 {
  "proposal_version": "ef5-price-structures-proposal1",
- "status": "architect proposal, library contract and fixtures only; pending independent recompute by a second author, PO rulings PO-1..PO-7 and reviewer verdict before freeze; not an implementation",
+ "status": "frozen as ef5-price-structures-1 on 2026-10-29: library contract and fixtures only, internal, synthetic, pre-release; not an implementation; pending owner ratification of PO-1..PO-7 and E1-E9",
  "stories": "EQ-171 #512 (approved EF5 technical return/velocity/acceleration and selected signed completed-window trend count; candle and structural pattern evidence); acceptance story EQ235 #623; consumed later by the EF5 I/O (EQ221-234 range) and worker tasks, which do not start before PO conditions C8-C10 are merged",
  "evidence_kind": "documentation and hand-derived expected values: each fixture carries a hand_check line derived by hand from its inputs; every expected value is recomputed by tools/contract_fixtures/ef5_fixture_expand.py, which shares no code with the scratch builder. In-session authorship: the independent recompute by a second author and the 10 percent stratified tester recompute are still required before freeze",
  "frozen_contract_ref": "docs/ef4/PATH_EFFICIENCY_CONTRACT_PROPOSAL.json (quality vocabulary, knowledge semantics, wire expansion and refusal stages are reused unchanged); docs/ef1/CONTRACT.json accepted R17 foundations (BAR role, ConfigSpec, FeatureResult); docs/ef4/EF4_SHARED_AMENDMENT.md rulings E1-E9 as ratified by the PO on 2026-10-28",
@@ -314,7 +314,7 @@
    "identity"
   ],
   "wire": "cell types, row width and int64 range (INVALID_SCHEMA, OVERFLOW)",
-  "shared": "validate_batch and require_compatible_inputs: DUPLICATE, INVALID_ORDER, BOUNDS, OHLC and volume INVALID_SCHEMA, rows delivered with coverage not declared (INVALID_SCHEMA, ruling E2: no default-to-complete), structural context not delivered (INVALID_SCHEMA)",
+  "shared": "validate_batch and require_compatible_inputs: DUPLICATE, INVALID_ORDER, BOUNDS, OHLC and volume INVALID_SCHEMA, rows delivered with coverage not declared for every slot (INVALID_SCHEMA, ruling E2: no default-to-complete; RF15) and partial coverage, where some slots declare coverage and a delivered row has none, is INCONSISTENT_IDENTITY at stage identity (EF5_LIBRARY_ERRATA E-L4; RF59), structural context not delivered (INVALID_SCHEMA)",
   "config": "parameter set, ranges, vocabularies and the E4 span check (INVALID_CONFIG), feature ids (UNKNOWN_FEATURE), price unit and currency (INVALID_UNIT), adjustment (UNSUPPORTED_ADJUSTMENT), capability (UNSUPPORTED_CAPABILITY)",
   "version": "policy label (INCOMPATIBLE_VERSION)",
   "identity": "INCONSISTENT_IDENTITY: instrument, session, interval not a governed slot, adjustment basis differing from the config",
@@ -1003,7 +1003,7 @@
   {
    "id": "PO-7",
    "topic": "Code for undeclared coverage",
-   "text": "EF5 uses INVALID_SCHEMA (matches the merged tape adapter); the EF4 library code for the same case is the one ruled in E2 and may differ (cross-reference in EF5_SHARED_AMENDMENT). INVALID_SCHEMA is used for rows without declared coverage, matching the merged tape adapter; E2 allowed any existing fitting code (INCONSISTENT_IDENTITY is the alternative).",
+   "text": "EF5 uses INVALID_SCHEMA (matches the merged tape adapter); the EF4 library code for the same case is the one ruled in E2 and may differ (cross-reference in EF5_SHARED_AMENDMENT). INVALID_SCHEMA is used for rows without declared coverage, matching the merged tape adapter; E2 allowed any existing fitting code (INCONSISTENT_IDENTITY is the alternative). Partial coverage (some slots declared, a delivered row not) is INCONSISTENT_IDENTITY (E-L4, RF59); all-undeclared stays INVALID_SCHEMA.",
    "state": "PO ruling 2026-10-28: ACCEPT (work/po-rulings-ef5-2026-10-28.md)"
   }
  ],
@@ -1057,7 +1057,7 @@
    "aliases": []
   }
  ],
- "coordinator_freeze": "not frozen: freeze as ef5-price-structures-1 only after the second-author recompute, the tester stratified recompute, a reviewer verdict artifact and an independent docs review are merged (PO rulings PO-1..PO-7 are applied)",
+ "coordinator_freeze": "frozen as ef5-price-structures-1 on 2026-10-29 (internal, synthetic, pre-release; internal acceptance only, pending owner ratification of PO-1..PO-7 and E1-E9). Basis: second-author recompute of TD21 and RF52-RF59 with 0 discrepancies, tester count recompute (89 results, 445 outputs, 534 runs, 59 refusals, 12 codes) at library, adapter and worker layers, reviewer verdict record docs/qa/EF4_PR_REVIEWER_VERDICTS.md, independent docs review of the evidence documents. Any change to values, codes, stages or vocabulary after this point requires a new contract version, not an edit.",
  "candle_fixtures": [
   {
    "id": "CD01",

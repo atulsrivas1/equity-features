@@ -366,6 +366,6 @@ Units and aliases for the sibling shared-ledger amendment are in [EF5_SHARED_AME
 
 ## Freeze
 
-not frozen: freeze as ef5-price-structures-1 only after the second-author recompute, the tester stratified recompute, a reviewer verdict artifact and an independent docs review are merged (PO rulings PO-1..PO-7 are applied)
+frozen as ef5-price-structures-1 on 2026-10-29 (internal, synthetic, pre-release; internal acceptance only, pending owner ratification of PO-1..PO-7 and E1-E9). Basis: second-author recompute of TD21 and RF52-RF59 with 0 discrepancies, tester count recompute (89 results, 445 outputs, 534 runs, 59 refusals, 12 codes) at library, adapter and worker layers, reviewer verdict record docs/qa/EF4_PR_REVIEWER_VERDICTS.md, independent docs review of the evidence documents. Any change to values, codes, stages or vocabulary after this point requires a new contract version, not an edit.
 
-> Note: the refusal count 57 stated in this document was corrected to 59 (new refusals RF58 and RF59) by `EF5_LIBRARY_ERRATA.md`; the frozen JSON is untouched.
+> Note: the refusal count 57 stated in this document was corrected to 59 (new refusals RF58 and RF59) by `EF5_LIBRARY_ERRATA.md`; the fixture content is untouched by the freeze. Partial coverage (some slots declared, a delivered row not) is INCONSISTENT_IDENTITY at stage identity (E-L4, RF59); all-undeclared stays INVALID_SCHEMA (RF15).
