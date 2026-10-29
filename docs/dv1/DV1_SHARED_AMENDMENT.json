@@ -1,0 +1,84 @@
+{
+ "status": "draft proposal, additive, docs only; not frozen; internal, synthetic, pre-release",
+ "contract": "docs/dv1/DEFINITION_VARIANTS_CONTRACT_PROPOSAL.json",
+ "unit_additions": [
+  {
+   "unit": "sessions",
+   "dtype": "int64",
+   "used_by": [
+    "history.window_high_offset",
+    "history.window_low_offset"
+   ],
+   "aliases": []
+  }
+ ],
+ "headers": [
+  {
+   "id": "core.benchmark_return_range_fraction",
+   "dtype": "float64",
+   "unit": "fraction",
+   "producer": "core_spread"
+  },
+  {
+   "id": "core.benchmark_return_stdev_fraction",
+   "dtype": "float64",
+   "unit": "fraction",
+   "producer": "core_spread"
+  },
+  {
+   "id": "history.atr_simple_mean",
+   "dtype": "float64",
+   "unit": "currency/share",
+   "producer": "atr_simple_mean"
+  },
+  {
+   "id": "history.window_high",
+   "dtype": "float64",
+   "unit": "currency/share",
+   "producer": "window_extreme"
+  },
+  {
+   "id": "history.window_high_offset",
+   "dtype": "int64",
+   "unit": "sessions",
+   "producer": "window_extreme"
+  },
+  {
+   "id": "history.window_low",
+   "dtype": "float64",
+   "unit": "currency/share",
+   "producer": "window_extreme"
+  },
+  {
+   "id": "history.window_low_offset",
+   "dtype": "int64",
+   "unit": "sessions",
+   "producer": "window_extreme"
+  },
+  {
+   "id": "relative.log_return_beta",
+   "dtype": "float64",
+   "unit": "fraction",
+   "producer": "relative_log_stats"
+  },
+  {
+   "id": "relative.log_return_correlation",
+   "dtype": "float64",
+   "unit": "fraction",
+   "producer": "relative_log_stats"
+  },
+  {
+   "id": "session.price.range_over_open",
+   "dtype": "float64",
+   "unit": "fraction",
+   "producer": "session_range_over_open"
+  }
+ ],
+ "deprecated_ids": [
+  {
+   "id": "core.benchmark_return_dispersion_fraction",
+   "wording": "RANGE of core returns (deprecated name), not dispersion; use core.benchmark_return_range_fraction (same value) or core.benchmark_return_stdev_fraction",
+   "removal": "scheduled EF4 next-contract-version migration"
+  }
+ ]
+}

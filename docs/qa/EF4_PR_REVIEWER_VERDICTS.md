@@ -100,3 +100,9 @@ Not found anywhere: a reviewer file for core #749 or io #65 (`work/` holds none)
 ### Open item (updated 2026-10-29)
 
 Verdict text exists only for workers #107. For all other EF5 PRs here, a reviewer or PO outcome would have to come from the coordinator or the reviewer who gave it; until then this file says so and does not guess. This record does not declare the EF5 freeze; that is the PO's decision.
+
+## DV1 PRs (added 2026-10-29)
+
+| PR | Head commit | Reviewer outcome (independent agent, reported to coordinator) | Checks stated in the PR body |
+|---|---|---|---|
+| #753 docs(dv1): DV1-0 contract dv1-definition-variants-1 (draft), fixtures, verify_dv1_fixtures (opened as EF6-0) | eae10e6 | APPROVE on eae10e6. Reviewer recomputed 128 values with 0 mismatches (`work/review-core-753-2026-10-29.md`, git-ignored). Notes: Q-1 since ruled by the PO; one missing full stop in the contract md (fixed after). PO rulings Q-1 to Q-4 and the EF6 to DV1 rename were applied after this verdict in a later commit; a delta review of that commit is pending. | `pre_merge_check --installed` 25 of 25 on eae10e6 in a clean non-editable venv (verify_ef4_fixtures, verify_ef5_fixtures, verify_ef5_library 89/534/59/12, verify_versions pass). |
