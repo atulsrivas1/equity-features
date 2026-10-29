@@ -266,11 +266,14 @@ def main() -> int:
             except ContractError as error:
                 problems.append(f"{fx['id']} {features}: refused {error.code.name}: {error}")
                 continue
-            problems += [f"{fx['id']}: {p}" for p in compare(fx, result, config, features)]
-            if features == outputs:
-                problems += [f"{fx['id']}: {p}" for p in rival_problems(fx, result)]
-                if fx.get("cross_check"):
-                    problems += [f"{fx['id']}: {p}" for p in cross_problems(fx, result)]
+            try:
+                problems += [f"{fx['id']}: {p}" for p in compare(fx, result, config, features)]
+                if features == outputs:
+                    problems += [f"{fx['id']}: {p}" for p in rival_problems(fx, result)]
+                    if fx.get("cross_check"):
+                        problems += [f"{fx['id']}: {p}" for p in cross_problems(fx, result)]
+            except (TypeError, ValueError, AttributeError, KeyError, IndexError) as error:
+                problems.append(f"{fx['id']} {features}: result not comparable ({type(error).__name__}: {error})")
     codes: set[str] = set()
     for rf in refusals:
         mutated = apply(by_id[rf["base"]], rf["mutation"])
