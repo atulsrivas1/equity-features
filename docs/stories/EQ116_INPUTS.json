@@ -1,16 +1,16 @@
 {
   "schema": "eq116.precode.inputs.v1",
   "status": "source_data_only_not_ready_or_executed",
-  "canonical_head": "959b7ad778213151e790d351266bc94ac8dcc2df",
+  "canonical_head": "8e9f6695760d5ceef7a04eca9566fce49e83e3cd",
   "io_head": "94217cfafe5e54461c8dc9efdf4848809e04082a",
   "canonical": {
     "docs/stories/EQ-109_ORACLES.json": {
       "bytes": 34375,
-      "sha256": "7cadf99d9087a77b574dc36ca6ed80d31b6d0d9c67dff6254427242498fabb7f"
+      "sha256": "0ba72c1191953893e01ed61685f41583535e8b88d984d288f7694a38a017a74b"
     },
     "examples/agent_research.py": {
       "bytes": 42597,
-      "sha256": "bd9507f0b1cadea822d0dfc18ac9825829157645e4370db5b5f41ddbb79e024c"
+      "sha256": "0d502109fbf7e06dca8b2677ebdfc6a7b00c2869693b4d2869620bd238cb1714"
     },
     "examples/agent_research_typed.py": {
       "bytes": 1821,
@@ -386,7 +386,7 @@
     },
     "tests/agent_research/test_consumer.py": {
       "bytes": 18881,
-      "sha256": "b9337ec0cf3bbb80df565869a0a8b58d8c4980316117817a0ba1d8dcb4a761eb"
+      "sha256": "ec646619607f5bc542136c43f123d0471e63f67dddecb83bc6a97733fc5a95a5"
     },
     "tests/agent_research/test_replay.py": {
       "bytes": 6389,
