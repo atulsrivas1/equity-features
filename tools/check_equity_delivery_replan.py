@@ -159,6 +159,7 @@ def _check_output_ownership(root: Path, data: dict, stories: list[dict]) -> None
     check_ef3_header_parity(root, manifest)
     check_ef4_header_parity(root, manifest)
     check_ef5_header_parity(root, manifest)
+    check_ef6_header_parity(root, manifest)
 
 
 # Owner decision pending (R9b): ownership entries with no merged header. Do not extend without an owner ruling.
@@ -238,6 +239,26 @@ def check_ef5_header_parity(root: Path, manifest: dict) -> None:
     for row in entries + [r for r in manifest["outputs"] if r["canonical_name"] in headers]:
         assert row["unit"] == units[row["canonical_name"]], f"EF5 unit drift: {row['canonical_name']}"
     assert all("_per_" not in unit for unit in units.values()), "underscore unit form on an EF5 header (E9)"
+
+
+def check_ef6_header_parity(root: Path, manifest: dict) -> None:
+    """EF6 definition-variants headers need an ef6_delivered_outputs entry; units use the E9 slash spelling; not accepted, not implemented."""
+    contract = json.loads((root / "docs/ef6/DEFINITION_VARIANTS_CONTRACT_PROPOSAL.json").read_text(encoding="utf-8"))
+    rows = contract["headers"]
+    headers = {row["id"] for row in rows}
+    assert rows and len(headers) == len(rows), "EF6 contract headers missing or duplicated"
+    entries = manifest["ef6_delivered_outputs"]["entries"]
+    names = [row["canonical_name"] for row in entries]
+    assert len(names) == len(set(names)), "duplicate ef6_delivered_outputs entry"
+    planned = {row["canonical_name"] for row in manifest["outputs"]}
+    assert not planned & set(names), "entry listed in both manifest sections"
+    assert all(row["planned_delivery"] == "EF6" and row["accepted"] is False for row in entries)
+    assert all(row["implemented_by_this_packet"] is False for row in entries)
+    assert set(names) == headers, f"EF6 header/manifest drift: {sorted(set(names) ^ headers)}"
+    units = {row["id"]: row["unit"] for row in rows}
+    for row in entries:
+        assert row["unit"] == units[row["canonical_name"]], f"EF6 unit drift: {row['canonical_name']}"
+    assert all("_per_" not in unit for unit in units.values()), "underscore unit form on an EF6 header (E9)"
 
 
 if __name__ == "__main__":

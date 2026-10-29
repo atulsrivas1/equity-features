@@ -2397,5 +2397,120 @@
         "proposed_in_contract": true
       }
     ]
+  },
+  "ef6_delivered_outputs": {
+    "status": "EF6 definition-variants headers (contract ef6-definition-variants-1, draft, not frozen) with no planned-output entry; names, units and producers copied from the contract headers; PROPOSED in a contract, NOT accepted, NOT implemented; not part of the 47-output planned-ownership count. 'EF6' is the definition-variants program of the 2026-10-29 PO rulings, not the EF6 release (EQ-173) of the delivery replan. tools/check_equity_delivery_replan.py enforces header/manifest parity (10 headers).",
+    "entries": [
+      {
+        "canonical_name": "core.benchmark_return_range_fraction",
+        "unit": "fraction",
+        "producer": "core_spread",
+        "primary_numerical_owner": "EF6-definition-variants",
+        "planned_delivery": "EF6",
+        "contract_header_source": "docs/ef6/DEFINITION_VARIANTS_CONTRACT_PROPOSAL.json",
+        "accepted": false,
+        "implemented_by_this_packet": false,
+        "proposed_in_contract": true
+      },
+      {
+        "canonical_name": "core.benchmark_return_stdev_fraction",
+        "unit": "fraction",
+        "producer": "core_spread",
+        "primary_numerical_owner": "EF6-definition-variants",
+        "planned_delivery": "EF6",
+        "contract_header_source": "docs/ef6/DEFINITION_VARIANTS_CONTRACT_PROPOSAL.json",
+        "accepted": false,
+        "implemented_by_this_packet": false,
+        "proposed_in_contract": true
+      },
+      {
+        "canonical_name": "history.atr_simple_mean",
+        "unit": "currency/share",
+        "producer": "atr_simple_mean",
+        "primary_numerical_owner": "EF6-definition-variants",
+        "planned_delivery": "EF6",
+        "contract_header_source": "docs/ef6/DEFINITION_VARIANTS_CONTRACT_PROPOSAL.json",
+        "accepted": false,
+        "implemented_by_this_packet": false,
+        "proposed_in_contract": true
+      },
+      {
+        "canonical_name": "history.window_high",
+        "unit": "currency/share",
+        "producer": "window_extreme",
+        "primary_numerical_owner": "EF6-definition-variants",
+        "planned_delivery": "EF6",
+        "contract_header_source": "docs/ef6/DEFINITION_VARIANTS_CONTRACT_PROPOSAL.json",
+        "accepted": false,
+        "implemented_by_this_packet": false,
+        "proposed_in_contract": true
+      },
+      {
+        "canonical_name": "history.window_high_offset",
+        "unit": "sessions",
+        "producer": "window_extreme",
+        "primary_numerical_owner": "EF6-definition-variants",
+        "planned_delivery": "EF6",
+        "contract_header_source": "docs/ef6/DEFINITION_VARIANTS_CONTRACT_PROPOSAL.json",
+        "accepted": false,
+        "implemented_by_this_packet": false,
+        "proposed_in_contract": true
+      },
+      {
+        "canonical_name": "history.window_low",
+        "unit": "currency/share",
+        "producer": "window_extreme",
+        "primary_numerical_owner": "EF6-definition-variants",
+        "planned_delivery": "EF6",
+        "contract_header_source": "docs/ef6/DEFINITION_VARIANTS_CONTRACT_PROPOSAL.json",
+        "accepted": false,
+        "implemented_by_this_packet": false,
+        "proposed_in_contract": true
+      },
+      {
+        "canonical_name": "history.window_low_offset",
+        "unit": "sessions",
+        "producer": "window_extreme",
+        "primary_numerical_owner": "EF6-definition-variants",
+        "planned_delivery": "EF6",
+        "contract_header_source": "docs/ef6/DEFINITION_VARIANTS_CONTRACT_PROPOSAL.json",
+        "accepted": false,
+        "implemented_by_this_packet": false,
+        "proposed_in_contract": true
+      },
+      {
+        "canonical_name": "relative.log_return_beta",
+        "unit": "fraction",
+        "producer": "relative_log_stats",
+        "primary_numerical_owner": "EF6-definition-variants",
+        "planned_delivery": "EF6",
+        "contract_header_source": "docs/ef6/DEFINITION_VARIANTS_CONTRACT_PROPOSAL.json",
+        "accepted": false,
+        "implemented_by_this_packet": false,
+        "proposed_in_contract": true
+      },
+      {
+        "canonical_name": "relative.log_return_correlation",
+        "unit": "fraction",
+        "producer": "relative_log_stats",
+        "primary_numerical_owner": "EF6-definition-variants",
+        "planned_delivery": "EF6",
+        "contract_header_source": "docs/ef6/DEFINITION_VARIANTS_CONTRACT_PROPOSAL.json",
+        "accepted": false,
+        "implemented_by_this_packet": false,
+        "proposed_in_contract": true
+      },
+      {
+        "canonical_name": "session.price.range_over_open",
+        "unit": "fraction",
+        "producer": "session_range_over_open",
+        "primary_numerical_owner": "EF6-definition-variants",
+        "planned_delivery": "EF6",
+        "contract_header_source": "docs/ef6/DEFINITION_VARIANTS_CONTRACT_PROPOSAL.json",
+        "accepted": false,
+        "implemented_by_this_packet": false,
+        "proposed_in_contract": true
+      }
+    ]
   }
 }
