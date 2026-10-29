@@ -121,6 +121,7 @@
     "policy_version",
     "period P (1..4096, sessions INCLUDING the current one)",
     "extreme_basis (intraday|close, no default)",
+    "offset_unit (build argument, exactly sessions, else INVALID_UNIT; no default)",
     "evidence_limit",
     "adjustment label + adjustment_spec"
    ],
@@ -654,6 +655,7 @@
   "counts": {
    "atr": "expected N+1, observed READY closure slots",
    "window": "expected P, observed READY slots for the output's field",
+   "short_history": "short history: slots that exist inside the grid are checked as middle slots (ATR: high, low and close; window: the output's field) and counted in observed; observed is the number of READY slots inside the grid, so a closure or window that starts before the first session reports observed below expected (AT14 and WX15 pin the all-ready case)",
    "relative": "unavailable rows expected W observed n; available rows n and n",
    "core": "expected K, observed eligible funds",
    "range_over_open": "expected 1, observed 1 or 0"
@@ -674,7 +676,9 @@
    "identity",
    "data"
   ],
-  "rule": "a refusal raises the code of the first stage with a fault; every refusal fixture is single-fault and audited by the independent expander, which collects every trigger"
+  "rule": "a refusal raises the code of the first stage with a fault; every refusal fixture is single-fault and audited by the independent expander, which collects every trigger",
+  "coverage": "coverage admission (shared, every producer): rows delivered with no per-slot coverage entry on any row are INVALID_SCHEMA (RF11); coverage declared for only some of the delivered slots is INCONSISTENT_IDENTITY (RF73)",
+  "config_checks": "config checks (every producer with an adjustment basis; core_spread has none), in the stage order unit and adjustment checks, cutoff, then the policy label, then identity: the declared adjustment must be the pair unadjusted with raw-v1 or split_adjusted with split-factors-v1, else UNSUPPORTED_ADJUSTMENT (RF21); the price currency must be three uppercase letters, else INVALID_UNIT (RF22)"
  },
  "numeric_policy": {
   "publication": "every float64 output is the exact value correctly rounded to nearest-even once; int64 exact; there is no tolerance band in DV1: the library must equal the pinned hex bit for bit",
@@ -738,7 +742,7 @@
    "fixture": "RL07"
   }
  ],
- "fixture_notation": "compact, NOT canonical wire. K = 100, default known_at 50. Slots 0..n-1 in grid order, the target is the last unless `target` names an earlier index (later slots are delivered and must not matter). ATR/window: slots [H,L,C] (a null cell is a null field), `slots_fill` {n, base, set} expands a long series. Relative: `inst` and `bench` are lists of closes (an integer, null, 'absent', 'gap', 'forming' or {row, ka}) or the string 'absent'. `forming` means the slot is still forming at the market cutoff: the row is not delivered (in either series) and the library reads it as future_market; a fixture that delivers a forming slot is invalid. Core: facts {inst, kind start|end, t, p, ss, pf, act, rev, ka, op} with the cutoff C and `decoys` (first_trade_price, first_bar_open, prior_close per fund) for wrong-operand values. Range over open: `trades` [price, size] in event order, `chunks` index ranges for the update/restore/merge modes. `delivery` (slot order delivered), `coverage`, `capability`, `delivered_after_cutoff`, `batch_instrument` are refusal-only keys. Float results carry the exact rational (or a 50-digit decimal for irrational values), the float64 and its hex. Refusal fixtures are mutations (set/delete on fixture.*) of a named result fixture.",
+ "fixture_notation": "compact, NOT canonical wire. K = 100, default known_at 50. Slots 0..n-1 in grid order, the target is the last unless `target` names an earlier index (later slots are delivered and must not matter). ATR/window: slots [H,L,C] (a null cell is a null field), `slots_fill` {n, base, set} expands a long series. Relative: `inst` and `bench` are lists of closes (an integer, null, 'absent', 'gap', 'forming' or {row, ka}) or the string 'absent'. `forming` means the slot is still forming at the market cutoff: the row is not delivered (in either series) and the library reads it as future_market; a fixture that delivers a forming slot is invalid. Core: facts {inst, kind start|end, t, p, ss, pf, act, rev, ka, op} with the cutoff C and `decoys` (first_trade_price, first_bar_open, prior_close per fund) for wrong-operand values. Range over open: `trades` [price, size] in event order, `chunks` index ranges for the update/restore/merge modes. `delivery` (slot order delivered), `coverage`, `capability`, `delivered_after_cutoff`, `batch_instrument` are refusal-only keys. Float results carry the exact rational (or a 50-digit decimal for irrational values), the float64 and its hex. Refusal fixtures are mutations (set/delete on fixture.*) of a named result fixture. A compact row of the wrong width is a fixture-load error of the gate decoder (RF03 records the wire-stage case), not a library refusal; the library takes typed rows.",
  "wrong_convention_policy": "every output id has at least one fixture whose `wrong_convention` list names a rival convention and its computed value; the value of the id must differ from every listed rival (except the two records marked equal, which document where conventions coincide: AT02, AT04)",
  "capability_matrix": {
   "scope": "data each output needs, client or server, per source; a source that cannot supply an input yields the documented unavailable result, never a default",
@@ -19130,6 +19134,20 @@
      "value": "USD"
     }
    ]
+  },
+  {
+   "id": "RF73",
+   "error_code": "INCONSISTENT_IDENTITY",
+   "raised_by": "producer admission",
+   "stage": "shared",
+   "description": "coverage declared for only some of the delivered slots (the oldest slot has no coverage entry)",
+   "base": "WX01",
+   "mutation": [
+    {
+     "set": "fixture.coverage",
+     "value": "partial"
+    }
+   ]
   }
  ],
  "fixture_counts": {
@@ -19138,7 +19156,7 @@
   "relative_log_result": 23,
   "core_spread_result": 21,
   "range_over_open_result": 11,
-  "refusal": 72
+  "refusal": 73
  },
  "shared_rules_and_terms": {
   "terms": {

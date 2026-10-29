@@ -28,7 +28,7 @@ CONTRACT_MD = ROOT / "docs" / "dv1" / "DEFINITION_VARIANTS_CONTRACT_PROPOSAL.md"
 HELPER = ROOT / "tools" / "contract_fixtures" / "dv1_fixture_expand.py"
 # Pinned counts: a change to a fixture list must change these numbers in the same PR.
 PINNED = {"atr_result": 20, "window_result": 25, "relative_log_result": 23, "core_spread_result": 21,
-          "range_over_open_result": 11, "refusal": 72}
+          "range_over_open_result": 11, "refusal": 73}
 PINNED_HEADERS = 10
 PINNED_REFUSAL_CODES = 12
 PINNED_RIVAL_CHECKS = 66
