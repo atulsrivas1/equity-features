@@ -738,6 +738,8 @@ def faults(fx):
     # --- delivery
     if fx.get("coverage") == "undeclared":
         add("shared", "INVALID_SCHEMA")
+    elif fx.get("coverage") == "partial":
+        add("shared", "INCONSISTENT_IDENTITY")
     if fx.get("delivered_after_cutoff"):
         add("shared", "BOUNDS")
     d = fx.get("delivery")
