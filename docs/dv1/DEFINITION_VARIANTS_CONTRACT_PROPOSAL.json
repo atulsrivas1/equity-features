@@ -558,7 +558,7 @@
  "deprecation": {
   "id": "core.benchmark_return_dispersion_fraction",
   "wording": "RANGE of core returns (deprecated name), not dispersion; use core.benchmark_return_range_fraction (same value) or core.benchmark_return_stdev_fraction",
-  "how": "description-only change in discovery text (DV1-3), recorded as an errata entry in docs/ef4/EF4_ERRATA.md now; the id keeps publishing the range unchanged; removal at the already scheduled EF4 next-contract-version migration (ef4-rel1 becomes ef4-rel2); no frozen EF4 file is edited",
+  "how": "description-only change in discovery text (DV1-3), recorded as an errata entry in docs/ef4/EF4_ERRATA.md now; the id keeps publishing the range unchanged; removal at the already scheduled EF4 next-contract-version migration (ef4-rel1 becomes ef4-rel2); no frozen EF4 file is edited.",
   "equal_value_fixtures": [
    "CS01",
    "CS06",

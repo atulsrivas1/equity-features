@@ -8,7 +8,7 @@ an input contract and an output contract, an E9 slash-style unit, every output i
 and a wrong-convention fixture (signed outputs also a negative one), the wrong-convention fixtures that the PO rulings
 name (simple vs log, Wilder vs simple mean, close vs open range, range vs stdev, window length 253/252, high vs close
 basis, tie rule, regular_open operand), the fail-closed drivers, the known_at semantics, the EF4 equality fixtures for
-the deprecated range id, and the posture wording (draft, internal, synthetic, pre-release; no performance claim).
+the deprecated range id, and the posture wording (draft, internal, synthetic, pre-release; no performance claim), and that no EF1-EF5 file except the 4-line EF4 erratum differs from origin/main.
 Run from a source checkout: `python tools/verify_dv1_fixtures.py`; exit status 0 only if everything holds.
 """
 from __future__ import annotations
@@ -174,6 +174,23 @@ def check_deprecation(problems: list[str], doc: dict[str, Any]) -> None:
         problems.append("EF4 errata entry for the deprecated id missing")
 
 
+def check_frozen_files(problems: list[str]) -> None:
+    """No EF1-EF5 file other than the 4-line EF4 erratum differs from origin/main (skipped without git or origin/main)."""
+    def git(*args: str) -> subprocess.CompletedProcess[str]:
+        return subprocess.run(["git", *args], cwd=ROOT, capture_output=True, text=True, check=False)
+    if git("rev-parse", "--verify", "origin/main").returncode != 0:
+        print("SKIP frozen-file check: no origin/main in this checkout")
+        return
+    changed = git("diff", "--name-only", "origin/main", "--", "docs/ef1", "docs/ef2", "docs/ef3", "docs/ef4", "docs/ef5").stdout.split()
+    extra = [f for f in changed if f != "docs/ef4/EF4_ERRATA.md"]
+    if extra:
+        problems.append(f"frozen EF1-EF5 files differ from origin/main: {extra}")
+    if "docs/ef4/EF4_ERRATA.md" in changed:
+        stat = git("diff", "--numstat", "origin/main", "--", "docs/ef4/EF4_ERRATA.md").stdout.split()
+        if stat[:2] != ["4", "0"]:
+            problems.append(f"EF4_ERRATA.md must be a 4-line addition only, got {stat[:2]}")
+
+
 def main() -> int:
     doc = json.loads(CONTRACT.read_text(encoding="utf-8"))
     problems: list[str] = []
@@ -183,6 +200,7 @@ def main() -> int:
     check_coverage(problems, doc)
     check_fail_closed(problems, doc)
     check_deprecation(problems, doc)
+    check_frozen_files(problems)
     for line in problems:
         print("MISMATCH", line)
     print("DV1 fixtures (log beta/correlation, simple-mean ATR, core spread, range over open, window extremes): "

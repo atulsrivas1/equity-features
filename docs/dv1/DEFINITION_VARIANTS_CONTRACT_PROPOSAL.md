@@ -359,7 +359,7 @@ float64, unit `fraction`, producer `session_range_over_open`, available when: th
 
 ## Deprecation of `core.benchmark_return_dispersion_fraction`
 
-Wording: "RANGE of core returns (deprecated name), not dispersion; use core.benchmark_return_range_fraction (same value) or core.benchmark_return_stdev_fraction". description-only change in discovery text (DV1-3), recorded as an errata entry in docs/ef4/EF4_ERRATA.md now; the id keeps publishing the range unchanged; removal at the already scheduled EF4 next-contract-version migration (ef4-rel1 becomes ef4-rel2); no frozen EF4 file is edited Equal-value fixtures against the frozen EF4 fixtures (read only): CS01, CS06, CS07.
+Wording: "RANGE of core returns (deprecated name), not dispersion; use core.benchmark_return_range_fraction (same value) or core.benchmark_return_stdev_fraction". description-only change in discovery text (DV1-3), recorded as an errata entry in docs/ef4/EF4_ERRATA.md now; the id keeps publishing the range unchanged; removal at the already scheduled EF4 next-contract-version migration (ef4-rel1 becomes ef4-rel2); no frozen EF4 file is edited. Equal-value fixtures against the frozen EF4 fixtures (read only): CS01, CS06, CS07.
 
 ## Availability, quality, evidence, knowledge and refusals
 
