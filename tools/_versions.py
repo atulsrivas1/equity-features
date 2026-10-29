@@ -17,7 +17,7 @@ VERSIONS: dict[str, str] = {
     "agent-ledger": "0.1.0a2",
     "conformance": "0.1.0a2",
     "continuous": "0.1.0a2",
-    "intraday": "0.1.0a4",
+    "intraday": "0.1.0a5",
     "labels": "0.1.0a1",
     "strategies": "0.1.0a1",
 }

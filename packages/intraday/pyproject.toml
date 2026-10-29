@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "equity-features-intraday"
-version = "0.1.0a4"
+version = "0.1.0a5"
 description = "Experimental pure supplied-data intraday preparation and EMA/RSI/ATR"
 readme = "README.md"
 requires-python = ">=3.12,<3.13"
