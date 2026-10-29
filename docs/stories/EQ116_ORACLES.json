@@ -7,7 +7,7 @@
     "value": {
       "algorithm": "sha256",
       "canonicalization": "typed-json-v1",
-      "contracts_version": "0.0.4a4",
+      "contracts_version": "0.0.4a5",
       "domain": "configuration",
       "project": "equity-features",
       "schema_version": "1",
@@ -138,7 +138,7 @@
     "value": {
       "algorithm": "sha256",
       "canonicalization": "typed-json-v1",
-      "contracts_version": "0.0.4a4",
+      "contracts_version": "0.0.4a5",
       "domain": "canonical_batch",
       "project": "equity-features",
       "schema_version": "1",
@@ -305,12 +305,12 @@
       }
     },
     "bytes": 1751,
-    "sha256": "aa3697b5c4c1d5939570dda4396344b8fad7b9eef499eb7c65716d6858fa78bb"
+    "sha256": "4aa0d78488ea20c5d53dafb9e3ff2afceb70eeb2b82f33bed7bcd43dab5001af"
   },
   "future_batch_typed_json": {
     "algorithm": "sha256",
     "canonicalization": "typed-json-v1",
-    "contracts_version": "0.0.4a4",
+    "contracts_version": "0.0.4a5",
     "domain": "canonical_batch",
     "project": "equity-features",
     "schema_version": "1",
@@ -498,7 +498,7 @@
             "record": "specs.AvailabilitySpec"
           },
           "backend_id": "python-exact",
-          "backend_version": "0.0.4a4",
+          "backend_version": "0.0.4a6",
           "config_digest": "ddc1b3b90e8d3333f31c268228e472aa440029f3f6ba7d72745d2f0096c3c931",
           "evidence_limit": {
             "int": "0"
@@ -871,7 +871,7 @@
             "record": "specs.AvailabilitySpec"
           },
           "backend_id": "python-exact",
-          "backend_version": "0.0.4a4",
+          "backend_version": "0.0.4a6",
           "config_digest": "ddc1b3b90e8d3333f31c268228e472aa440029f3f6ba7d72745d2f0096c3c931",
           "evidence_limit": {
             "int": "0"
@@ -1462,7 +1462,7 @@
           "kind": "knowledge_time",
           "content": {
             "domain": "canonical_batch",
-            "digest": "aa3697b5c4c1d5939570dda4396344b8fad7b9eef499eb7c65716d6858fa78bb",
+            "digest": "4aa0d78488ea20c5d53dafb9e3ff2afceb70eeb2b82f33bed7bcd43dab5001af",
             "byte_length": 1751,
             "schema_version": "1",
             "canonicalization": "typed-json-v1",
@@ -1481,7 +1481,7 @@
           "kind": "knowledge_time",
           "content": {
             "domain": "canonical_batch",
-            "digest": "aa3697b5c4c1d5939570dda4396344b8fad7b9eef499eb7c65716d6858fa78bb",
+            "digest": "4aa0d78488ea20c5d53dafb9e3ff2afceb70eeb2b82f33bed7bcd43dab5001af",
             "byte_length": 1751,
             "schema_version": "1",
             "canonicalization": "typed-json-v1",
@@ -1500,7 +1500,7 @@
           "kind": "knowledge_time",
           "content": {
             "domain": "canonical_batch",
-            "digest": "aa3697b5c4c1d5939570dda4396344b8fad7b9eef499eb7c65716d6858fa78bb",
+            "digest": "4aa0d78488ea20c5d53dafb9e3ff2afceb70eeb2b82f33bed7bcd43dab5001af",
             "byte_length": 1751,
             "schema_version": "1",
             "canonicalization": "typed-json-v1",
@@ -1560,7 +1560,7 @@
           "kind": "knowledge_time",
           "content": {
             "domain": "canonical_batch",
-            "digest": "d220f515939103dc18212558d899beae046b175376e9484432824cb14e87efd8",
+            "digest": "bbb3c55d9dd3693a0e5b4dd1659000e02ee50faf846d84fe2150106122bebc0a",
             "byte_length": 1751,
             "schema_version": "1",
             "canonicalization": "typed-json-v1",
@@ -1579,7 +1579,7 @@
           "kind": "knowledge_time",
           "content": {
             "domain": "canonical_batch",
-            "digest": "d220f515939103dc18212558d899beae046b175376e9484432824cb14e87efd8",
+            "digest": "bbb3c55d9dd3693a0e5b4dd1659000e02ee50faf846d84fe2150106122bebc0a",
             "byte_length": 1751,
             "schema_version": "1",
             "canonicalization": "typed-json-v1",
@@ -1598,7 +1598,7 @@
           "kind": "knowledge_time",
           "content": {
             "domain": "canonical_batch",
-            "digest": "d220f515939103dc18212558d899beae046b175376e9484432824cb14e87efd8",
+            "digest": "bbb3c55d9dd3693a0e5b4dd1659000e02ee50faf846d84fe2150106122bebc0a",
             "byte_length": 1751,
             "schema_version": "1",
             "canonicalization": "typed-json-v1",
@@ -1637,7 +1637,7 @@
   "strict_input_fingerprints": {
     "clean": {
       "domain": "canonical_batch",
-      "digest": "aa3697b5c4c1d5939570dda4396344b8fad7b9eef499eb7c65716d6858fa78bb",
+      "digest": "4aa0d78488ea20c5d53dafb9e3ff2afceb70eeb2b82f33bed7bcd43dab5001af",
       "byte_length": 1751,
       "schema_version": "1",
       "canonicalization": "typed-json-v1",
@@ -1645,7 +1645,7 @@
     },
     "future": {
       "domain": "canonical_batch",
-      "digest": "d220f515939103dc18212558d899beae046b175376e9484432824cb14e87efd8",
+      "digest": "bbb3c55d9dd3693a0e5b4dd1659000e02ee50faf846d84fe2150106122bebc0a",
       "byte_length": 1751,
       "schema_version": "1",
       "canonicalization": "typed-json-v1",

@@ -27,7 +27,7 @@ def reports() -> tuple[bytes,bytes,bytes]:
     cfg,batch,result=fixture()
     receipt=make_content_receipt(result,cfg,(('trades',batch),),
         EnvironmentDeclaration('CPython','3.12','synthetic-qualification',(
-            PackageVersion('equity-feature-contracts','0.0.4a4'),PackageVersion('equity-features','0.0.4a4'))),
+            PackageVersion('equity-feature-contracts','0.0.4a5'),PackageVersion('equity-features','0.0.4a6'))),
         ExecutionClaim(),EvidenceDisclosure('not_supplied',0))
     explanation=encode_explanation(explain_result(result,receipt,cfg,entity=c.EntityKey('A','S'),
         feature_id='session.trade.count',evidence_limit=16))

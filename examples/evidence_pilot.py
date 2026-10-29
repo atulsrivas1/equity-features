@@ -35,7 +35,7 @@ FORMS = ('wheel-light', 'wheel-compute', 'sdist-light', 'sdist-compute')
 FILES = ('bundle.zip', 'plain-log.json', 'events.json', 'ledger.sqlite',
          'terminals.json', 'reports.json', 'observations.json', 'completion.json')
 CAPS = dict(zip(FILES, (1048576, 32768, 131072, None, 16384, 65536, 16384, 16384), strict=True))
-ORACLE_SHA256 = 'eb2824cc32a2573b51f825199b26c2dde2ae6f73eeda77ed068e8794c9e81fde'
+ORACLE_SHA256 = '30aec747d0483ae3e95faabf704fbd37d2fa8cd40882eb3ba1c2518e6932a98a'
 
 
 class PilotError(ValueError):
@@ -149,8 +149,8 @@ def strict_projection(report: Any) -> dict[str, Any]:
 def _receipt(cfg: Any, batch: Any, result: Any) -> Any:
     return make_content_receipt(result, cfg, (('trades', batch),),
         EnvironmentDeclaration('CPython', '3.12', 'synthetic-qualification', (
-            PackageVersion('equity-feature-contracts', '0.0.4a4'),
-            PackageVersion('equity-features', '0.0.4a4'))),
+            PackageVersion('equity-feature-contracts', '0.0.4a5'),
+            PackageVersion('equity-features', '0.0.4a6'))),
         ExecutionClaim(), EvidenceDisclosure('not_supplied', 0))
 
 
