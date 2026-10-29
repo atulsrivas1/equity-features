@@ -38,6 +38,7 @@ WINDOW_LOW_OFFSET = "history.window_low_offset"
 WEXT_FEATURES = (WINDOW_HIGH, WINDOW_HIGH_OFFSET, WINDOW_LOW, WINDOW_LOW_OFFSET)
 OFFSET_UNIT = "sessions"
 EXTREME_BASES = ("intraday", "close")
+_ADJUSTMENTS = frozenset({("raw", "raw-v1"), ("split", "split-factors-v1")})
 _KEYS = frozenset({"policy_version", "period", "extreme_basis", "evidence_limit"})
 # (is a high-side output, is an offset output)
 _KIND = {WINDOW_HIGH: (True, False), WINDOW_HIGH_OFFSET: (True, True),
@@ -83,12 +84,13 @@ def build_window_extreme_config(grid: DailyGrid, *, policy_version: str | None =
     settings = _check(policy_version, period, extreme_basis, evidence_limit)
     if type(availability) is not AvailabilitySpec or type(adjustment) is not AdjustmentSpec:
         fail(ErrorCode.INVALID_CONFIG, "concrete timing/action required")
-    if type(price_unit) is not PriceUnit:
-        fail(ErrorCode.INVALID_UNIT, "an explicit PriceUnit is required")
+    if (type(price_unit) is not PriceUnit or type(price_unit.currency) is not str or len(price_unit.currency) != 3
+            or not all("A" <= c <= "Z" for c in price_unit.currency)):
+        fail(ErrorCode.INVALID_UNIT, "an explicit PriceUnit with a three-letter uppercase currency is required")
+    if (adjustment.basis, adjustment.policy_version) not in _ADJUSTMENTS:
+        fail(ErrorCode.UNSUPPORTED_ADJUSTMENT, "declared basis must be unadjusted (raw-v1) or split_adjusted (split-factors-v1)")
     if offset_unit != OFFSET_UNIT:
         fail(ErrorCode.INVALID_UNIT, "the offset outputs are in the unit sessions")
-    if price_unit.currency == OFFSET_UNIT:
-        fail(ErrorCode.INVALID_UNIT, "sessions is not a price unit")
     for value in (adjustment.policy_version, adjustment.action_snapshot, adjustment.anchor, price_unit.currency):
         label(value)
     if availability.reconstruction_reason is not None:
@@ -173,6 +175,12 @@ def compute_window_extreme(batches: tuple[CanonicalBatch | None, ...] | list[Can
     if type(batches) not in (tuple, list) or len(batches) != 1:
         fail(ErrorCode.INVALID_SCHEMA, "the single daily role is required")
     batch = batches[0]
+    if batch is not None:
+        if type(batch) is not CanonicalBatch:
+            fail(ErrorCode.INVALID_SCHEMA, "concrete canonical batch required")
+        if batch.row_count and not batch.metadata.interval_coverage:
+            # Rows without any per-slot coverage declaration are never read as complete (fail closed, as EF5).
+            fail(ErrorCode.INVALID_SCHEMA, "coverage not declared")
     daily = admit_role("daily", batch, grid.instrument_id, grid, config)
     columns: dict[str, tuple[object, ...]] = {} if batch is None else {c.name: tuple(c.values) for c in batch.columns}
     t = grid.target_index

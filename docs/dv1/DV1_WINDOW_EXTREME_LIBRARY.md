@@ -46,6 +46,11 @@ session before the target: `max(prior extreme, target field)` equals the window 
   `INVALID_CONFIG` (no default); refusal stages run config checks (parameters, units, cutoff), then version (policy label),
   then identity; evidence rows are `slot:<index>`; a cutoff inside the target session gives `future_market`; in a joint call
   `evidence_limit` caps the combined list. The reason precedence and status mapping are DV1-1's (`_status`), imported.
-- Open for PO ratification: `offset_unit` is a required explicit build argument that must equal `sessions` (so RF72 is
+- Ratified by the PO: `offset_unit` is a required explicit build argument that must equal `sessions` (so RF72 is
   exercisable; RF71 is `sessions` as the price currency). Alternative: a constant, with RF72 then not exercisable.
 - No version bump: the registry and catalog are unchanged; the coordinated bump (features a6 to a7) belongs to DV1-4.
+- Shared DV1 rules (PO ruling 2026-10-29): the config checks run in the order parameters, currency (three uppercase letters, else
+  `INVALID_UNIT`), adjustment pair (`unadjusted`/`raw-v1` or `split_adjusted`/`split-factors-v1`, else `UNSUPPORTED_ADJUSTMENT`),
+  `offset_unit`, cutoff, policy label, identity. Rows with no coverage entry are `INVALID_SCHEMA`; coverage declared for only some
+  delivered slots is `INCONSISTENT_IDENTITY`. The gate runs RF11, RF21 and RF22 (recorded on the ATR base) and RF73 against this producer.
+- Gap: no short-history fixture other than WX15 (all slots ready) pins `observed` when an existing slot is also lost.

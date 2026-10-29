@@ -7,7 +7,7 @@ last delivered slot, a forming slot is not delivered, K = C + 100 s, `ka` maps t
 contract states). Every selected output is run alone and all four jointly, and the library result is compared with
 the contract literal BIT FOR BIT: the float64 hex string and sign of each price, the exact integer of each offset,
 status, reasons, expected and observed counts, witnesses, the output dtype and unit, and the echoed adjustment basis.
-There is no tolerance band in DV1. For each of the 10 refusal recipes whose base is a window fixture the recorded
+There is no tolerance band in DV1. For each of the 11 refusal recipes whose base is a window fixture the recorded
 mutation is applied and the library must refuse with exactly the recorded error code. The wrong-convention rivals
 recorded in the contract (earliest wins a tie, the other basis, a 252-versus-253 window) must differ from the
 library's value. Where a fixture records a cross-check the library is run once more on the prefix that ends one session
@@ -46,7 +46,10 @@ KA_DEFAULT = 50  # the compact notation's default known_at token, stated here an
 LABEL_OF = {"raw": "unadjusted", "split": "split_adjusted"}
 HLC = {"high": 0, "low": 1, "close": 2}
 PINNED_RESULTS = 25
-PINNED_REFUSALS = 10
+PINNED_REFUSALS = 11
+# Shared-rule refusals recorded on the ATR base (coverage undeclared, adjustment pair, currency): the same mutation
+# must refuse the window producer with the same code (the shared DV1 rules hold for every producer).
+FAMILY_REFUSALS = ("RF11", "RF21", "RF22")
 HIGH_SIDE = ("history.window_high", "history.window_high_offset")
 
 
@@ -80,6 +83,10 @@ def expand(fx: dict[str, Any]) -> tuple[DailyGrid, tuple[CanonicalBatch | None, 
     """Fixture -> (grid, role batches, config); every contract refusal is a ContractError raised here or later."""
     p = fx["params"]
     cells = cells_of(fx)
+    for cell in cells:  # a compact row of the wrong width is a fixture-load error, never a library refusal
+        body, _ = parts(cell)
+        if isinstance(body, list) and len(body) != 3:
+            raise SystemExit(f"fixture-load error {fx['id']}: compact row {body!r} is not [H, L, C]")
     n = len(cells)
     target = fx.get("target", n - 1)
     starts = [T0 + i * DAY for i in range(n)]
@@ -114,6 +121,10 @@ def expand(fx: dict[str, Any]) -> tuple[DailyGrid, tuple[CanonicalBatch | None, 
             continue
         rows.append((i, body, known(ka)))
         coverage[i] = Coverage(1, 1, True)
+    if fx.get("coverage") == "undeclared":
+        coverage = {}
+    elif fx.get("coverage") == "partial":  # declared for every delivered slot but the oldest
+        del coverage[min(coverage)]
     intervals = tuple(IntervalCoverage(f"slot:{i}", starts[i], ends[i], coverage[i]) for i in sorted(coverage))
     metadata = BatchMetadata("SYN", SourceBinding("SYN-SRC", "snap1", "dv1-map1", "daily-000"),
                              Coverage(None, len(rows), False), unit, basis, "none", "shares", "declared", "reject",
@@ -271,13 +282,26 @@ def main() -> int:
                 problems.append(f"{rf['id']}: refused {error.code.name} expected {rf['error_code']} ({error})")
         else:
             problems.append(f"{rf['id']}: not refused (expected {rf['error_code']})")
+    family = [rf for rf in doc["refusal_fixtures"] if rf["id"] in FAMILY_REFUSALS]
+    if len(family) != len(FAMILY_REFUSALS):
+        problems.append("shared refusal records missing")
+    for rf in family:
+        mutated = apply(by_id["WX01"], rf["mutation"])
+        try:
+            run(mutated)
+        except ContractError as error:
+            codes.add(error.code.name)
+            if error.code.name != rf["error_code"]:
+                problems.append(f"{rf['id']} on WX01: refused {error.code.name} expected {rf['error_code']} ({error})")
+        else:
+            problems.append(f"{rf['id']} on WX01: not refused (expected {rf['error_code']})")
     for line in problems:
         print("MISMATCH", line)
     if problems:
         print(f"{len(problems)} MISMATCH(ES)")
         return 1
     print(f"DV1 window library: {len(by_id)} window-extreme result fixtures ({runs} runs, bit for bit) and "
-          f"{len(refusals)} refusals ({len(codes)} codes) match the contract")
+          f"{len(refusals)} refusals plus {len(family)} shared-rule refusals ({len(codes)} codes) match the contract")
     return 0
 
 
