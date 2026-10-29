@@ -1,15 +1,15 @@
 {
- "proposal_version": "ef6-definition-variants-proposal1",
- "status": "draft, NOT frozen: contract ef6-definition-variants-1 (library contract and fixtures only), internal, synthetic, pre-release; not an implementation; no library, io or worker code; nothing here claims a value is fixed or covered until its wrong-convention fixtures pass in the library story",
- "stories": "EF6-0 (PO rulings work/po-rulings-ef6-2026-10-29.md; Architect design work/architect-ef6-design-2026-10-29.md; parity reconciliation work/po-parity-reconciliation-2026-10-29.md); consumed by EF6-1, EF6-2, EF6-3, EF6-4 and EF6-6 (EF6-5 closeout)",
- "evidence_kind": "documentation and hand-derived expected values: every result fixture carries a hand_check line derived by hand from its inputs; every expected value, wrong-convention value, cross-check and consumer binding is recomputed by tools/contract_fixtures/ef6_fixture_expand.py, which shares no code with the scratch builder and uses an own 250-digit logarithm series. No library under test exists; nothing was copied from a library. The numbers are for internal, synthetic, pre-release use only.",
+ "proposal_version": "dv1-definition-variants-proposal1",
+ "status": "draft, NOT frozen: contract dv1-definition-variants-1 (library contract and fixtures only), internal, synthetic, pre-release; not an implementation; no library, io or worker code; nothing here claims a value is fixed or covered until its wrong-convention fixtures pass in the library story",
+ "stories": "DV1-0 (PO rulings work/po-rulings-ef6-2026-10-29.md and work/po-rulings-ef6-contract-2026-10-29.md (file names keep the superseded label); Architect design work/architect-ef6-design-2026-10-29.md; parity reconciliation work/po-parity-reconciliation-2026-10-29.md); consumed by DV1-1, DV1-2, DV1-3, DV1-4 and DV1-6 (DV1-5 closeout)",
+ "evidence_kind": "documentation and hand-derived expected values: every result fixture carries a hand_check line derived by hand from its inputs; every expected value, wrong-convention value, cross-check and consumer binding is recomputed by tools/contract_fixtures/dv1_fixture_expand.py, which shares no code with the scratch builder and uses an own 250-digit logarithm series. No library under test exists; nothing was copied from a library. The numbers are for internal, synthetic, pre-release use only.",
  "frozen_contract_ref": "EF3 ef3-rel1 (docs/ef3/RELATIVE_RV_CONTRACT_PROPOSAL.*, unchanged), EF4 I2 (docs/ef4/PATH_PROJECTIONS_CONTRACT_PROPOSAL.*, unchanged; errata entry only), EF5 ef5-price-structures-1 (docs/ef5/*, unchanged: quality vocabulary, knowledge semantics, compact fixture notation, refusal stages, basis echo, adjustment_spec rules reused)",
  "producers": {
   "relative_log_stats": {
-   "config_identity": "ef6.relative_log_stats",
-   "algorithm_version": "ef6-relative-log-stats-v1",
+   "config_identity": "dv1.relative_log_stats",
+   "algorithm_version": "dv1-relative-log-stats-v1",
    "schema_version": "1",
-   "policy_version": "ef6-rlog1",
+   "policy_version": "dv1-rlog1",
    "parameters": [
     "policy_version",
     "benchmark_id",
@@ -37,10 +37,10 @@
    }
   },
   "atr_simple_mean": {
-   "config_identity": "ef6.atr_simple_mean",
-   "algorithm_version": "ef6-atr-simple-mean-v1",
+   "config_identity": "dv1.atr_simple_mean",
+   "algorithm_version": "dv1-atr-simple-mean-v1",
    "schema_version": "1",
-   "policy_version": "ef6-atrs1",
+   "policy_version": "dv1-atrs1",
    "parameters": [
     "policy_version",
     "period N (1..4096)",
@@ -56,16 +56,16 @@
    "policy": {
     "true_range": "TR_i = max(H_i - L_i, |H_i - C_(i-1)|, |L_i - C_(i-1)|)",
     "window": "TARGET-INCLUSIVE: the N most recent completed sessions ending at the target session (N true ranges, N + 1 closes needed); value = (sum of TR over those N) / N, exact rational, one float64",
-    "average_20": "the '20-day average' in the V12a condition is the close SMA over 20 sessions INCLUDING the target (history.sma period 20); consumer arithmetic, not an EF6 output",
+    "average_20": "the '20-day average' in the V12a condition is the close SMA over 20 sessions INCLUDING the target (history.sma period 20); consumer arithmetic, not an DV1 output",
     "missing": "strict: any closure slot not READY gives unavailable with its reason; no skipping, no zero fill; the 12 percent fallback is a consumer rule on status != available",
     "no_parameter": "no inclusion parameter and no initialization_anchor; history.atr (Wilder) is untouched"
    }
   },
   "core_spread": {
-   "config_identity": "ef6.core_spread",
-   "algorithm_version": "ef6-core-spread-v1",
+   "config_identity": "dv1.core_spread",
+   "algorithm_version": "dv1-core-spread-v1",
    "schema_version": "1",
-   "policy_version": "ef6-core1",
+   "policy_version": "dv1-core1",
    "parameters": [
     "policy_version",
     "core_benchmark_ids (2..16 distinct)",
@@ -92,7 +92,7 @@
    }
   },
   "session_range_over_open": {
-   "config_identity": "built-in R1 catalog entry (no EF6 producer)",
+   "config_identity": "built-in R1 catalog entry (no DV1 producer)",
    "algorithm_version": "v1",
    "schema_version": "1",
    "policy_version": "none (built-in algorithm v1)",
@@ -113,19 +113,19 @@
    }
   },
   "window_extreme": {
-   "config_identity": "ef6.window_extreme",
-   "algorithm_version": "ef6-window-extreme-v1",
+   "config_identity": "dv1.window_extreme",
+   "algorithm_version": "dv1-window-extreme-v1",
    "schema_version": "1",
-   "policy_version": "ef6-wext1",
+   "policy_version": "dv1-wext1",
    "parameters": [
     "policy_version",
     "period P (1..4096, sessions INCLUDING the current one)",
-    "basis (high|close, no default)",
+    "extreme_basis (intraday|close, no default)",
     "evidence_limit",
     "adjustment label + adjustment_spec"
    ],
    "roles": [
-    "daily (high, low, close as the basis needs)"
+    "daily (high, low, close as the extreme_basis needs)"
    ],
    "outputs": [
     "history.window_high",
@@ -135,11 +135,11 @@
    ],
    "policy": {
     "window": "the P most recent completed sessions ending at and including the target session",
-    "basis": "high: window_high uses daily highs and window_low uses daily lows; close: both use daily closes",
+    "extreme_basis": "intraday: window_high uses daily highs and window_low uses daily lows; close: both use daily closes; the parameter is not called basis because the result field basis echoes the adjustment basis on every output",
     "offset": "sessions before the target, 0 = the target",
     "ties": "the latest session wins",
     "numeric_period": "253 (design wording 252 prior plus current) or 252 (252 including current) is the design owner's call; the library supports either, both are explicit and no default exists",
-    "p25_v12b": "history.prior_high / history.prior_low keep serving P25 and V12b with the stated inclusion: N PRIOR completed sessions, high or low field only, target EXCLUDED; no new id. On the high basis max(history.prior_high(P-1), current high) equals history.window_high(P) (cross-check fixtures)"
+    "p25_v12b": "history.prior_high / history.prior_low keep serving P25 and V12b with the stated inclusion: N PRIOR completed sessions, high or low field only, target EXCLUDED; no new id. On the intraday basis max(history.prior_high(P-1), current high) equals history.window_high(P) (cross-check fixtures)"
    }
   }
  },
@@ -151,7 +151,7 @@
    "scale": "none",
    "producer": "core_spread",
    "available_when": "all K declared core funds eligible under the profile",
-   "ownership": "EF6-3 (range of core returns; replaces the misleading deprecated name)",
+   "ownership": "DV1-3 (range of core returns; replaces the misleading deprecated name)",
    "input_contract": {
     "fields": "start and end price witnesses per fund (leg facts)",
     "grain": "one witness pair per fund; K = 2..16 funds declared in the config",
@@ -177,7 +177,7 @@
    "scale": "none",
    "producer": "core_spread",
    "available_when": "all K declared core funds eligible under the profile",
-   "ownership": "EF6-3 (M11 binding)",
+   "ownership": "DV1-3 (M11 binding)",
    "input_contract": {
     "fields": "start and end price witnesses per fund (leg facts)",
     "grain": "one witness pair per fund; K = 2..16",
@@ -203,7 +203,7 @@
    "scale": "price_unit.scale",
    "producer": "atr_simple_mean",
    "available_when": "closure of N+1 sessions READY (oldest: close; middle: high, low, close; target: high, low)",
-   "ownership": "EF6-2 (V12a binding)",
+   "ownership": "DV1-2 (V12a binding)",
    "input_contract": {
     "fields": "high, low, close",
     "grain": "daily session bar, regular session",
@@ -229,9 +229,9 @@
    "scale": "price_unit.scale",
    "producer": "window_extreme",
    "available_when": "period P sessions READY for the basis field",
-   "ownership": "EF6-6 (P36/P37 window high)",
+   "ownership": "DV1-6 (P36/P37 window high)",
    "input_contract": {
-    "fields": "high (high basis) or close (close basis)",
+    "fields": "high (intraday basis) or close (close basis)",
     "grain": "daily session bar",
     "adjustment": "one declared basis for the whole series, unadjusted or split_adjusted, with adjustment_spec {policy_version} (and action_snapshot plus anchor for split_adjusted); the adapter converts nothing and mixes no bases",
     "session": "regular session",
@@ -255,7 +255,7 @@
    "scale": "none",
    "producer": "window_extreme",
    "available_when": "as history.window_high",
-   "ownership": "EF6-6 (extreme date)",
+   "ownership": "DV1-6 (extreme date)",
    "input_contract": {
     "fields": "as history.window_high",
     "grain": "daily",
@@ -281,9 +281,9 @@
    "scale": "price_unit.scale",
    "producer": "window_extreme",
    "available_when": "period P sessions READY for the basis field",
-   "ownership": "EF6-6 (P37 window low)",
+   "ownership": "DV1-6 (P37 window low)",
    "input_contract": {
-    "fields": "low (high basis) or close (close basis)",
+    "fields": "low (intraday basis) or close (close basis)",
     "grain": "daily session bar",
     "adjustment": "one declared basis for the whole series, unadjusted or split_adjusted, with adjustment_spec {policy_version} (and action_snapshot plus anchor for split_adjusted); the adapter converts nothing and mixes no bases",
     "session": "regular session",
@@ -307,7 +307,7 @@
    "scale": "none",
    "producer": "window_extreme",
    "available_when": "as history.window_low",
-   "ownership": "EF6-6 (extreme date)",
+   "ownership": "DV1-6 (extreme date)",
    "input_contract": {
     "fields": "as history.window_low",
     "grain": "daily",
@@ -333,7 +333,7 @@
    "scale": "none",
    "producer": "relative_log_stats",
    "available_when": "n >= min_pairs valid pairs and benchmark log-return variance > 0 (exact ratio test)",
-   "ownership": "EF6-1 (P40-P42 binding)",
+   "ownership": "DV1-1 (P40-P42 binding)",
    "input_contract": {
     "fields": "close of the instrument and of the benchmark (two close-only BAR roles)",
     "grain": "daily, one value per governed regular session, the same governed grid and sessions for both series",
@@ -359,7 +359,7 @@
    "scale": "none",
    "producer": "relative_log_stats",
    "available_when": "n >= min_pairs valid pairs and both log-return variances > 0 (exact ratio tests)",
-   "ownership": "EF6-1 (P40-P42 binding)",
+   "ownership": "DV1-1 (P40-P42 binding)",
    "input_contract": {
     "fields": "close of the instrument and of the benchmark (two close-only BAR roles)",
     "grain": "daily, one value per governed regular session, the same governed grid and sessions for both series",
@@ -385,9 +385,9 @@
    "scale": "none",
    "producer": "session_range_over_open",
    "available_when": "the session has an eligible first trade (open), high and low",
-   "ownership": "EF6-4 (P15 binding; built-in R1 catalog entry)",
+   "ownership": "DV1-4 (P15 binding; built-in R1 catalog entry)",
    "input_contract": {
-    "fields": "eligible regular-session trade price and size in event order (the open is session.bar.open, the first eligible trade)",
+    "fields": "eligible regular-session trade price and size in event order; the open is session.bar.open, operand label first_eligible_regular_trade (the first eligible regular-session trade price), which can differ from the official daily-bar open (operand label daily_bar_open, used only by core regular_open) and is never replaced by it",
     "grain": "trade events of one regular session",
     "adjustment": "none: a ratio of prices of one session",
     "session": "one regular session",
@@ -457,7 +457,7 @@
   {
    "id": "C5",
    "ruling": "Q3",
-   "text": "Window extremes: period includes the current session, basis (high|close) explicit, no default, offset 0 = target, the latest session wins ties; 253 vs 252 is the design owner's call.",
+   "text": "Window extremes: period includes the current session, extreme_basis (intraday|close) explicit, no default, offset 0 = target, the latest session wins ties; 253 vs 252 is the design owner's single number, carried by the closeout binding table; the contract holds no second default.",
    "fixtures": [
     "WX01",
     "WX06",
@@ -471,7 +471,7 @@
   {
    "id": "C6",
    "ruling": "Q3",
-   "text": "P25 and V12b stay on history.prior_high/low (prior-only, target excluded); equivalence max(prior, current) on the high basis is pinned by cross-check fixtures.",
+   "text": "P25 and V12b stay on history.prior_high/low (prior-only, target excluded); equivalence max(prior, current) on the intraday basis is pinned by cross-check fixtures.",
    "fixtures": [
     "WX01",
     "WX03",
@@ -502,7 +502,7 @@
   },
   {
    "id": "C9",
-   "ruling": "EF6-1",
+   "ruling": "DV1-1",
    "text": "Log beta/correlation: Decimal120 logarithm of the exact ratio, one float64, hex pinned bit for bit; zero variance by exact ratio equality; n pairs in QualityRow.",
    "fixtures": [
     "RL01",
@@ -513,12 +513,31 @@
   },
   {
    "id": "C10",
-   "ruling": "EF6-3",
+   "ruling": "DV1-3",
    "text": "Population standard deviation (divisor K) over the declared funds; withheld if any fund is missing.",
    "fixtures": [
     "CS02",
     "CS03",
     "CS08"
+   ]
+  },
+  {
+   "id": "C12",
+   "ruling": "PO Q-1",
+   "text": "Two operands, never swapped: session.price.range_over_open (P15, intraday-capable) divides by session.bar.open = operand label first_eligible_regular_trade (first eligible regular-session trade price); core regular_open (M10/M11, end of day) uses operand label daily_bar_open (official daily-bar open of the exact session). They can differ (first trade 100.00, official open 100.20); P15 and M11 figures are never compared or substituted.",
+   "fixtures": [
+    "RO11",
+    "CS21",
+    "CS02"
+   ]
+  },
+  {
+   "id": "C13",
+   "ruling": "PO Q-3",
+   "text": "Unit `sessions` (int64): a non-negative integer count of sessions before the target (0 = the target); not scaled, never a float, never negative; an offset output is unavailable whenever its extreme value is; INVALID_UNIT covers `sessions` offered where a price unit is required and a price unit offered where `sessions` is required. Additive vocabulary in the DV1 contract only; the E9 slash-style units and the EF5 contract are not edited.",
+   "fixtures": [
+    "WX01",
+    "WX15"
    ]
   },
   {
@@ -531,10 +550,15 @@
    ]
   }
  ],
+ "operand_labels": {
+  "session.bar.open": "first_eligible_regular_trade",
+  "core regular_open start leg": "daily_bar_open",
+  "rule": "P15 (range_over_open) and M11 (regular_open) use different operands, each correct for its row; they can differ and are never compared or substituted"
+ },
  "deprecation": {
   "id": "core.benchmark_return_dispersion_fraction",
   "wording": "RANGE of core returns (deprecated name), not dispersion; use core.benchmark_return_range_fraction (same value) or core.benchmark_return_stdev_fraction",
-  "how": "description-only change in discovery text (EF6-3), recorded as an errata entry in docs/ef4/EF4_ERRATA.md now; the id keeps publishing the range unchanged; removal at the already scheduled EF4 next-contract-version migration (ef4-rel1 becomes ef4-rel2); no frozen EF4 file is edited",
+  "how": "description-only change in discovery text (DV1-3), recorded as an errata entry in docs/ef4/EF4_ERRATA.md now; the id keeps publishing the range unchanged; removal at the already scheduled EF4 next-contract-version migration (ef4-rel1 becomes ef4-rel2); no frozen EF4 file is edited",
   "equal_value_fixtures": [
    "CS01",
    "CS06",
@@ -572,7 +596,7 @@
   "atr_simple_mean": {
    "true_range": "TR_i = max(H_i - L_i, |H_i - C_(i-1)|, |L_i - C_(i-1)|)",
    "window": "TARGET-INCLUSIVE: the N most recent completed sessions ending at the target session (N true ranges, N + 1 closes needed); value = (sum of TR over those N) / N, exact rational, one float64",
-   "average_20": "the '20-day average' in the V12a condition is the close SMA over 20 sessions INCLUDING the target (history.sma period 20); consumer arithmetic, not an EF6 output",
+   "average_20": "the '20-day average' in the V12a condition is the close SMA over 20 sessions INCLUDING the target (history.sma period 20); consumer arithmetic, not an DV1 output",
    "missing": "strict: any closure slot not READY gives unavailable with its reason; no skipping, no zero fill; the 12 percent fallback is a consumer rule on status != available",
    "no_parameter": "no inclusion parameter and no initialization_anchor; history.atr (Wilder) is untouched"
   },
@@ -592,11 +616,11 @@
   },
   "window_extreme": {
    "window": "the P most recent completed sessions ending at and including the target session",
-   "basis": "high: window_high uses daily highs and window_low uses daily lows; close: both use daily closes",
+   "extreme_basis": "intraday: window_high uses daily highs and window_low uses daily lows; close: both use daily closes; the parameter is not called basis because the result field basis echoes the adjustment basis on every output",
    "offset": "sessions before the target, 0 = the target",
    "ties": "the latest session wins",
    "numeric_period": "253 (design wording 252 prior plus current) or 252 (252 including current) is the design owner's call; the library supports either, both are explicit and no default exists",
-   "p25_v12b": "history.prior_high / history.prior_low keep serving P25 and V12b with the stated inclusion: N PRIOR completed sessions, high or low field only, target EXCLUDED; no new id. On the high basis max(history.prior_high(P-1), current high) equals history.window_high(P) (cross-check fixtures)"
+   "p25_v12b": "history.prior_high / history.prior_low keep serving P25 and V12b with the stated inclusion: N PRIOR completed sessions, high or low field only, target EXCLUDED; no new id. On the intraday basis max(history.prior_high(P-1), current high) equals history.window_high(P) (cross-check fixtures)"
   }
  },
  "quality": {
@@ -652,14 +676,14 @@
   "rule": "a refusal raises the code of the first stage with a fault; every refusal fixture is single-fault and audited by the independent expander, which collects every trigger"
  },
  "numeric_policy": {
-  "publication": "every float64 output is the exact value correctly rounded to nearest-even once; int64 exact; there is no tolerance band in EF6: the library must equal the pinned hex bit for bit",
+  "publication": "every float64 output is the exact value correctly rounded to nearest-even once; int64 exact; there is no tolerance band in DV1: the library must equal the pinned hex bit for bit",
   "acceptance_classes": {
    "exact_plus_zero": "exact 0: bit-exact +0.0, never -0.0",
    "exact_float64": "exact rational that is dyadic with numerator below 2^53",
    "correctly_rounded": "exact rational (or an exact mathematical identity such as beta = 2) correctly rounded once; library path Fraction or Decimal120",
    "decimal_correctly_rounded": "irrational value (log statistics, square roots): Decimal120 evaluation rounded once to float64",
    "exact_integer": "int64 offsets",
-   "exact_bool": "none in EF6"
+   "exact_bool": "none in DV1"
   },
   "logarithm": "ln of the EXACT rational close ratio (not a difference of logarithms of the closes) at 120 significant digits; the expander recomputes at 250 digits with an own series",
   "near_tie_rule": "if a Decimal120 value lies within 1e-100 relative of the midpoint of two adjacent float64 values the two implementations may disagree; the contract excludes this by construction: the expander requires every pinned irrational value to be at least 1e-60 relative away from every float64 midpoint; on such an input outside the fixtures an implementation rounds the Decimal120 value half to even",
@@ -775,7 +799,7 @@
    "default known_at 50 in the compact notation",
    "slot clock 1.7e18 ns + i*86400 s"
   ],
-  "adapter_brief_step": "every EF6 adapter brief lists every default it applies; the expected list is empty"
+  "adapter_brief_step": "every DV1 adapter brief lists every default it applies; the expected list is empty"
  },
  "fail_closed_drivers": {
   "undeclared_coverage": [
@@ -819,36 +843,37 @@
   {
    "id": "DP-V2",
    "topic": "Hosting",
-   "decision": "new package equity_features.ef6; default registry, EF3/EF4 frozen contracts and EF5 byte-identical; built-in range_over_open is the one R1 catalog change (EF6-4, coordinated bump)",
+   "decision": "new package equity_features.dv1; default registry, EF3/EF4 frozen contracts and EF5 byte-identical; built-in range_over_open is the one R1 catalog change (DV1-4, coordinated bump)",
    "state": "Architect design, PO approved"
   },
   {
    "id": "DP-V3",
    "topic": "Units",
-   "decision": "E9 slash style; one new unit `sessions` (int64) for the window offsets; reused: currency/share, fraction",
+   "decision": "E9 slash style; one additive unit `sessions` (int64) for the window offsets, in the DV1 contract only; reused: currency/share, fraction",
    "state": "proposal"
   }
  ],
- "open_questions": [
+ "open_questions": [],
+ "po_rulings_applied": [
   {
    "id": "Q-1",
-   "text": "P15 range_over_open uses session.bar.open (first eligible regular-session trade, the R1 open) while M10/M11 use the daily-bar open. Two different operands are named in the contract on purpose; confirm P15 should not use the daily-bar open.",
-   "state": "for the PO"
+   "ruling": "session.bar.open stays the P15 operand; each operand is named (first_eligible_regular_trade vs daily_bar_open) and they are never swapped (C12; fixtures RO11, CS21)."
   },
   {
    "id": "Q-2",
-   "text": "Window basis vocabulary is high|close per ruling 3; on `high` the low outputs read daily lows. Confirm this reading, or rename to `intraday|close`.",
-   "state": "for the PO"
+   "ruling": "parameter renamed extreme_basis with values intraday | close, no default (the name basis collides with the result field basis)."
   },
   {
    "id": "Q-3",
-   "text": "The new unit `sessions` for window offsets is an E9 slash-style addition; confirm.",
-   "state": "for the PO"
+   "ruling": "unit sessions confirmed, additive in the DV1 contract only (C13; refusals RF71, RF72)."
   },
   {
    "id": "Q-4",
-   "text": "'EF6' here is the definition-variants program; docs/EQUITY_DELIVERY_REPLAN.md already uses EF6 for EQ-173. Confirm the planned_delivery label EF6 in the manifest section is acceptable.",
-   "state": "for the PO"
+   "ruling": "program renamed EF6 to DV1 (stories DV1-0..6, docs/dv1, contract dv1-definition-variants-1, labels dv1-rlog1, dv1-atrs1, dv1-core1, dv1-wext1); the delivery replan is unchanged."
+  },
+  {
+   "id": "item-1",
+   "ruling": "the period number (253 or 252) is the design owner's single number and travels in the closeout binding table; no second default here."
   }
  ],
  "layer_responsibilities": {
@@ -857,16 +882,16 @@
   "worker": "routes selected outputs, persists the library result unchanged; direct, adapter, worker and stored results are identical including refusal class"
  },
  "non_goals": [
-  "no library, io or worker code in EF6-0",
+  "no library, io or worker code in DV1-0",
   "no change to any shipped id meaning",
   "no log residual_return",
   "no thresholds, crossings or consumer policy",
   "no timing or efficiency claim of any kind",
   "no claim of real-data readiness or product availability: every statement is about a library calculation on synthetic data"
  ],
- "pre_merge_command": "python tools/verify_ef6_fixtures.py (runs tools/contract_fixtures/ef6_fixture_expand.py, pins the counts); then tools/check_equity_delivery_replan.py for header and manifest parity",
- "hosting": "packages/features ef6 module, config namespace ef6.*; no package version bump by this PR",
- "header_ledger_to_be_applied": "the 10 headers are listed in docs/ef6/EF6_SHARED_AMENDMENT.json; units are E9 slash style",
+ "pre_merge_command": "python tools/verify_dv1_fixtures.py (runs tools/contract_fixtures/dv1_fixture_expand.py, pins the counts); then tools/check_equity_delivery_replan.py for header and manifest parity",
+ "hosting": "packages/features dv1 module, config namespace dv1.*; no package version bump by this PR",
+ "header_ledger_to_be_applied": "the 10 headers are listed in docs/dv1/DV1_SHARED_AMENDMENT.json; units are E9 slash style",
  "unit_additions": [
   {
    "unit": "sessions",
@@ -886,7 +911,7 @@
    "description": "N=3 on eight sessions with a gap (session 6 opens above the prior close 17): the mean of the TRs of sessions 5, 6, 7",
    "producer": "atr_simple_mean",
    "params": {
-    "policy_version": "ef6-atrs1",
+    "policy_version": "dv1-atrs1",
     "period": 3,
     "evidence_limit": 10000
    },
@@ -1009,7 +1034,7 @@
    "description": "N=1: the single TR of the target session",
    "producer": "atr_simple_mean",
    "params": {
-    "policy_version": "ef6-atrs1",
+    "policy_version": "dv1-atrs1",
     "period": 1,
     "evidence_limit": 10000
    },
@@ -1116,7 +1141,7 @@
    "description": "N=5 on the eight sessions: simple mean of TR3..TR7",
    "producer": "atr_simple_mean",
    "params": {
-    "policy_version": "ef6-atrs1",
+    "policy_version": "dv1-atrs1",
     "period": 5,
     "evidence_limit": 10000
    },
@@ -1233,7 +1258,7 @@
    "description": "N=5 with exactly N true ranges (six sessions): the Wilder seed IS the simple mean",
    "producer": "atr_simple_mean",
    "params": {
-    "policy_version": "ef6-atrs1",
+    "policy_version": "dv1-atrs1",
     "period": 5,
     "evidence_limit": 10000
    },
@@ -1335,7 +1360,7 @@
    "description": "N=20 over 22 sessions: ATR and the 20-session close SMA both include the target (V12a binding)",
    "producer": "atr_simple_mean",
    "params": {
-    "policy_version": "ef6-atrs1",
+    "policy_version": "dv1-atrs1",
     "period": 20,
     "evidence_limit": 10000
    },
@@ -1488,7 +1513,7 @@
     "prior_only_sma_exact": "102/1",
     "prior_only_atr_exact": "22/5",
     "prior_only_multiple_exact": "25/11",
-    "note": "consumer arithmetic on history.sma(20) and session.bar.close; not an EF6 output"
+    "note": "consumer arithmetic on history.sma(20) and session.bar.close; not an DV1 output"
    },
    "expected": {
     "history.atr_simple_mean": {
@@ -1543,7 +1568,7 @@
    "description": "N=7: the oldest session only needs its close; high and low null there",
    "producer": "atr_simple_mean",
    "params": {
-    "policy_version": "ef6-atrs1",
+    "policy_version": "dv1-atrs1",
     "period": 7,
     "evidence_limit": 10000
    },
@@ -1647,7 +1672,7 @@
    "description": "N=3: the target's close is null but TR needs only its high and low",
    "producer": "atr_simple_mean",
    "params": {
-    "policy_version": "ef6-atrs1",
+    "policy_version": "dv1-atrs1",
     "period": 3,
     "evidence_limit": 10000
    },
@@ -1747,7 +1772,7 @@
    "description": "N=3: session 6 high is null: no skipping, no zero fill",
    "producer": "atr_simple_mean",
    "params": {
-    "policy_version": "ef6-atrs1",
+    "policy_version": "dv1-atrs1",
     "period": 3,
     "evidence_limit": 10000
    },
@@ -1840,7 +1865,7 @@
    "description": "N=3: session 5 not delivered",
    "producer": "atr_simple_mean",
    "params": {
-    "policy_version": "ef6-atrs1",
+    "policy_version": "dv1-atrs1",
     "period": 3,
     "evidence_limit": 10000
    },
@@ -1928,7 +1953,7 @@
    "description": "N=3: session 6 inside a declared coverage gap",
    "producer": "atr_simple_mean",
    "params": {
-    "policy_version": "ef6-atrs1",
+    "policy_version": "dv1-atrs1",
     "period": 3,
     "evidence_limit": 10000
    },
@@ -2016,7 +2041,7 @@
    "description": "N=3: session 6 known_at null",
    "producer": "atr_simple_mean",
    "params": {
-    "policy_version": "ef6-atrs1",
+    "policy_version": "dv1-atrs1",
     "period": 3,
     "evidence_limit": 10000
    },
@@ -2111,7 +2136,7 @@
    "description": "N=3: session 6 known_at after K",
    "producer": "atr_simple_mean",
    "params": {
-    "policy_version": "ef6-atrs1",
+    "policy_version": "dv1-atrs1",
     "period": 3,
     "evidence_limit": 10000
    },
@@ -2206,7 +2231,7 @@
    "description": "N=3: the target session is still forming at the market cutoff",
    "producer": "atr_simple_mean",
    "params": {
-    "policy_version": "ef6-atrs1",
+    "policy_version": "dv1-atrs1",
     "period": 3,
     "evidence_limit": 10000
    },
@@ -2294,7 +2319,7 @@
    "description": "N=8 with eight sessions: nine closure slots needed",
    "producer": "atr_simple_mean",
    "params": {
-    "policy_version": "ef6-atrs1",
+    "policy_version": "dv1-atrs1",
     "period": 8,
     "evidence_limit": 10000
    },
@@ -2386,7 +2411,7 @@
    "description": "N=3: session 6 known_at equals K exactly",
    "producer": "atr_simple_mean",
    "params": {
-    "policy_version": "ef6-atrs1",
+    "policy_version": "dv1-atrs1",
     "period": 3,
     "evidence_limit": 10000
    },
@@ -2490,7 +2515,7 @@
    "description": "N=3 with evidence_limit 2: the witness list is truncated, the value is not",
    "producer": "atr_simple_mean",
    "params": {
-    "policy_version": "ef6-atrs1",
+    "policy_version": "dv1-atrs1",
     "period": 3,
     "evidence_limit": 2
    },
@@ -2588,7 +2613,7 @@
    "description": "N=3 with adjustment split_adjusted: arithmetic equal to AT01, basis echoed",
    "producer": "atr_simple_mean",
    "params": {
-    "policy_version": "ef6-atrs1",
+    "policy_version": "dv1-atrs1",
     "period": 3,
     "evidence_limit": 10000
    },
@@ -2692,7 +2717,7 @@
    "description": "N=3 with an explicit target (slot 5): later sessions are delivered and must not matter",
    "producer": "atr_simple_mean",
    "params": {
-    "policy_version": "ef6-atrs1",
+    "policy_version": "dv1-atrs1",
     "period": 3,
     "evidence_limit": 10000
    },
@@ -2794,7 +2819,7 @@
    "description": "N=2 on flat sessions: ATR exactly +0.0 (available, never unavailable)",
    "producer": "atr_simple_mean",
    "params": {
-    "policy_version": "ef6-atrs1",
+    "policy_version": "dv1-atrs1",
     "period": 2,
     "evidence_limit": 10000
    },
@@ -2873,7 +2898,7 @@
    "description": "N=3 at price scale 2 (coefficients are hundredths): value is the mean divided by 100",
    "producer": "atr_simple_mean",
    "params": {
-    "policy_version": "ef6-atrs1",
+    "policy_version": "dv1-atrs1",
     "period": 3,
     "evidence_limit": 10000
    },
@@ -2971,13 +2996,13 @@
  "window_fixtures": [
   {
    "id": "WX01",
-   "group": "high_basis_tie",
-   "description": "P=10 on the high basis: the maximum high 60 occurs on sessions 2 and 4, the latest wins",
+   "group": "intraday_basis_tie",
+   "description": "P=10 on the intraday basis: the maximum high 60 occurs on sessions 2 and 4, the latest wins",
    "producer": "window_extreme",
    "params": {
-    "policy_version": "ef6-wext1",
+    "policy_version": "dv1-wext1",
     "period": 10,
-    "basis": "high",
+    "extreme_basis": "intraday",
     "evidence_limit": 10000
    },
    "unit": {
@@ -2990,6 +3015,7 @@
    },
    "K": 100,
    "columns": "hlc",
+   "offset_unit": "sessions",
    "slots": [
     [
      50,
@@ -3051,7 +3077,7 @@
    "tags": [
     "positive",
     "tie_latest_wins",
-    "high_basis",
+    "intraday_basis",
     "wrong_convention"
    ],
    "hand_check": "highs 50,55,60,58,60,57,56,54,59,57: max 60 at 2 and 4, latest is 4, offset 9-4 = 5; lows 40,44,50,47,48,45,42,41,43,46: min 40 at 0, offset 9",
@@ -3191,9 +3217,9 @@
    "description": "P=10 on the close basis: the extremes are of the closes, not of the highs and lows",
    "producer": "window_extreme",
    "params": {
-    "policy_version": "ef6-wext1",
+    "policy_version": "dv1-wext1",
     "period": 10,
-    "basis": "close",
+    "extreme_basis": "close",
     "evidence_limit": 10000
    },
    "unit": {
@@ -3206,6 +3232,7 @@
    },
    "K": 100,
    "columns": "hlc",
+   "offset_unit": "sessions",
    "slots": [
     [
      50,
@@ -3272,15 +3299,15 @@
    "hand_check": "closes 45,52,58,49,57,46,44,53,50,55: max 58 at session 2 (offset 7), min 44 at session 6 (offset 3)",
    "wrong_convention": [
     {
-     "convention": "high_basis",
+     "convention": "intraday_basis",
      "output": "history.window_high",
-     "note": "high basis gives 60 and low 40",
+     "note": "intraday basis gives 60 and low 40",
      "exact": "60/1"
     },
     {
-     "convention": "high_basis",
+     "convention": "intraday_basis",
      "output": "history.window_low",
-     "note": "the low on the high basis is 40",
+     "note": "the low on the intraday basis is 40",
      "exact": "40/1"
     }
    ],
@@ -3394,12 +3421,12 @@
   {
    "id": "WX03",
    "group": "short_period",
-   "description": "P=5 (sessions 5..9) on the high basis",
+   "description": "P=5 (sessions 5..9) on the intraday basis",
    "producer": "window_extreme",
    "params": {
-    "policy_version": "ef6-wext1",
+    "policy_version": "dv1-wext1",
     "period": 5,
-    "basis": "high",
+    "extreme_basis": "intraday",
     "evidence_limit": 10000
    },
    "unit": {
@@ -3412,6 +3439,7 @@
    },
    "K": 100,
    "columns": "hlc",
+   "offset_unit": "sessions",
    "slots": [
     [
      50,
@@ -3472,7 +3500,7 @@
    ],
    "tags": [
     "positive",
-    "high_basis",
+    "intraday_basis",
     "wrong_convention"
    ],
    "hand_check": "highs 57,56,54,59,57: max 59 at session 8, offset 1; lows 45,42,41,43,46: min 41 at session 7, offset 2",
@@ -3580,9 +3608,9 @@
    "description": "P=1: the window is the target session alone",
    "producer": "window_extreme",
    "params": {
-    "policy_version": "ef6-wext1",
+    "policy_version": "dv1-wext1",
     "period": 1,
-    "basis": "high",
+    "extreme_basis": "intraday",
     "evidence_limit": 10000
    },
    "unit": {
@@ -3595,6 +3623,7 @@
    },
    "K": 100,
    "columns": "hlc",
+   "offset_unit": "sessions",
    "slots": [
     [
      50,
@@ -3735,9 +3764,9 @@
    "description": "P=3 with an explicit target (session 8): the target is the maximum (offset 0); session 9 is delivered and ignored",
    "producer": "window_extreme",
    "params": {
-    "policy_version": "ef6-wext1",
+    "policy_version": "dv1-wext1",
     "period": 3,
-    "basis": "high",
+    "extreme_basis": "intraday",
     "evidence_limit": 10000
    },
    "unit": {
@@ -3750,6 +3779,7 @@
    },
    "K": 100,
    "columns": "hlc",
+   "offset_unit": "sessions",
    "slots": [
     [
      50,
@@ -3901,9 +3931,9 @@
    "description": "P=4 at target 5: highs 60,58,60,57: the later 60 wins",
    "producer": "window_extreme",
    "params": {
-    "policy_version": "ef6-wext1",
+    "policy_version": "dv1-wext1",
     "period": 4,
-    "basis": "high",
+    "extreme_basis": "intraday",
     "evidence_limit": 10000
    },
    "unit": {
@@ -3916,6 +3946,7 @@
    },
    "K": 100,
    "columns": "hlc",
+   "offset_unit": "sessions",
    "slots": [
     [
      50,
@@ -4078,9 +4109,9 @@
    "description": "close basis with equal closes 10 on sessions 1 and 3: the later wins",
    "producer": "window_extreme",
    "params": {
-    "policy_version": "ef6-wext1",
+    "policy_version": "dv1-wext1",
     "period": 4,
-    "basis": "close",
+    "extreme_basis": "close",
     "evidence_limit": 10000
    },
    "unit": {
@@ -4093,6 +4124,7 @@
    },
    "K": 100,
    "columns": "hlc",
+   "offset_unit": "sessions",
    "slots": [
     [
      10,
@@ -4222,12 +4254,12 @@
   {
    "id": "WX08",
    "group": "all_equal_highs",
-   "description": "high basis, every high 10: the offset is 0 (the target wins every tie)",
+   "description": "intraday basis, every high 10: the offset is 0 (the target wins every tie)",
    "producer": "window_extreme",
    "params": {
-    "policy_version": "ef6-wext1",
+    "policy_version": "dv1-wext1",
     "period": 4,
-    "basis": "high",
+    "extreme_basis": "intraday",
     "evidence_limit": 10000
    },
    "unit": {
@@ -4240,6 +4272,7 @@
    },
    "K": 100,
    "columns": "hlc",
+   "offset_unit": "sessions",
    "slots": [
     [
      10,
@@ -4271,7 +4304,7 @@
    "tags": [
     "positive",
     "tie_latest_wins",
-    "high_basis"
+    "intraday_basis"
    ],
    "hand_check": "highs 10,10,10,10: offset 0; lows 9,8,7,9: min 7 at session 2, offset 1",
    "expected": {
@@ -4363,9 +4396,9 @@
    "description": "P=253 (252 prior sessions plus the target, the design wording): the extreme sits on session 0, 252 sessions back",
    "producer": "window_extreme",
    "params": {
-    "policy_version": "ef6-wext1",
+    "policy_version": "dv1-wext1",
     "period": 253,
-    "basis": "high",
+    "extreme_basis": "intraday",
     "evidence_limit": 10000
    },
    "unit": {
@@ -4378,6 +4411,7 @@
    },
    "K": 100,
    "columns": "hlc",
+   "offset_unit": "sessions",
    "slots_fill": {
     "n": 253,
     "base": [
@@ -4408,7 +4442,7 @@
     "positive",
     "wrong_convention",
     "period_253",
-    "high_basis",
+    "intraday_basis",
     "window_length"
    ],
    "hand_check": "253 sessions, target 252; session 0 high 200 / low 60 are inside the window: window_high 200 offset 252, window_low 60 offset 252. max(history.prior_high(252), H_t) = max(200, 100) = 200",
@@ -5508,9 +5542,9 @@
    "description": "P=252 on the same sessions (the width of 252 sessions including the target): session 0 is out of the window",
    "producer": "window_extreme",
    "params": {
-    "policy_version": "ef6-wext1",
+    "policy_version": "dv1-wext1",
     "period": 252,
-    "basis": "high",
+    "extreme_basis": "intraday",
     "evidence_limit": 10000
    },
    "unit": {
@@ -5523,6 +5557,7 @@
    },
    "K": 100,
    "columns": "hlc",
+   "offset_unit": "sessions",
    "slots_fill": {
     "n": 253,
     "base": [
@@ -5553,7 +5588,7 @@
     "positive",
     "wrong_convention",
     "period_252",
-    "high_basis",
+    "intraday_basis",
     "window_length"
    ],
    "hand_check": "sessions 1..252: max high 150 at session 100, offset 152; min low 70 at session 100, offset 152; max(history.prior_high(251), H_t) = max(150, 100) = 150",
@@ -6649,9 +6684,9 @@
    "description": "P=253 on the close basis",
    "producer": "window_extreme",
    "params": {
-    "policy_version": "ef6-wext1",
+    "policy_version": "dv1-wext1",
     "period": 253,
-    "basis": "close",
+    "extreme_basis": "close",
     "evidence_limit": 10000
    },
    "unit": {
@@ -6664,6 +6699,7 @@
    },
    "K": 100,
    "columns": "hlc",
+   "offset_unit": "sessions",
    "slots_fill": {
     "n": 253,
     "base": [
@@ -6699,9 +6735,9 @@
    "hand_check": "closes: 150 on session 0, 140 on session 100, 95 elsewhere: max 150 offset 252; min 95 on many sessions, the latest is the target, offset 0",
    "wrong_convention": [
     {
-     "convention": "high_basis",
+     "convention": "intraday_basis",
      "output": "history.window_high",
-     "note": "high basis gives 200",
+     "note": "intraday basis gives 200",
      "exact": "200/1"
     }
    ],
@@ -7790,9 +7826,9 @@
    "description": "P=252 on the close basis",
    "producer": "window_extreme",
    "params": {
-    "policy_version": "ef6-wext1",
+    "policy_version": "dv1-wext1",
     "period": 252,
-    "basis": "close",
+    "extreme_basis": "close",
     "evidence_limit": 10000
    },
    "unit": {
@@ -7805,6 +7841,7 @@
    },
    "K": 100,
    "columns": "hlc",
+   "offset_unit": "sessions",
    "slots_fill": {
     "n": 253,
     "base": [
@@ -8924,12 +8961,12 @@
   {
    "id": "WX13",
    "group": "p25_prior_equivalence",
-   "description": "P=127 high basis, target high below the old extreme: equals max(history.prior_high(126), H_t)",
+   "description": "P=127 intraday basis, target high below the old extreme: equals max(history.prior_high(126), H_t)",
    "producer": "window_extreme",
    "params": {
-    "policy_version": "ef6-wext1",
+    "policy_version": "dv1-wext1",
     "period": 127,
-    "basis": "high",
+    "extreme_basis": "intraday",
     "evidence_limit": 10000
    },
    "unit": {
@@ -8942,6 +8979,7 @@
    },
    "K": 100,
    "columns": "hlc",
+   "offset_unit": "sessions",
    "slots_fill": {
     "n": 127,
     "base": [
@@ -8970,7 +9008,7 @@
    ],
    "tags": [
     "positive",
-    "high_basis",
+    "intraday_basis",
     "p25",
     "cross_check"
    ],
@@ -9556,12 +9594,12 @@
   {
    "id": "WX14",
    "group": "p25_target_new_high",
-   "description": "P=127 high basis, the target makes a new high: offset 0 while history.prior_high(126) excludes it",
+   "description": "P=127 intraday basis, the target makes a new high: offset 0 while history.prior_high(126) excludes it",
    "producer": "window_extreme",
    "params": {
-    "policy_version": "ef6-wext1",
+    "policy_version": "dv1-wext1",
     "period": 127,
-    "basis": "high",
+    "extreme_basis": "intraday",
     "evidence_limit": 10000
    },
    "unit": {
@@ -9574,6 +9612,7 @@
    },
    "K": 100,
    "columns": "hlc",
+   "offset_unit": "sessions",
    "slots_fill": {
     "n": 127,
     "base": [
@@ -9602,7 +9641,7 @@
    ],
    "tags": [
     "positive",
-    "high_basis",
+    "intraday_basis",
     "p25",
     "cross_check",
     "offset_zero"
@@ -10192,9 +10231,9 @@
    "description": "P=11 on ten sessions",
    "producer": "window_extreme",
    "params": {
-    "policy_version": "ef6-wext1",
+    "policy_version": "dv1-wext1",
     "period": 11,
-    "basis": "high",
+    "extreme_basis": "intraday",
     "evidence_limit": 10000
    },
    "unit": {
@@ -10207,6 +10246,7 @@
    },
    "K": 100,
    "columns": "hlc",
+   "offset_unit": "sessions",
    "slots": [
     [
      50,
@@ -10331,9 +10371,9 @@
    "description": "P=5: session 6 not delivered",
    "producer": "window_extreme",
    "params": {
-    "policy_version": "ef6-wext1",
+    "policy_version": "dv1-wext1",
     "period": 5,
-    "basis": "high",
+    "extreme_basis": "intraday",
     "evidence_limit": 10000
    },
    "unit": {
@@ -10346,6 +10386,7 @@
    },
    "K": 100,
    "columns": "hlc",
+   "offset_unit": "sessions",
    "slots": [
     [
      50,
@@ -10466,9 +10507,9 @@
    "description": "P=5: session 7 in a declared coverage gap",
    "producer": "window_extreme",
    "params": {
-    "policy_version": "ef6-wext1",
+    "policy_version": "dv1-wext1",
     "period": 5,
-    "basis": "high",
+    "extreme_basis": "intraday",
     "evidence_limit": 10000
    },
    "unit": {
@@ -10481,6 +10522,7 @@
    },
    "K": 100,
    "columns": "hlc",
+   "offset_unit": "sessions",
    "slots": [
     [
      50,
@@ -10601,9 +10643,9 @@
    "description": "P=5: session 8 known_at null",
    "producer": "window_extreme",
    "params": {
-    "policy_version": "ef6-wext1",
+    "policy_version": "dv1-wext1",
     "period": 5,
-    "basis": "high",
+    "extreme_basis": "intraday",
     "evidence_limit": 10000
    },
    "unit": {
@@ -10616,6 +10658,7 @@
    },
    "K": 100,
    "columns": "hlc",
+   "offset_unit": "sessions",
    "slots": [
     [
      50,
@@ -10743,9 +10786,9 @@
    "description": "P=5: session 8 known_at after K",
    "producer": "window_extreme",
    "params": {
-    "policy_version": "ef6-wext1",
+    "policy_version": "dv1-wext1",
     "period": 5,
-    "basis": "high",
+    "extreme_basis": "intraday",
     "evidence_limit": 10000
    },
    "unit": {
@@ -10758,6 +10801,7 @@
    },
    "K": 100,
    "columns": "hlc",
+   "offset_unit": "sessions",
    "slots": [
     [
      50,
@@ -10882,12 +10926,12 @@
   {
    "id": "WX20",
    "group": "independent_readiness",
-   "description": "P=5 high basis: session 7 high is null: the high outputs are null_field, the low outputs stay available",
+   "description": "P=5 intraday basis: session 7 high is null: the high outputs are null_field, the low outputs stay available",
    "producer": "window_extreme",
    "params": {
-    "policy_version": "ef6-wext1",
+    "policy_version": "dv1-wext1",
     "period": 5,
-    "basis": "high",
+    "extreme_basis": "intraday",
     "evidence_limit": 10000
    },
    "unit": {
@@ -10900,6 +10944,7 @@
    },
    "K": 100,
    "columns": "hlc",
+   "offset_unit": "sessions",
    "slots": [
     [
      50,
@@ -11042,9 +11087,9 @@
    "description": "P=5 close basis: session 7 high and low are null but only closes are read",
    "producer": "window_extreme",
    "params": {
-    "policy_version": "ef6-wext1",
+    "policy_version": "dv1-wext1",
     "period": 5,
-    "basis": "close",
+    "extreme_basis": "close",
     "evidence_limit": 10000
    },
    "unit": {
@@ -11057,6 +11102,7 @@
    },
    "K": 100,
    "columns": "hlc",
+   "offset_unit": "sessions",
    "slots": [
     [
      50,
@@ -11214,9 +11260,9 @@
    "description": "P=5: the target session is still forming",
    "producer": "window_extreme",
    "params": {
-    "policy_version": "ef6-wext1",
+    "policy_version": "dv1-wext1",
     "period": 5,
-    "basis": "high",
+    "extreme_basis": "intraday",
     "evidence_limit": 10000
    },
    "unit": {
@@ -11229,6 +11275,7 @@
    },
    "K": 100,
    "columns": "hlc",
+   "offset_unit": "sessions",
    "slots": [
     [
      50,
@@ -11349,9 +11396,9 @@
    "description": "P=5 at price scale 2: prices are coefficient / 100",
    "producer": "window_extreme",
    "params": {
-    "policy_version": "ef6-wext1",
+    "policy_version": "dv1-wext1",
     "period": 5,
-    "basis": "high",
+    "extreme_basis": "intraday",
     "evidence_limit": 10000
    },
    "unit": {
@@ -11364,6 +11411,7 @@
    },
    "K": 100,
    "columns": "hlc",
+   "offset_unit": "sessions",
    "slots": [
     [
      50,
@@ -11520,9 +11568,9 @@
    "description": "P=5 with evidence_limit 3: witnesses truncated",
    "producer": "window_extreme",
    "params": {
-    "policy_version": "ef6-wext1",
+    "policy_version": "dv1-wext1",
     "period": 5,
-    "basis": "high",
+    "extreme_basis": "intraday",
     "evidence_limit": 3
    },
    "unit": {
@@ -11535,6 +11583,7 @@
    },
    "K": 100,
    "columns": "hlc",
+   "offset_unit": "sessions",
    "slots": [
     [
      50,
@@ -11683,9 +11732,9 @@
    "description": "P=5 with adjustment split_adjusted: values equal WX03, basis echoed",
    "producer": "window_extreme",
    "params": {
-    "policy_version": "ef6-wext1",
+    "policy_version": "dv1-wext1",
     "period": 5,
-    "basis": "high",
+    "extreme_basis": "intraday",
     "evidence_limit": 10000
    },
    "unit": {
@@ -11700,6 +11749,7 @@
    },
    "K": 100,
    "columns": "hlc",
+   "offset_unit": "sessions",
    "slots": [
     [
      50,
@@ -11860,7 +11910,7 @@
    "description": "instrument close ratios are the squares of the benchmark ratios: log returns satisfy x = 2y exactly",
    "producer": "relative_log_stats",
    "params": {
-    "policy_version": "ef6-rlog1",
+    "policy_version": "dv1-rlog1",
     "benchmark_id": "B",
     "window": 3,
     "min_pairs": 3,
@@ -11979,7 +12029,7 @@
    "description": "instrument ratios are the reciprocals of the benchmark ratios: x = -y exactly",
    "producer": "relative_log_stats",
    "params": {
-    "policy_version": "ef6-rlog1",
+    "policy_version": "dv1-rlog1",
     "benchmark_id": "B",
     "window": 3,
     "min_pairs": 3,
@@ -12098,7 +12148,7 @@
    "description": "four log returns on small moves, positive relation",
    "producer": "relative_log_stats",
    "params": {
-    "policy_version": "ef6-rlog1",
+    "policy_version": "dv1-rlog1",
     "benchmark_id": "B",
     "window": 4,
     "min_pairs": 4,
@@ -12222,7 +12272,7 @@
    "description": "a 20 percent instrument move paired with a 1 percent benchmark move",
    "producer": "relative_log_stats",
    "params": {
-    "policy_version": "ef6-rlog1",
+    "policy_version": "dv1-rlog1",
     "benchmark_id": "B",
     "window": 4,
     "min_pairs": 4,
@@ -12347,7 +12397,7 @@
    "description": "benchmark ratios all equal 11/10 at different magnitudes: zero variance decided by exact ratio equality",
    "producer": "relative_log_stats",
    "params": {
-    "policy_version": "ef6-rlog1",
+    "policy_version": "dv1-rlog1",
     "benchmark_id": "B",
     "window": 3,
     "min_pairs": 3,
@@ -12427,7 +12477,7 @@
    "description": "instrument ratios all equal, benchmark varies: beta is exactly +0.0, correlation unavailable",
    "producer": "relative_log_stats",
    "params": {
-    "policy_version": "ef6-rlog1",
+    "policy_version": "dv1-rlog1",
     "benchmark_id": "B",
     "window": 3,
     "min_pairs": 3,
@@ -12520,7 +12570,7 @@
    "description": "one benchmark close absent loses two pairs; three pairs remain and min_pairs is 3",
    "producer": "relative_log_stats",
    "params": {
-    "policy_version": "ef6-rlog1",
+    "policy_version": "dv1-rlog1",
     "benchmark_id": "B",
     "window": 5,
     "min_pairs": 3,
@@ -12637,7 +12687,7 @@
    "description": "the same data with min_pairs 4: three pairs are fewer than four",
    "producer": "relative_log_stats",
    "params": {
-    "policy_version": "ef6-rlog1",
+    "policy_version": "dv1-rlog1",
     "benchmark_id": "B",
     "window": 5,
     "min_pairs": 4,
@@ -12721,7 +12771,7 @@
    "description": "window 5 but only four closes: the window is not wholly inside the grid",
    "producer": "relative_log_stats",
    "params": {
-    "policy_version": "ef6-rlog1",
+    "policy_version": "dv1-rlog1",
     "benchmark_id": "B",
     "window": 5,
     "min_pairs": 2,
@@ -12800,7 +12850,7 @@
    "description": "window 4: benchmark close of slot 3 known_at null",
    "producer": "relative_log_stats",
    "params": {
-    "policy_version": "ef6-rlog1",
+    "policy_version": "dv1-rlog1",
     "benchmark_id": "B",
     "window": 4,
     "min_pairs": 3,
@@ -12884,7 +12934,7 @@
    "description": "window 4: benchmark close of slot 3 known_at after K",
    "producer": "relative_log_stats",
    "params": {
-    "policy_version": "ef6-rlog1",
+    "policy_version": "dv1-rlog1",
     "benchmark_id": "B",
     "window": 4,
     "min_pairs": 3,
@@ -12968,7 +13018,7 @@
    "description": "window 4: instrument slot 2 inside a declared gap",
    "producer": "relative_log_stats",
    "params": {
-    "policy_version": "ef6-rlog1",
+    "policy_version": "dv1-rlog1",
     "benchmark_id": "B",
     "window": 4,
     "min_pairs": 3,
@@ -13049,7 +13099,7 @@
    "description": "window 4: instrument close of slot 2 null",
    "producer": "relative_log_stats",
    "params": {
-    "policy_version": "ef6-rlog1",
+    "policy_version": "dv1-rlog1",
     "benchmark_id": "B",
     "window": 4,
     "min_pairs": 3,
@@ -13130,7 +13180,7 @@
    "description": "window 4: the target benchmark close is still forming",
    "producer": "relative_log_stats",
    "params": {
-    "policy_version": "ef6-rlog1",
+    "policy_version": "dv1-rlog1",
     "benchmark_id": "B",
     "window": 4,
     "min_pairs": 4,
@@ -13211,7 +13261,7 @@
    "description": "window 4: benchmark close of slot 3 known_at equals K",
    "producer": "relative_log_stats",
    "params": {
-    "policy_version": "ef6-rlog1",
+    "policy_version": "dv1-rlog1",
     "benchmark_id": "B",
     "window": 4,
     "min_pairs": 4,
@@ -13324,7 +13374,7 @@
    "description": "the benchmark role is not delivered",
    "producer": "relative_log_stats",
    "params": {
-    "policy_version": "ef6-rlog1",
+    "policy_version": "dv1-rlog1",
     "benchmark_id": "B",
     "window": 4,
     "min_pairs": 2,
@@ -13399,7 +13449,7 @@
    "description": "window 2, two pairs: correlation is exactly +1 in mathematics, beta the log-return slope",
    "producer": "relative_log_stats",
    "params": {
-    "policy_version": "ef6-rlog1",
+    "policy_version": "dv1-rlog1",
     "benchmark_id": "B",
     "window": 2,
     "min_pairs": 2,
@@ -13498,7 +13548,7 @@
    "description": "generic negative relation",
    "producer": "relative_log_stats",
    "params": {
-    "policy_version": "ef6-rlog1",
+    "policy_version": "dv1-rlog1",
     "benchmark_id": "B",
     "window": 4,
     "min_pairs": 4,
@@ -13621,7 +13671,7 @@
    "description": "benchmark ratios differ by about 1e-12: variance about 1e-24 is NOT zero",
    "producer": "relative_log_stats",
    "params": {
-    "policy_version": "ef6-rlog1",
+    "policy_version": "dv1-rlog1",
     "benchmark_id": "B",
     "window": 3,
     "min_pairs": 3,
@@ -13725,7 +13775,7 @@
    "description": "RL03 data with evidence_limit 3",
    "producer": "relative_log_stats",
    "params": {
-    "policy_version": "ef6-rlog1",
+    "policy_version": "dv1-rlog1",
     "benchmark_id": "B",
     "window": 4,
     "min_pairs": 4,
@@ -13820,7 +13870,7 @@
    "description": "RL03 data with adjustment split_adjusted: values equal RL03, basis echoed",
    "producer": "relative_log_stats",
    "params": {
-    "policy_version": "ef6-rlog1",
+    "policy_version": "dv1-rlog1",
     "benchmark_id": "B",
     "window": 4,
     "min_pairs": 4,
@@ -13933,7 +13983,7 @@
    "description": "RL03 data with an explicit target (slot 3) and window 3; slot 4 delivered and ignored",
    "producer": "relative_log_stats",
    "params": {
-    "policy_version": "ef6-rlog1",
+    "policy_version": "dv1-rlog1",
     "benchmark_id": "B",
     "window": 3,
     "min_pairs": 3,
@@ -14040,7 +14090,7 @@
    "description": "window 3 on five closes: the oldest slot is outside the window",
    "producer": "relative_log_stats",
    "params": {
-    "policy_version": "ef6-rlog1",
+    "policy_version": "dv1-rlog1",
     "benchmark_id": "B",
     "window": 3,
     "min_pairs": 3,
@@ -14147,7 +14197,7 @@
    "description": "prior_close profile, three core funds +1/10, +1/20, -1/100: the range output equals what the deprecated id publishes (EF4 CB01)",
    "producer": "core_spread",
    "params": {
-    "policy_version": "ef6-core1",
+    "policy_version": "dv1-core1",
     "alignment_tolerance_ns": 5,
     "max_endpoint_age_ns": 50,
     "evidence_limit": 10000,
@@ -14321,7 +14371,7 @@
    "description": "regular_open profile (M11 binding): daily-bar opens 100, closes 100, 101, 105: returns 0.00, 0.01, 0.05",
    "producer": "core_spread",
    "params": {
-    "policy_version": "ef6-core1",
+    "policy_version": "dv1-core1",
     "alignment_tolerance_ns": 5,
     "max_endpoint_age_ns": 50,
     "evidence_limit": 10000,
@@ -14532,7 +14582,7 @@
    "description": "K=4 regular_open returns 0, 0, 1/5, 1/5: the population variance is the perfect square 1/100",
    "producer": "core_spread",
    "params": {
-    "policy_version": "ef6-core1",
+    "policy_version": "dv1-core1",
     "alignment_tolerance_ns": 5,
     "max_endpoint_age_ns": 50,
     "evidence_limit": 10000,
@@ -14724,7 +14774,7 @@
    "description": "K=2 regular_open returns 0 and 1/10",
    "producer": "core_spread",
    "params": {
-    "policy_version": "ef6-core1",
+    "policy_version": "dv1-core1",
     "alignment_tolerance_ns": 5,
     "max_endpoint_age_ns": 50,
     "evidence_limit": 10000,
@@ -14860,7 +14910,7 @@
    "description": "K=2 equal returns 1/20: range and sd exactly +0.0",
    "producer": "core_spread",
    "params": {
-    "policy_version": "ef6-core1",
+    "policy_version": "dv1-core1",
     "alignment_tolerance_ns": 5,
     "max_endpoint_age_ns": 50,
     "evidence_limit": 10000,
@@ -14987,7 +15037,7 @@
    "description": "window_start profile (EF4 CB07 inputs): range equals the deprecated id's EF4 value",
    "producer": "core_spread",
    "params": {
-    "policy_version": "ef6-core1",
+    "policy_version": "dv1-core1",
     "alignment_tolerance_ns": 5,
     "max_endpoint_age_ns": 50,
     "evidence_limit": 10000,
@@ -15128,7 +15178,7 @@
    "description": "prior_close profile (EF4 CB03 inputs): two up two down by 1/10",
    "producer": "core_spread",
    "params": {
-    "policy_version": "ef6-core1",
+    "policy_version": "dv1-core1",
     "alignment_tolerance_ns": 5,
     "max_endpoint_age_ns": 50,
     "evidence_limit": 10000,
@@ -15323,7 +15373,7 @@
    "description": "B2 daily-bar open not available: the leg is unavailable, the population is partial",
    "producer": "core_spread",
    "params": {
-    "policy_version": "ef6-core1",
+    "policy_version": "dv1-core1",
     "alignment_tolerance_ns": 5,
     "max_endpoint_age_ns": 50,
     "evidence_limit": 10000,
@@ -15447,7 +15497,7 @@
    "description": "B2 start fact carries the first regular trade price, not the daily-bar open",
    "producer": "core_spread",
    "params": {
-    "policy_version": "ef6-core1",
+    "policy_version": "dv1-core1",
     "alignment_tolerance_ns": 5,
     "max_endpoint_age_ns": 50,
     "evidence_limit": 10000,
@@ -15583,7 +15633,7 @@
    "description": "B2 start fact is the daily open of the previous session",
    "producer": "core_spread",
    "params": {
-    "policy_version": "ef6-core1",
+    "policy_version": "dv1-core1",
     "alignment_tolerance_ns": 5,
     "max_endpoint_age_ns": 50,
     "evidence_limit": 10000,
@@ -15719,7 +15769,7 @@
    "description": "B2 end witness after the market cutoff",
    "producer": "core_spread",
    "params": {
-    "policy_version": "ef6-core1",
+    "policy_version": "dv1-core1",
     "alignment_tolerance_ns": 5,
     "max_endpoint_age_ns": 50,
     "evidence_limit": 10000,
@@ -15855,7 +15905,7 @@
    "description": "B2 end fact known_at after K",
    "producer": "core_spread",
    "params": {
-    "policy_version": "ef6-core1",
+    "policy_version": "dv1-core1",
     "alignment_tolerance_ns": 5,
     "max_endpoint_age_ns": 50,
     "evidence_limit": 10000,
@@ -15991,7 +16041,7 @@
    "description": "B2 start fact is a prior_close fact under the regular_open profile",
    "producer": "core_spread",
    "params": {
-    "policy_version": "ef6-core1",
+    "policy_version": "dv1-core1",
     "alignment_tolerance_ns": 5,
     "max_endpoint_age_ns": 50,
     "evidence_limit": 10000,
@@ -16127,7 +16177,7 @@
    "description": "member end witnesses 990 and 999 differ by 9 > tolerance 5",
    "producer": "core_spread",
    "params": {
-    "policy_version": "ef6-core1",
+    "policy_version": "dv1-core1",
     "alignment_tolerance_ns": 5,
     "max_endpoint_age_ns": 50,
     "evidence_limit": 10000,
@@ -16263,7 +16313,7 @@
    "description": "no leg facts delivered",
    "producer": "core_spread",
    "params": {
-    "policy_version": "ef6-core1",
+    "policy_version": "dv1-core1",
     "alignment_tolerance_ns": 5,
     "max_endpoint_age_ns": 50,
     "evidence_limit": 10000,
@@ -16328,7 +16378,7 @@
    "description": "B2 end fact known_at null",
    "producer": "core_spread",
    "params": {
-    "policy_version": "ef6-core1",
+    "policy_version": "dv1-core1",
     "alignment_tolerance_ns": 5,
     "max_endpoint_age_ns": 50,
     "evidence_limit": 10000,
@@ -16464,7 +16514,7 @@
    "description": "B2 start and end facts carry different action snapshots",
    "producer": "core_spread",
    "params": {
-    "policy_version": "ef6-core1",
+    "policy_version": "dv1-core1",
     "alignment_tolerance_ns": 5,
     "max_endpoint_age_ns": 50,
     "evidence_limit": 10000,
@@ -16600,7 +16650,7 @@
    "description": "CS02 data with evidence_limit 3",
    "producer": "core_spread",
    "params": {
-    "policy_version": "ef6-core1",
+    "policy_version": "dv1-core1",
     "alignment_tolerance_ns": 5,
     "max_endpoint_age_ns": 50,
     "evidence_limit": 3,
@@ -16749,7 +16799,7 @@
    "description": "B2 end witness older than max_endpoint_age_ns (920, age 80 > 50)",
    "producer": "core_spread",
    "params": {
-    "policy_version": "ef6-core1",
+    "policy_version": "dv1-core1",
     "alignment_tolerance_ns": 5,
     "max_endpoint_age_ns": 50,
     "evidence_limit": 10000,
@@ -16885,7 +16935,7 @@
    "description": "B2 start and end are both on session S2 while the others are on S1",
    "producer": "core_spread",
    "params": {
-    "policy_version": "ef6-core1",
+    "policy_version": "dv1-core1",
     "alignment_tolerance_ns": 5,
     "max_endpoint_age_ns": 50,
     "evidence_limit": 10000,
@@ -17013,6 +17063,163 @@
     "adjustment": "action snapshot equal on both legs of a fund",
     "history_depth_sessions": 1,
     "min_samples": 3
+   }
+  },
+  {
+   "id": "CS21",
+   "group": "operand_official_open_vs_first_trade",
+   "description": "regular_open K=2: official daily-bar opens 10020 and 20000; the first regular trades were 10000 and 19990",
+   "producer": "core_spread",
+   "params": {
+    "policy_version": "dv1-core1",
+    "alignment_tolerance_ns": 5,
+    "max_endpoint_age_ns": 50,
+    "evidence_limit": 10000,
+    "core_benchmark_ids": [
+     "B1",
+     "B2"
+    ],
+    "core_profile": "regular_open"
+   },
+   "unit": {
+    "currency": "USD",
+    "scale": 0
+   },
+   "K": 100,
+   "C": 1000,
+   "instrument": "X",
+   "facts": [
+    {
+     "inst": "B1",
+     "kind": "start",
+     "t": 900,
+     "p": 10020,
+     "ss": "S1",
+     "pf": "regular_open",
+     "act": "a1",
+     "rev": "r1",
+     "ka": 50,
+     "op": "daily_bar_open"
+    },
+    {
+     "inst": "B1",
+     "kind": "end",
+     "t": 990,
+     "p": 10100,
+     "ss": "S1",
+     "pf": null,
+     "act": "a1",
+     "rev": "r1",
+     "ka": 50
+    },
+    {
+     "inst": "B2",
+     "kind": "start",
+     "t": 900,
+     "p": 20000,
+     "ss": "S1",
+     "pf": "regular_open",
+     "act": "a1",
+     "rev": "r1",
+     "ka": 50,
+     "op": "daily_bar_open"
+    },
+    {
+     "inst": "B2",
+     "kind": "end",
+     "t": 990,
+     "p": 20400,
+     "ss": "S1",
+     "pf": null,
+     "act": "a1",
+     "rev": "r1",
+     "ka": 50
+    }
+   ],
+   "outputs": [
+    "core.benchmark_return_range_fraction",
+    "core.benchmark_return_stdev_fraction"
+   ],
+   "tags": [
+    "positive",
+    "wrong_convention",
+    "operand",
+    "p15_m11",
+    "regular_open"
+   ],
+   "hand_check": "r1 = 10100/10020 - 1 = 80/10020 = 4/501, r2 = 20400/20000 - 1 = 1/50. range = 1/50 - 4/501 = (501-200)/25050 = 301/25050; for K=2 sd = range/2 = 301/50100. Decoy first trades 10000 and 19990 give a different spread: M11 never uses the first trade",
+   "decoys": {
+    "B1": {
+     "first_trade_price": 10000,
+     "first_bar_open": 10010,
+     "prior_close": 9900
+    },
+    "B2": {
+     "first_trade_price": 19990,
+     "first_bar_open": 20000,
+     "prior_close": 20100
+    }
+   },
+   "wrong_convention": [
+    {
+     "convention": "first_trade_operand",
+     "output": "core.benchmark_return_stdev_fraction",
+     "note": "start leg = first regular trade",
+     "decimal": null,
+     "exact": "2101/399800"
+    },
+    {
+     "convention": "range_instead_of_stdev",
+     "output": "core.benchmark_return_stdev_fraction",
+     "note": "301/25050",
+     "exact": "301/25050"
+    }
+   ],
+   "expected": {
+    "core.benchmark_return_range_fraction": {
+     "status": "available",
+     "reasons": [],
+     "expected": 2,
+     "observed": 2,
+     "value": {
+      "exact": "301/25050",
+      "float64": 0.012015968063872255,
+      "hex": "0x1.89bd3eee9b36fp-7",
+      "acceptance": "correctly_rounded"
+     },
+     "witnesses": [
+      "leg:B1:start",
+      "leg:B1:end",
+      "leg:B2:start",
+      "leg:B2:end"
+     ]
+    },
+    "core.benchmark_return_stdev_fraction": {
+     "status": "available",
+     "reasons": [],
+     "expected": 2,
+     "observed": 2,
+     "value": {
+      "exact": "301/50100",
+      "float64": 0.006007984031936127,
+      "hex": "0x1.89bd3eee9b36fp-8",
+      "acceptance": "correctly_rounded"
+     },
+     "witnesses": [
+      "leg:B1:start",
+      "leg:B1:end",
+      "leg:B2:start",
+      "leg:B2:end"
+     ]
+    }
+   },
+   "inputs": {
+    "role": "legs",
+    "fields": "start leg = open of the regular-session daily bar of the exact session (operand daily_bar_open), end leg = close of the same session",
+    "grain": "one start and one end price witness per declared core fund",
+    "adjustment": "action snapshot equal on both legs of a fund",
+    "history_depth_sessions": 1,
+    "min_samples": 2
    }
   }
  ],
@@ -17714,6 +17921,95 @@
     "history_depth_sessions": 0,
     "min_samples": 1
    }
+  },
+  {
+   "id": "RO11",
+   "group": "operand_first_trade_vs_official_open",
+   "description": "first eligible trade 100.00 but the official daily-bar open is 100.20: P15 uses the first trade",
+   "producer": "session_range_over_open",
+   "params": {
+    "algorithm": "v1",
+    "evidence_limit": 10000
+   },
+   "unit": {
+    "currency": "USD",
+    "scale": 2
+   },
+   "modes": [
+    "batch"
+   ],
+   "trades": [
+    [
+     10000,
+     10
+    ],
+    [
+     10050,
+     5
+    ],
+    [
+     9990,
+     5
+    ],
+    [
+     10040,
+     5
+    ]
+   ],
+   "outputs": [
+    "session.price.range_over_open"
+   ],
+   "tags": [
+    "positive",
+    "wrong_convention",
+    "operand",
+    "p15_m11"
+   ],
+   "hand_check": "prices at scale 2. session.bar.open = first eligible regular trade 10000 (100.00); H = 10050, L = 9990: (10050-9990)/10000 = 3/500. With the official daily-bar open 10020 (100.20) the ratio would be 60/10020 = 1/167, a different figure; P15 and M11 operands are never swapped",
+   "expected": {
+    "session.price.range_over_open": {
+     "status": "available",
+     "reasons": [],
+     "expected": 1,
+     "observed": 1,
+     "value": {
+      "exact": "3/500",
+      "float64": 0.006,
+      "hex": "0x1.89374bc6a7efap-8",
+      "acceptance": "correctly_rounded"
+     },
+     "witnesses": [
+      "session:S1"
+     ]
+    }
+   },
+   "wrong_convention": [
+    {
+     "convention": "close_denominator",
+     "output": "session.price.range_over_open",
+     "note": "session.price.range_fraction (H-L)/C",
+     "exact": "3/502"
+    },
+    {
+     "convention": "daily_bar_open_operand",
+     "output": "session.price.range_over_open",
+     "note": "the official daily-bar open as denominator (the M11 operand)",
+     "exact": "1/167"
+    }
+   ],
+   "official_daily_open": 10020,
+   "operand_labels": {
+    "denominator": "first_eligible_regular_trade (session.bar.open)",
+    "rival": "daily_bar_open"
+   },
+   "inputs": {
+    "role": "session trades",
+    "fields": "eligible regular-session trade price and size in event order",
+    "grain": "trade events of one regular session",
+    "adjustment": "none (ratio of prices of one session)",
+    "history_depth_sessions": 0,
+    "min_samples": 1
+   }
   }
  ],
  "refusal_fixtures": [
@@ -18115,12 +18411,12 @@
    "error_code": "INCOMPATIBLE_VERSION",
    "raised_by": "producer",
    "stage": "version",
-   "description": "policy label ef6-atrs2",
+   "description": "policy label dv1-atrs2",
    "base": "AT01",
    "mutation": [
     {
      "set": "fixture.params.policy_version",
-     "value": "ef6-atrs2"
+     "value": "dv1-atrs2"
     }
    ]
   },
@@ -18143,11 +18439,11 @@
    "error_code": "INVALID_CONFIG",
    "raised_by": "ConfigSpec",
    "stage": "config",
-   "description": "basis missing: no default",
+   "description": "extreme_basis missing: no default",
    "base": "WX01",
    "mutation": [
     {
-     "delete": "fixture.params.basis"
+     "delete": "fixture.params.extreme_basis"
     }
    ]
   },
@@ -18156,11 +18452,11 @@
    "error_code": "INVALID_CONFIG",
    "raised_by": "ConfigSpec",
    "stage": "config",
-   "description": "basis open",
+   "description": "extreme_basis open",
    "base": "WX01",
    "mutation": [
     {
-     "set": "fixture.params.basis",
+     "set": "fixture.params.extreme_basis",
      "value": "open"
     }
    ]
@@ -18170,12 +18466,12 @@
    "error_code": "INVALID_CONFIG",
    "raised_by": "ConfigSpec",
    "stage": "config",
-   "description": "basis low (the low outputs follow the high basis, not a basis of their own)",
+   "description": "extreme_basis high (the retired spelling; the vocabulary is intraday|close)",
    "base": "WX01",
    "mutation": [
     {
-     "set": "fixture.params.basis",
-     "value": "low"
+     "set": "fixture.params.extreme_basis",
+     "value": "high"
     }
    ]
   },
@@ -18225,12 +18521,12 @@
    "error_code": "INCOMPATIBLE_VERSION",
    "raised_by": "producer",
    "stage": "version",
-   "description": "policy label of another EF6 producer",
+   "description": "policy label of another DV1 producer",
    "base": "WX01",
    "mutation": [
     {
      "set": "fixture.params.policy_version",
-     "value": "ef6-atrs1"
+     "value": "dv1-atrs1"
     }
    ]
   },
@@ -18590,7 +18886,7 @@
    "error_code": "UNKNOWN_FEATURE",
    "raised_by": "ConfigSpec",
    "stage": "config",
-   "description": "the deprecated range id is not selectable from the EF6 producer",
+   "description": "the deprecated range id is not selectable from the DV1 producer",
    "base": "CS02",
    "mutation": [
     {
@@ -18804,21 +19100,49 @@
      ]
     }
    ]
+  },
+  {
+   "id": "RF71",
+   "error_code": "INVALID_UNIT",
+   "raised_by": "ConfigSpec",
+   "stage": "config",
+   "description": "unit sessions offered where a price unit is required",
+   "base": "WX01",
+   "mutation": [
+    {
+     "set": "fixture.unit.currency",
+     "value": "sessions"
+    }
+   ]
+  },
+  {
+   "id": "RF72",
+   "error_code": "INVALID_UNIT",
+   "raised_by": "ConfigSpec",
+   "stage": "config",
+   "description": "a price unit offered where sessions is required for the offset outputs",
+   "base": "WX01",
+   "mutation": [
+    {
+     "set": "fixture.offset_unit",
+     "value": "USD"
+    }
+   ]
   }
  ],
  "fixture_counts": {
   "atr_result": 20,
   "window_result": 25,
   "relative_log_result": 23,
-  "core_spread_result": 20,
-  "range_over_open_result": 10,
-  "refusal": 70
+  "core_spread_result": 21,
+  "range_over_open_result": 11,
+  "refusal": 72
  },
  "shared_rules_and_terms": {
   "terms": {
    "READY": "a slot with a complete, known, coherent value for the fields the output reads",
    "K": "knowledge cutoff (100 in fixtures); a datum is known iff its original known_at is non-null and <= K; == K is known",
-   "EF6": "the definition-variants contract of the 2026-10-29 PO rulings; NOT the EF6 release (EQ-173) of docs/EQUITY_DELIVERY_REPLAN.md"
+   "DV1": "definition variants 1: the program of the 2026-10-29 PO rulings (renamed from EF6 by the PO to avoid the EF6 release, EQ-173, of docs/EQUITY_DELIVERY_REPLAN.md, which is unchanged)"
   }
  }
 }

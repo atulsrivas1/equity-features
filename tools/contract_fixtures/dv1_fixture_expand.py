@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-"""Independent recompute harness for the EF6 definition-variants contract proposal (stdlib only).
+"""Independent recompute harness for the DV1 definition-variants contract proposal (stdlib only).
 
-Reads docs/ef6/DEFINITION_VARIANTS_CONTRACT_PROPOSAL.json. For EVERY result fixture (ATR, window extremes, log
+Reads docs/dv1/DEFINITION_VARIANTS_CONTRACT_PROPOSAL.json. For EVERY result fixture (ATR, window extremes, log
 relative statistics, core spread, range over open) it re-derives status, reasons, expected/observed counts, the value
 (exact rational, 250-digit logarithm/root value, or int), float64 and float.hex, the acceptance class and the
 witnesses from the fixture inputs and the contract text. It also recomputes every wrong-convention rival value, the
@@ -13,7 +13,7 @@ base fixture and the admission model must report exactly one fault, equal to the
 Nothing here is taken from any library: there is none. Logarithms use an own atanh series on big integers, roots use
 integer square roots, and the formulation (state tables, deviation form of the variance, reversed scans for ties)
 differs on purpose from the scratch builder that wrote the JSON; it shares no code with it.
-Usage: python ef6_fixture_expand.py [PATH_TO_CONTRACT_JSON]
+Usage: python dv1_fixture_expand.py [PATH_TO_CONTRACT_JSON]
 """
 import copy
 import json
@@ -25,7 +25,7 @@ from decimal import Decimal
 from fractions import Fraction
 
 REPO_ROOT = os.path.normpath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", ".."))
-DEFAULT = os.path.join(os.environ.get("EF6_DOCS_DIR") or os.path.join(REPO_ROOT, "docs", "ef6"),
+DEFAULT = os.path.join(os.environ.get("DV1_DOCS_DIR") or os.path.join(REPO_ROOT, "docs", "dv1"),
                        "DEFINITION_VARIANTS_CONTRACT_PROPOSAL.json")
 EF4 = os.path.join(REPO_ROOT, "docs", "ef4", "PATH_PROJECTIONS_CONTRACT_PROPOSAL.json")
 KCUT = 100
@@ -45,7 +45,7 @@ OUTPUTS = {
     "core_spread": ["core.benchmark_return_range_fraction", "core.benchmark_return_stdev_fraction"],
     "session_range_over_open": ["session.price.range_over_open"],
 }
-POLICY = {"atr_simple_mean": "ef6-atrs1", "window_extreme": "ef6-wext1", "relative_log_stats": "ef6-rlog1", "core_spread": "ef6-core1"}
+POLICY = {"atr_simple_mean": "dv1-atrs1", "window_extreme": "dv1-wext1", "relative_log_stats": "dv1-rlog1", "core_spread": "dv1-core1"}
 
 
 def fail(where, msg):
@@ -224,7 +224,7 @@ def eval_wx(fx):
     slots = rows_of(fx)
     t = target_index(fx, len(slots))
     p = fx["params"]["period"]
-    close = fx["params"]["basis"] == "close"
+    close = fx["params"]["extreme_basis"] == "close"
     lim = fx["params"]["evidence_limit"]
     out = {}
     for name in OUTPUTS["window_extreme"]:
@@ -533,12 +533,12 @@ def rival_check(doc):
         for w in fx.get("wrong_convention", []):
             c, out = w["convention"], w["output"]
             high = "high" in out
-            basis = fx["params"]["basis"]
+            basis = fx["params"]["extreme_basis"]
             pp = p
             if c == "close_basis":
                 basis = "close"
-            elif c == "high_basis":
-                basis = "high"
+            elif c == "intraday_basis":
+                basis = "intraday"
             elif c == "period_plus_one":
                 pp = p + 1
             elif c == "period_252":
@@ -562,8 +562,8 @@ def rival_check(doc):
             count += 1
         if "cross_check" in fx:
             pp = fx["cross_check"]["prior_period"]
-            if fx["params"]["basis"] != "high" or pp != p - 1:
-                fail(fx["id"], "cross_check needs high basis and prior_period = period - 1")
+            if fx["params"]["extreme_basis"] != "intraday" or pp != p - 1:
+                fail(fx["id"], "cross_check needs the intraday basis and prior_period = period - 1")
             prior_high = max(rows[i][0] for i in range(t - pp, t))
             prior_low = min(rows[i][1] for i in range(t - pp, t))
             if max(prior_high, rows[t][0]) * 1 != got["history.window_high"]["value"]["_q"] * sc:
@@ -632,7 +632,8 @@ def rival_check(doc):
     for fx in doc["range_over_open_fixtures"]:
         for w in fx.get("wrong_convention", []):
             live = [p for p, s in fx["trades"] if s > 0]
-            v = Fraction(max(live) - min(live), live[-1])
+            den = fx["official_daily_open"] if w["convention"] == "daily_bar_open_operand" else live[-1]
+            v = Fraction(max(live) - min(live), den)
             if w["exact"] != "%d/%d" % (v.numerator, v.denominator):
                 fail(fx["id"], "close-denominator rival differs")
             if v == eval_ro(fx)["session.price.range_over_open"]["value"]["_q"] and v != 0:
@@ -676,6 +677,8 @@ def faults(fx):
         add("config", "INVALID_CONFIG")
     elif any(o not in OUTPUTS[prod] for o in fx["outputs"]):
         add("config", "UNKNOWN_FEATURE")
+    if prod == "window_extreme" and fx.get("offset_unit", "sessions") != "sessions":
+        add("config", "INVALID_UNIT")
     if fx.get("capability", "batch") != "batch":
         add("config", "UNSUPPORTED_CAPABILITY")
 
@@ -699,7 +702,7 @@ def faults(fx):
             need_int("period", 1, 4096)
         if prod == "window_extreme":
             need_int("period", 1, 4096)
-            if pr.get("basis") not in ("high", "close"):
+            if pr.get("extreme_basis") not in ("intraday", "close"):
                 add("config", "INVALID_CONFIG")
         if prod == "relative_log_stats":
             w = need_int("window", 2, 4096)

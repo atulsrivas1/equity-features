@@ -2,9 +2,10 @@
 
 Additive, backward-compatible: `compute_momentum` takes a keyword-only `preparation: IntradayPreparation | None = None` (default `None`; behaviour unchanged when absent), reusing the admitted facts of an in-process `prepare_intraday` product. The share is accepted only when the batches (identity), context digest, availability, price unit, adjustment and session all equal the request's (never the config digest); otherwise it is refused with `inconsistent_identity`. Results are byte-identical with and without the argument when the preparation was built from the exact same batches (`batches=None` or `()` with a preparation is refused, while unshared it returns a normal result); a price-unit mismatch gives `invalid_unit` unshared but `inconsistent_identity` shared; not serialisable, not accepted from outside the process, no cache or state in the library. Internal, synthetic, pre-release; no speedup is claimed. No version bump in this change. Gate: `tools/verify_shared_preparation.py`. Version not bumped; catalog digest unchanged.
 
-## EF6 definition-variants contract (draft) - October 29, 2026
 
-Docs, fixtures and a gate only (internal, synthetic, pre-release; no library, io or worker code; contract status draft, not frozen). New `docs/ef6/DEFINITION_VARIANTS_CONTRACT_PROPOSAL.md/.json` (`ef6-definition-variants-1`, ten additive output ids, input and output contract for each), `docs/ef6/EF6_SHARED_AMENDMENT.*`, the independent recompute helper `tools/contract_fixtures/ef6_fixture_expand.py` and the gate `tools/verify_ef6_fixtures.py`. EF4 errata gains the deprecation entry for `core.benchmark_return_dispersion_fraction` (description only; the id is unchanged). No frozen EF1-EF5 file is edited.
+## DV1 definition-variants contract (draft) - October 29, 2026
+
+Docs, fixtures and a gate only (internal, synthetic, pre-release; no library, io or worker code; contract status draft, not frozen). New `docs/dv1/DEFINITION_VARIANTS_CONTRACT_PROPOSAL.md/.json` (`dv1-definition-variants-1`, ten additive output ids, input and output contract for each), `docs/dv1/DV1_SHARED_AMENDMENT.*`, the independent recompute helper `tools/contract_fixtures/dv1_fixture_expand.py` and the gate `tools/verify_dv1_fixtures.py`. EF4 errata gains the deprecation entry for `core.benchmark_return_dispersion_fraction` (description only; the id is unchanged). No frozen EF1-EF5 file is edited.
 
 ## Coordinated pre-release bump for the EF5 layers - October 28, 2026
 

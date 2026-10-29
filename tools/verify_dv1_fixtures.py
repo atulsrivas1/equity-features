@@ -1,7 +1,7 @@
-"""Gate for the EF6 definition-variants contract fixtures (log beta/correlation, simple-mean ATR, core spread,
+"""Gate for the DV1 definition-variants contract fixtures (log beta/correlation, simple-mean ATR, core spread,
 range over open, window extremes). Status of the contract: draft, not frozen.
 
-Runs the independent stdlib expander `tools/contract_fixtures/ef6_fixture_expand.py` as a subprocess, requires exit
+Runs the independent stdlib expander `tools/contract_fixtures/dv1_fixture_expand.py` as a subprocess, requires exit
 status 0 and its success line, and requires the fixture and refusal counts it reports to equal both the counts pinned
 in this file and the counts declared in the contract JSON (`fixture_counts`). It then requires every header to carry
 an input contract and an output contract, an E9 slash-style unit, every output id to have a positive, an unavailable
@@ -9,7 +9,7 @@ and a wrong-convention fixture (signed outputs also a negative one), the wrong-c
 name (simple vs log, Wilder vs simple mean, close vs open range, range vs stdev, window length 253/252, high vs close
 basis, tie rule, regular_open operand), the fail-closed drivers, the known_at semantics, the EF4 equality fixtures for
 the deprecated range id, and the posture wording (draft, internal, synthetic, pre-release; no performance claim).
-Run from a source checkout: `python tools/verify_ef6_fixtures.py`; exit status 0 only if everything holds.
+Run from a source checkout: `python tools/verify_dv1_fixtures.py`; exit status 0 only if everything holds.
 """
 from __future__ import annotations
 
@@ -23,22 +23,22 @@ from types import ModuleType
 from typing import Any
 
 ROOT = Path(__file__).resolve().parents[1]
-CONTRACT = ROOT / "docs" / "ef6" / "DEFINITION_VARIANTS_CONTRACT_PROPOSAL.json"
-CONTRACT_MD = ROOT / "docs" / "ef6" / "DEFINITION_VARIANTS_CONTRACT_PROPOSAL.md"
-HELPER = ROOT / "tools" / "contract_fixtures" / "ef6_fixture_expand.py"
+CONTRACT = ROOT / "docs" / "dv1" / "DEFINITION_VARIANTS_CONTRACT_PROPOSAL.json"
+CONTRACT_MD = ROOT / "docs" / "dv1" / "DEFINITION_VARIANTS_CONTRACT_PROPOSAL.md"
+HELPER = ROOT / "tools" / "contract_fixtures" / "dv1_fixture_expand.py"
 # Pinned counts: a change to a fixture list must change these numbers in the same PR.
-PINNED = {"atr_result": 20, "window_result": 25, "relative_log_result": 23, "core_spread_result": 20,
-          "range_over_open_result": 10, "refusal": 70}
+PINNED = {"atr_result": 20, "window_result": 25, "relative_log_result": 23, "core_spread_result": 21,
+          "range_over_open_result": 11, "refusal": 72}
 PINNED_HEADERS = 10
 PINNED_REFUSAL_CODES = 12
-PINNED_RIVAL_CHECKS = 62
+PINNED_RIVAL_CHECKS = 66
 LISTS = ("atr_fixtures", "window_fixtures", "relative_log_fixtures", "core_spread_fixtures", "range_over_open_fixtures")
 UNIT = re.compile(r"^(currency/share|fraction|sessions)$")
 SIGNED = {"relative.log_return_beta", "relative.log_return_correlation"}
 REQUIRED_CONVENTIONS = {"simple_return_beta", "simple_return_correlation", "wilder_atr", "prior_only_mean", "hl_range_only_mean",
                         "close_denominator", "range_instead_of_stdev", "stdev_instead_of_range", "first_trade_operand",
-                        "first_bar_open_operand", "prior_close_basis", "period_252", "period_253", "close_basis", "high_basis",
-                        "earliest_wins"}
+                        "first_bar_open_operand", "prior_close_basis", "period_252", "period_253", "close_basis", "intraday_basis",
+                        "earliest_wins", "daily_bar_open_operand"}
 BANNED = re.compile(r"\b(faster|speed-?up|speedup|throughput|latency gain|performance gain)\b", re.I)
 
 
@@ -48,7 +48,7 @@ def expect(problems: list[str], label: str, got: Any, want: Any) -> None:
 
 
 def load() -> ModuleType:
-    spec = importlib.util.spec_from_file_location("ef6_fixture_expand", HELPER)
+    spec = importlib.util.spec_from_file_location("dv1_fixture_expand", HELPER)
     assert spec and spec.loader
     module = importlib.util.module_from_spec(spec)
     sys.modules[spec.name] = module
@@ -141,7 +141,7 @@ def check_coverage(problems: list[str], doc: dict[str, Any]) -> None:
                 problems.append(f"{fx['id']} {name}: unavailable needs a reason and no witnesses")
             v = res["value"]
             if v and "acceptance" in v and v["acceptance"] == "tolerance":
-                problems.append(f"{fx['id']} {name}: tolerance acceptance is not allowed in EF6")
+                problems.append(f"{fx['id']} {name}: tolerance acceptance is not allowed in DV1")
 
 
 def check_fail_closed(problems: list[str], doc: dict[str, Any]) -> None:
@@ -185,7 +185,7 @@ def main() -> int:
     check_deprecation(problems, doc)
     for line in problems:
         print("MISMATCH", line)
-    print("EF6 fixtures (log beta/correlation, simple-mean ATR, core spread, range over open, window extremes): "
+    print("DV1 fixtures (log beta/correlation, simple-mean ATR, core spread, range over open, window extremes): "
           + ("expander matched, counts pinned, input/output contracts and wrong-convention coverage hold" if not problems
              else f"{len(problems)} problem(s)"))
     return 1 if problems else 0

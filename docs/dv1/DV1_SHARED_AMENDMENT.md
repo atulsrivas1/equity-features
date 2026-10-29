@@ -1,4 +1,4 @@
-# EF6 shared amendment (proposal): header ledger and unit additions
+# DV1 shared amendment (proposal): header ledger and unit additions
 
 Status: draft proposal, additive, docs only; not frozen. Internal, synthetic, pre-release.
 
@@ -29,11 +29,11 @@ The 10 headers of [DEFINITION_VARIANTS_CONTRACT_PROPOSAL.json](DEFINITION_VARIAN
 
 ## Deprecated id (no ledger change)
 
-`core.benchmark_return_dispersion_fraction` stays in the EF4 ledger unchanged. It publishes the range of core returns; the deprecation is a description-only change (EF6-3) recorded in [EF4_ERRATA.md](../ef4/EF4_ERRATA.md), with removal at the scheduled EF4 next-contract-version migration.
+`core.benchmark_return_dispersion_fraction` stays in the EF4 ledger unchanged. It publishes the range of core returns; the deprecation is a description-only change (DV1-3) recorded in [EF4_ERRATA.md](../ef4/EF4_ERRATA.md), with removal at the scheduled EF4 next-contract-version migration.
 
 ## Ownership manifest
 
-`docs/plans/equity-output-ownership.json` gains `ef6_delivered_outputs` (10 proposed entries, not accepted, not implemented). `tools/check_equity_delivery_replan.py` enforces header/manifest parity and unit equality. The 47-output planned count is unchanged.
+`docs/plans/equity-output-ownership.json` gains `dv1_delivered_outputs` (10 proposed entries, not accepted, not implemented). `tools/check_equity_delivery_replan.py` enforces header/manifest parity and unit equality. The 47-output planned count is unchanged.
 
 ## Hash impact
 

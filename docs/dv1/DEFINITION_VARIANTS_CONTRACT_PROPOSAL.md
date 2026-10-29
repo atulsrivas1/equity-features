@@ -1,6 +1,6 @@
-# EF6 definition variants - library contract proposal `ef6-definition-variants-1`
+# DV1 definition variants - library contract proposal `dv1-definition-variants-1`
 
-Status: **draft, not frozen.** Contract and fixtures only (EF6-0). No library, I/O or worker code. Internal, synthetic, pre-release; nothing here claims real-data readiness, product availability or a performance property, and no conflict is called fixed or covered until its wrong-convention fixtures pass in the library story. Additive: no frozen EF1-EF5 file is edited; the only edit outside `docs/ef6` text is an errata entry in [EF4_ERRATA.md](../ef4/EF4_ERRATA.md) (PO ruling 4). "EF6" here is the definition-variants program of the 2026-10-29 PO rulings, not the EF6 release (EQ-173) of [EQUITY_DELIVERY_REPLAN.md](../EQUITY_DELIVERY_REPLAN.md).
+Status: **draft, not frozen.** Contract and fixtures only (DV1-0). No library, I/O or worker code. Internal, synthetic, pre-release; nothing here claims real-data readiness, product availability or a performance property, and no conflict is called fixed or covered until its wrong-convention fixtures pass in the library story. Additive: no frozen EF1-EF5 file is edited; the only edit outside `docs/dv1` text is an errata entry in [EF4_ERRATA.md](../ef4/EF4_ERRATA.md) (PO ruling 4). "DV1" here is the definition-variants program of the 2026-10-29 PO rulings, not the EF6 release (EQ-173) of [EQUITY_DELIVERY_REPLAN.md](../EQUITY_DELIVERY_REPLAN.md).
 
 ## Authority and inputs
 
@@ -26,25 +26,27 @@ The WatchYourList design states definitions that differ from shipped ids. Librar
 | C2 | Q1 | The 20-day average of V12a is the close SMA over 20 sessions including the target (history.sma 20); consumer arithmetic on stored ids. | AT05 |
 | C3 | Q1 | Missing-data rule strict: no skipping, no zero fill; unavailable with the reason; no inclusion parameter. | AT08, AT09, AT10, AT11, AT12, AT13, AT14 |
 | C4 | Q2 | regular_open operand is the open of the regular-session daily bar of the exact session; end leg the same-session close; sources lacking an exact-session daily open make the leg unavailable. | CS02, CS08, CS09, CS10, CS13 |
-| C5 | Q3 | Window extremes: period includes the current session, basis (high|close) explicit, no default, offset 0 = target, the latest session wins ties; 253 vs 252 is the design owner's call. | WX01, WX06, WX07, WX09, WX10, WX11, WX12 |
-| C6 | Q3 | P25 and V12b stay on history.prior_high/low (prior-only, target excluded); equivalence max(prior, current) on the high basis is pinned by cross-check fixtures. | WX01, WX03, WX09, WX10, WX13, WX14 |
+| C5 | Q3 | Window extremes: period includes the current session, extreme_basis (intraday|close) explicit, no default, offset 0 = target, the latest session wins ties; 253 vs 252 is the design owner's single number, carried by the closeout binding table; the contract holds no second default. | WX01, WX06, WX07, WX09, WX10, WX11, WX12 |
+| C6 | Q3 | P25 and V12b stay on history.prior_high/low (prior-only, target excluded); equivalence max(prior, current) on the intraday basis is pinned by cross-check fixtures. | WX01, WX03, WX09, WX10, WX13, WX14 |
 | C7 | Q4 | core.benchmark_return_dispersion_fraction is DEPRECATED by description only (it publishes the range of core returns); two new ids; removal at the scheduled EF4 next-contract-version migration; EF4 errata entry. | CS01, CS06, CS07 |
 | C8 | Q5 | session.price.range_over_open is a built-in R1 catalog entry (algorithm v1), (H-L)/O in all modes; range_fraction unchanged; non-positive open rejected at admission. | RO01, RO06 |
-| C9 | EF6-1 | Log beta/correlation: Decimal120 logarithm of the exact ratio, one float64, hex pinned bit for bit; zero variance by exact ratio equality; n pairs in QualityRow. | RL01, RL05, RL06, RL19 |
-| C10 | EF6-3 | Population standard deviation (divisor K) over the declared funds; withheld if any fund is missing. | CS02, CS03, CS08 |
+| C9 | DV1-1 | Log beta/correlation: Decimal120 logarithm of the exact ratio, one float64, hex pinned bit for bit; zero variance by exact ratio equality; n pairs in QualityRow. | RL01, RL05, RL06, RL19 |
+| C10 | DV1-3 | Population standard deviation (divisor K) over the declared funds; withheld if any fund is missing. | CS02, CS03, CS08 |
+| C12 | PO Q-1 | Two operands, never swapped: session.price.range_over_open (P15, intraday-capable) divides by session.bar.open = operand label first_eligible_regular_trade (first eligible regular-session trade price); core regular_open (M10/M11, end of day) uses operand label daily_bar_open (official daily-bar open of the exact session). They can differ (first trade 100.00, official open 100.20); P15 and M11 figures are never compared or substituted. | RO11, CS21, CS02 |
+| C13 | PO Q-3 | Unit `sessions` (int64): a non-negative integer count of sessions before the target (0 = the target); not scaled, never a float, never negative; an offset output is unavailable whenever its extreme value is; INVALID_UNIT covers `sessions` offered where a price unit is required and a price unit offered where `sessions` is required. Additive vocabulary in the DV1 contract only; the E9 slash-style units and the EF5 contract are not edited. | WX01, WX15 |
 | C11 | acceptance | Numeric near-tie rule and 'value within 1e-100 of zero published as computed' written in numeric_policy. | RL03, RL19 |
 
 ## Producers and config identity
 
 | Producer | Config identity | Policy label | Parameters (all required, no defaults) | Outputs |
 |---|---|---|---|---|
-| relative_log_stats | `ef6.relative_log_stats` | `ef6-rlog1` | policy_version; benchmark_id; window W (2..4096); min_pairs (2..W); evidence_limit (0..10000); adjustment label + adjustment_spec | `relative.log_return_beta`, `relative.log_return_correlation` |
-| atr_simple_mean | `ef6.atr_simple_mean` | `ef6-atrs1` | policy_version; period N (1..4096); evidence_limit; adjustment label + adjustment_spec | `history.atr_simple_mean` |
-| core_spread | `ef6.core_spread` | `ef6-core1` | policy_version; core_benchmark_ids (2..16 distinct); core_profile (prior_close|window_start|regular_open); alignment_tolerance_ns; max_endpoint_age_ns; window_ns (exactly when window_start); evidence_limit | `core.benchmark_return_range_fraction`, `core.benchmark_return_stdev_fraction` |
-| session_range_over_open | `built-in R1 catalog entry (no EF6 producer)` | `none (built-in algorithm v1)` | evidence_limit | `session.price.range_over_open` |
-| window_extreme | `ef6.window_extreme` | `ef6-wext1` | policy_version; period P (1..4096, sessions INCLUDING the current one); basis (high|close, no default); evidence_limit; adjustment label + adjustment_spec | `history.window_high`, `history.window_low`, `history.window_high_offset`, `history.window_low_offset` |
+| relative_log_stats | `dv1.relative_log_stats` | `dv1-rlog1` | policy_version; benchmark_id; window W (2..4096); min_pairs (2..W); evidence_limit (0..10000); adjustment label + adjustment_spec | `relative.log_return_beta`, `relative.log_return_correlation` |
+| atr_simple_mean | `dv1.atr_simple_mean` | `dv1-atrs1` | policy_version; period N (1..4096); evidence_limit; adjustment label + adjustment_spec | `history.atr_simple_mean` |
+| core_spread | `dv1.core_spread` | `dv1-core1` | policy_version; core_benchmark_ids (2..16 distinct); core_profile (prior_close|window_start|regular_open); alignment_tolerance_ns; max_endpoint_age_ns; window_ns (exactly when window_start); evidence_limit | `core.benchmark_return_range_fraction`, `core.benchmark_return_stdev_fraction` |
+| session_range_over_open | `built-in R1 catalog entry (no DV1 producer)` | `none (built-in algorithm v1)` | evidence_limit | `session.price.range_over_open` |
+| window_extreme | `dv1.window_extreme` | `dv1-wext1` | policy_version; period P (1..4096, sessions INCLUDING the current one); extreme_basis (intraday|close, no default); evidence_limit; adjustment label + adjustment_spec | `history.window_high`, `history.window_low`, `history.window_high_offset`, `history.window_low_offset` |
 
-Algorithm versions `ef6-relative-log-stats-v1`, `ef6-atr-simple-mean-v1`, `ef6-core-spread-v1`, `ef6-window-extreme-v1`; built-in `session.price.range_over_open` algorithm `v1`. Hosting proposal: `equity_features.ef6`, namespace `ef6.*`; default registry, EF3/EF4 contracts and EF5 stay byte-identical; the built-in is the one R1 catalog change (EF6-4, coordinated bump). No package version bump by this PR.
+Algorithm versions `dv1-relative-log-stats-v1`, `dv1-atr-simple-mean-v1`, `dv1-core-spread-v1`, `dv1-window-extreme-v1`; built-in `session.price.range_over_open` algorithm `v1`. Hosting proposal: `equity_features.dv1`, namespace `dv1.*`; default registry, EF3/EF4 contracts and EF5 stay byte-identical; the built-in is the one R1 catalog change (DV1-4, coordinated bump). No package version bump by this PR.
 
 ## Input contract and output contract of every output id
 
@@ -54,7 +56,7 @@ Adapter boundary: an adapter reads, converts to the canonical integer coefficien
 
 ### `core.benchmark_return_range_fraction`
 
-float64, unit `fraction`, producer `core_spread`, available when: all K declared core funds eligible under the profile. Ownership: EF6-3 (range of core returns; replaces the misleading deprecated name).
+float64, unit `fraction`, producer `core_spread`, available when: all K declared core funds eligible under the profile. Ownership: DV1-3 (range of core returns; replaces the misleading deprecated name).
 
 | INPUT contract (adapter side) | |
 |---|---|
@@ -77,7 +79,7 @@ float64, unit `fraction`, producer `core_spread`, available when: all K declared
 
 ### `core.benchmark_return_stdev_fraction`
 
-float64, unit `fraction`, producer `core_spread`, available when: all K declared core funds eligible under the profile. Ownership: EF6-3 (M11 binding).
+float64, unit `fraction`, producer `core_spread`, available when: all K declared core funds eligible under the profile. Ownership: DV1-3 (M11 binding).
 
 | INPUT contract (adapter side) | |
 |---|---|
@@ -100,7 +102,7 @@ float64, unit `fraction`, producer `core_spread`, available when: all K declared
 
 ### `history.atr_simple_mean`
 
-float64, unit `currency/share`, producer `atr_simple_mean`, available when: closure of N+1 sessions READY (oldest: close; middle: high, low, close; target: high, low). Ownership: EF6-2 (V12a binding).
+float64, unit `currency/share`, producer `atr_simple_mean`, available when: closure of N+1 sessions READY (oldest: close; middle: high, low, close; target: high, low). Ownership: DV1-2 (V12a binding).
 
 | INPUT contract (adapter side) | |
 |---|---|
@@ -123,11 +125,11 @@ float64, unit `currency/share`, producer `atr_simple_mean`, available when: clos
 
 ### `history.window_high`
 
-float64, unit `currency/share`, producer `window_extreme`, available when: period P sessions READY for the basis field. Ownership: EF6-6 (P36/P37 window high).
+float64, unit `currency/share`, producer `window_extreme`, available when: period P sessions READY for the basis field. Ownership: DV1-6 (P36/P37 window high).
 
 | INPUT contract (adapter side) | |
 |---|---|
-| fields | high (high basis) or close (close basis) |
+| fields | high (intraday basis) or close (close basis) |
 | grain | daily session bar |
 | adjustment | one declared basis for the whole series, unadjusted or split_adjusted, with adjustment_spec {policy_version} (and action_snapshot plus anchor for split_adjusted); the adapter converts nothing and mixes no bases |
 | session | regular session |
@@ -146,7 +148,7 @@ float64, unit `currency/share`, producer `window_extreme`, available when: perio
 
 ### `history.window_high_offset`
 
-int64, unit `sessions`, producer `window_extreme`, available when: as history.window_high. Ownership: EF6-6 (extreme date).
+int64, unit `sessions`, producer `window_extreme`, available when: as history.window_high. Ownership: DV1-6 (extreme date).
 
 | INPUT contract (adapter side) | |
 |---|---|
@@ -169,11 +171,11 @@ int64, unit `sessions`, producer `window_extreme`, available when: as history.wi
 
 ### `history.window_low`
 
-float64, unit `currency/share`, producer `window_extreme`, available when: period P sessions READY for the basis field. Ownership: EF6-6 (P37 window low).
+float64, unit `currency/share`, producer `window_extreme`, available when: period P sessions READY for the basis field. Ownership: DV1-6 (P37 window low).
 
 | INPUT contract (adapter side) | |
 |---|---|
-| fields | low (high basis) or close (close basis) |
+| fields | low (intraday basis) or close (close basis) |
 | grain | daily session bar |
 | adjustment | one declared basis for the whole series, unadjusted or split_adjusted, with adjustment_spec {policy_version} (and action_snapshot plus anchor for split_adjusted); the adapter converts nothing and mixes no bases |
 | session | regular session |
@@ -192,7 +194,7 @@ float64, unit `currency/share`, producer `window_extreme`, available when: perio
 
 ### `history.window_low_offset`
 
-int64, unit `sessions`, producer `window_extreme`, available when: as history.window_low. Ownership: EF6-6 (extreme date).
+int64, unit `sessions`, producer `window_extreme`, available when: as history.window_low. Ownership: DV1-6 (extreme date).
 
 | INPUT contract (adapter side) | |
 |---|---|
@@ -215,7 +217,7 @@ int64, unit `sessions`, producer `window_extreme`, available when: as history.wi
 
 ### `relative.log_return_beta`
 
-float64, unit `fraction`, producer `relative_log_stats`, available when: n >= min_pairs valid pairs and benchmark log-return variance > 0 (exact ratio test). Ownership: EF6-1 (P40-P42 binding).
+float64, unit `fraction`, producer `relative_log_stats`, available when: n >= min_pairs valid pairs and benchmark log-return variance > 0 (exact ratio test). Ownership: DV1-1 (P40-P42 binding).
 
 | INPUT contract (adapter side) | |
 |---|---|
@@ -238,7 +240,7 @@ float64, unit `fraction`, producer `relative_log_stats`, available when: n >= mi
 
 ### `relative.log_return_correlation`
 
-float64, unit `fraction`, producer `relative_log_stats`, available when: n >= min_pairs valid pairs and both log-return variances > 0 (exact ratio tests). Ownership: EF6-1 (P40-P42 binding).
+float64, unit `fraction`, producer `relative_log_stats`, available when: n >= min_pairs valid pairs and both log-return variances > 0 (exact ratio tests). Ownership: DV1-1 (P40-P42 binding).
 
 | INPUT contract (adapter side) | |
 |---|---|
@@ -261,11 +263,11 @@ float64, unit `fraction`, producer `relative_log_stats`, available when: n >= mi
 
 ### `session.price.range_over_open`
 
-float64, unit `fraction`, producer `session_range_over_open`, available when: the session has an eligible first trade (open), high and low. Ownership: EF6-4 (P15 binding; built-in R1 catalog entry).
+float64, unit `fraction`, producer `session_range_over_open`, available when: the session has an eligible first trade (open), high and low. Ownership: DV1-4 (P15 binding; built-in R1 catalog entry).
 
 | INPUT contract (adapter side) | |
 |---|---|
-| fields | eligible regular-session trade price and size in event order (the open is session.bar.open, the first eligible trade) |
+| fields | eligible regular-session trade price and size in event order; the open is session.bar.open, operand label first_eligible_regular_trade (the first eligible regular-session trade price), which can differ from the official daily-bar open (operand label daily_bar_open, used only by core regular_open) and is never replaced by it |
 | grain | trade events of one regular session |
 | adjustment | none: a ratio of prices of one session |
 | session | one regular session |
@@ -298,7 +300,7 @@ float64, unit `fraction`, producer `session_range_over_open`, available when: th
 
 - **true range**: TR_i = max(H_i - L_i, |H_i - C_(i-1)|, |L_i - C_(i-1)|)
 - **window**: TARGET-INCLUSIVE: the N most recent completed sessions ending at the target session (N true ranges, N + 1 closes needed); value = (sum of TR over those N) / N, exact rational, one float64
-- **average 20**: the '20-day average' in the V12a condition is the close SMA over 20 sessions INCLUDING the target (history.sma period 20); consumer arithmetic, not an EF6 output
+- **average 20**: the '20-day average' in the V12a condition is the close SMA over 20 sessions INCLUDING the target (history.sma period 20); consumer arithmetic, not an DV1 output
 - **missing**: strict: any closure slot not READY gives unavailable with its reason; no skipping, no zero fill; the 12 percent fallback is a consumer rule on status != available
 - **no parameter**: no inclusion parameter and no initialization_anchor; history.atr (Wilder) is untouched
 
@@ -321,21 +323,21 @@ float64, unit `fraction`, producer `session_range_over_open`, available when: th
 **window_extreme**
 
 - **window**: the P most recent completed sessions ending at and including the target session
-- **basis**: high: window_high uses daily highs and window_low uses daily lows; close: both use daily closes
+- **extreme basis**: intraday: window_high uses daily highs and window_low uses daily lows; close: both use daily closes; the parameter is not called basis because the result field basis echoes the adjustment basis on every output
 - **offset**: sessions before the target, 0 = the target
 - **ties**: the latest session wins
 - **numeric period**: 253 (design wording 252 prior plus current) or 252 (252 including current) is the design owner's call; the library supports either, both are explicit and no default exists
-- **p25 v12b**: history.prior_high / history.prior_low keep serving P25 and V12b with the stated inclusion: N PRIOR completed sessions, high or low field only, target EXCLUDED; no new id. On the high basis max(history.prior_high(P-1), current high) equals history.window_high(P) (cross-check fixtures)
+- **p25 v12b**: history.prior_high / history.prior_low keep serving P25 and V12b with the stated inclusion: N PRIOR completed sessions, high or low field only, target EXCLUDED; no new id. On the intraday basis max(history.prior_high(P-1), current high) equals history.window_high(P) (cross-check fixtures)
 
 ## Numeric policy and acceptance
 
-- **publication**: every float64 output is the exact value correctly rounded to nearest-even once; int64 exact; there is no tolerance band in EF6: the library must equal the pinned hex bit for bit
+- **publication**: every float64 output is the exact value correctly rounded to nearest-even once; int64 exact; there is no tolerance band in DV1: the library must equal the pinned hex bit for bit
 - `exact_plus_zero`: exact 0: bit-exact +0.0, never -0.0
 - `exact_float64`: exact rational that is dyadic with numerator below 2^53
 - `correctly_rounded`: exact rational (or an exact mathematical identity such as beta = 2) correctly rounded once; library path Fraction or Decimal120
 - `decimal_correctly_rounded`: irrational value (log statistics, square roots): Decimal120 evaluation rounded once to float64
 - `exact_integer`: int64 offsets
-- `exact_bool`: none in EF6
+- `exact_bool`: none in DV1
 - **logarithm**: ln of the EXACT rational close ratio (not a difference of logarithms of the closes) at 120 significant digits; the expander recomputes at 250 digits with an own series
 - **near tie rule**: if a Decimal120 value lies within 1e-100 relative of the midpoint of two adjacent float64 values the two implementations may disagree; the contract excludes this by construction: the expander requires every pinned irrational value to be at least 1e-60 relative away from every float64 midpoint; on such an input outside the fixtures an implementation rounds the Decimal120 value half to even
 - **tiny values**: a computed value within 1e-100 of zero is published as computed (not forced to 0.0) except where exactness is decided by ratios (Var(x)=0 gives beta exactly +0.0)
@@ -357,7 +359,7 @@ float64, unit `fraction`, producer `session_range_over_open`, available when: th
 
 ## Deprecation of `core.benchmark_return_dispersion_fraction`
 
-Wording: "RANGE of core returns (deprecated name), not dispersion; use core.benchmark_return_range_fraction (same value) or core.benchmark_return_stdev_fraction". description-only change in discovery text (EF6-3), recorded as an errata entry in docs/ef4/EF4_ERRATA.md now; the id keeps publishing the range unchanged; removal at the already scheduled EF4 next-contract-version migration (ef4-rel1 becomes ef4-rel2); no frozen EF4 file is edited Equal-value fixtures against the frozen EF4 fixtures (read only): CS01, CS06, CS07.
+Wording: "RANGE of core returns (deprecated name), not dispersion; use core.benchmark_return_range_fraction (same value) or core.benchmark_return_stdev_fraction". description-only change in discovery text (DV1-3), recorded as an errata entry in docs/ef4/EF4_ERRATA.md now; the id keeps publishing the range unchanged; removal at the already scheduled EF4 next-contract-version migration (ef4-rel1 becomes ef4-rel2); no frozen EF4 file is edited Equal-value fixtures against the frozen EF4 fixtures (read only): CS01, CS06, CS07.
 
 ## Availability, quality, evidence, knowledge and refusals
 
@@ -395,7 +397,7 @@ no default anywhere: period, basis, window, min_pairs, benchmark id, core profil
 
 compact, NOT canonical wire. K = 100, default known_at 50. Slots 0..n-1 in grid order, the target is the last unless `target` names an earlier index (later slots are delivered and must not matter). ATR/window: slots [H,L,C] (a null cell is a null field), `slots_fill` {n, base, set} expands a long series. Relative: `inst` and `bench` are lists of closes (an integer, null, 'absent', 'gap', 'forming' or {row, ka}) or the string 'absent'. Core: facts {inst, kind start|end, t, p, ss, pf, act, rev, ka, op} with the cutoff C and `decoys` (first_trade_price, first_bar_open, prior_close per fund) for wrong-operand values. Range over open: `trades` [price, size] in event order, `chunks` index ranges for the update/restore/merge modes. `delivery` (slot order delivered), `coverage`, `capability`, `delivered_after_cutoff`, `batch_instrument` are refusal-only keys. Float results carry the exact rational (or a 50-digit decimal for irrational values), the float64 and its hex. Refusal fixtures are mutations (set/delete on fixture.*) of a named result fixture.
 
-20 ATR (AT01 to AT20), 25 window extreme (WX01 to WX25), 23 log relative statistics (RL01 to RL23), 20 core spread (CS01 to CS20), 10 range over open (RO01 to RO10) result fixtures and 70 refusal fixtures (RF01 to RF70, 12 distinct codes). Every expected value carries a hand-derived `hand_check` line; the independent expander `tools/contract_fixtures/ef6_fixture_expand.py` recomputes every value (logarithms with its own 270-digit series), every rival value, the prior-high cross-check, the V12a binding, the EF4 equality and the single-fault audit of every refusal. Gate: `python tools/verify_ef6_fixtures.py`.
+20 ATR (AT01 to AT20), 25 window extreme (WX01 to WX25), 23 log relative statistics (RL01 to RL23), 21 core spread (CS01 to CS20), 11 range over open (RO01 to RO10) result fixtures and 72 refusal fixtures (RF01 to RF70, 12 distinct codes). Every expected value carries a hand-derived `hand_check` line; the independent expander `tools/contract_fixtures/dv1_fixture_expand.py` recomputes every value (logarithms with its own 270-digit series), every rival value, the prior-high cross-check, the V12a binding, the EF4 equality and the single-fault audit of every refusal. Gate: `python tools/verify_dv1_fixtures.py`.
 
 Wrong-convention fixtures: every output id has at least one fixture whose `wrong_convention` list names a rival convention and its computed value; the value of the id must differ from every listed rival (except the two records marked equal, which document where conventions coincide: AT02, AT04)
 
@@ -421,26 +423,26 @@ Wrong-convention fixtures: every output id has at least one fixture whose `wrong
 | AT18 | prefix_target | N=3 with an explicit target (slot 5): later sessions are delivered and must not matter |
 | AT19 | flat_zero | N=2 on flat sessions: ATR exactly +0.0 (available, never unavailable) |
 | AT20 | price_scale | N=3 at price scale 2 (coefficients are hundredths): value is the mean divided by 100 |
-| WX01 | high_basis_tie | P=10 on the high basis: the maximum high 60 occurs on sessions 2 and 4, the latest wins |
+| WX01 | intraday_basis_tie | P=10 on the intraday basis: the maximum high 60 occurs on sessions 2 and 4, the latest wins |
 | WX02 | close_basis | P=10 on the close basis: the extremes are of the closes, not of the highs and lows |
-| WX03 | short_period | P=5 (sessions 5..9) on the high basis |
+| WX03 | short_period | P=5 (sessions 5..9) on the intraday basis |
 | WX04 | period_one | P=1: the window is the target session alone |
 | WX05 | target_extreme_prefix | P=3 with an explicit target (session 8): the target is the maximum (offset 0); session 9 is delivered and ignored |
 | WX06 | tie_midwindow | P=4 at target 5: highs 60,58,60,57: the later 60 wins |
 | WX07 | close_tie | close basis with equal closes 10 on sessions 1 and 3: the later wins |
-| WX08 | all_equal_highs | high basis, every high 10: the offset is 0 (the target wins every tie) |
+| WX08 | all_equal_highs | intraday basis, every high 10: the offset is 0 (the target wins every tie) |
 | WX09 | period_253 | P=253 (252 prior sessions plus the target, the design wording): the extreme sits on session 0, 252 sessions back |
 | WX10 | period_252 | P=252 on the same sessions (the width of 252 sessions including the target): session 0 is out of the window |
 | WX11 | period_253_close | P=253 on the close basis |
 | WX12 | period_252_close | P=252 on the close basis |
-| WX13 | p25_prior_equivalence | P=127 high basis, target high below the old extreme: equals max(history.prior_high(126), H_t) |
-| WX14 | p25_target_new_high | P=127 high basis, the target makes a new high: offset 0 while history.prior_high(126) excludes it |
+| WX13 | p25_prior_equivalence | P=127 intraday basis, target high below the old extreme: equals max(history.prior_high(126), H_t) |
+| WX14 | p25_target_new_high | P=127 intraday basis, the target makes a new high: offset 0 while history.prior_high(126) excludes it |
 | WX15 | insufficient_history | P=11 on ten sessions |
 | WX16 | absent_input | P=5: session 6 not delivered |
 | WX17 | governed_gap | P=5: session 7 in a declared coverage gap |
 | WX18 | unknown_availability | P=5: session 8 known_at null |
 | WX19 | future_knowledge | P=5: session 8 known_at after K |
-| WX20 | independent_readiness | P=5 high basis: session 7 high is null: the high outputs are null_field, the low outputs stay available |
+| WX20 | independent_readiness | P=5 intraday basis: session 7 high is null: the high outputs are null_field, the low outputs stay available |
 | WX21 | close_basis_ignores_hl | P=5 close basis: session 7 high and low are null but only closes are read |
 | WX22 | future_market | P=5: the target session is still forming |
 | WX23 | price_scale | P=5 at price scale 2: prices are coefficient / 100 |
@@ -489,6 +491,7 @@ Wrong-convention fixtures: every output id has at least one fixture whose `wrong
 | CS18 | evidence_limit | CS02 data with evidence_limit 3 |
 | CS19 | stale_endpoint | B2 end witness older than max_endpoint_age_ns (920, age 80 > 50) |
 | CS20 | different_sessions | B2 start and end are both on session S2 while the others are on S1 |
+| CS21 | operand_official_open_vs_first_trade | regular_open K=2: official daily-bar opens 10020 and 20000; the first regular trades were 10000 and 19990 |
 | RO01 | open_vs_close | O100 H105 L100 C103: (H-L)/O differs from the shipped (H-L)/C |
 | RO02 | zero_range | all trades at one price: range 0 |
 | RO03 | close_below_open | O200 H220 L180 C190 |
@@ -499,21 +502,18 @@ Wrong-convention fixtures: every output id has at least one fixture whose `wrong
 | RO08 | zero_size_first_trade | a zero-size first trade is not eligible: the open is the first eligible trade |
 | RO09 | no_eligible_trades | only zero-size trades: no open exists |
 | RO10 | absent_session | no trade rows delivered |
+| RO11 | operand_first_trade_vs_official_open | first eligible trade 100.00 but the official daily-bar open is 100.20: P15 uses the first trade |
 
 ## Decisions, open questions, non-goals
 
 - **DP-V1** (Naming): ids carry the convention in the name (relative.log_return_beta, history.atr_simple_mean, core.benchmark_return_range_fraction / _stdev_fraction, session.price.range_over_open, history.window_*); relative.beta_log rejected [PO ruling 2026-10-29]
-- **DP-V2** (Hosting): new package equity_features.ef6; default registry, EF3/EF4 frozen contracts and EF5 byte-identical; built-in range_over_open is the one R1 catalog change (EF6-4, coordinated bump) [Architect design, PO approved]
-- **DP-V3** (Units): E9 slash style; one new unit `sessions` (int64) for the window offsets; reused: currency/share, fraction [proposal]
+- **DP-V2** (Hosting): new package equity_features.dv1; default registry, EF3/EF4 frozen contracts and EF5 byte-identical; built-in range_over_open is the one R1 catalog change (DV1-4, coordinated bump) [Architect design, PO approved]
+- **DP-V3** (Units): E9 slash style; one additive unit `sessions` (int64) for the window offsets, in the DV1 contract only; reused: currency/share, fraction [proposal]
 
 Open questions for the PO:
 
-- **Q-1**: P15 range_over_open uses session.bar.open (first eligible regular-session trade, the R1 open) while M10/M11 use the daily-bar open. Two different operands are named in the contract on purpose; confirm P15 should not use the daily-bar open.
-- **Q-2**: Window basis vocabulary is high|close per ruling 3; on `high` the low outputs read daily lows. Confirm this reading, or rename to `intraday|close`.
-- **Q-3**: The new unit `sessions` for window offsets is an E9 slash-style addition; confirm.
-- **Q-4**: 'EF6' here is the definition-variants program; docs/EQUITY_DELIVERY_REPLAN.md already uses EF6 for EQ-173. Confirm the planned_delivery label EF6 in the manifest section is acceptable.
 
-Non-goals: no library, io or worker code in EF6-0; no change to any shipped id meaning; no log residual_return; no thresholds, crossings or consumer policy; no timing or efficiency claim of any kind; no claim of real-data readiness or product availability: every statement is about a library calculation on synthetic data.
+Non-goals: no library, io or worker code in DV1-0; no change to any shipped id meaning; no log residual_return; no thresholds, crossings or consumer policy; no timing or efficiency claim of any kind; no claim of real-data readiness or product availability: every statement is about a library calculation on synthetic data.
 
 ## Layer responsibilities
 
@@ -521,4 +521,4 @@ Non-goals: no library, io or worker code in EF6-0; no change to any shipped id m
 - **io**: maps the supplied series to the INPUT contract of each header exactly as supplied (fields, grain, basis, session, history depth); selects the version known at K; never sorts, fills, aligns, drops or chooses a window, basis or period
 - **worker**: routes selected outputs, persists the library result unchanged; direct, adapter, worker and stored results are identical including refusal class
 
-Pre-merge command: python tools/verify_ef6_fixtures.py (runs tools/contract_fixtures/ef6_fixture_expand.py, pins the counts); then tools/check_equity_delivery_replan.py for header and manifest parity.
+Pre-merge command: python tools/verify_dv1_fixtures.py (runs tools/contract_fixtures/dv1_fixture_expand.py, pins the counts); then tools/check_equity_delivery_replan.py for header and manifest parity.

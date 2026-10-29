@@ -1,6 +1,6 @@
 {
  "status": "draft proposal, additive, docs only; not frozen; internal, synthetic, pre-release",
- "contract": "docs/ef6/DEFINITION_VARIANTS_CONTRACT_PROPOSAL.json",
+ "contract": "docs/dv1/DEFINITION_VARIANTS_CONTRACT_PROPOSAL.json",
  "unit_additions": [
   {
    "unit": "sessions",
