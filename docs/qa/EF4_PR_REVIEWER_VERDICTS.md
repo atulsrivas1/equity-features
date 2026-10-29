@@ -1,6 +1,6 @@
 # EF4 PR reviewer verdicts (core #729-#731, io #49-#51, workers #93-#94; later PRs in the last section)
 
-Record compiled 2026-10-28 from `gh pr view` (body, reviews, comments, commits) of each merged PR. Nothing here is invented: where GitHub holds no review or comment, the row says so. This is a record of what exists, not a new review and not owner acceptance. Source of the open item: PO ruling, owner-visible record pending (baseline gap 4, condition C5).
+Record compiled 2026-10-28 from `gh pr view` (body, reviews, comments, commits) of each merged PR. Nothing here is invented: where GitHub holds no review or comment, the row says so. This is a record of what exists, not a new review and not owner acceptance. Source of the open item: PO ruling (recorded in DECISIONS.md) (baseline gap 4, condition C5).
 
 ## Finding
 

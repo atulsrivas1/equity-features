@@ -1,4 +1,4 @@
-# EF5 contract errata from the library implementation (PO ruling 2026-10-28, PO ruling, owner-visible record pending)
+# EF5 contract errata from the library implementation (PO ruling 2026-10-28, recorded in DECISIONS.md)
 
 Additive text errata. The frozen contract prose and every fixture literal are unchanged; no behavior changed.
 

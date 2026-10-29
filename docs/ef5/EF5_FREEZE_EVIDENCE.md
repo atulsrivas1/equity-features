@@ -106,4 +106,4 @@ Tester check from the md (the expander was not read):
 
 Verdict: no discrepancy and no open docs defect. **Frozen pending merge** (of this PR). Outstanding: the second-author reviewer's recompute of TD21 (spec and policy), RF52-RF57 is requested from the reviewer separately.
 
-> Note: the refusal count 57 stated in this document was corrected to 59 (new refusals RF58 and RF59) by `EF5_LIBRARY_ERRATA.md`; this frozen text and JSON are unchanged.
+> Note: the refusal count 57 stated in this document was corrected to 59 (new refusals RF58 and RF59) by `EF5_LIBRARY_ERRATA.md`; the frozen JSON is untouched.
