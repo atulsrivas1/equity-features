@@ -1,9 +1,9 @@
-# EF5 contract errata from the library implementation (PO ruling 2026-10-28, `work/po-rulings-ef5-library-2026-10-28.md`)
+# EF5 contract errata from the library implementation (PO ruling 2026-10-28, recorded in DECISIONS.md)
 
 Additive text errata. The frozen contract prose and every fixture literal are unchanged; no behavior changed.
 
 - **E-L1 (hosting)**: wherever the contract says the library is hosted in `packages/features` (header "Hosting proposal", DP-F8), read: hosted in
-  `equity_features_intraday` (module `ef5.*`), as EF4; separate catalog, `describe_intraday()` and its digest unchanged, no package version bump.
+  `equity_features_intraday` (module `ef5.*`), as EF4; separate catalog, `describe_intraday()` and its digest unchanged, no package version bump (superseded: intraday a4->a5 in `docs/PRERELEASE_BUMP_EF5.md`).
 - **E-L2 (basis echo)**: wherever the contract says every output echoes the basis in the "result field `basis`", read: the echo is carried by the
   input-binding metadata (`ResultMetadata.inputs[*].metadata.adjustment`), mapped raw -> `unadjusted` and split -> `split_adjusted`.
   `FeatureResult` has no basis field and adding one is a shared change. `tools/verify_ef5_library.py` asserts the echo on every result.

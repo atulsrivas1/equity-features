@@ -13,7 +13,7 @@ fixtures (534 runs: each output alone and jointly) and 59 refusals over 12 error
 BAR admission and the EF4 path efficiency producer. The contract text proposes `packages/features`; EF4 made the same proposal
 and was implemented in `equity_features_intraday` because the admission layer is there and `equity-features` does not depend on
 it. Separate catalog (`describe_ef5()`, `ef5_catalog_digest()`); `describe_intraday()` and its digest are unchanged; no package
-version bump. `SlotFacts` gains one additive internal field (`open_price`).
+version bump (superseded: intraday a4->a5 in `docs/PRERELEASE_BUMP_EF5.md`). `SlotFacts` gains one additive internal field (`open_price`).
 
 ## Rulings as implemented
 
@@ -53,3 +53,13 @@ Notes for the rest:
   after the market cutoff is BOUNDS (RF09). The EF5 config builder accepts a cutoff inside the target slot; the EF4 builder requires it at or after the
   target end. The divergence is intended; EF4 is unchanged.
 - **Negative volume (3)**: EF5 admission checks the volume column first and says INVALID_SCHEMA; the generic BOUNDS stays for other users.
+
+## Glossary of ruling prefixes
+
+- PQ-: product question put to the PO. PO-: PO ruling on a PQ (recorded in DECISIONS.md where an entry exists).
+- E-: erratum or shared-amendment ruling (E-L1.. in `EF5_LIBRARY_ERRATA.md`, E1..E9 in the EF4/EF5 shared amendments).
+- RF-: refusal fixture number (RF1..RF59). CD-: contract fixture/case id (for example CD07).
+- User-facing inputs API: `docs/api/EF5_PRICE_STRUCTURES_INPUTS.md` in equity-feature-io (supplied-input API).
+
+
+Posture: internal synthetic data only, not releasable. `ef5.*` is not exposed via the service or MCP. Builders are not all run (see the EF5 bump record `docs/PRERELEASE_BUMP_EF5.md` in core).

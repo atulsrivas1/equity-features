@@ -1,6 +1,6 @@
 # Coordinated pre-release bump for the EF5 layers - October 28, 2026
 
-PO ruling `work/po-rulings-workers-ef5-2026-10-28.md`. Set of three PRs (core, io, workers). Pre-release label move only.
+PO ruling (recorded in DECISIONS.md). Set of three PRs (core, io, workers). Pre-release label move only.
 
 ## Packages moved (this repository)
 
