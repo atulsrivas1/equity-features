@@ -25,7 +25,7 @@ from ._momentum_registry import (
     ADX, DX, MACD_LINE, MINUS_DI, MOMENTUM_FAMILY_FEATURES, PLUS_DI,
     STOCH_D, STOCH_K, WILLIAMS_R, describe_momentum, require_momentum_capability,
 )
-from ._prepare import OperandEvidence, arithmetic
+from ._prepare import IntradayPreparation, OperandEvidence, arithmetic, shared_admission
 from ._registry import PACKAGE_VERSION
 
 _CLOSE = ("close",)
@@ -109,7 +109,8 @@ def _dependency(feature: str, settings: MomentumSettings, anchor: int,
 
 
 def compute_momentum(batches: tuple[CanonicalBatch, ...] | None, context: IntradayContext,
-                     config: ConfigSpec, *, features: tuple[str, ...]) -> FeatureResult:
+                     config: ConfigSpec, *, features: tuple[str, ...],
+                     preparation: IntradayPreparation | None = None) -> FeatureResult:
     """Selected ef2-conv1 outputs of one family over supplied BARs; deterministic, batch and full replay only."""
     settings = decode_momentum_config(context, config)
     owned = MOMENTUM_FAMILY_FEATURES[settings.family]
@@ -122,7 +123,10 @@ def compute_momentum(batches: tuple[CanonicalBatch, ...] | None, context: Intrad
     selected = tuple(sorted(features))
     for feature in selected:
         require_momentum_capability(feature, "batch")
-    admitted = admit(batches, context, config) if batches is not None else None
+    if preparation is not None:
+        admitted: Admitted | None = shared_admission(preparation, batches, context, config)
+    else:
+        admitted = admit(batches, context, config) if batches is not None else None
     a, t = context.anchor_index, context.target_index
     epoch = t-a+1
     scale = cast(int, config.price_unit.scale)  # decode_momentum_config proved the unit

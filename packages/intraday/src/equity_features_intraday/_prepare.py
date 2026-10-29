@@ -51,6 +51,9 @@ class IntradayPreparation:
     _views: tuple[PreparedOperand, ...] = ()
     _issuer: object | None = None
     schema_version: str = PREPARATION_SCHEMA
+    # Admission facts and the exact admission inputs they were built from (in-process only, never serialized).
+    _admitted: Admitted | None = None
+    _admission_key: tuple[object, ...] | None = None
 
     def __init__(self) -> None:
         fail("use the reviewed preparation factory", ErrorCode.UNSUPPORTED_CAPABILITY)
@@ -197,7 +200,30 @@ def prepare_intraday(batches: tuple[CanonicalBatch, ...], context: IntradayConte
     object.__setattr__(result, "_views", views)
     object.__setattr__(result, "_issuer", _ISSUER)
     object.__setattr__(result, "schema_version", PREPARATION_SCHEMA)
+    object.__setattr__(result, "_admitted", admitted)
+    object.__setattr__(result, "_admission_key", admission_key(context, config))
     return result
+
+
+def admission_key(context: IntradayContext, config: ConfigSpec) -> tuple[object, ...]:
+    """The exact inputs admit() reads besides the batches; never the config digest."""
+    return (context.digest, config.availability, config.price_unit, config.adjustment, config.session)
+
+
+def shared_admission(preparation: IntradayPreparation, batches: tuple[CanonicalBatch, ...] | None,
+                     context: IntradayContext, config: ConfigSpec) -> Admitted:
+    """Admitted facts of a preparation proven equal on every admission input (config digest not compared)."""
+    if type(preparation) is not IntradayPreparation:
+        fail("concrete preparation factory product required", ErrorCode.INVALID_SCHEMA)
+    if preparation._issuer is not _ISSUER or preparation.schema_version != PREPARATION_SCHEMA:
+        fail("unrecognized preparation producer/version", ErrorCode.INCOMPATIBLE_VERSION)
+    admitted = preparation._admitted
+    if (admitted is None or batches is None or type(batches) is not tuple
+            or len(batches) != len(preparation.batches)
+            or any(a is not b for a, b in zip(batches, preparation.batches))
+            or preparation._admission_key != admission_key(context, config)):
+        fail("prepared admission inputs differ", ErrorCode.INCONSISTENT_IDENTITY)
+    return admitted
 
 
 def validate_preparation(preparation: IntradayPreparation, batches: tuple[CanonicalBatch, ...] | None,

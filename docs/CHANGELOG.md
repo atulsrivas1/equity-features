@@ -1,3 +1,7 @@
+## Shared preparation accepted by `compute_momentum` - October 29, 2026
+
+Additive, backward-compatible: `compute_momentum` takes a keyword-only `preparation: IntradayPreparation | None = None` (default `None`; behaviour unchanged when absent), reusing the admitted facts of an in-process `prepare_intraday` product. The share is accepted only when the batches (identity), context digest, availability, price unit, adjustment and session all equal the request's (never the config digest); otherwise it is refused with `inconsistent_identity`. Results are byte-identical with and without the argument; not serialisable, not accepted from outside the process, no cache or state in the library. Internal, synthetic, pre-release; no speedup is claimed (indicative, uncontrolled figures stay in work notes). No version bump in this change. Benchmark: `tools/benchmark_momentum_shared_preparation.py`.
+
 ## Coordinated pre-release bump for the EF5 layers - October 28, 2026
 
 intraday 0.1.0a5 (EF5 library). Record: [PRERELEASE_BUMP_EF5.md](PRERELEASE_BUMP_EF5.md).
