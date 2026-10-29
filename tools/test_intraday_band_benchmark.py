@@ -15,6 +15,7 @@ class BenchmarkGuardTests(unittest.TestCase):
         # The committed measurement is immutable evidence of one run at the recorded commit. Its source identity is checked against that
         # commit's Git blobs, never against the current tree (the tree legitimately moves on). The EQ-139 record of the original Windows run
         # (docs/stories/EQ-139_BAND_BENCHMARK.json) is retained as history; this record is the fresh measurement after the EF5 layers.
+        # Needs full git history: merge-base and git show read the recorded commit, so this test fails in a shallow clone (fetch-depth 0).
         root=benchmark.ROOT/'docs/stories'
         report=(root/'EQ-139_BAND_BENCHMARK_20261029.json').read_bytes()
         baseline=(root/'EQ-139_BAND_BENCHMARK_20261029.baseline.json').read_bytes()

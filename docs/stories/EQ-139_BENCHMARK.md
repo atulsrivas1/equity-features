@@ -1,4 +1,4 @@
-> Historical record of the original run (commit 9d51cbd, original machine). Adoption in this table is measured on that machine and is not contractual; parity is the contract. A later run (docs/stories/EQ-139_BAND_BENCHMARK_20261029.json, provenance in the .PROVENANCE.json beside it) adopts a different set. No release claim cites band adoption or speedup numbers before the controlled-machine Linux rerun (open owner/Linux item).
+> Historical record of the original run (commit 9d51cbd, original machine). Adoption in this table is measured on that machine and is not contractual; parity is the contract. A later run (docs/stories/EQ-139_BAND_BENCHMARK_20261029.json, provenance in the .PROVENANCE.json beside it) adopts a different set. No release claim cites band adoption or speedup numbers before the controlled-machine Linux rerun (open owner/Linux item). The committed-measurement test needs full git history (merge-base, git show) and fails in a shallow clone.
 
 # EQ139 measured band comparison and frozen protocol
 

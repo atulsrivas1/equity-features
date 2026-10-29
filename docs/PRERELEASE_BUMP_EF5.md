@@ -35,7 +35,7 @@ version are history and skipped). An altered README fails; stale statements in t
 build_conformance, build_r10.
 **Not run / still open (core):** build_intraday (its gate `tools/test_intraday_band_benchmark.py` already fails on main: the committed EQ-139 measurement predates later
 source changes, so there is no intraday builder archive; intraday 0.1.0a5 is confirmed from the fresh wheel build and the supplied-inputs archive), build_r9 and
-build_evidence_pilot (re-pinned, not run), build_evidence_evaluation (frozen historical inputs, deliberately unchanged).
+build_evidence_pilot (re-pinned, not run), build_evidence_evaluation (since retired and stubbed, see docs/RETIRED_BUILDERS.md); superseded 2026-10-29: build_intraday, build_r9 and build_evidence_pilot now run end to end (core PR 749).
 
 The blocker is therefore only partly closed. No release claim until the unrun builders across the three repositories are run or retired.
 
