@@ -25,7 +25,7 @@ def example() -> None:
     result=compute_intraday((batch,),context,config,features=('intraday.ema','intraday.band_middle','intraday.band_position'),preparation=prepared)
     assert {column.feature_id:column.values[0] for column in result.values}=={
         'intraday.band_middle':11.0,'intraday.band_position':0.5,'intraday.ema':11.0}
-    assert result.metadata.backend_version=='0.1.0a3'
+    assert result.metadata.backend_version=='0.1.0a5'
 
 
 if __name__=='__main__':example()

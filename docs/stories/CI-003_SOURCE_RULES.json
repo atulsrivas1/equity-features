@@ -1,4 +1,5 @@
 {
+  "frozen_history_note": "Frozen history of the accepted CI003 base. Per-file hashes describe that base, not the current tree: tools/build_evidence_evaluation.py was later retired (stubbed, PR 749) and other tools changed. Not a current inventory; no gate reads it.",
   "schema": "equity-features.ci003-source-rules.v1",
   "accepted_base": "0ef4f2c7a50e164e11dcfc25751e62b691b95883",
   "accepted_run_id": 39162664488,

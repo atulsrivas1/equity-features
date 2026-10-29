@@ -36,7 +36,7 @@ SCOPES=['packages/'+name for name in PACKAGES]+[
     'docs/api/INTRADAY.md','docs/features/INTRADAY_FOUNDATIONS.md',
     'docs/stories/EQ-137_PLAN.md','docs/stories/EQ-137_FACT_READINESS.md',
     'docs/stories/EQ-138_PLAN.md','docs/stories/EQ-139_PLAN.md','docs/stories/EQ-139_BENCHMARK.md',
-    'docs/stories/EQ-139_BAND_BENCHMARK.json','docs/stories/EQ-139_BAND_BASELINE.json',
+    'docs/stories/EQ-139_BAND_BENCHMARK.json','docs/stories/EQ-139_BAND_BASELINE.json', 'docs/stories/EQ-139_BAND_BENCHMARK_20261029.json','docs/stories/EQ-139_BAND_BENCHMARK_20261029.baseline.json','docs/stories/EQ-139_BAND_BENCHMARK_20261029.PROVENANCE.json',
     'docs/stories/EQ-139_MEASUREMENT_APPLICABILITY.json',
     'docs/stories/EQ-138_BENCHMARK.md','docs/stories/EQ-138_MEASUREMENT_APPLICABILITY.json',
     'docs/stories/EQ-138_INDICATOR_BENCHMARK.json','docs/stories/EQ-138_INDICATOR_BASELINE.json',

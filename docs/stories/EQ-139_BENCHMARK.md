@@ -1,3 +1,5 @@
+> Historical record of the original run (commit 9d51cbd, original machine). Adoption in this table is measured on that machine and is not contractual; parity is the contract. A later run (docs/stories/EQ-139_BAND_BENCHMARK_20261029.json, provenance in the .PROVENANCE.json beside it) adopts a different set. No release claim cites band adoption or speedup numbers before the controlled-machine Linux rerun (open owner/Linux item). The committed-measurement test needs full git history (merge-base, git show) and fails in a shallow clone.
+
 # EQ139 measured band comparison and frozen protocol
 
 Compare six fixed synthetic workloads with six output selections (each of five bands and all five), for 36 profiles. A uses ordinary selected calls plus a real full-result join and one globally sorted evidence cap. B uses explicit supplied price-moment preparation followed by the public compute API, including reuse validation. Neither path fetches or publishes data. All construction, admission, preparation, moments/radius evaluation, identity and full result serialization costs stay inside each measured sample.

@@ -1,4 +1,5 @@
 {
+  "frozen_history_note": "Frozen history of the CI001 consumer audit. Entries for tools/build_evidence_evaluation.py describe the pre-retirement builder (now stubbed, PR 749). Not a current inventory; no gate reads it.",
   "schema": "equity-features.ci-consumer-audit.v1",
   "source_head": "36b5dfdcf788d7ae5ee2cf7979f87e04af8c7d7a",
   "source_paths": {

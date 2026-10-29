@@ -1,16 +1,16 @@
 {
   "schema": "eq116.precode.inputs.v1",
   "status": "source_data_only_not_ready_or_executed",
-  "canonical_head": "2f81626e3143ae6b10ce2b819780029314554995",
-  "io_head": "18d86761aa3eebb7414e51e8fa2aba089717b5eb",
+  "canonical_head": "8e9f6695760d5ceef7a04eca9566fce49e83e3cd",
+  "io_head": "94217cfafe5e54461c8dc9efdf4848809e04082a",
   "canonical": {
     "docs/stories/EQ-109_ORACLES.json": {
       "bytes": 34375,
-      "sha256": "f21c1a0ba6659a8e92afd1d2d56aca0c82f17ae9ecb2c0acf4035b2778201a76"
+      "sha256": "0ba72c1191953893e01ed61685f41583535e8b88d984d288f7694a38a017a74b"
     },
     "examples/agent_research.py": {
       "bytes": 42597,
-      "sha256": "bd9507f0b1cadea822d0dfc18ac9825829157645e4370db5b5f41ddbb79e024c"
+      "sha256": "0d502109fbf7e06dca8b2677ebdfc6a7b00c2869693b4d2869620bd238cb1714"
     },
     "examples/agent_research_typed.py": {
       "bytes": 1821,
@@ -26,11 +26,11 @@
     },
     "packages/agent-evidence/README.md": {
       "bytes": 2210,
-      "sha256": "2cc14a396603d4ed6d9b0e76f54877acd54384b375e4346125b60f82cbddaf6a"
+      "sha256": "58885b38e4ac57c368c8deb9e87a4e874a10711066fa1edaf09ded271059b455"
     },
     "packages/agent-evidence/pyproject.toml": {
       "bytes": 697,
-      "sha256": "79a459575c454c8b28da001fada1e72bc6e86694a078b78871a299d48ef17f23"
+      "sha256": "759cf3c36c2b2720c695c03c42eb673dfcf5dac61537d0654fe6525b91e6ae48"
     },
     "packages/agent-evidence/src/equity_feature_agent_evidence/__init__.py": {
       "bytes": 1653,
@@ -58,11 +58,11 @@
     },
     "packages/agent-ledger/README.md": {
       "bytes": 2099,
-      "sha256": "4326137a78f5db5ae1466c84b8d0c46e5d3031460969a8494647bcd808a708a1"
+      "sha256": "8dd3113b1a881ad926f0c6b019c605dac794c4c1055abec845fb497305ba174e"
     },
     "packages/agent-ledger/pyproject.toml": {
       "bytes": 655,
-      "sha256": "b8eb6b39415fb6c59cabbfe1082e60ed0e6a93f5e67c5898cacc161f90efa8a4"
+      "sha256": "4f166dd8600a8b4e0bb2e2f91bbbc1f0206faa6160b1a9faaa3aa7c3fe410699"
     },
     "packages/agent-ledger/src/equity_feature_agent_ledger/__init__.py": {
       "bytes": 618,
@@ -98,11 +98,11 @@
     },
     "packages/contracts/pyproject.toml": {
       "bytes": 692,
-      "sha256": "ebc04b7a8eaa8fe013d1d3cd0890b6eb32a53f243ca315d7ca542a2f124776a1"
+      "sha256": "0b0315c5f2a1e8e2659b610d1979f1dd619b6b2fe570acf221315e7a903cb683"
     },
     "packages/contracts/src/equity_feature_contracts/__init__.py": {
-      "bytes": 3739,
-      "sha256": "02956fd250ad281d33636fe9d924c90d461c6788dfb9ca2aedb8a0013b70d63b"
+      "bytes": 3827,
+      "sha256": "96e302519943beb3db0ed05e6595bde20438c719cf4526426c967b381f9c465e"
     },
     "packages/contracts/src/equity_feature_contracts/_catalog.py": {
       "bytes": 50743,
@@ -169,8 +169,8 @@
       "sha256": "3f536ca042a1bebb0be24507dcef3e6af5462b951558b6fba8de1fd014802cc4"
     },
     "packages/contracts/src/equity_feature_contracts/results.py": {
-      "bytes": 34280,
-      "sha256": "728226086b9a552e0de5e8d21f79c000bf97673297692a18218e54153650470e"
+      "bytes": 35795,
+      "sha256": "45bf2c0d12c5b28bfa6cda5658a1aebb1cbb84825d5eacf52c62732597619aa2"
     },
     "packages/contracts/src/equity_feature_contracts/specs.py": {
       "bytes": 11303,
@@ -194,15 +194,15 @@
     },
     "packages/diagnostics/README.md": {
       "bytes": 874,
-      "sha256": "a112751cdf239cac13743e6839cd8b9c6c0b30fee1b55b2a647c9cbabc7c3601"
+      "sha256": "a6386d93d1dceca0443a07c47382b3fdf30d2da67aa0546ed3620c01300a169e"
     },
     "packages/diagnostics/pyproject.toml": {
       "bytes": 684,
-      "sha256": "9133ebd6d168794a98af9da635cae80053024ed999c61c2247a4754d1337e311"
+      "sha256": "b73af54f17bb0bada9e6efc48a92f0f342d76d96a33ebf461e152ef877d7fdd0"
     },
     "packages/diagnostics/src/equity_feature_diagnostics/__init__.py": {
       "bytes": 762,
-      "sha256": "568e0aa15ad9a7d7f6c7f3e73f16da034511b59492215b97ed46510b097893ef"
+      "sha256": "108d76b9bf31f35a3e9fb5acf085a005b9e8ccbc5f66275dbf92f3ece1ff0478"
     },
     "packages/diagnostics/src/equity_feature_diagnostics/_evaluate.py": {
       "bytes": 7649,
@@ -222,11 +222,11 @@
     },
     "packages/evidence/README.md": {
       "bytes": 1339,
-      "sha256": "74049daf4ecd16b65c954acc16652a770b4aab722c7caa78c4cc96d878ce9525"
+      "sha256": "a23cacdf65a153c6f31e46a0fa63caffa94db4bc17b4a24eb3e31bb9df16cdcc"
     },
     "packages/evidence/pyproject.toml": {
       "bytes": 625,
-      "sha256": "4e176e6d84c42d50d43016b1d8156e6d08ff962140170dbd22791ab661c9ae41"
+      "sha256": "f20f82ef830c3eb553c6e051113a342d1173d3d8d92d91469c4926ac3931fc40"
     },
     "packages/evidence/src/equity_feature_evidence/__init__.py": {
       "bytes": 1020,
@@ -237,8 +237,8 @@
       "sha256": "99153a23476f8922fabc8616f24a03e853988884a6a76bc4b1cad4b290707414"
     },
     "packages/evidence/src/equity_feature_evidence/_content.py": {
-      "bytes": 17601,
-      "sha256": "9531d1b4b0be0be2cf9a06680a097a44d311fadb189064a344ea949f00b55d56"
+      "bytes": 17779,
+      "sha256": "c5e775066681183c1e152b82b63017cdf734cf70a8ed1603341d5acd8a2c5b5d"
     },
     "packages/evidence/src/equity_feature_evidence/_model.py": {
       "bytes": 13968,
@@ -253,20 +253,20 @@
       "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
     },
     "packages/explanations/README.md": {
-      "bytes": 1030,
-      "sha256": "070fc76ee99502140e0c992224918eef45d6a899d92fb0bdeddecd169d7ccf99"
+      "bytes": 2143,
+      "sha256": "170dfad5e0550a3d742524a24f5da79dc0c15969cca86a92ec070ec4d0244e88"
     },
     "packages/explanations/pyproject.toml": {
       "bytes": 672,
-      "sha256": "a87bb5ff985e0f5e04b65048afd202456892b679b424967e45418bedb02c3747"
+      "sha256": "0f6d811cdb392c7201f4cc56a02ba2acc9c5bd5486fd87a01f5ca9b718e78ba5"
     },
     "packages/explanations/src/equity_feature_explanations/__init__.py": {
-      "bytes": 375,
-      "sha256": "597b03a3f824e7ebdf258443e895a755d3914cea767e08c4fc47f8b5fc08ea96"
+      "bytes": 414,
+      "sha256": "104b5ad1a362084161c82ee387f788e788f6af615ab29674abf9176e9b969550"
     },
     "packages/explanations/src/equity_feature_explanations/_explain.py": {
-      "bytes": 18925,
-      "sha256": "c6592114ba8ac0158e6d7577d8a3423c8a058ec218ff31e7d4f546ef78d000dd"
+      "bytes": 19127,
+      "sha256": "6627cfb78474e6a01d2a92d1a7a9748bc6881a3326e0330f51455a5959fbf9cc"
     },
     "packages/explanations/src/equity_feature_explanations/py.typed": {
       "bytes": 0,
@@ -277,16 +277,16 @@
       "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
     },
     "packages/features/README.md": {
-      "bytes": 3720,
-      "sha256": "b6531d2afdd84e18a5c298e58f419c0d8d26c28cc697f4d0d8a1306f0c68ebb1"
+      "bytes": 4437,
+      "sha256": "60da94b5f4845ec239b5b7bd8e44ccbb44e33fec984c7bb977cf9b5cdb3e77b7"
     },
     "packages/features/pyproject.toml": {
       "bytes": 736,
-      "sha256": "ca095c7a8a7466de390ff943c4a33f6b41852a7b844d5d2d3291abb544be56d9"
+      "sha256": "46d6d09019881c78273b8067542f2150d1508f62bc0cb1bbb260bcdffba1478a"
     },
     "packages/features/src/equity_features/__init__.py": {
       "bytes": 221,
-      "sha256": "b3f507d789a5f9a2171dd6269a7ec75ff7d322b3c78e4cb52251497b22297034"
+      "sha256": "16ec351e711988ca6dd62e6f736d3a09cd0b614522e2d055ca77e87527f74cc9"
     },
     "packages/features/src/equity_features/_recursive.py": {
       "bytes": 2414,
@@ -386,19 +386,19 @@
     },
     "tests/agent_research/test_consumer.py": {
       "bytes": 18881,
-      "sha256": "b9337ec0cf3bbb80df565869a0a8b58d8c4980316117817a0ba1d8dcb4a761eb"
+      "sha256": "ec646619607f5bc542136c43f123d0471e63f67dddecb83bc6a97733fc5a95a5"
     },
     "tests/agent_research/test_replay.py": {
       "bytes": 6389,
       "sha256": "f6e42f23e04c13cb86140d7bbb09db07b96c8ec597cc88bfff136233799c522f"
     },
     "tools/build_agent_ledger.py": {
-      "bytes": 21995,
-      "sha256": "0b4fdd8d11d8f3415f00a0c9e41ad1a9fcb9cde2e188551fc62c72a51fd84d00"
+      "bytes": 24753,
+      "sha256": "3c573f40b8fc8981c440df92cb46f0273e91c9bc1252b2d3e5a7501c7994c340"
     },
     "tools/build_explanations.py": {
-      "bytes": 13514,
-      "sha256": "969d52d4e5b9b748c1945fa559aed390286d2eb5632c45a6402d7e868c600c04"
+      "bytes": 13708,
+      "sha256": "266ee1fb9ffbcfe9baac6db46e651b8339e12bbf0106747eed15b69fd24d6d23"
     }
   },
   "io": {
@@ -408,11 +408,11 @@
     },
     "packages/bundles/README.md": {
       "bytes": 4012,
-      "sha256": "d23fc32a7e5ab09fb15330d80d537df1bf80233b19acb358ca097911571354f7"
+      "sha256": "b48228b76d1f9d582fb50c32485d326dfa82f47f2a3a4512a81a0682ffc6262d"
     },
     "packages/bundles/pyproject.toml": {
       "bytes": 651,
-      "sha256": "f46ed403247681607b8db2289c1323a88b3c5764f271c8445739dc15c23b3348"
+      "sha256": "2ac33b7462d72107b0231b628f47adb07f368c5927294959eac496141f6ccae4"
     },
     "packages/bundles/src/equity_feature_bundles/__init__.py": {
       "bytes": 473,
@@ -423,12 +423,12 @@
       "sha256": "e5c398d0691c8d3edee3808ca6361f934e0b335c534e1b353e5f0f4bae1c27e4"
     },
     "packages/bundles/src/equity_feature_bundles/_binding.py": {
-      "bytes": 6062,
-      "sha256": "4b79bd2ab835dc89b5399fe10a7bbfbec4b37fbc3e434a15f12c6904e6199f86"
+      "bytes": 6092,
+      "sha256": "dbd9705f0ec1640dcffaec439b2a49a2ce92c52f07c640e2bb05b81e06127f41"
     },
     "packages/bundles/src/equity_feature_bundles/_bundle.py": {
-      "bytes": 8359,
-      "sha256": "c6501241c3fcb8ad0cdb50a90cad4a5f27626cdb6da3b8450738bd8479a8fd66"
+      "bytes": 8391,
+      "sha256": "5365e6fd7a646a7bae106a9cfc9ea613e76bb61710b834af0ba6623b2394b4ec"
     },
     "packages/bundles/src/equity_feature_bundles/_errors.py": {
       "bytes": 1554,
@@ -439,20 +439,24 @@
       "sha256": "291d224a9eae96388d5cfb4663321624a1c275237a2cc56522604c9e0d0e6a4f"
     },
     "packages/bundles/src/equity_feature_bundles/_model.py": {
-      "bytes": 5921,
-      "sha256": "5afd1bdd8e2b2c9e9d2695c48af0ef3a81953f8d2a5177cdc52febad104b2352"
+      "bytes": 5953,
+      "sha256": "c9b1630b55fc6e7f2cce4de834bb7bf43b61c0c97519b0d0c5270b944fbdf5d6"
     },
     "packages/bundles/src/equity_feature_bundles/_typed.py": {
-      "bytes": 16175,
-      "sha256": "aaf99148792d815df127d4eebba595166f23bd8b176ca2850c5b40c0d8240fdd"
+      "bytes": 17029,
+      "sha256": "64e4a207ca1c8ad7de41b96bae39c9fb4b67193b23e476e7ce9ebcacd0efe24a"
+    },
+    "packages/bundles/src/equity_feature_bundles/_versions.py": {
+      "bytes": 390,
+      "sha256": "585d7c6794ed1c8552ff9c9b063fed3e0e4b3bc1d044f29f70904868a0ef6023"
     },
     "packages/bundles/src/equity_feature_bundles/py.typed": {
       "bytes": 0,
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
     },
     "packages/bundles/src/equity_feature_bundles/replay.py": {
-      "bytes": 6382,
-      "sha256": "4df63e11386cfbd998a31997ab3dc68a3a5ec7568df608325ee00a42d01f618c"
+      "bytes": 6415,
+      "sha256": "3d558e586db2418b28d1702f40fe24041287c99927146c261fe1919a0ef8d123"
     }
   },
   "runtime_tests_executed": false,

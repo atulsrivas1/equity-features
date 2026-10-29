@@ -315,7 +315,7 @@
     "case": "trades",
     "complete_producer_payload": {
       "backend_id": "python-exact",
-      "backend_version": "0.0.4a4",
+      "backend_version": "0.0.4a6",
       "columns": [
         {
           "algorithm_version": "v1",
@@ -502,7 +502,7 @@
           },
           "backend_version": {
             "type": "string",
-            "value": "0.0.4a4"
+            "value": "0.0.4a6"
           },
           "config_digest": {
             "type": "string",
@@ -770,7 +770,7 @@
               "record": "specs.AvailabilitySpec"
             },
             "backend_id": "python-exact",
-            "backend_version": "0.0.4a4",
+            "backend_version": "0.0.4a6",
             "config_digest": "ddc1b3b90e8d3333f31c268228e472aa440029f3f6ba7d72745d2f0096c3c931",
             "evidence_limit": {
               "int": "0"
