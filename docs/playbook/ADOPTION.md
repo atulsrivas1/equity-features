@@ -34,3 +34,10 @@ UI design, architecture, code: each by a fresh agent that is not the author. The
 - **Design repo, boards, strings file, feature switches:** not used. Definition of Done items 4 to 6 and 8 and the Designer's board work do not apply. "Contract" means the frozen library/I-O/worker contracts under `docs/`; the Architect owns them.
 - **Tester:** verifies by running installed artifacts and synthetic demos (CLI, API, worker runs, browser demo harness where one exists). The browser/keyboard/contrast pass applies only to PRs that touch a browser demo or page.
 - **Source attribution:** the playbook text still names WatchYourList where it credits its origin; that is deliberate history.
+
+## Architecture and cross-repo rules (added after architecture review)
+
+- **Verdict artifact is a merge precondition, in addition to the PR Review table.** For any PR that changes contract or library code, and any layer PR in a release, the independent reviewer's verdict is saved as an artifact (`work/review-<repo>-<pr>.md` or `docs/qa/`) and referenced in the PR before the coordinator merges (`docs/COORDINATOR_WORKING_AGREEMENT.md`, "Merge preconditions"). Both are required.
+- **Architecture review checks this project's boundary:** layering core <- io <- workers (ADR-1), no storage or vendor access in libraries, source adapters and sinks as the only conversion points, entry-point registration with allow-list (ADR-4), capability matrix (ADR-3). Ignore "client or server", "switches" and "data placement" items in the templates.
+- **Cross-repo stories:** merge upstream first (core, then io, then workers), then a re-pin PR per downstream repo (versions, commit pins; run every builder whose pin moves), with its own three reviews. Check downstream pins on any version change; re-pin after a squash merge.
+- **Merging:** squash-merge only, by the coordinator, in all three repos, after three reviews and PO acceptance. The playbook's "developers merge their own PR" option does not apply.
