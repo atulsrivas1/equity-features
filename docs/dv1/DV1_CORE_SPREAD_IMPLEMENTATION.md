@@ -54,8 +54,8 @@ with `INVALID_CONFIG`. `dv1_definitions(grid, config)` accepts `None` for the sa
 `tools/verify_dv1_core_spread_library.py` runs all 21 core-spread result fixtures (CS01..CS21), each output alone and both
 together, and the 16 refusals whose base is a core-spread fixture (8 codes) plus the contract's lower-case-currency mutation
 (RF22) on a core base, and compares the float64 hex string and bit pattern with the contract literal. There is no tolerance
-band and no expectation is derived from the library. The contract literal names a witness `leg:<fund>:<kind>`; the gate
-maps it to the library's `slot:<index>` through the declared fund list (a naming map, not a computation). It checks that
+band and no expectation is derived from the library. The contract literal names a witness `slot:<index>` (fund k start 2k, end 2k + 1); the gate
+compares it directly and fails on any other form, including the former `leg:` form (no name map). It checks that
 each recorded rival (range for stdev, stdev for range, first-trade, first-bar and prior-close operands) differs from the
 library value, that both outputs have a wrong-convention fixture, and that the shipped EF4
 `core.benchmark_return_dispersion_fraction`, run through its own public path on the CS01, CS06 and CS07 inputs, publishes
@@ -67,8 +67,8 @@ the same bits as the DV1 range output (the deprecation is by the EF4 erratum onl
    The DV1 text adds an optional `op` token after the profile and slot (`profile=regular_open;slot=A;op=daily_bar_open;rev=...;act=...`).
    A `regular_open` start whose operand label is absent or not exactly `daily_bar_open` is not eligible (CS09 first trade
    price, partial universe). The `op` token is ignored for the other two profiles.
-2. Evidence names. The fixtures write `leg:<fund>:<kind>`; the PO convention is `slot:<index>`. Implemented as declared-order
-   ordinals (fund k start 2k, end 2k + 1).
+2. Evidence names. The fixtures write the declared-order ordinal `slot:<index>` (fund k start 2k, end 2k + 1), the PO convention;
+   the former `leg:<fund>:<kind>` literals were renamed in DV1-5b and the gate name map was removed.
 3. Currency and adjustment. The contract limits the unit and adjustment-pair config rule to producers with an adjustment basis;
    this producer checks only the currency form and ignores the batch adjustment.
 4. Cutoff. Only the lower bound (not before the target session open) is checked; the EOD case places the cutoff after the

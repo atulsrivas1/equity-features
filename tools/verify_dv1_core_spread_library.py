@@ -6,10 +6,9 @@ operand label `op`), a target session and a final configuration (a `ka` token is
 leg notation) and the library result is compared with the contract literal BIT FOR BIT: the float64 hex string and sign
 of the value (there is no tolerance band in DV1), status, reasons, expected and observed counts and witnesses. Every output
 is run alone and both together; in the joint run the combined evidence list is the lexical concatenation truncated to
-`evidence_limit`. The contract literal names a witness `leg:<fund>:<start|end>`; the library names it `slot:<index>` in
-declared order (fund k start is slot 2k, its end slot 2k + 1), so the gate maps the literal through the declared fund
-list, which is a naming map and not a computation. For each of the 16 refusal recipes whose base is a core-spread fixture
-the recorded mutation is applied and the library must refuse with exactly the recorded error code.
+`evidence_limit`. The contract literal names a witness `slot:<index>` in declared order (fund k start is slot 2k, its end
+slot 2k + 1) and the gate compares it directly; a literal of any other form (such as the former `leg:` form) fails.
+For each of the 16 refusal recipes whose base is a core-spread fixture the recorded mutation is applied and the library must refuse with exactly the recorded error code.
 
 The wrong-convention rivals recorded in the contract (range for stdev and stdev for range, first-trade, first-bar and
 prior-close operands) must differ from the library value, and the shipped EF4 `core.benchmark_return_dispersion_fraction`
@@ -28,6 +27,7 @@ from __future__ import annotations
 import base64
 import copy
 import json
+import re
 import struct
 import sys
 from decimal import Decimal
@@ -138,15 +138,12 @@ def exact(want: dict[str, Any] | None, value: Any) -> bool:
 
 
 def slot_names(fx: dict[str, Any], witnesses: list[str]) -> list[str]:
-    """Map the contract's `leg:<fund>:<kind>` witness names to the library's declared-order `slot:<index>` names."""
-    funds = fx["params"]["core_benchmark_ids"]
-    named = []
+    """The contract witnesses are already declared-order ordinals `slot:<index>`; any other form (for example the old
+    `leg:<fund>:<kind>` literal) fails loudly. No name map."""
     for witness in witnesses:
-        parts = witness.split(":")
-        if len(parts) != 3 or parts[0] != "leg" or parts[1] not in funds or parts[2] not in ("start", "end"):
-            raise ValueError(f"{fx['id']}: unmapped witness name {witness!r}: the gate cannot name it as a declared-order ordinal")
-        named.append(f"slot:{2 * funds.index(parts[1]) + (0 if parts[2] == 'start' else 1)}")
-    return named
+        if re.fullmatch(r"slot:(0|[1-9][0-9]*)", witness) is None:
+            raise ValueError(f"{fx['id']}: witness {witness!r} is not a slot:<index> ordinal")
+    return list(witnesses)
 
 
 def compare(fx: dict[str, Any], result: Any, config: Any, features: tuple[str, ...]) -> list[str]:

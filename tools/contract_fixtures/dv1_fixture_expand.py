@@ -399,7 +399,8 @@ def eval_cs(fx):
     if reasons:
         return {n: result(reasons, k, len(good), None, [], lim) for n in names}
     rng, sd = spread_values(rets, ids)
-    wit = ["leg:%s:%s" % (b, kind) for b in ids for kind in ("start", "end")]
+    # slot ordinal: declared fund k start = 2k, end = 2k + 1 (contract evidence rule)
+    wit = ["slot:%d" % (2 * k + e) for k in range(len(ids)) for e in (0, 1)]
     return {names[0]: result((), k, k, rng, wit, lim), names[1]: result((), k, k, sd, wit, lim)}
 
 

@@ -660,7 +660,7 @@
    "core": "expected K, observed eligible funds",
    "range_over_open": "expected 1, observed 1 or 0"
   },
-  "evidence": "target slot first, then the remaining required slots ascending (core: legs in declared order start then end; relative: instrument then benchmark per slot; core: slot = 2k for the start leg and 2k+1 for the end leg of declared fund k, the fixture witnesses are still written leg:<fund>:<kind> until the closeout renames them); a row id is slot:<index> bound to the role input id (fixture witnesses are written <role>/slot:<index>); unavailable outputs emit none; evidence_limit 0..10000 truncates the list, never the value, and bounds the combined evidence list across the selected outputs of one call (outputs in lexical order, so a joint call cuts mid-list; RL20 pins it)"
+  "evidence": "target slot first, then the remaining required slots ascending (core: legs in declared order start then end; relative: instrument then benchmark per slot; core: slot = 2k for the start leg and 2k+1 for the end leg of declared fund k, the fixture witnesses are written slot:<index> by this rule); a row id is slot:<index> bound to the role input id (fixture witnesses are written <role>/slot:<index>); unavailable outputs emit none; evidence_limit 0..10000 truncates the list, never the value, and bounds the combined evidence list across the selected outputs of one call (outputs in lexical order, so a joint call cuts mid-list; RL20 pins it)"
  },
  "knowledge_readiness": {
   "market_cutoff": "DV1 may place the market cutoff inside the target session (from its open to the last grid session close); a slot that ends after the cutoff is future_market (the row is not delivered); a delivered row past the cutoff is refused as BOUNDS. This is DV1 only; the stricter EF3 envelope is unchanged.", 
@@ -14333,12 +14333,12 @@
       "acceptance": "correctly_rounded"
      },
      "witnesses": [
-      "leg:B1:start",
-      "leg:B1:end",
-      "leg:B2:start",
-      "leg:B2:end",
-      "leg:B3:start",
-      "leg:B3:end"
+      "slot:0",
+      "slot:1",
+      "slot:2",
+      "slot:3",
+      "slot:4",
+      "slot:5"
      ]
     },
     "core.benchmark_return_stdev_fraction": {
@@ -14353,12 +14353,12 @@
       "acceptance": "decimal_correctly_rounded"
      },
      "witnesses": [
-      "leg:B1:start",
-      "leg:B1:end",
-      "leg:B2:start",
-      "leg:B2:end",
-      "leg:B3:start",
-      "leg:B3:end"
+      "slot:0",
+      "slot:1",
+      "slot:2",
+      "slot:3",
+      "slot:4",
+      "slot:5"
      ]
     }
    },
@@ -14544,12 +14544,12 @@
       "acceptance": "correctly_rounded"
      },
      "witnesses": [
-      "leg:B1:start",
-      "leg:B1:end",
-      "leg:B2:start",
-      "leg:B2:end",
-      "leg:B3:start",
-      "leg:B3:end"
+      "slot:0",
+      "slot:1",
+      "slot:2",
+      "slot:3",
+      "slot:4",
+      "slot:5"
      ]
     },
     "core.benchmark_return_stdev_fraction": {
@@ -14564,12 +14564,12 @@
       "acceptance": "decimal_correctly_rounded"
      },
      "witnesses": [
-      "leg:B1:start",
-      "leg:B1:end",
-      "leg:B2:start",
-      "leg:B2:end",
-      "leg:B3:start",
-      "leg:B3:end"
+      "slot:0",
+      "slot:1",
+      "slot:2",
+      "slot:3",
+      "slot:4",
+      "slot:5"
      ]
     }
    },
@@ -14732,14 +14732,14 @@
       "acceptance": "correctly_rounded"
      },
      "witnesses": [
-      "leg:B1:start",
-      "leg:B1:end",
-      "leg:B2:start",
-      "leg:B2:end",
-      "leg:B3:start",
-      "leg:B3:end",
-      "leg:B4:start",
-      "leg:B4:end"
+      "slot:0",
+      "slot:1",
+      "slot:2",
+      "slot:3",
+      "slot:4",
+      "slot:5",
+      "slot:6",
+      "slot:7"
      ]
     },
     "core.benchmark_return_stdev_fraction": {
@@ -14754,14 +14754,14 @@
       "acceptance": "correctly_rounded"
      },
      "witnesses": [
-      "leg:B1:start",
-      "leg:B1:end",
-      "leg:B2:start",
-      "leg:B2:end",
-      "leg:B3:start",
-      "leg:B3:end",
-      "leg:B4:start",
-      "leg:B4:end"
+      "slot:0",
+      "slot:1",
+      "slot:2",
+      "slot:3",
+      "slot:4",
+      "slot:5",
+      "slot:6",
+      "slot:7"
      ]
     }
    },
@@ -14876,10 +14876,10 @@
       "acceptance": "correctly_rounded"
      },
      "witnesses": [
-      "leg:B1:start",
-      "leg:B1:end",
-      "leg:B2:start",
-      "leg:B2:end"
+      "slot:0",
+      "slot:1",
+      "slot:2",
+      "slot:3"
      ]
     },
     "core.benchmark_return_stdev_fraction": {
@@ -14894,10 +14894,10 @@
       "acceptance": "correctly_rounded"
      },
      "witnesses": [
-      "leg:B1:start",
-      "leg:B1:end",
-      "leg:B2:start",
-      "leg:B2:end"
+      "slot:0",
+      "slot:1",
+      "slot:2",
+      "slot:3"
      ]
     }
    },
@@ -15003,10 +15003,10 @@
       "acceptance": "exact_plus_zero"
      },
      "witnesses": [
-      "leg:B1:start",
-      "leg:B1:end",
-      "leg:B2:start",
-      "leg:B2:end"
+      "slot:0",
+      "slot:1",
+      "slot:2",
+      "slot:3"
      ]
     },
     "core.benchmark_return_stdev_fraction": {
@@ -15021,10 +15021,10 @@
       "acceptance": "exact_plus_zero"
      },
      "witnesses": [
-      "leg:B1:start",
-      "leg:B1:end",
-      "leg:B2:start",
-      "leg:B2:end"
+      "slot:0",
+      "slot:1",
+      "slot:2",
+      "slot:3"
      ]
     }
    },
@@ -15144,10 +15144,10 @@
       "acceptance": "correctly_rounded"
      },
      "witnesses": [
-      "leg:B1:start",
-      "leg:B1:end",
-      "leg:B2:start",
-      "leg:B2:end"
+      "slot:0",
+      "slot:1",
+      "slot:2",
+      "slot:3"
      ]
     },
     "core.benchmark_return_stdev_fraction": {
@@ -15162,10 +15162,10 @@
       "acceptance": "correctly_rounded"
      },
      "witnesses": [
-      "leg:B1:start",
-      "leg:B1:end",
-      "leg:B2:start",
-      "leg:B2:end"
+      "slot:0",
+      "slot:1",
+      "slot:2",
+      "slot:3"
      ]
     }
    },
@@ -15331,14 +15331,14 @@
       "acceptance": "correctly_rounded"
      },
      "witnesses": [
-      "leg:B1:start",
-      "leg:B1:end",
-      "leg:B2:start",
-      "leg:B2:end",
-      "leg:B3:start",
-      "leg:B3:end",
-      "leg:B4:start",
-      "leg:B4:end"
+      "slot:0",
+      "slot:1",
+      "slot:2",
+      "slot:3",
+      "slot:4",
+      "slot:5",
+      "slot:6",
+      "slot:7"
      ]
     },
     "core.benchmark_return_stdev_fraction": {
@@ -15353,14 +15353,14 @@
       "acceptance": "correctly_rounded"
      },
      "witnesses": [
-      "leg:B1:start",
-      "leg:B1:end",
-      "leg:B2:start",
-      "leg:B2:end",
-      "leg:B3:start",
-      "leg:B3:end",
-      "leg:B4:start",
-      "leg:B4:end"
+      "slot:0",
+      "slot:1",
+      "slot:2",
+      "slot:3",
+      "slot:4",
+      "slot:5",
+      "slot:6",
+      "slot:7"
      ]
     }
    },
@@ -16767,9 +16767,9 @@
       "acceptance": "correctly_rounded"
      },
      "witnesses": [
-      "leg:B1:start",
-      "leg:B1:end",
-      "leg:B2:start"
+      "slot:0",
+      "slot:1",
+      "slot:2"
      ]
     },
     "core.benchmark_return_stdev_fraction": {
@@ -16784,9 +16784,9 @@
       "acceptance": "decimal_correctly_rounded"
      },
      "witnesses": [
-      "leg:B1:start",
-      "leg:B1:end",
-      "leg:B2:start"
+      "slot:0",
+      "slot:1",
+      "slot:2"
      ]
     }
    },
@@ -17194,10 +17194,10 @@
       "acceptance": "correctly_rounded"
      },
      "witnesses": [
-      "leg:B1:start",
-      "leg:B1:end",
-      "leg:B2:start",
-      "leg:B2:end"
+      "slot:0",
+      "slot:1",
+      "slot:2",
+      "slot:3"
      ]
     },
     "core.benchmark_return_stdev_fraction": {
@@ -17212,10 +17212,10 @@
       "acceptance": "correctly_rounded"
      },
      "witnesses": [
-      "leg:B1:start",
-      "leg:B1:end",
-      "leg:B2:start",
-      "leg:B2:end"
+      "slot:0",
+      "slot:1",
+      "slot:2",
+      "slot:3"
      ]
     }
    },
