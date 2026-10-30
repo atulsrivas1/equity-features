@@ -18,5 +18,6 @@ Internal, synthetic, pre-release. Hand-maintained input for the feature coverage
 - `design_section` can be checked against a design checkout with `--design-root <dir>` (skipped when absent).
 - Records under docs/plans/records are verbatim historical copies; provider names in them are not part of the table.
 - PO adoption record (2026-10-30, section 3 table): rows listed there cite it. Rows the PO checked against code carry basis `ruling`; the 23 rows checked against the design line and the parity check only keep `adopted_from_parity_check` and are re-checked at the first CV1 or Tester touch. W1, W2 and L2 are out_of_library_scope and W3 is partial by that record. Final counts: implemented 33 confirmed and 7 provisional, partial 44, missing 59, differs 6, out_of_library_scope 17; 11 extras.
+- Record wording `po_ruling` (adoption record) = `basis: ruling` in the map.
 
 Check: `python tools/verify_design_coverage_map.py` (also run by `tools/pre_merge_check.py`).

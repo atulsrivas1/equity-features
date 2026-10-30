@@ -1,8 +1,8 @@
 """Validate docs/plans/design-coverage-map.json (schema ef-design-coverage-map1); standard library only.
 
 Internal, synthetic, pre-release. The map is the hand-maintained input of the feature coverage table: one row per design
-item, with the status, the output ids that serve it and the evidence. This script never runs feature code and never reads
-the design repository. It checks:
+item, with the status, the output ids that serve it and the evidence. This script never runs feature code and reads the
+design repository only when --design-root is given (to check design_section). It checks:
 
 * schema: required keys, enumerations, unique design ids, item and per-family counts equal the declared design basis;
 * every mapped output id exists in the core catalogue sources: the ownership manifest, the dotted id literals of the
@@ -126,7 +126,7 @@ def _exists(feature_id: str, manifest_ids: set[str], literals: set[str], texts: 
             name = feature_id[len(prefix):]
             text = texts[rel]
             # the composed id must also be named in an EF1/EF2 contract JSON (an invented suffix fails here)
-            if "." not in name and ('"%s"' % prefix) in text and ('"%s"' % name) in text and feature_id in contracts:
+            if "." not in name and ('"%s"' % prefix) in text and ('"%s"' % name) in text and ('"%s"' % feature_id) in contracts:
                 return True
     return False
 
@@ -289,7 +289,9 @@ def check(root: Path, design_root: Path | None = None) -> list[str]:
             bad(where, "design_id is not in the seed baseline (add it to BASELINE with a PO record)")
         elif code != base_code:
             promo = item.get("promotion_record")
-            ok = isinstance(promo, dict) and promo.get("record") in records.values() and                 _ref_sections(str(promo.get("record_ref", ""))) <= _sections(root, str(promo.get("record"))) and                 bool(_ref_sections(str(promo.get("record_ref", ""))))
+            promo_sections = _ref_sections(str(promo.get("record_ref", ""))) if isinstance(promo, dict) else set()
+            ok = isinstance(promo, dict) and promo.get("record") in records.values() and bool(promo_sections) and \
+                promo_sections <= _sections(root, str(promo.get("record")))
             if not ok:
                 bad(where, "status %s departs from the seed (%s); needs a promotion_record that resolves to a listed record section" % (code, base_code))
             if base_code in ("D", "V") and code == "I" and not any(
@@ -344,9 +346,10 @@ def check(root: Path, design_root: Path | None = None) -> list[str]:
         tally[key] = tally.get(key, 0) + 1
     if tally != EXPECTED:
         bad("counts", "%s != expected %s (a change needs a new PO record and an update of EXPECTED)" % (tally, EXPECTED))
-    hit = BANNED.search(map_file.read_text(encoding="utf-8"))
-    if hit:
-        bad("wording", "banned term in the map text: " + hit.group(0))
+    for wording_file in (map_file, root / "docs/plans/DESIGN_COVERAGE_MAP.md"):
+        hit = BANNED.search(wording_file.read_text(encoding="utf-8"))
+        if hit:
+            bad("wording", "banned term in %s: %s" % (wording_file.name, hit.group(0)))
     return errors
 
 

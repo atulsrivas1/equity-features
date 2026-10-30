@@ -30,7 +30,7 @@
       "scanner-lifecycle": 3,
       "strategies": 6
     },
-    "design_ref_note": "design_ref is file:line under docs/features (or engineering/stories for story files) as read by the 2026-10-29 parity check; design_section is the nearest heading. Informational, not verified by the validator (the design repository is not part of this one)."
+    "design_ref_note": "design_ref is file:line under docs/features (or engineering/stories for story files) in the design basis commit; design_section is the nearest heading. The validator checks design_section against the design checkout only when --design-root is given."
   },
   "core_basis": {
     "commit": "967d13d",
