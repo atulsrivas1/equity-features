@@ -7,6 +7,7 @@ from equity_feature_contracts import (
     Capabilities, ConfigSpec, DataKind, ErrorCode, InputRequirement, OutputField, ValueType,
 )
 from equity_features.ef3._common import CLOSE_FIELDS, DailyGrid, fail
+from ._core_spread import CORE_ALGORITHM, CORE_FEATURES, CORE_FORMULA, CORE_IDENTITY, CORE_META, CORE_ROLE, decode_core_spread_config
 from ._atr_simple_mean import (
     ATR_ALGORITHM, ATR_FEATURES, ATR_FORMULA, ATR_IDENTITY, ATR_MEAN, atr_requirements, decode_atr_simple_mean_config,
 )
@@ -44,6 +45,10 @@ _WINDOW_FORMULAS = {
 }
 
 
+_LEG_FIELDS = ("instrument_id", "session_id", "reference_id", "fact_kind", "effective_start_ns", "effective_end_ns", "text",
+               "price", "known_at_ns")
+
+
 @dataclass(frozen=True)
 class DV1Definition:
     """Own discovery metadata for one selected DV1 daily-grid producer output; batch capability only."""
@@ -66,10 +71,20 @@ def _requirement(role: str, rule: str) -> InputRequirement:
     return InputRequirement(role, "canonical:1", CLOSE_FIELDS, DataKind.BAR, rule=rule)
 
 
-def dv1_definitions(grid: DailyGrid, config: ConfigSpec) -> tuple[DV1Definition, ...]:
+def dv1_definitions(grid: DailyGrid | None, config: ConfigSpec) -> tuple[DV1Definition, ...]:
     """Describe the complete selected executable DV1 daily-grid producer (lexical feature order)."""
     if type(config) is not ConfigSpec:
         fail(ErrorCode.INVALID_CONFIG, "concrete ConfigSpec required")
+    if config.identity == CORE_IDENTITY:
+        decode_core_spread_config(config)
+        legs = (InputRequirement(CORE_ROLE, "canonical:1", _LEG_FIELDS, DataKind.REFERENCE,
+                                 rule="nullable ef4.leg.start|end facts, one start and one end witness per declared core "
+                                      "fund; regular_open start = daily_bar_open of the exact session, end = same-session "
+                                      "close"),)
+        return tuple(DV1Definition(feature, CORE_META[feature][0], CORE_META[feature][1], legs, CORE_FORMULA[feature],
+                                   CORE_ALGORITHM) for feature in CORE_FEATURES)
+    if type(grid) is not DailyGrid:
+        fail(ErrorCode.INVALID_CONFIG, "the daily grid is required")
     if config.identity == RLOG_IDENTITY:
         settings = decode_relative_log_config(grid, config)
         requirements = (
@@ -103,7 +118,7 @@ def dv1_definitions(grid: DailyGrid, config: ConfigSpec) -> tuple[DV1Definition,
 
 def require_dv1_capability(feature_id: str, capability: str) -> None:
     """Batch only; update, restore and merge are unsupported."""
-    if feature_id not in RLOG_FEATURES + WEXT_FEATURES + ATR_FEATURES:
+    if feature_id not in RLOG_FEATURES + WEXT_FEATURES + ATR_FEATURES + CORE_FEATURES:
         fail(ErrorCode.UNKNOWN_FEATURE, "unknown DV1 feature")
     if capability != "batch":
         fail(ErrorCode.UNSUPPORTED_CAPABILITY, "output capability is not implemented in this package version")
