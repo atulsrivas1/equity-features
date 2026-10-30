@@ -7,8 +7,8 @@
 | 1 | Requirements digest (index of owner rules) | PO | Written, awaiting review | `docs/planning/REQUIREMENTS-DIGEST.md` |
 | 2 | Definitions of Ready and Done | PO | Written, awaiting review | `docs/planning/DEFINITIONS.md` |
 | 3 | Release map and next-release stories, Ready/Blocked | PO | Written; buffer short, stated | `docs/planning/RELEASE-MAP.md` |
-| 4 | System design (components, ports/adapters, mock adapter per port, data placement) | Architect | Not started by this PO; ADR-1..4 exist | `docs/adr/`, `docs/PACKAGE_DESIGN.md`; Architect to confirm or write |
-| 5 | Audit of existing system against RL1 stories | Architect | Open | Rulings 1-5 in RELEASE-MAP |
+| 4 | System design (components, ports/adapters, mock adapter per port, data placement) | Architect | Written, PR 765 (both reviews approve; PO accepts) | `docs/architecture/SYSTEM-DESIGN.md` |
+| 5 | Audit of existing system against RL1 stories | Architect | Written in PR 765; PO accepts | `docs/architecture/EXISTING-SYSTEM-AUDIT.md` |
 | 6 | First-release Ready set meets buffer (10) or PO states why short | PO | Short, reason stated (3 certain) | RELEASE-MAP, Ready buffer |
 | 7 | Contracts the release reads exist | Architect | DV1 draft contract and coverage map exist; freeze is RL1-06 | `docs/dv1/`, `docs/plans/` |
 | 8 | Owner-level items named with closer and provisional reading | PO | Done | RELEASE-MAP, owner items |

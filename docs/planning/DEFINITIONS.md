@@ -21,7 +21,7 @@ Dropped (ADOPTION): legal-pending wording as keys, board/brief sources.
 
 | # | Item |
 |---|---|
-| 0 | Three independent reviews recorded in the PR Review table, none by the author (UI design N/A with reason if no UI file touched; architecture; code). For contract or library code, and any layer PR in a release, the reviewer verdict is also saved as an artifact (`work/review-<repo>-<pr>.md` or `docs/qa/`) and referenced in the PR before merge. |
+| 0 | Three independent reviews recorded in the PR Review table, none by the author (UI design N/A with reason). Verdict artifact rule: see `docs/playbook/ADOPTION.md` ("Architecture and cross-repo rules"). Squash-merge only, by the coordinator, after PO acceptance. |
 | 1 | Acceptance criteria pass a manual run on the installed artifact or synthetic demo; Tester results table in the PR. |
 | 2 | `python tools/pre_merge_check.py` passes; every other check the repo's AGENTS.md lists passes; commands, commit and environment recorded. |
 | 3 | A defect-class fix adds a regression fixture or refusal recipe that fails on the old behaviour; the census is updated in the same PR. No new unit tests. |

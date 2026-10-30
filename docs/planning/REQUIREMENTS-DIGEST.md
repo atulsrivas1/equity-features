@@ -48,7 +48,7 @@ Sources: `DECISIONS.md` (D), `docs/COORDINATOR_WORKING_AGREEMENT.md` (WA), `docs
 |---|---|---|---|
 | E1 | Paid services, trading orders, external notifications, public deployment/package or release publication, production database/worker writes and destructive shared-history changes need owner authorization. | owner-stated | WA |
 | E2 | Providers, cost and data rights are not ours; they belong to the data-generating process. Legal means only that the owner decides any legal position. | owner-stated | AD (Applicability); HO |
-| E3 | Owner-only items: ratifying E1-E9 and PO-1..PO-7; Linux machine/qualification; owner demo; publish/tag/sign-off; EF5 "stop at primitives" reversal; the design owner's 252-vs-253 period number. | owner-stated (list) | HO |
+| E3 | Owner-only items: ratifying E1-E9 and PO-1..PO-7; Linux machine/qualification; owner demo; publish/tag/sign-off; EF5 "stop at primitives" reversal; the design owner's 252-vs-253 period number; line-ending rule (.gitattributes); package version bump at release. | owner-stated (list) | HO |
 | E4 | Only the coordinator authorizes contract amendments; workers report contract defects and pause. | owner-stated | WA |
 | E5 | Never reuse a completed release worker for another release. | owner-stated | WA |
 
