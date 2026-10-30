@@ -8,41 +8,48 @@
 |---|---|---|
 | EF1-EF4 | Delivered in all three layers, Windows-qualified, not accepted | Linux, real-source demo, rights/parity, acceptance (owner publish gate) |
 | EF5 | Contract frozen internally (ef5-price-structures-1); library, io, workers bumped | PO-1..PO-7 ratification (owner); service/MCP exposure not built |
-| DV1 | DV1-0..DV1-6 libraries merged; C1/C2 bump merged in all three repos | Closeout C4 (RL1-01..06), CAT-DV1 |
+| DV1 | DV1-0..DV1-6 libraries merged; C1/C2 bump merged in all three repos | Closeout C4 (RL-01-01..06), CAT-DV1 |
 | CV0 | Merged (166-item map, validator) | CV1-CV6 |
-| Replan EF6-EF8 | Not started | After RL1 |
-| Label clash | Replan EF6 is events/fundamentals; the PO parity reconciliation (local `work/`) used EF6..EF14 for later stories (EF6 = DV1, EF12 = real-data enablement incl. service/MCP exposure, EF14 = named patterns) | Architect/coordinator ruling |
+| Replan EF6-EF8 | Not started | After RL-01 |
+| Labels | Replan EF6 = events/fundamentals again; DV1 is its own family; parity stories are PX-09..PX-14 | Scheme ruled (below) |
 
-## Next release: RL1 "DV1 closeout, catalogue and coverage"
+## Next release: RL-01 "DV1 closeout, catalogue and coverage"
 
-Working id RL1 because `docs/releases/R1` is historical. `docs/releases/RL1/` is created when its SCOPE and READINESS are written (one release ahead, never empty).
+Naming (PO decision, pending owner review): `R<n>` is historical and never reused; `EF1`-`EF8` keep the replan meaning; named families keep their own id (DV1 is not EF6; the parity label EF6=DV1 is retired); parity stories EF9-EF14 become `PX-09`..`PX-14`; releases are `RL-<nn>` with folder `docs/releases/RL-01/`, created when SCOPE and READINESS are written, and stories `RL-01-<nn>`.
 
 In flight, not buffer (coordinator): workers re-pin PR (commit pins to 6c3123c plus the two #110 notes), then core re-pin PR (SIBLINGS and commits; run conformance, r10, r9, evidence_pilot), then merge core #761. Team meeting before any new feature work.
 
 | ID | Story | Lane | Size | Status | Blocker / closer |
 |---|---|---|---|---|---|
-| RL1-01 | DV1 contract wording: RO fixtures expected=observed; input says interval bars | core | S | Blocked | After core #761 (open; conflicts on the two shared DV1 markdown files) |
-| RL1-02 | DV1 second-author recompute incl. DV1-1 re-run (author is not the original) | core | M | Blocked | After core #761 (re-run only meaningful after it merges) |
-| RL1-03 | DV1 reviewer-verdict rows into `docs/qa` | core | S | Ready | none |
-| RL1-04 | core_spread policy-label order | core | S | Blocked | Architect options, then PO ruling |
-| RL1-05 | Joint-call `evidence_limit` ratification | PO | S | PO acts after RL1-02 | PO |
-| RL1-06 | C4 PR: freeze text "Frozen as ..." and the 10-row ownership manifest flip in ONE PR; its evidence is the independent docs review and the Tester pass (not later steps) | core + Tester | M | Blocked | RL1-01..05 |
-| RL1-07 | Catalogue S2-S8, none merged (only S1 is: core #754, io #66; no catalogue PR open). S3, S4, S5, S7 size S; S2, S6, S8 size M. S3, S6, S8 serial on the io writer | io/workers/core | S-M | Ready: S3, S6, S8, S7 (S7 needs only S1); S2 serial with S6/S8; S4, S5 after S3 | none |
-| RL1-08 | CV1 generator and gate (CV6 folded in) | io | L, split | Blocked | RL1-07 (S3, S6, S8) |
-| RL1-09 | CV2, CV3 (gate demo PR per repo), CV4 (after S2) | io, core, workers | M | Blocked | RL1-08 |
-| RL1-10 | CAT-DV1 catalogue pages, then CV5 flip | io | M | Blocked | RL1-06 (merged "Frozen as" text) |
-| RL1-11 | Bars job specs need 13 headers | workers | S | Blocked | Architect: header list |
-| RL1-12 | 39-feature cap vs 40 built-ins | core/workers | S | Blocked | Architect ruling |
-| RL1-13 | E9 unit-spelling migration (three repos) | all | L, split | Blocked | Owner E9 ratification; PO orders it last on the provisional reading |
-| RL1-14 | ef5.* service/MCP exposure | workers | L | Blocked | Architect design; owner item only if it goes beyond primitives |
+| RL-01-01 | DV1 contract wording: RO fixtures expected=observed; input says interval bars; core_spread names the common first "parameters" stage (option A) with one gate case per adjacent stage pair | core | S | Blocked | After core #761 (shared DV1 markdown files) |
+| RL-01-02 | DV1 second-author recompute incl. DV1-1 re-run (not the original author) | core | M | Blocked | After core #761 |
+| RL-01-03 | DV1 reviewer-verdict rows into `docs/qa` | core | S | Ready | none |
+| RL-01-04 | core_spread policy-label order | PO | - | Ruled: option A (docs only), folded into RL-01-01 | none |
+| RL-01-05 | Joint-call `evidence_limit` ratification | PO | S | PO acts after RL-01-02 | PO |
+| RL-01-06 | C4 PR: "Frozen as" text and 10-row manifest flip in ONE PR; evidence = independent docs review and Tester pass | core + Tester | M | Blocked | RL-01-01, -02, -03, -05 |
+| RL-01-07 | S6 part 2 (Python lookups, io-contracts bump 1) | io | M | Ready | none |
+| RL-01-08 | S8 `check_input`/`check_output` | io | M | Ready | after RL-01-07 (same writer) |
+| RL-01-09 | S2 EF2+EF1 catalogue families | io | M | Ready | after RL-01-08 (serial) |
+| RL-01-10 | S4 link layer (io docs, workers docs) | io, workers | S | Ready | after RL-01-09 (io writer order S6p2, S8, S2, S4, S5) |
+| RL-01-11 | S5 header cross-check + IO_V1 one-line reference | io | S | Ready | after RL-01-10; no golden/hash churn |
+| RL-01-12 | S3 remainder: workers gate and core advisory hook (rulings: parallel, single-repo; no order) | workers, core | S | Ready | none (io gate merged in #66) |
+| RL-01-13 | S7 core pointer README note | core | S | Ready | none |
+| RL-01-14 | Bars job spec lists the closed 13-id `BAR_IDS` set, read from core, not retyped | workers | S | Ready | none |
+| RL-01-15 | CV1 generator and gate (CV6 folded in) | io | L, split | Blocked | RL-01-07, -08 (S3 io part merged) |
+| RL-01-16 | CV2 (own bump), CV3 (gate demo PR per repo), CV4 (after S2) | io, core, workers | M | Blocked | RL-01-15, -09 |
+| RL-01-17 | CAT-DV1 catalogue pages, then CV5 flip | io | M | Blocked | RL-01-06 ("Frozen as" text merged); RL-01-16 (bump order S6, CV2, CAT-DV1) |
+| RL-01-18 | E9 unit-spelling migration (three repos) | all | L, split | Blocked | Owner E9 ratification; ordered last |
+| RL-01-19 | ef5.* service/MCP exposure, primitives only, per Architect design (closed command table from the catalogue, remote schema v1.2) | workers | L | Blocked | RL-01-07 (lookups); Architect confirms notional-cell remote decode status; owner item only beyond primitives |
 
-io-contracts bump order (PO, one order; version strings assigned by the coordinator): S6 bump first, then CV2 its own bump (PO ruling D3: it cannot fold into S6 because S6 and S8 precede CV1), then CAT-DV1 last. The earlier "a5 to a6" for CAT-DV1 holds only if it lands first.
+Closed by ruling: 39-feature cap stays 39 (per-job policy limit, not a built-in count); "no change, documented" (former cap story). Any change to it is decided once with RL-01-19.
+
+io-contracts bump order (one order; version strings assigned by the coordinator): S6 (RL-01-07), then CV2, then CAT-DV1 last.
 
 Later: four other intraday shared-admission families, controlled-machine benchmarks, README-gate gaps, Researcher ideas, then replan EF6-EF8 and the parity stories.
 
-### Ready buffer (honest)
+### Ready buffer
 
-Ready now: core 1 (RL1-03) and catalogue S3, S6, S8, S7 (io lane, serial on one writer, so about 2 at a time). RL1-01 and -02 become Ready when core #761 merges (3 more). The playbook target of 10 is not met. The PO starts RL1 short, because everything else waits on DV1 closeout or an Architect ruling. Growth plan: merging #761 plus Architect rulings on RL1-04, -11, -12 and -14 convert 5 to 7 stories to Ready; the PO then writes story files (`TEMPLATES/story.md`) for the Ready set. Tester has no work until RL1-07.
+Story files (`TEMPLATES/story.md`) for the Ready set are the PO next task. Ready now: 9 stories (RL-01-03, -07, -08, -09, -10, -11, -12, -13, -14); RL-01-01 and -02 join when core #761 merges (11). Playbook target of 10 is met once #761 merges and stands at 9 today. Honest limit: the io catalogue chain (-07, -08, -09, -11) is serial on one writer, so only one io story is in build at a time. Lanes: core Developer -03, -13, then -01/-02; io Developer -07 -> -08 -> -09 -> -10 -> -11; workers Developer -14, -12, -10 workers docs. Tester: nothing until -06; meanwhile reads -07/-08 outputs on the installed io-contracts. A fourth Developer is not warranted (fewer than 20 independent Ready stories).
 
 ## Owner-level items (listed, not decided; provisional reading in force)
 
@@ -57,10 +64,6 @@ Ready now: core 1 (RL1-03) and catalogue S3, S6, S8, S7 (io lane, serial on one 
 | Design owner's 252-vs-253 period number | Contract leaves it to the consumer; no default added |
 | Line-ending rule (.gitattributes); package version bump at release | Existing behaviour |
 
-## Rulings needed from the Architect
+## Rulings from the Architect (PR 767) and PO decisions
 
-1. Confirm the io-contracts bump order above.
-2. core_spread policy-label order options.
-3. Header list for bars job specs; where the 39 cap lives.
-4. Design for ef5 service/MCP exposure and E9 migration sequencing.
-5. Release id and EF label scheme (RL1 vs parity EF6..EF14).
+Answered in `docs/architecture/RELEASE-0-RULINGS.md`. PO decisions: core_spread option A; keep the 39 cap and close the cap story; bars spec is the closed 13-id set; naming scheme as above; EF6=DV1 retired; ADR-2 range pins deferred; ADR-3 after CV1, ADR-4 after RL-01. Still open for the Architect: confirm the notional-cell remote decode status before RL-01-19.
