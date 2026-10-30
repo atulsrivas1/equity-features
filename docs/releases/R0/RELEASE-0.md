@@ -13,9 +13,9 @@
 | 7 | Contracts the release reads exist | Architect | Exist; Architect rulings merged (PR 767, 094a613), PO decided; freeze is RL-01-06 | `docs/dv1/`, `docs/plans/` |
 | 8 | Owner-level items named with closer and provisional reading | PO | Done | RELEASE-MAP, owner items |
 | 9 | Charter and three-review rule written | Coordinator | Done (adopted 2026-10-30) | `docs/playbook/`, `docs/COORDINATOR_WORKING_AGREEMENT.md` |
-| 10 | Missing tools stated | PO | No backlog generator (hand-kept table until about 20 stories); story files not yet written for the Ready set | RELEASE-MAP |
+| 10 | Missing tools stated | PO | No backlog generator (hand-kept table until about 20 stories); story files for the nine Ready stories written (blocked stories get theirs when Ready) | `docs/releases/RL-01/STORIES.md`, RELEASE-MAP |
 | 11 | Checks pass (`python tools/pre_merge_check.py`) | Developer | Not run by the PO | PR Checks section |
 | 12 | Documents read by someone other than the author | Coordinator | Done for PRs 765-767; later PRs pending their own reviews | PR Review tables |
-| 13 | Owner review held once | Owner | Not held | Owner's decision; "approve" is a complete answer |
+| 13 | Owner review held once | Owner | Not held; guide written | [`REVIEW-GUIDE.md`](REVIEW-GUIDE.md); "approve" is a complete answer |
 
 Defaults chosen are logged in `DECISIONS.md` (decided, pending owner review). Builders do not start new feature work before 4-5 and 12-13 close and the team meeting is held.
