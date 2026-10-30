@@ -16,7 +16,7 @@
 {{Copy the table of playbook/LIFECYCLE.md section 5; item 0 is the three reviews.}}
 
 ## How Testers verify
-{{Manual browser procedure from TEMPLATES/agent-prompts.md (Tester), or "CI is the gate plus a manual pass for UI changes".}}
+Runtime procedure from TEMPLATES/agent-prompts.md (Tester): installed artifacts, synthetic data, independent expected results. No CI.
 
 ## Epics (read by the backlog generator)
 | Epic | Family | Name | One line |

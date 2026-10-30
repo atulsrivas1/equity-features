@@ -13,7 +13,7 @@ The record of the system an owner and an agent team used to design and plan a pr
 ## The system on one page
 
 1. **The owner is the facilitator.** The owner sets principles, answers owner-level items (money, legal, new principles), and may veto at a demo. Everything else is decided by the team.
-2. **Roles decide inside their lane.** The Product Owner (PO) decides what is built and accepts or rejects. The Architect decides how. The coordinator decides routine matters and merges. The Designer owns UI. Reviewers are never the author.
+2. **Roles decide inside their lane.** The Product Owner (PO) decides what is built and accepts or rejects. The Architect decides how. The coordinator decides routine matters and merges. The Tester runs it and independent reviewers review it; there is no Designer role here. Reviewers are never the author.
 3. **Release 0 first.** The PO and Architect design the whole system, audit what exists, and prepare the first release. The owner reviews Release 0 once. Then the PO and Architect always work one release ahead of the builders.
 4. **One story loop.** Backlog, Ready, build, code review, architecture review, UI design review, Tester pass, PO accept, merge by the coordinator after checks.
 5. **Three reviews before anything is approved**, recorded in a Review table in every PR. N/A needs a reason.
@@ -62,7 +62,7 @@ Then add the first check script (a sync or count check) and list it in `AGENTS.m
 | `LIFECYCLE.md` | Release 0 and kickoff, story flow, Ready and Done, demos, defects, closure |
 | `DECISIONS-PROCESS.md` | Decision log format, statuses, numbering, amendments |
 | `VARIANTS.md` | Code project with tests and CI, no-UI project, solo team, several repos, session setup |
-| `TEMPLATES/` | pull-request-template, decision-row, story, design-brief, release-readiness, owner-review-guide, agents-md-and-checks, definitions-and-backlog, agent-prompts |
+| `TEMPLATES/` | pull-request-template, decision-row, story, release-readiness, owner-review-guide, agents-md-and-checks, definitions-and-backlog, agent-prompts |
 | `ADOPTION.md` | Project-specific choices and what was not adopted |
 | `OPERATING-LESSONS.md` | What went wrong or nearly did, and the fix |
 

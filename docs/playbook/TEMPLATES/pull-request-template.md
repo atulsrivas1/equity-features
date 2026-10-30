@@ -13,11 +13,11 @@
 
 | Review | Reviewer | Verdict (approve / changes / N/A: reason) | Findings fixed |
 |---|---|---|---|
-| UI design review (Designer) | | | |
+| UI design review (independent; N/A: no UI file touched) | | | |
 | Architecture review (Architect) | | | |
 | Code review (independent; not the author) | | | |
 
-## UI evidence (screenshots at 1280 and 375 px, light and dark, one per state the story touches; or "not verified: rendering")
+## UI evidence (only when a browser demo or page is touched: screenshots at 1280 and 375 px; otherwise "N/A: no UI file touched")
 
 ## Tester pass
 
@@ -33,5 +33,6 @@ Rules for filling it:
 - **N/A needs a reason a reader can check**, for example "no UI file touched" or "no code or scripts, documents only".
 - A verdict "changes" blocks acceptance and merge until the finding is fixed and the reviewer has seen the fix; list the finding under "Findings fixed" when done.
 - "not verified: <what>" is allowed when a review cannot be done; the PO decides whether to accept with that limit, and the changelog repeats it.
-- Docs-only PR example: UI design N/A (no UI), code N/A (no code or scripts), architecture pending.
+- Docs-only PR example: UI design N/A (no UI file touched), code review by an independent docs reviewer, architecture pending.
+- Squash-merge only, by the coordinator; the independent verdict artifact (docs/qa/PR-VERDICTS-<repo>-<pr>.md (work/ is git-ignored, so a verdict there cannot be referenced from the PR)) is saved before merge.
 - Commit messages and the PR body end with the attribution lines the repo's rules require; where a repo forbids trailers, add none.
