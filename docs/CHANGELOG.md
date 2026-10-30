@@ -1,3 +1,6 @@
+## CV0 design-item coverage map - October 30, 2026
+
+Adds `docs/plans/design-coverage-map.json` (166 design items, 11 extras, each with status, basis, mapped output ids, delivering release and evidence), `docs/plans/DESIGN_COVERAGE_MAP.md`, verbatim PO ruling records under `docs/plans/records/`, and the stdlib validator `tools/verify_design_coverage_map.py` (run by `tools/pre_merge_check.py`). Docs and tooling only; no library, contract, version or digest change (internal, synthetic, pre-release).
 ## DV1-4 coordinated pre-release bump (C2, C3) - October 29, 2026
 
 Pre-release label move only (internal, synthetic, pre-release; no tag, no publish, no release claim): equity-feature-contracts 0.0.4a5 to 0.0.4a6, equity-features 0.0.4a6 to 0.0.4a7, equity-feature-evidence and equity-feature-explanations 0.1.0a3 to 0.1.0a4, equity-feature-diagnostics, equity-feature-conformance, equity-feature-agent-evidence and equity-feature-agent-ledger 0.1.0a2 to 0.1.0a3; intraday, continuous, labels and strategies keep their versions and follow the contracts pin. Version-derived oracles relabelled with recomputed digests; the discovery text of the deprecated `core.benchmark_return_dispersion_fraction` now states that it publishes the range. Numeric results unchanged. See [PRERELEASE_BUMP_DV1.md](PRERELEASE_BUMP_DV1.md).

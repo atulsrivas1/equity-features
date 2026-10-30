@@ -1,0 +1,23 @@
+# Design coverage map (CV0)
+
+Internal, synthetic, pre-release. Hand-maintained input for the feature coverage table; not a release claim.
+
+- `design-coverage-map.json` (schema `ef-design-coverage-map1`) has one row per design item: 166 items in nine families (P, V, M, U, C conditions; S presets; W watchlist rules; L lifecycle; T strategy, catalogue, chart, alert), seeded from the 2026-10-29 parity check as reconciled by the Product Owner. `extras` lists the 11 shipped items with no design row. The design repository is the source of the items and is not edited here.
+- Status vocabulary: `implemented`, `partial`, `missing`, `differs`, `out_of_library_scope`. `missing` and `implemented` are derived (no outputs; or every cited output exists and none is a planned DV1 output). `partial`, `differs` and `out_of_library_scope` are asserted by the Product Owner and cite a record under `records/`. There is no hand-written promotion to `implemented`.
+- Provisional rows (P6, P14, P17: look-ahead safety of the opening-range interval; P25, P36, P37, V12b: window inclusion, consumer rule max of prior high and current high) are `implemented` with `provisional: true` and name the check that clears them. They are counted apart from confirmed rows.
+- `differs` rows name the existing output (`existing_differs`) and the DV1 variant (`variant`). They stay `differs` until the variant has wrong-convention fixture evidence and the Product Owner records the change. DV1 outputs that exist on main count as existing; their delivery is per the Product Owner.
+- `asserted.basis` is `ruling` when the reconciliation record rules on the item, and `adopted_from_parity_check` when the record leaves the parity check classification standing.
+- `records/` holds verbatim copies of the Product Owner ruling records the map cites, each with a one-line source header (decision D5). `work/` stays unreleased.
+- Output ids are checked against the ownership manifest and the library sources; releases agree with the manifest where it names the id. Links to input and output contracts arrive with the io catalogue story (CV1).
+
+- `capability_gaps` is the legend for the optional `capability_gap` codes on each row, from the parity check section 4 gap list: G1 daily-grid technicals; G2 event and corporate-action data feeds; G3 dollar-volume and trade-count baselines; G4 silent definition conflicts (variants); G5 named pattern library; G6 event and transition semantics and missing level carriers; G7 short interest, short-sale volume, auctions, off-exchange share; G8 intraday-shape measures; G9 market-context extensions. Gap 10 (real-data runs) applies to every row and has no code. The validator rejects codes outside the legend.
+- `extras` are 11 groups from the parity check, not an id-complete list. 45 catalogue ids are neither cited by an item nor in an extra; listing them is the generated table's job (CV1, rule R2).
+- Producer, input and output contract links, delivery and accepted flags are not in the map; the generated table derives them in CV1 (accepted comes from the ownership manifest, never from the map).
+- The seed statuses are pinned in the validator (`BASELINE`). A row that departs from the seed needs a `promotion_record` that resolves to a listed record section, and a differs or provisional row that becomes confirmed also needs a fixture evidence ref that resolves. There is no other way to promote a row.
+- `asserted.record_ref` must name sections that are headings of the reconciliation record, and for `ruling` rows a section that rules on that status class (section 1 for classifications, section 2 for the four conflicts, section 3 for out-of-library-scope).
+- `design_section` can be checked against a design checkout with `--design-root <dir>` (skipped when absent).
+- Records under docs/plans/records are verbatim historical copies; provider names in them are not part of the table.
+- PO adoption record (2026-10-30, section 3 table): rows listed there cite it. Rows the PO checked against code carry basis `ruling`; the 23 rows checked against the design line and the parity check only keep `adopted_from_parity_check` and are re-checked at the first CV1 or Tester touch. W1, W2 and L2 are out_of_library_scope and W3 is partial by that record. Final counts: implemented 33 confirmed and 7 provisional, partial 44, missing 59, differs 6, out_of_library_scope 17; 11 extras.
+- Record wording `po_ruling` (adoption record) = `basis: ruling` in the map.
+
+Check: `python tools/verify_design_coverage_map.py` (also run by `tools/pre_merge_check.py`).
