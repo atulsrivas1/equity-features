@@ -49,6 +49,7 @@ Feature IDs identify definitions rather than data providers. Configurable window
 | session.bar.close_weighted_price | Explicit bar-close volume-weighted proxy; not trade VWAP | B | R1 | EQ-002 |
 | session.price.open_close_return | Return between session open and close | B | R1 | EQ-002 |
 | session.price.range_fraction | Session high-low relative to close | B | R1 | EQ-002 |
+| session.price.range_over_open | Session high-low relative to the first eligible regular-session trade price (DV1 built-in entry) | B | R1 | EQ-002 |
 | session.price.close_location | Close position in session range | B | R1 | EQ-002 |
 | session.price.overnight_gap | Open versus compatible previous close | B, P, A where required | R1 | EQ-002, EQ-006 |
 | session.price.close_close_return | Close versus compatible previous close | B, P, A where required | R1 | EQ-002, EQ-006 |

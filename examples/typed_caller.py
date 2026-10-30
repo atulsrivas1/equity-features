@@ -43,7 +43,7 @@ def main() -> None:
     result = custom(request)
     assert result.values[0].values == (0.05,)
     assert result.quality[0].status == Status.AVAILABLE
-    assert len(discovery()) == 39
+    assert len(discovery()) == 40
     # Typed errors describe invalid calls, while valid unavailable results retain null/quality.
     try:
         builtin_registry().get("demo:unknown")

@@ -15,7 +15,7 @@ class CapabilityTests(unittest.TestCase):
         self.assertEqual(len(entries),8)
         self.assertEqual([e.feature_id for e in entries],sorted(e.feature_id for e in entries))
         self.assertEqual(builtin_registry().to_json(),before)
-        self.assertEqual(len(builtin_registry().list_features()),39)
+        self.assertEqual(len(builtin_registry().list_features()),40)
         self.assertEqual(len(intraday_catalog_digest()),64)
         self.assertEqual(intraday_catalog_digest(),intraday_catalog_digest())
 

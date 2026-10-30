@@ -29,7 +29,7 @@ class CustomTests(unittest.TestCase):
         self.assertEqual(self.registry.get(FEATURE_ID), self.definition)
         self.assertEqual(CustomRegistry("demo").list_features(), ())
         self.assertEqual(builtin_registry().to_json(), before)
-        self.assertEqual(len(builtin_registry().list_features(capability="batch")), 39)
+        self.assertEqual(len(builtin_registry().list_features(capability="batch")), 40)
 
     def test_duplicate_reserved_and_namespace(self):
         self.reject(ErrorCode.DUPLICATE, lambda: self.registry.register(self.definition, calculate))

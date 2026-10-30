@@ -10,7 +10,7 @@ from equity_features.registry import builtin_registry as feature_registry
 
 EXPECTED = (
 "session.bar.open","session.bar.high","session.bar.low","session.bar.close","session.bar.volume","session.bar.notional","session.bar.close_weighted_price",
-"session.price.open_close_return","session.price.range_fraction","session.price.close_location","session.price.overnight_gap","session.price.close_close_return",
+"session.price.open_close_return","session.price.range_fraction","session.price.range_over_open","session.price.close_location","session.price.overnight_gap","session.price.close_close_return",
 "session.structure.interval_ohlcv","session.structure.interval_volume_share",
 "session.trade.count","session.trade.volume","session.trade.notional","session.trade.vwap","session.trade.mean_size","session.trade.top_k",
 "session.quote.sampled_spread","session.quote.state_counts","session.quote.time_weighted_spread",
@@ -26,7 +26,7 @@ class RegistryDefinitions(unittest.TestCase):
         self.assertEqual(caught.exception.code,code)
     def test_exact_frozen_scope(self):
         definitions=builtin_registry().list_features();self.assertEqual(tuple(x.feature_id for x in definitions),EXPECTED)
-        self.assertEqual(len(set(EXPECTED)),39);self.assertEqual(feature_registry().list_features(),definitions)
+        self.assertEqual(len(set(EXPECTED)),40);self.assertEqual(feature_registry().list_features(),definitions)
     def test_all_definitions_have_contracts(self):
         for d in builtin_registry().list_features():
             with self.subTest(feature=d.feature_id):
@@ -35,11 +35,11 @@ class RegistryDefinitions(unittest.TestCase):
                 self.assertEqual(FeatureDefinition.from_json(d.to_json()),d)
     def test_exact_implemented_capabilities(self):
         registry=builtin_registry()
-        self.assertEqual(tuple(x.feature_id for x in registry.list_features(capability="batch")),EXPECTED[:39])
-        self.assertEqual(tuple(x.feature_id for x in registry.list_features(capability="merge")),EXPECTED[:22])
+        self.assertEqual(tuple(x.feature_id for x in registry.list_features(capability="batch")),EXPECTED[:40])
+        self.assertEqual(tuple(x.feature_id for x in registry.list_features(capability="merge")),EXPECTED[:23])
         for d in registry.list_features():
-            self.assertEqual(d.capabilities,Capabilities(batch=d.feature_id in EXPECTED[:39],update=d.feature_id in EXPECTED[:23],restore=d.feature_id in EXPECTED[:23],merge=d.feature_id in EXPECTED[:22]))
-        for feature in EXPECTED[:23]:
+            self.assertEqual(d.capabilities,Capabilities(batch=d.feature_id in EXPECTED[:40],update=d.feature_id in EXPECTED[:24],restore=d.feature_id in EXPECTED[:24],merge=d.feature_id in EXPECTED[:23]))
+        for feature in EXPECTED[:24]:
             registry.require_capability(feature,"batch");registry.require_capability(feature,"update");registry.require_capability(feature,"restore")
         for mode in ("merge",):
             self.assertCode(ErrorCode.UNSUPPORTED_CAPABILITY,lambda:registry.require_capability("session.quote.time_weighted_spread",mode))
@@ -79,7 +79,7 @@ class RegistryDefinitions(unittest.TestCase):
         self.assertIn("partial structured",d.missing_policy)
     def test_scoped_custom_registry_is_immutable(self):
         original=Registry("demo");new=original.with_definition(custom())
-        self.assertEqual(len(original.list_features()),39);self.assertEqual(len(new.list_features()),40)
+        self.assertEqual(len(original.list_features()),40);self.assertEqual(len(new.list_features()),41)
         self.assertEqual(new.get("demo:mean"),custom());self.assertEqual(len(new.list_features(family="demo")),1)
         self.assertCode(ErrorCode.UNKNOWN_FEATURE,lambda:Registry("other").get("demo:mean"))
     def test_reserved_and_duplicate_ids(self):

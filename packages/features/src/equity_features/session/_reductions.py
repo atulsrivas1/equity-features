@@ -98,7 +98,7 @@ class _BarTotals(_Basis):
                prior: PriorInfo = (Status.MISSING_INPUT,(Reason.ABSENT_INPUT,),None), override: Readiness | None = None) -> FeatureResult:
         base=self.base(coverage,override);scale=10**cast(PriceUnit,config.price_unit).scale
         values: list[FeatureColumn]=[];quality: list[QualityRow]=[];registry=builtin_registry()
-        requirements={'open':('open',),'high':('high',),'low':('low',),'close':('close',),'notional':('actual_notional',),'close_weighted_price':('close',),'open_close_return':('open','close'),'range_fraction':('high','low','close'),'close_location':('high','low','close'),'overnight_gap':('open',),'close_close_return':('close',)}
+        requirements={'open':('open',),'high':('high',),'low':('low',),'close':('close',),'notional':('actual_notional',),'close_weighted_price':('close',),'open_close_return':('open','close'),'range_fraction':('high','low','close'),'range_over_open':('open','high','low'),'close_location':('high','low','close'),'overnight_gap':('open',),'close_close_return':('close',)}
         for feature_id in BAR_IDS:
             name=feature_id.rsplit('.',1)[1];status,reasons=base
             value: ResultCell=None
@@ -117,6 +117,9 @@ class _BarTotals(_Basis):
                         elif name == 'close_weighted_price': value=float(Fraction(self.proxy.get(),volume*scale))
                         elif name == 'open_close_return': value=float(Fraction(cast(int,self.prices['close'])-cast(int,self.prices['open']),cast(int,self.prices['open'])))
                         elif name == 'range_fraction': value=float(Fraction(cast(int,self.prices['high'])-cast(int,self.prices['low']),cast(int,self.prices['close'])))
+                        elif name == 'range_over_open':
+                            if not self.prices['open']: status,reasons=Status.NOT_APPLICABLE,(Reason.ZERO_DENOMINATOR,)
+                            else: value=float(Fraction(cast(int,self.prices['high'])-cast(int,self.prices['low']),self.prices['open']))
                         elif name == 'close_location':
                             width=cast(int,self.prices['high'])-cast(int,self.prices['low'])
                             if not width: status,reasons=Status.NOT_APPLICABLE,(Reason.ZERO_DENOMINATOR,)

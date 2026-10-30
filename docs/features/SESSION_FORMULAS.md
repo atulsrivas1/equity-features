@@ -46,6 +46,7 @@ Fixture t1:p100,q2; t2:p102,q3; t3:p101,q5, in that order with unique IDs. K2 se
 | session.bar.close_weighted_price | sum(close_i*volume_i over B+)/V; undefined if V=0 | currency/share, proxy | 513/5 =102.6 |
 | session.price.open_close_return | C/O-1 | fraction | 3/100 |
 | session.price.range_fraction | (H-L)/C | fraction | 5/103 |
+| session.price.range_over_open | (H-L)/O | fraction | 1/20 |
 | session.price.close_location | (C-L)/(H-L); null if H=L | fraction | 4/5 |
 | session.price.overnight_gap | O/P-1, compatible P required | fraction | 1/49 |
 | session.price.close_close_return | C/P-1, compatible P required | fraction | 5/98 |
@@ -57,6 +58,8 @@ Fixture t1:p100,q2; t2:p102,q3; t3:p101,q5, in that order with unique IDs. K2 se
 | session.trade.vwap | A/Q, null if Q=0 | currency/share | 1011/10 |
 | session.trade.mean_size | Q/n, null if n=0 | shares/trade | 10/3 |
 | session.trade.top_k | First min(K,n) sorted by(-size, event_ns, order_key, event_id), K integer>=1 | bounded trade rows | K2:[t3(size5),t2(size3)] |
+
+session.price.range_over_open (DV1 built-in, algorithm v1): O is session.bar.open, the open of the first positive-volume entry, which for trade events is the first eligible regular-session trade price (operand first_eligible_regular_trade); it is never replaced by the official daily-bar open (operand daily_bar_open, used only by the core regular_open profile). The value is the exact Fraction (H-L)/O rounded once to float64; H=L gives exact +0.0; it needs open, high, low and volume but not close; a non-positive open is refused at canonical admission and a defensive zero open would be not_applicable zero_denominator. session.price.range_fraction (H-L)/C is unchanged. Independent example: O100/H104/L99 gives 1/20 (the custom demo:range_over_open/v2 agrees).
 
 If B+ is empty, bar OHLC and all price-based functions are null. Interval OHLCV still returns observed volume0 with null prices for a covered empty window. Top-K on a covered empty trade set is an empty list, not null; missing/incomplete trade input produces null evidence. No use of prices from previous sessions to fill empty intervals. A trade count is a normalized effective-record count; a provider event already aggregating multiple trades must declare that semantic and cannot pretend to represent individual trades without an appropriate contract.
 

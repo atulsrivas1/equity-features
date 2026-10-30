@@ -52,7 +52,7 @@ class Bars(unittest.TestCase):
     def test_twelve_exact_golden_results(self):
         r=result(batch(),p=prior());v=values(r)
         expected=dict(open=100,high=104,low=99,close=103,volume=500,notional=51200,
-            close_weighted_price=Fraction(513,5),open_close_return=Fraction(3,100),range_fraction=Fraction(5,103),
+            close_weighted_price=Fraction(513,5),open_close_return=Fraction(3,100),range_fraction=Fraction(5,103),range_over_open=Fraction(1,20),
             close_location=Fraction(4,5),overnight_gap=Fraction(1,49),close_close_return=Fraction(5,98))
         self.assertEqual(set(v),set(expected))
         for key,value in expected.items():
@@ -116,7 +116,7 @@ class Bars(unittest.TestCase):
         self.error(ErrorCode.INVALID_SCHEMA,lambda:result(batch(close=(102,None))))
 
     def test_missing_prior_affects_only_two_returns(self):
-        r=result(batch());self.assertEqual(sum(q.status==Status.AVAILABLE for q in r.quality),10)
+        r=result(batch());self.assertEqual(sum(q.status==Status.AVAILABLE for q in r.quality),11)
         self.assertEqual(qualities(r)['overnight_gap'].reasons,(Reason.ABSENT_INPUT,))
 
     def test_prior_unknown_future_or_null_independent(self):

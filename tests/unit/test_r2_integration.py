@@ -73,7 +73,7 @@ class R2Integration(unittest.TestCase):
                 self.assertEqual(col.unit, output.unit)
         r2 = tuple(d for d in registry.list_features() if d.planned_release == "R2")
         self.assertEqual(len(r2), 16)
-        self.assertEqual(tuple(len(registry.list_features(capability=m)) for m in ("batch", "update", "restore", "merge")), (39, 23, 23, 22))
+        self.assertEqual(tuple(len(registry.list_features(capability=m)) for m in ("batch", "update", "restore", "merge")), (40, 24, 24, 23))
         for definition in r2:
             registry.require_capability(definition.feature_id, "batch")
             for mode in ("update", "restore", "merge"):

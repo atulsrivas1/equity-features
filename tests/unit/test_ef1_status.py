@@ -146,7 +146,7 @@ class SuppliedStatus(unittest.TestCase):
             ("calendar_provenance", "status_states", "status_prefix", "status_validity") for d in definitions))
         with self.assertRaises(TypeError):
             decode_ef1_context(c)["calendar"]["sessions"][0][0] = "changed"
-        self.assertEqual(len(builtin_registry().list_features()), 39)
+        self.assertEqual(len(builtin_registry().list_features()), 40)
 
     def test_b01_wrong_target_source_revision_and_mapping(self):
         for index, batch in ((2, changed(inputs()[2], reference_id=("p1:t:ZQ:b3RoZXI:cHJlZg",))),

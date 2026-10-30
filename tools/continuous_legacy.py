@@ -24,7 +24,7 @@ def main():
         WindowSpec(2,'S3',('S1','S2','S3','S4')),AvailabilitySpec(200,210,210),price_unit=PriceUnit(4,'USD'))
     assert c.to_json()==raw;assert ConfigSpec.from_json(raw)==c
     assert c.digest=='d8ff9ddb56cf26be7e9550874f8891f4db5d3ee38ed3b6a7ac9a100a5fa9d8fc'
-    assert len(builtin_registry().list_features())==39
+    assert len(builtin_registry().list_features())==40
     if '--continuous' in sys.argv:
         before=builtin_registry().list_features()
         from equity_feature_continuous import list_features

@@ -91,7 +91,7 @@ class EF1Clocks(unittest.TestCase):
         self.assertEqual(result.evidence, ())
         with self.assertRaises(TypeError):
             decode_ef1_context(c)["calendar"]["revision"] = "changed"
-        self.assertEqual(len(builtin_registry().list_features()), 39)
+        self.assertEqual(len(builtin_registry().list_features()), 40)
 
     def test_frozen_c01_literal_cutoffs(self):
         for cutoff, knowledge, evaluation, phase, elapsed, remaining, fraction in (

@@ -278,7 +278,7 @@ class EF1Anchors(unittest.TestCase):
                          ["session.anchor.notional", "session.anchor.volume", "session.anchor.vwap"])
         self.assertTrue(all(d.capabilities.batch and not d.capabilities.update
                             and not d.capabilities.restore and not d.capabilities.merge for d in definitions))
-        self.assertEqual(len(builtin_registry().list_features()), 39)
+        self.assertEqual(len(builtin_registry().list_features()), 40)
         other = context()
         # Period is now an admitted additive producer; preserve the original
         # unsupported-dispatch control with an actually unsupported identity.
