@@ -7,7 +7,7 @@
     "transport_versions": [
       "1.0"
     ],
-    "registry_snapshot": "386db6c41ca29110708ddcbc8df1ef0539076d9fb91dd031f38fc5c434f83b25",
+    "registry_snapshot": "da0bcb3d92468bb89178ba2359193a4f081cfd2e1d7075af5406d6598278f1b4",
     "features": [
       {
         "feature_id": "session.trade.count",

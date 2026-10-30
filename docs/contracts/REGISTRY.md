@@ -4,7 +4,7 @@ Experimental 0.0.1a5 exports `builtin_registry`, `Registry`, `FeatureDefinition`
 `InputRequirement`, `OutputField` and `Capabilities`. `equity_features.registry`
 is an inward convenience import. Core discovery requires no Arrow/NumPy backend.
 
-`builtin_registry().list_features()` returns the frozen 39-ID V1 catalog. `get(id)`
+`builtin_registry().list_features()` returns the 40-ID V1 catalog (the 39 frozen V1 IDs plus the built-in `session.price.range_over_open`, DV1). `get(id)`
 returns declared input/schema fields, output types and units, accepted formula
 and document, warm-up/default periods, initialization, timing, missing policy,
 algorithm/schema versions and planned release. Family filtering is explicit.

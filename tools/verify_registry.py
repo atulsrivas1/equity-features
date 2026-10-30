@@ -8,7 +8,7 @@ from equity_feature_contracts import builtin_registry
 from equity_feature_contracts._implemented import BATCH_IDS, UPDATE_IDS, RESTORE_IDS, MERGE_IDS
 catalog = {x.feature_id:x for x in builtin_registry().list_features()}
 rows = re.findall(r"^\| ((?:session|history|baseline|relative|breadth)\.[a-z_.]+) \| ([^|]+) \| ([^|]+) \| (R[12]) \| ([^|]+) \|$", (ROOT/"docs/features/V1_SCOPE.md").read_text(encoding="utf-8"), re.M)
-assert len(rows)==39 and set(catalog)=={x[0] for x in rows}
+assert len(rows)==40 and set(catalog)=={x[0] for x in rows}
 for feature_id,_,_,release,_ in rows:
     definition=catalog[feature_id]
     assert definition.planned_release==release, feature_id
@@ -24,5 +24,5 @@ for document in ("SESSION_FORMULAS","QUOTE_FORMULAS","HISTORICAL_FORMULAS"):
         if len(cells)>1 and cells[0] in catalog:
             assert catalog[cells[0]].formula==cells[1], cells[0]
             count+=1
-assert count==31, count
-print("39 frozen IDs/releases, formula links, explicit implementation capabilities and 31 table formulas verified")
+assert count==32, count
+print("40 catalog IDs/releases (39 frozen plus the DV1 built-in), formula links, explicit implementation capabilities and 32 table formulas verified")

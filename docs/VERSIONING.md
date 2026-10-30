@@ -20,7 +20,7 @@ of these labels. [Delivery](BUILD_DELIVERY.md), [platform qualification](COMPATI
 | Canonical input | `schema_for(kind)` describes canonical schema1. `CanonicalBatch` carries kind/columns/metadata rather than a configurable schema-version field; admission uses the owned schema, precision and semantic validators. Constructing an arbitrary InputSchema does not install another input schema. |
 | Config | ConfigSpec schema1, explicit identity/algorithm/parameters/session/grid/availability/adjustment/unit. Unsupported schema rejects INCOMPATIBLE_VERSION. Canonical sorted JSON represents floats by exact hexadecimal strings; SHA256 digest changes with meaningful configuration identities. It is not authentication or proof that supplied facts are true. |
 | Discovery | FeatureDefinition/Registry schema1, builtin scope1 and builtin snapshot digest. Registry decoding checks the current delivered catalog snapshot and actual capabilities. JSON is descriptive metadata, never executable registration/code loading. |
-| Feature mathematics | All39 builtins currently advertise algorithmv1; family calculators admit their own supported configuration and formulas. A changed equation/initialization/timing/missingness meaning needs an explicitly versioned numbered change and independent fixtures; implementation-only changes do not silently rename mathematics. |
+| Feature mathematics | All40 builtins currently advertise algorithmv1; family calculators admit their own supported configuration and formulas. A changed equation/initialization/timing/missingness meaning needs an explicitly versioned numbered change and independent fixtures; implementation-only changes do not silently rename mathematics. |
 | Results | FeatureColumn/InputBinding/ResultMetadata schema1; current producers emit math_policy_version v1. Generic columns allow nonempty algorithm labels and metadata allows nonempty math-policy labels: construction alone does not certify an equation. Custom execution compares its declared request/result identities; FamilyResult composition separately requires delivered v1 mathematics and matching catalog columns/config/provenance. |
 | Source/policy | SourceBinding mapping/snapshot/input and adjustment/action-policy identities are caller-supplied bindings. Their text is not source authenticity or an automatically executable mapping. Owned consumers enforce their supported adjustment/sampling/availability rules independently. |
 | Session state | AccumulatorState schema2, exact implementation0.0.4a4, canonical bounded JSON with payload/binding digests. Binding covers family/config/entity/population/fixed prior/seed and the internal `r1-exact-compensated-v1` math/backend identity. This internal binding label is distinct from result math_policy_version v1 and is not a migration API. |
@@ -31,7 +31,7 @@ adapter request/capability/delivery contracts retain schema1 and exact UTCns-int
 precision. These are distinct from session saved-state schema2. Static annotations
 and labels do not replace runtime admission or provenance comparison.
 
-Actual modes remain39 builtin batch,23 session update/restore and22 conditional
+Actual modes are40 builtin batch,24 session update/restore and23 conditional
 merge IDs; all16 R2 IDs and custom execution are batch-only. Continuous quote
 arbitrary merge is unsupported. Read current discovery capabilities rather than
 inferring another execution mode from the package version.

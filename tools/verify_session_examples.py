@@ -99,6 +99,7 @@ def bar_reference(rows, expected=((0, 60), (60, 120)), cutoff=120, prior=98):
         "close_weighted_price": F(sum(r["close"] * r["volume"] for r in active), volume) if volume else None,
         "open_close_return": F(c, o)-1 if o is not None else None,
         "range_fraction": F(h-l, c) if c is not None else None,
+        "range_over_open": F(h-l, o) if o else None,
         "close_location": F(c-l, h-l) if h is not None and h > l else None,
         "overnight_gap": F(o, prior)-1 if o is not None and prior is not None else None,
         "close_close_return": F(c, prior)-1 if c is not None and prior is not None else None,
@@ -118,11 +119,11 @@ def interval(rows, start, end, cutoff=120):
 
 
 class SpecificationEvidence(unittest.TestCase):
-    def test_all_twenty_exact_golden_values(self):
+    def test_all_twenty_one_exact_golden_values(self):
         bars, trades = FIXTURE["bars"], FIXTURE["trades"]
         b = bar_reference(bars)["value"]
         actual = {"session.bar."+k: b[k] for k in ("open", "high", "low", "close", "volume", "notional", "close_weighted_price")}
-        actual.update({"session.price."+k: b[k] for k in ("open_close_return", "range_fraction", "close_location", "overnight_gap", "close_close_return")})
+        actual.update({"session.price."+k: b[k] for k in ("open_close_return", "range_fraction", "range_over_open", "close_location", "overnight_gap", "close_close_return")})
         windows = {"first": interval(bars, 0, 60), "last": interval(bars, 60, 120)}
         actual["session.structure.interval_ohlcv"] = windows
         actual["session.structure.interval_volume_share"] = {k: F(v[-1], b["volume"]) for k, v in windows.items()}
@@ -140,7 +141,7 @@ class SpecificationEvidence(unittest.TestCase):
         documented = set(re.findall(r"^\| (session\.[a-z_.]+) \|", spec, re.M))
         self.assertEqual(wanted, documented)
         self.assertEqual(wanted, set(FIXTURE["expected"]))
-        self.assertEqual(len(wanted), 20)
+        self.assertEqual(len(wanted), 21)
 
     def test_proxy_is_not_actual_notional_average(self):
         b = bar_reference(FIXTURE["bars"])["value"]

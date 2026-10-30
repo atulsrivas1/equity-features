@@ -17,6 +17,7 @@ All 23 R1 IDs have callable batch/update/restore implementations;22 have conditi
 | `session.bar.close_weighted_price` | `float64` | [bars](../packages/features/src/equity_features/session/bars.py), [independent fixtures](../tests/unit/test_bars.py) | yes / yes / yes / conditional |
 | `session.price.open_close_return` | `float64` | [bars](../packages/features/src/equity_features/session/bars.py), [independent fixtures](../tests/unit/test_bars.py) | yes / yes / yes / conditional |
 | `session.price.range_fraction` | `float64` | [bars](../packages/features/src/equity_features/session/bars.py), [independent fixtures](../tests/unit/test_bars.py) | yes / yes / yes / conditional |
+| `session.price.range_over_open` | `float64` | [bars](../packages/features/src/equity_features/session/bars.py), [independent fixtures](../tests/unit/test_bars.py), [DV1 library gate](../tools/verify_dv1_range_over_open_library.py) | yes / yes / yes / conditional |
 | `session.price.close_location` | `float64` | [bars](../packages/features/src/equity_features/session/bars.py), [independent fixtures](../tests/unit/test_bars.py) | yes / yes / yes / conditional |
 | `session.price.overnight_gap` | `float64` | [bars](../packages/features/src/equity_features/session/bars.py), [independent fixtures](../tests/unit/test_bars.py) | yes / yes / yes / conditional |
 | `session.price.close_close_return` | `float64` | [bars](../packages/features/src/equity_features/session/bars.py), [independent fixtures](../tests/unit/test_bars.py) | yes / yes / yes / conditional |
