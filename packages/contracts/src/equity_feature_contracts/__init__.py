@@ -25,10 +25,11 @@ from .history import HistoryContext, SMAReference
 from .volume import VolumeBaseline, TargetVolume
 from .buckets import VolumeBucket, BucketContext, IntervalBaseline, BucketVolume
 from .relative import ReturnReference, RelativeSpec, SectorBenchmark
+from ._implemented import BAR_IDS
 from .policies import ActionPolicy, ReferenceFact, PolicyAdmission, AdjustmentApplication, ClassificationAdmission
 
 __version__ = "0.0.4a6"
-__all__ = ["CompositionSpec", "FamilyResult", "FeatureBundle", "DeclaredUniverseSpec", "CompletedClose", "SMAInput", "MemberFeatures", "BreadthSpec", "MemberExclusion", "BreadthResult", "ReturnReference", "RelativeSpec", "SectorBenchmark", "VolumeBucket", "BucketContext", "IntervalBaseline", "BucketVolume", "VolumeBaseline", "TargetVolume", "SMAReference", "HistoryContext", "ActionPolicy", "ReferenceFact", "PolicyAdmission", "AdjustmentApplication", "ClassificationAdmission", "PartitionSpan", "AccumulatorState", "StreamPopulation", "PrefixCoverage", "QuoteDurations", "TimeWeightedSpread", "QuoteStateCounts", "QuoteObservation", "SampledSpread", "TopKTrades", "TopKTradeRow", "NOTIONAL_RANKED_FEATURES", "TOP_K_RANKINGS", "AdjustmentSpec", "BatchMetadata", "CanonicalBatch", "Cell", "Column",
+__all__ = ["BAR_IDS", "CompositionSpec", "FamilyResult", "FeatureBundle", "DeclaredUniverseSpec", "CompletedClose", "SMAInput", "MemberFeatures", "BreadthSpec", "MemberExclusion", "BreadthResult", "ReturnReference", "RelativeSpec", "SectorBenchmark", "VolumeBucket", "BucketContext", "IntervalBaseline", "BucketVolume", "VolumeBaseline", "TargetVolume", "SMAReference", "HistoryContext", "ActionPolicy", "ReferenceFact", "PolicyAdmission", "AdjustmentApplication", "ClassificationAdmission", "PartitionSpan", "AccumulatorState", "StreamPopulation", "PrefixCoverage", "QuoteDurations", "TimeWeightedSpread", "QuoteStateCounts", "QuoteObservation", "SampledSpread", "TopKTrades", "TopKTradeRow", "NOTIONAL_RANKED_FEATURES", "TOP_K_RANKINGS", "AdjustmentSpec", "BatchMetadata", "CanonicalBatch", "Cell", "Column",
            "IntervalCoverage", "IntervalOHLCV", "IntervalOHLCVRow", "IntervalVolumeShares", "IntervalVolumeShareRow", "InputScope", "Coverage", "DataKind", "DType", "Field", "InputSchema", "PriceUnit",
            "SourceBinding", "schema_for", "AvailabilitySpec", "ConfigSpec", "IntervalSpec",
            "Parameter", "SessionSpec", "WindowSpec", "ContractError", "ErrorCode",
