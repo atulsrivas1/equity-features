@@ -80,4 +80,6 @@ the same bits as the DV1 range output (the deprecation is by the EF4 erratum onl
 
 ## Not done here (cascade, reported not built)
 
+The io adapter spec for `dv1.core_spread` must say: emit `op=daily_bar_open` on the regular_open start leg only when the source has the official exact-session daily-bar open, otherwise omit the leg (DV1-4 cascade). Leg text order is profile, slot, op, rev, act. Fixture witness names `leg:<fund>:<kind>` become ordinals in the DV1-5 closeout. The old id's discovery description changes in the DV1-4 bump.
+
 io mapping for the `dv1.core_spread` leg facts (including the `op` token) and a workers family are separate PRs after merge.

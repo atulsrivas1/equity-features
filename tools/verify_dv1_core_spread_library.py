@@ -142,8 +142,10 @@ def slot_names(fx: dict[str, Any], witnesses: list[str]) -> list[str]:
     funds = fx["params"]["core_benchmark_ids"]
     named = []
     for witness in witnesses:
-        _, fund, kind = witness.split(":")
-        named.append(f"slot:{2 * funds.index(fund) + (0 if kind == 'start' else 1)}")
+        parts = witness.split(":")
+        if len(parts) != 3 or parts[0] != "leg" or parts[1] not in funds or parts[2] not in ("start", "end"):
+            raise ValueError(f"{fx['id']}: unmapped witness name {witness!r}: the gate cannot name it as a declared-order ordinal")
+        named.append(f"slot:{2 * funds.index(parts[1]) + (0 if parts[2] == 'start' else 1)}")
     return named
 
 
@@ -271,6 +273,14 @@ def main() -> int:
                 problems.append(f"{rf['id']}: refused {error.code.name} expected {rf['error_code']} ({error})")
         else:
             problems.append(f"{rf['id']}: not refused (expected {rf['error_code']})")
+    # Contract text (regular open paragraph): the op token is ignored for prior_close and window_start. The literals of CS01,
+    # CS06 and CS07 must hold unchanged when every start leg carries a foreign operand label.
+    for name in EF4_EQUAL:
+        carried = copy.deepcopy(by_id[name])
+        for fact in carried["facts"]:
+            if fact["kind"] == "start":
+                fact["op"] = "first_trade_price"
+        problems += [f"{name} with op on non-regular_open legs: {p}" for p in run_all(carried)]
     # RF22 (contract text): a lower-case currency is INVALID_UNIT for every producer; its base is an ATR fixture, so the
     # same mutation is applied here to a core base and the expected code is read from the contract.
     rf22 = next(rf for rf in doc["refusal_fixtures"] if rf["id"] == "RF22")
@@ -289,7 +299,7 @@ def main() -> int:
         print(f"{len(problems)} MISMATCH(ES)")
         return 1
     print(f"DV1 core spread library: {len(by_id)} core-spread result fixtures (bit for bit, each output alone and joint) and "
-          f"{len(refusals)} refusals plus RF22 on CS02 ({len(codes)} codes) match the contract; the rivals differ and the "
+          f"{len(refusals)} refusals plus RF22 on CS02 ({len(codes)} codes) match the contract; op is ignored on prior_close and window_start; the rivals differ and the "
           f"shipped EF4 range id publishes the same bits as the DV1 range output on CS01, CS06 and CS07")
     return 0
 
