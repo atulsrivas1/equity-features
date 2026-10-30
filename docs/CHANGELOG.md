@@ -1,3 +1,8 @@
+## DV1-5b fixture witness rename - October 29, 2026
+
+Core-spread fixture witnesses in the draft DV1 contract change from `leg:<fund>:<kind>` to declared-order ordinals `slot:<index>` (fund k start 2k, end 2k + 1); the gate name map is removed and the gates fail on any `leg:` literal. Values and counts unchanged (internal, synthetic, pre-release).
+
+
 ## Shared preparation accepted by `compute_momentum` - October 29, 2026
 
 Additive, backward-compatible: `compute_momentum` takes a keyword-only `preparation: IntradayPreparation | None = None` (default `None`; behaviour unchanged when absent), reusing the admitted facts of an in-process `prepare_intraday` product. The share is accepted only when the batches (identity), context digest, availability, price unit, adjustment and session all equal the request's (never the config digest); otherwise it is refused with `inconsistent_identity`. Results are byte-identical with and without the argument when the preparation was built from the exact same batches (`batches=None` or `()` with a preparation is refused, while unshared it returns a normal result); a price-unit mismatch gives `invalid_unit` unshared but `inconsistent_identity` shared; not serialisable, not accepted from outside the process, no cache or state in the library. Internal, synthetic, pre-release; no speedup is claimed. No version bump in this change. Gate: `tools/verify_shared_preparation.py`. Version not bumped; catalog digest unchanged.

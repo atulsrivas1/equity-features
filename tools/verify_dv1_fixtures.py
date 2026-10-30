@@ -74,6 +74,19 @@ def check_expander(problems: list[str], doc: dict[str, Any]) -> None:
     expect(problems, "header count", len(doc["headers"]), PINNED_HEADERS)
 
 
+def check_slot_witnesses(problems: list[str], doc: dict[str, Any]) -> None:
+    """Core-spread witnesses are declared-order ordinals (fund k start 2k, end 2k + 1); no `leg:` literal anywhere."""
+    if "leg:" in CONTRACT.read_text(encoding="utf-8"):
+        problems.append("a `leg:` witness literal remains in the contract JSON")
+    for fx in doc["core_spread_fixtures"]:
+        k = len(fx["params"]["core_benchmark_ids"])
+        for name, res in fx["expected"].items():
+            w = res["witnesses"]
+            full = [f"slot:{i}" for i in range(2 * k)]
+            if w and w != full[:len(w)]:  # a prefix: evidence_limit may truncate the list
+                problems.append(f"{fx['id']}.{name}: witnesses {w} are not a prefix of slot:0..slot:{2 * k - 1}")
+
+
 def check_known_at_rules(problems: list[str]) -> None:
     mod = load()
     row = [1, 1, 1]
@@ -197,6 +210,7 @@ def main() -> int:
     check_expander(problems, doc)
     check_known_at_rules(problems)
     check_contracts(problems, doc)
+    check_slot_witnesses(problems, doc)
     check_coverage(problems, doc)
     check_fail_closed(problems, doc)
     check_deprecation(problems, doc)
