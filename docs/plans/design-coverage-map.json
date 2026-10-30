@@ -33,15 +33,28 @@
     "design_ref_note": "design_ref is file:line under docs/features (or engineering/stories for story files) as read by the 2026-10-29 parity check; design_section is the nearest heading. Informational, not verified by the validator (the design repository is not part of this one)."
   },
   "core_basis": {
-    "commit": "9d12412",
-    "note": "origin/main at the time of seeding; DV1 library outputs that exist on main are counted as existing, their delivery is per the PO."
+    "commit": "967d13d",
+    "note": "origin/main at the time of seeding (after the DV1-4 bump); DV1 library outputs that exist on main are counted as existing, their delivery is per the PO."
   },
   "sources": {
     "parity_check": "PARITY_CHECK_EQUITY_2026-10-29.md (work/, not released)",
     "records": {
       "R1": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
-      "R2": "docs/plans/records/po-rulings-coverage-table-2026-10-30.md"
+      "R2": "docs/plans/records/po-rulings-coverage-table-2026-10-30.md",
+      "R3": "docs/plans/records/po-rulings-coverage-map-adoption-2026-10-30.md"
     }
+  },
+  "capability_gaps": {
+    "G1": "Daily-grid (end-of-day) technicals",
+    "G2": "Event and corporate-action data feeds",
+    "G3": "Dollar-volume and trade-count baselines",
+    "G4": "Silent definition conflicts (variants)",
+    "G5": "Named pattern library",
+    "G6": "Event and transition semantics, missing level carriers",
+    "G7": "Short interest, short-sale volume, auction imbalance, off-exchange share",
+    "G8": "Intraday-shape measures",
+    "G9": "Market-context extensions",
+    "source": "PARITY_CHECK_EQUITY_2026-10-29.md section 4 (ranks 1 to 9); rank 10 (real-data runs) applies to every row and has no code"
   },
   "items": [
     {
@@ -56,10 +69,11 @@
       "composition": "none",
       "asserted": {
         "by": "PO",
-        "date": "2026-10-29",
-        "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
-        "record_ref": "§1 intro and §4 (classifications not adjusted stand)",
-        "basis": "adopted_from_parity_check"
+        "date": "2026-10-30",
+        "record": "docs/plans/records/po-rulings-coverage-map-adoption-2026-10-30.md",
+        "record_ref": "\u00a73 table",
+        "basis": "ruling",
+        "reason": "Rolling 10s-60m return output absent (true gap); ATR-normalised part is arithmetic on history.return and history.atr but the item mixes both"
       },
       "outputs": [
         {
@@ -106,10 +120,11 @@
       "composition": "none",
       "asserted": {
         "by": "PO",
-        "date": "2026-10-29",
-        "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
-        "record_ref": "§1 intro and §4 (classifications not adjusted stand)",
-        "basis": "adopted_from_parity_check"
+        "date": "2026-10-30",
+        "record": "docs/plans/records/po-rulings-coverage-map-adoption-2026-10-30.md",
+        "record_ref": "\u00a73 table",
+        "basis": "ruling",
+        "reason": "Break/fail/reclaim events are consumer rules (EF9). Note is stale: calendar.period.high/low (iso_week, month, civil_ytd), session.extended.high/low (premarket) and history.window_high/low ship; remove 'no premarket, no YTD' and list these ids"
       },
       "capability_gap": [
         "G6"
@@ -144,6 +159,36 @@
           "id": "session.daily_observations.low",
           "role": "operand",
           "release": "EF1"
+        },
+        {
+          "id": "calendar.period.high",
+          "role": "primary",
+          "release": "EF1"
+        },
+        {
+          "id": "calendar.period.low",
+          "role": "primary",
+          "release": "EF1"
+        },
+        {
+          "id": "session.extended.high",
+          "role": "primary",
+          "release": "EF1"
+        },
+        {
+          "id": "session.extended.low",
+          "role": "primary",
+          "release": "EF1"
+        },
+        {
+          "id": "history.window_high",
+          "role": "variant",
+          "release": "DV1"
+        },
+        {
+          "id": "history.window_low",
+          "role": "variant",
+          "release": "DV1"
         }
       ],
       "delivering_release": "EF1",
@@ -167,9 +212,21 @@
         {
           "kind": "doc",
           "ref": "docs/EF1_CUMULATIVE_QUALIFICATION.md"
+        },
+        {
+          "kind": "test",
+          "ref": "tests/unit/test_ef1_period_phase.py"
+        },
+        {
+          "kind": "gate",
+          "ref": "tools/verify_dv1_window_library.py"
+        },
+        {
+          "kind": "gate",
+          "ref": "tools/verify_dv1_fixtures.py"
         }
       ],
-      "note": "Level carriers partly ship; no premarket high/low, no YTD output, no break/fail/reclaim event output."
+      "note": "Break, fail and reclaim events are consumer rules. Prior iso-week, month and civil-YTD high/low ship as calendar.period.high/low, premarket high/low as session.extended.high/low, and N-week/52-week extremes as DV1 history.window_high/low (library on main; delivery per the PO)."
     },
     {
       "design_id": "P3",
@@ -245,10 +302,11 @@
       "composition": "none",
       "asserted": {
         "by": "PO",
-        "date": "2026-10-29",
-        "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
-        "record_ref": "§1 intro and §4 (classifications not adjusted stand)",
-        "basis": "adopted_from_parity_check"
+        "date": "2026-10-30",
+        "record": "docs/plans/records/po-rulings-coverage-map-adoption-2026-10-30.md",
+        "record_ref": "\u00a73 table",
+        "basis": "ruling",
+        "reason": "Daily grid has only history.rsi, history.atr, ema, sma; no daily MACD/ADX/Bollinger/Donchian (EF7)"
       },
       "capability_gap": [
         "G1"
@@ -418,7 +476,7 @@
         "by": "PO",
         "date": "2026-10-29",
         "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
-        "record_ref": "§1 (P6/P14/P17)",
+        "record_ref": "\u00a71 (P6/P14/P17)",
         "basis": "ruling"
       },
       "outputs": [
@@ -453,10 +511,11 @@
       "composition": "none",
       "asserted": {
         "by": "PO",
-        "date": "2026-10-29",
-        "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
-        "record_ref": "§1 intro and §4 (classifications not adjusted stand)",
-        "basis": "adopted_from_parity_check"
+        "date": "2026-10-30",
+        "record": "docs/plans/records/po-rulings-coverage-map-adoption-2026-10-30.md",
+        "record_ref": "\u00a73 table",
+        "basis": "ruling",
+        "reason": "Gap size and fill ship; held/reversal outputs absent; premarket mover return ships as session.extended.prior_close_return"
       },
       "capability_gap": [
         "G6"
@@ -770,10 +829,11 @@
       "composition": "none",
       "asserted": {
         "by": "PO",
-        "date": "2026-10-29",
-        "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
-        "record_ref": "§1 intro and §4 (classifications not adjusted stand)",
-        "basis": "adopted_from_parity_check"
+        "date": "2026-10-30",
+        "record": "docs/plans/records/po-rulings-coverage-map-adoption-2026-10-30.md",
+        "record_ref": "\u00a73 table",
+        "basis": "ruling",
+        "reason": "ATR distance is arithmetic but no price z-score or price stdev output exists; z-score half is a real gap"
       },
       "outputs": [
         {
@@ -830,10 +890,11 @@
       "composition": "none",
       "asserted": {
         "by": "PO",
-        "date": "2026-10-29",
-        "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
-        "record_ref": "§1 intro and §4 (classifications not adjusted stand)",
-        "basis": "adopted_from_parity_check"
+        "date": "2026-10-30",
+        "record": "docs/plans/records/po-rulings-coverage-map-adoption-2026-10-30.md",
+        "record_ref": "\u00a73 table",
+        "basis": "adopted_from_parity_check",
+        "reason": "Intraday-grid only per parity check; design line read, code not checked"
       },
       "capability_gap": [
         "G1"
@@ -898,7 +959,7 @@
         "by": "PO",
         "date": "2026-10-29",
         "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
-        "record_ref": "§1 (P13)",
+        "record_ref": "\u00a71 (P13)",
         "basis": "ruling"
       },
       "capability_gap": [
@@ -941,7 +1002,7 @@
         "by": "PO",
         "date": "2026-10-29",
         "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
-        "record_ref": "§1 (P6/P14/P17)",
+        "record_ref": "\u00a71 (P6/P14/P17)",
         "basis": "ruling"
       },
       "outputs": [
@@ -1001,7 +1062,7 @@
         "by": "PO",
         "date": "2026-10-29",
         "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
-        "record_ref": "§1 and §2 ruling 3",
+        "record_ref": "\u00a71 and \u00a72 ruling 3",
         "basis": "ruling"
       },
       "capability_gap": [
@@ -1066,7 +1127,7 @@
         "by": "PO",
         "date": "2026-10-29",
         "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
-        "record_ref": "§1 (P6/P14/P17)",
+        "record_ref": "\u00a71 (P6/P14/P17)",
         "basis": "ruling"
       },
       "outputs": [
@@ -1276,7 +1337,7 @@
         "by": "PO",
         "date": "2026-10-29",
         "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
-        "record_ref": "§1 (P25/P36/P37/V12b)",
+        "record_ref": "\u00a71 (P25/P36/P37/V12b)",
         "basis": "ruling"
       },
       "outputs": [
@@ -1356,7 +1417,7 @@
         "by": "PO",
         "date": "2026-10-29",
         "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
-        "record_ref": "§3 out of library scope",
+        "record_ref": "\u00a73 out of library scope",
         "basis": "ruling"
       },
       "outputs": [],
@@ -1378,7 +1439,7 @@
         "by": "PO",
         "date": "2026-10-29",
         "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
-        "record_ref": "§3 out of library scope",
+        "record_ref": "\u00a73 out of library scope",
         "basis": "ruling"
       },
       "outputs": [],
@@ -1400,7 +1461,7 @@
         "by": "PO",
         "date": "2026-10-29",
         "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
-        "record_ref": "§3 out of library scope",
+        "record_ref": "\u00a73 out of library scope",
         "basis": "ruling"
       },
       "outputs": [],
@@ -1420,10 +1481,11 @@
       "composition": "none",
       "asserted": {
         "by": "PO",
-        "date": "2026-10-29",
-        "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
-        "record_ref": "§1 intro and §4 (classifications not adjusted stand)",
-        "basis": "adopted_from_parity_check"
+        "date": "2026-10-30",
+        "record": "docs/plans/records/po-rulings-coverage-map-adoption-2026-10-30.md",
+        "record_ref": "\u00a73 table",
+        "basis": "ruling",
+        "reason": "Halt state over supplied events ships. session.venue_status.aggregate_reason exists but is a precedence code, not an exchange reason text; say so in the note"
       },
       "outputs": [
         {
@@ -1438,6 +1500,11 @@
         },
         {
           "id": "session.venue_status.restriction_any",
+          "role": "primary",
+          "release": "EF1"
+        },
+        {
+          "id": "session.venue_status.aggregate_reason",
           "role": "primary",
           "release": "EF1"
         }
@@ -1457,7 +1524,7 @@
           "ref": "docs/api/EF1_MULTI_VENUE_STATUS.md"
         }
       ],
-      "note": "Over supplied events only; no reason text, no live feed."
+      "note": "Halt state over supplied events ships. session.venue_status.aggregate_reason is a precedence code, not an exchange reason text; no live feed."
     },
     {
       "design_id": "P31",
@@ -1471,10 +1538,11 @@
       "composition": "none",
       "asserted": {
         "by": "PO",
-        "date": "2026-10-29",
-        "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
-        "record_ref": "§1 intro and §4 (classifications not adjusted stand)",
-        "basis": "adopted_from_parity_check"
+        "date": "2026-10-30",
+        "record": "docs/plans/records/po-rulings-coverage-map-adoption-2026-10-30.md",
+        "record_ref": "\u00a73 table",
+        "basis": "ruling",
+        "reason": "status_history gives halt_observed boolean and event_count only; no moment output"
       },
       "outputs": [
         {
@@ -1508,10 +1576,11 @@
       "composition": "none",
       "asserted": {
         "by": "PO",
-        "date": "2026-10-29",
-        "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
-        "record_ref": "§1 intro and §4 (classifications not adjusted stand)",
-        "basis": "adopted_from_parity_check"
+        "date": "2026-10-30",
+        "record": "docs/plans/records/po-rulings-coverage-map-adoption-2026-10-30.md",
+        "record_ref": "\u00a73 table",
+        "basis": "ruling",
+        "reason": "resume_observed boolean only; no moment output"
       },
       "outputs": [
         {
@@ -1545,10 +1614,11 @@
       "composition": "none",
       "asserted": {
         "by": "PO",
-        "date": "2026-10-29",
-        "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
-        "record_ref": "§1 intro and §4 (classifications not adjusted stand)",
-        "basis": "adopted_from_parity_check"
+        "date": "2026-10-30",
+        "record": "docs/plans/records/po-rulings-coverage-map-adoption-2026-10-30.md",
+        "record_ref": "\u00a73 table",
+        "basis": "ruling",
+        "reason": "event_count and halt_observed ship; no reasons list"
       },
       "outputs": [
         {
@@ -1587,10 +1657,11 @@
       "composition": "none",
       "asserted": {
         "by": "PO",
-        "date": "2026-10-29",
-        "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
-        "record_ref": "§1 intro and §4 (classifications not adjusted stand)",
-        "basis": "adopted_from_parity_check"
+        "date": "2026-10-30",
+        "record": "docs/plans/records/po-rulings-coverage-map-adoption-2026-10-30.md",
+        "record_ref": "\u00a73 table",
+        "basis": "ruling",
+        "reason": "ssr_on_observed over supplied events; no 10%-from-prior-close computation"
       },
       "outputs": [
         {
@@ -1624,10 +1695,11 @@
       "composition": "none",
       "asserted": {
         "by": "PO",
-        "date": "2026-10-29",
-        "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
-        "record_ref": "§1 intro and §4 (classifications not adjusted stand)",
-        "basis": "adopted_from_parity_check"
+        "date": "2026-10-30",
+        "record": "docs/plans/records/po-rulings-coverage-map-adoption-2026-10-30.md",
+        "record_ref": "\u00a73 table",
+        "basis": "ruling",
+        "reason": "ssr_on_observed boolean only; no moment output"
       },
       "outputs": [
         {
@@ -1665,7 +1737,7 @@
         "by": "PO",
         "date": "2026-10-29",
         "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
-        "record_ref": "§1 (P25/P36/P37/V12b)",
+        "record_ref": "\u00a71 (P25/P36/P37/V12b)",
         "basis": "ruling"
       },
       "outputs": [
@@ -1717,7 +1789,7 @@
         "by": "PO",
         "date": "2026-10-29",
         "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
-        "record_ref": "§1 (P25/P36/P37/V12b)",
+        "record_ref": "\u00a71 (P25/P36/P37/V12b)",
         "basis": "ruling"
       },
       "outputs": [
@@ -1765,10 +1837,11 @@
       "composition": "none",
       "asserted": {
         "by": "PO",
-        "date": "2026-10-29",
-        "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
-        "record_ref": "§1 intro and §4 (classifications not adjusted stand)",
-        "basis": "adopted_from_parity_check"
+        "date": "2026-10-30",
+        "record": "docs/plans/records/po-rulings-coverage-map-adoption-2026-10-30.md",
+        "record_ref": "\u00a73 table",
+        "basis": "ruling",
+        "reason": "history.window_high takes an explicit period; no all-time or since-first-date form; add window_high as an output"
       },
       "capability_gap": [
         "G6"
@@ -1778,6 +1851,11 @@
           "id": "history.prior_high",
           "role": "primary",
           "release": "R2"
+        },
+        {
+          "id": "history.window_high",
+          "role": "variant",
+          "release": "DV1"
         }
       ],
       "delivering_release": "R2",
@@ -1789,9 +1867,17 @@
         {
           "kind": "gate",
           "ref": "tools/verify_history_examples.py"
+        },
+        {
+          "kind": "gate",
+          "ref": "tools/verify_dv1_window_library.py"
+        },
+        {
+          "kind": "gate",
+          "ref": "tools/verify_dv1_fixtures.py"
         }
       ],
-      "note": "No since-first-date label output and no under-one-year rule."
+      "note": "history.window_high takes an explicit period; no all-time or since-first-date form and no under-one-year rule."
     },
     {
       "design_id": "P39",
@@ -1805,10 +1891,11 @@
       "composition": "none",
       "asserted": {
         "by": "PO",
-        "date": "2026-10-29",
-        "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
-        "record_ref": "§1 intro and §4 (classifications not adjusted stand)",
-        "basis": "adopted_from_parity_check"
+        "date": "2026-10-30",
+        "record": "docs/plans/records/po-rulings-coverage-map-adoption-2026-10-30.md",
+        "record_ref": "\u00a73 table",
+        "basis": "ruling",
+        "reason": "As P38; the event is a consumer comparison against prior high"
       },
       "capability_gap": [
         "G6"
@@ -1818,6 +1905,11 @@
           "id": "history.prior_high",
           "role": "primary",
           "release": "R2"
+        },
+        {
+          "id": "history.window_high",
+          "role": "variant",
+          "release": "DV1"
         }
       ],
       "delivering_release": "R2",
@@ -1829,9 +1921,17 @@
         {
           "kind": "gate",
           "ref": "tools/verify_history_examples.py"
+        },
+        {
+          "kind": "gate",
+          "ref": "tools/verify_dv1_window_library.py"
+        },
+        {
+          "kind": "gate",
+          "ref": "tools/verify_dv1_fixtures.py"
         }
       ],
-      "note": "As P38; the event is a consumer comparison."
+      "note": "As P38; the event is a consumer comparison against the prior high."
     },
     {
       "design_id": "P40",
@@ -1847,7 +1947,7 @@
         "by": "PO",
         "date": "2026-10-29",
         "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
-        "record_ref": "§1 and §2 ruling 1",
+        "record_ref": "\u00a71 and \u00a72 ruling 1",
         "basis": "ruling"
       },
       "capability_gap": [
@@ -1892,7 +1992,7 @@
         "by": "PO",
         "date": "2026-10-29",
         "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
-        "record_ref": "§1 and §2 ruling 1",
+        "record_ref": "\u00a71 and \u00a72 ruling 1",
         "basis": "ruling"
       },
       "capability_gap": [
@@ -1937,7 +2037,7 @@
         "by": "PO",
         "date": "2026-10-29",
         "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
-        "record_ref": "§1 and §2 ruling 1",
+        "record_ref": "\u00a71 and \u00a72 ruling 1",
         "basis": "ruling"
       },
       "capability_gap": [
@@ -2138,10 +2238,11 @@
       "composition": "none",
       "asserted": {
         "by": "PO",
-        "date": "2026-10-29",
-        "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
-        "record_ref": "§1 intro and §4 (classifications not adjusted stand)",
-        "basis": "adopted_from_parity_check"
+        "date": "2026-10-30",
+        "record": "docs/plans/records/po-rulings-coverage-map-adoption-2026-10-30.md",
+        "record_ref": "\u00a73 table",
+        "basis": "adopted_from_parity_check",
+        "reason": "Stateful rising-edge episode counter; my reconciliation section 3 (scanner engine). Design line read only"
       },
       "outputs": [],
       "delivering_release": null,
@@ -2160,10 +2261,11 @@
       "composition": "none",
       "asserted": {
         "by": "PO",
-        "date": "2026-10-29",
-        "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
-        "record_ref": "§1 intro and §4 (classifications not adjusted stand)",
-        "basis": "adopted_from_parity_check"
+        "date": "2026-10-30",
+        "record": "docs/plans/records/po-rulings-coverage-map-adoption-2026-10-30.md",
+        "record_ref": "\u00a73 table",
+        "basis": "ruling",
+        "reason": "adaptive.volume.peak_relative_rate is a time-weighted running baseline, not a session maximum of a median-based multiple. Note wording 'EWMA' should read 'time-weighted'"
       },
       "outputs": [
         {
@@ -2179,7 +2281,7 @@
           "ref": "docs/ef3/EF3_DELIVERY_EVIDENCE.md"
         }
       ],
-      "note": "Peak is EWMA-based, not the session maximum of a median-based multiple."
+      "note": "adaptive.volume.peak_relative_rate is a time-weighted running baseline, not the session maximum of a median-based multiple."
     },
     {
       "design_id": "V6",
@@ -2294,10 +2396,11 @@
       "composition": "none",
       "asserted": {
         "by": "PO",
-        "date": "2026-10-29",
-        "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
-        "record_ref": "§1 intro and §4 (classifications not adjusted stand)",
-        "basis": "adopted_from_parity_check"
+        "date": "2026-10-30",
+        "record": "docs/plans/records/po-rulings-coverage-map-adoption-2026-10-30.md",
+        "record_ref": "\u00a73 table",
+        "basis": "ruling",
+        "reason": "cohort.rank and robust.* accept fields volume/open/high/low/close only; no dollar-volume field (G3 correct)"
       },
       "capability_gap": [
         "G3"
@@ -2454,7 +2557,7 @@
         "by": "PO",
         "date": "2026-10-29",
         "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
-        "record_ref": "§1 and §2 ruling 2",
+        "record_ref": "\u00a71 and \u00a72 ruling 2",
         "basis": "ruling"
       },
       "capability_gap": [
@@ -2501,7 +2604,7 @@
         "by": "PO",
         "date": "2026-10-29",
         "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
-        "record_ref": "§1 (P25/P36/P37/V12b)",
+        "record_ref": "\u00a71 (P25/P36/P37/V12b)",
         "basis": "ruling"
       },
       "outputs": [
@@ -2567,10 +2670,11 @@
       "composition": "none",
       "asserted": {
         "by": "PO",
-        "date": "2026-10-29",
-        "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
-        "record_ref": "§1 intro and §4 (classifications not adjusted stand)",
-        "basis": "adopted_from_parity_check"
+        "date": "2026-10-30",
+        "record": "docs/plans/records/po-rulings-coverage-map-adoption-2026-10-30.md",
+        "record_ref": "\u00a73 table",
+        "basis": "adopted_from_parity_check",
+        "reason": "Retest and dollar-volume baseline missing per parity check; not code-checked"
       },
       "capability_gap": [
         "G3"
@@ -2629,10 +2733,11 @@
       "composition": "none",
       "asserted": {
         "by": "PO",
-        "date": "2026-10-29",
-        "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
-        "record_ref": "§1 intro and §4 (classifications not adjusted stand)",
-        "basis": "adopted_from_parity_check"
+        "date": "2026-10-30",
+        "record": "docs/plans/records/po-rulings-coverage-map-adoption-2026-10-30.md",
+        "record_ref": "\u00a73 table",
+        "basis": "adopted_from_parity_check",
+        "reason": "Not code-checked"
       },
       "outputs": [
         {
@@ -2725,10 +2830,11 @@
       "composition": "none",
       "asserted": {
         "by": "PO",
-        "date": "2026-10-29",
-        "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
-        "record_ref": "§1 intro and §4 (classifications not adjusted stand)",
-        "basis": "adopted_from_parity_check"
+        "date": "2026-10-30",
+        "record": "docs/plans/records/po-rulings-coverage-map-adoption-2026-10-30.md",
+        "record_ref": "\u00a73 table",
+        "basis": "adopted_from_parity_check",
+        "reason": "Top-K by notional vs threshold count; not code-checked"
       },
       "outputs": [
         {
@@ -2775,10 +2881,11 @@
       "composition": "none",
       "asserted": {
         "by": "PO",
-        "date": "2026-10-29",
-        "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
-        "record_ref": "§1 intro and §4 (classifications not adjusted stand)",
-        "basis": "adopted_from_parity_check"
+        "date": "2026-10-30",
+        "record": "docs/plans/records/po-rulings-coverage-map-adoption-2026-10-30.md",
+        "record_ref": "\u00a73 table",
+        "basis": "adopted_from_parity_check",
+        "reason": "All-print tick proxies exist (tape.tick.*); not code-checked beyond id existence"
       },
       "outputs": [
         {
@@ -2827,10 +2934,11 @@
       "composition": "none",
       "asserted": {
         "by": "PO",
-        "date": "2026-10-29",
-        "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
-        "record_ref": "§1 intro and §4 (classifications not adjusted stand)",
-        "basis": "adopted_from_parity_check"
+        "date": "2026-10-30",
+        "record": "docs/plans/records/po-rulings-coverage-map-adoption-2026-10-30.md",
+        "record_ref": "\u00a73 table",
+        "basis": "adopted_from_parity_check",
+        "reason": "Trailing windows only per parity check; not code-checked"
       },
       "outputs": [
         {
@@ -3499,7 +3607,7 @@
         "by": "PO",
         "date": "2026-10-29",
         "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
-        "record_ref": "§1 and §2 ruling 4",
+        "record_ref": "\u00a71 and \u00a72 ruling 4",
         "basis": "ruling"
       },
       "capability_gap": [
@@ -3633,10 +3741,11 @@
       "composition": "none",
       "asserted": {
         "by": "PO",
-        "date": "2026-10-29",
-        "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
-        "record_ref": "§1 intro and §4 (classifications not adjusted stand)",
-        "basis": "adopted_from_parity_check"
+        "date": "2026-10-30",
+        "record": "docs/plans/records/po-rulings-coverage-map-adoption-2026-10-30.md",
+        "record_ref": "\u00a73 table",
+        "basis": "adopted_from_parity_check",
+        "reason": "session.clock.early_close ships; adjacency absent (EF11)"
       },
       "outputs": [
         {
@@ -3737,10 +3846,11 @@
       "composition": "none",
       "asserted": {
         "by": "PO",
-        "date": "2026-10-29",
-        "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
-        "record_ref": "§1 intro and §4 (classifications not adjusted stand)",
-        "basis": "adopted_from_parity_check"
+        "date": "2026-10-30",
+        "record": "docs/plans/records/po-rulings-coverage-map-adoption-2026-10-30.md",
+        "record_ref": "\u00a73 table",
+        "basis": "adopted_from_parity_check",
+        "reason": "robust.percentile_rank works on supplied index bars; no source (EF13 adapter). Not code-checked"
       },
       "capability_gap": [
         "G9"
@@ -3819,7 +3929,7 @@
         "by": "PO",
         "date": "2026-10-29",
         "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
-        "record_ref": "§3 out of library scope",
+        "record_ref": "\u00a73 out of library scope",
         "basis": "ruling"
       },
       "outputs": [],
@@ -3877,10 +3987,11 @@
       "composition": "none",
       "asserted": {
         "by": "PO",
-        "date": "2026-10-29",
-        "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
-        "record_ref": "§1 intro and §4 (classifications not adjusted stand)",
-        "basis": "adopted_from_parity_check"
+        "date": "2026-10-30",
+        "record": "docs/plans/records/po-rulings-coverage-map-adoption-2026-10-30.md",
+        "record_ref": "\u00a73 table",
+        "basis": "adopted_from_parity_check",
+        "reason": "Generic classification string gate; label-set test is consumer; no source adapter. Not code-checked"
       },
       "outputs": [
         {
@@ -3914,10 +4025,11 @@
       "composition": "none",
       "asserted": {
         "by": "PO",
-        "date": "2026-10-29",
-        "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
-        "record_ref": "§1 intro and §4 (classifications not adjusted stand)",
-        "basis": "adopted_from_parity_check"
+        "date": "2026-10-30",
+        "record": "docs/plans/records/po-rulings-coverage-map-adoption-2026-10-30.md",
+        "record_ref": "\u00a73 table",
+        "basis": "adopted_from_parity_check",
+        "reason": "As U4"
       },
       "outputs": [
         {
@@ -3951,10 +4063,11 @@
       "composition": "none",
       "asserted": {
         "by": "PO",
-        "date": "2026-10-29",
-        "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
-        "record_ref": "§1 intro and §4 (classifications not adjusted stand)",
-        "basis": "adopted_from_parity_check"
+        "date": "2026-10-30",
+        "record": "docs/plans/records/po-rulings-coverage-map-adoption-2026-10-30.md",
+        "record_ref": "\u00a73 table",
+        "basis": "ruling",
+        "reason": "No leverage or inverse concept anywhere in the feature code (grep empty)"
       },
       "outputs": [
         {
@@ -3988,10 +4101,11 @@
       "composition": "none",
       "asserted": {
         "by": "PO",
-        "date": "2026-10-29",
-        "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
-        "record_ref": "§1 intro and §4 (classifications not adjusted stand)",
-        "basis": "adopted_from_parity_check"
+        "date": "2026-10-30",
+        "record": "docs/plans/records/po-rulings-coverage-map-adoption-2026-10-30.md",
+        "record_ref": "\u00a73 table",
+        "basis": "adopted_from_parity_check",
+        "reason": "As U4"
       },
       "outputs": [
         {
@@ -4025,10 +4139,11 @@
       "composition": "none",
       "asserted": {
         "by": "PO",
-        "date": "2026-10-29",
-        "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
-        "record_ref": "§1 intro and §4 (classifications not adjusted stand)",
-        "basis": "adopted_from_parity_check"
+        "date": "2026-10-30",
+        "record": "docs/plans/records/po-rulings-coverage-map-adoption-2026-10-30.md",
+        "record_ref": "\u00a73 table",
+        "basis": "ruling",
+        "reason": "robust.median field set excludes dollar volume (verified in source); EF8"
       },
       "capability_gap": [
         "G3"
@@ -4103,15 +4218,31 @@
       "composition": "none",
       "asserted": {
         "by": "PO",
-        "date": "2026-10-29",
-        "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
-        "record_ref": "§1 intro and §4 (classifications not adjusted stand)",
-        "basis": "adopted_from_parity_check"
+        "date": "2026-10-30",
+        "record": "docs/plans/records/po-rulings-coverage-map-adoption-2026-10-30.md",
+        "record_ref": "\u00a73 table",
+        "basis": "ruling",
+        "reason": "universe_membership is an accepted fact kind of the classification producer, so reference.classification.value is a usable output; list it (outputs currently empty)"
       },
-      "outputs": [],
-      "delivering_release": null,
-      "evidence": [],
-      "note": "Point-in-time membership is an input to breadth; no membership lookup output."
+      "outputs": [
+        {
+          "id": "reference.classification.value",
+          "role": "primary",
+          "release": "EF1"
+        }
+      ],
+      "delivering_release": "EF1",
+      "evidence": [
+        {
+          "kind": "test",
+          "ref": "tests/unit/test_ef1_reference.py"
+        },
+        {
+          "kind": "doc",
+          "ref": "docs/EF1_CUMULATIVE_QUALIFICATION.md"
+        }
+      ],
+      "note": "universe_membership is an accepted fact kind of the classification producer, so reference.classification.value is usable; no membership lookup output."
     },
     {
       "design_id": "U12",
@@ -4125,10 +4256,11 @@
       "composition": "none",
       "asserted": {
         "by": "PO",
-        "date": "2026-10-29",
-        "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
-        "record_ref": "§1 intro and §4 (classifications not adjusted stand)",
-        "basis": "adopted_from_parity_check"
+        "date": "2026-10-30",
+        "record": "docs/plans/records/po-rulings-coverage-map-adoption-2026-10-30.md",
+        "record_ref": "\u00a73 table",
+        "basis": "adopted_from_parity_check",
+        "reason": "Composite of U1 (out of scope), U8 and an ETP flag; pieces partial. Not code-checked"
       },
       "capability_gap": [
         "G3"
@@ -4321,10 +4453,11 @@
       "composition": "none",
       "asserted": {
         "by": "PO",
-        "date": "2026-10-29",
-        "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
-        "record_ref": "§1 intro and §4 (classifications not adjusted stand)",
-        "basis": "adopted_from_parity_check"
+        "date": "2026-10-30",
+        "record": "docs/plans/records/po-rulings-coverage-map-adoption-2026-10-30.md",
+        "record_ref": "\u00a73 table",
+        "basis": "adopted_from_parity_check",
+        "reason": "reference.gate.action_state is admission over declarations; no five-state vocabulary. Not code-checked"
       },
       "outputs": [
         {
@@ -4629,10 +4762,11 @@
       "composition": "none",
       "asserted": {
         "by": "PO",
-        "date": "2026-10-29",
-        "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
-        "record_ref": "§1 intro and §4 (classifications not adjusted stand)",
-        "basis": "adopted_from_parity_check"
+        "date": "2026-10-30",
+        "record": "docs/plans/records/po-rulings-coverage-map-adoption-2026-10-30.md",
+        "record_ref": "\u00a73 table",
+        "basis": "adopted_from_parity_check",
+        "reason": "Seven geometry outputs only; named formations deferred to EF14 owner decision. Not code-checked"
       },
       "capability_gap": [
         "G5"
@@ -4692,17 +4826,18 @@
       "family": "presets",
       "kind": "preset",
       "title": "Chart-structure presets (triangles, head and shoulders, cup and handle, base, double top)",
-      "design_ref": "equity-scanner-strategy-stories.md:79",
-      "design_section": "Story EQ-02: EOD Intraday-Market and Price-Action Scanners (59)",
+      "design_ref": "equity-scanner-strategy-stories.md:87",
+      "design_section": "Story EQ-03: EOD Price-Level and Chart-Structure Scanners (51)",
       "status": "partial",
       "status_basis": "asserted",
       "composition": "none",
       "asserted": {
         "by": "PO",
-        "date": "2026-10-29",
-        "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
-        "record_ref": "§1 intro and §4 (classifications not adjusted stand)",
-        "basis": "adopted_from_parity_check"
+        "date": "2026-10-30",
+        "record": "docs/plans/records/po-rulings-coverage-map-adoption-2026-10-30.md",
+        "record_ref": "\u00a73 table",
+        "basis": "adopted_from_parity_check",
+        "reason": "Swing primitives only; chart-structure presets EF14. Ref belongs to EQ-03 :87 (story title read)"
       },
       "capability_gap": [
         "G5"
@@ -4747,17 +4882,18 @@
       "family": "presets",
       "kind": "preset",
       "title": "Technical presets (73) and momentum presets (21)",
-      "design_ref": "equity-scanner-strategy-stories.md:98",
-      "design_section": "Story EQ-03: EOD Price-Level and Chart-Structure Scanners (51)",
+      "design_ref": "equity-scanner-strategy-stories.md:109",
+      "design_section": "Story EQ-04: EOD Technical-Indicator Scanners (73)",
       "status": "partial",
       "status_basis": "asserted",
       "composition": "none",
       "asserted": {
         "by": "PO",
-        "date": "2026-10-29",
-        "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
-        "record_ref": "§1 intro and §4 (classifications not adjusted stand)",
-        "basis": "adopted_from_parity_check"
+        "date": "2026-10-30",
+        "record": "docs/plans/records/po-rulings-coverage-map-adoption-2026-10-30.md",
+        "record_ref": "\u00a73 table",
+        "basis": "adopted_from_parity_check",
+        "reason": "Daily-grid indicators absent (EF7). Ref belongs to EQ-04 :109 (story title read)"
       },
       "capability_gap": [
         "G1"
@@ -4821,17 +4957,18 @@
       "family": "presets",
       "kind": "preset",
       "title": "Breakout/breakdown level presets and SMA reclaim/rejection",
-      "design_ref": "equity-scanner-strategy-stories.md:79",
-      "design_section": "Story EQ-02: EOD Intraday-Market and Price-Action Scanners (59)",
+      "design_ref": "equity-scanner-strategy-stories.md:87",
+      "design_section": "Story EQ-03: EOD Price-Level and Chart-Structure Scanners (51)",
       "status": "partial",
       "status_basis": "asserted",
       "composition": "none",
       "asserted": {
         "by": "PO",
-        "date": "2026-10-29",
-        "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
-        "record_ref": "§1 intro and §4 (classifications not adjusted stand)",
-        "basis": "adopted_from_parity_check"
+        "date": "2026-10-30",
+        "record": "docs/plans/records/po-rulings-coverage-map-adoption-2026-10-30.md",
+        "record_ref": "\u00a73 table",
+        "basis": "ruling",
+        "reason": "Event rules are consumer. Note 'no 3w/6w/YTD/premarket ids' is stale: window_high/low, calendar.period.*, session.extended.high/low ship; list them"
       },
       "capability_gap": [
         "G1",
@@ -4857,6 +4994,36 @@
           "id": "session.daily_observations.low",
           "role": "primary",
           "release": "EF1"
+        },
+        {
+          "id": "calendar.period.high",
+          "role": "primary",
+          "release": "EF1"
+        },
+        {
+          "id": "calendar.period.low",
+          "role": "primary",
+          "release": "EF1"
+        },
+        {
+          "id": "session.extended.high",
+          "role": "primary",
+          "release": "EF1"
+        },
+        {
+          "id": "session.extended.low",
+          "role": "primary",
+          "release": "EF1"
+        },
+        {
+          "id": "history.window_high",
+          "role": "variant",
+          "release": "DV1"
+        },
+        {
+          "id": "history.window_low",
+          "role": "variant",
+          "release": "DV1"
         }
       ],
       "delivering_release": "EF1",
@@ -4876,17 +5043,29 @@
         {
           "kind": "doc",
           "ref": "docs/EF1_CUMULATIVE_QUALIFICATION.md"
+        },
+        {
+          "kind": "test",
+          "ref": "tests/unit/test_ef1_period_phase.py"
+        },
+        {
+          "kind": "gate",
+          "ref": "tools/verify_dv1_window_library.py"
+        },
+        {
+          "kind": "gate",
+          "ref": "tools/verify_dv1_fixtures.py"
         }
       ],
-      "note": "No 3w/6w/3m/6m/YTD/prev-day/premarket ids; events are consumer rules."
+      "note": "Event rules are consumer rules. Window extremes, prior-period high/low and premarket high/low ship (history.window_high/low are DV1, delivery per the PO)."
     },
     {
       "design_id": "S5",
       "family": "presets",
       "kind": "preset",
       "title": "Relative strength (12) and cross-sectional deciles (10)",
-      "design_ref": "equity-scanner-strategy-stories.md:133",
-      "design_section": "Story EQ-05: EOD Candlestick Pattern Scanners (80)",
+      "design_ref": "equity-scanner-strategy-stories.md:150",
+      "design_section": "Story EQ-06: EOD Momentum, Relative-Strength, Volatility and Mean-Reversion Scanners (50)",
       "status": "implemented",
       "status_basis": "derived",
       "composition": "none",
@@ -4938,17 +5117,18 @@
       "family": "presets",
       "kind": "preset",
       "title": "Mean-reversion presets (10)",
-      "design_ref": "equity-scanner-strategy-stories.md:133",
-      "design_section": "Story EQ-05: EOD Candlestick Pattern Scanners (80)",
+      "design_ref": "equity-scanner-strategy-stories.md:150",
+      "design_section": "Story EQ-06: EOD Momentum, Relative-Strength, Volatility and Mean-Reversion Scanners (50)",
       "status": "partial",
       "status_basis": "asserted",
       "composition": "none",
       "asserted": {
         "by": "PO",
-        "date": "2026-10-29",
-        "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
-        "record_ref": "§1 intro and §4 (classifications not adjusted stand)",
-        "basis": "adopted_from_parity_check"
+        "date": "2026-10-30",
+        "record": "docs/plans/records/po-rulings-coverage-map-adoption-2026-10-30.md",
+        "record_ref": "\u00a73 table",
+        "basis": "adopted_from_parity_check",
+        "reason": "See P11. Ref EQ-06 :150"
       },
       "capability_gap": [
         "G1"
@@ -4996,8 +5176,8 @@
       "family": "presets",
       "kind": "preset",
       "title": "Volatility presets (8)",
-      "design_ref": "equity-scanner-strategy-stories.md:133",
-      "design_section": "Story EQ-05: EOD Candlestick Pattern Scanners (80)",
+      "design_ref": "equity-scanner-strategy-stories.md:150",
+      "design_section": "Story EQ-06: EOD Momentum, Relative-Strength, Volatility and Mean-Reversion Scanners (50)",
       "status": "implemented",
       "status_basis": "derived",
       "composition": "none",
@@ -5049,17 +5229,18 @@
       "family": "presets",
       "kind": "preset",
       "title": "Gaps, opening range, VWAP and intraday realtime families",
-      "design_ref": "equity-scanner-strategy-stories.md:26",
-      "design_section": "Cross-cutting acceptance criteria (AC-X1 to AC-X6)",
+      "design_ref": "equity-scanner-strategy-stories.md:28",
+      "design_section": "Story EQ-01: Realtime Market Scanner Rankings (43 families)",
       "status": "partial",
       "status_basis": "asserted",
       "composition": "none",
       "asserted": {
         "by": "PO",
-        "date": "2026-10-29",
-        "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
-        "record_ref": "§1 intro and §4 (classifications not adjusted stand)",
-        "basis": "adopted_from_parity_check"
+        "date": "2026-10-30",
+        "record": "docs/plans/records/po-rulings-coverage-map-adoption-2026-10-30.md",
+        "record_ref": "\u00a73 table",
+        "basis": "adopted_from_parity_check",
+        "reason": "Primitives only; ranking banned client-side. Ref EQ-01 :28"
       },
       "outputs": [
         {
@@ -5113,17 +5294,18 @@
       "family": "presets",
       "kind": "preset",
       "title": "Volume and liquidity presets (30)",
-      "design_ref": "equity-scanner-strategy-stories.md:151",
-      "design_section": "Story EQ-06: EOD Momentum, Relative-Strength, Volatility and Mean-Reversion Scanners (50)",
+      "design_ref": "equity-scanner-strategy-stories.md:171",
+      "design_section": "Story EQ-07: EOD Volume and Liquidity Scanners (30)",
       "status": "partial",
       "status_basis": "asserted",
       "composition": "none",
       "asserted": {
         "by": "PO",
-        "date": "2026-10-29",
-        "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
-        "record_ref": "§1 intro and §4 (classifications not adjusted stand)",
-        "basis": "adopted_from_parity_check"
+        "date": "2026-10-30",
+        "record": "docs/plans/records/po-rulings-coverage-map-adoption-2026-10-30.md",
+        "record_ref": "\u00a73 table",
+        "basis": "adopted_from_parity_check",
+        "reason": "See V6-V14. Ref EQ-07 :171"
       },
       "outputs": [
         {
@@ -5177,17 +5359,18 @@
       "family": "presets",
       "kind": "preset",
       "title": "Breadth-regime presets (thrust)",
-      "design_ref": "equity-scanner-strategy-stories.md:169",
-      "design_section": "Story EQ-06: EOD Momentum, Relative-Strength, Volatility and Mean-Reversion Scanners (50)",
+      "design_ref": "equity-scanner-strategy-stories.md:192",
+      "design_section": "Story EQ-08: EOD Cross-Sectional Deciles and Breadth-Regime Scanners (14)",
       "status": "partial",
       "status_basis": "asserted",
       "composition": "none",
       "asserted": {
         "by": "PO",
-        "date": "2026-10-29",
-        "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
-        "record_ref": "§1 intro and §4 (classifications not adjusted stand)",
-        "basis": "adopted_from_parity_check"
+        "date": "2026-10-30",
+        "record": "docs/plans/records/po-rulings-coverage-map-adoption-2026-10-30.md",
+        "record_ref": "\u00a73 table",
+        "basis": "adopted_from_parity_check",
+        "reason": "Ratios ship, thrust predicates consumer. Ref EQ-08 :192"
       },
       "outputs": [
         {
@@ -5215,8 +5398,8 @@
       "family": "presets",
       "kind": "preset",
       "title": "ETF strategy scores and regime-flip scores",
-      "design_ref": "equity-scanner-strategy-stories.md:187",
-      "design_section": "Story EQ-07: EOD Volume and Liquidity Scanners (30)",
+      "design_ref": "equity-scanner-strategy-stories.md:213",
+      "design_section": "Story EQ-09: ETF Strategy Scores, Bull and Heatmap Family (84)",
       "status": "out_of_library_scope",
       "status_basis": "asserted",
       "composition": "none",
@@ -5224,7 +5407,7 @@
         "by": "PO",
         "date": "2026-10-29",
         "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
-        "record_ref": "§3 out of library scope",
+        "record_ref": "\u00a73 out of library scope",
         "basis": "ruling"
       },
       "outputs": [],
@@ -5237,8 +5420,8 @@
       "family": "presets",
       "kind": "preset",
       "title": "End-of-day strategy meta-score (5 expiry lanes)",
-      "design_ref": "equity-scanner-strategy-stories.md:252",
-      "design_section": "Story EQ-10: ETF Strategy Scores, Flow-Filtered Family (91)",
+      "design_ref": "equity-scanner-strategy-stories.md:287",
+      "design_section": "Story EQ-12: EOD Strategy Meta-Score (6 entries: 1 manifest, 5 expiry lanes)",
       "status": "out_of_library_scope",
       "status_basis": "asserted",
       "composition": "none",
@@ -5246,7 +5429,7 @@
         "by": "PO",
         "date": "2026-10-29",
         "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
-        "record_ref": "§3 out of library scope",
+        "record_ref": "\u00a73 out of library scope",
         "basis": "ruling"
       },
       "outputs": [],
@@ -5261,15 +5444,16 @@
       "title": "System watchlist, 5-group matching, minimum 2 groups",
       "design_ref": "watchlist-stories.md:26",
       "design_section": "Story WL-01: Confluence Group Watchlist Engine v3 & Group Scoring",
-      "status": "partial",
+      "status": "out_of_library_scope",
       "status_basis": "asserted",
       "composition": "none",
       "asserted": {
         "by": "PO",
-        "date": "2026-10-29",
-        "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
-        "record_ref": "§1 intro and §4 (classifications not adjusted stand)",
-        "basis": "adopted_from_parity_check"
+        "date": "2026-10-30",
+        "record": "docs/plans/records/po-rulings-coverage-map-adoption-2026-10-30.md",
+        "record_ref": "\u00a73 table",
+        "basis": "ruling",
+        "reason": "Design WL-01 is the confluence engine (group assignment, scoring, 2-group minimum). My reconciliation section 3 puts watchlist matching out of library scope; shipped inputs do not make the item partial. Inputs stay as evidence"
       },
       "outputs": [
         {
@@ -5328,17 +5512,18 @@
       "family": "watchlists",
       "kind": "watchlist_rule",
       "title": "Symmetrical bearish catalogue",
-      "design_ref": "watchlist-stories.md:74",
-      "design_section": "Story WL-01: Confluence Group Watchlist Engine v3 & Group Scoring",
-      "status": "partial",
+      "design_ref": "watchlist-stories.md:77",
+      "design_section": "Story WL-02: Symmetrical Bearish Catalog & Downside Attention Monitor",
+      "status": "out_of_library_scope",
       "status_basis": "asserted",
       "composition": "none",
       "asserted": {
         "by": "PO",
-        "date": "2026-10-29",
-        "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
-        "record_ref": "§1 intro and §4 (classifications not adjusted stand)",
-        "basis": "adopted_from_parity_check"
+        "date": "2026-10-30",
+        "record": "docs/plans/records/po-rulings-coverage-map-adoption-2026-10-30.md",
+        "record_ref": "\u00a73 table",
+        "basis": "ruling",
+        "reason": "Design WL-02 is the mirrored bearish catalogue and monitor: rule engine, same reasoning as W1"
       },
       "outputs": [
         {
@@ -5397,11 +5582,19 @@
       "family": "watchlists",
       "kind": "watchlist_rule",
       "title": "ATR20-normalised relative strength vs SPY; adaptive breakout-retest tolerance",
-      "design_ref": "watchlist-stories.md:107",
-      "design_section": "Story WL-02: Symmetrical Bearish Catalog & Downside Attention Monitor",
-      "status": "implemented",
-      "status_basis": "derived",
-      "composition": "consumer_arith",
+      "design_ref": "watchlist-stories.md:113",
+      "design_section": "Story WL-03: Volatility-Normalized Relative Strength & Dynamic Retest Validation",
+      "status": "partial",
+      "status_basis": "asserted",
+      "composition": "none",
+      "asserted": {
+        "by": "PO",
+        "date": "2026-10-30",
+        "record": "docs/plans/records/po-rulings-coverage-map-adoption-2026-10-30.md",
+        "record_ref": "\u00a73 table",
+        "basis": "ruling",
+        "reason": "Design WL-03: VolScore is arithmetic on shipped outputs, but the item also carries the retest tolerance and relative_strength/weakness rule evaluation. Retest is missing (V13) and thresholds are rule engine. Section 3 'W1-W3' was too broad for the VolScore part, so not out of scope either"
+      },
       "outputs": [
         {
           "id": "history.atr",
@@ -5455,8 +5648,8 @@
       "family": "watchlists",
       "kind": "watchlist_rule",
       "title": "Meta-watchlist, 8 frozen meta rules, priority classes",
-      "design_ref": "watchlist-stories.md:142",
-      "design_section": "Story WL-03: Volatility-Normalized Relative Strength & Dynamic Retest Validation",
+      "design_ref": "watchlist-stories.md:151",
+      "design_section": "Story WL-04: Meta-Watchlist Evaluator & Priority Classification",
       "status": "out_of_library_scope",
       "status_basis": "asserted",
       "composition": "none",
@@ -5464,7 +5657,7 @@
         "by": "PO",
         "date": "2026-10-29",
         "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
-        "record_ref": "§3 out of library scope",
+        "record_ref": "\u00a73 out of library scope",
         "basis": "ruling"
       },
       "outputs": [],
@@ -5477,8 +5670,8 @@
       "family": "watchlists",
       "kind": "watchlist_rule",
       "title": "System watchlist feed, 20-session strip, list lifecycle",
-      "design_ref": "watchlist-stories.md:172",
-      "design_section": "Story WL-04: Meta-Watchlist Evaluator & Priority Classification",
+      "design_ref": "watchlist-stories.md:184",
+      "design_section": "Story WL-05: System Watchlist Feed & 20-Session Activity Strip",
       "status": "out_of_library_scope",
       "status_basis": "asserted",
       "composition": "none",
@@ -5486,7 +5679,7 @@
         "by": "PO",
         "date": "2026-10-29",
         "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
-        "record_ref": "§3 out of library scope",
+        "record_ref": "\u00a73 out of library scope",
         "basis": "ruling"
       },
       "outputs": [],
@@ -5499,8 +5692,8 @@
       "family": "scanner-lifecycle",
       "kind": "lifecycle",
       "title": "Candidate occurrence and episode identity, match history",
-      "design_ref": "scanner-lifecycle-stories.md:108",
-      "design_section": "Story SC-03: Cross-Asset Equity-Option Confluence & Divergence",
+      "design_ref": "scanner-lifecycle-stories.md:123",
+      "design_section": "Story SC-04: Candidate Occurrence & 45-Session Episode Management",
       "status": "out_of_library_scope",
       "status_basis": "asserted",
       "composition": "none",
@@ -5508,7 +5701,7 @@
         "by": "PO",
         "date": "2026-10-29",
         "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
-        "record_ref": "§3 out of library scope",
+        "record_ref": "\u00a73 out of library scope",
         "basis": "ruling"
       },
       "outputs": [],
@@ -5521,17 +5714,18 @@
       "family": "scanner-lifecycle",
       "kind": "lifecycle",
       "title": "Forward excursion (MFE/MAE), 1d-45d horizons, benchmark alpha",
-      "design_ref": "scanner-lifecycle-stories.md:136",
-      "design_section": "Story SC-04: Candidate Occurrence & 45-Session Episode Management",
-      "status": "partial",
+      "design_ref": "scanner-lifecycle-stories.md:157",
+      "design_section": "Story SC-05: Forward Excursion (MFE / MAE) & Horizon Outcome Engine",
+      "status": "out_of_library_scope",
       "status_basis": "asserted",
       "composition": "none",
       "asserted": {
         "by": "PO",
-        "date": "2026-10-29",
-        "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
-        "record_ref": "§1 intro and §4 (classifications not adjusted stand)",
-        "basis": "adopted_from_parity_check"
+        "date": "2026-10-30",
+        "record": "docs/plans/records/po-rulings-coverage-map-adoption-2026-10-30.md",
+        "record_ref": "\u00a73 table",
+        "basis": "ruling",
+        "reason": "Design SC-05 MFE/MAE and benchmark alpha engine; my section 3 lists MFE/MAE per-candidate outcomes as out of scope and the design bans them (WL125). Elapsed-horizon labels remain a separate primitive"
       },
       "outputs": [],
       "delivering_release": null,
@@ -5543,17 +5737,18 @@
       "family": "scanner-lifecycle",
       "kind": "lifecycle",
       "title": "Origin inspector; evidence at the moment; not matched versus unavailable",
-      "design_ref": "scanner-lifecycle-stories.md:165",
-      "design_section": "Story SC-05: Forward Excursion (MFE / MAE) & Horizon Outcome Engine",
+      "design_ref": "scanner-lifecycle-stories.md:192",
+      "design_section": "Story SC-06: Scanner Radar and Setup Origin Inspector (split into SC-06a and SC-06b; SC-06c removed)",
       "status": "partial",
       "status_basis": "asserted",
       "composition": "none",
       "asserted": {
         "by": "PO",
-        "date": "2026-10-29",
-        "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
-        "record_ref": "§1 intro and §4 (classifications not adjusted stand)",
-        "basis": "adopted_from_parity_check"
+        "date": "2026-10-30",
+        "record": "docs/plans/records/po-rulings-coverage-map-adoption-2026-10-30.md",
+        "record_ref": "\u00a73 table",
+        "basis": "adopted_from_parity_check",
+        "reason": "Library keeps unavailable states and evidence rows; inspector UI is consumer. Ref SC-06 :192"
       },
       "outputs": [],
       "delivering_release": null,
@@ -5574,7 +5769,7 @@
         "by": "PO",
         "date": "2026-10-29",
         "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
-        "record_ref": "§3 out of library scope",
+        "record_ref": "\u00a73 out of library scope",
         "basis": "ruling"
       },
       "outputs": [],
@@ -5596,7 +5791,7 @@
         "by": "PO",
         "date": "2026-10-29",
         "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
-        "record_ref": "§3 out of library scope",
+        "record_ref": "\u00a73 out of library scope",
         "basis": "ruling"
       },
       "outputs": [],
@@ -5618,7 +5813,7 @@
         "by": "PO",
         "date": "2026-10-29",
         "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
-        "record_ref": "§3 out of library scope",
+        "record_ref": "\u00a73 out of library scope",
         "basis": "ruling"
       },
       "outputs": [],
@@ -5638,10 +5833,11 @@
       "composition": "none",
       "asserted": {
         "by": "PO",
-        "date": "2026-10-29",
-        "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
-        "record_ref": "§1 intro and §4 (classifications not adjusted stand)",
-        "basis": "adopted_from_parity_check"
+        "date": "2026-10-30",
+        "record": "docs/plans/records/po-rulings-coverage-map-adoption-2026-10-30.md",
+        "record_ref": "\u00a73 table",
+        "basis": "adopted_from_parity_check",
+        "reason": "Registries give id, unit, version, minimum period, digest, refusals; no S/E/M/V/A flags. Not code-checked"
       },
       "outputs": [],
       "delivering_release": null,
@@ -5660,10 +5856,11 @@
       "composition": "none",
       "asserted": {
         "by": "PO",
-        "date": "2026-10-29",
-        "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
-        "record_ref": "§1 intro and §4 (classifications not adjusted stand)",
-        "basis": "adopted_from_parity_check"
+        "date": "2026-10-30",
+        "record": "docs/plans/records/po-rulings-coverage-map-adoption-2026-10-30.md",
+        "record_ref": "\u00a73 table",
+        "basis": "ruling",
+        "reason": "Incremental accumulators exist for session bars/trades only, no indicator series publisher; design says a worker publishes the series"
       },
       "outputs": [],
       "delivering_release": null,
@@ -5684,7 +5881,7 @@
         "by": "PO",
         "date": "2026-10-29",
         "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
-        "record_ref": "§3 out of library scope",
+        "record_ref": "\u00a73 out of library scope",
         "basis": "ruling"
       },
       "outputs": [],
