@@ -1,6 +1,6 @@
 # Template: release READINESS (`docs/releases/<release>/READINESS.md`)
 
-> Part of the portable playbook. Written by the PO one release ahead; refreshed at each merge that changes a story, contract or board. It explains the generated backlog; it does not replace it. Counts come from the generator, never typed.
+> Part of the portable playbook. Written by the PO one release ahead; refreshed at each merge that changes a story or contract. It explains the generated backlog; it does not replace it. Counts come from the generator, never typed.
 
 ```markdown
 # {{Release}} readiness: Ready, Blocked, and how the Ready set grows
