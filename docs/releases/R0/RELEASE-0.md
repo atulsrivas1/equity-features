@@ -16,6 +16,8 @@
 | 10 | Missing tools stated | PO | No backlog generator (hand-kept table until about 20 stories); story files for the nine Ready stories written (blocked stories get theirs when Ready) | `docs/releases/RL-01/STORIES.md`, RELEASE-MAP |
 | 11 | Checks pass (`python tools/pre_merge_check.py`) | Developer | Not run by the PO | PR Checks section |
 | 12 | Documents read by someone other than the author | Coordinator | Done for PRs 765-767; later PRs pending their own reviews | PR Review tables |
-| 13 | Owner review held once | Owner | Not held; guide written | [`REVIEW-GUIDE.md`](REVIEW-GUIDE.md); "approve" is a complete answer |
+| 13 | Owner review held once | Owner | Done 2026-10-30: owner approved ("looks good.. you can start next telese worl" [sic], verbatim, relayed by the coordinator) | [`REVIEW-GUIDE.md`](REVIEW-GUIDE.md); DECISIONS.md row of 2026-10-30 |
 
 Defaults chosen are logged in `DECISIONS.md` (decided, pending owner review). Builders do not start new feature work before 4-5 and 12-13 close and the team meeting is held.
+
+Environment note (coordinator report, not re-run by the PO): the `tools/verify_compatibility.py` numpy/pyarrow failure is an environment pin mismatch, not a code defect; it passes 25 of 26 with PYTHONPATH set. Record it as "Not verified" in any PR that depends on that check until the environment pins are aligned.
