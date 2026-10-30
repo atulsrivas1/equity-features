@@ -45,7 +45,7 @@ session before the target: `max(prior extreme, target field)` equals the window 
 - Same behaviour as `dv1.relative_log_stats`: `evidence_limit` is validated like the other parameters and omitting it is
   `INVALID_CONFIG` (no default); refusal stages run config checks (parameters, units, cutoff), then version (policy label),
   then identity; evidence rows are `slot:<index>`; a cutoff inside the target session gives `future_market`; in a joint call
-  `evidence_limit` caps the combined list. The reason precedence and status mapping are DV1-1's (`_status`), imported.
+  `evidence_limit` caps the combined list. The reason precedence and status mapping are the shared `dv1/_status.py` (DV1-5a), imported by every daily-grid producer; the config checks are the shared `dv1/_config_check.py`.
 - Ratified by the PO: `offset_unit` is a required explicit build argument that must equal `sessions` (so RF72 is
   exercisable; RF71 is `sessions` as the price currency). Alternative: a constant, with RF72 then not exercisable.
 - No version bump: the registry and catalog are unchanged; the coordinated bump (features a6 to a7) belongs to DV1-4.

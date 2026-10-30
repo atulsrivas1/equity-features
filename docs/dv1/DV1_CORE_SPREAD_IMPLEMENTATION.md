@@ -70,7 +70,7 @@ the same bits as the DV1 range output (the deprecation is by the EF4 erratum onl
 2. Evidence names. The fixtures write the declared-order ordinal `slot:<index>` (fund k start 2k, end 2k + 1), the PO convention;
    the former `leg:<fund>:<kind>` literals were renamed in DV1-5b and the gate name map was removed.
 3. Currency and adjustment. The contract limits the unit and adjustment-pair config rule to producers with an adjustment basis;
-   this producer checks only the currency form and ignores the batch adjustment.
+   this producer checks only the currency form (the shared `check_currency` of `dv1/_config_check.py`, DV1-5a) and ignores the batch adjustment; `tools/verify_dv1_shared_checks.py` shows the result is identical whatever adjustment the legs batch declares. Its compute path defers the policy-label refusal until after the input unit checks (the EF4 order); its config builder checks the cutoff before the label like the other producers.
 4. Cutoff. Only the lower bound (not before the target session open) is checked; the EOD case places the cutoff after the
    session close.
 5. `regular_open` start-time alignment is not checked (the contract expander checks it for `window_start` only). The EF4

@@ -26,6 +26,7 @@ from equity_feature_contracts import (
     FeatureResult, InputBinding, Parameter, PriceUnit, Reason, SessionSpec, ValueType,
 )
 from ..ef3._common import fail, integer, label
+from ._config_check import check_currency
 from ..ef3._robust_common import make_config, parameter_map
 from ..ef4._legs import PROFILES, SLOTS, Leg, check_leg_bounds, check_legs
 from ..ef4._proj_common import (
@@ -105,9 +106,7 @@ def build_core_spread_config(*, policy_version: str | None, core_benchmark_ids: 
                       window_ns, evidence_limit)
     if type(session) is not SessionSpec or type(availability) is not AvailabilitySpec:
         fail(ErrorCode.INVALID_CONFIG, "concrete session/timing required")
-    if (type(price_unit) is not PriceUnit or type(price_unit.currency) is not str or len(price_unit.currency) != 3
-            or not all("A" <= c <= "Z" for c in price_unit.currency)):
-        fail(ErrorCode.INVALID_UNIT, "an explicit PriceUnit with a three-letter uppercase currency is required")
+    price_unit = check_currency(price_unit)
     label(price_unit.currency)
     if availability.reconstruction_reason is not None:
         label(availability.reconstruction_reason)
