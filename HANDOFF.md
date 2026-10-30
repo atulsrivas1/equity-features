@@ -1,32 +1,28 @@
 # Coordinator handoff (read first; keep under 60 lines; update after every merge)
 
-Updated 2026-10-24. Owner: Atul Srivastava (atulsrivas1). Repos under C:\Atul\Claude: equity-features (core), equity-feature-io, equity-feature-workers. Rules: memory files + WatchYourList AGENTS.md with equity repos substituted. Owner wants autonomous decisions (log each in DECISIONS.md as "decided, pending owner review"), full working agreement (real diff reads, fresh independent reviewer per PR, authors merge own PR after approval, no worker reuse across releases, retro per release). Local build, no CI. Haiku/Sonnet by complexity; no Opus/Fable unless asked.
+Updated 2026-10-30. Owner: Atul Srivastava (atulsrivas1), facilitator only. Repos under C:\Atul\Claude: equity-features (core), equity-feature-io, equity-feature-workers. Wording: "internal, synthetic, pre-release". Local build, no CI, no new unit tests. Haiku/Sonnet sub-agents, never Astra.
 
-## Release plan EF1-EF8
-- EF1 gaps, EF2 (retracement, momentum, channels: contracts + library + I/O + workers + qualification + demo): done and merged.
-- EF3 contracts D (relative RV, docs/ef3/RELATIVE_RV_CONTRACT_PROPOSAL.*), E (robust pace), F (breadth adaptive): frozen.
-- EF3 merged: libraries core #692 (D), #694 (E), #695 (F); I/O io #36, #37, #38; workers #80 (D), #81 (F); shared amendment core #696 (rulings R1-R9, pending owner review). Reconstruction-mode exception kept (no shared-validator change).
-- EF3 delivered (not accepted); retrospective with EF3 close update merged.
-- EF4 (G tape, H quote/VWAP, I1 path efficiency, I2 projections) delivered, NOT accepted: contracts core #703-#705; libraries #706-#710; io #39-#42; workers #83-#86; vendored expanders #711; shared amendment #713 (rulings E1-E9, pending owner review); installed Windows qualification #714 (297 of 297 demos x 4 forms); evidence docs/ef4/EF4_DELIVERY_EVIDENCE.md #715; retrospective section 10 + skill EF5 changes + token ledger #716.
-- Demo: EF4 browser demo shown (29 runs, 0 failed, 306 of 308 refusals matched; RF18/RF35 known adapter deviations). Server on 127.0.0.1:18400 (PID 64348) may still run: stop it.
-- NEXT: owner items first, then EF5 in a FRESH coordinator session (read this file, STATUS, DECISIONS, the skill incl. EF5 changes, retro section 10).
+## How we work
+- Playbook: docs/playbook/ (ADOPTION.md first), plus docs/COORDINATOR_WORKING_AGREEMENT.md. Team: 3 Developers (core, io, workers) + 1 Tester; PO and Architect always on, one release ahead.
+- Every PR: three independent reviews (UI design N/A with reason, architecture, code/docs), verdict artifact in docs/qa/ before merge, PO accept, squash-merge by the coordinator only. One worktree per agent, outside the repo.
+- Run `gh auth switch -u atulsrivas1` before every push or merge (login flips to monikasrivas1).
+- Owner answers 2026-10-30 (DECISIONS.md): team 3+1, no tests/CI, local-only test env, owner publish gate only, Apache-2.0 (confirmed by owner).
 
-## Open items
-- Contract follow-ups: evidence id `slot:<i>` for E/F; contract F nits (DB11 derived-output counting, RB28 factor_den); `retracement` consumer rows still name #511/#518 (link #663); apply new unit strings to frozen shared contract; EF2 release gates (version bump, exact-zero residual limits, squeeze flag flip, O(n) memory).
-- Perf note: ef3.relative_stats slows with close magnitude (documented).
-- EQ164 audit: through wave 4; further waves only if EQ169 acceptance needs them.
-- EF4 follow-ups: rank-aware TopKTrades check not built (E1); tape adapter defaults coverage to complete (fail-open, E2/L5); stale lines 17 and 41 in EF4_TAPE_IO.md; Parquet/bundles notional round trip not run; tape generator fixtures G01-G03 not in qualification; version bump owed.
-- Owner actions: review E1-E9 and EF4 decisions; line-ending rule (.gitattributes); install python3-venv/pip in WSL Ubuntu (Linux qualification); issues #663-#669 to Project Backlog (token lacks project scope); confirm W-id mapping; review coordinator decisions; dataset rights; release acceptance (EQ-152 #486, EQ-169, full EQ164, publication).
+## Done this session (Release 0 so far)
+- Merged: #764 playbook adopted, #765 system design + audit, #766 PO planning set, #767 Architect rulings, #768 RL-01 map after rulings, #769 templates adapted.
+- Docs: docs/planning/{REQUIREMENTS-DIGEST,DEFINITIONS,RELEASE-MAP}.md, docs/releases/R0/RELEASE-0.md, docs/architecture/{SYSTEM-DESIGN,EXISTING-SYSTEM-AUDIT,RELEASE-0-RULINGS}.md.
+- Rulings: core_spread option A (docs only); 39 cap stays 39; naming RL-nn, PX-09..14, EF6=DV1 label retired.
 
-## Method and gotchas
-- Contract-first: frozen md+json contract with hand-derived fixtures; independent reviewer recomputes; one agent per layer; manual runs, no unit tests.
-- One git worktree and one unique scratch subfolder per agent; verify agent cwd is the right repo (isolated agents inherit cwd).
-- Demo: tools/ef1_results_demo.py with default sibling paths (never pass unquoted backslash paths); census: tools/check_extraction.py --core-root C:\Atul\Claude\equity-features.
-- Private audit closure material is read-only and never copied; use opaque ids only.
-- Token saving: lean agent reports, batch tool calls, no big pastes, try Haiku on template-driven I/O and workers layers with coordinator spot-runs; limit re-review rounds to changed fixtures; batch status/decision PRs per release.
+## Open now
+- PO: story files for the 9 Ready stories (docs/releases/RL-01/) and the owner review guide (docs/releases/R0/REVIEW-GUIDE.md): in progress.
+- Release 0 exit: row 13 owner review not held ("approve" is a complete answer); builders do not start before it.
+- Ready buffer 9 (11 after core #761 merges). Open PRs from before: core #761 (approved, held for bump chain), workers re-pin and core re-pin (work/HANDOFF-2026-10-30.md steps 1-2).
+- Handoff steps 3-6 still stand: team meeting before new feature work, DV1-5 closeout (now RL-01-01..06), coverage CV1-CV6, backlog.
 
-## Learnings from the first coordinator session (token and process)
-- ~117M effective tokens: 23% main-chat re-reads, 70% in 82 helper agents; ~99% on Sonnet. Contract authors 17%, reviewers 13%, audit 13%, library 13%, workers/I/O layers 11%.
-- Independent recompute caught real defects (unbuildable fixtures, wrong evidence ids, false exact-zero claims): keep Sonnet there. Cut rework loops, re-review only changed fixtures, skip extra EQ164 audit waves.
-- Reconstruction-mode evidence exception in EF3-D (shared validator) is documented; fold the decision into the EF3 shared amendment.
-- Skill: `.claude/skills/equity-features-release-coordinator/SKILL.md` (commit if not yet).
+## Owner-only
+Ratify E1-E9 and PO-1..PO-7; EF5 "stop at primitives" reversal; 252-vs-253; Linux machine/qualification; owner demo; publish/tag/sign-off. Providers/cost/rights are not ours.
+
+## Rules learned
+Check downstream pins on any version change; re-pin after squash; run every builder whose pin moves; verdict artifacts in docs/qa/ (work/ is git-ignored); reviewers re-checked by the same reviewer id (look up the id before messaging); merge main into a PR branch when DECISIONS.md rows conflict (keep contiguous).
+
+Work records: C:\Atul\Claude\equity-features\work\ (git-ignored), incl. work/HANDOFF-2026-10-30.md and review-equity-features-76x.md verdicts.
