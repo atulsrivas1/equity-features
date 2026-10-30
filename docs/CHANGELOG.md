@@ -2,6 +2,10 @@
 
 Pre-release label move only (internal, synthetic, pre-release; no tag, no publish, no release claim): equity-feature-contracts 0.0.4a5 to 0.0.4a6, equity-features 0.0.4a6 to 0.0.4a7, equity-feature-evidence and equity-feature-explanations 0.1.0a3 to 0.1.0a4, equity-feature-diagnostics, equity-feature-conformance, equity-feature-agent-evidence and equity-feature-agent-ledger 0.1.0a2 to 0.1.0a3; intraday, continuous, labels and strategies keep their versions and follow the contracts pin. Version-derived oracles relabelled with recomputed digests; the discovery text of the deprecated `core.benchmark_return_dispersion_fraction` now states that it publishes the range. Numeric results unchanged. See [PRERELEASE_BUMP_DV1.md](PRERELEASE_BUMP_DV1.md).
 
+## DV1-5a shared config checks and status - October 29, 2026
+
+One shared config-check module and one shared status module for the DV1 producers; the three private `_status` copies are folded. `dv1.relative_log_stats` now enforces the same currency (RF22), adjustment pair (RF21) and undeclared-coverage (RF11) refusals as the ATR and window producers, in the contract stage order (recorded in DECISIONS.md). New gate `tools/verify_dv1_shared_checks.py`. Results of existing fixtures unchanged (internal, synthetic, pre-release).
+
 
 ## DV1-5b fixture witness rename - October 29, 2026
 

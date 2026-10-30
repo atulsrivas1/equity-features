@@ -19,6 +19,8 @@ from equity_feature_contracts import (
     ValueType, WindowSpec,
 )
 from equity_features import __version__
+from ._config_check import check_coverage_declared, check_tail, check_units
+from ._status import status_of
 from equity_features.ef3._common import (
     CloseFact, DailyGrid, admit_role, fail, grid_parameters, integer, label, parameter_map,
 )
@@ -37,16 +39,7 @@ ATR_FORMULA = ("SIMPLE mean (not the Wilder recursion of history.atr) of the N m
                "N + 1 closes: oldest close only, middle high/low/close, target high/low); no initialization anchor, "
                "no inclusion parameter; strict: any closure slot not READY is unavailable, never skipped or zero "
                "filled; exact rational, one float64 rounding")
-# The two declared adjustment labels and the policy each one carries (the EF5 vocabulary).
-_ADJUSTMENTS = frozenset({("raw", "raw-v1"), ("split", "split-factors-v1")})
 _KEYS = frozenset({"policy_version", "period", "evidence_limit"})
-# The first applicable reason fixes the status; every applicable reason is still reported (lexical order).
-_PRECEDENCE = (Reason.ABSENT_INPUT, Reason.UNKNOWN_AVAILABILITY, Reason.FUTURE_KNOWLEDGE, Reason.NULL_FIELD,
-               Reason.INELIGIBLE, Reason.GOVERNED_GAP, Reason.FUTURE_MARKET, Reason.PARTIAL_UNIVERSE,
-               Reason.INSUFFICIENT_HISTORY, Reason.NO_ELIGIBLE_OBSERVATIONS, Reason.ZERO_DENOMINATOR)
-_STATUS = {Reason.GOVERNED_GAP: Status.INCOMPLETE_COVERAGE, Reason.FUTURE_MARKET: Status.INCOMPLETE_COVERAGE,
-           Reason.PARTIAL_UNIVERSE: Status.INCOMPLETE_COVERAGE, Reason.INSUFFICIENT_HISTORY: Status.INSUFFICIENT_HISTORY,
-           Reason.NO_ELIGIBLE_OBSERVATIONS: Status.NOT_APPLICABLE, Reason.ZERO_DENOMINATOR: Status.NOT_APPLICABLE}
 
 
 @dataclass(frozen=True)
@@ -63,11 +56,6 @@ def atr_requirements() -> tuple[InputRequirement, ...]:
                                   "oldest closure session needs close only, the target needs high and low only"),)
 
 
-def _status(reasons: set[Reason]) -> Status:
-    first = next((reason for reason in _PRECEDENCE if reason in reasons), None)
-    return Status.AVAILABLE if first is None else _STATUS.get(first, Status.MISSING_INPUT)
-
-
 def _shape(policy: object, period: object, limit: object) -> AtrSimpleMeanSettings:
     """Config-stage shape of the closed parameters; the policy label itself is a later (version) stage."""
     if type(policy) is not str:
@@ -82,23 +70,10 @@ def build_atr_simple_mean_config(grid: DailyGrid, *, policy_version: str | None,
     if type(grid) is not DailyGrid:
         fail(ErrorCode.INVALID_CONFIG, "concrete daily grid required")
     settings = _shape(policy_version, period, evidence_limit)
-    if type(availability) is not AvailabilitySpec or type(adjustment) is not AdjustmentSpec:
-        fail(ErrorCode.INVALID_CONFIG, "concrete timing/action required")
-    if (type(price_unit) is not PriceUnit or type(price_unit.currency) is not str or len(price_unit.currency) != 3
-            or not all("A" <= c <= "Z" for c in price_unit.currency)):
-        fail(ErrorCode.INVALID_UNIT, "an explicit PriceUnit with a three-letter uppercase currency is required")
-    if (adjustment.basis, adjustment.policy_version) not in _ADJUSTMENTS:
-        fail(ErrorCode.UNSUPPORTED_ADJUSTMENT, "declared basis must be unadjusted (raw-v1) or split_adjusted (split-factors-v1)")
-    for value in (adjustment.policy_version, adjustment.action_snapshot, adjustment.anchor, price_unit.currency):
-        label(value)
-    if availability.reconstruction_reason is not None:
-        label(availability.reconstruction_reason)
+    availability, adjustment, price_unit = check_units(availability, adjustment, price_unit)
+    check_tail(grid, availability, adjustment, price_unit, settings.policy_version, ATR_POLICY,
+               "unsupported simple-mean ATR policy label")
     target = grid.target
-    # A target session still forming at the market cutoff is a lost slot (future_market), not a refusal.
-    if not target.open_ns <= availability.market_cutoff_ns <= grid.sessions[-1].close_ns:
-        fail(ErrorCode.BOUNDS, "market cutoff must lie between the target session open and the last grid session close")
-    if settings.policy_version != ATR_POLICY:
-        fail(ErrorCode.INCOMPATIBLE_VERSION, "unsupported simple-mean ATR policy label")
     params = (Parameter("policy_version", settings.policy_version), Parameter("period", settings.period),
               Parameter("evidence_limit", settings.evidence_limit))
     return ConfigSpec(ATR_IDENTITY, ATR_ALGORITHM, params + grid_parameters(grid), target,
@@ -176,12 +151,7 @@ def compute_atr_simple_mean(batches: tuple[CanonicalBatch | None, ...] | list[Ca
     if type(batches) not in (tuple, list) or len(batches) != 1:
         fail(ErrorCode.INVALID_SCHEMA, "exactly one daily role is required")
     batch = batches[0]
-    if batch is not None:
-        if type(batch) is not CanonicalBatch:
-            fail(ErrorCode.INVALID_SCHEMA, "concrete canonical batch required")
-        if batch.row_count and not batch.metadata.interval_coverage:
-            # Rows without any per-slot coverage declaration are never read as complete (fail closed, as EF5).
-            fail(ErrorCode.INVALID_SCHEMA, "coverage not declared")
+    check_coverage_declared(batch)
     admission = admit_role(ATR_ROLE, batch, grid.instrument_id, grid, config)
     columns: dict[str, tuple[object, ...]] = {}
     if batch is not None:
@@ -226,7 +196,7 @@ def compute_atr_simple_mean(batches: tuple[CanonicalBatch | None, ...] | list[Ca
             evidence.append(EvidenceRow(entity, ATR_MEAN, fact.input_id, f"slot:{slot}", fact.slot.end_ns,
                                         fact.known_at_ns, fact.slot.start_ns, fact.slot.end_ns, "consumed", None,
                                         "completed_interval"))
-    status = Status.AVAILABLE if value is not None else _status(reasons)
+    status = Status.AVAILABLE if value is not None else status_of(reasons)
     ordered = tuple(sorted(reasons, key=lambda reason: reason.value)) if value is None else ()
     unit = f"{config.price_unit.currency}/share"
     result_columns = (FeatureColumn(ATR_MEAN, ATR_ALGORITHM, ValueType.FLOAT64, unit, (entity,), (value,)),)

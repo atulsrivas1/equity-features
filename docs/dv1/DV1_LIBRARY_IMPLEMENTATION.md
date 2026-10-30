@@ -55,3 +55,18 @@ to the role input id; the contract witness `<role>/slot:<index>` is that pair. U
   check (`INCONSISTENT_IDENTITY`).
 - Joint-call `evidence_limit` (one bound over the combined list, outputs in lexical order) is a PO ruling now written in the
   contract and pinned by RL20; it is noted here for PO ratification before the contract is frozen.
+
+## Alignment with the shared checks (DV1-5a)
+
+`build_relative_log_config` now calls the shared `dv1/_config_check.py` (units and adjustment, labels, cutoff, policy label) and
+admission calls its coverage check; the status mapping is the shared `dv1/_status.py`. Behaviour change recorded in DECISIONS.md first:
+
+| Input | Before | After |
+| --- | --- | --- |
+| currency not three uppercase letters (RF22) | accepted | INVALID_UNIT |
+| adjustment pair not raw/raw-v1 or split/split-factors-v1 (RF21) | accepted | UNSUPPORTED_ADJUSTMENT |
+| rows with no per-slot coverage entry (RF11) | INCONSISTENT_IDENTITY (EF3 admission) | INVALID_SCHEMA |
+| every existing fixture value, status, reason, witness | | bit for bit unchanged |
+
+Stage order is the same as ATR and window: parameters, units and adjustment, labels and cutoff, policy label, identity (self-pair).
+`tools/verify_dv1_shared_checks.py` runs every bad input against all four producers.

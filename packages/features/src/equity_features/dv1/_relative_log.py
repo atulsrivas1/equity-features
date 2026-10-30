@@ -19,6 +19,8 @@ from equity_feature_contracts import (
     require_compatible_inputs,
 )
 from equity_features import __version__
+from ._config_check import check_coverage_declared, check_tail, check_units
+from ._status import status_of
 from equity_features.ef3._common import (
     CloseFact, DailyGrid, admit_role, fail, grid_parameters, integer, label, parameter_map, slot_reasons,
 )
@@ -32,13 +34,6 @@ LOG_BETA = "relative.log_return_beta"
 LOG_CORRELATION = "relative.log_return_correlation"
 RLOG_FEATURES = (LOG_BETA, LOG_CORRELATION)
 _KEYS = frozenset({"policy_version", "benchmark_id", "window", "min_pairs", "evidence_limit"})
-# The first applicable reason fixes the status; every applicable reason is still reported (lexical order).
-_PRECEDENCE = (Reason.ABSENT_INPUT, Reason.UNKNOWN_AVAILABILITY, Reason.FUTURE_KNOWLEDGE, Reason.NULL_FIELD,
-               Reason.INELIGIBLE, Reason.GOVERNED_GAP, Reason.FUTURE_MARKET, Reason.PARTIAL_UNIVERSE,
-               Reason.INSUFFICIENT_HISTORY, Reason.NO_ELIGIBLE_OBSERVATIONS, Reason.ZERO_DENOMINATOR)
-_STATUS = {Reason.GOVERNED_GAP: Status.INCOMPLETE_COVERAGE, Reason.FUTURE_MARKET: Status.INCOMPLETE_COVERAGE,
-           Reason.PARTIAL_UNIVERSE: Status.INCOMPLETE_COVERAGE, Reason.INSUFFICIENT_HISTORY: Status.INSUFFICIENT_HISTORY,
-           Reason.NO_ELIGIBLE_OBSERVATIONS: Status.NOT_APPLICABLE, Reason.ZERO_DENOMINATOR: Status.NOT_APPLICABLE}
 
 
 @dataclass(frozen=True)
@@ -48,11 +43,6 @@ class RelativeLogSettings:
     window: int
     min_pairs: int
     evidence_limit: int
-
-
-def _status(reasons: set[Reason]) -> Status:
-    first = next((reason for reason in _PRECEDENCE if reason in reasons), None)
-    return Status.AVAILABLE if first is None else _STATUS.get(first, Status.MISSING_INPUT)
 
 
 def _check(policy: object, benchmark: object, window: object, min_pairs: object, limit: object) -> RelativeLogSettings:
@@ -74,22 +64,12 @@ def build_relative_log_config(grid: DailyGrid, *, policy_version: str | None = N
     if type(grid) is not DailyGrid:
         fail(ErrorCode.INVALID_CONFIG, "concrete daily grid required")
     settings = _check(policy_version, benchmark_id, window, min_pairs, evidence_limit)
-    if type(availability) is not AvailabilitySpec or type(adjustment) is not AdjustmentSpec:
-        fail(ErrorCode.INVALID_CONFIG, "concrete timing/action required")
-    if type(price_unit) is not PriceUnit:
-        fail(ErrorCode.INVALID_UNIT, "an explicit PriceUnit is required")
-    for value in (adjustment.policy_version, adjustment.action_snapshot, adjustment.anchor, price_unit.currency):
-        label(value)
-    if availability.reconstruction_reason is not None:
-        label(availability.reconstruction_reason)
-    target = grid.target
-    # A target session still forming at the market cutoff is a lost close (future_market), not a refusal.
-    if not target.open_ns <= availability.market_cutoff_ns <= grid.sessions[-1].close_ns:
-        fail(ErrorCode.BOUNDS, "market cutoff must lie between the target session open and the last grid session close")
-    if settings.policy_version != RLOG_POLICY:
-        fail(ErrorCode.INCOMPATIBLE_VERSION, "unsupported relative-log policy label")
+    availability, adjustment, price_unit = check_units(availability, adjustment, price_unit)
+    check_tail(grid, availability, adjustment, price_unit, settings.policy_version, RLOG_POLICY,
+               "unsupported relative-log policy label")
     if settings.benchmark_id == grid.instrument_id:
         fail(ErrorCode.INCONSISTENT_IDENTITY, "the benchmark must differ from the instrument (no self-pair)")
+    target = grid.target
     params = (Parameter("policy_version", settings.policy_version), Parameter("benchmark_id", settings.benchmark_id),
               Parameter("window", settings.window), Parameter("min_pairs", settings.min_pairs),
               Parameter("evidence_limit", settings.evidence_limit))
@@ -191,6 +171,8 @@ def compute_relative_log(batches: tuple[CanonicalBatch | None, ...] | list[Canon
         require_compatible_inputs(inst_batch, bench_batch)
         if inst_batch.metadata.source.input_id == bench_batch.metadata.source.input_id:
             fail(ErrorCode.DUPLICATE, "distinct actual role input IDs required")
+    check_coverage_declared(inst_batch)
+    check_coverage_declared(bench_batch)
     inst = admit_role("instrument", inst_batch, grid.instrument_id, grid, config)
     bench = admit_role("benchmark", bench_batch, settings.benchmark_id, grid, config)
     t = grid.target_index
@@ -234,7 +216,7 @@ def compute_relative_log(batches: tuple[CanonicalBatch | None, ...] | list[Canon
     used = sorted({k for j in valid for k in (j - 1, j)})
     order = ([t] if t in used else []) + [k for k in used if k != t]
     for feature in selected:
-        status = Status.AVAILABLE if values[feature] is not None else _status(reasons[feature])
+        status = Status.AVAILABLE if values[feature] is not None else status_of(reasons[feature])
         count = window
         if values[feature] is not None:
             # An available row publishes expected = observed = n used pairs; lost-pair causes stay as reasons.

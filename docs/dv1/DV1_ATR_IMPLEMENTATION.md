@@ -47,4 +47,5 @@ Undeclared coverage is `INVALID_SCHEMA` and partial coverage `INCONSISTENT_IDENT
 against an ATR base, AT01), a short history counts the slots that exist as middle slots, and the compact row width is a
 gate-decoder fixture-load error. The config checks run in the same order as the window-extreme producer (shape, typed
 inputs, currency, adjustment pair, labels, cutoff, policy label). The currency (three uppercase letters) and adjustment
-pair (`raw`/`raw-v1`, `split`/`split-factors-v1`) checks are shared with that producer; DV1-1 does not enforce them.
+pair (`raw`/`raw-v1`, `split`/`split-factors-v1`) checks are one shared function (`dv1/_config_check.py`) called by this producer, the
+window-extreme producer and DV1-1 (DV1-5a); the status resolution is one shared module (`dv1/_status.py`).
