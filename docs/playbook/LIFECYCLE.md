@@ -8,7 +8,7 @@ Release 0 produces no running product. The PO and the Architect:
 
 1. **Design the whole system** (Architect: components, records, flows, ports and adapters, switches, data placement; PO: requirements digest, roadmap, stories, gates, backlog).
 2. **Audit the existing system** (what exists today against the stories: reuse, rewrite, retire).
-3. **Prepare the first release** so the builders can start and keep working without asking anyone: a Ready set big enough for 2 Developers for the whole release, contracts the stories read, boards or briefs, owner, legal and engineering items named with who closes each.
+3. **Prepare the first release** so the builders can start and keep working without asking anyone: a Ready set big enough for 3 Developers for the whole release, contracts the stories read, boards or briefs, owner, legal and engineering items named with who closes each.
 4. Write the working model: charter (roles, loop, WIP, escalation, safety, cost), release-folder rule, the three-review rule.
 
 **Exit criteria (checklist, copy per project):** system design written and accepted by the PO; audit done; first-release Ready set meets the buffer or the PO states why it starts short; contracts the release reads exist; boards drawn or layout allowed from a brief; owner, legal and engineering items named with closer and needed-by; status of any missing tool or file stated; charter and three-review rule written; release-folder rule applied; all checks pass and the documents were read by someone other than the author; **owner review held once**.

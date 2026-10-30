@@ -43,8 +43,8 @@ Every decision has one owner. A reviewer is never the author. A role fills a gap
 
 | Rule | Default | Why | Change when |
 |---|---|---|---|
-| **Owner agreement:** start with **2 Developers + 1 Tester** | Dev A: UI and client state. Dev B: data adapters, switches, API-facing code. They never share files and review each other. One browser Tester | Review and test throughput, not coding, sets the pace; two lanes with no shared files avoid conflicts | The owner changes it |
-| **Owner agreement: third Developer rule** | Add a third Developer only when more than 20 Ready stories share no files | Builders need independent work | The owner changes it |
+| **Owner agreement (Equity Features, 2026-10-30):** start with **3 Developers + 1 Tester** | One Developer per repo (core, io, workers); they do not share files and review each other. One Tester for manual runtime verification | Review and test throughput sets the pace; one lane per repo avoids conflicts | The owner changes it |
+| **Fourth Developer rule** | Add a fourth Developer only when more than 20 Ready stories share no files | Builders need independent work | The owner changes it |
 | Always-on (always has the next release in hand; each task is a fresh agent) | PO, Architect, Designer, coordinator | They keep the next release Ready | Pause a role when it has no item of its own |
 | **Idle by default** | Researcher (between rounds), Writer/Integrator and independent reviewers (spawned per PR), fix-round agents | Idle roles cost tokens for nothing | The role has a Ready item of its own |
 

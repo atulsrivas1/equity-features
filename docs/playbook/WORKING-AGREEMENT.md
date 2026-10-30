@@ -78,7 +78,7 @@
 - **Default:** none; decide with the owner on day 1. **This project:** Apache-2.0 (`LICENSE`), open source with pluggable adapters and sinks. **Alternatives:** open source (another project of the owner is open source with pluggable adapters and optional providers). **Change when:** the owner decides otherwise.
 
 ## 14. Accessibility
-- **Rule:** Testers run a role, name, keyboard and contrast pass for every story; a real assistive-technology audit (screen reader on desktop and phone) is an owner item arranged before the first public release and does not block the build.
+- **Rule (UI projects; N/A here unless a story touches a browser demo or page):** Testers run a role, name, keyboard and contrast pass for every story; a real assistive-technology audit (screen reader on desktop and phone) is an owner item arranged before the first public release and does not block the build.
 - **Why:** agents have no real screen reader; the pass is limited and says so. **Default:** as stated. **Alternatives:** audit per release (cost). **Change when:** a public or regulated release is near, or the target is higher than AA.
 
 ## 15. Manual Testers in a browser, and no tests or CI in a repo

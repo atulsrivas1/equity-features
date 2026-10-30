@@ -27,3 +27,10 @@ UI design, architecture, code: each by a fresh agent that is not the author. The
 ## Local rules that still apply
 
 `gh auth switch -u atulsrivas1` before every push or merge; squash-merge only; wording "internal, synthetic, pre-release"; no new unit tests; Haiku or Sonnet for sub-agents unless the owner asks otherwise; never Astra; owner-only items per HANDOFF (E1-E9, PO-1..PO-7 ratification, Linux machine, demo, publish).
+
+## Applicability in this project (overrides every mention elsewhere in the playbook)
+
+- **Legal:** there is no legal gate, counsel role or legal-pending wording here. "Legal" in owner-level lists means only that the owner decides any legal position; providers, cost and data rights belong to the data-generating process, not to us. Ignore "legal" closer codes and gates in templates.
+- **Design repo, boards, strings file, feature switches:** not used. Definition of Done items 4 to 6 and 8 and the Designer's board work do not apply. "Contract" means the frozen library/I-O/worker contracts under `docs/`; the Architect owns them.
+- **Tester:** verifies by running installed artifacts and synthetic demos (CLI, API, worker runs, browser demo harness where one exists). The browser/keyboard/contrast pass applies only to PRs that touch a browser demo or page.
+- **Source attribution:** the playbook text still names WatchYourList where it credits its origin; that is deliberate history.
