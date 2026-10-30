@@ -95,7 +95,7 @@
 - **Contract:** frozen core EF1 contracts (authority). **Data capability:** reads core contract JSON; writes generated pages; no source data.
 
 ### RL-01-21: check_input/check_output hardening
-- Lane io, size S, no blockers. Origin: review findings on io #70.
+- Lane io, size S, no blockers. Origin: reviewer and Tester findings on io #70 (verdicts kept in the coordinator's local work/ folder, not in the repo).
 - Handle a non-hashable `feature_id`, a bare-string `reasons` argument and `roles=None` (currently a TypeError) with typed, structural results; document the behaviour in the check docs.
 - Structural checks only; no new unit tests (refusal recipe or regression fixture per defect class).
 - **Contract:** CAT sections 2 and 4. **Data capability:** none beyond the packaged catalogue.

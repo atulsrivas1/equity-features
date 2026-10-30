@@ -17,7 +17,7 @@
 
 Naming (PO decision, pending owner review): `R<n>` is historical and never reused; `EF1`-`EF8` keep the replan meaning; named families keep their own id (DV1 is not EF6; the parity label EF6=DV1 is retired); parity stories EF9-EF14 become `PX-09`..`PX-14`; releases are `RL-<nn>` with folder `docs/releases/RL-01/`, created when SCOPE and READINESS are written, and stories `RL-01-<nn>`.
 
-In flight, not buffer (coordinator): workers re-pin PR (commit pins to 6c3123c plus the two #110 notes), then core re-pin PR (SIBLINGS and commits; run conformance, r10, r9, evidence_pilot), then merge core #761. Team meeting before any new feature work.
+In flight, not buffer (coordinator, status 2026-10-30): the workers re-pin PR is in progress (it moves the workers pin for the merged core and io changes); then the core re-pin PR (SIBLINGS and commits; run conformance, r10, r9, evidence_pilot), then merge core #761. Team meeting before any new feature work.
 
 | ID | Story | Lane | Size | Status | Blocker / closer |
 |---|---|---|---|---|---|
@@ -52,7 +52,7 @@ Later: four other intraday shared-admission families, controlled-machine benchma
 
 ### Ready buffer
 
-Story files: `docs/releases/RL-01/STORIES.md`. Ready now: 9 stories (RL-01-03, -07, -08, -09, -10, -11, -12, -13, and the core part of -14; its workers part waits for the core export and re-pin); RL-01-01 and -02 join when core #761 merges (11). Playbook target of 10 is met once #761 merges and stands at 9 today. Honest limit: the io catalogue chain (-07, -08, -09, -11) is serial on one writer, so only one io story is in build at a time. Lanes: core Developer -03, -13, then -01/-02; io Developer -07 -> -08 -> -09 -> -10 -> -11; workers Developer -14, -12, -10 workers docs. Tester: nothing until -06; meanwhile reads -07/-08 outputs on the installed io-contracts. A fourth Developer is not warranted (fewer than 20 independent Ready stories).
+Story files: `docs/releases/RL-01/STORIES.md`. Status 2026-10-30: merged are RL-01-07, -08, -09 (partial EF1), -11, -13, the io half of -10, the workers part of -12 and the core part of -14. Ready now: RL-01-03, the core hook of -12, the RL-01-10 workers lane, RL-01-21 and -22; the workers part of -14 becomes Ready when the workers re-pin merges; RL-01-01 and -02 join when core #761 merges. Honest limit: the io catalogue chain (-07, -08, -09, -11) is serial on one writer, so only one io story is in build at a time. Lanes: core Developer -03, -13, then -01/-02; io Developer -07 -> -08 -> -09 -> -10 -> -11; workers Developer -14, -12, -10 workers docs. Tester: nothing until -06; meanwhile reads -07/-08 outputs on the installed io-contracts. A fourth Developer is not warranted (fewer than 20 independent Ready stories).
 
 ## Owner-level items (listed, not decided; provisional reading in force)
 
