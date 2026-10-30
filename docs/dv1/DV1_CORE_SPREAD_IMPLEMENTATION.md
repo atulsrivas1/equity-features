@@ -78,6 +78,22 @@ the same bits as the DV1 range output (the deprecation is by the EF4 erratum onl
 6. Deprecation text. The contract asks for a description-only discovery change on the deprecated id; this story edits no EF4
    file, so the in-code discovery text of the old id is unchanged and the deprecation lives in the EF4 erratum.
 
+## Reviewer follow-ups on #758 (documented, no new refusal)
+
+- Batch adjustment. The EF4 `relative_excess` producer compares the legs batch adjustment with its config adjustment
+  (`check_meta(adjustment=True)`); `dv1.core_spread` does not. The contract states that core_spread has no adjustment basis
+  (config-checks sentence), that the output has no basis echo, and that the only adjustment rule is the action snapshot
+  equal on both legs of a fund (`act`, enforced per fund). Every return here is `E / S - 1` of two legs of one fund, so a
+  batch-level basis label cannot change a value unless the two legs of a fund disagree, and that case is the `act` mismatch
+  (CS17, partial universe). Adding a batch-level refusal would invent a rule the contract does not state; if the PO wants the
+  EF4 comparison, it is a contract decision (it would also need a basis in the config, which core_spread does not have).
+- Target distinct from the funds. EF4 refuses a target instrument that is also a declared core fund. The contract states no
+  such rule for core_spread (its result entity is only the result key, and the funds are the population), so none is enforced;
+  a result entity equal to a declared fund is accepted. Recorded in DECISIONS.md.
+- io and workers PRs must emit the `op` token on every start leg, with exactly one start fact per fund and profile (a second
+  fact with the same instrument, kind, profile and slot is `DUPLICATE`), `op=daily_bar_open` on the regular_open start only
+  when the official exact-session daily-bar open exists, and one end fact per fund.
+
 ## Not done here (cascade, reported not built)
 
 The io adapter spec for `dv1.core_spread` must say: emit `op=daily_bar_open` on the regular_open start leg only when the source has the official exact-session daily-bar open, otherwise omit the leg (DV1-4 cascade). Leg text order is profile, slot, op, rev, act. Fixture witness names `leg:<fund>:<kind>` become ordinals in the DV1-5 closeout. The old id's discovery description changes in the DV1-4 bump.
