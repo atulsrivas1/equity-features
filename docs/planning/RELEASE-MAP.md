@@ -34,7 +34,7 @@ In flight, not buffer (coordinator): workers re-pin PR (commit pins to 6c3123c p
 | RL-01-11 | S5 header cross-check + IO_V1 one-line reference | io | S | Ready | after RL-01-10; no golden/hash churn |
 | RL-01-12 | S3 remainder: workers gate and core advisory hook (rulings: parallel, single-repo; no order) | workers, core | S | Ready | none (io gate merged in #66) |
 | RL-01-13 | S7 core pointer README note | core | S | Ready | none |
-| RL-01-14 | Bars job spec lists the closed 13-id `BAR_IDS` set, read from core, not retyped | workers | S | Ready | none |
+| RL-01-14 | Bars job spec lists the closed 13-id `BAR_IDS` set: core exports it publicly first, then workers import it after the re-pin | core, then workers | S+S | Ready (core part); workers part Blocked | core export merged and workers pin moved |
 | RL-01-15 | CV1 generator and gate (CV6 folded in) | io | L, split | Blocked | RL-01-07, -08 (S3 io part merged) |
 | RL-01-16 | CV2 (own bump), CV3 (gate demo PR per repo), CV4 (after S2) | io, core, workers | M | Blocked | RL-01-15, -09 |
 | RL-01-17 | CAT-DV1 catalogue pages, then CV5 flip | io | M | Blocked | RL-01-06 ("Frozen as" text merged); RL-01-16 (bump order S6, CV2, CAT-DV1) |
@@ -49,7 +49,7 @@ Later: four other intraday shared-admission families, controlled-machine benchma
 
 ### Ready buffer
 
-Story files (`TEMPLATES/story.md`) for the Ready set are the PO next task. Ready now: 9 stories (RL-01-03, -07, -08, -09, -10, -11, -12, -13, -14); RL-01-01 and -02 join when core #761 merges (11). Playbook target of 10 is met once #761 merges and stands at 9 today. Honest limit: the io catalogue chain (-07, -08, -09, -11) is serial on one writer, so only one io story is in build at a time. Lanes: core Developer -03, -13, then -01/-02; io Developer -07 -> -08 -> -09 -> -10 -> -11; workers Developer -14, -12, -10 workers docs. Tester: nothing until -06; meanwhile reads -07/-08 outputs on the installed io-contracts. A fourth Developer is not warranted (fewer than 20 independent Ready stories).
+Story files: `docs/releases/RL-01/STORIES.md`. Ready now: 9 stories (RL-01-03, -07, -08, -09, -10, -11, -12, -13, and the core part of -14; its workers part waits for the core export and re-pin); RL-01-01 and -02 join when core #761 merges (11). Playbook target of 10 is met once #761 merges and stands at 9 today. Honest limit: the io catalogue chain (-07, -08, -09, -11) is serial on one writer, so only one io story is in build at a time. Lanes: core Developer -03, -13, then -01/-02; io Developer -07 -> -08 -> -09 -> -10 -> -11; workers Developer -14, -12, -10 workers docs. Tester: nothing until -06; meanwhile reads -07/-08 outputs on the installed io-contracts. A fourth Developer is not warranted (fewer than 20 independent Ready stories).
 
 ## Owner-level items (listed, not decided; provisional reading in force)
 
