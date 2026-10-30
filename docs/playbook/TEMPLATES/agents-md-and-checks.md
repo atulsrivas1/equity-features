@@ -41,15 +41,8 @@ Scripts beat memory. Each is a small program with exit code non-zero on failure,
 
 | Check | What it does | Why |
 |---|---|---|
-| Sync check | Stories, matrices, briefs, board index, strings keys and every count claim in documents agree; hard failures always fail; known gaps live in a baseline file and the check fails only on NEW drift; `--update-baseline` only drops fixed gaps | Counts and indexes drifted when typed by hand |
+| Sync check | Stories, matrices and every count claim in documents agree; hard failures always fail; known gaps live in a baseline file and the check fails only on NEW drift; `--update-baseline` only drops fixed gaps | Counts and indexes drifted when typed by hand |
 | Ordered-backlog generator | Reads stories, gates, work packages, roadmap order, epic table; computes rank, status (Ready, Ready (stub), Blocked), size, dependencies; `--check` fails if the output is stale | The pull order is never typed |
-| Coverage generator | Regenerates the story-to-board-to-contract index after any change to a story's Board, Contract, Data or Gate line | One index, always current |
-| Package builder with `--check` | Builds the artefact the other team consumes (tokens, contracts, copy, mappings, manifest); fails on a missing mapping row | The consumer never sees a half-built package |
-| Token sync with `--check` | Rewrites generated colour blocks from the one tokens file; fails if a local colour is declared | One source for colour |
-| Contrast check | Verifies colour pairs meet the contrast target in light and dark | Accessibility is computed, not eyeballed |
-| Logic and semantic checks | Every board's logic renders; interaction rules hold; paused surfaces stay frozen | Catches broken boards without a human |
-| Copy check | Blocked vocabulary in the strings file | Wording rules are enforced |
-| Render script | Renders boards to PNG and static HTML so reviewers can see them; stated limits | A way to review visuals at all |
 | Decision-id check (suggested) | Ids unique, ranges respected, every cited id exists | Collisions and dangling references |
 
-In this project the check set is `python tools/pre_merge_check.py` (boundary, delivery replan, verify_*), the builders for any pin that moves, and the pin checker; the rows below on boards, tokens, contrast, copy and render do not apply (no design repo). Rules for checks: all pass on main, so a failure is the author's; never add to a baseline to hide new drift; a check that cannot run says so in "Not verified".
+In this project the check set is `python tools/pre_merge_check.py` (boundary, delivery replan, verify_*), the builders for any pin that moves, and the pin checker; Rules for checks: all pass on main, so a failure is the author's; never add to a baseline to hide new drift; a check that cannot run says so in "Not verified".
