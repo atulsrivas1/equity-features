@@ -9,11 +9,16 @@ Use the pinned venv from CONTRIBUTING.md (requirements-dev.txt plus the editable
 SKIPs: three checks need an installed (non-editable) environment, the io wheels or jsonschema (checklist 2.2) and run
 only with --installed. verify_quickstart refuses to overwrite its scratch folder work/eq132-quickstart-Windows (by
 design), so it is skipped when that folder exists; delete the ignored folder to rerun it.
+Advisory hook (RL-01-12): when an io checkout is present (env EF_IO_ROOT, else the sibling ../equity-feature-io), it
+also runs io's tools/check_contract_catalogue.py by path against this core checkout and prints ADVISORY PASS/FAIL. It
+never changes the exit code and prints nothing when the io checkout or script is absent. It reimplements nothing and
+adds no core dependency; the header check across declarations is RL-01-11's.
 Usage: python tools/pre_merge_check.py [--only SUBSTRING] [--installed]
 """
 from __future__ import annotations
 
 import argparse
+import os
 import subprocess
 import sys
 from pathlib import Path
@@ -21,6 +26,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 TOOLS = ROOT / "tools"
 INSTALLED_ONLY = {"verify_ef5_library.py", "verify_public_typing.py", "verify_remote_transport.py", "verify_supplied_worker_examples.py"}
+IO_GATE = Path("tools") / "check_contract_catalogue.py"
 QUICKSTART_SCRATCH = ROOT / "work" / "eq132-quickstart-Windows"
 
 MANUAL = r"""Manual checks (not run here; run in the sibling repos with the same pinned interpreter; record results in the PR):
@@ -33,6 +39,19 @@ MANUAL = r"""Manual checks (not run here; run in the sibling repos with the same
             python examples/ef4_projections.py --refusals      (baseline 114/114)
             result fixtures: each driver with --case <id> --output-db <abs> --html <abs>
   Release acceptance (not per PR): docs/qa/RELEASE_ACCEPTANCE_CHECKLIST.md."""
+
+
+def advisory_catalogue_gate() -> None:
+    """Run the io catalogue drift gate by path if the io checkout exists; silent skip if absent; never fails the run."""
+    io_root = Path(os.environ.get("EF_IO_ROOT", ROOT.parent / "equity-feature-io")).resolve()
+    script = io_root / IO_GATE
+    if not script.is_file():
+        return
+    proc = subprocess.run([sys.executable, str(script), "--core-root", str(ROOT)], cwd=io_root, capture_output=True, text=True)
+    print(f"{'ADVISORY PASS' if proc.returncode == 0 else 'ADVISORY FAIL'}  io contract catalogue gate  ({script})")
+    if proc.returncode != 0:
+        lines = [x for x in (proc.stdout + proc.stderr).strip().splitlines() if not x.startswith("not yet catalogued")]
+        print("\n".join("      " + line for line in lines[-15:]))
 
 
 def main() -> int:
@@ -57,6 +76,8 @@ def main() -> int:
         print(f"{'PASS' if ok else 'FAIL'}  {name}")
         if not ok:
             print("\n".join("      " + line for line in (proc.stdout + proc.stderr).strip().splitlines()[-15:]))
+    if not args.only:
+        advisory_catalogue_gate()
     failed = [n for n, ok in results if not ok]
     print(f"\n{len(results) - len(failed)} of {len(results)} automated checks passed.\n")
     print(MANUAL)
