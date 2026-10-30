@@ -1,6 +1,6 @@
 # System design: map (Release 0)
 
-Internal, synthetic, pre-release. Architect, 2026-10-30. Decided, pending owner review; the PO accepts. This file is a map to existing authorities. It restates nothing; new content is marked NEW. Per-area state is in [EXISTING-SYSTEM-AUDIT.md](EXISTING-SYSTEM-AUDIT.md).
+Internal, synthetic, pre-release. Architect, 2026-10-30. Decided, pending owner review; the PO accepts. This file is a map to existing authorities. It links rather than restates; new content is marked NEW. Per-area state is in [EXISTING-SYSTEM-AUDIT.md](EXISTING-SYSTEM-AUDIT.md).
 
 Verification basis: core main 685594e (this checkout); io 3c94be6 and workers 6c3123c read from `origin/main` via the GitHub API (local sibling checkouts are stale: io sits on branch `docs/ef4-c3-parquet-roundtrip`). **[not verified]** marks anything not opened.
 
@@ -19,11 +19,9 @@ Verification basis: core main 685594e (this checkout); io 3c94be6 and workers 6c
 | Process and gates | `docs/playbook/ADOPTION.md`, `docs/COORDINATOR_WORKING_AGREEMENT.md` |
 | Assumptions | `DECISIONS.md` (append-only) |
 
-## Component map (one line each)
+## Components
 
-- Core: `contracts` 0.0.4a6 (records), `features` 0.0.4a7 (pure libraries, `ef1`..`ef4`, `dv1`), `intraday` 0.1.0a5 (EF5 in `_ef5*`), `evidence`, `explanations`, `diagnostics`, `conformance` and others.
-- io: `io-contracts` 0.1.0a5 (ports and records), `io-sdk` 0.1.0a3 (registries, admission, conformance), adapters `duckdb` 0.1.0a12 and `files`, sinks `duckdb-sink` and `parquet`, `acquisition`, `bundles`.
-- workers: `workers` 0.1.0a18 (manifests, planning, bounded supervisor, per-family workers), `provenance` 0.1.0a5, `service`, `client`, `mcp`.
+Versions live in each `pyproject.toml` (core `packages/*`, io and workers `packages/*` on main) and `tools/_versions.py`; they are not repeated here. Core: contracts, features (pure libraries, `ef1`..`ef4`, `dv1`), intraday (EF5), evidence and related. io: io-contracts (ports, records), io-sdk (registries, admission, conformance), adapters `duckdb` and `files`, sinks `duckdb-sink` and `parquet`, `acquisition`, `bundles`. workers: workers (manifests, planning, supervisor), provenance, service, client, mcp.
 
 ## Flow
 
