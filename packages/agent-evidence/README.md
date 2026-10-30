@@ -1,6 +1,6 @@
 # Agent event evidence (experimental)
 
-`equity-feature-agent-evidence==0.1.0a2` contains pure immutable declarations for
+`equity-feature-agent-evidence==0.1.0a3` contains pure immutable declarations for
 requests, supplied model identity, tool calls/results, feature reads, decisions,
 human review, cancellation, errors and corrections. It requires CPython 3.12 and
 the pinned public contracts/evidence packages. It performs no I/O, clock read,

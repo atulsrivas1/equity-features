@@ -3,7 +3,7 @@ from ._model import (ConformanceError,ContextSnapshot,PolicySnapshot,FindingSnap
     DiagnosticSnapshot,DiagnosticOutcome,ContentOutcome,SuiteSummary,Outcome)
 from ._run import check_diagnostics,compare_content,summarize
 
-__version__ = '0.1.0a2'
+__version__ = '0.1.0a3'
 __all__ = ['ConformanceError','ContextSnapshot','PolicySnapshot','FindingSnapshot',
     'DiagnosticSnapshot','DiagnosticOutcome','ContentOutcome','SuiteSummary','Outcome',
     'check_diagnostics','compare_content','summarize','__version__']

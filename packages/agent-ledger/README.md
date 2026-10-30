@@ -1,6 +1,6 @@
 # Experimental local agent event ledger
 
-`equity-feature-agent-ledger==0.1.0a2` is an optional owner-configured SQLite store,
+`equity-feature-agent-ledger==0.1.0a3` is an optional owner-configured SQLite store,
 separate from calculations and the pure event declaration package, introduced
 by EQ107. Consult the repository's EQ107 validation and current
 story/release evidence for the qualification and delivery status of a specific

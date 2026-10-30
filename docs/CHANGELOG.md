@@ -1,3 +1,8 @@
+## DV1-4 coordinated pre-release bump (C2, C3) - October 29, 2026
+
+Pre-release label move only (internal, synthetic, pre-release; no tag, no publish, no release claim): equity-feature-contracts 0.0.4a5 to 0.0.4a6, equity-features 0.0.4a6 to 0.0.4a7, equity-feature-evidence and equity-feature-explanations 0.1.0a3 to 0.1.0a4, equity-feature-diagnostics, equity-feature-conformance, equity-feature-agent-evidence and equity-feature-agent-ledger 0.1.0a2 to 0.1.0a3; intraday, continuous, labels and strategies keep their versions and follow the contracts pin. Version-derived oracles relabelled with recomputed digests; the discovery text of the deprecated `core.benchmark_return_dispersion_fraction` now states that it publishes the range. Numeric results unchanged. See [PRERELEASE_BUMP_DV1.md](PRERELEASE_BUMP_DV1.md).
+
+
 ## DV1-5b fixture witness rename - October 29, 2026
 
 Core-spread fixture witnesses in the draft DV1 contract change from `leg:<fund>:<kind>` to declared-order ordinals `slot:<index>` (fund k start 2k, end 2k + 1); the gate name map is removed and the gates fail on any `leg:` literal. Values and counts unchanged (internal, synthetic, pre-release).

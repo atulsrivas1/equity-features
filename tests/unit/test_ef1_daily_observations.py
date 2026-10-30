@@ -28,7 +28,7 @@ def evaluate(packet):
 
 class DailyPackets(unittest.TestCase):
     def test_frozen_original_synthetic_bytes(self):
-        self.assertEqual(hashlib.sha256(FIXTURE_BYTES).hexdigest(), "eab22b6e2f5adf82e0437f1d3aaf845d4d4dcd66e5a561600a2ccb9172573ff2")
+        self.assertEqual(hashlib.sha256(FIXTURE_BYTES).hexdigest(), "50257a0d648809c7987ce49d710812afdd5f1ff6dd4ddf1c65c0fafb8c121f15")
         self.assertEqual(len(PACK["packets"]), 119)
 
     def test_all_complete_literals(self):

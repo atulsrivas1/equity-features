@@ -8,7 +8,7 @@ an input contract and an output contract, an E9 slash-style unit, every output i
 and a wrong-convention fixture (signed outputs also a negative one), the wrong-convention fixtures that the PO rulings
 name (simple vs log, Wilder vs simple mean, close vs open range, range vs stdev, window length 253/252, high vs close
 basis, tie rule, regular_open operand), the fail-closed drivers, the known_at semantics, the EF4 equality fixtures for
-the deprecated range id, and the posture wording (draft, internal, synthetic, pre-release; no performance claim), and that no EF1-EF5 file except the 4-line EF4 erratum differs from origin/main.
+the deprecated range id, and the posture wording (draft, internal, synthetic, pre-release; no performance claim), and that no EF1-EF5 file differs from origin/main except by an append-only EF4 erratum and, in a coordinated pre-release bump, version-label values in the frozen EF1 oracle files.
 Run from a source checkout: `python tools/verify_dv1_fixtures.py`; exit status 0 only if everything holds.
 """
 from __future__ import annotations
@@ -18,6 +18,7 @@ import json
 import re
 import subprocess
 import sys
+from collections.abc import Callable
 from pathlib import Path
 from types import ModuleType
 from typing import Any
@@ -195,13 +196,27 @@ def check_frozen_files(problems: list[str]) -> None:
         print("SKIP frozen-file check: no origin/main in this checkout")
         return
     changed = git("diff", "--name-only", "origin/main", "--", "docs/ef1", "docs/ef2", "docs/ef3", "docs/ef4", "docs/ef5").stdout.split()
-    extra = [f for f in changed if f != "docs/ef4/EF4_ERRATA.md"]
+    extra = [f for f in changed if f != "docs/ef4/EF4_ERRATA.md" and not version_label_only(git, f)]
     if extra:
         problems.append(f"frozen EF1-EF5 files differ from origin/main: {extra}")
     if "docs/ef4/EF4_ERRATA.md" in changed:
+        # Append-only: the 4-line entry of DV1-0, and later a cross-reference line (the C3 description-only change); nothing deleted.
         stat = git("diff", "--numstat", "origin/main", "--", "docs/ef4/EF4_ERRATA.md").stdout.split()
-        if stat[:2] != ["4", "0"]:
-            problems.append(f"EF4_ERRATA.md must be a 4-line addition only, got {stat[:2]}")
+        if stat[1:2] != ["0"]:
+            problems.append(f"EF4_ERRATA.md must be an addition only, got {stat[:2]}")
+
+
+_LABEL = re.compile(r'("(?:backend_version|canonical_package_version|contracts_version)":\s*")[0-9][^"]*(")')
+
+
+def version_label_only(git: Callable[..., subprocess.CompletedProcess[str]], path: str) -> bool:
+    """A coordinated pre-release bump may relabel `backend_version`, `canonical_package_version` and `contracts_version` values in
+    the frozen EF1 oracle files (docs/PRERELEASE_BUMP_*.md); any other difference from origin/main is still a failure."""
+    if not path.startswith("docs/ef1/") or not path.endswith(".json"):
+        return False
+    old = subprocess.run(["git", "show", f"origin/main:{path}"], cwd=ROOT, capture_output=True, check=False).stdout.decode("utf-8")
+    new = (ROOT / path).read_bytes().decode("utf-8")
+    return bool(old) and _LABEL.sub(r"\1X\2", old) == _LABEL.sub(r"\1X\2", new)
 
 
 def main() -> int:

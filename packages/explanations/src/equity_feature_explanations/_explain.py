@@ -21,7 +21,7 @@ MAX_DEPTH = 20
 MAX_CONTENT_BYTES = 33554432
 _CODES = ('invalid_schema', 'unsupported_version', 'inconsistent_binding', 'duplicate', 'limit_exceeded')
 # Admitted producer backend versions: earlier releases plus the current features version (tools/_versions.py).
-_LEGACY_BACKEND_VERSIONS = ('0.0.4a4', '0.0.4a5', '0.0.4a6')
+_LEGACY_BACKEND_VERSIONS = ('0.0.4a4', '0.0.4a5', '0.0.4a6', '0.0.4a7')
 
 
 class ExplanationError(ValueError):

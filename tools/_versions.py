@@ -8,14 +8,14 @@ release records and frozen archive baselines intentionally keep the versions the
 from __future__ import annotations
 
 VERSIONS: dict[str, str] = {
-    "contracts": "0.0.4a5",
-    "features": "0.0.4a6",
-    "evidence": "0.1.0a3",
-    "explanations": "0.1.0a3",
-    "diagnostics": "0.1.0a2",
-    "agent-evidence": "0.1.0a2",
-    "agent-ledger": "0.1.0a2",
-    "conformance": "0.1.0a2",
+    "contracts": "0.0.4a6",
+    "features": "0.0.4a7",
+    "evidence": "0.1.0a4",
+    "explanations": "0.1.0a4",
+    "diagnostics": "0.1.0a3",
+    "agent-evidence": "0.1.0a3",
+    "agent-ledger": "0.1.0a3",
+    "conformance": "0.1.0a3",
     "continuous": "0.1.0a2",
     "intraday": "0.1.0a5",
     "labels": "0.1.0a1",
@@ -24,7 +24,7 @@ VERSIONS: dict[str, str] = {
 CONTRACTS = VERSIONS["contracts"]
 FEATURES = VERSIONS["features"]
 # Producer versions the explanations package admits: the current features version and the earlier ones it still admits.
-EXPLANATION_BACKEND_VERSIONS = ("0.0.4a4", "0.0.4a5", FEATURES)
+EXPLANATION_BACKEND_VERSIONS = ("0.0.4a4", "0.0.4a5", "0.0.4a6", FEATURES)
 
 # Sibling-repository distributions the multi-repository builders (build_conformance, build_r10, build_r9, build_evidence_pilot) build.
 SIBLINGS: dict[str, str] = {

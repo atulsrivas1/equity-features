@@ -32,7 +32,8 @@ _FORMULAS = {
     bp.DOWN_DOLLAR_VOLUME: "sum of actual notional over down bars (decimal128 coefficient)",
     bp.UP_DOLLAR_FRACTION: "up notional / total notional (zero total is zero_denominator)",
     rx.CORE_AGREEMENT: "max(#r>0, #r<0, #r=0) / K over the core benchmark returns",
-    rx.CORE_DISPERSION: "max r_k - min r_k over the core benchmark returns",
+    rx.CORE_DISPERSION: ("RANGE of core returns (deprecated name), not dispersion; max r_k - min r_k over the core benchmark returns; "
+                         "use core.benchmark_return_range_fraction (same value) or core.benchmark_return_stdev_fraction"),
     rp.TRADE_RATE: "count / (window_ns / 1e9)",
     rp.NOTIONAL_RATE: "(notional / 10^scale) / (window_ns / 1e9)",
     rp.SHARE_VOLUME_RATE: "volume / (window_ns / 1e9)",

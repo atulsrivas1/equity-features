@@ -44,9 +44,9 @@ def lexical_stats(value, depth=0):
 
 class ContentTests(unittest.TestCase):
     def test_three_independent_oracles(self):
-        cases = [('CONFIG',config(),1341,'8512465a50ee6fe7d90ef8288a339ec8c000fff0990f0d3977ff1a04c01267e0',129,7),
-            ('RESULT',result(),1219,'eae2d32b707262039355b035140ffebd98c81b98d5e104c0e6f5955115b1487f',121,9),
-            ('BATCH',batch(),1558,'5e3111793665f8f59a037ad31bcfc3750445ef82dc2848ea998232c4f4586e2a',183,7)]
+        cases = [('CONFIG',config(),1341,'5075ff01fb009c6a886a738359292391e8e315710f7965c08ae5b8d069124c87',129,7),
+            ('RESULT',result(),1219,'4a9496bd0be61cfa0c9a8c2ea044f6796e5de54bf7b572711b7d386a46e6dcc7',121,9),
+            ('BATCH',batch(),1558,'9b7d3695704c2112255c8ad912e64a08a3713979909ae1e91a5453b34aea3ee2',183,7)]
         for name,value,size,digest,nodes,depth in cases:
             with self.subTest(name=name):
                 expected=(Path(__file__).resolve().parents[2]/f'docs/stories/EQ-097_{name}_ORACLE.json').read_bytes()
