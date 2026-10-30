@@ -1,0 +1,5897 @@
+{
+  "schema": "ef-design-coverage-map1",
+  "posture": "Internal, synthetic, pre-release. Hand-maintained input for the feature coverage table; not a release claim. Statuses other than implemented and missing are asserted by the Product Owner with a record; implemented rows marked provisional name the check that clears them.",
+  "design_basis": {
+    "repo": "watchyourlist-design",
+    "commit": "c439067644a0f5f0ef4d64138ff23e8bfcc9e81f",
+    "doc_set": [
+      "price-technicals.md",
+      "volume-radar.md",
+      "market-context.md",
+      "universe-profile.md",
+      "company-events.md",
+      "condition-catalogue.md",
+      "chart.md",
+      "scanners.md",
+      "strategies.md",
+      "engineering/stories/equity-scanner-strategy-stories.md",
+      "engineering/stories/watchlist-stories.md",
+      "engineering/stories/scanner-lifecycle-stories.md"
+    ],
+    "item_count": 166,
+    "family_counts": {
+      "price-technicals": 43,
+      "volume-radar": 39,
+      "market-context": 22,
+      "universe-profile": 12,
+      "company-events": 24,
+      "presets": 12,
+      "watchlists": 5,
+      "scanner-lifecycle": 3,
+      "strategies": 6
+    },
+    "design_ref_note": "design_ref is file:line under docs/features (or engineering/stories for story files) as read by the 2026-10-29 parity check; design_section is the nearest heading. Informational, not verified by the validator (the design repository is not part of this one)."
+  },
+  "core_basis": {
+    "commit": "9d12412",
+    "note": "origin/main at the time of seeding; DV1 library outputs that exist on main are counted as existing, their delivery is per the PO."
+  },
+  "sources": {
+    "parity_check": "PARITY_CHECK_EQUITY_2026-10-29.md (work/, not released)",
+    "records": {
+      "R1": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
+      "R2": "docs/plans/records/po-rulings-coverage-table-2026-10-30.md"
+    }
+  },
+  "items": [
+    {
+      "design_id": "P1",
+      "family": "price-technicals",
+      "kind": "condition",
+      "title": "Return over a window (10s to 60m, session, 1-60d, ATR-normalised)",
+      "design_ref": "price-technicals.md:23",
+      "design_section": "2.3 Conditions offered",
+      "status": "partial",
+      "status_basis": "asserted",
+      "composition": "none",
+      "asserted": {
+        "by": "PO",
+        "date": "2026-10-29",
+        "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
+        "record_ref": "§1 intro and §4 (classifications not adjusted stand)",
+        "basis": "adopted_from_parity_check"
+      },
+      "outputs": [
+        {
+          "id": "history.return",
+          "role": "primary",
+          "release": "R2"
+        },
+        {
+          "id": "technical.session_return_fraction",
+          "role": "operand",
+          "release": "EF5"
+        }
+      ],
+      "delivering_release": "EF5",
+      "evidence": [
+        {
+          "kind": "gate",
+          "ref": "tools/verify_registry.py"
+        },
+        {
+          "kind": "gate",
+          "ref": "tools/verify_history_examples.py"
+        },
+        {
+          "kind": "gate",
+          "ref": "tools/verify_ef5_fixtures.py"
+        },
+        {
+          "kind": "gate",
+          "ref": "tools/verify_ef5_library.py"
+        }
+      ],
+      "note": "Daily 1/5/20/60/252 and session open-close ship; no rolling N-minute return output and no ATR-normalised return output."
+    },
+    {
+      "design_id": "P2",
+      "family": "price-technicals",
+      "kind": "condition",
+      "title": "Level break: session, prior-day/week/month, premarket, N-week, 52-week, YTD high/low; fail; reclaim",
+      "design_ref": "price-technicals.md:24",
+      "design_section": "2.3 Conditions offered",
+      "status": "partial",
+      "status_basis": "asserted",
+      "composition": "none",
+      "asserted": {
+        "by": "PO",
+        "date": "2026-10-29",
+        "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
+        "record_ref": "§1 intro and §4 (classifications not adjusted stand)",
+        "basis": "adopted_from_parity_check"
+      },
+      "capability_gap": [
+        "G6"
+      ],
+      "outputs": [
+        {
+          "id": "history.prior_high",
+          "role": "primary",
+          "release": "R2"
+        },
+        {
+          "id": "history.prior_low",
+          "role": "primary",
+          "release": "R2"
+        },
+        {
+          "id": "session.bar.high",
+          "role": "operand",
+          "release": "R1"
+        },
+        {
+          "id": "session.bar.low",
+          "role": "operand",
+          "release": "R1"
+        },
+        {
+          "id": "session.daily_observations.high",
+          "role": "operand",
+          "release": "EF1"
+        },
+        {
+          "id": "session.daily_observations.low",
+          "role": "operand",
+          "release": "EF1"
+        }
+      ],
+      "delivering_release": "EF1",
+      "evidence": [
+        {
+          "kind": "gate",
+          "ref": "tools/verify_registry.py"
+        },
+        {
+          "kind": "gate",
+          "ref": "tools/verify_history_examples.py"
+        },
+        {
+          "kind": "gate",
+          "ref": "tools/verify_session_examples.py"
+        },
+        {
+          "kind": "test",
+          "ref": "tests/unit/test_ef1_daily_observations.py"
+        },
+        {
+          "kind": "doc",
+          "ref": "docs/EF1_CUMULATIVE_QUALIFICATION.md"
+        }
+      ],
+      "note": "Level carriers partly ship; no premarket high/low, no YTD output, no break/fail/reclaim event output."
+    },
+    {
+      "design_id": "P3",
+      "family": "price-technicals",
+      "kind": "condition",
+      "title": "Moving average state: above/below SMA or EMA, reclaim, rejection, stack",
+      "design_ref": "price-technicals.md:25",
+      "design_section": "2.3 Conditions offered",
+      "status": "implemented",
+      "status_basis": "derived",
+      "composition": "none",
+      "outputs": [
+        {
+          "id": "history.sma",
+          "role": "primary",
+          "release": "R2"
+        },
+        {
+          "id": "history.ema",
+          "role": "primary",
+          "release": "R2"
+        },
+        {
+          "id": "intraday.ema",
+          "role": "primary",
+          "release": "R17"
+        },
+        {
+          "id": "projection.close_above_sma",
+          "role": "primary",
+          "release": "EF4"
+        },
+        {
+          "id": "projection.close_vs_sma_fraction",
+          "role": "primary",
+          "release": "EF4"
+        }
+      ],
+      "delivering_release": "EF4",
+      "evidence": [
+        {
+          "kind": "gate",
+          "ref": "tools/verify_registry.py"
+        },
+        {
+          "kind": "gate",
+          "ref": "tools/verify_history_examples.py"
+        },
+        {
+          "kind": "gate",
+          "ref": "tools/verify_intraday_examples.py"
+        },
+        {
+          "kind": "gate",
+          "ref": "tools/verify_ef4_fixtures.py"
+        },
+        {
+          "kind": "doc",
+          "ref": "docs/ef4/EF4_DELIVERY_EVIDENCE.md"
+        }
+      ],
+      "note": "Stack, reclaim and cross are consumer comparisons."
+    },
+    {
+      "design_id": "P4",
+      "family": "price-technicals",
+      "kind": "condition",
+      "title": "Oscillators and bands: RSI, MACD cross, Bollinger, squeeze, ATR/ADX, Donchian",
+      "design_ref": "price-technicals.md:26",
+      "design_section": "2.3 Conditions offered",
+      "status": "partial",
+      "status_basis": "asserted",
+      "composition": "none",
+      "asserted": {
+        "by": "PO",
+        "date": "2026-10-29",
+        "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
+        "record_ref": "§1 intro and §4 (classifications not adjusted stand)",
+        "basis": "adopted_from_parity_check"
+      },
+      "capability_gap": [
+        "G1"
+      ],
+      "outputs": [
+        {
+          "id": "intraday.rsi",
+          "role": "primary",
+          "release": "R17"
+        },
+        {
+          "id": "intraday.macd_line",
+          "role": "primary",
+          "release": "EF2"
+        },
+        {
+          "id": "intraday.macd_signal",
+          "role": "primary",
+          "release": "EF2"
+        },
+        {
+          "id": "intraday.macd_histogram",
+          "role": "primary",
+          "release": "EF2"
+        },
+        {
+          "id": "intraday.band_upper",
+          "role": "primary",
+          "release": "R17"
+        },
+        {
+          "id": "intraday.band_lower",
+          "role": "primary",
+          "release": "R17"
+        },
+        {
+          "id": "intraday.atr",
+          "role": "primary",
+          "release": "R17"
+        },
+        {
+          "id": "intraday.adx",
+          "role": "primary",
+          "release": "EF2"
+        },
+        {
+          "id": "channel.donchian.upper",
+          "role": "primary",
+          "release": "EF2"
+        },
+        {
+          "id": "channel.squeeze.bollinger_inside_keltner",
+          "role": "primary",
+          "release": "EF2"
+        },
+        {
+          "id": "history.rsi",
+          "role": "primary",
+          "release": "R2"
+        },
+        {
+          "id": "history.atr",
+          "role": "primary",
+          "release": "R2"
+        }
+      ],
+      "delivering_release": "EF2",
+      "evidence": [
+        {
+          "kind": "gate",
+          "ref": "tools/verify_intraday_examples.py"
+        },
+        {
+          "kind": "doc",
+          "ref": "docs/ef2/EF2_DELIVERY_EVIDENCE.md"
+        },
+        {
+          "kind": "gate",
+          "ref": "tools/verify_registry.py"
+        },
+        {
+          "kind": "gate",
+          "ref": "tools/verify_history_examples.py"
+        }
+      ],
+      "note": "Intraday grid ships all; daily grid has only history.rsi and history.atr (no daily MACD, ADX, Bollinger, Donchian)."
+    },
+    {
+      "design_id": "P5",
+      "family": "price-technicals",
+      "kind": "condition",
+      "title": "VWAP: above/below, reclaim, slope, deviation",
+      "design_ref": "price-technicals.md:27",
+      "design_section": "2.3 Conditions offered",
+      "status": "implemented",
+      "status_basis": "derived",
+      "composition": "consumer_arith",
+      "outputs": [
+        {
+          "id": "session.anchor.vwap",
+          "role": "primary",
+          "release": "EF1"
+        },
+        {
+          "id": "session.trade.vwap",
+          "role": "primary",
+          "release": "R1"
+        },
+        {
+          "id": "vwap.path.last",
+          "role": "primary",
+          "release": "EF4"
+        },
+        {
+          "id": "vwap.slope.endpoint",
+          "role": "primary",
+          "release": "EF4"
+        },
+        {
+          "id": "vwap.slope.ols",
+          "role": "primary",
+          "release": "EF4"
+        }
+      ],
+      "delivering_release": "EF4",
+      "evidence": [
+        {
+          "kind": "test",
+          "ref": "tests/unit/test_ef1_anchor.py"
+        },
+        {
+          "kind": "doc",
+          "ref": "docs/EF1_CUMULATIVE_QUALIFICATION.md"
+        },
+        {
+          "kind": "gate",
+          "ref": "tools/verify_registry.py"
+        },
+        {
+          "kind": "gate",
+          "ref": "tools/verify_session_examples.py"
+        },
+        {
+          "kind": "gate",
+          "ref": "tools/verify_ef4_fixtures.py"
+        },
+        {
+          "kind": "doc",
+          "ref": "docs/ef4/EF4_DELIVERY_EVIDENCE.md"
+        }
+      ],
+      "note": "Deviation, reclaim and rejection are consumer arithmetic."
+    },
+    {
+      "design_id": "P6",
+      "family": "price-technicals",
+      "kind": "condition",
+      "title": "Opening range (5 or 15 min): breakout, breakdown, failed",
+      "design_ref": "price-technicals.md:28",
+      "design_section": "2.3 Conditions offered",
+      "status": "implemented",
+      "status_basis": "asserted",
+      "composition": "consumer_arith",
+      "provisional": true,
+      "clearing_check": "Tester look-ahead gate for session.structure.interval_ohlcv opening intervals (PO rulings 2026-10-30 section 5; reconciliation section 0 'Not verified')",
+      "asserted": {
+        "by": "PO",
+        "date": "2026-10-29",
+        "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
+        "record_ref": "§1 (P6/P14/P17)",
+        "basis": "ruling"
+      },
+      "outputs": [
+        {
+          "id": "session.structure.interval_ohlcv",
+          "role": "primary",
+          "release": "R1"
+        }
+      ],
+      "delivering_release": "R1",
+      "evidence": [
+        {
+          "kind": "gate",
+          "ref": "tools/verify_registry.py"
+        },
+        {
+          "kind": "gate",
+          "ref": "tools/verify_session_examples.py"
+        }
+      ],
+      "note": "No named opening-range output; range from the configured opening interval, break compared with bar highs/closes by the consumer."
+    },
+    {
+      "design_id": "P7",
+      "family": "price-technicals",
+      "kind": "condition",
+      "title": "Gap up/down, held, filled, reversed; premarket movers",
+      "design_ref": "price-technicals.md:29",
+      "design_section": "2.3 Conditions offered",
+      "status": "partial",
+      "status_basis": "asserted",
+      "composition": "none",
+      "asserted": {
+        "by": "PO",
+        "date": "2026-10-29",
+        "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
+        "record_ref": "§1 intro and §4 (classifications not adjusted stand)",
+        "basis": "adopted_from_parity_check"
+      },
+      "capability_gap": [
+        "G6"
+      ],
+      "outputs": [
+        {
+          "id": "session.price.overnight_gap",
+          "role": "primary",
+          "release": "R1"
+        },
+        {
+          "id": "session.gap.fill_fraction",
+          "role": "primary",
+          "release": "EF1"
+        },
+        {
+          "id": "session.gap.filled",
+          "role": "primary",
+          "release": "EF1"
+        },
+        {
+          "id": "session.gap.first_fill_ns",
+          "role": "primary",
+          "release": "EF1"
+        },
+        {
+          "id": "session.gap.remaining_fraction",
+          "role": "primary",
+          "release": "EF1"
+        },
+        {
+          "id": "session.gap_endpoint.current_fill_fraction",
+          "role": "primary",
+          "release": "EF1"
+        },
+        {
+          "id": "session.gap_endpoint.opening_gap_fraction",
+          "role": "primary",
+          "release": "EF1"
+        },
+        {
+          "id": "session.extended.prior_close_return",
+          "role": "primary",
+          "release": "EF1"
+        }
+      ],
+      "delivering_release": "EF1",
+      "evidence": [
+        {
+          "kind": "gate",
+          "ref": "tools/verify_registry.py"
+        },
+        {
+          "kind": "gate",
+          "ref": "tools/verify_session_examples.py"
+        },
+        {
+          "kind": "test",
+          "ref": "tests/unit/test_ef1_path.py"
+        },
+        {
+          "kind": "doc",
+          "ref": "docs/EF1_CUMULATIVE_QUALIFICATION.md"
+        },
+        {
+          "kind": "test",
+          "ref": "tests/unit/test_ef1_gap_endpoint.py"
+        },
+        {
+          "kind": "test",
+          "ref": "tests/unit/test_ef1_period_phase.py"
+        }
+      ],
+      "note": "No held or reversal output."
+    },
+    {
+      "design_id": "P8",
+      "family": "price-technicals",
+      "kind": "condition",
+      "title": "Relative strength vs SPY/QQQ/sector, residual, top/bottom decile",
+      "design_ref": "price-technicals.md:30",
+      "design_section": "2.3 Conditions offered",
+      "status": "implemented",
+      "status_basis": "derived",
+      "composition": "none",
+      "outputs": [
+        {
+          "id": "relative.market_return",
+          "role": "primary",
+          "release": "R2"
+        },
+        {
+          "id": "relative.sector_return",
+          "role": "primary",
+          "release": "R2"
+        },
+        {
+          "id": "relative.session.primary.window_excess_fraction",
+          "role": "primary",
+          "release": "EF4"
+        },
+        {
+          "id": "relative.residual_return",
+          "role": "primary",
+          "release": "EF3"
+        },
+        {
+          "id": "cohort.percentile_rank",
+          "role": "primary",
+          "release": "EF3"
+        },
+        {
+          "id": "cohort.rank",
+          "role": "primary",
+          "release": "EF3"
+        }
+      ],
+      "delivering_release": "EF4",
+      "evidence": [
+        {
+          "kind": "gate",
+          "ref": "tools/verify_registry.py"
+        },
+        {
+          "kind": "gate",
+          "ref": "tools/verify_context_examples.py"
+        },
+        {
+          "kind": "gate",
+          "ref": "tools/verify_ef4_fixtures.py"
+        },
+        {
+          "kind": "doc",
+          "ref": "docs/ef4/EF4_DELIVERY_EVIDENCE.md"
+        },
+        {
+          "kind": "doc",
+          "ref": "docs/ef3/EF3_DELIVERY_EVIDENCE.md"
+        },
+        {
+          "kind": "gate",
+          "ref": "tools/verify_ef3_robust_known_at.py"
+        }
+      ],
+      "note": ""
+    },
+    {
+      "design_id": "P9",
+      "family": "price-technicals",
+      "kind": "condition",
+      "title": "Realized vol, range expansion, choppiness, trend efficiency, range position, drawdown",
+      "design_ref": "price-technicals.md:31",
+      "design_section": "2.3 Conditions offered",
+      "status": "implemented",
+      "status_basis": "derived",
+      "composition": "none",
+      "outputs": [
+        {
+          "id": "intraday.realized_variance",
+          "role": "primary",
+          "release": "EF3"
+        },
+        {
+          "id": "intraday.realized_volatility",
+          "role": "primary",
+          "release": "EF3"
+        },
+        {
+          "id": "history.log_return_volatility",
+          "role": "primary",
+          "release": "EF3"
+        },
+        {
+          "id": "path.efficiency_ratio",
+          "role": "primary",
+          "release": "EF4"
+        },
+        {
+          "id": "path.choppiness_fraction",
+          "role": "primary",
+          "release": "EF4"
+        },
+        {
+          "id": "path.window_range",
+          "role": "primary",
+          "release": "EF4"
+        },
+        {
+          "id": "session.price.range_fraction",
+          "role": "primary",
+          "release": "R1"
+        },
+        {
+          "id": "session.price.close_location",
+          "role": "primary",
+          "release": "R1"
+        },
+        {
+          "id": "projection.drawdown_fraction",
+          "role": "primary",
+          "release": "EF4"
+        },
+        {
+          "id": "projection.max_drawdown_fraction",
+          "role": "primary",
+          "release": "EF4"
+        },
+        {
+          "id": "projection.distance_from_low_fraction",
+          "role": "primary",
+          "release": "EF4"
+        }
+      ],
+      "delivering_release": "EF4",
+      "evidence": [
+        {
+          "kind": "doc",
+          "ref": "docs/ef3/EF3_DELIVERY_EVIDENCE.md"
+        },
+        {
+          "kind": "gate",
+          "ref": "tools/verify_ef4_fixtures.py"
+        },
+        {
+          "kind": "doc",
+          "ref": "docs/ef4/EF4_DELIVERY_EVIDENCE.md"
+        },
+        {
+          "kind": "gate",
+          "ref": "tools/verify_registry.py"
+        },
+        {
+          "kind": "gate",
+          "ref": "tools/verify_session_examples.py"
+        }
+      ],
+      "note": ""
+    },
+    {
+      "design_id": "P10",
+      "family": "price-technicals",
+      "kind": "condition",
+      "title": "Opening drive, consecutive trend windows, velocity, acceleration",
+      "design_ref": "price-technicals.md:32",
+      "design_section": "2.3 Conditions offered",
+      "status": "implemented",
+      "status_basis": "derived",
+      "composition": "none",
+      "outputs": [
+        {
+          "id": "session.opening_drive.return",
+          "role": "primary",
+          "release": "EF1"
+        },
+        {
+          "id": "session.opening_drive.excursion_up",
+          "role": "primary",
+          "release": "EF1"
+        },
+        {
+          "id": "session.opening_drive.excursion_down",
+          "role": "primary",
+          "release": "EF1"
+        },
+        {
+          "id": "technical.signed_trend_window_count",
+          "role": "primary",
+          "release": "EF5"
+        },
+        {
+          "id": "technical.price_velocity_fraction_per_second",
+          "role": "primary",
+          "release": "EF5"
+        },
+        {
+          "id": "technical.momentum_acceleration_fraction_per_second_squared",
+          "role": "primary",
+          "release": "EF5"
+        }
+      ],
+      "delivering_release": "EF5",
+      "evidence": [
+        {
+          "kind": "test",
+          "ref": "tests/unit/test_ef1_path.py"
+        },
+        {
+          "kind": "doc",
+          "ref": "docs/EF1_CUMULATIVE_QUALIFICATION.md"
+        },
+        {
+          "kind": "gate",
+          "ref": "tools/verify_ef5_fixtures.py"
+        },
+        {
+          "kind": "gate",
+          "ref": "tools/verify_ef5_library.py"
+        }
+      ],
+      "note": "The status label is a consumer rule."
+    },
+    {
+      "design_id": "P11",
+      "family": "price-technicals",
+      "kind": "condition",
+      "title": "Mean reversion: N ATR or z-score from mean/VWAP; pullback in uptrend",
+      "design_ref": "price-technicals.md:33",
+      "design_section": "2.3 Conditions offered",
+      "status": "partial",
+      "status_basis": "asserted",
+      "composition": "none",
+      "asserted": {
+        "by": "PO",
+        "date": "2026-10-29",
+        "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
+        "record_ref": "§1 intro and §4 (classifications not adjusted stand)",
+        "basis": "adopted_from_parity_check"
+      },
+      "outputs": [
+        {
+          "id": "history.sma",
+          "role": "primary",
+          "release": "R2"
+        },
+        {
+          "id": "history.atr",
+          "role": "primary",
+          "release": "R2"
+        },
+        {
+          "id": "history.return_volatility",
+          "role": "primary",
+          "release": "R2"
+        },
+        {
+          "id": "projection.close_vs_sma_fraction",
+          "role": "primary",
+          "release": "EF4"
+        }
+      ],
+      "delivering_release": "EF4",
+      "evidence": [
+        {
+          "kind": "gate",
+          "ref": "tools/verify_registry.py"
+        },
+        {
+          "kind": "gate",
+          "ref": "tools/verify_history_examples.py"
+        },
+        {
+          "kind": "gate",
+          "ref": "tools/verify_ef4_fixtures.py"
+        },
+        {
+          "kind": "doc",
+          "ref": "docs/ef4/EF4_DELIVERY_EVIDENCE.md"
+        }
+      ],
+      "note": "Ingredients only; no ATR-distance output and no price z-score output."
+    },
+    {
+      "design_id": "P12",
+      "family": "price-technicals",
+      "kind": "condition",
+      "title": "Stochastic, ROC, Keltner, pivots, Fibonacci, Ichimoku",
+      "design_ref": "price-technicals.md:34",
+      "design_section": "2.3 Conditions offered",
+      "status": "partial",
+      "status_basis": "asserted",
+      "composition": "none",
+      "asserted": {
+        "by": "PO",
+        "date": "2026-10-29",
+        "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
+        "record_ref": "§1 intro and §4 (classifications not adjusted stand)",
+        "basis": "adopted_from_parity_check"
+      },
+      "capability_gap": [
+        "G1"
+      ],
+      "outputs": [
+        {
+          "id": "intraday.stoch_k",
+          "role": "primary",
+          "release": "EF2"
+        },
+        {
+          "id": "intraday.stoch_d",
+          "role": "primary",
+          "release": "EF2"
+        },
+        {
+          "id": "intraday.williams_r",
+          "role": "primary",
+          "release": "EF2"
+        },
+        {
+          "id": "channel.keltner.middle",
+          "role": "primary",
+          "release": "EF2"
+        },
+        {
+          "id": "channel.pivot.point",
+          "role": "primary",
+          "release": "EF2"
+        },
+        {
+          "id": "trend.ichimoku.base_line",
+          "role": "primary",
+          "release": "EF2"
+        },
+        {
+          "id": "retracement.level",
+          "role": "primary",
+          "release": "EF2"
+        }
+      ],
+      "delivering_release": "EF2",
+      "evidence": [
+        {
+          "kind": "doc",
+          "ref": "docs/ef2/EF2_DELIVERY_EVIDENCE.md"
+        }
+      ],
+      "note": "Intraday grid only; no rate-of-change output; no daily variants."
+    },
+    {
+      "design_id": "P13",
+      "family": "price-technicals",
+      "kind": "condition",
+      "title": "Rolling 1-hour high/low, within X%, break",
+      "design_ref": "price-technicals.md:47",
+      "design_section": "2.3a Added from the stream repos (`WL106`)",
+      "status": "partial",
+      "status_basis": "asserted",
+      "composition": "none",
+      "asserted": {
+        "by": "PO",
+        "date": "2026-10-29",
+        "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
+        "record_ref": "§1 (P13)",
+        "basis": "ruling"
+      },
+      "capability_gap": [
+        "G6"
+      ],
+      "outputs": [
+        {
+          "id": "channel.donchian.upper",
+          "role": "primary",
+          "release": "EF2"
+        },
+        {
+          "id": "channel.donchian.lower",
+          "role": "primary",
+          "release": "EF2"
+        }
+      ],
+      "delivering_release": "EF2",
+      "evidence": [
+        {
+          "kind": "doc",
+          "ref": "docs/ef2/EF2_DELIVERY_EVIDENCE.md"
+        }
+      ],
+      "note": "Donchian over 60 slots is the same quantity but is intraday-grid and reset-epoch, not a rolling hour by contract (PO ruling)."
+    },
+    {
+      "design_id": "P14",
+      "family": "price-technicals",
+      "kind": "condition",
+      "title": "Range so far at least X times the opening range",
+      "design_ref": "price-technicals.md:48",
+      "design_section": "2.3a Added from the stream repos (`WL106`)",
+      "status": "implemented",
+      "status_basis": "asserted",
+      "composition": "consumer_arith",
+      "provisional": true,
+      "clearing_check": "Tester look-ahead gate for session.structure.interval_ohlcv opening intervals (PO rulings 2026-10-30 section 5; reconciliation section 0 'Not verified')",
+      "asserted": {
+        "by": "PO",
+        "date": "2026-10-29",
+        "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
+        "record_ref": "§1 (P6/P14/P17)",
+        "basis": "ruling"
+      },
+      "outputs": [
+        {
+          "id": "session.structure.interval_ohlcv",
+          "role": "primary",
+          "release": "R1"
+        },
+        {
+          "id": "path.window_range",
+          "role": "operand",
+          "release": "EF4"
+        },
+        {
+          "id": "session.bar.high",
+          "role": "operand",
+          "release": "R1"
+        },
+        {
+          "id": "session.bar.low",
+          "role": "operand",
+          "release": "R1"
+        }
+      ],
+      "delivering_release": "EF4",
+      "evidence": [
+        {
+          "kind": "gate",
+          "ref": "tools/verify_registry.py"
+        },
+        {
+          "kind": "gate",
+          "ref": "tools/verify_session_examples.py"
+        },
+        {
+          "kind": "gate",
+          "ref": "tools/verify_ef4_fixtures.py"
+        },
+        {
+          "kind": "doc",
+          "ref": "docs/ef4/EF4_DELIVERY_EVIDENCE.md"
+        }
+      ],
+      "note": "Ratio is consumer arithmetic."
+    },
+    {
+      "design_id": "P15",
+      "family": "price-technicals",
+      "kind": "condition",
+      "title": "Session range at least X% of the open",
+      "design_ref": "price-technicals.md:49",
+      "design_section": "2.3a Added from the stream repos (`WL106`)",
+      "status": "differs",
+      "status_basis": "asserted",
+      "composition": "none",
+      "asserted": {
+        "by": "PO",
+        "date": "2026-10-29",
+        "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
+        "record_ref": "§1 and §2 ruling 3",
+        "basis": "ruling"
+      },
+      "capability_gap": [
+        "G4"
+      ],
+      "outputs": [
+        {
+          "id": "session.price.range_fraction",
+          "role": "existing_differs",
+          "release": "R1"
+        },
+        {
+          "id": "session.price.range_over_open",
+          "role": "variant",
+          "release": "DV1"
+        }
+      ],
+      "delivering_release": null,
+      "evidence": [
+        {
+          "kind": "gate",
+          "ref": "tools/verify_dv1_range_over_open_library.py"
+        },
+        {
+          "kind": "gate",
+          "ref": "tools/verify_dv1_fixtures.py"
+        }
+      ],
+      "note": "Existing output is range over the close; the design wants the open. DV1 variant session.price.range_over_open is on main."
+    },
+    {
+      "design_id": "P16",
+      "family": "price-technicals",
+      "kind": "condition",
+      "title": "Direction-change count; share of moves in session direction",
+      "design_ref": "price-technicals.md:50",
+      "design_section": "2.3a Added from the stream repos (`WL106`)",
+      "status": "missing",
+      "status_basis": "derived",
+      "composition": "none",
+      "capability_gap": [
+        "G8"
+      ],
+      "outputs": [],
+      "delivering_release": null,
+      "evidence": [],
+      "note": "Neither path.choppiness_fraction nor signed_trend_window_count counts direction changes."
+    },
+    {
+      "design_id": "P17",
+      "family": "price-technicals",
+      "kind": "condition",
+      "title": "30-minute opening range",
+      "design_ref": "price-technicals.md:51",
+      "design_section": "2.3a Added from the stream repos (`WL106`)",
+      "status": "implemented",
+      "status_basis": "asserted",
+      "composition": "consumer_arith",
+      "provisional": true,
+      "clearing_check": "Tester look-ahead gate for session.structure.interval_ohlcv opening intervals (PO rulings 2026-10-30 section 5; reconciliation section 0 'Not verified')",
+      "asserted": {
+        "by": "PO",
+        "date": "2026-10-29",
+        "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
+        "record_ref": "§1 (P6/P14/P17)",
+        "basis": "ruling"
+      },
+      "outputs": [
+        {
+          "id": "session.structure.interval_ohlcv",
+          "role": "primary",
+          "release": "R1"
+        }
+      ],
+      "delivering_release": "R1",
+      "evidence": [
+        {
+          "kind": "gate",
+          "ref": "tools/verify_registry.py"
+        },
+        {
+          "kind": "gate",
+          "ref": "tools/verify_session_examples.py"
+        }
+      ],
+      "note": "As P6 with a 30-minute interval."
+    },
+    {
+      "design_id": "P18",
+      "family": "price-technicals",
+      "kind": "condition",
+      "title": "Share of the day so far spent above VWAP",
+      "design_ref": "price-technicals.md:52",
+      "design_section": "2.3a Added from the stream repos (`WL106`)",
+      "status": "missing",
+      "status_basis": "derived",
+      "composition": "none",
+      "capability_gap": [
+        "G8"
+      ],
+      "outputs": [],
+      "delivering_release": null,
+      "evidence": [],
+      "note": "vwap.path.* has last, minimum, maximum and change only."
+    },
+    {
+      "design_id": "P19",
+      "family": "price-technicals",
+      "kind": "condition",
+      "title": "Share of minutes beating SPY",
+      "design_ref": "price-technicals.md:53",
+      "design_section": "2.3a Added from the stream repos (`WL106`)",
+      "status": "missing",
+      "status_basis": "derived",
+      "composition": "none",
+      "capability_gap": [
+        "G8"
+      ],
+      "outputs": [],
+      "delivering_release": null,
+      "evidence": [],
+      "note": "relative.session excess is a return, not a minute share."
+    },
+    {
+      "design_id": "P20",
+      "family": "price-technicals",
+      "kind": "condition",
+      "title": "Gap size band at the open",
+      "design_ref": "price-technicals.md:54",
+      "design_section": "2.3a Added from the stream repos (`WL106`)",
+      "status": "implemented",
+      "status_basis": "derived",
+      "composition": "consumer_arith",
+      "outputs": [
+        {
+          "id": "session.price.overnight_gap",
+          "role": "primary",
+          "release": "R1"
+        }
+      ],
+      "delivering_release": "R1",
+      "evidence": [
+        {
+          "kind": "gate",
+          "ref": "tools/verify_registry.py"
+        },
+        {
+          "kind": "gate",
+          "ref": "tools/verify_session_examples.py"
+        }
+      ],
+      "note": "Bands are consumer thresholds."
+    },
+    {
+      "design_id": "P21",
+      "family": "price-technicals",
+      "kind": "condition",
+      "title": "Gap at least X times daily ATR14",
+      "design_ref": "price-technicals.md:55",
+      "design_section": "2.3a Added from the stream repos (`WL106`)",
+      "status": "implemented",
+      "status_basis": "derived",
+      "composition": "consumer_arith",
+      "outputs": [
+        {
+          "id": "session.price.overnight_gap",
+          "role": "primary",
+          "release": "R1"
+        },
+        {
+          "id": "history.atr",
+          "role": "operand",
+          "release": "R2"
+        }
+      ],
+      "delivering_release": "R2",
+      "evidence": [
+        {
+          "kind": "gate",
+          "ref": "tools/verify_registry.py"
+        },
+        {
+          "kind": "gate",
+          "ref": "tools/verify_session_examples.py"
+        },
+        {
+          "kind": "gate",
+          "ref": "tools/verify_history_examples.py"
+        }
+      ],
+      "note": "Wilder ATR is a real ATR as the design requires."
+    },
+    {
+      "design_id": "P22",
+      "family": "price-technicals",
+      "kind": "condition",
+      "title": "Premarket range at least X% of prior close",
+      "design_ref": "price-technicals.md:56",
+      "design_section": "2.3a Added from the stream repos (`WL106`)",
+      "status": "missing",
+      "status_basis": "derived",
+      "composition": "none",
+      "capability_gap": [
+        "G6"
+      ],
+      "outputs": [],
+      "delivering_release": null,
+      "evidence": [],
+      "note": "No premarket high/low output; the design says the source may hold no premarket rows."
+    },
+    {
+      "design_id": "P23",
+      "family": "price-technicals",
+      "kind": "condition",
+      "title": "Prior-session value area (POC, VAH, VAL) vs prior VWAP",
+      "design_ref": "price-technicals.md:57",
+      "design_section": "2.3a Added from the stream repos (`WL106`)",
+      "status": "missing",
+      "status_basis": "derived",
+      "composition": "none",
+      "capability_gap": [
+        "G8"
+      ],
+      "outputs": [],
+      "delivering_release": null,
+      "evidence": [],
+      "note": "No volume profile."
+    },
+    {
+      "design_id": "P24",
+      "family": "price-technicals",
+      "kind": "condition",
+      "title": "12-1 and 6-1 month return",
+      "design_ref": "price-technicals.md:58",
+      "design_section": "2.3a Added from the stream repos (`WL106`)",
+      "status": "implemented",
+      "status_basis": "derived",
+      "composition": "consumer_arith",
+      "outputs": [
+        {
+          "id": "history.return",
+          "role": "primary",
+          "release": "R2"
+        }
+      ],
+      "delivering_release": "R2",
+      "evidence": [
+        {
+          "kind": "gate",
+          "ref": "tools/verify_registry.py"
+        },
+        {
+          "kind": "gate",
+          "ref": "tools/verify_history_examples.py"
+        }
+      ],
+      "note": "(1+r252)/(1+r21)-1; explicit periods allowed; float rounding differs from a one-step calculation."
+    },
+    {
+      "design_id": "P25",
+      "family": "price-technicals",
+      "kind": "condition",
+      "title": "Close within X% of the 126-day high",
+      "design_ref": "price-technicals.md:59",
+      "design_section": "2.3a Added from the stream repos (`WL106`)",
+      "status": "implemented",
+      "status_basis": "asserted",
+      "composition": "consumer_arith",
+      "provisional": true,
+      "clearing_check": "Tester check of P25 design wording for window inclusion, with the consumer rule max(prior_high, current high) (PO rulings 2026-10-30 section 2 and 5)",
+      "asserted": {
+        "by": "PO",
+        "date": "2026-10-29",
+        "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
+        "record_ref": "§1 (P25/P36/P37/V12b)",
+        "basis": "ruling"
+      },
+      "outputs": [
+        {
+          "id": "history.prior_high",
+          "role": "primary",
+          "release": "R2"
+        },
+        {
+          "id": "history.window_high",
+          "role": "variant",
+          "release": "DV1"
+        }
+      ],
+      "delivering_release": "R2",
+      "evidence": [
+        {
+          "kind": "gate",
+          "ref": "tools/verify_registry.py"
+        },
+        {
+          "kind": "gate",
+          "ref": "tools/verify_history_examples.py"
+        },
+        {
+          "kind": "gate",
+          "ref": "tools/verify_dv1_window_library.py"
+        },
+        {
+          "kind": "gate",
+          "ref": "tools/verify_dv1_fixtures.py"
+        }
+      ],
+      "note": "Window excludes the target session; consumer takes max(prior_high, current high)."
+    },
+    {
+      "design_id": "P26",
+      "family": "price-technicals",
+      "kind": "condition",
+      "title": "SMA pairs 10/21/50/200 and crosses",
+      "design_ref": "price-technicals.md:60",
+      "design_section": "2.3a Added from the stream repos (`WL106`)",
+      "status": "implemented",
+      "status_basis": "derived",
+      "composition": "consumer_arith",
+      "outputs": [
+        {
+          "id": "history.sma",
+          "role": "primary",
+          "release": "R2"
+        }
+      ],
+      "delivering_release": "R2",
+      "evidence": [
+        {
+          "kind": "gate",
+          "ref": "tools/verify_registry.py"
+        },
+        {
+          "kind": "gate",
+          "ref": "tools/verify_history_examples.py"
+        }
+      ],
+      "note": "Cross is a consumer comparison."
+    },
+    {
+      "design_id": "P27",
+      "family": "price-technicals",
+      "kind": "condition",
+      "title": "Own typed level",
+      "design_ref": "price-technicals.md:69",
+      "design_section": "2.3b Own levels and distance from the reference (`WL110`)",
+      "status": "out_of_library_scope",
+      "status_basis": "asserted",
+      "composition": "none",
+      "asserted": {
+        "by": "PO",
+        "date": "2026-10-29",
+        "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
+        "record_ref": "§3 out of library scope",
+        "basis": "ruling"
+      },
+      "outputs": [],
+      "delivering_release": null,
+      "evidence": [],
+      "note": "Person-owned number."
+    },
+    {
+      "design_id": "P28",
+      "family": "price-technicals",
+      "kind": "condition",
+      "title": "Distance from a set reference",
+      "design_ref": "price-technicals.md:70",
+      "design_section": "2.3b Own levels and distance from the reference (`WL110`)",
+      "status": "out_of_library_scope",
+      "status_basis": "asserted",
+      "composition": "none",
+      "asserted": {
+        "by": "PO",
+        "date": "2026-10-29",
+        "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
+        "record_ref": "§3 out of library scope",
+        "basis": "ruling"
+      },
+      "outputs": [],
+      "delivering_release": null,
+      "evidence": [],
+      "note": "Needs the person's reference record."
+    },
+    {
+      "design_id": "P29",
+      "family": "price-technicals",
+      "kind": "condition",
+      "title": "Pullback from the high since the reference",
+      "design_ref": "price-technicals.md:71",
+      "design_section": "2.3b Own levels and distance from the reference (`WL110`)",
+      "status": "out_of_library_scope",
+      "status_basis": "asserted",
+      "composition": "none",
+      "asserted": {
+        "by": "PO",
+        "date": "2026-10-29",
+        "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
+        "record_ref": "§3 out of library scope",
+        "basis": "ruling"
+      },
+      "outputs": [],
+      "delivering_release": null,
+      "evidence": [],
+      "note": "Reference-anchored; projection.drawdown_fraction is a daily window."
+    },
+    {
+      "design_id": "P30",
+      "family": "price-technicals",
+      "kind": "condition",
+      "title": "Trading halted now (with reason)",
+      "design_ref": "price-technicals.md:89",
+      "design_section": "2.3c Trading status: halts and the short-sale restriction (`WL112`)",
+      "status": "partial",
+      "status_basis": "asserted",
+      "composition": "none",
+      "asserted": {
+        "by": "PO",
+        "date": "2026-10-29",
+        "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
+        "record_ref": "§1 intro and §4 (classifications not adjusted stand)",
+        "basis": "adopted_from_parity_check"
+      },
+      "outputs": [
+        {
+          "id": "session.status_history.halt_observed",
+          "role": "primary",
+          "release": "EF1"
+        },
+        {
+          "id": "session.venue_status.aggregate_state",
+          "role": "primary",
+          "release": "EF1"
+        },
+        {
+          "id": "session.venue_status.restriction_any",
+          "role": "primary",
+          "release": "EF1"
+        }
+      ],
+      "delivering_release": "EF1",
+      "evidence": [
+        {
+          "kind": "test",
+          "ref": "tests/unit/test_ef1_observable.py"
+        },
+        {
+          "kind": "doc",
+          "ref": "docs/EF1_CUMULATIVE_QUALIFICATION.md"
+        },
+        {
+          "kind": "doc",
+          "ref": "docs/api/EF1_MULTI_VENUE_STATUS.md"
+        }
+      ],
+      "note": "Over supplied events only; no reason text, no live feed."
+    },
+    {
+      "design_id": "P31",
+      "family": "price-technicals",
+      "kind": "condition",
+      "title": "Halt started moment",
+      "design_ref": "price-technicals.md:90",
+      "design_section": "2.3c Trading status: halts and the short-sale restriction (`WL112`)",
+      "status": "partial",
+      "status_basis": "asserted",
+      "composition": "none",
+      "asserted": {
+        "by": "PO",
+        "date": "2026-10-29",
+        "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
+        "record_ref": "§1 intro and §4 (classifications not adjusted stand)",
+        "basis": "adopted_from_parity_check"
+      },
+      "outputs": [
+        {
+          "id": "session.status_history.halt_observed",
+          "role": "primary",
+          "release": "EF1"
+        }
+      ],
+      "delivering_release": "EF1",
+      "evidence": [
+        {
+          "kind": "test",
+          "ref": "tests/unit/test_ef1_observable.py"
+        },
+        {
+          "kind": "doc",
+          "ref": "docs/EF1_CUMULATIVE_QUALIFICATION.md"
+        }
+      ],
+      "note": "Boolean over a window; no moment output."
+    },
+    {
+      "design_id": "P32",
+      "family": "price-technicals",
+      "kind": "condition",
+      "title": "Trading resumed moment",
+      "design_ref": "price-technicals.md:91",
+      "design_section": "2.3c Trading status: halts and the short-sale restriction (`WL112`)",
+      "status": "partial",
+      "status_basis": "asserted",
+      "composition": "none",
+      "asserted": {
+        "by": "PO",
+        "date": "2026-10-29",
+        "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
+        "record_ref": "§1 intro and §4 (classifications not adjusted stand)",
+        "basis": "adopted_from_parity_check"
+      },
+      "outputs": [
+        {
+          "id": "session.status_history.resume_observed",
+          "role": "primary",
+          "release": "EF1"
+        }
+      ],
+      "delivering_release": "EF1",
+      "evidence": [
+        {
+          "kind": "test",
+          "ref": "tests/unit/test_ef1_observable.py"
+        },
+        {
+          "kind": "doc",
+          "ref": "docs/EF1_CUMULATIVE_QUALIFICATION.md"
+        }
+      ],
+      "note": "Boolean only."
+    },
+    {
+      "design_id": "P33",
+      "family": "price-technicals",
+      "kind": "condition",
+      "title": "Halted at any time today (count, reasons)",
+      "design_ref": "price-technicals.md:92",
+      "design_section": "2.3c Trading status: halts and the short-sale restriction (`WL112`)",
+      "status": "partial",
+      "status_basis": "asserted",
+      "composition": "none",
+      "asserted": {
+        "by": "PO",
+        "date": "2026-10-29",
+        "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
+        "record_ref": "§1 intro and §4 (classifications not adjusted stand)",
+        "basis": "adopted_from_parity_check"
+      },
+      "outputs": [
+        {
+          "id": "session.status_history.event_count",
+          "role": "primary",
+          "release": "EF1"
+        },
+        {
+          "id": "session.status_history.halt_observed",
+          "role": "primary",
+          "release": "EF1"
+        }
+      ],
+      "delivering_release": "EF1",
+      "evidence": [
+        {
+          "kind": "test",
+          "ref": "tests/unit/test_ef1_observable.py"
+        },
+        {
+          "kind": "doc",
+          "ref": "docs/EF1_CUMULATIVE_QUALIFICATION.md"
+        }
+      ],
+      "note": "No reasons."
+    },
+    {
+      "design_id": "P34",
+      "family": "price-technicals",
+      "kind": "condition",
+      "title": "Short-sale restriction in effect",
+      "design_ref": "price-technicals.md:93",
+      "design_section": "2.3c Trading status: halts and the short-sale restriction (`WL112`)",
+      "status": "partial",
+      "status_basis": "asserted",
+      "composition": "none",
+      "asserted": {
+        "by": "PO",
+        "date": "2026-10-29",
+        "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
+        "record_ref": "§1 intro and §4 (classifications not adjusted stand)",
+        "basis": "adopted_from_parity_check"
+      },
+      "outputs": [
+        {
+          "id": "session.status_history.ssr_on_observed",
+          "role": "primary",
+          "release": "EF1"
+        }
+      ],
+      "delivering_release": "EF1",
+      "evidence": [
+        {
+          "kind": "test",
+          "ref": "tests/unit/test_ef1_observable.py"
+        },
+        {
+          "kind": "doc",
+          "ref": "docs/EF1_CUMULATIVE_QUALIFICATION.md"
+        }
+      ],
+      "note": "From supplied events; no 10%-from-prior-close computation."
+    },
+    {
+      "design_id": "P35",
+      "family": "price-technicals",
+      "kind": "condition",
+      "title": "Short-sale restriction started moment",
+      "design_ref": "price-technicals.md:94",
+      "design_section": "2.3c Trading status: halts and the short-sale restriction (`WL112`)",
+      "status": "partial",
+      "status_basis": "asserted",
+      "composition": "none",
+      "asserted": {
+        "by": "PO",
+        "date": "2026-10-29",
+        "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
+        "record_ref": "§1 intro and §4 (classifications not adjusted stand)",
+        "basis": "adopted_from_parity_check"
+      },
+      "outputs": [
+        {
+          "id": "session.status_history.ssr_on_observed",
+          "role": "primary",
+          "release": "EF1"
+        }
+      ],
+      "delivering_release": "EF1",
+      "evidence": [
+        {
+          "kind": "test",
+          "ref": "tests/unit/test_ef1_observable.py"
+        },
+        {
+          "kind": "doc",
+          "ref": "docs/EF1_CUMULATIVE_QUALIFICATION.md"
+        }
+      ],
+      "note": "Boolean only."
+    },
+    {
+      "design_id": "P36",
+      "family": "price-technicals",
+      "kind": "condition",
+      "title": "Within X% of the 52-week high",
+      "design_ref": "price-technicals.md:115",
+      "design_section": "2.3d Distance from the 52-week and all-time extremes (`WL118`)",
+      "status": "implemented",
+      "status_basis": "asserted",
+      "composition": "consumer_arith",
+      "provisional": true,
+      "clearing_check": "Tester check of P36 design wording for window inclusion (design includes the current session), with the consumer rule max(prior_high, current high) (PO rulings 2026-10-30 section 2 and 5)",
+      "asserted": {
+        "by": "PO",
+        "date": "2026-10-29",
+        "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
+        "record_ref": "§1 (P25/P36/P37/V12b)",
+        "basis": "ruling"
+      },
+      "outputs": [
+        {
+          "id": "history.prior_high",
+          "role": "primary",
+          "release": "R2"
+        },
+        {
+          "id": "history.window_high",
+          "role": "variant",
+          "release": "DV1"
+        }
+      ],
+      "delivering_release": "R2",
+      "evidence": [
+        {
+          "kind": "gate",
+          "ref": "tools/verify_registry.py"
+        },
+        {
+          "kind": "gate",
+          "ref": "tools/verify_history_examples.py"
+        },
+        {
+          "kind": "gate",
+          "ref": "tools/verify_dv1_window_library.py"
+        },
+        {
+          "kind": "gate",
+          "ref": "tools/verify_dv1_fixtures.py"
+        }
+      ],
+      "note": "Prior-only window; the design includes the current session; consumer takes max(prior_high, current high). Date of the extreme is in DV1 history.window_high_offset."
+    },
+    {
+      "design_id": "P37",
+      "family": "price-technicals",
+      "kind": "condition",
+      "title": "Within X% of the 52-week low",
+      "design_ref": "price-technicals.md:116",
+      "design_section": "2.3d Distance from the 52-week and all-time extremes (`WL118`)",
+      "status": "implemented",
+      "status_basis": "asserted",
+      "composition": "consumer_arith",
+      "provisional": true,
+      "clearing_check": "Tester check of P37 design wording for window inclusion, with the consumer rule min(prior_low, current low) (PO rulings 2026-10-30 section 2 and 5)",
+      "asserted": {
+        "by": "PO",
+        "date": "2026-10-29",
+        "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
+        "record_ref": "§1 (P25/P36/P37/V12b)",
+        "basis": "ruling"
+      },
+      "outputs": [
+        {
+          "id": "history.prior_low",
+          "role": "primary",
+          "release": "R2"
+        },
+        {
+          "id": "history.window_low",
+          "role": "variant",
+          "release": "DV1"
+        }
+      ],
+      "delivering_release": "R2",
+      "evidence": [
+        {
+          "kind": "gate",
+          "ref": "tools/verify_registry.py"
+        },
+        {
+          "kind": "gate",
+          "ref": "tools/verify_history_examples.py"
+        },
+        {
+          "kind": "gate",
+          "ref": "tools/verify_dv1_window_library.py"
+        },
+        {
+          "kind": "gate",
+          "ref": "tools/verify_dv1_fixtures.py"
+        }
+      ],
+      "note": "Same caveat; consumer takes min(prior_low, current low)."
+    },
+    {
+      "design_id": "P38",
+      "family": "price-technicals",
+      "kind": "condition",
+      "title": "Within X% of the all-time high (stored history)",
+      "design_ref": "price-technicals.md:117",
+      "design_section": "2.3d Distance from the 52-week and all-time extremes (`WL118`)",
+      "status": "partial",
+      "status_basis": "asserted",
+      "composition": "none",
+      "asserted": {
+        "by": "PO",
+        "date": "2026-10-29",
+        "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
+        "record_ref": "§1 intro and §4 (classifications not adjusted stand)",
+        "basis": "adopted_from_parity_check"
+      },
+      "capability_gap": [
+        "G6"
+      ],
+      "outputs": [
+        {
+          "id": "history.prior_high",
+          "role": "primary",
+          "release": "R2"
+        }
+      ],
+      "delivering_release": "R2",
+      "evidence": [
+        {
+          "kind": "gate",
+          "ref": "tools/verify_registry.py"
+        },
+        {
+          "kind": "gate",
+          "ref": "tools/verify_history_examples.py"
+        }
+      ],
+      "note": "No since-first-date label output and no under-one-year rule."
+    },
+    {
+      "design_id": "P39",
+      "family": "price-technicals",
+      "kind": "condition",
+      "title": "New all-time-high event",
+      "design_ref": "price-technicals.md:118",
+      "design_section": "2.3d Distance from the 52-week and all-time extremes (`WL118`)",
+      "status": "partial",
+      "status_basis": "asserted",
+      "composition": "none",
+      "asserted": {
+        "by": "PO",
+        "date": "2026-10-29",
+        "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
+        "record_ref": "§1 intro and §4 (classifications not adjusted stand)",
+        "basis": "adopted_from_parity_check"
+      },
+      "capability_gap": [
+        "G6"
+      ],
+      "outputs": [
+        {
+          "id": "history.prior_high",
+          "role": "primary",
+          "release": "R2"
+        }
+      ],
+      "delivering_release": "R2",
+      "evidence": [
+        {
+          "kind": "gate",
+          "ref": "tools/verify_registry.py"
+        },
+        {
+          "kind": "gate",
+          "ref": "tools/verify_history_examples.py"
+        }
+      ],
+      "note": "As P38; the event is a consumer comparison."
+    },
+    {
+      "design_id": "P40",
+      "family": "price-technicals",
+      "kind": "condition",
+      "title": "Beta to SPY/QQQ over N sessions",
+      "design_ref": "price-technicals.md:137",
+      "design_section": "2.3e Beta and correlation to a benchmark (`WL119`)",
+      "status": "differs",
+      "status_basis": "asserted",
+      "composition": "none",
+      "asserted": {
+        "by": "PO",
+        "date": "2026-10-29",
+        "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
+        "record_ref": "§1 and §2 ruling 1",
+        "basis": "ruling"
+      },
+      "capability_gap": [
+        "G4"
+      ],
+      "outputs": [
+        {
+          "id": "relative.beta",
+          "role": "existing_differs",
+          "release": "EF3"
+        },
+        {
+          "id": "relative.log_return_beta",
+          "role": "variant",
+          "release": "DV1"
+        }
+      ],
+      "delivering_release": null,
+      "evidence": [
+        {
+          "kind": "gate",
+          "ref": "tools/verify_dv1_library.py"
+        },
+        {
+          "kind": "gate",
+          "ref": "tools/verify_dv1_fixtures.py"
+        }
+      ],
+      "note": "Existing output uses simple session returns; the design specifies daily log returns on adjusted closes. DV1 variant is on main."
+    },
+    {
+      "design_id": "P41",
+      "family": "price-technicals",
+      "kind": "condition",
+      "title": "Correlation to SPY/QQQ",
+      "design_ref": "price-technicals.md:138",
+      "design_section": "2.3e Beta and correlation to a benchmark (`WL119`)",
+      "status": "differs",
+      "status_basis": "asserted",
+      "composition": "none",
+      "asserted": {
+        "by": "PO",
+        "date": "2026-10-29",
+        "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
+        "record_ref": "§1 and §2 ruling 1",
+        "basis": "ruling"
+      },
+      "capability_gap": [
+        "G4"
+      ],
+      "outputs": [
+        {
+          "id": "relative.correlation",
+          "role": "existing_differs",
+          "release": "EF3"
+        },
+        {
+          "id": "relative.log_return_correlation",
+          "role": "variant",
+          "release": "DV1"
+        }
+      ],
+      "delivering_release": null,
+      "evidence": [
+        {
+          "kind": "gate",
+          "ref": "tools/verify_dv1_library.py"
+        },
+        {
+          "kind": "gate",
+          "ref": "tools/verify_dv1_fixtures.py"
+        }
+      ],
+      "note": "As P40."
+    },
+    {
+      "design_id": "P42",
+      "family": "price-technicals",
+      "kind": "condition",
+      "title": "Beta and correlation to the sector fund",
+      "design_ref": "price-technicals.md:139",
+      "design_section": "2.3e Beta and correlation to a benchmark (`WL119`)",
+      "status": "differs",
+      "status_basis": "asserted",
+      "composition": "none",
+      "asserted": {
+        "by": "PO",
+        "date": "2026-10-29",
+        "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
+        "record_ref": "§1 and §2 ruling 1",
+        "basis": "ruling"
+      },
+      "capability_gap": [
+        "G4"
+      ],
+      "outputs": [
+        {
+          "id": "relative.beta",
+          "role": "existing_differs",
+          "release": "EF3"
+        },
+        {
+          "id": "relative.correlation",
+          "role": "existing_differs",
+          "release": "EF3"
+        },
+        {
+          "id": "relative.log_return_beta",
+          "role": "variant",
+          "release": "DV1"
+        },
+        {
+          "id": "relative.log_return_correlation",
+          "role": "variant",
+          "release": "DV1"
+        }
+      ],
+      "delivering_release": null,
+      "evidence": [
+        {
+          "kind": "gate",
+          "ref": "tools/verify_dv1_library.py"
+        },
+        {
+          "kind": "gate",
+          "ref": "tools/verify_dv1_fixtures.py"
+        }
+      ],
+      "note": "Benchmark is caller-chosen so a sector fund works; same simple-versus-log difference."
+    },
+    {
+      "design_id": "P43",
+      "family": "price-technicals",
+      "kind": "condition",
+      "title": "Median pairwise correlation among list members",
+      "design_ref": "price-technicals.md:140",
+      "design_section": "2.3e Beta and correlation to a benchmark (`WL119`)",
+      "status": "missing",
+      "status_basis": "derived",
+      "composition": "none",
+      "capability_gap": [
+        "G9"
+      ],
+      "outputs": [],
+      "delivering_release": null,
+      "evidence": [],
+      "note": "Per-pair only; no cohort median of pairwise correlations."
+    },
+    {
+      "design_id": "V1",
+      "family": "volume-radar",
+      "kind": "condition",
+      "title": "5-minute volume at least N times the same-minute median, with a pace floor",
+      "design_ref": "volume-radar.md:19",
+      "design_section": "2.2 Conditions offered",
+      "status": "implemented",
+      "status_basis": "derived",
+      "composition": "none",
+      "outputs": [
+        {
+          "id": "pace.ratio",
+          "role": "primary",
+          "release": "EF3"
+        },
+        {
+          "id": "baseline.interval_relative_volume",
+          "role": "primary",
+          "release": "R2"
+        }
+      ],
+      "delivering_release": "EF3",
+      "evidence": [
+        {
+          "kind": "doc",
+          "ref": "docs/ef3/EF3_DELIVERY_EVIDENCE.md"
+        },
+        {
+          "kind": "gate",
+          "ref": "tools/verify_ef3_robust_known_at.py"
+        },
+        {
+          "kind": "gate",
+          "ref": "tools/verify_registry.py"
+        },
+        {
+          "kind": "gate",
+          "ref": "tools/verify_context_examples.py"
+        }
+      ],
+      "note": "N and the shares-per-second floor are consumer thresholds."
+    },
+    {
+      "design_id": "V2",
+      "family": "volume-radar",
+      "kind": "condition",
+      "title": "15-minute sustained volume",
+      "design_ref": "volume-radar.md:20",
+      "design_section": "2.2 Conditions offered",
+      "status": "implemented",
+      "status_basis": "derived",
+      "composition": "none",
+      "outputs": [
+        {
+          "id": "pace.ratio",
+          "role": "primary",
+          "release": "EF3"
+        }
+      ],
+      "delivering_release": "EF3",
+      "evidence": [
+        {
+          "kind": "doc",
+          "ref": "docs/ef3/EF3_DELIVERY_EVIDENCE.md"
+        },
+        {
+          "kind": "gate",
+          "ref": "tools/verify_ef3_robust_known_at.py"
+        }
+      ],
+      "note": "Same producer, different bucket configuration."
+    },
+    {
+      "design_id": "V3",
+      "family": "volume-radar",
+      "kind": "condition",
+      "title": "Pace versus own EWMA pace",
+      "design_ref": "volume-radar.md:21",
+      "design_section": "2.2 Conditions offered",
+      "status": "implemented",
+      "status_basis": "derived",
+      "composition": "none",
+      "outputs": [
+        {
+          "id": "adaptive.volume.baseline_rate",
+          "role": "primary",
+          "release": "EF3"
+        },
+        {
+          "id": "adaptive.volume.peak_relative_rate",
+          "role": "primary",
+          "release": "EF3"
+        }
+      ],
+      "delivering_release": "EF3",
+      "evidence": [
+        {
+          "kind": "doc",
+          "ref": "docs/ef3/EF3_DELIVERY_EVIDENCE.md"
+        }
+      ],
+      "note": ""
+    },
+    {
+      "design_id": "V4",
+      "family": "volume-radar",
+      "kind": "condition",
+      "title": "Volume acceleration",
+      "design_ref": "volume-radar.md:22",
+      "design_section": "2.2 Conditions offered",
+      "status": "implemented",
+      "status_basis": "derived",
+      "composition": "none",
+      "outputs": [
+        {
+          "id": "adaptive.volume.peak_relative_acceleration",
+          "role": "primary",
+          "release": "EF3"
+        }
+      ],
+      "delivering_release": "EF3",
+      "evidence": [
+        {
+          "kind": "doc",
+          "ref": "docs/ef3/EF3_DELIVERY_EVIDENCE.md"
+        }
+      ],
+      "note": ""
+    },
+    {
+      "design_id": "V5",
+      "family": "volume-radar",
+      "kind": "condition",
+      "title": "At least N unusual-volume episodes today",
+      "design_ref": "volume-radar.md:23",
+      "design_section": "2.2 Conditions offered",
+      "status": "out_of_library_scope",
+      "status_basis": "asserted",
+      "composition": "none",
+      "asserted": {
+        "by": "PO",
+        "date": "2026-10-29",
+        "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
+        "record_ref": "§1 intro and §4 (classifications not adjusted stand)",
+        "basis": "adopted_from_parity_check"
+      },
+      "outputs": [],
+      "delivering_release": null,
+      "evidence": [],
+      "note": "Stateful rising-edge counter over V1/V2; scanner engine."
+    },
+    {
+      "design_id": "V5b",
+      "family": "volume-radar",
+      "kind": "condition",
+      "title": "End-of-day maximum 5-minute multiple",
+      "design_ref": "volume-radar.md:24",
+      "design_section": "2.2 Conditions offered",
+      "status": "partial",
+      "status_basis": "asserted",
+      "composition": "none",
+      "asserted": {
+        "by": "PO",
+        "date": "2026-10-29",
+        "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
+        "record_ref": "§1 intro and §4 (classifications not adjusted stand)",
+        "basis": "adopted_from_parity_check"
+      },
+      "outputs": [
+        {
+          "id": "adaptive.volume.peak_relative_rate",
+          "role": "primary",
+          "release": "EF3"
+        }
+      ],
+      "delivering_release": "EF3",
+      "evidence": [
+        {
+          "kind": "doc",
+          "ref": "docs/ef3/EF3_DELIVERY_EVIDENCE.md"
+        }
+      ],
+      "note": "Peak is EWMA-based, not the session maximum of a median-based multiple."
+    },
+    {
+      "design_id": "V6",
+      "family": "volume-radar",
+      "kind": "condition",
+      "title": "Volume versus typical (1.5x to 5x, dry-up)",
+      "design_ref": "volume-radar.md:25",
+      "design_section": "2.2 Conditions offered",
+      "status": "implemented",
+      "status_basis": "derived",
+      "composition": "none",
+      "outputs": [
+        {
+          "id": "pace.ratio",
+          "role": "primary",
+          "release": "EF3"
+        },
+        {
+          "id": "baseline.relative_volume",
+          "role": "primary",
+          "release": "R2"
+        },
+        {
+          "id": "mean.ratio",
+          "role": "primary",
+          "release": "EF3"
+        }
+      ],
+      "delivering_release": "EF3",
+      "evidence": [
+        {
+          "kind": "doc",
+          "ref": "docs/ef3/EF3_DELIVERY_EVIDENCE.md"
+        },
+        {
+          "kind": "gate",
+          "ref": "tools/verify_ef3_robust_known_at.py"
+        },
+        {
+          "kind": "gate",
+          "ref": "tools/verify_registry.py"
+        },
+        {
+          "kind": "gate",
+          "ref": "tools/verify_context_examples.py"
+        }
+      ],
+      "note": ""
+    },
+    {
+      "design_id": "V7",
+      "family": "volume-radar",
+      "kind": "condition",
+      "title": "Top 5%/1% of own same-minute history; robust z at least 3",
+      "design_ref": "volume-radar.md:26",
+      "design_section": "2.2 Conditions offered",
+      "status": "implemented",
+      "status_basis": "derived",
+      "composition": "none",
+      "outputs": [
+        {
+          "id": "robust.percentile_rank",
+          "role": "primary",
+          "release": "EF3"
+        },
+        {
+          "id": "pace.robust_z",
+          "role": "primary",
+          "release": "EF3"
+        }
+      ],
+      "delivering_release": "EF3",
+      "evidence": [
+        {
+          "kind": "doc",
+          "ref": "docs/ef3/EF3_DELIVERY_EVIDENCE.md"
+        },
+        {
+          "kind": "gate",
+          "ref": "tools/verify_ef3_robust_known_at.py"
+        }
+      ],
+      "note": ""
+    },
+    {
+      "design_id": "V8",
+      "family": "volume-radar",
+      "kind": "condition",
+      "title": "Dollar volume at least 1.5x/2x/3x typical",
+      "design_ref": "volume-radar.md:27",
+      "design_section": "2.2 Conditions offered",
+      "status": "missing",
+      "status_basis": "derived",
+      "composition": "none",
+      "capability_gap": [
+        "G3"
+      ],
+      "outputs": [],
+      "delivering_release": null,
+      "evidence": [],
+      "note": "Robust and mean field sets are volume and OHLC only; no notional baseline."
+    },
+    {
+      "design_id": "V9",
+      "family": "volume-radar",
+      "kind": "condition",
+      "title": "Absolute volume; decile by dollar volume",
+      "design_ref": "volume-radar.md:28",
+      "design_section": "2.2 Conditions offered",
+      "status": "partial",
+      "status_basis": "asserted",
+      "composition": "none",
+      "asserted": {
+        "by": "PO",
+        "date": "2026-10-29",
+        "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
+        "record_ref": "§1 intro and §4 (classifications not adjusted stand)",
+        "basis": "adopted_from_parity_check"
+      },
+      "capability_gap": [
+        "G3"
+      ],
+      "outputs": [
+        {
+          "id": "session.trade.volume",
+          "role": "primary",
+          "release": "R1"
+        },
+        {
+          "id": "session.trade.notional",
+          "role": "primary",
+          "release": "R1"
+        },
+        {
+          "id": "cohort.rank",
+          "role": "primary",
+          "release": "EF3"
+        }
+      ],
+      "delivering_release": "EF3",
+      "evidence": [
+        {
+          "kind": "gate",
+          "ref": "tools/verify_registry.py"
+        },
+        {
+          "kind": "gate",
+          "ref": "tools/verify_session_examples.py"
+        },
+        {
+          "kind": "doc",
+          "ref": "docs/ef3/EF3_DELIVERY_EVIDENCE.md"
+        },
+        {
+          "kind": "gate",
+          "ref": "tools/verify_ef3_robust_known_at.py"
+        }
+      ],
+      "note": "Cohort rank is for the volume field, not dollar volume."
+    },
+    {
+      "design_id": "V10",
+      "family": "volume-radar",
+      "kind": "condition",
+      "title": "Volume at least 1.5x and day change at least 1%",
+      "design_ref": "volume-radar.md:29",
+      "design_section": "2.2 Conditions offered",
+      "status": "implemented",
+      "status_basis": "derived",
+      "composition": "consumer_arith",
+      "outputs": [
+        {
+          "id": "mean.ratio",
+          "role": "primary",
+          "release": "EF3"
+        },
+        {
+          "id": "baseline.relative_volume",
+          "role": "primary",
+          "release": "R2"
+        },
+        {
+          "id": "session.price.close_close_return",
+          "role": "operand",
+          "release": "R1"
+        }
+      ],
+      "delivering_release": "EF3",
+      "evidence": [
+        {
+          "kind": "doc",
+          "ref": "docs/ef3/EF3_DELIVERY_EVIDENCE.md"
+        },
+        {
+          "kind": "gate",
+          "ref": "tools/verify_ef3_robust_known_at.py"
+        },
+        {
+          "kind": "gate",
+          "ref": "tools/verify_registry.py"
+        },
+        {
+          "kind": "gate",
+          "ref": "tools/verify_context_examples.py"
+        },
+        {
+          "kind": "gate",
+          "ref": "tools/verify_session_examples.py"
+        }
+      ],
+      "note": ""
+    },
+    {
+      "design_id": "V11",
+      "family": "volume-radar",
+      "kind": "condition",
+      "title": "Volume versus price and VWAP divergence",
+      "design_ref": "volume-radar.md:30",
+      "design_section": "2.2 Conditions offered",
+      "status": "implemented",
+      "status_basis": "derived",
+      "composition": "consumer_arith",
+      "outputs": [
+        {
+          "id": "mean.ratio",
+          "role": "primary",
+          "release": "EF3"
+        },
+        {
+          "id": "session.trade.vwap",
+          "role": "operand",
+          "release": "R1"
+        },
+        {
+          "id": "session.bar.close",
+          "role": "operand",
+          "release": "R1"
+        }
+      ],
+      "delivering_release": "EF3",
+      "evidence": [
+        {
+          "kind": "doc",
+          "ref": "docs/ef3/EF3_DELIVERY_EVIDENCE.md"
+        },
+        {
+          "kind": "gate",
+          "ref": "tools/verify_ef3_robust_known_at.py"
+        },
+        {
+          "kind": "gate",
+          "ref": "tools/verify_registry.py"
+        },
+        {
+          "kind": "gate",
+          "ref": "tools/verify_session_examples.py"
+        }
+      ],
+      "note": ""
+    },
+    {
+      "design_id": "V12a",
+      "family": "volume-radar",
+      "kind": "condition",
+      "title": "Close more than N x ATR(20) above the 20-day average, simple-mean ATR",
+      "design_ref": "volume-radar.md:31",
+      "design_section": "2.2 Conditions offered",
+      "status": "differs",
+      "status_basis": "asserted",
+      "composition": "none",
+      "asserted": {
+        "by": "PO",
+        "date": "2026-10-29",
+        "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
+        "record_ref": "§1 and §2 ruling 2",
+        "basis": "ruling"
+      },
+      "capability_gap": [
+        "G4"
+      ],
+      "outputs": [
+        {
+          "id": "history.atr",
+          "role": "existing_differs",
+          "release": "R2"
+        },
+        {
+          "id": "history.atr_simple_mean",
+          "role": "variant",
+          "release": "DV1"
+        }
+      ],
+      "delivering_release": null,
+      "evidence": [
+        {
+          "kind": "gate",
+          "ref": "tools/verify_dv1_atr_library.py"
+        },
+        {
+          "kind": "gate",
+          "ref": "tools/verify_dv1_fixtures.py"
+        }
+      ],
+      "note": "Existing history.atr is Wilder smoothing; the design specifies a simple 20-day mean of true range and excludes Wilder. DV1 variant is on main; the 12% fallback is a consumer rule."
+    },
+    {
+      "design_id": "V12b",
+      "family": "volume-radar",
+      "kind": "condition",
+      "title": "Close within N% of the 20-day high",
+      "design_ref": "volume-radar.md:32",
+      "design_section": "2.2 Conditions offered",
+      "status": "implemented",
+      "status_basis": "asserted",
+      "composition": "consumer_arith",
+      "provisional": true,
+      "clearing_check": "Tester check of V12b design wording for window inclusion, with the consumer rule max(prior_high, current high) (PO rulings 2026-10-30 section 2 and 5)",
+      "asserted": {
+        "by": "PO",
+        "date": "2026-10-29",
+        "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
+        "record_ref": "§1 (P25/P36/P37/V12b)",
+        "basis": "ruling"
+      },
+      "outputs": [
+        {
+          "id": "history.prior_high",
+          "role": "primary",
+          "release": "R2"
+        },
+        {
+          "id": "history.window_high",
+          "role": "variant",
+          "release": "DV1"
+        }
+      ],
+      "delivering_release": "R2",
+      "evidence": [
+        {
+          "kind": "gate",
+          "ref": "tools/verify_registry.py"
+        },
+        {
+          "kind": "gate",
+          "ref": "tools/verify_history_examples.py"
+        },
+        {
+          "kind": "gate",
+          "ref": "tools/verify_dv1_window_library.py"
+        },
+        {
+          "kind": "gate",
+          "ref": "tools/verify_dv1_fixtures.py"
+        }
+      ],
+      "note": "Prior-only window; consumer takes max(prior_high, current high)."
+    },
+    {
+      "design_id": "V12c",
+      "family": "volume-radar",
+      "kind": "condition",
+      "title": "Top decile of 20-day median dollar volume",
+      "design_ref": "volume-radar.md:33",
+      "design_section": "2.2 Conditions offered",
+      "status": "missing",
+      "status_basis": "derived",
+      "composition": "none",
+      "capability_gap": [
+        "G3"
+      ],
+      "outputs": [],
+      "delivering_release": null,
+      "evidence": [],
+      "note": "No dollar-volume field in robust history."
+    },
+    {
+      "design_id": "V13",
+      "family": "volume-radar",
+      "kind": "condition",
+      "title": "Setup components (momentum, retest, pullbacks, SPY 5d, dollar volume)",
+      "design_ref": "volume-radar.md:34",
+      "design_section": "2.2 Conditions offered",
+      "status": "partial",
+      "status_basis": "asserted",
+      "composition": "none",
+      "asserted": {
+        "by": "PO",
+        "date": "2026-10-29",
+        "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
+        "record_ref": "§1 intro and §4 (classifications not adjusted stand)",
+        "basis": "adopted_from_parity_check"
+      },
+      "capability_gap": [
+        "G3"
+      ],
+      "outputs": [
+        {
+          "id": "history.return",
+          "role": "primary",
+          "release": "R2"
+        },
+        {
+          "id": "relative.market_return",
+          "role": "primary",
+          "release": "R2"
+        },
+        {
+          "id": "projection.drawdown_fraction",
+          "role": "primary",
+          "release": "EF4"
+        }
+      ],
+      "delivering_release": "EF4",
+      "evidence": [
+        {
+          "kind": "gate",
+          "ref": "tools/verify_registry.py"
+        },
+        {
+          "kind": "gate",
+          "ref": "tools/verify_history_examples.py"
+        },
+        {
+          "kind": "gate",
+          "ref": "tools/verify_context_examples.py"
+        },
+        {
+          "kind": "gate",
+          "ref": "tools/verify_ef4_fixtures.py"
+        },
+        {
+          "kind": "doc",
+          "ref": "docs/ef4/EF4_DELIVERY_EVIDENCE.md"
+        }
+      ],
+      "note": "Retest and the dollar-volume baseline are missing."
+    },
+    {
+      "design_id": "V14",
+      "family": "volume-radar",
+      "kind": "condition",
+      "title": "Average trade size, spread, book imbalance",
+      "design_ref": "volume-radar.md:35",
+      "design_section": "2.2 Conditions offered",
+      "status": "partial",
+      "status_basis": "asserted",
+      "composition": "none",
+      "asserted": {
+        "by": "PO",
+        "date": "2026-10-29",
+        "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
+        "record_ref": "§1 intro and §4 (classifications not adjusted stand)",
+        "basis": "adopted_from_parity_check"
+      },
+      "outputs": [
+        {
+          "id": "session.trade.mean_size",
+          "role": "primary",
+          "release": "R1"
+        },
+        {
+          "id": "session.quote.sampled_spread",
+          "role": "primary",
+          "release": "R1"
+        },
+        {
+          "id": "session.quote.time_weighted_spread",
+          "role": "primary",
+          "release": "R1"
+        },
+        {
+          "id": "quote.microprice.last",
+          "role": "primary",
+          "release": "EF4"
+        }
+      ],
+      "delivering_release": "EF4",
+      "evidence": [
+        {
+          "kind": "gate",
+          "ref": "tools/verify_registry.py"
+        },
+        {
+          "kind": "gate",
+          "ref": "tools/verify_session_examples.py"
+        },
+        {
+          "kind": "gate",
+          "ref": "tools/verify_ef4_fixtures.py"
+        },
+        {
+          "kind": "doc",
+          "ref": "docs/ef4/EF4_DELIVERY_EVIDENCE.md"
+        }
+      ],
+      "note": "Top-of-book size imbalance is not emitted."
+    },
+    {
+      "design_id": "V15",
+      "family": "volume-radar",
+      "kind": "condition",
+      "title": "Trade count versus same-minute median",
+      "design_ref": "volume-radar.md:56",
+      "design_section": "2.2b Added from the stream repos (`WL106`)",
+      "status": "missing",
+      "status_basis": "derived",
+      "composition": "none",
+      "capability_gap": [
+        "G3"
+      ],
+      "outputs": [],
+      "delivering_release": null,
+      "evidence": [],
+      "note": "Robust history has no trade-count field; rate.window.trade_rate has no baseline."
+    },
+    {
+      "design_id": "V16",
+      "family": "volume-radar",
+      "kind": "condition",
+      "title": "Session trade count and average trade size versus 30-session median",
+      "design_ref": "volume-radar.md:57",
+      "design_section": "2.2b Added from the stream repos (`WL106`)",
+      "status": "missing",
+      "status_basis": "derived",
+      "composition": "none",
+      "capability_gap": [
+        "G3"
+      ],
+      "outputs": [],
+      "delivering_release": null,
+      "evidence": [],
+      "note": "Same gap as V15."
+    },
+    {
+      "design_id": "V17",
+      "family": "volume-radar",
+      "kind": "condition",
+      "title": "Large prints at least $100k: count, share, size-weighted price versus VWAP",
+      "design_ref": "volume-radar.md:58",
+      "design_section": "2.2b Added from the stream repos (`WL106`)",
+      "status": "partial",
+      "status_basis": "asserted",
+      "composition": "none",
+      "asserted": {
+        "by": "PO",
+        "date": "2026-10-29",
+        "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
+        "record_ref": "§1 intro and §4 (classifications not adjusted stand)",
+        "basis": "adopted_from_parity_check"
+      },
+      "outputs": [
+        {
+          "id": "tape.top_k_notional",
+          "role": "primary",
+          "release": "EF4"
+        },
+        {
+          "id": "session.trade.top_k",
+          "role": "primary",
+          "release": "R1"
+        }
+      ],
+      "delivering_release": "EF4",
+      "evidence": [
+        {
+          "kind": "gate",
+          "ref": "tools/verify_ef4_fixtures.py"
+        },
+        {
+          "kind": "doc",
+          "ref": "docs/ef4/EF4_DELIVERY_EVIDENCE.md"
+        },
+        {
+          "kind": "gate",
+          "ref": "tools/verify_registry.py"
+        },
+        {
+          "kind": "gate",
+          "ref": "tools/verify_session_examples.py"
+        }
+      ],
+      "note": "Top-K by notional, not a threshold count."
+    },
+    {
+      "design_id": "V18",
+      "family": "volume-radar",
+      "kind": "condition",
+      "title": "Large-print uptick versus downtick volume",
+      "design_ref": "volume-radar.md:59",
+      "design_section": "2.2b Added from the stream repos (`WL106`)",
+      "status": "partial",
+      "status_basis": "asserted",
+      "composition": "none",
+      "asserted": {
+        "by": "PO",
+        "date": "2026-10-29",
+        "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
+        "record_ref": "§1 intro and §4 (classifications not adjusted stand)",
+        "basis": "adopted_from_parity_check"
+      },
+      "outputs": [
+        {
+          "id": "tape.tick.up_volume",
+          "role": "primary",
+          "release": "EF4"
+        },
+        {
+          "id": "tape.tick.down_volume",
+          "role": "primary",
+          "release": "EF4"
+        },
+        {
+          "id": "tape.tick.net_volume",
+          "role": "primary",
+          "release": "EF4"
+        },
+        {
+          "id": "tape.tick.imbalance",
+          "role": "primary",
+          "release": "EF4"
+        }
+      ],
+      "delivering_release": "EF4",
+      "evidence": [
+        {
+          "kind": "gate",
+          "ref": "tools/verify_ef4_fixtures.py"
+        },
+        {
+          "kind": "doc",
+          "ref": "docs/ef4/EF4_DELIVERY_EVIDENCE.md"
+        }
+      ],
+      "note": "All-print tick-rule proxies, not large-print only."
+    },
+    {
+      "design_id": "V19",
+      "family": "volume-radar",
+      "kind": "condition",
+      "title": "Opening-period (09:30-10:15) uptick share",
+      "design_ref": "volume-radar.md:60",
+      "design_section": "2.2b Added from the stream repos (`WL106`)",
+      "status": "partial",
+      "status_basis": "asserted",
+      "composition": "none",
+      "asserted": {
+        "by": "PO",
+        "date": "2026-10-29",
+        "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
+        "record_ref": "§1 intro and §4 (classifications not adjusted stand)",
+        "basis": "adopted_from_parity_check"
+      },
+      "outputs": [
+        {
+          "id": "tape.tick.imbalance",
+          "role": "primary",
+          "release": "EF4"
+        }
+      ],
+      "delivering_release": "EF4",
+      "evidence": [
+        {
+          "kind": "gate",
+          "ref": "tools/verify_ef4_fixtures.py"
+        },
+        {
+          "kind": "doc",
+          "ref": "docs/ef4/EF4_DELIVERY_EVIDENCE.md"
+        }
+      ],
+      "note": "Tape windows are trailing; no session-prefix window."
+    },
+    {
+      "design_id": "V20",
+      "family": "volume-radar",
+      "kind": "condition",
+      "title": "Amihud illiquidity",
+      "design_ref": "volume-radar.md:61",
+      "design_section": "2.2b Added from the stream repos (`WL106`)",
+      "status": "missing",
+      "status_basis": "derived",
+      "composition": "none",
+      "outputs": [],
+      "delivering_release": null,
+      "evidence": [],
+      "note": "No shipped primitive."
+    },
+    {
+      "design_id": "V21",
+      "family": "volume-radar",
+      "kind": "condition",
+      "title": "Session volume at least X times the mean of the prior 20 sessions",
+      "design_ref": "volume-radar.md:62",
+      "design_section": "2.2b Added from the stream repos (`WL106`)",
+      "status": "implemented",
+      "status_basis": "derived",
+      "composition": "none",
+      "outputs": [
+        {
+          "id": "mean.ratio",
+          "role": "primary",
+          "release": "EF3"
+        }
+      ],
+      "delivering_release": "EF3",
+      "evidence": [
+        {
+          "kind": "doc",
+          "ref": "docs/ef3/EF3_DELIVERY_EVIDENCE.md"
+        },
+        {
+          "kind": "gate",
+          "ref": "tools/verify_ef3_robust_known_at.py"
+        }
+      ],
+      "note": ""
+    },
+    {
+      "design_id": "V22",
+      "family": "volume-radar",
+      "kind": "condition",
+      "title": "5-day average volume over 63-day average volume",
+      "design_ref": "volume-radar.md:63",
+      "design_section": "2.2b Added from the stream repos (`WL106`)",
+      "status": "implemented",
+      "status_basis": "derived",
+      "composition": "none",
+      "outputs": [
+        {
+          "id": "mean.ratio",
+          "role": "primary",
+          "release": "EF3"
+        }
+      ],
+      "delivering_release": "EF3",
+      "evidence": [
+        {
+          "kind": "doc",
+          "ref": "docs/ef3/EF3_DELIVERY_EVIDENCE.md"
+        },
+        {
+          "kind": "gate",
+          "ref": "tools/verify_ef3_robust_known_at.py"
+        }
+      ],
+      "note": ""
+    },
+    {
+      "design_id": "V23",
+      "family": "volume-radar",
+      "kind": "condition",
+      "title": "Short interest as % of float",
+      "design_ref": "volume-radar.md:76",
+      "design_section": "2.2c Equity short interest and daily short-sale volume (`WL111`)",
+      "status": "missing",
+      "status_basis": "derived",
+      "data_feed_item": true,
+      "composition": "none",
+      "capability_gap": [
+        "G7"
+      ],
+      "outputs": [],
+      "delivering_release": null,
+      "evidence": [],
+      "note": "Data-feed item: no input kind and no output."
+    },
+    {
+      "design_id": "V24",
+      "family": "volume-radar",
+      "kind": "condition",
+      "title": "Days to cover",
+      "design_ref": "volume-radar.md:77",
+      "design_section": "2.2c Equity short interest and daily short-sale volume (`WL111`)",
+      "status": "missing",
+      "status_basis": "derived",
+      "data_feed_item": true,
+      "composition": "none",
+      "capability_gap": [
+        "G7"
+      ],
+      "outputs": [],
+      "delivering_release": null,
+      "evidence": [],
+      "note": "Data-feed item."
+    },
+    {
+      "design_id": "V25",
+      "family": "volume-radar",
+      "kind": "condition",
+      "title": "Short interest change since the previous settlement",
+      "design_ref": "volume-radar.md:78",
+      "design_section": "2.2c Equity short interest and daily short-sale volume (`WL111`)",
+      "status": "missing",
+      "status_basis": "derived",
+      "data_feed_item": true,
+      "composition": "none",
+      "capability_gap": [
+        "G7"
+      ],
+      "outputs": [],
+      "delivering_release": null,
+      "evidence": [],
+      "note": "Data-feed item."
+    },
+    {
+      "design_id": "V26",
+      "family": "volume-radar",
+      "kind": "condition",
+      "title": "Short-sale volume share",
+      "design_ref": "volume-radar.md:79",
+      "design_section": "2.2c Equity short interest and daily short-sale volume (`WL111`)",
+      "status": "missing",
+      "status_basis": "derived",
+      "data_feed_item": true,
+      "composition": "none",
+      "capability_gap": [
+        "G7"
+      ],
+      "outputs": [],
+      "delivering_release": null,
+      "evidence": [],
+      "note": "Data-feed item."
+    },
+    {
+      "design_id": "V27",
+      "family": "volume-radar",
+      "kind": "condition",
+      "title": "Short-sale share versus own history",
+      "design_ref": "volume-radar.md:80",
+      "design_section": "2.2c Equity short interest and daily short-sale volume (`WL111`)",
+      "status": "missing",
+      "status_basis": "derived",
+      "data_feed_item": true,
+      "composition": "none",
+      "capability_gap": [
+        "G7"
+      ],
+      "outputs": [],
+      "delivering_release": null,
+      "evidence": [],
+      "note": "Data-feed item."
+    },
+    {
+      "design_id": "V28",
+      "family": "volume-radar",
+      "kind": "condition",
+      "title": "New short-interest publication meeting a threshold",
+      "design_ref": "volume-radar.md:81",
+      "design_section": "2.2c Equity short interest and daily short-sale volume (`WL111`)",
+      "status": "missing",
+      "status_basis": "derived",
+      "data_feed_item": true,
+      "composition": "none",
+      "capability_gap": [
+        "G7"
+      ],
+      "outputs": [],
+      "delivering_release": null,
+      "evidence": [],
+      "note": "Data-feed item."
+    },
+    {
+      "design_id": "V29",
+      "family": "volume-radar",
+      "kind": "condition",
+      "title": "New daily publication meeting a threshold",
+      "design_ref": "volume-radar.md:82",
+      "design_section": "2.2c Equity short interest and daily short-sale volume (`WL111`)",
+      "status": "missing",
+      "status_basis": "derived",
+      "data_feed_item": true,
+      "composition": "none",
+      "capability_gap": [
+        "G7"
+      ],
+      "outputs": [],
+      "delivering_release": null,
+      "evidence": [],
+      "note": "Data-feed item."
+    },
+    {
+      "design_id": "V30",
+      "family": "volume-radar",
+      "kind": "condition",
+      "title": "Opening auction imbalance",
+      "design_ref": "volume-radar.md:99",
+      "design_section": "2.2d Opening and closing auction imbalance (`WL113`)",
+      "status": "missing",
+      "status_basis": "derived",
+      "data_feed_item": true,
+      "composition": "none",
+      "capability_gap": [
+        "G7"
+      ],
+      "outputs": [],
+      "delivering_release": null,
+      "evidence": [],
+      "note": "Data-feed item; auction rows are seen only as admission flags."
+    },
+    {
+      "design_id": "V31",
+      "family": "volume-radar",
+      "kind": "condition",
+      "title": "Closing auction imbalance",
+      "design_ref": "volume-radar.md:100",
+      "design_section": "2.2d Opening and closing auction imbalance (`WL113`)",
+      "status": "missing",
+      "status_basis": "derived",
+      "data_feed_item": true,
+      "composition": "none",
+      "capability_gap": [
+        "G7"
+      ],
+      "outputs": [],
+      "delivering_release": null,
+      "evidence": [],
+      "note": "Data-feed item."
+    },
+    {
+      "design_id": "V32",
+      "family": "volume-radar",
+      "kind": "condition",
+      "title": "Indicative auction price versus last trade",
+      "design_ref": "volume-radar.md:101",
+      "design_section": "2.2d Opening and closing auction imbalance (`WL113`)",
+      "status": "missing",
+      "status_basis": "derived",
+      "data_feed_item": true,
+      "composition": "none",
+      "capability_gap": [
+        "G7"
+      ],
+      "outputs": [],
+      "delivering_release": null,
+      "evidence": [],
+      "note": "Data-feed item."
+    },
+    {
+      "design_id": "V33",
+      "family": "volume-radar",
+      "kind": "condition",
+      "title": "Imbalance side change",
+      "design_ref": "volume-radar.md:102",
+      "design_section": "2.2d Opening and closing auction imbalance (`WL113`)",
+      "status": "missing",
+      "status_basis": "derived",
+      "data_feed_item": true,
+      "composition": "none",
+      "capability_gap": [
+        "G7"
+      ],
+      "outputs": [],
+      "delivering_release": null,
+      "evidence": [],
+      "note": "Data-feed item."
+    },
+    {
+      "design_id": "V34",
+      "family": "volume-radar",
+      "kind": "condition",
+      "title": "Off-exchange share of volume",
+      "design_ref": "volume-radar.md:127",
+      "design_section": "2.2e Off-exchange share of volume (`WL117`)",
+      "status": "missing",
+      "status_basis": "derived",
+      "data_feed_item": true,
+      "composition": "none",
+      "capability_gap": [
+        "G7"
+      ],
+      "outputs": [],
+      "delivering_release": null,
+      "evidence": [],
+      "note": "Data-feed item; multi-venue status is venue state, not a volume split."
+    },
+    {
+      "design_id": "V35",
+      "family": "volume-radar",
+      "kind": "condition",
+      "title": "Off-exchange share versus own 20-session average",
+      "design_ref": "volume-radar.md:128",
+      "design_section": "2.2e Off-exchange share of volume (`WL117`)",
+      "status": "missing",
+      "status_basis": "derived",
+      "data_feed_item": true,
+      "composition": "none",
+      "capability_gap": [
+        "G7"
+      ],
+      "outputs": [],
+      "delivering_release": null,
+      "evidence": [],
+      "note": "Data-feed item."
+    },
+    {
+      "design_id": "V36",
+      "family": "volume-radar",
+      "kind": "condition",
+      "title": "Weekly alternative-venue share",
+      "design_ref": "volume-radar.md:129",
+      "design_section": "2.2e Off-exchange share of volume (`WL117`)",
+      "status": "missing",
+      "status_basis": "derived",
+      "data_feed_item": true,
+      "composition": "none",
+      "capability_gap": [
+        "G7"
+      ],
+      "outputs": [],
+      "delivering_release": null,
+      "evidence": [],
+      "note": "Data-feed item."
+    },
+    {
+      "design_id": "M1",
+      "family": "market-context",
+      "kind": "condition",
+      "title": "Net advancing",
+      "design_ref": "market-context.md:22",
+      "design_section": "2.3 Conditions offered",
+      "status": "implemented",
+      "status_basis": "derived",
+      "composition": "none",
+      "outputs": [
+        {
+          "id": "breadth.session.direction_net_count",
+          "role": "primary",
+          "release": "EF3"
+        },
+        {
+          "id": "breadth.direction_counts",
+          "role": "primary",
+          "release": "R2"
+        }
+      ],
+      "delivering_release": "EF3",
+      "evidence": [
+        {
+          "kind": "doc",
+          "ref": "docs/ef3/EF3_DELIVERY_EVIDENCE.md"
+        },
+        {
+          "kind": "gate",
+          "ref": "tools/verify_registry.py"
+        },
+        {
+          "kind": "gate",
+          "ref": "tools/verify_context_examples.py"
+        }
+      ],
+      "note": ""
+    },
+    {
+      "design_id": "M2",
+      "family": "market-context",
+      "kind": "condition",
+      "title": "Advance/decline ratio with a 75% coverage gate",
+      "design_ref": "market-context.md:23",
+      "design_section": "2.3 Conditions offered",
+      "status": "implemented",
+      "status_basis": "derived",
+      "composition": "none",
+      "outputs": [
+        {
+          "id": "breadth.session.advance_decline_ratio",
+          "role": "primary",
+          "release": "EF3"
+        },
+        {
+          "id": "breadth.session.prior_reference_coverage_fraction",
+          "role": "primary",
+          "release": "EF3"
+        }
+      ],
+      "delivering_release": "EF3",
+      "evidence": [
+        {
+          "kind": "doc",
+          "ref": "docs/ef3/EF3_DELIVERY_EVIDENCE.md"
+        }
+      ],
+      "note": ""
+    },
+    {
+      "design_id": "M3",
+      "family": "market-context",
+      "kind": "condition",
+      "title": "Up/down volume ratio",
+      "design_ref": "market-context.md:24",
+      "design_section": "2.3 Conditions offered",
+      "status": "implemented",
+      "status_basis": "derived",
+      "composition": "none",
+      "outputs": [
+        {
+          "id": "breadth.session.up_down_volume_ratio",
+          "role": "primary",
+          "release": "EF3"
+        }
+      ],
+      "delivering_release": "EF3",
+      "evidence": [
+        {
+          "kind": "doc",
+          "ref": "docs/ef3/EF3_DELIVERY_EVIDENCE.md"
+        }
+      ],
+      "note": ""
+    },
+    {
+      "design_id": "M4",
+      "family": "market-context",
+      "kind": "condition",
+      "title": "Share above VWAP",
+      "design_ref": "market-context.md:25",
+      "design_section": "2.3 Conditions offered",
+      "status": "implemented",
+      "status_basis": "derived",
+      "composition": "none",
+      "outputs": [
+        {
+          "id": "breadth.session.above_vwap_fraction",
+          "role": "primary",
+          "release": "EF3"
+        }
+      ],
+      "delivering_release": "EF3",
+      "evidence": [
+        {
+          "kind": "doc",
+          "ref": "docs/ef3/EF3_DELIVERY_EVIDENCE.md"
+        }
+      ],
+      "note": ""
+    },
+    {
+      "design_id": "M5",
+      "family": "market-context",
+      "kind": "condition",
+      "title": "Share with positive 5-minute momentum",
+      "design_ref": "market-context.md:26",
+      "design_section": "2.3 Conditions offered",
+      "status": "implemented",
+      "status_basis": "derived",
+      "composition": "none",
+      "outputs": [
+        {
+          "id": "breadth.session.positive_momentum_fraction",
+          "role": "primary",
+          "release": "EF3"
+        }
+      ],
+      "delivering_release": "EF3",
+      "evidence": [
+        {
+          "kind": "doc",
+          "ref": "docs/ef3/EF3_DELIVERY_EVIDENCE.md"
+        }
+      ],
+      "note": ""
+    },
+    {
+      "design_id": "M6",
+      "family": "market-context",
+      "kind": "condition",
+      "title": "Share near the session high",
+      "design_ref": "market-context.md:27",
+      "design_section": "2.3 Conditions offered",
+      "status": "implemented",
+      "status_basis": "derived",
+      "composition": "none",
+      "outputs": [
+        {
+          "id": "breadth.session.near_high_fraction",
+          "role": "primary",
+          "release": "EF3"
+        }
+      ],
+      "delivering_release": "EF3",
+      "evidence": [
+        {
+          "kind": "doc",
+          "ref": "docs/ef3/EF3_DELIVERY_EVIDENCE.md"
+        }
+      ],
+      "note": "Tolerance is a parameter."
+    },
+    {
+      "design_id": "M7",
+      "family": "market-context",
+      "kind": "condition",
+      "title": "Share near the session low",
+      "design_ref": "market-context.md:28",
+      "design_section": "2.3 Conditions offered",
+      "status": "implemented",
+      "status_basis": "derived",
+      "composition": "none",
+      "outputs": [
+        {
+          "id": "breadth.session.near_low_fraction",
+          "role": "primary",
+          "release": "EF3"
+        }
+      ],
+      "delivering_release": "EF3",
+      "evidence": [
+        {
+          "kind": "doc",
+          "ref": "docs/ef3/EF3_DELIVERY_EVIDENCE.md"
+        }
+      ],
+      "note": ""
+    },
+    {
+      "design_id": "M8",
+      "family": "market-context",
+      "kind": "condition",
+      "title": "Breadth coverage gate",
+      "design_ref": "market-context.md:29",
+      "design_section": "2.3 Conditions offered",
+      "status": "implemented",
+      "status_basis": "derived",
+      "composition": "none",
+      "outputs": [
+        {
+          "id": "breadth.session.prior_reference_coverage_fraction",
+          "role": "primary",
+          "release": "EF3"
+        }
+      ],
+      "delivering_release": "EF3",
+      "evidence": [
+        {
+          "kind": "doc",
+          "ref": "docs/ef3/EF3_DELIVERY_EVIDENCE.md"
+        }
+      ],
+      "note": ""
+    },
+    {
+      "design_id": "M9",
+      "family": "market-context",
+      "kind": "condition",
+      "title": "Broad advance at least 70%",
+      "design_ref": "market-context.md:30",
+      "design_section": "2.3 Conditions offered",
+      "status": "implemented",
+      "status_basis": "derived",
+      "composition": "consumer_arith",
+      "outputs": [
+        {
+          "id": "breadth.observed.advance_fraction",
+          "role": "primary",
+          "release": "EF3"
+        },
+        {
+          "id": "breadth.session.advancing_count",
+          "role": "operand",
+          "release": "EF3"
+        },
+        {
+          "id": "breadth.session.selected_member_count",
+          "role": "operand",
+          "release": "EF3"
+        }
+      ],
+      "delivering_release": "EF3",
+      "evidence": [
+        {
+          "kind": "doc",
+          "ref": "docs/ef3/EF3_DELIVERY_EVIDENCE.md"
+        }
+      ],
+      "note": ""
+    },
+    {
+      "design_id": "M10",
+      "family": "market-context",
+      "kind": "condition",
+      "title": "Core funds mean session return",
+      "design_ref": "market-context.md:31",
+      "design_section": "2.3 Conditions offered",
+      "status": "implemented",
+      "status_basis": "derived",
+      "composition": "consumer_arith",
+      "outputs": [
+        {
+          "id": "technical.session_return_fraction",
+          "role": "primary",
+          "release": "EF5"
+        }
+      ],
+      "delivering_release": "EF5",
+      "evidence": [
+        {
+          "kind": "gate",
+          "ref": "tools/verify_ef5_fixtures.py"
+        },
+        {
+          "kind": "gate",
+          "ref": "tools/verify_ef5_library.py"
+        }
+      ],
+      "note": "Mean of three outputs by the consumer."
+    },
+    {
+      "design_id": "M11",
+      "family": "market-context",
+      "kind": "condition",
+      "title": "Core-fund return spread (population standard deviation)",
+      "design_ref": "market-context.md:32",
+      "design_section": "2.3 Conditions offered",
+      "status": "differs",
+      "status_basis": "asserted",
+      "composition": "none",
+      "asserted": {
+        "by": "PO",
+        "date": "2026-10-29",
+        "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
+        "record_ref": "§1 and §2 ruling 4",
+        "basis": "ruling"
+      },
+      "capability_gap": [
+        "G4"
+      ],
+      "outputs": [
+        {
+          "id": "core.benchmark_return_dispersion_fraction",
+          "role": "existing_differs",
+          "release": "EF4"
+        },
+        {
+          "id": "core.benchmark_return_stdev_fraction",
+          "role": "variant",
+          "release": "DV1"
+        },
+        {
+          "id": "core.benchmark_return_range_fraction",
+          "role": "variant",
+          "release": "DV1"
+        }
+      ],
+      "delivering_release": null,
+      "evidence": [
+        {
+          "kind": "gate",
+          "ref": "tools/verify_dv1_core_spread_library.py"
+        },
+        {
+          "kind": "gate",
+          "ref": "tools/verify_dv1_fixtures.py"
+        }
+      ],
+      "note": "The existing output computes a range, not a population standard deviation. DV1 variants (range under its true name, and the standard deviation) are on main."
+    },
+    {
+      "design_id": "M12",
+      "family": "market-context",
+      "kind": "condition",
+      "title": "Core funds moving together (N of 3)",
+      "design_ref": "market-context.md:33",
+      "design_section": "2.3 Conditions offered",
+      "status": "implemented",
+      "status_basis": "derived",
+      "composition": "none",
+      "outputs": [
+        {
+          "id": "core.benchmark_direction_agreement_fraction",
+          "role": "primary",
+          "release": "EF4"
+        }
+      ],
+      "delivering_release": "EF4",
+      "evidence": [
+        {
+          "kind": "gate",
+          "ref": "tools/verify_ef4_fixtures.py"
+        },
+        {
+          "kind": "doc",
+          "ref": "docs/ef4/EF4_DELIVERY_EVIDENCE.md"
+        }
+      ],
+      "note": "Output is the largest direction-class share."
+    },
+    {
+      "design_id": "M13",
+      "family": "market-context",
+      "kind": "condition",
+      "title": "FOMC decision within N days",
+      "design_ref": "market-context.md:46",
+      "design_section": "2.3a Added from the stream repos (`WL106`)",
+      "status": "missing",
+      "status_basis": "derived",
+      "data_feed_item": true,
+      "composition": "none",
+      "capability_gap": [
+        "G2"
+      ],
+      "outputs": [],
+      "delivering_release": null,
+      "evidence": [],
+      "note": "Data-feed item: no calendar or event input."
+    },
+    {
+      "design_id": "M14",
+      "family": "market-context",
+      "kind": "condition",
+      "title": "Major macro release scheduled",
+      "design_ref": "market-context.md:47",
+      "design_section": "2.3a Added from the stream repos (`WL106`)",
+      "status": "missing",
+      "status_basis": "derived",
+      "data_feed_item": true,
+      "composition": "none",
+      "capability_gap": [
+        "G2"
+      ],
+      "outputs": [],
+      "delivering_release": null,
+      "evidence": [],
+      "note": "Data-feed item."
+    },
+    {
+      "design_id": "M15",
+      "family": "market-context",
+      "kind": "condition",
+      "title": "Options-expiration week",
+      "design_ref": "market-context.md:48",
+      "design_section": "2.3a Added from the stream repos (`WL106`)",
+      "status": "missing",
+      "status_basis": "derived",
+      "composition": "none",
+      "capability_gap": [
+        "G9"
+      ],
+      "outputs": [],
+      "delivering_release": null,
+      "evidence": [],
+      "note": "Date arithmetic on the exchange calendar; not shipped."
+    },
+    {
+      "design_id": "M16",
+      "family": "market-context",
+      "kind": "condition",
+      "title": "Holiday-adjacent session",
+      "design_ref": "market-context.md:49",
+      "design_section": "2.3a Added from the stream repos (`WL106`)",
+      "status": "partial",
+      "status_basis": "asserted",
+      "composition": "none",
+      "asserted": {
+        "by": "PO",
+        "date": "2026-10-29",
+        "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
+        "record_ref": "§1 intro and §4 (classifications not adjusted stand)",
+        "basis": "adopted_from_parity_check"
+      },
+      "outputs": [
+        {
+          "id": "session.clock.early_close",
+          "role": "primary",
+          "release": "EF1"
+        }
+      ],
+      "delivering_release": "EF1",
+      "evidence": [
+        {
+          "kind": "test",
+          "ref": "tests/unit/test_ef1_clock.py"
+        },
+        {
+          "kind": "doc",
+          "ref": "docs/EF1_CUMULATIVE_QUALIFICATION.md"
+        }
+      ],
+      "note": "Adjacency to closures is not emitted."
+    },
+    {
+      "design_id": "M17",
+      "family": "market-context",
+      "kind": "condition",
+      "title": "Companies reporting earnings this week",
+      "design_ref": "market-context.md:50",
+      "design_section": "2.3a Added from the stream repos (`WL106`)",
+      "status": "missing",
+      "status_basis": "derived",
+      "data_feed_item": true,
+      "composition": "none",
+      "capability_gap": [
+        "G2"
+      ],
+      "outputs": [],
+      "delivering_release": null,
+      "evidence": [],
+      "note": "Data-feed item: earnings calendar."
+    },
+    {
+      "design_id": "M18",
+      "family": "market-context",
+      "kind": "condition",
+      "title": "Share of names above the 20/50-day average",
+      "design_ref": "market-context.md:51",
+      "design_section": "2.3a Added from the stream repos (`WL106`)",
+      "status": "implemented",
+      "status_basis": "derived",
+      "composition": "none",
+      "outputs": [
+        {
+          "id": "breadth.above_sma_fraction",
+          "role": "primary",
+          "release": "R2"
+        }
+      ],
+      "delivering_release": "R2",
+      "evidence": [
+        {
+          "kind": "gate",
+          "ref": "tools/verify_registry.py"
+        },
+        {
+          "kind": "gate",
+          "ref": "tools/verify_context_examples.py"
+        }
+      ],
+      "note": ""
+    },
+    {
+      "design_id": "M19",
+      "family": "market-context",
+      "kind": "condition",
+      "title": "Share of names with RSI14 above 70 or below 30",
+      "design_ref": "market-context.md:52",
+      "design_section": "2.3a Added from the stream repos (`WL106`)",
+      "status": "missing",
+      "status_basis": "derived",
+      "composition": "none",
+      "capability_gap": [
+        "G9"
+      ],
+      "outputs": [],
+      "delivering_release": null,
+      "evidence": [],
+      "note": "No RSI-threshold breadth output."
+    },
+    {
+      "design_id": "M20",
+      "family": "market-context",
+      "kind": "condition",
+      "title": "Volatility-index close or percentile of 252 closes",
+      "design_ref": "market-context.md:53",
+      "design_section": "2.3a Added from the stream repos (`WL106`)",
+      "status": "partial",
+      "status_basis": "asserted",
+      "composition": "none",
+      "asserted": {
+        "by": "PO",
+        "date": "2026-10-29",
+        "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
+        "record_ref": "§1 intro and §4 (classifications not adjusted stand)",
+        "basis": "adopted_from_parity_check"
+      },
+      "capability_gap": [
+        "G9"
+      ],
+      "outputs": [
+        {
+          "id": "robust.percentile_rank",
+          "role": "primary",
+          "release": "EF3"
+        }
+      ],
+      "delivering_release": "EF3",
+      "evidence": [
+        {
+          "kind": "doc",
+          "ref": "docs/ef3/EF3_DELIVERY_EVIDENCE.md"
+        },
+        {
+          "kind": "gate",
+          "ref": "tools/verify_ef3_robust_known_at.py"
+        }
+      ],
+      "note": "Works if index bars are supplied; no source for them."
+    },
+    {
+      "design_id": "M21",
+      "family": "market-context",
+      "kind": "condition",
+      "title": "Volatility-index term ratios",
+      "design_ref": "market-context.md:54",
+      "design_section": "2.3a Added from the stream repos (`WL106`)",
+      "status": "missing",
+      "status_basis": "derived",
+      "data_feed_item": true,
+      "composition": "none",
+      "capability_gap": [
+        "G9",
+        "G2"
+      ],
+      "outputs": [],
+      "delivering_release": null,
+      "evidence": [],
+      "note": "Data-feed item: index series is not an input."
+    },
+    {
+      "design_id": "M22",
+      "family": "market-context",
+      "kind": "condition",
+      "title": "Bond-volatility index and 10-year yield",
+      "design_ref": "market-context.md:55",
+      "design_section": "2.3a Added from the stream repos (`WL106`)",
+      "status": "missing",
+      "status_basis": "derived",
+      "data_feed_item": true,
+      "composition": "none",
+      "capability_gap": [
+        "G9",
+        "G2"
+      ],
+      "outputs": [],
+      "delivering_release": null,
+      "evidence": [],
+      "note": "Data-feed item: index and yield series are not inputs."
+    },
+    {
+      "design_id": "U1",
+      "family": "universe-profile",
+      "kind": "condition",
+      "title": "Price between $X and $Y",
+      "design_ref": "universe-profile.md:19",
+      "design_section": "2.2 Conditions offered",
+      "status": "out_of_library_scope",
+      "status_basis": "asserted",
+      "composition": "none",
+      "asserted": {
+        "by": "PO",
+        "date": "2026-10-29",
+        "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
+        "record_ref": "§3 out of library scope",
+        "basis": "ruling"
+      },
+      "outputs": [],
+      "delivering_release": null,
+      "evidence": [],
+      "note": "Filter on session.bar.close by the consumer."
+    },
+    {
+      "design_id": "U2",
+      "family": "universe-profile",
+      "kind": "condition",
+      "title": "Market cap",
+      "design_ref": "universe-profile.md:20",
+      "design_section": "2.2 Conditions offered",
+      "status": "missing",
+      "status_basis": "derived",
+      "data_feed_item": true,
+      "composition": "none",
+      "capability_gap": [
+        "G2"
+      ],
+      "outputs": [],
+      "delivering_release": null,
+      "evidence": [],
+      "note": "Data-feed item: reference data, no input kind."
+    },
+    {
+      "design_id": "U3",
+      "family": "universe-profile",
+      "kind": "condition",
+      "title": "Shares outstanding, float, free-float %",
+      "design_ref": "universe-profile.md:21",
+      "design_section": "2.2 Conditions offered",
+      "status": "missing",
+      "status_basis": "derived",
+      "data_feed_item": true,
+      "composition": "none",
+      "capability_gap": [
+        "G2"
+      ],
+      "outputs": [],
+      "delivering_release": null,
+      "evidence": [],
+      "note": "Data-feed item."
+    },
+    {
+      "design_id": "U4",
+      "family": "universe-profile",
+      "kind": "condition",
+      "title": "Sector label",
+      "design_ref": "universe-profile.md:22",
+      "design_section": "2.2 Conditions offered",
+      "status": "partial",
+      "status_basis": "asserted",
+      "composition": "none",
+      "asserted": {
+        "by": "PO",
+        "date": "2026-10-29",
+        "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
+        "record_ref": "§1 intro and §4 (classifications not adjusted stand)",
+        "basis": "adopted_from_parity_check"
+      },
+      "outputs": [
+        {
+          "id": "reference.classification.value",
+          "role": "primary",
+          "release": "EF1"
+        }
+      ],
+      "delivering_release": "EF1",
+      "evidence": [
+        {
+          "kind": "test",
+          "ref": "tests/unit/test_ef1_reference.py"
+        },
+        {
+          "kind": "doc",
+          "ref": "docs/EF1_CUMULATIVE_QUALIFICATION.md"
+        }
+      ],
+      "note": "Gate over supplied point-in-time history; no source adapter."
+    },
+    {
+      "design_id": "U5",
+      "family": "universe-profile",
+      "kind": "condition",
+      "title": "Industry label",
+      "design_ref": "universe-profile.md:23",
+      "design_section": "2.2 Conditions offered",
+      "status": "partial",
+      "status_basis": "asserted",
+      "composition": "none",
+      "asserted": {
+        "by": "PO",
+        "date": "2026-10-29",
+        "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
+        "record_ref": "§1 intro and §4 (classifications not adjusted stand)",
+        "basis": "adopted_from_parity_check"
+      },
+      "outputs": [
+        {
+          "id": "reference.classification.value",
+          "role": "primary",
+          "release": "EF1"
+        }
+      ],
+      "delivering_release": "EF1",
+      "evidence": [
+        {
+          "kind": "test",
+          "ref": "tests/unit/test_ef1_reference.py"
+        },
+        {
+          "kind": "doc",
+          "ref": "docs/EF1_CUMULATIVE_QUALIFICATION.md"
+        }
+      ],
+      "note": "Same generic classification string."
+    },
+    {
+      "design_id": "U6",
+      "family": "universe-profile",
+      "kind": "condition",
+      "title": "Instrument type (stock, ETF, leveraged, inverse, ADR)",
+      "design_ref": "universe-profile.md:24",
+      "design_section": "2.2 Conditions offered",
+      "status": "partial",
+      "status_basis": "asserted",
+      "composition": "none",
+      "asserted": {
+        "by": "PO",
+        "date": "2026-10-29",
+        "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
+        "record_ref": "§1 intro and §4 (classifications not adjusted stand)",
+        "basis": "adopted_from_parity_check"
+      },
+      "outputs": [
+        {
+          "id": "reference.classification.value",
+          "role": "primary",
+          "release": "EF1"
+        }
+      ],
+      "delivering_release": "EF1",
+      "evidence": [
+        {
+          "kind": "test",
+          "ref": "tests/unit/test_ef1_reference.py"
+        },
+        {
+          "kind": "doc",
+          "ref": "docs/EF1_CUMULATIVE_QUALIFICATION.md"
+        }
+      ],
+      "note": "Leverage flags are not modelled."
+    },
+    {
+      "design_id": "U7",
+      "family": "universe-profile",
+      "kind": "condition",
+      "title": "Exchange",
+      "design_ref": "universe-profile.md:25",
+      "design_section": "2.2 Conditions offered",
+      "status": "partial",
+      "status_basis": "asserted",
+      "composition": "none",
+      "asserted": {
+        "by": "PO",
+        "date": "2026-10-29",
+        "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
+        "record_ref": "§1 intro and §4 (classifications not adjusted stand)",
+        "basis": "adopted_from_parity_check"
+      },
+      "outputs": [
+        {
+          "id": "reference.classification.value",
+          "role": "primary",
+          "release": "EF1"
+        }
+      ],
+      "delivering_release": "EF1",
+      "evidence": [
+        {
+          "kind": "test",
+          "ref": "tests/unit/test_ef1_reference.py"
+        },
+        {
+          "kind": "doc",
+          "ref": "docs/EF1_CUMULATIVE_QUALIFICATION.md"
+        }
+      ],
+      "note": "Same generic classification string."
+    },
+    {
+      "design_id": "U8",
+      "family": "universe-profile",
+      "kind": "condition",
+      "title": "20-session median dollar volume",
+      "design_ref": "universe-profile.md:26",
+      "design_section": "2.2 Conditions offered",
+      "status": "partial",
+      "status_basis": "asserted",
+      "composition": "none",
+      "asserted": {
+        "by": "PO",
+        "date": "2026-10-29",
+        "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
+        "record_ref": "§1 intro and §4 (classifications not adjusted stand)",
+        "basis": "adopted_from_parity_check"
+      },
+      "capability_gap": [
+        "G3"
+      ],
+      "outputs": [
+        {
+          "id": "robust.median",
+          "role": "primary",
+          "release": "EF3"
+        }
+      ],
+      "delivering_release": "EF3",
+      "evidence": [
+        {
+          "kind": "doc",
+          "ref": "docs/ef3/EF3_DELIVERY_EVIDENCE.md"
+        },
+        {
+          "kind": "gate",
+          "ref": "tools/verify_ef3_robust_known_at.py"
+        }
+      ],
+      "note": "Median of volume (shares) ships; dollars do not."
+    },
+    {
+      "design_id": "U9",
+      "family": "universe-profile",
+      "kind": "condition",
+      "title": "Listing age",
+      "design_ref": "universe-profile.md:27",
+      "design_section": "2.2 Conditions offered",
+      "status": "missing",
+      "status_basis": "derived",
+      "data_feed_item": true,
+      "composition": "none",
+      "capability_gap": [
+        "G2"
+      ],
+      "outputs": [],
+      "delivering_release": null,
+      "evidence": [],
+      "note": "Data-feed item."
+    },
+    {
+      "design_id": "U10",
+      "family": "universe-profile",
+      "kind": "condition",
+      "title": "Has listed options",
+      "design_ref": "universe-profile.md:28",
+      "design_section": "2.2 Conditions offered",
+      "status": "missing",
+      "status_basis": "derived",
+      "data_feed_item": true,
+      "composition": "none",
+      "capability_gap": [
+        "G2"
+      ],
+      "outputs": [],
+      "delivering_release": null,
+      "evidence": [],
+      "note": "Data-feed item."
+    },
+    {
+      "design_id": "U11",
+      "family": "universe-profile",
+      "kind": "condition",
+      "title": "Index and fund membership (S&P 500, QQQ, IWM)",
+      "design_ref": "universe-profile.md:29",
+      "design_section": "2.2 Conditions offered",
+      "status": "partial",
+      "status_basis": "asserted",
+      "composition": "none",
+      "asserted": {
+        "by": "PO",
+        "date": "2026-10-29",
+        "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
+        "record_ref": "§1 intro and §4 (classifications not adjusted stand)",
+        "basis": "adopted_from_parity_check"
+      },
+      "outputs": [],
+      "delivering_release": null,
+      "evidence": [],
+      "note": "Point-in-time membership is an input to breadth; no membership lookup output."
+    },
+    {
+      "design_id": "U12",
+      "family": "universe-profile",
+      "kind": "condition",
+      "title": "Platform eligibility floor",
+      "design_ref": "universe-profile.md:30",
+      "design_section": "2.2 Conditions offered",
+      "status": "partial",
+      "status_basis": "asserted",
+      "composition": "none",
+      "asserted": {
+        "by": "PO",
+        "date": "2026-10-29",
+        "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
+        "record_ref": "§1 intro and §4 (classifications not adjusted stand)",
+        "basis": "adopted_from_parity_check"
+      },
+      "capability_gap": [
+        "G3"
+      ],
+      "outputs": [],
+      "delivering_release": null,
+      "evidence": [],
+      "note": "Needs U1, U8 in dollars and an ETP flag; pieces are partial."
+    },
+    {
+      "design_id": "C1",
+      "family": "company-events",
+      "kind": "condition",
+      "title": "Earnings scheduled within the next N calendar days",
+      "design_ref": "company-events.md:21",
+      "design_section": "2.2 Conditions offered",
+      "status": "missing",
+      "status_basis": "derived",
+      "data_feed_item": true,
+      "composition": "none",
+      "capability_gap": [
+        "G2"
+      ],
+      "outputs": [],
+      "delivering_release": null,
+      "evidence": [],
+      "note": "Data-feed item: no input kind and no output."
+    },
+    {
+      "design_id": "C2",
+      "family": "company-events",
+      "kind": "condition",
+      "title": "No known earnings in the next 10 days, source coverage stated",
+      "design_ref": "company-events.md:22",
+      "design_section": "2.2 Conditions offered",
+      "status": "missing",
+      "status_basis": "derived",
+      "data_feed_item": true,
+      "composition": "none",
+      "capability_gap": [
+        "G2"
+      ],
+      "outputs": [],
+      "delivering_release": null,
+      "evidence": [],
+      "note": "Data-feed item."
+    },
+    {
+      "design_id": "C3",
+      "family": "company-events",
+      "kind": "condition",
+      "title": "Earnings reported this session",
+      "design_ref": "company-events.md:23",
+      "design_section": "2.2 Conditions offered",
+      "status": "missing",
+      "status_basis": "derived",
+      "data_feed_item": true,
+      "composition": "none",
+      "capability_gap": [
+        "G2"
+      ],
+      "outputs": [],
+      "delivering_release": null,
+      "evidence": [],
+      "note": "Data-feed item."
+    },
+    {
+      "design_id": "C4",
+      "family": "company-events",
+      "kind": "condition",
+      "title": "Reported figure differs from the estimate by at least X%",
+      "design_ref": "company-events.md:24",
+      "design_section": "2.2 Conditions offered",
+      "status": "missing",
+      "status_basis": "derived",
+      "data_feed_item": true,
+      "composition": "none",
+      "capability_gap": [
+        "G2"
+      ],
+      "outputs": [],
+      "delivering_release": null,
+      "evidence": [],
+      "note": "Data-feed item."
+    },
+    {
+      "design_id": "C5",
+      "family": "company-events",
+      "kind": "condition",
+      "title": "Ex-dividend date within the next N calendar days",
+      "design_ref": "company-events.md:25",
+      "design_section": "2.2 Conditions offered",
+      "status": "missing",
+      "status_basis": "derived",
+      "data_feed_item": true,
+      "composition": "none",
+      "capability_gap": [
+        "G2"
+      ],
+      "outputs": [],
+      "delivering_release": null,
+      "evidence": [],
+      "note": "Data-feed item."
+    },
+    {
+      "design_id": "C6",
+      "family": "company-events",
+      "kind": "condition",
+      "title": "Went ex-dividend today",
+      "design_ref": "company-events.md:26",
+      "design_section": "2.2 Conditions offered",
+      "status": "missing",
+      "status_basis": "derived",
+      "data_feed_item": true,
+      "composition": "none",
+      "capability_gap": [
+        "G2"
+      ],
+      "outputs": [],
+      "delivering_release": null,
+      "evidence": [],
+      "note": "Data-feed item."
+    },
+    {
+      "design_id": "C7",
+      "family": "company-events",
+      "kind": "condition",
+      "title": "Split or reverse split scheduled within the next N days",
+      "design_ref": "company-events.md:27",
+      "design_section": "2.2 Conditions offered",
+      "status": "missing",
+      "status_basis": "derived",
+      "data_feed_item": true,
+      "composition": "none",
+      "capability_gap": [
+        "G2"
+      ],
+      "outputs": [],
+      "delivering_release": null,
+      "evidence": [],
+      "note": "Data-feed item."
+    },
+    {
+      "design_id": "C8",
+      "family": "company-events",
+      "kind": "condition",
+      "title": "Split took effect today",
+      "design_ref": "company-events.md:28",
+      "design_section": "2.2 Conditions offered",
+      "status": "missing",
+      "status_basis": "derived",
+      "data_feed_item": true,
+      "composition": "none",
+      "capability_gap": [
+        "G2"
+      ],
+      "outputs": [],
+      "delivering_release": null,
+      "evidence": [],
+      "note": "Data-feed item."
+    },
+    {
+      "design_id": "C9",
+      "family": "company-events",
+      "kind": "condition",
+      "title": "At least N scheduled events of a kind in the window",
+      "design_ref": "company-events.md:29",
+      "design_section": "2.2 Conditions offered",
+      "status": "missing",
+      "status_basis": "derived",
+      "data_feed_item": true,
+      "composition": "none",
+      "capability_gap": [
+        "G2"
+      ],
+      "outputs": [],
+      "delivering_release": null,
+      "evidence": [],
+      "note": "Data-feed item."
+    },
+    {
+      "design_id": "C10",
+      "family": "company-events",
+      "kind": "condition",
+      "title": "Corporate action state (verified none, verified adjusted, suspect, unverified, no coverage)",
+      "design_ref": "company-events.md:30",
+      "design_section": "2.2 Conditions offered",
+      "status": "partial",
+      "status_basis": "asserted",
+      "composition": "none",
+      "asserted": {
+        "by": "PO",
+        "date": "2026-10-29",
+        "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
+        "record_ref": "§1 intro and §4 (classifications not adjusted stand)",
+        "basis": "adopted_from_parity_check"
+      },
+      "outputs": [
+        {
+          "id": "reference.gate.action_state",
+          "role": "primary",
+          "release": "EF1"
+        },
+        {
+          "id": "reference.gate.action_reason",
+          "role": "primary",
+          "release": "EF1"
+        }
+      ],
+      "delivering_release": "EF1",
+      "evidence": [
+        {
+          "kind": "test",
+          "ref": "tests/unit/test_ef1_reference.py"
+        },
+        {
+          "kind": "doc",
+          "ref": "docs/EF1_CUMULATIVE_QUALIFICATION.md"
+        }
+      ],
+      "note": "Admission over supplied declarations; the library never applies factors; no five-state vocabulary output."
+    },
+    {
+      "design_id": "C11",
+      "family": "company-events",
+      "kind": "condition",
+      "title": "Filing of a chosen form group accepted in the last N sessions",
+      "design_ref": "company-events.md:47",
+      "design_section": "2.2c Regulatory filing events (`WL114`)",
+      "status": "missing",
+      "status_basis": "derived",
+      "data_feed_item": true,
+      "composition": "none",
+      "capability_gap": [
+        "G2"
+      ],
+      "outputs": [],
+      "delivering_release": null,
+      "evidence": [],
+      "note": "Data-feed item."
+    },
+    {
+      "design_id": "C12",
+      "family": "company-events",
+      "kind": "condition",
+      "title": "Current report (8-K) with a chosen item number",
+      "design_ref": "company-events.md:48",
+      "design_section": "2.2c Regulatory filing events (`WL114`)",
+      "status": "missing",
+      "status_basis": "derived",
+      "data_feed_item": true,
+      "composition": "none",
+      "capability_gap": [
+        "G2"
+      ],
+      "outputs": [],
+      "delivering_release": null,
+      "evidence": [],
+      "note": "Data-feed item."
+    },
+    {
+      "design_id": "C13",
+      "family": "company-events",
+      "kind": "condition",
+      "title": "Registration or prospectus filing accepted",
+      "design_ref": "company-events.md:49",
+      "design_section": "2.2c Regulatory filing events (`WL114`)",
+      "status": "missing",
+      "status_basis": "derived",
+      "data_feed_item": true,
+      "composition": "none",
+      "capability_gap": [
+        "G2"
+      ],
+      "outputs": [],
+      "delivering_release": null,
+      "evidence": [],
+      "note": "Data-feed item."
+    },
+    {
+      "design_id": "C14",
+      "family": "company-events",
+      "kind": "condition",
+      "title": "Late-filing notice accepted",
+      "design_ref": "company-events.md:50",
+      "design_section": "2.2c Regulatory filing events (`WL114`)",
+      "status": "missing",
+      "status_basis": "derived",
+      "data_feed_item": true,
+      "composition": "none",
+      "capability_gap": [
+        "G2"
+      ],
+      "outputs": [],
+      "delivering_release": null,
+      "evidence": [],
+      "note": "Data-feed item."
+    },
+    {
+      "design_id": "C15",
+      "family": "company-events",
+      "kind": "condition",
+      "title": "At least N filings of a form group in the last N sessions",
+      "design_ref": "company-events.md:51",
+      "design_section": "2.2c Regulatory filing events (`WL114`)",
+      "status": "missing",
+      "status_basis": "derived",
+      "data_feed_item": true,
+      "composition": "none",
+      "capability_gap": [
+        "G2"
+      ],
+      "outputs": [],
+      "delivering_release": null,
+      "evidence": [],
+      "note": "Data-feed item."
+    },
+    {
+      "design_id": "C16",
+      "family": "company-events",
+      "kind": "condition",
+      "title": "A firm changed its rating",
+      "design_ref": "company-events.md:72",
+      "design_section": "2.2d Analyst rating and price-target changes (`WL115`)",
+      "status": "missing",
+      "status_basis": "derived",
+      "data_feed_item": true,
+      "composition": "none",
+      "capability_gap": [
+        "G2"
+      ],
+      "outputs": [],
+      "delivering_release": null,
+      "evidence": [],
+      "note": "Data-feed item."
+    },
+    {
+      "design_id": "C17",
+      "family": "company-events",
+      "kind": "condition",
+      "title": "A firm changed its price target by at least X%",
+      "design_ref": "company-events.md:73",
+      "design_section": "2.2d Analyst rating and price-target changes (`WL115`)",
+      "status": "missing",
+      "status_basis": "derived",
+      "data_feed_item": true,
+      "composition": "none",
+      "capability_gap": [
+        "G2"
+      ],
+      "outputs": [],
+      "delivering_release": null,
+      "evidence": [],
+      "note": "Data-feed item."
+    },
+    {
+      "design_id": "C18",
+      "family": "company-events",
+      "kind": "condition",
+      "title": "A firm started or stopped coverage of the name",
+      "design_ref": "company-events.md:74",
+      "design_section": "2.2d Analyst rating and price-target changes (`WL115`)",
+      "status": "missing",
+      "status_basis": "derived",
+      "data_feed_item": true,
+      "composition": "none",
+      "capability_gap": [
+        "G2"
+      ],
+      "outputs": [],
+      "delivering_release": null,
+      "evidence": [],
+      "note": "Data-feed item."
+    },
+    {
+      "design_id": "C19",
+      "family": "company-events",
+      "kind": "condition",
+      "title": "At least N rating changes by different firms",
+      "design_ref": "company-events.md:75",
+      "design_section": "2.2d Analyst rating and price-target changes (`WL115`)",
+      "status": "missing",
+      "status_basis": "derived",
+      "data_feed_item": true,
+      "composition": "none",
+      "capability_gap": [
+        "G2"
+      ],
+      "outputs": [],
+      "delivering_release": null,
+      "evidence": [],
+      "note": "Data-feed item."
+    },
+    {
+      "design_id": "C20",
+      "family": "company-events",
+      "kind": "condition",
+      "title": "Insider open-market purchases in the last N sessions",
+      "design_ref": "company-events.md:95",
+      "design_section": "2.2e Insider filings and large-holder reports (`WL116`)",
+      "status": "missing",
+      "status_basis": "derived",
+      "data_feed_item": true,
+      "composition": "none",
+      "capability_gap": [
+        "G2"
+      ],
+      "outputs": [],
+      "delivering_release": null,
+      "evidence": [],
+      "note": "Data-feed item."
+    },
+    {
+      "design_id": "C21",
+      "family": "company-events",
+      "kind": "condition",
+      "title": "Insider transaction report accepted",
+      "design_ref": "company-events.md:96",
+      "design_section": "2.2e Insider filings and large-holder reports (`WL116`)",
+      "status": "missing",
+      "status_basis": "derived",
+      "data_feed_item": true,
+      "composition": "none",
+      "capability_gap": [
+        "G2"
+      ],
+      "outputs": [],
+      "delivering_release": null,
+      "evidence": [],
+      "note": "Data-feed item."
+    },
+    {
+      "design_id": "C22",
+      "family": "company-events",
+      "kind": "condition",
+      "title": "Insider open-market sales in the last N sessions",
+      "design_ref": "company-events.md:97",
+      "design_section": "2.2e Insider filings and large-holder reports (`WL116`)",
+      "status": "missing",
+      "status_basis": "derived",
+      "data_feed_item": true,
+      "composition": "none",
+      "capability_gap": [
+        "G2"
+      ],
+      "outputs": [],
+      "delivering_release": null,
+      "evidence": [],
+      "note": "Data-feed item."
+    },
+    {
+      "design_id": "C23",
+      "family": "company-events",
+      "kind": "condition",
+      "title": "Stake of 5% or more reported (13D/13G)",
+      "design_ref": "company-events.md:98",
+      "design_section": "2.2e Insider filings and large-holder reports (`WL116`)",
+      "status": "missing",
+      "status_basis": "derived",
+      "data_feed_item": true,
+      "composition": "none",
+      "capability_gap": [
+        "G2"
+      ],
+      "outputs": [],
+      "delivering_release": null,
+      "evidence": [],
+      "note": "Data-feed item."
+    },
+    {
+      "design_id": "C24",
+      "family": "company-events",
+      "kind": "condition",
+      "title": "Institutional holdings change for the latest quarter (13F)",
+      "design_ref": "company-events.md:99",
+      "design_section": "2.2e Insider filings and large-holder reports (`WL116`)",
+      "status": "missing",
+      "status_basis": "derived",
+      "data_feed_item": true,
+      "composition": "none",
+      "capability_gap": [
+        "G2"
+      ],
+      "outputs": [],
+      "delivering_release": null,
+      "evidence": [],
+      "note": "Data-feed item."
+    },
+    {
+      "design_id": "S1",
+      "family": "presets",
+      "kind": "preset",
+      "title": "Candlestick presets (80 patterns)",
+      "design_ref": "price-technicals.md:158",
+      "design_section": "2.5 Presets",
+      "status": "partial",
+      "status_basis": "asserted",
+      "composition": "none",
+      "asserted": {
+        "by": "PO",
+        "date": "2026-10-29",
+        "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
+        "record_ref": "§1 intro and §4 (classifications not adjusted stand)",
+        "basis": "adopted_from_parity_check"
+      },
+      "capability_gap": [
+        "G5"
+      ],
+      "outputs": [
+        {
+          "id": "candle.body_fraction",
+          "role": "primary",
+          "release": "EF5"
+        },
+        {
+          "id": "candle.doji",
+          "role": "primary",
+          "release": "EF5"
+        },
+        {
+          "id": "candle.engulfing_bearish",
+          "role": "primary",
+          "release": "EF5"
+        },
+        {
+          "id": "candle.engulfing_bullish",
+          "role": "primary",
+          "release": "EF5"
+        },
+        {
+          "id": "candle.inside_bar",
+          "role": "primary",
+          "release": "EF5"
+        },
+        {
+          "id": "candle.lower_shadow_fraction",
+          "role": "primary",
+          "release": "EF5"
+        },
+        {
+          "id": "candle.upper_shadow_fraction",
+          "role": "primary",
+          "release": "EF5"
+        }
+      ],
+      "delivering_release": "EF5",
+      "evidence": [
+        {
+          "kind": "gate",
+          "ref": "tools/verify_ef5_fixtures.py"
+        },
+        {
+          "kind": "gate",
+          "ref": "tools/verify_ef5_library.py"
+        }
+      ],
+      "note": "Seven geometry/pattern outputs only; named multi-bar formations are deliberately excluded by the EF5 contract."
+    },
+    {
+      "design_id": "S2",
+      "family": "presets",
+      "kind": "preset",
+      "title": "Chart-structure presets (triangles, head and shoulders, cup and handle, base, double top)",
+      "design_ref": "equity-scanner-strategy-stories.md:79",
+      "design_section": "Story EQ-02: EOD Intraday-Market and Price-Action Scanners (59)",
+      "status": "partial",
+      "status_basis": "asserted",
+      "composition": "none",
+      "asserted": {
+        "by": "PO",
+        "date": "2026-10-29",
+        "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
+        "record_ref": "§1 intro and §4 (classifications not adjusted stand)",
+        "basis": "adopted_from_parity_check"
+      },
+      "capability_gap": [
+        "G5"
+      ],
+      "outputs": [
+        {
+          "id": "structure.last_swing_high_price",
+          "role": "primary",
+          "release": "EF5"
+        },
+        {
+          "id": "structure.last_swing_low_price",
+          "role": "primary",
+          "release": "EF5"
+        },
+        {
+          "id": "structure.swing_high_confirmed",
+          "role": "primary",
+          "release": "EF5"
+        },
+        {
+          "id": "structure.swing_low_confirmed",
+          "role": "primary",
+          "release": "EF5"
+        }
+      ],
+      "delivering_release": "EF5",
+      "evidence": [
+        {
+          "kind": "gate",
+          "ref": "tools/verify_ef5_fixtures.py"
+        },
+        {
+          "kind": "gate",
+          "ref": "tools/verify_ef5_library.py"
+        }
+      ],
+      "note": "Swing high/low are the primitive; named patterns are excluded by the EF5 contract."
+    },
+    {
+      "design_id": "S3",
+      "family": "presets",
+      "kind": "preset",
+      "title": "Technical presets (73) and momentum presets (21)",
+      "design_ref": "equity-scanner-strategy-stories.md:98",
+      "design_section": "Story EQ-03: EOD Price-Level and Chart-Structure Scanners (51)",
+      "status": "partial",
+      "status_basis": "asserted",
+      "composition": "none",
+      "asserted": {
+        "by": "PO",
+        "date": "2026-10-29",
+        "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
+        "record_ref": "§1 intro and §4 (classifications not adjusted stand)",
+        "basis": "adopted_from_parity_check"
+      },
+      "capability_gap": [
+        "G1"
+      ],
+      "outputs": [
+        {
+          "id": "intraday.macd_line",
+          "role": "primary",
+          "release": "EF2"
+        },
+        {
+          "id": "intraday.adx",
+          "role": "primary",
+          "release": "EF2"
+        },
+        {
+          "id": "intraday.stoch_k",
+          "role": "primary",
+          "release": "EF2"
+        },
+        {
+          "id": "channel.keltner.upper",
+          "role": "primary",
+          "release": "EF2"
+        },
+        {
+          "id": "channel.pivot.point",
+          "role": "primary",
+          "release": "EF2"
+        },
+        {
+          "id": "history.rsi",
+          "role": "primary",
+          "release": "R2"
+        },
+        {
+          "id": "history.atr",
+          "role": "primary",
+          "release": "R2"
+        }
+      ],
+      "delivering_release": "EF2",
+      "evidence": [
+        {
+          "kind": "doc",
+          "ref": "docs/ef2/EF2_DELIVERY_EVIDENCE.md"
+        },
+        {
+          "kind": "gate",
+          "ref": "tools/verify_registry.py"
+        },
+        {
+          "kind": "gate",
+          "ref": "tools/verify_history_examples.py"
+        }
+      ],
+      "note": "Intraday-grid indicators ship; the end-of-day daily-grid versions do not (see P4, P12)."
+    },
+    {
+      "design_id": "S4",
+      "family": "presets",
+      "kind": "preset",
+      "title": "Breakout/breakdown level presets and SMA reclaim/rejection",
+      "design_ref": "equity-scanner-strategy-stories.md:79",
+      "design_section": "Story EQ-02: EOD Intraday-Market and Price-Action Scanners (59)",
+      "status": "partial",
+      "status_basis": "asserted",
+      "composition": "none",
+      "asserted": {
+        "by": "PO",
+        "date": "2026-10-29",
+        "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
+        "record_ref": "§1 intro and §4 (classifications not adjusted stand)",
+        "basis": "adopted_from_parity_check"
+      },
+      "capability_gap": [
+        "G1",
+        "G6"
+      ],
+      "outputs": [
+        {
+          "id": "history.prior_high",
+          "role": "primary",
+          "release": "R2"
+        },
+        {
+          "id": "history.prior_low",
+          "role": "primary",
+          "release": "R2"
+        },
+        {
+          "id": "session.daily_observations.high",
+          "role": "primary",
+          "release": "EF1"
+        },
+        {
+          "id": "session.daily_observations.low",
+          "role": "primary",
+          "release": "EF1"
+        }
+      ],
+      "delivering_release": "EF1",
+      "evidence": [
+        {
+          "kind": "gate",
+          "ref": "tools/verify_registry.py"
+        },
+        {
+          "kind": "gate",
+          "ref": "tools/verify_history_examples.py"
+        },
+        {
+          "kind": "test",
+          "ref": "tests/unit/test_ef1_daily_observations.py"
+        },
+        {
+          "kind": "doc",
+          "ref": "docs/EF1_CUMULATIVE_QUALIFICATION.md"
+        }
+      ],
+      "note": "No 3w/6w/3m/6m/YTD/prev-day/premarket ids; events are consumer rules."
+    },
+    {
+      "design_id": "S5",
+      "family": "presets",
+      "kind": "preset",
+      "title": "Relative strength (12) and cross-sectional deciles (10)",
+      "design_ref": "equity-scanner-strategy-stories.md:133",
+      "design_section": "Story EQ-05: EOD Candlestick Pattern Scanners (80)",
+      "status": "implemented",
+      "status_basis": "derived",
+      "composition": "none",
+      "outputs": [
+        {
+          "id": "relative.market_return",
+          "role": "primary",
+          "release": "R2"
+        },
+        {
+          "id": "relative.sector_return",
+          "role": "primary",
+          "release": "R2"
+        },
+        {
+          "id": "relative.residual_return",
+          "role": "primary",
+          "release": "EF3"
+        },
+        {
+          "id": "cohort.percentile_rank",
+          "role": "primary",
+          "release": "EF3"
+        }
+      ],
+      "delivering_release": "EF3",
+      "evidence": [
+        {
+          "kind": "gate",
+          "ref": "tools/verify_registry.py"
+        },
+        {
+          "kind": "gate",
+          "ref": "tools/verify_context_examples.py"
+        },
+        {
+          "kind": "doc",
+          "ref": "docs/ef3/EF3_DELIVERY_EVIDENCE.md"
+        },
+        {
+          "kind": "gate",
+          "ref": "tools/verify_ef3_robust_known_at.py"
+        }
+      ],
+      "note": "Peer groups of at least 10 map to min_population."
+    },
+    {
+      "design_id": "S6",
+      "family": "presets",
+      "kind": "preset",
+      "title": "Mean-reversion presets (10)",
+      "design_ref": "equity-scanner-strategy-stories.md:133",
+      "design_section": "Story EQ-05: EOD Candlestick Pattern Scanners (80)",
+      "status": "partial",
+      "status_basis": "asserted",
+      "composition": "none",
+      "asserted": {
+        "by": "PO",
+        "date": "2026-10-29",
+        "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
+        "record_ref": "§1 intro and §4 (classifications not adjusted stand)",
+        "basis": "adopted_from_parity_check"
+      },
+      "capability_gap": [
+        "G1"
+      ],
+      "outputs": [
+        {
+          "id": "history.sma",
+          "role": "primary",
+          "release": "R2"
+        },
+        {
+          "id": "history.atr",
+          "role": "primary",
+          "release": "R2"
+        },
+        {
+          "id": "projection.close_vs_sma_fraction",
+          "role": "primary",
+          "release": "EF4"
+        }
+      ],
+      "delivering_release": "EF4",
+      "evidence": [
+        {
+          "kind": "gate",
+          "ref": "tools/verify_registry.py"
+        },
+        {
+          "kind": "gate",
+          "ref": "tools/verify_history_examples.py"
+        },
+        {
+          "kind": "gate",
+          "ref": "tools/verify_ef4_fixtures.py"
+        },
+        {
+          "kind": "doc",
+          "ref": "docs/ef4/EF4_DELIVERY_EVIDENCE.md"
+        }
+      ],
+      "note": "See P11."
+    },
+    {
+      "design_id": "S7",
+      "family": "presets",
+      "kind": "preset",
+      "title": "Volatility presets (8)",
+      "design_ref": "equity-scanner-strategy-stories.md:133",
+      "design_section": "Story EQ-05: EOD Candlestick Pattern Scanners (80)",
+      "status": "implemented",
+      "status_basis": "derived",
+      "composition": "none",
+      "outputs": [
+        {
+          "id": "history.log_return_volatility",
+          "role": "primary",
+          "release": "EF3"
+        },
+        {
+          "id": "history.atr",
+          "role": "primary",
+          "release": "R2"
+        },
+        {
+          "id": "channel.band_width.percentile",
+          "role": "primary",
+          "release": "EF2"
+        },
+        {
+          "id": "intraday.realized_volatility",
+          "role": "primary",
+          "release": "EF3"
+        }
+      ],
+      "delivering_release": "EF3",
+      "evidence": [
+        {
+          "kind": "doc",
+          "ref": "docs/ef3/EF3_DELIVERY_EVIDENCE.md"
+        },
+        {
+          "kind": "gate",
+          "ref": "tools/verify_registry.py"
+        },
+        {
+          "kind": "gate",
+          "ref": "tools/verify_history_examples.py"
+        },
+        {
+          "kind": "doc",
+          "ref": "docs/ef2/EF2_DELIVERY_EVIDENCE.md"
+        }
+      ],
+      "note": ""
+    },
+    {
+      "design_id": "S8",
+      "family": "presets",
+      "kind": "preset",
+      "title": "Gaps, opening range, VWAP and intraday realtime families",
+      "design_ref": "equity-scanner-strategy-stories.md:26",
+      "design_section": "Cross-cutting acceptance criteria (AC-X1 to AC-X6)",
+      "status": "partial",
+      "status_basis": "asserted",
+      "composition": "none",
+      "asserted": {
+        "by": "PO",
+        "date": "2026-10-29",
+        "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
+        "record_ref": "§1 intro and §4 (classifications not adjusted stand)",
+        "basis": "adopted_from_parity_check"
+      },
+      "outputs": [
+        {
+          "id": "session.price.overnight_gap",
+          "role": "primary",
+          "release": "R1"
+        },
+        {
+          "id": "session.gap.fill_fraction",
+          "role": "primary",
+          "release": "EF1"
+        },
+        {
+          "id": "session.anchor.vwap",
+          "role": "primary",
+          "release": "EF1"
+        },
+        {
+          "id": "session.structure.interval_ohlcv",
+          "role": "primary",
+          "release": "R1"
+        }
+      ],
+      "delivering_release": "EF1",
+      "evidence": [
+        {
+          "kind": "gate",
+          "ref": "tools/verify_registry.py"
+        },
+        {
+          "kind": "gate",
+          "ref": "tools/verify_session_examples.py"
+        },
+        {
+          "kind": "test",
+          "ref": "tests/unit/test_ef1_path.py"
+        },
+        {
+          "kind": "doc",
+          "ref": "docs/EF1_CUMULATIVE_QUALIFICATION.md"
+        },
+        {
+          "kind": "test",
+          "ref": "tests/unit/test_ef1_anchor.py"
+        }
+      ],
+      "note": "Ranking families have primitives but no ranking producer; the design bans client ranking."
+    },
+    {
+      "design_id": "S9",
+      "family": "presets",
+      "kind": "preset",
+      "title": "Volume and liquidity presets (30)",
+      "design_ref": "equity-scanner-strategy-stories.md:151",
+      "design_section": "Story EQ-06: EOD Momentum, Relative-Strength, Volatility and Mean-Reversion Scanners (50)",
+      "status": "partial",
+      "status_basis": "asserted",
+      "composition": "none",
+      "asserted": {
+        "by": "PO",
+        "date": "2026-10-29",
+        "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
+        "record_ref": "§1 intro and §4 (classifications not adjusted stand)",
+        "basis": "adopted_from_parity_check"
+      },
+      "outputs": [
+        {
+          "id": "pace.ratio",
+          "role": "primary",
+          "release": "EF3"
+        },
+        {
+          "id": "baseline.relative_volume",
+          "role": "primary",
+          "release": "R2"
+        },
+        {
+          "id": "mean.ratio",
+          "role": "primary",
+          "release": "EF3"
+        },
+        {
+          "id": "session.trade.mean_size",
+          "role": "primary",
+          "release": "R1"
+        }
+      ],
+      "delivering_release": "EF3",
+      "evidence": [
+        {
+          "kind": "doc",
+          "ref": "docs/ef3/EF3_DELIVERY_EVIDENCE.md"
+        },
+        {
+          "kind": "gate",
+          "ref": "tools/verify_ef3_robust_known_at.py"
+        },
+        {
+          "kind": "gate",
+          "ref": "tools/verify_registry.py"
+        },
+        {
+          "kind": "gate",
+          "ref": "tools/verify_context_examples.py"
+        },
+        {
+          "kind": "gate",
+          "ref": "tools/verify_session_examples.py"
+        }
+      ],
+      "note": "See V6-V14."
+    },
+    {
+      "design_id": "S10",
+      "family": "presets",
+      "kind": "preset",
+      "title": "Breadth-regime presets (thrust)",
+      "design_ref": "equity-scanner-strategy-stories.md:169",
+      "design_section": "Story EQ-06: EOD Momentum, Relative-Strength, Volatility and Mean-Reversion Scanners (50)",
+      "status": "partial",
+      "status_basis": "asserted",
+      "composition": "none",
+      "asserted": {
+        "by": "PO",
+        "date": "2026-10-29",
+        "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
+        "record_ref": "§1 intro and §4 (classifications not adjusted stand)",
+        "basis": "adopted_from_parity_check"
+      },
+      "outputs": [
+        {
+          "id": "breadth.session.advance_decline_ratio",
+          "role": "primary",
+          "release": "EF3"
+        },
+        {
+          "id": "breadth.session.up_down_volume_ratio",
+          "role": "primary",
+          "release": "EF3"
+        }
+      ],
+      "delivering_release": "EF3",
+      "evidence": [
+        {
+          "kind": "doc",
+          "ref": "docs/ef3/EF3_DELIVERY_EVIDENCE.md"
+        }
+      ],
+      "note": "Ratios ship; thrust-regime predicates are consumer rules."
+    },
+    {
+      "design_id": "S11",
+      "family": "presets",
+      "kind": "preset",
+      "title": "ETF strategy scores and regime-flip scores",
+      "design_ref": "equity-scanner-strategy-stories.md:187",
+      "design_section": "Story EQ-07: EOD Volume and Liquidity Scanners (30)",
+      "status": "out_of_library_scope",
+      "status_basis": "asserted",
+      "composition": "none",
+      "asserted": {
+        "by": "PO",
+        "date": "2026-10-29",
+        "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
+        "record_ref": "§3 out of library scope",
+        "basis": "ruling"
+      },
+      "outputs": [],
+      "delivering_release": null,
+      "evidence": [],
+      "note": "Scores are internal research artefacts never serialised to clients; the library emits no scores by design."
+    },
+    {
+      "design_id": "S12",
+      "family": "presets",
+      "kind": "preset",
+      "title": "End-of-day strategy meta-score (5 expiry lanes)",
+      "design_ref": "equity-scanner-strategy-stories.md:252",
+      "design_section": "Story EQ-10: ETF Strategy Scores, Flow-Filtered Family (91)",
+      "status": "out_of_library_scope",
+      "status_basis": "asserted",
+      "composition": "none",
+      "asserted": {
+        "by": "PO",
+        "date": "2026-10-29",
+        "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
+        "record_ref": "§3 out of library scope",
+        "basis": "ruling"
+      },
+      "outputs": [],
+      "delivering_release": null,
+      "evidence": [],
+      "note": "Same as S11."
+    },
+    {
+      "design_id": "W1",
+      "family": "watchlists",
+      "kind": "watchlist_rule",
+      "title": "System watchlist, 5-group matching, minimum 2 groups",
+      "design_ref": "watchlist-stories.md:26",
+      "design_section": "Story WL-01: Confluence Group Watchlist Engine v3 & Group Scoring",
+      "status": "partial",
+      "status_basis": "asserted",
+      "composition": "none",
+      "asserted": {
+        "by": "PO",
+        "date": "2026-10-29",
+        "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
+        "record_ref": "§1 intro and §4 (classifications not adjusted stand)",
+        "basis": "adopted_from_parity_check"
+      },
+      "outputs": [
+        {
+          "id": "history.return",
+          "role": "primary",
+          "release": "R2"
+        },
+        {
+          "id": "history.sma",
+          "role": "primary",
+          "release": "R2"
+        },
+        {
+          "id": "history.atr",
+          "role": "primary",
+          "release": "R2"
+        },
+        {
+          "id": "relative.market_return",
+          "role": "primary",
+          "release": "R2"
+        },
+        {
+          "id": "mean.ratio",
+          "role": "primary",
+          "release": "EF3"
+        }
+      ],
+      "delivering_release": "EF3",
+      "evidence": [
+        {
+          "kind": "gate",
+          "ref": "tools/verify_registry.py"
+        },
+        {
+          "kind": "gate",
+          "ref": "tools/verify_history_examples.py"
+        },
+        {
+          "kind": "gate",
+          "ref": "tools/verify_context_examples.py"
+        },
+        {
+          "kind": "doc",
+          "ref": "docs/ef3/EF3_DELIVERY_EVIDENCE.md"
+        },
+        {
+          "kind": "gate",
+          "ref": "tools/verify_ef3_robust_known_at.py"
+        }
+      ],
+      "note": "Inputs ship; group assignment, confluence counts and publication are rule-engine and consumer work."
+    },
+    {
+      "design_id": "W2",
+      "family": "watchlists",
+      "kind": "watchlist_rule",
+      "title": "Symmetrical bearish catalogue",
+      "design_ref": "watchlist-stories.md:74",
+      "design_section": "Story WL-01: Confluence Group Watchlist Engine v3 & Group Scoring",
+      "status": "partial",
+      "status_basis": "asserted",
+      "composition": "none",
+      "asserted": {
+        "by": "PO",
+        "date": "2026-10-29",
+        "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
+        "record_ref": "§1 intro and §4 (classifications not adjusted stand)",
+        "basis": "adopted_from_parity_check"
+      },
+      "outputs": [
+        {
+          "id": "history.return",
+          "role": "primary",
+          "release": "R2"
+        },
+        {
+          "id": "history.sma",
+          "role": "primary",
+          "release": "R2"
+        },
+        {
+          "id": "history.atr",
+          "role": "primary",
+          "release": "R2"
+        },
+        {
+          "id": "relative.market_return",
+          "role": "primary",
+          "release": "R2"
+        },
+        {
+          "id": "mean.ratio",
+          "role": "primary",
+          "release": "EF3"
+        }
+      ],
+      "delivering_release": "EF3",
+      "evidence": [
+        {
+          "kind": "gate",
+          "ref": "tools/verify_registry.py"
+        },
+        {
+          "kind": "gate",
+          "ref": "tools/verify_history_examples.py"
+        },
+        {
+          "kind": "gate",
+          "ref": "tools/verify_context_examples.py"
+        },
+        {
+          "kind": "doc",
+          "ref": "docs/ef3/EF3_DELIVERY_EVIDENCE.md"
+        },
+        {
+          "kind": "gate",
+          "ref": "tools/verify_ef3_robust_known_at.py"
+        }
+      ],
+      "note": "Same inputs; mirrored rules are consumer work."
+    },
+    {
+      "design_id": "W3",
+      "family": "watchlists",
+      "kind": "watchlist_rule",
+      "title": "ATR20-normalised relative strength vs SPY; adaptive breakout-retest tolerance",
+      "design_ref": "watchlist-stories.md:107",
+      "design_section": "Story WL-02: Symmetrical Bearish Catalog & Downside Attention Monitor",
+      "status": "implemented",
+      "status_basis": "derived",
+      "composition": "consumer_arith",
+      "outputs": [
+        {
+          "id": "history.atr",
+          "role": "primary",
+          "release": "R2"
+        },
+        {
+          "id": "history.return",
+          "role": "operand",
+          "release": "R2"
+        },
+        {
+          "id": "relative.market_return",
+          "role": "operand",
+          "release": "R2"
+        },
+        {
+          "id": "history.sma",
+          "role": "operand",
+          "release": "R2"
+        },
+        {
+          "id": "session.bar.high",
+          "role": "operand",
+          "release": "R1"
+        }
+      ],
+      "delivering_release": "R2",
+      "evidence": [
+        {
+          "kind": "gate",
+          "ref": "tools/verify_registry.py"
+        },
+        {
+          "kind": "gate",
+          "ref": "tools/verify_history_examples.py"
+        },
+        {
+          "kind": "gate",
+          "ref": "tools/verify_context_examples.py"
+        },
+        {
+          "kind": "gate",
+          "ref": "tools/verify_session_examples.py"
+        }
+      ],
+      "note": "VolScore is arithmetic on shipped outputs."
+    },
+    {
+      "design_id": "W4",
+      "family": "watchlists",
+      "kind": "watchlist_rule",
+      "title": "Meta-watchlist, 8 frozen meta rules, priority classes",
+      "design_ref": "watchlist-stories.md:142",
+      "design_section": "Story WL-03: Volatility-Normalized Relative Strength & Dynamic Retest Validation",
+      "status": "out_of_library_scope",
+      "status_basis": "asserted",
+      "composition": "none",
+      "asserted": {
+        "by": "PO",
+        "date": "2026-10-29",
+        "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
+        "record_ref": "§3 out of library scope",
+        "basis": "ruling"
+      },
+      "outputs": [],
+      "delivering_release": null,
+      "evidence": [],
+      "note": "Cross-scanner rule engine with options inputs."
+    },
+    {
+      "design_id": "W5",
+      "family": "watchlists",
+      "kind": "watchlist_rule",
+      "title": "System watchlist feed, 20-session strip, list lifecycle",
+      "design_ref": "watchlist-stories.md:172",
+      "design_section": "Story WL-04: Meta-Watchlist Evaluator & Priority Classification",
+      "status": "out_of_library_scope",
+      "status_basis": "asserted",
+      "composition": "none",
+      "asserted": {
+        "by": "PO",
+        "date": "2026-10-29",
+        "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
+        "record_ref": "§3 out of library scope",
+        "basis": "ruling"
+      },
+      "outputs": [],
+      "delivering_release": null,
+      "evidence": [],
+      "note": "Product feature."
+    },
+    {
+      "design_id": "L1",
+      "family": "scanner-lifecycle",
+      "kind": "lifecycle",
+      "title": "Candidate occurrence and episode identity, match history",
+      "design_ref": "scanner-lifecycle-stories.md:108",
+      "design_section": "Story SC-03: Cross-Asset Equity-Option Confluence & Divergence",
+      "status": "out_of_library_scope",
+      "status_basis": "asserted",
+      "composition": "none",
+      "asserted": {
+        "by": "PO",
+        "date": "2026-10-29",
+        "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
+        "record_ref": "§3 out of library scope",
+        "basis": "ruling"
+      },
+      "outputs": [],
+      "delivering_release": null,
+      "evidence": [],
+      "note": "Consumer lifecycle."
+    },
+    {
+      "design_id": "L2",
+      "family": "scanner-lifecycle",
+      "kind": "lifecycle",
+      "title": "Forward excursion (MFE/MAE), 1d-45d horizons, benchmark alpha",
+      "design_ref": "scanner-lifecycle-stories.md:136",
+      "design_section": "Story SC-04: Candidate Occurrence & 45-Session Episode Management",
+      "status": "partial",
+      "status_basis": "asserted",
+      "composition": "none",
+      "asserted": {
+        "by": "PO",
+        "date": "2026-10-29",
+        "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
+        "record_ref": "§1 intro and §4 (classifications not adjusted stand)",
+        "basis": "adopted_from_parity_check"
+      },
+      "outputs": [],
+      "delivering_release": null,
+      "evidence": [],
+      "note": "The labels package gives elapsed-horizon price-return labels only; no MFE/MAE or benchmark difference. The design bans per-candidate outcomes."
+    },
+    {
+      "design_id": "L3",
+      "family": "scanner-lifecycle",
+      "kind": "lifecycle",
+      "title": "Origin inspector; evidence at the moment; not matched versus unavailable",
+      "design_ref": "scanner-lifecycle-stories.md:165",
+      "design_section": "Story SC-05: Forward Excursion (MFE / MAE) & Horizon Outcome Engine",
+      "status": "partial",
+      "status_basis": "asserted",
+      "composition": "none",
+      "asserted": {
+        "by": "PO",
+        "date": "2026-10-29",
+        "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
+        "record_ref": "§1 intro and §4 (classifications not adjusted stand)",
+        "basis": "adopted_from_parity_check"
+      },
+      "outputs": [],
+      "delivering_release": null,
+      "evidence": [],
+      "note": "The library keeps unavailable states and evidence rows; presentation is consumer work."
+    },
+    {
+      "design_id": "T1",
+      "family": "strategies",
+      "kind": "strategy",
+      "title": "Strategy object: selection, entry price rules, management, closure, versions",
+      "design_ref": "strategies.md:11",
+      "design_section": "2.1 The Strategy object",
+      "status": "out_of_library_scope",
+      "status_basis": "asserted",
+      "composition": "none",
+      "asserted": {
+        "by": "PO",
+        "date": "2026-10-29",
+        "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
+        "record_ref": "§3 out of library scope",
+        "basis": "ruling"
+      },
+      "outputs": [],
+      "delivering_release": null,
+      "evidence": [],
+      "note": "Strategy engine; candidate entry prices can come from session.regular.first_trade_price and reference.close outputs."
+    },
+    {
+      "design_id": "T2",
+      "family": "strategies",
+      "kind": "strategy",
+      "title": "Combine conditions together or sequentially (up to 3 steps, window)",
+      "design_ref": "strategies.md:57",
+      "design_section": "2.8 Reference price rules (`WL86`)",
+      "status": "out_of_library_scope",
+      "status_basis": "asserted",
+      "composition": "none",
+      "asserted": {
+        "by": "PO",
+        "date": "2026-10-29",
+        "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
+        "record_ref": "§3 out of library scope",
+        "basis": "ruling"
+      },
+      "outputs": [],
+      "delivering_release": null,
+      "evidence": [],
+      "note": "The strategies package is AND-only; no sequence."
+    },
+    {
+      "design_id": "T3",
+      "family": "strategies",
+      "kind": "strategy",
+      "title": "Backtests, variants, evidence class per version",
+      "design_ref": "strategies.md:26",
+      "design_section": "2.4 Backtests and variants",
+      "status": "out_of_library_scope",
+      "status_basis": "asserted",
+      "composition": "none",
+      "asserted": {
+        "by": "PO",
+        "date": "2026-10-29",
+        "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
+        "record_ref": "§3 out of library scope",
+        "basis": "ruling"
+      },
+      "outputs": [],
+      "delivering_release": null,
+      "evidence": [],
+      "note": "Not a library item."
+    },
+    {
+      "design_id": "T4",
+      "family": "strategies",
+      "kind": "catalogue",
+      "title": "Condition catalogue (keys, params, pins, availability, retirement, S/E/M/V/A flags)",
+      "design_ref": "condition-catalogue.md:12",
+      "design_section": "2.1 What a condition is",
+      "status": "partial",
+      "status_basis": "asserted",
+      "composition": "none",
+      "asserted": {
+        "by": "PO",
+        "date": "2026-10-29",
+        "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
+        "record_ref": "§1 intro and §4 (classifications not adjusted stand)",
+        "basis": "adopted_from_parity_check"
+      },
+      "outputs": [],
+      "delivering_release": null,
+      "evidence": [],
+      "note": "Registries give feature id, unit, algorithm version, minimum period, digest and refusal codes; no selection/entry/management/alert flags and no availability-by-source mapping."
+    },
+    {
+      "design_id": "T5",
+      "family": "strategies",
+      "kind": "chart",
+      "title": "Chart indicator series (MA, bands, oscillators, pivots, Fibonacci as plotted lines)",
+      "design_ref": "chart.md:47",
+      "design_section": "2.4 Condition markers: which conditions can be drawn",
+      "status": "partial",
+      "status_basis": "asserted",
+      "composition": "none",
+      "asserted": {
+        "by": "PO",
+        "date": "2026-10-29",
+        "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
+        "record_ref": "§1 intro and §4 (classifications not adjusted stand)",
+        "basis": "adopted_from_parity_check"
+      },
+      "outputs": [],
+      "delivering_release": null,
+      "evidence": [],
+      "note": "Target-value calls only; no update/restore/merge for indicators, so no incremental series publisher."
+    },
+    {
+      "design_id": "T6",
+      "family": "strategies",
+      "kind": "alert",
+      "title": "Alert rule types on conditions (crossing, group, sequence)",
+      "design_ref": "price-technicals.md:164",
+      "design_section": "2.6 Alerts",
+      "status": "out_of_library_scope",
+      "status_basis": "asserted",
+      "composition": "none",
+      "asserted": {
+        "by": "PO",
+        "date": "2026-10-29",
+        "record": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
+        "record_ref": "§3 out of library scope",
+        "basis": "ruling"
+      },
+      "outputs": [],
+      "delivering_release": null,
+      "evidence": [],
+      "note": "Alert engine."
+    }
+  ],
+  "extras": [
+    {
+      "extra_id": "X1",
+      "title": "OBV, A/D line, Chaikin money flow",
+      "outputs": [
+        {
+          "id": "intraday.obv",
+          "release": "EF2"
+        },
+        {
+          "id": "intraday.ad_line",
+          "release": "EF2"
+        },
+        {
+          "id": "intraday.cmf",
+          "release": "EF2"
+        }
+      ],
+      "note": "Design says OBV goes to the volume radar but lists no OBV or CMF row: a design gap."
+    },
+    {
+      "extra_id": "X2",
+      "title": "Band-width percentile",
+      "outputs": [
+        {
+          "id": "channel.band_width.percentile",
+          "release": "EF2"
+        }
+      ],
+      "note": "P4 mentions squeeze, not the width percentile."
+    },
+    {
+      "extra_id": "X3",
+      "title": "Quote dynamics: microprice, midpoint change counts, sampled maxima",
+      "outputs": [
+        {
+          "id": "quote.microprice.last",
+          "release": "EF4"
+        },
+        {
+          "id": "quote.microprice.mean",
+          "release": "EF4"
+        },
+        {
+          "id": "quote.change.midpoint_change_count",
+          "release": "EF4"
+        },
+        {
+          "id": "quote.sampled.maximum_spread",
+          "release": "EF4"
+        }
+      ],
+      "note": "Closest design item is V14; not a condition."
+    },
+    {
+      "extra_id": "X4",
+      "title": "Tape rolling windows, tick-rule net volume and notional",
+      "outputs": [
+        {
+          "id": "tape.window.volume",
+          "release": "EF4"
+        },
+        {
+          "id": "tape.window.notional",
+          "release": "EF4"
+        },
+        {
+          "id": "tape.tick.net_notional",
+          "release": "EF4"
+        }
+      ],
+      "note": "Proxies for V18; also standalone."
+    },
+    {
+      "extra_id": "X5",
+      "title": "Rate projections (trade, notional, share-volume rate, return-rate difference)",
+      "outputs": [
+        {
+          "id": "rate.window.trade_rate",
+          "release": "EF4"
+        },
+        {
+          "id": "rate.window.notional_rate",
+          "release": "EF4"
+        },
+        {
+          "id": "rate.window.share_volume_rate",
+          "release": "EF4"
+        },
+        {
+          "id": "rate.window.return_rate_difference",
+          "release": "EF4"
+        }
+      ],
+      "note": "No design item."
+    },
+    {
+      "extra_id": "X6",
+      "title": "Path displacement, length, true-range sum",
+      "outputs": [
+        {
+          "id": "path.net_displacement",
+          "release": "EF4"
+        },
+        {
+          "id": "path.path_length",
+          "release": "EF4"
+        },
+        {
+          "id": "path.true_range_sum",
+          "release": "EF4"
+        }
+      ],
+      "note": "Beyond P9 trend efficiency."
+    },
+    {
+      "extra_id": "X7",
+      "title": "Up/down session and volume projections",
+      "outputs": [
+        {
+          "id": "projection.up_session_fraction",
+          "release": "EF4"
+        },
+        {
+          "id": "projection.down_session_fraction",
+          "release": "EF4"
+        },
+        {
+          "id": "projection.up_volume_fraction",
+          "release": "EF4"
+        }
+      ],
+      "note": "Design has V10 and breadth only."
+    },
+    {
+      "extra_id": "X8",
+      "title": "Session clock fractions, anchored VWAP and volume, period and extended aggregates, gap endpoints, close reconciliation",
+      "outputs": [
+        {
+          "id": "session.clock.regular_fraction",
+          "release": "EF1"
+        },
+        {
+          "id": "session.anchor.volume",
+          "release": "EF1"
+        },
+        {
+          "id": "session.anchor.notional",
+          "release": "EF1"
+        },
+        {
+          "id": "calendar.period.scheduled_sessions",
+          "release": "EF1"
+        },
+        {
+          "id": "reference.close.comparison_state",
+          "release": "EF1"
+        }
+      ],
+      "note": "Foundations; no design row."
+    },
+    {
+      "extra_id": "X9",
+      "title": "Strategies package: exact ranking and top-k",
+      "outputs": [],
+      "note": "Package, not an output id. The design forbids client-visible rank or score; internal use only."
+    },
+    {
+      "extra_id": "X10",
+      "title": "Evidence, explanations, diagnostics, conformance, agent-evidence, agent-ledger, continuous",
+      "outputs": [],
+      "note": "Platform and audit packages, not output ids."
+    },
+    {
+      "extra_id": "X11",
+      "title": "Adaptive-volume event timestamps, robust MAD and quantile, cohort rank, swing structure",
+      "outputs": [
+        {
+          "id": "adaptive.volume.peak_relative_rate_event_ns",
+          "release": "EF3"
+        },
+        {
+          "id": "robust.mad",
+          "release": "EF3"
+        },
+        {
+          "id": "robust.quantile",
+          "release": "EF3"
+        },
+        {
+          "id": "cohort.rank",
+          "release": "EF3"
+        },
+        {
+          "id": "structure.swing_high_confirmed",
+          "release": "EF5"
+        }
+      ],
+      "note": "Superset of V7 and a base for S2."
+    }
+  ]
+}
