@@ -1,6 +1,6 @@
 # Template: decision row
 
-> Part of the portable playbook. See `../DECISIONS-PROCESS.md` for statuses and numbering.
+> Part of the portable playbook. In this project DECISIONS.md is a dated append-only bullet list at the repo root without id prefixes: write `- YYYY-MM-DD: <role> decision (decided, pending owner review): ...` and keep rows contiguous. The id-based table below applies only if the log is ever converted. See `../DECISIONS-PROCESS.md` for statuses and numbering.
 
 ```markdown
 | {{PREFIX}}{{N}} | {{YYYY-MM-DD}} | {{What is decided, one decision, plain words. Cite the rule or document it applies.}} | {{Why. The alternative rejected and why.}} | {{Low: documents only. / Medium: contract X and boards Y change. / High: ...}} | {{Claude, <Role> role}} | decided, pending owner review |

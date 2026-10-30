@@ -11,11 +11,11 @@
 0. docs/planning/REQUIREMENTS-DIGEST.md (every agent, before any brief)
 1. {{principles file}}
 2. {{product map and feature index}}
-3. docs/DECISIONS.md (decided and pending); open decisions you must not guess
+3. DECISIONS.md at the repo root (decided and pending); open decisions you must not guess
 4. Top entries of CHANGELOG.md (what changed, what was not verified)
-5. docs/planning/AUTONOMY-CHARTER.md (how the team runs, the three reviews), DEFINITIONS.md, ORDERED-BACKLOG.md; release documents in docs/releases/<release>/
+5. docs/playbook/ (how the team runs; ADOPTION.md first), docs/planning/DEFINITIONS.md and RELEASE-MAP.md; release documents in docs/releases/<release>/
 6. docs/architecture/ (system design, audit, ports and adapters)
-7. playbook/: portable team playbook
+7. docs/COORDINATOR_WORKING_AGREEMENT.md (data, adapters, workers, review)
 
 ## Map
 | Path | What | Edit how |   (one row per folder; say which files are generated)
@@ -52,4 +52,4 @@ Scripts beat memory. Each is a small program with exit code non-zero on failure,
 | Render script | Renders boards to PNG and static HTML so reviewers can see them; stated limits | A way to review visuals at all |
 | Decision-id check (suggested) | Ids unique, ranges respected, every cited id exists | Collisions and dangling references |
 
-Rules for checks: all pass on main, so a failure is the author's; never add to a baseline to hide new drift; a check that cannot run says so in "Not verified".
+In this project the check set is `python tools/pre_merge_check.py` (boundary, delivery replan, verify_*), the builders for any pin that moves, and the pin checker; the rows below on boards, tokens, contrast, copy and render do not apply (no design repo). Rules for checks: all pass on main, so a failure is the author's; never add to a baseline to hide new drift; a check that cannot run says so in "Not verified".

@@ -62,7 +62,7 @@ Then add the first check script (a sync or count check) and list it in `AGENTS.m
 | `LIFECYCLE.md` | Release 0 and kickoff, story flow, Ready and Done, demos, defects, closure |
 | `DECISIONS-PROCESS.md` | Decision log format, statuses, numbering, amendments |
 | `VARIANTS.md` | Code project with tests and CI, no-UI project, solo team, several repos, session setup |
-| `TEMPLATES/` | pull-request-template, decision-row, story, design-brief, release-readiness, owner-review-guide, agents-md-and-checks, definitions-and-backlog, agent-prompts |
+| `TEMPLATES/` | pull-request-template, decision-row, story, release-readiness, owner-review-guide, agents-md-and-checks, definitions-and-backlog, agent-prompts |
 | `ADOPTION.md` | Project-specific choices and what was not adopted |
 | `OPERATING-LESSONS.md` | What went wrong or nearly did, and the fix |
 

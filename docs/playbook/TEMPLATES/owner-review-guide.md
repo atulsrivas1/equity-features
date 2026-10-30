@@ -17,14 +17,13 @@
 | # | Decision | Recommendation | If you say nothing |
 |---|---|---|---|
 | 1 | Approve the working model, the charter and the three-review rule | Approve | Team starts as written |
-| 2 | {{Legal: engage a lawyer now or later}} | {{...}} | {{...}} |
 | 3 | {{Each owner-level item with a provisional decision}} | {{...}} | {{...}} |
 
 Items not answered keep their provisional decisions and are listed in the readiness file.
 
 ## Risks (in order)
 1. {{Lead time of an outside answer and what a late answer would change.}}
-2. {{What cannot be verified yet (missing tool, no real screen reader, unreviewed boards).}}
+2. {{What cannot be verified yet (missing tool, no Linux machine, unratified E1-E9).}}
 3. {{Throughput: reviews and the single Tester, not coding, set the pace.}}
 4. {{Contracts not agreed with the system of record.}}
 5. Autonomy drift: the stop condition and reporting points are the control; reverse the model by amending the three decisions.
