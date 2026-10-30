@@ -200,23 +200,26 @@ def check_frozen_files(problems: list[str]) -> None:
     if extra:
         problems.append(f"frozen EF1-EF5 files differ from origin/main: {extra}")
     if "docs/ef4/EF4_ERRATA.md" in changed:
-        # Append-only: the 4-line entry of DV1-0, and later a cross-reference line (the C3 description-only change); nothing deleted.
+        # Bounded and append-only: the single cross-reference line of the C3 change (blank + line); nothing deleted.
         stat = git("diff", "--numstat", "origin/main", "--", "docs/ef4/EF4_ERRATA.md").stdout.split()
-        if stat[1:2] != ["0"]:
-            problems.append(f"EF4_ERRATA.md must be an addition only, got {stat[:2]}")
+        if stat[:2] != ["2", "0"]:
+            problems.append(f"EF4_ERRATA.md may add only the single cross-reference line (blank + line), got {stat[:2]}")
 
 
-_LABEL = re.compile(r'("(?:backend_version|canonical_package_version|contracts_version)":\s*")[0-9][^"]*(")')
+# The coordinated bump DV1-4 (docs/PRERELEASE_BUMP_DV1.md): the only label moves allowed in frozen EF1 oracle files, key -> (old, new).
+BUMP_LABELS = {"backend_version": ("0.0.4a6", "0.0.4a7"), "canonical_package_version": ("0.0.4a5", "0.0.4a6"),
+               "contracts_version": ("0.0.4a5", "0.0.4a6")}
 
 
 def version_label_only(git: Callable[..., subprocess.CompletedProcess[str]], path: str) -> bool:
-    """A coordinated pre-release bump may relabel `backend_version`, `canonical_package_version` and `contracts_version` values in
-    the frozen EF1 oracle files (docs/PRERELEASE_BUMP_*.md); any other difference from origin/main is still a failure."""
+    """True only if the file equals origin/main after replacing exactly the old label of each BUMP_LABELS key with its new label."""
     if not path.startswith("docs/ef1/") or not path.endswith(".json"):
         return False
     old = subprocess.run(["git", "show", f"origin/main:{path}"], cwd=ROOT, capture_output=True, check=False).stdout.decode("utf-8")
     new = (ROOT / path).read_bytes().decode("utf-8")
-    return bool(old) and _LABEL.sub(r"\1X\2", old) == _LABEL.sub(r"\1X\2", new)
+    for key, (was, now) in BUMP_LABELS.items():
+        old = old.replace(f'"{key}": "{was}"', f'"{key}": "{now}"')
+    return bool(old) and old == new
 
 
 def main() -> int:
