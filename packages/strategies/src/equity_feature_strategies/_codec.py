@@ -12,7 +12,7 @@ from equity_feature_contracts import inputs as i, results as r, specs as s
 from . import _model as m
 
 # The one contracts version this distribution is built against (pinned in pyproject.toml; tools/verify_versions.py checks both).
-_CONTRACTS_VERSION = "0.0.4a5"
+_CONTRACTS_VERSION = "0.0.4a6"
 
 # Exact labels and fields from the accepted v1 record whitelist, never __dict__/pickle.
 RECORDS: dict[type[object], tuple[str, tuple[str, ...]]] = {

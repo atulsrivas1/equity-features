@@ -7,7 +7,7 @@
     "value": {
       "algorithm": "sha256",
       "canonicalization": "typed-json-v1",
-      "contracts_version": "0.0.4a5",
+      "contracts_version": "0.0.4a6",
       "domain": "configuration",
       "project": "equity-features",
       "schema_version": "1",
@@ -83,7 +83,7 @@
       }
     },
     "bytes": 1186,
-    "sha256": "84623ae5ac7b5d30f2683822b11db487d37c3166f00265c09aa61c30ff8c2a67",
+    "sha256": "0ff0458e4d944d7a02f892811ab0f873d695a7bee19722ea30ae61b2a9401d65",
     "public_ConfigSpec_JSON": {
       "adjustment": {
         "action_snapshot": "none",
@@ -138,7 +138,7 @@
     "value": {
       "algorithm": "sha256",
       "canonicalization": "typed-json-v1",
-      "contracts_version": "0.0.4a5",
+      "contracts_version": "0.0.4a6",
       "domain": "canonical_batch",
       "project": "equity-features",
       "schema_version": "1",
@@ -305,12 +305,12 @@
       }
     },
     "bytes": 1751,
-    "sha256": "4aa0d78488ea20c5d53dafb9e3ff2afceb70eeb2b82f33bed7bcd43dab5001af"
+    "sha256": "0cec0e20605411be2a0d28f1b53c8d46963186eae7a99e32a88be0e9574d3d31"
   },
   "future_batch_typed_json": {
     "algorithm": "sha256",
     "canonicalization": "typed-json-v1",
-    "contracts_version": "0.0.4a5",
+    "contracts_version": "0.0.4a6",
     "domain": "canonical_batch",
     "project": "equity-features",
     "schema_version": "1",
@@ -498,7 +498,7 @@
             "record": "specs.AvailabilitySpec"
           },
           "backend_id": "python-exact",
-          "backend_version": "0.0.4a6",
+          "backend_version": "0.0.4a7",
           "config_digest": "ddc1b3b90e8d3333f31c268228e472aa440029f3f6ba7d72745d2f0096c3c931",
           "evidence_limit": {
             "int": "0"
@@ -871,7 +871,7 @@
             "record": "specs.AvailabilitySpec"
           },
           "backend_id": "python-exact",
-          "backend_version": "0.0.4a6",
+          "backend_version": "0.0.4a7",
           "config_digest": "ddc1b3b90e8d3333f31c268228e472aa440029f3f6ba7d72745d2f0096c3c931",
           "evidence_limit": {
             "int": "0"
@@ -1462,7 +1462,7 @@
           "kind": "knowledge_time",
           "content": {
             "domain": "canonical_batch",
-            "digest": "4aa0d78488ea20c5d53dafb9e3ff2afceb70eeb2b82f33bed7bcd43dab5001af",
+            "digest": "0cec0e20605411be2a0d28f1b53c8d46963186eae7a99e32a88be0e9574d3d31",
             "byte_length": 1751,
             "schema_version": "1",
             "canonicalization": "typed-json-v1",
@@ -1481,7 +1481,7 @@
           "kind": "knowledge_time",
           "content": {
             "domain": "canonical_batch",
-            "digest": "4aa0d78488ea20c5d53dafb9e3ff2afceb70eeb2b82f33bed7bcd43dab5001af",
+            "digest": "0cec0e20605411be2a0d28f1b53c8d46963186eae7a99e32a88be0e9574d3d31",
             "byte_length": 1751,
             "schema_version": "1",
             "canonicalization": "typed-json-v1",
@@ -1500,7 +1500,7 @@
           "kind": "knowledge_time",
           "content": {
             "domain": "canonical_batch",
-            "digest": "4aa0d78488ea20c5d53dafb9e3ff2afceb70eeb2b82f33bed7bcd43dab5001af",
+            "digest": "0cec0e20605411be2a0d28f1b53c8d46963186eae7a99e32a88be0e9574d3d31",
             "byte_length": 1751,
             "schema_version": "1",
             "canonicalization": "typed-json-v1",
@@ -1560,7 +1560,7 @@
           "kind": "knowledge_time",
           "content": {
             "domain": "canonical_batch",
-            "digest": "bbb3c55d9dd3693a0e5b4dd1659000e02ee50faf846d84fe2150106122bebc0a",
+            "digest": "50cda51aa2de6fec09830798d187bfa637e84bf0d96029a89102a6cce596e050",
             "byte_length": 1751,
             "schema_version": "1",
             "canonicalization": "typed-json-v1",
@@ -1579,7 +1579,7 @@
           "kind": "knowledge_time",
           "content": {
             "domain": "canonical_batch",
-            "digest": "bbb3c55d9dd3693a0e5b4dd1659000e02ee50faf846d84fe2150106122bebc0a",
+            "digest": "50cda51aa2de6fec09830798d187bfa637e84bf0d96029a89102a6cce596e050",
             "byte_length": 1751,
             "schema_version": "1",
             "canonicalization": "typed-json-v1",
@@ -1598,7 +1598,7 @@
           "kind": "knowledge_time",
           "content": {
             "domain": "canonical_batch",
-            "digest": "bbb3c55d9dd3693a0e5b4dd1659000e02ee50faf846d84fe2150106122bebc0a",
+            "digest": "50cda51aa2de6fec09830798d187bfa637e84bf0d96029a89102a6cce596e050",
             "byte_length": 1751,
             "schema_version": "1",
             "canonicalization": "typed-json-v1",
@@ -1637,7 +1637,7 @@
   "strict_input_fingerprints": {
     "clean": {
       "domain": "canonical_batch",
-      "digest": "4aa0d78488ea20c5d53dafb9e3ff2afceb70eeb2b82f33bed7bcd43dab5001af",
+      "digest": "0cec0e20605411be2a0d28f1b53c8d46963186eae7a99e32a88be0e9574d3d31",
       "byte_length": 1751,
       "schema_version": "1",
       "canonicalization": "typed-json-v1",
@@ -1645,7 +1645,7 @@
     },
     "future": {
       "domain": "canonical_batch",
-      "digest": "bbb3c55d9dd3693a0e5b4dd1659000e02ee50faf846d84fe2150106122bebc0a",
+      "digest": "50cda51aa2de6fec09830798d187bfa637e84bf0d96029a89102a6cce596e050",
       "byte_length": 1751,
       "schema_version": "1",
       "canonicalization": "typed-json-v1",

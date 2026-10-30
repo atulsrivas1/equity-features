@@ -30,7 +30,7 @@ def evaluate(packet):
 
 class RegularBarPricePackets(unittest.TestCase):
     def test_immutable_oracle(self):
-        self.assertEqual(hashlib.sha256(ORACLE_BYTES).hexdigest(), '70fcaff8038d416f8cbc00340c7084fa106944c85a8e1ec4088d3b4b5149db96')
+        self.assertEqual(hashlib.sha256(ORACLE_BYTES).hexdigest(), 'bd057b4042e1274ae46a8653debae90e275087f6448780f491c33a2a691bbaf0')
         self.assertEqual(len(PACKETS), 100)
 
     def test_complete_result_literals(self):

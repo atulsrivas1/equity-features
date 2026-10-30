@@ -9,7 +9,7 @@ from equity_feature_contracts import inputs as i, results as r, specs as s
 from . import _model as m
 
 # The one contracts version this distribution is built against (pinned in pyproject.toml; tools/verify_versions.py checks both).
-_CONTRACTS_VERSION = "0.0.4a5"
+_CONTRACTS_VERSION = "0.0.4a6"
 MAX_CONTENT_BYTES = 32 * 1024 * 1024
 MAX_CONTENT_NODES = 1000000
 MAX_CONTENT_DEPTH = 24

@@ -35,7 +35,7 @@ FORMS = ('wheel-light', 'wheel-compute', 'sdist-light', 'sdist-compute')
 FILES = ('bundle.zip', 'plain-log.json', 'events.json', 'ledger.sqlite',
          'terminals.json', 'reports.json', 'observations.json', 'completion.json')
 CAPS = dict(zip(FILES, (1048576, 32768, 131072, None, 16384, 65536, 16384, 16384), strict=True))
-ORACLE_SHA256 = '30aec747d0483ae3e95faabf704fbd37d2fa8cd40882eb3ba1c2518e6932a98a'
+ORACLE_SHA256 = 'a9f7e24e2463140c76b66094586abd942e0732cec807505d81db082c23b1dc9d'
 
 
 class PilotError(ValueError):

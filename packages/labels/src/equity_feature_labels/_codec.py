@@ -8,7 +8,7 @@ from equity_feature_contracts import AvailabilitySpec, __version__ as CORE_VERSI
 from . import _model as m
 
 # The one contracts version this distribution is built against (pinned in pyproject.toml; tools/verify_versions.py checks both).
-_CONTRACTS_VERSION = "0.0.4a5"
+_CONTRACTS_VERSION = "0.0.4a6"
 
 RECORDS: dict[type[object], tuple[str, tuple[str, ...]]] = {
     AvailabilitySpec: ('specs.AvailabilitySpec', ('market_cutoff_ns', 'knowledge_cutoff_ns', 'evaluation_ns', 'mode', 'reconstruction_reason')),

@@ -18,7 +18,7 @@ class ArchiveChecks(unittest.TestCase):
             if path.is_file() and '__pycache__' not in relative.parts and not path.name.endswith(('.pyc','.pyo')):
                 target=self.source/relative;target.parent.mkdir(parents=True,exist_ok=True);target.write_bytes(path.read_bytes())
         self.project=tomllib.loads((self.source/'pyproject.toml').read_text(encoding='utf-8'))['project']
-        self.module='equity_feature_agent_evidence';self.version='0.1.0a2'
+        self.module='equity_feature_agent_evidence';self.version='0.1.0a3'
 
     def tearDown(self):self.owned.cleanup()
 

@@ -100,7 +100,7 @@ class ExplanationTests(unittest.TestCase):
     def test_independent_zero_reference_wire(self):
         expected = (Path(__file__).parents[2] / 'docs/stories/EQ-099_EXPLANATION_ORACLE.json').read_bytes()
         self.assertEqual((len(expected), hashlib.sha256(expected).hexdigest()),
-            (3829, '2e5487fb5c7bf50fc66014f44c6ba560117450698b55c03290f9d531f265acd6'))
+            (3829, '449216cc69f46677a26532e9e010431148cbf2310118f0aaa10c11ab15ad8820'))
         value = self.operation()
         self.assertEqual(encode_explanation(value), expected)
         self.assertEqual((value.displayed_count, value.omitted_retained_count), (0, 0))
@@ -109,7 +109,7 @@ class ExplanationTests(unittest.TestCase):
     def test_independent_retained_excluded_wire(self):
         expected = (Path(__file__).parents[2] / 'docs/stories/EQ-099_REFERENCE_ORACLE.json').read_bytes()
         self.assertEqual((len(expected), hashlib.sha256(expected).hexdigest()),
-            (4180, 'fb8ae1d43ceab18fc68c41fe2c2fc252f63d5798a23894cb1f2fc5cb4e2a58fe'))
+            (4180, '23bf91a303db93e1e83d7ac17791177805d0ba1d31741c063581427b74e476d1'))
         value = self.operation(retained(), evidence_limit=1)
         self.assertEqual(encode_explanation(value), expected)
         self.assertEqual(value.evidence[0].index, 0)
@@ -174,7 +174,7 @@ class ExplanationTests(unittest.TestCase):
                          (3, 10, 1011, 101.1, 10 / 3))
         self.assertEqual(legacy[2].quality[0], QualityRow(legacy[4], legacy[5], Status.AVAILABLE, 3, 3))
         self.assertNotEqual(legacy[3].output, current[3].output)
-        for values, version in ((legacy, '0.0.4a4'), (declared_trade_fixture('0.0.4a5'), '0.0.4a5'), (current, CURRENT_BACKEND)):
+        for values, version in ((legacy, '0.0.4a4'), (declared_trade_fixture('0.0.4a5'), '0.0.4a5'), (declared_trade_fixture('0.0.4a6'), '0.0.4a6'), (current, CURRENT_BACKEND)):
             explanation = self.operation(values)
             self.assertEqual(explanation.quality, values[2].quality[0])
             self.assertEqual(explanation.receipt.metadata.backend_version, version)

@@ -180,7 +180,7 @@ def fixture(future_known: bool = False) -> tuple[c.ConfigSpec, c.CanonicalBatch,
     quality = tuple(c.QualityRow(entity,fid,c.Status.MISSING_INPUT if future_known else c.Status.AVAILABLE,
         3,3,(c.Reason.FUTURE_KNOWLEDGE,) if future_known else ()) for fid,_,_,_ in descriptions)
     metadata = c.ResultMetadata('demo','S',cfg.availability,cfg.digest,
-        (c.InputBinding('trades',batch.kind,batch.metadata),),'python-exact','0.0.4a6')
+        (c.InputBinding('trades',batch.kind,batch.metadata),),'python-exact','0.0.4a7')
     return cfg,batch,c.FeatureResult(values,quality,metadata)
 
 
@@ -319,7 +319,7 @@ def record(store: Any, records: tuple[Any,...], expected_before: Any) -> Any:
 
 # Fixed complete public producer fixture, not a reconstructed transport receipt.
 _PRODUCER = {'backend_id': 'python-exact',
- 'backend_version': '0.0.4a6',
+ 'backend_version': '0.0.4a7',
  'columns': [{'algorithm_version': 'v1',
               'dtype': 'int64',
               'entities': [{'instrument_id': 'A', 'session_id': 'S'}],
@@ -394,7 +394,7 @@ _PRODUCER = {'backend_id': 'python-exact',
                                           'name': 'AvailabilitySpec',
                                           'type': 'record'},
                          'backend_id': {'type': 'string', 'value': 'python-exact'},
-                         'backend_version': {'type': 'string', 'value': '0.0.4a6'},
+                         'backend_version': {'type': 'string', 'value': '0.0.4a7'},
                          'config_digest': {'type': 'string',
                                            'value': 'ddc1b3b90e8d3333f31c268228e472aa440029f3f6ba7d72745d2f0096c3c931'},
                          'evidence_limit': {'type': 'int64', 'value': '0'},

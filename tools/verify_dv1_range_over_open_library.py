@@ -188,8 +188,9 @@ def catalog_checks() -> None:
     import equity_feature_contracts as contracts
     import equity_features
     from _versions import VERSIONS
-    check("versions unchanged in C1", (contracts.__version__, equity_features.__version__) == ("0.0.4a5", "0.0.4a6")
-          and (VERSIONS["contracts"], VERSIONS["features"]) == ("0.0.4a5", "0.0.4a6"),
+    check("versions moved with the built-in in the C2 bump (contracts a6, features a7, as tools/_versions.py)",
+          (contracts.__version__, equity_features.__version__) == ("0.0.4a6", "0.0.4a7")
+          and (VERSIONS["contracts"], VERSIONS["features"]) == ("0.0.4a6", "0.0.4a7"),
           f"{contracts.__version__} {equity_features.__version__}")
     # a non-positive open is refused at canonical admission (contract C8); the defensive zero branch is not reachable
     unit = PriceUnit(0, "USD")

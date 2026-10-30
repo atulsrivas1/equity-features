@@ -51,7 +51,7 @@ def evaluate(case):
 
 class FirstTradePackets(unittest.TestCase):
     def test_immutable_complete_oracle(self):
-        self.assertEqual(hashlib.sha256(ORACLE_BYTES).hexdigest(), "e4cd2ec2f97c43012884a7676d7bb6b81e3643ecbe88ebccb9ac251f9bcd6a44")
+        self.assertEqual(hashlib.sha256(ORACLE_BYTES).hexdigest(), "b57ac7221508310cdc812f718b19287c9e23604fddcab6a676cb4407bfdd9997")
         self.assertEqual((len(OUTCOMES), len(REFUSALS), len(ORACLE["worker_result_cases"])), (122, 159, 17))
 
     def test_complete_result_literals_and_exact_float(self):
