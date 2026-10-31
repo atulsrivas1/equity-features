@@ -90,6 +90,13 @@
 - **Contract:** core `BAR_IDS` (public after the core part); workers `docs/PRERELEASE_BUMP_DV1.md`.
 - **Data capability:** reads synthetic bars through the existing source adapter; server-side worker; degrades to a typed refusal on a missing id.
 
+### RL-01-15: CV1 generator and gate (CV6 folded in)
+- **Status (2026-10-31): Ready.** Lane io, size L, split into four PRs (rulings: [`po-rulings-rl01-15-2026-10-31.md`](../../plans/records/po-rulings-rl01-15-2026-10-31.md) and [`po-rulings-rl01-15-x7-2026-10-31.md`](../../plans/records/po-rulings-rl01-15-x7-2026-10-31.md)). The story text was not on main before this entry; it is defined here from `RELEASE-MAP.md`, the coverage-table record and these two rulings.
+- Generate the feature coverage table and its gate from `docs/plans/design-coverage-map.json` (the map stays in core). Every cited id resolves to one of four `contract_status` values: `frozen`, `proposed_not_frozen`, `core_registry`, `planned`.
+- No blank links; typed pointers allowed for `core_registry`, `proposed_not_frozen`, `planned`.
+- Acceptance, "seeded counts hold": the derived statuses equal the pinned counts in the core map and its validator (implemented 31 confirmed and 7 provisional, partial 46, missing 59, differs 6, out_of_library_scope 17, extras 11), row by row. The two rows P5 and P10 are `partial` because each cites an EF1 id that is proposed, not frozen (RL-01-20). Any other difference between derived and pinned fails the gate; there is no exception list. When RL-01-20 freezes the EF1 ids the derivation restores both rows (33 and 7) without a generator change, with the core map and pins restored in the RL-01-20 PR under its own PO record.
+- **Contract:** the core map and validator pins; io catalogue pages. **Data capability:** reads repository documents only; no source data.
+
 ### RL-01-20: EF1 proposed core contracts: catalogue pages once frozen
 - Lane io, size S. **Blocked** on the core freeze of the EF1 proposed contracts. Origin: PO ruling on io #71 (partial EF1 accepted).
 - Once core freezes them, generate the missing EF1 catalogue pages beside the existing families; INDEX.md and the unparsed-keys list updated; drift gate green.

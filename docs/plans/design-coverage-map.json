@@ -41,7 +41,9 @@
     "records": {
       "R1": "docs/plans/records/po-parity-reconciliation-2026-10-29.md",
       "R2": "docs/plans/records/po-rulings-coverage-table-2026-10-30.md",
-      "R3": "docs/plans/records/po-rulings-coverage-map-adoption-2026-10-30.md"
+      "R3": "docs/plans/records/po-rulings-coverage-map-adoption-2026-10-30.md",
+      "R4": "docs/plans/records/po-rulings-rl01-15-x7-2026-10-31.md",
+      "R5": "docs/plans/records/po-rulings-rl01-15-2026-10-31.md"
     }
   },
   "capability_gaps": {
@@ -401,7 +403,7 @@
       "title": "VWAP: above/below, reclaim, slope, deviation",
       "design_ref": "price-technicals.md:27",
       "design_section": "2.3 Conditions offered",
-      "status": "implemented",
+      "status": "partial",
       "status_basis": "derived",
       "composition": "consumer_arith",
       "outputs": [
@@ -458,7 +460,7 @@
           "ref": "docs/ef4/EF4_DELIVERY_EVIDENCE.md"
         }
       ],
-      "note": "Deviation, reclaim and rejection are consumer arithmetic."
+      "note": "Deviation, reclaim and rejection are consumer arithmetic. Cites EF1 output session.anchor.vwap, proposed not frozen (RL-01-20); partial by PO ruling Y2 (docs/plans/records/po-rulings-rl01-15-x7-2026-10-31.md), restores to implemented when RL-01-20 freezes the id."
     },
     {
       "design_id": "P6",
@@ -761,7 +763,7 @@
       "title": "Opening drive, consecutive trend windows, velocity, acceleration",
       "design_ref": "price-technicals.md:32",
       "design_section": "2.3 Conditions offered",
-      "status": "implemented",
+      "status": "partial",
       "status_basis": "derived",
       "composition": "none",
       "outputs": [
@@ -815,7 +817,7 @@
           "ref": "tools/verify_ef5_library.py"
         }
       ],
-      "note": "The status label is a consumer rule."
+      "note": "The status label is a consumer rule. Cites EF1 ids session.opening_drive.return, .excursion_up and .excursion_down, proposed not frozen (RL-01-20); partial by PO ruling Y1 (docs/plans/records/po-rulings-rl01-15-x7-2026-10-31.md), restores to implemented when RL-01-20 freezes the ids."
     },
     {
       "design_id": "P11",
