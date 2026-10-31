@@ -1,3 +1,9 @@
+## Coverage map: P5 and P10 partial (RL-01-15 X7) - October 31, 2026
+
+Rows P5 and P10 of `docs/plans/design-coverage-map.json` become `partial` (derived) because each cites an EF1 output that is proposed, not frozen (RL-01-20). Pinned counts in `tools/verify_design_coverage_map.py`: implemented 31 confirmed and 7 provisional, partial 46, missing 59, differs 6, out_of_library_scope 17; 11 extras. Adds the two PO ruling records under `docs/plans/records/`, the RL-01-15 story text in `docs/releases/RL-01/STORIES.md` (it was not on main before) and a DECISIONS line. Revert path: RL-01-20 freezes the EF1 ids and restores both rows in its own PR. Docs and tooling only (internal, synthetic, pre-release).
+
+Verified: `python tools/verify_design_coverage_map.py` passes with the new pins; a scratch copy with P5 restored to `implemented` fails the validator. Not verified: the io generator and gate (RL-01-15 PR1) are not built here; pre_merge_check results are in the PR body.
+
 ## DV1 reviewer-verdict record (RL-01-03) - October 31, 2026
 
 Adds `docs/qa/DV1_PR_REVIEWER_VERDICTS.md`, one row per merged DV1 PR (core, io, workers), sourced from PR text, DECISIONS.md and recorded verdict files; absent verdicts say "not recorded". Documents only (internal, synthetic, pre-release).

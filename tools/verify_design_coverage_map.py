@@ -64,7 +64,7 @@ COMPOSED = {
 # confirmed) must carry a `promotion_record` that resolves to a listed record section and, when the row becomes
 # implemented, an evidence entry of kind fixture that resolves (PO rulings 2026-10-30 section 2).
 BASELINE = dict(token.split(":") for token in """
-P1:P P2:P P3:I P4:P P5:I P6:V P7:P P8:I P9:I P10:I P11:P P12:P P13:P P14:V P15:D P16:M P17:V P18:M P19:M P20:I
+P1:P P2:P P3:I P4:P P5:P P6:V P7:P P8:I P9:I P10:P P11:P P12:P P13:P P14:V P15:D P16:M P17:V P18:M P19:M P20:I
 P21:I P22:M P23:M P24:I P25:V P26:I P27:O P28:O P29:O P30:P P31:P P32:P P33:P P34:P P35:P P36:V P37:V P38:P
 P39:P P40:D P41:D P42:D P43:M V1:I V2:I V3:I V4:I V5:O V5b:P V6:I V7:I V8:M V9:P V10:I V11:I V12a:D V12b:V
 V12c:M V13:P V14:P V15:M V16:M V17:P V18:P V19:P V20:M V21:I V22:I V23:M V24:M V25:M V26:M V27:M V28:M V29:M
@@ -77,8 +77,17 @@ W4:O W5:O L1:O L2:O L3:P T1:O T2:O T3:O T4:P T5:P T6:O
 STATUS_CODE = {"implemented": "I", "partial": "P", "missing": "M", "differs": "D", "out_of_library_scope": "O"}
 # Sections of the reconciliation record that can rule on a status class (basis `ruling`).
 RULING_SECTIONS = {"partial": {1}, "differs": {1, 2}, "implemented": {1}, "out_of_library_scope": {3}}
-# Final counts after the PO adoption record (2026-10-30): implemented confirmed 33 + provisional 7 (never summed).
-EXPECTED = {"implemented": 33, "provisional": 7, "partial": 44, "missing": 59, "differs": 6, "out_of_library_scope": 17}
+# Recorded departures from the adoption record seed (PO ruling RL-01-15 X7, 2026-10-31): P5 and P10 were seeded I and are
+# `partial` (derived) because each cites an EF1 output that is proposed, not frozen (RL-01-20). BASELINE above carries the
+# departed code. Id -> (ruling id in the record, EF1 outputs that cause it). No other row has a delivered-exception.
+# Revert path: when RL-01-20 freezes the EF1 ids, restore P5 and P10 to I and delete this table in the RL-01-20 PR.
+X7_RECORD = "docs/plans/records/po-rulings-rl01-15-x7-2026-10-31.md"
+X7_DEPARTURES = {
+    "P5": ("Y2", {"session.anchor.vwap"}),
+    "P10": ("Y1", {"session.opening_drive.return", "session.opening_drive.excursion_up", "session.opening_drive.excursion_down"}),
+}
+# Final counts after PO rulings 2026-10-30 (adoption) and 2026-10-31 (X7): implemented confirmed 31 + provisional 7 (never summed).
+EXPECTED = {"implemented": 31, "provisional": 7, "partial": 46, "missing": 59, "differs": 6, "out_of_library_scope": 17}
 GAP_CODE = re.compile(r"^G[1-9]$")
 EF_DOCS = ("docs/ef1", "docs/ef2")
 DESIGN_ID = re.compile(r"^[A-Z][0-9]+[a-z]?$")
@@ -276,6 +285,18 @@ def check(root: Path, design_root: Path | None = None) -> list[str]:
                 bad(where, "implemented cites DV1 outputs as primary or operand (delivery is per the PO; use role variant): %s" % planned)
             if not item["evidence"]:
                 bad(where, "implemented needs evidence")
+        elif did in X7_DEPARTURES:
+            ruling_id, ef1_ids = X7_DEPARTURES[did]
+            record_text = (root / X7_RECORD).read_text(encoding="utf-8") if (root / X7_RECORD).is_file() else ""
+            cited = {o["id"] for o in base}
+            if status != "partial" or item["status_basis"] != "derived" or asserted is not None or provisional:
+                bad(where, "%s is partial by derivation under ruling %s (EF1 not frozen): status partial, status_basis derived, no asserted block" % (did, ruling_id))
+            if not ef1_ids <= cited:
+                bad(where, "%s must still cite the EF1 outputs %s that make it partial" % (did, sorted(ef1_ids)))
+            if "| %s |" % ruling_id not in record_text or "RL-01-20" not in str(item.get("note", "")) or ruling_id not in str(item.get("note", "")):
+                bad(where, "%s: ruling %s must exist in %s and the note must name it and RL-01-20" % (did, ruling_id, X7_RECORD))
+            if records.get("R4") != X7_RECORD:
+                bad(where, "sources.records.R4 must be " + X7_RECORD)
         else:
             if asserted is None or item["status_basis"] != "asserted":
                 bad(where, status + " is asserted and needs an asserted block with a PO record")
