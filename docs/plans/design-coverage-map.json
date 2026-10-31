@@ -46,6 +46,21 @@
       "R5": "docs/plans/records/po-rulings-rl01-15-2026-10-31.md"
     }
   },
+  "pending_catalogue": {
+    "release": "DV1",
+    "expires_at": "CAT-DV1",
+    "note": "Time-boxed marker (RL-01-15 D2, X5). The io coverage table prints the DV1 banner while this key is present; the io gate fails when the catalogue already has the DV1 family, and CAT-DV1's PR removes this key. Covers only the planned DV1 ids listed here.",
+    "ids": [
+      "core.benchmark_return_range_fraction",
+      "core.benchmark_return_stdev_fraction",
+      "history.atr_simple_mean",
+      "history.window_high",
+      "history.window_low",
+      "relative.log_return_beta",
+      "relative.log_return_correlation",
+      "session.price.range_over_open"
+    ]
+  },
   "capability_gaps": {
     "G1": "Daily-grid (end-of-day) technicals",
     "G2": "Event and corporate-action data feeds",

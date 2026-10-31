@@ -13,6 +13,8 @@ design repository only when --design-root is given (to check design_section). It
   `differs` and `out_of_library_scope` are asserted and cite a record that exists; a provisional row names its clearing
   check; a `differs` row names the existing output and the variant;
 * evidence references resolve to files in this repository;
+* the optional `pending_catalogue` marker (RL-01-15 D2, X5) is exactly {release DV1, expires_at CAT-DV1, ids} and `ids` is
+  exactly the set of DV1 output ids the map cites that are planned in the ownership manifest (8 today); any other id fails;
 * the posture wording rules (no provider names, no banned claims) hold for the map text.
 
 Usage: python tools/verify_design_coverage_map.py [--root DIR]; exit 0 only if every check holds.
@@ -85,6 +87,11 @@ X7_RECORD = "docs/plans/records/po-rulings-rl01-15-x7-2026-10-31.md"
 X7_DEPARTURES = {
     "P5": ("Y2", {"session.anchor.vwap"}),
     "P10": ("Y1", {"session.opening_drive.return", "session.opening_drive.excursion_up", "session.opening_drive.excursion_down"}),
+}
+# The time-boxed marker covers only these planned DV1 ids (PO ruling RL-01-15 D2, X5, 2026-10-31); CAT-DV1 removes the marker.
+PENDING_CATALOGUE_IDS = {
+    "core.benchmark_return_range_fraction", "core.benchmark_return_stdev_fraction", "history.atr_simple_mean", "history.window_high",
+    "history.window_low", "relative.log_return_beta", "relative.log_return_correlation", "session.price.range_over_open",
 }
 # Final counts after PO rulings 2026-10-30 (adoption) and 2026-10-31 (X7): implemented confirmed 31 + provisional 7 (never summed).
 EXPECTED = {"implemented": 31, "provisional": 7, "partial": 46, "missing": 59, "differs": 6, "out_of_library_scope": 17}
@@ -360,6 +367,23 @@ def check(root: Path, design_root: Path | None = None) -> list[str]:
         for out in extra.get("outputs", []):
             if not _exists(str(out.get("id")), manifest_ids, literals, texts, contracts):
                 bad("extra " + str(extra.get("extra_id")), "output id %s not found" % out.get("id"))
+
+    marker = doc.get("pending_catalogue")
+    if marker is not None:
+        cited_dv1 = {str(o.get("id")) for item in items for o in item["outputs"] if o.get("release") == "DV1"}
+        marker_ids = marker.get("ids") if isinstance(marker, dict) else None
+        if not isinstance(marker, dict) or set(marker) != {"release", "expires_at", "note", "ids"} or marker.get("release") != "DV1"                 or marker.get("expires_at") != "CAT-DV1" or not str(marker.get("note", "")).strip():
+            bad("pending_catalogue", "marker must be exactly {release: DV1, expires_at: CAT-DV1, note, ids}")
+        elif not isinstance(marker_ids, list) or len(marker_ids) != len(set(marker_ids)):
+            bad("pending_catalogue", "ids must be a list without duplicates")
+        else:
+            extra_ids = sorted(set(marker_ids) - PENDING_CATALOGUE_IDS)
+            missing_ids = sorted(PENDING_CATALOGUE_IDS - set(marker_ids))
+            if extra_ids or missing_ids:
+                bad("pending_catalogue", "marker covers only the 8 planned DV1 ids; unexpected %s, missing %s" % (extra_ids, missing_ids))
+            not_planned = sorted(set(marker_ids) - (dv1_planned & cited_dv1))
+            if not_planned:
+                bad("pending_catalogue", "ids %s are not cited DV1 outputs that the ownership manifest plans for DV1" % not_planned)
 
     tally: dict[str, int] = {}
     for item in items:
