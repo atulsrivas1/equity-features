@@ -35,8 +35,8 @@ SIBLINGS: dict[str, str] = {
     "bundles": "0.1.0a2",
     "workers": "0.1.0a17",
 }
-# Exact sibling commits those builders read: the post-bump main commits (core 98778e7, io 94217cf, workers 99b5fed).
+# Exact sibling commits those builders read: the io post-bump main commit 94217cf and the workers main commit 474f79d (workers #112 re-pin).
 SIBLING_COMMITS: dict[str, str] = {
     "io": "94217cfafe5e54461c8dc9efdf4848809e04082a",
-    "workers": "99b5fed2c0153ac0697feef8c06cc919b30eac8a",
+    "workers": "474f79d380d45d907a172a7ffc93319eae0e5139",
 }
