@@ -82,7 +82,7 @@
 
 ### RL-01-14: Bars job spec lists the closed 13-id set
 - **Status (2026-10-31): Done. Core part: core #773 (e646fe7); workers re-pin: workers #112 (474f79d), core-side workers pin core #777 (df80995); workers part: workers #113 (e9e5f5b).**
-- Lanes core part first, then workers; size S + S; blocker: the core export must merge and the workers pin must move with it (core PR, then workers re-pin per ADOPTION cross-repo rule). Workers part is Blocked until then; the core part is Ready now.
+- Lanes core part first, then workers; size S + S; blocker: the core export must merge and the workers pin must move with it (core PR, then workers re-pin per ADOPTION cross-repo rule). Core part merged (core #773); workers part merged (workers #113).
 - Core part: `BAR_IDS` (private in `_implemented.py`) is exported publicly from `equity_feature_contracts/__init__.py`; no value change, no frozen-contract change.
 - Workers part: a native `bars` job spec lists all 13 `BAR_IDS`, imported directly from core (allowed: ADR-1 forbids only upward edges), not retyped, in the workers builders and docs (RELEASE-0-RULINGS section 3).
 - A 12-id spec is refused with INVALID_COMMAND; shown by a refusal recipe that fails on the old behaviour (DEFINITIONS, Done item 3).

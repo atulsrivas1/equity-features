@@ -35,14 +35,14 @@ In flight, not buffer (coordinator, status 2026-10-31): the workers re-pin (work
 | RL-01-12 | S3 remainder: workers gate and core advisory hook (rulings: parallel, single-repo; no order) | workers, core | S | Done | workers #111 (1df482e); core hook core #776 (203445a) |
 | RL-01-13 | S7 core pointer README note | core | S | Merged | core #774 (f43434b) |
 | RL-01-14 | Bars job spec lists the closed 13-id `BAR_IDS` set: core exports it publicly first, then workers import it after the re-pin | core, then workers | S+S | Done | core #773 (e646fe7); workers re-pin workers #112 (474f79d), core-side pin core #777 (df80995); workers part workers #113 (e9e5f5b) |
-| RL-01-15 | CV1 generator and gate (CV6 folded in) | io | L, split | Blocked | RL-01-07, -08 (S3 io part merged) |
-| RL-01-16 | CV2 (own bump), CV3 (gate demo PR per repo), CV4 (after S2) | io, core, workers | M | Blocked | RL-01-15, -09 |
-| RL-01-17 | CAT-DV1 catalogue pages, then CV5 flip | io | M | Blocked | RL-01-06 ("Frozen as" text merged); RL-01-16 (bump order S6, CV2, CAT-DV1) |
+| RL-01-15 | CV1 generator and gate (CV6 folded in) | io | L, split | Ready | none (RL-01-07, -08 merged) |
+| RL-01-16 | CV2 (own bump), CV3 (gate demo PR per repo), CV4 (after S2) | io, core, workers | M | Blocked | RL-01-15 |
+| RL-01-17 | CAT-DV1 catalogue pages, then CV5 flip | io | M | Blocked | RL-01-06 and RL-01-16 (bump order S6, CV2, CAT-DV1) |
 | RL-01-20 | EF1 proposed core contracts: catalogue pages once frozen | io | S | Blocked | Core freeze of EF1 proposed contracts; origin PO ruling on io #71 |
 | RL-01-21 | check_input/check_output hardening (non-hashable feature_id, bare-string reasons, roles=None TypeError; document) | io | S | Merged | io #74 (cc2cf31) |
 | RL-01-22 | Header cross-check v2: feature ids, dtype, unit, schema_version; resolve 34 NOT_DECLARED pairs | io | M | Merged | io #75 (39a5f97); 34 pairs recorded in `tools/header_crosscheck_accepted.json` |
 | RL-01-18 | E9 unit-spelling migration (three repos) | all | L, split | Blocked | Owner E9 ratification; ordered last |
-| RL-01-19 | ef5.* service/MCP exposure, primitives only, per Architect design (closed command table from the catalogue, remote schema v1.2) | workers | L | Blocked | RL-01-07 (lookups); Architect confirms notional-cell remote decode status; owner item only beyond primitives |
+| RL-01-19 | ef5.* service/MCP exposure, primitives only, per Architect design (closed command table from the catalogue, remote schema v1.2) | workers | L | Blocked | Architect's notional-cell decode confirmation |
 
 Closed by ruling: 39-feature cap stays 39 (per-job policy limit, not a built-in count); "no change, documented" (former cap story). Any change to it is decided once with RL-01-19.
 
@@ -52,7 +52,7 @@ Later: four other intraday shared-admission families, controlled-machine benchma
 
 ### Ready buffer
 
-Story files: `docs/releases/RL-01/STORIES.md`. Status 2026-10-31: done are RL-01-03, -07, -08, -09 (partial EF1), -10, -11, -12, -13, -14, -21 and -22. Waiting: RL-01-01 and -02 wait on core #761; RL-01-06 waits on -01, -02, -05. Table status still Blocked: RL-01-15, -16, -17 (the listed blockers of RL-01-15, -07 and -08, are merged; PO to re-rate), RL-01-18 (owner E9 ratification) and RL-01-20 (core freeze of the EF1 proposed contracts); RL-01-19 is Blocked per the table. Lanes: core Developer -01/-02 after core #761; io and workers Developers have no Ready story in the table. Tester: nothing until -06.
+Story files: `docs/releases/RL-01/STORIES.md`. Status 2026-10-31: done are RL-01-03, -07, -08, -09 (partial EF1), -10, -11, -12, -13, -14, -21 and -22. Waiting: RL-01-01 and -02 wait on core #761; RL-01-06 waits on -01, -02, -05. Blocked: RL-01-16 (on -15), RL-01-17 (on -06 and -16), RL-01-18 (owner E9 ratification), RL-01-19 (Architect's notional-cell decode confirmation) and RL-01-20 (core freeze of the EF1 proposed contracts). Ready: RL-01-15. Lanes: core Developer -01/-02 after core #761; io Developer takes RL-01-15; workers Developer has no Ready story. Tester: nothing until -06.
 
 ## Owner-level items (listed, not decided; provisional reading in force)
 

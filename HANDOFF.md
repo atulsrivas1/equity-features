@@ -16,7 +16,7 @@ Updated 2026-10-31. Owner: Atul Srivastava (atulsrivas1), facilitator only. Repo
 
 ## Remains
 - RL-01-01 and -02 wait on core #761; then -05 (PO) and -06 (C4 PR).
-- RL-01-15, -16, -17, -19: Blocked in the table (RL-01-15's listed blockers are merged; PO to re-rate).
+- RL-01-15 is Ready (io, L split). RL-01-16 Blocked on -15; RL-01-17 on -06 and -16; RL-01-19 on the Architect's notional-cell decode confirmation.
 - RL-01-18 (E9 migration) and RL-01-20 (EF1 catalogue pages) blocked.
 - DV1 closeout, coverage CV1-CV6 and backlog still stand.
 
