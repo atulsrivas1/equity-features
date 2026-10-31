@@ -5,6 +5,7 @@
 **Catalogue rulings** (cited as CAT below): [`docs/plans/records/po-rulings-contract-catalogue-2026-10-29.md`](../../plans/records/po-rulings-contract-catalogue-2026-10-29.md) (verbatim copy of the `work/` original; acceptance A-K, wording section 5). The Architect's contract-home note stays local in `work/` and is not cited as a contract.
 
 ### RL-01-03: DV1 reviewer-verdict record
+- **Status (2026-10-31): Merged: core #778 (3ea6efc).**
 - Lane core, size S, no blockers. Priority: C4 evidence.
 - A new `docs/qa/DV1_PR_REVIEWER_VERDICTS.md` follows the layout of `docs/qa/EF4_PR_REVIEWER_VERDICTS.md`.
 - It has one row per merged DV1 PR named in DECISIONS.md rows dated 2026-10-29 to 2026-10-30 (core, io, workers).
@@ -45,7 +46,7 @@
 - **Data capability:** reads core contract JSON; writes generated pages; no source data.
 
 ### RL-01-10: S4, link layer
-- **Status (2026-10-30): io half merged: io #72 (0dbe5f5). Workers docs half stays open as 'RL-01-10 workers lane'.**
+- **Status (2026-10-31): Done. io half: io #72 (0dbe5f5); workers lane: workers #114 (570d14c).**
 - Lane io + workers (docs only), size S, after RL-01-09.
 - io adapter API docs and workers docs link each producer to its input and output catalogue pages; every link resolves (checked by a link check in the PR).
 - Only docs files change; catalogue directory untouched.
@@ -62,7 +63,7 @@
 - **Data capability:** reads header declarations from code; no source data.
 
 ### RL-01-12: S3 remainder, workers gate and core advisory hook
-- **Status (2026-10-30): workers part merged: workers #111 (1df482e). Core advisory hook still open.**
+- **Status (2026-10-31): Done. Workers part: workers #111 (1df482e); core advisory hook: core #776 (203445a).**
 - Lanes workers and core, size S, no order between the two (single-repo, parallel).
 - Both only invoke the io gate script (`tools/check_contract_catalogue.py`, merged in io #66); neither reimplements it, and the header check across declarations is RL-01-11's.
 - Workers: a gate entry runs the io gate and fails when it fails.
@@ -80,8 +81,8 @@
 - **Data capability:** none.
 
 ### RL-01-14: Bars job spec lists the closed 13-id set
-- **Status (2026-10-30): core part merged: core #773 (e646fe7). Workers part still open (needs the workers re-pin).**
-- Lanes core part first, then workers; size S + S; blocker: the core export must merge and the workers pin must move with it (core PR, then workers re-pin per ADOPTION cross-repo rule). Workers part is Blocked until then; the core part is Ready now.
+- **Status (2026-10-31): Done. Core part: core #773 (e646fe7); workers re-pin: workers #112 (474f79d), core-side workers pin core #777 (df80995); workers part: workers #113 (e9e5f5b).**
+- Lanes core part first, then workers; size S + S; blocker: the core export must merge and the workers pin must move with it (core PR, then workers re-pin per ADOPTION cross-repo rule). Core part merged (core #773); workers part merged (workers #113).
 - Core part: `BAR_IDS` (private in `_implemented.py`) is exported publicly from `equity_feature_contracts/__init__.py`; no value change, no frozen-contract change.
 - Workers part: a native `bars` job spec lists all 13 `BAR_IDS`, imported directly from core (allowed: ADR-1 forbids only upward edges), not retyped, in the workers builders and docs (RELEASE-0-RULINGS section 3).
 - A 12-id spec is refused with INVALID_COMMAND; shown by a refusal recipe that fails on the old behaviour (DEFINITIONS, Done item 3).
@@ -95,12 +96,14 @@
 - **Contract:** frozen core EF1 contracts (authority). **Data capability:** reads core contract JSON; writes generated pages; no source data.
 
 ### RL-01-21: check_input/check_output hardening
+- **Status (2026-10-31): Done: io #74 (cc2cf31).**
 - Lane io, size S, no blockers. Origin: reviewer and Tester findings on io #70 (verdicts kept in the coordinator's local work/ folder, not in the repo).
 - Handle a non-hashable `feature_id`, a bare-string `reasons` argument and `roles=None` (currently a TypeError) with typed, structural results; document the behaviour in the check docs.
 - Structural checks only; no new unit tests (refusal recipe or regression fixture per defect class).
 - **Contract:** CAT sections 2 and 4. **Data capability:** none beyond the packaged catalogue.
 
 ### RL-01-22: Header cross-check v2
+- **Status (2026-10-31): Done: io #75 (39a5f97); the 34 pairs are recorded as accepted in `tools/header_crosscheck_accepted.json`.**
 - Lane io, size M, no blockers. Origin: io #73 result.
 - Extend the header cross-check to feature ids, dtype, unit and schema_version, and resolve the 34 NOT_DECLARED pairs (declare or record each as accepted); every mismatch listed, none dropped.
 - Zero golden or hash churn, confirmed before the edit; if churn appears, stop and report to the PO.
