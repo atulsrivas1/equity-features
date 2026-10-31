@@ -1,3 +1,9 @@
+## DV1 reviewer-verdict record (RL-01-03) - October 31, 2026
+
+Adds `docs/qa/DV1_PR_REVIEWER_VERDICTS.md`, one row per merged DV1 PR (core, io, workers), sourced from PR text, DECISIONS.md and recorded verdict files; absent verdicts say "not recorded". Documents only (internal, synthetic, pre-release).
+
+Verified: row data read from `gh pr view` and the recorded verdict files; pre_merge_check and check_boundary results in the PR body. Not verified: reviewer outcomes are relayed from files outside the repository, not re-observed on GitHub.
+
 ## CV0 design-item coverage map - October 30, 2026
 
 Adds `docs/plans/design-coverage-map.json` (166 design items, 11 extras, each with status, basis, mapped output ids, delivering release and evidence), `docs/plans/DESIGN_COVERAGE_MAP.md`, verbatim PO ruling records under `docs/plans/records/`, and the stdlib validator `tools/verify_design_coverage_map.py` (run by `tools/pre_merge_check.py`). Docs and tooling only; no library, contract, version or digest change (internal, synthetic, pre-release).
